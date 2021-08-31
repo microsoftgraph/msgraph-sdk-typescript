@@ -1,16 +1,25 @@
 import {AccessReviewInstance} from '../../../accessReviewInstance';
+import {AcceptRecommendationsRequestBuilder} from '../acceptRecommendations/acceptRecommendationsRequestBuilder';
+import {ApplyDecisionsRequestBuilder} from '../applyDecisions/applyDecisionsRequestBuilder';
+import {BatchRecordDecisionsRequestBuilder} from '../batchRecordDecisions/batchRecordDecisionsRequestBuilder';
 import {DecisionsRequestBuilder} from '../decisions/decisionsRequestBuilder';
 import {AccessReviewInstanceDecisionItemRequestBuilder} from '../decisions/item/accessReviewInstanceDecisionItemRequestBuilder';
-import {Microsoft.graph.acceptRecommendationsRequestBuilder} from '../microsoft/graph/acceptRecommendations/microsoft.graph.acceptRecommendationsRequestBuilder';
-import {Microsoft.graph.applyDecisionsRequestBuilder} from '../microsoft/graph/applyDecisions/microsoft.graph.applyDecisionsRequestBuilder';
-import {Microsoft.graph.batchRecordDecisionsRequestBuilder} from '../microsoft/graph/batchRecordDecisions/microsoft.graph.batchRecordDecisionsRequestBuilder';
-import {Microsoft.graph.resetDecisionsRequestBuilder} from '../microsoft/graph/resetDecisions/microsoft.graph.resetDecisionsRequestBuilder';
-import {Microsoft.graph.sendReminderRequestBuilder} from '../microsoft/graph/sendReminder/microsoft.graph.sendReminderRequestBuilder';
-import {Microsoft.graph.stopRequestBuilder} from '../microsoft/graph/stop/microsoft.graph.stopRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {ResetDecisionsRequestBuilder} from '../resetDecisions/resetDecisionsRequestBuilder';
+import {SendReminderRequestBuilder} from '../sendReminder/sendReminderRequestBuilder';
+import {StopRequestBuilder} from '../stop/stopRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition-id}/instances/{accessReviewInstance-id}  */
 export class AccessReviewInstanceRequestBuilder {
+    public get acceptRecommendations(): AcceptRecommendationsRequestBuilder {
+        return new AcceptRecommendationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyDecisions(): ApplyDecisionsRequestBuilder {
+        return new ApplyDecisionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
+        return new BatchRecordDecisionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     public get decisions(): DecisionsRequestBuilder {
@@ -20,26 +29,17 @@ export class AccessReviewInstanceRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.acceptRecommendations(): Microsoft.graph.acceptRecommendationsRequestBuilder {
-        return new Microsoft.graph.acceptRecommendationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyDecisions(): Microsoft.graph.applyDecisionsRequestBuilder {
-        return new Microsoft.graph.applyDecisionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.batchRecordDecisions(): Microsoft.graph.batchRecordDecisionsRequestBuilder {
-        return new Microsoft.graph.batchRecordDecisionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.resetDecisions(): Microsoft.graph.resetDecisionsRequestBuilder {
-        return new Microsoft.graph.resetDecisionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.sendReminder(): Microsoft.graph.sendReminderRequestBuilder {
-        return new Microsoft.graph.sendReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.stop(): Microsoft.graph.stopRequestBuilder {
-        return new Microsoft.graph.stopRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get resetDecisions(): ResetDecisionsRequestBuilder {
+        return new ResetDecisionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get sendReminder(): SendReminderRequestBuilder {
+        return new SendReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get stop(): StopRequestBuilder {
+        return new StopRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new AccessReviewInstanceRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -58,10 +58,10 @@ export class AccessReviewInstanceRequestBuilder {
      * Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -73,13 +73,13 @@ export class AccessReviewInstanceRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -92,11 +92,11 @@ export class AccessReviewInstanceRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: AccessReviewInstance | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: AccessReviewInstance | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -105,7 +105,7 @@ export class AccessReviewInstanceRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.identityGovernance.accessReviews.definitions.instances.decisions collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions.instances.decisions collection
      * @param id Unique identifier of the item
      * @returns a AccessReviewInstanceDecisionItemRequestBuilder
      */
@@ -120,7 +120,7 @@ export class AccessReviewInstanceRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -137,7 +137,7 @@ export class AccessReviewInstanceRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstance | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<AccessReviewInstance>(requestInfo, AccessReviewInstance, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -151,7 +151,7 @@ export class AccessReviewInstanceRequestBuilder {
      */
     public patch(body: AccessReviewInstance | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

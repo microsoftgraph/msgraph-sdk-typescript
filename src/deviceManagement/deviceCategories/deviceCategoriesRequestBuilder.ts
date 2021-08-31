@@ -1,6 +1,6 @@
 import {DeviceCategory} from '../deviceCategory';
 import {DeviceCategoriesResponse} from './deviceCategoriesResponse';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCategories  */
 export class DeviceCategoriesRequestBuilder {
@@ -31,9 +31,9 @@ export class DeviceCategoriesRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -42,8 +42,8 @@ export class DeviceCategoriesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -56,11 +56,11 @@ export class DeviceCategoriesRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPostRequestInfo(body: DeviceCategory | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPostRequestInformation(body: DeviceCategory | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.POST;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -86,7 +86,7 @@ export class DeviceCategoriesRequestBuilder {
                     skip?: number,
                     top?: number
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCategoriesResponse | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<DeviceCategoriesResponse>(requestInfo, DeviceCategoriesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -101,7 +101,7 @@ export class DeviceCategoriesRequestBuilder {
      */
     public post(body: DeviceCategory | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCategory | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInfo(
+        const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendAsync<DeviceCategory>(requestInfo, DeviceCategory, responseHandler) ?? Promise.reject(new Error('http core is null'));

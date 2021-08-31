@@ -15,20 +15,20 @@ import {ManagedEBookRequestBuilder} from './managedEBooks/item/managedEBookReque
 import {ManagedEBooksRequestBuilder} from './managedEBooks/managedEBooksRequestBuilder';
 import {MdmWindowsInformationProtectionPolicyRequestBuilder} from './mdmWindowsInformationProtectionPolicies/item/mdmWindowsInformationProtectionPolicyRequestBuilder';
 import {MdmWindowsInformationProtectionPoliciesRequestBuilder} from './mdmWindowsInformationProtectionPolicies/mdmWindowsInformationProtectionPoliciesRequestBuilder';
-import {Microsoft.graph.syncMicrosoftStoreForBusinessAppsRequestBuilder} from './microsoft/graph/syncMicrosoftStoreForBusinessApps/microsoft.graph.syncMicrosoftStoreForBusinessAppsRequestBuilder';
 import {MobileAppCategoryRequestBuilder} from './mobileAppCategories/item/mobileAppCategoryRequestBuilder';
 import {MobileAppCategoriesRequestBuilder} from './mobileAppCategories/mobileAppCategoriesRequestBuilder';
 import {ManagedDeviceMobileAppConfigurationRequestBuilder} from './mobileAppConfigurations/item/managedDeviceMobileAppConfigurationRequestBuilder';
 import {MobileAppConfigurationsRequestBuilder} from './mobileAppConfigurations/mobileAppConfigurationsRequestBuilder';
 import {MobileAppRequestBuilder} from './mobileApps/item/mobileAppRequestBuilder';
 import {MobileAppsRequestBuilder} from './mobileApps/mobileAppsRequestBuilder';
+import {SyncMicrosoftStoreForBusinessAppsRequestBuilder} from './syncMicrosoftStoreForBusinessApps/syncMicrosoftStoreForBusinessAppsRequestBuilder';
 import {TargetedManagedAppConfigurationRequestBuilder} from './targetedManagedAppConfigurations/item/targetedManagedAppConfigurationRequestBuilder';
 import {TargetedManagedAppConfigurationsRequestBuilder} from './targetedManagedAppConfigurations/targetedManagedAppConfigurationsRequestBuilder';
 import {VppTokenRequestBuilder} from './vppTokens/item/vppTokenRequestBuilder';
 import {VppTokensRequestBuilder} from './vppTokens/vppTokensRequestBuilder';
 import {WindowsInformationProtectionPolicyRequestBuilder} from './windowsInformationProtectionPolicies/item/windowsInformationProtectionPolicyRequestBuilder';
 import {WindowsInformationProtectionPoliciesRequestBuilder} from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement  */
 export class DeviceAppManagementRequestBuilder {
@@ -62,9 +62,6 @@ export class DeviceAppManagementRequestBuilder {
     public get mdmWindowsInformationProtectionPolicies(): MdmWindowsInformationProtectionPoliciesRequestBuilder {
         return new MdmWindowsInformationProtectionPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.syncMicrosoftStoreForBusinessApps(): Microsoft.graph.syncMicrosoftStoreForBusinessAppsRequestBuilder {
-        return new Microsoft.graph.syncMicrosoftStoreForBusinessAppsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get mobileAppCategories(): MobileAppCategoriesRequestBuilder {
         return new MobileAppCategoriesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -76,6 +73,9 @@ export class DeviceAppManagementRequestBuilder {
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
+        return new SyncMicrosoftStoreForBusinessAppsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get targetedManagedAppConfigurations(): TargetedManagedAppConfigurationsRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -86,7 +86,7 @@ export class DeviceAppManagementRequestBuilder {
         return new WindowsInformationProtectionPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.androidManagedAppProtections collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.androidManagedAppProtections collection
      * @param id Unique identifier of the item
      * @returns a AndroidManagedAppProtectionRequestBuilder
      */
@@ -113,13 +113,13 @@ export class DeviceAppManagementRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -132,11 +132,11 @@ export class DeviceAppManagementRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: DeviceAppManagement | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: DeviceAppManagement | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -145,7 +145,7 @@ export class DeviceAppManagementRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.defaultManagedAppProtections collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.defaultManagedAppProtections collection
      * @param id Unique identifier of the item
      * @returns a DefaultManagedAppProtectionRequestBuilder
      */
@@ -165,13 +165,13 @@ export class DeviceAppManagementRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAppManagement | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<DeviceAppManagement>(requestInfo, DeviceAppManagement, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.iosManagedAppProtections collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.iosManagedAppProtections collection
      * @param id Unique identifier of the item
      * @returns a IosManagedAppProtectionRequestBuilder
      */
@@ -180,7 +180,7 @@ export class DeviceAppManagementRequestBuilder {
         return new IosManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment + "/iosManagedAppProtections/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppPolicies collection
      * @param id Unique identifier of the item
      * @returns a ManagedAppPolicyRequestBuilder
      */
@@ -189,7 +189,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedAppPolicyRequestBuilder(this.currentPath + this.pathSegment + "/managedAppPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppRegistrations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations collection
      * @param id Unique identifier of the item
      * @returns a ManagedAppRegistrationRequestBuilder
      */
@@ -198,7 +198,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedAppRegistrationRequestBuilder(this.currentPath + this.pathSegment + "/managedAppRegistrations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppStatuses collection
      * @param id Unique identifier of the item
      * @returns a ManagedAppStatusRequestBuilder
      */
@@ -207,7 +207,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedAppStatusRequestBuilder(this.currentPath + this.pathSegment + "/managedAppStatuses/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedEBooks collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks collection
      * @param id Unique identifier of the item
      * @returns a ManagedEBookRequestBuilder
      */
@@ -216,7 +216,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedEBookRequestBuilder(this.currentPath + this.pathSegment + "/managedEBooks/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.mdmWindowsInformationProtectionPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mdmWindowsInformationProtectionPolicies collection
      * @param id Unique identifier of the item
      * @returns a MdmWindowsInformationProtectionPolicyRequestBuilder
      */
@@ -225,7 +225,7 @@ export class DeviceAppManagementRequestBuilder {
         return new MdmWindowsInformationProtectionPolicyRequestBuilder(this.currentPath + this.pathSegment + "/mdmWindowsInformationProtectionPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.mobileAppCategories collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppCategories collection
      * @param id Unique identifier of the item
      * @returns a MobileAppCategoryRequestBuilder
      */
@@ -234,7 +234,7 @@ export class DeviceAppManagementRequestBuilder {
         return new MobileAppCategoryRequestBuilder(this.currentPath + this.pathSegment + "/mobileAppCategories/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.mobileAppConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations collection
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceMobileAppConfigurationRequestBuilder
      */
@@ -243,7 +243,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedDeviceMobileAppConfigurationRequestBuilder(this.currentPath + this.pathSegment + "/mobileAppConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.mobileApps collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileApps collection
      * @param id Unique identifier of the item
      * @returns a MobileAppRequestBuilder
      */
@@ -260,13 +260,13 @@ export class DeviceAppManagementRequestBuilder {
      */
     public patch(body: DeviceAppManagement | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.targetedManagedAppConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations collection
      * @param id Unique identifier of the item
      * @returns a TargetedManagedAppConfigurationRequestBuilder
      */
@@ -275,7 +275,7 @@ export class DeviceAppManagementRequestBuilder {
         return new TargetedManagedAppConfigurationRequestBuilder(this.currentPath + this.pathSegment + "/targetedManagedAppConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.vppTokens collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.vppTokens collection
      * @param id Unique identifier of the item
      * @returns a VppTokenRequestBuilder
      */
@@ -284,7 +284,7 @@ export class DeviceAppManagementRequestBuilder {
         return new VppTokenRequestBuilder(this.currentPath + this.pathSegment + "/vppTokens/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceAppManagement.windowsInformationProtectionPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.windowsInformationProtectionPolicies collection
      * @param id Unique identifier of the item
      * @returns a WindowsInformationProtectionPolicyRequestBuilder
      */

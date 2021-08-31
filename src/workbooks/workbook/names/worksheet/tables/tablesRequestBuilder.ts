@@ -1,19 +1,19 @@
 import {WorkbookTable} from '../../../../../workbookTable';
-import {Microsoft.graph.addRequestBuilder} from './microsoft/graph/add/microsoft.graph.addRequestBuilder';
+import {AddRequestBuilder} from './add/addRequestBuilder';
 import {TablesResponse} from './tablesResponse';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables  */
 export class TablesRequestBuilder {
+    public get add(): AddRequestBuilder {
+        return new AddRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.add(): Microsoft.graph.addRequestBuilder {
-        return new Microsoft.graph.addRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
@@ -35,9 +35,9 @@ export class TablesRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -46,8 +46,8 @@ export class TablesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -60,11 +60,11 @@ export class TablesRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPostRequestInfo(body: WorkbookTable | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPostRequestInformation(body: WorkbookTable | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.POST;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -90,7 +90,7 @@ export class TablesRequestBuilder {
                     skip?: number,
                     top?: number
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TablesResponse | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<TablesResponse>(requestInfo, TablesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -105,7 +105,7 @@ export class TablesRequestBuilder {
      */
     public post(body: WorkbookTable | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTable | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInfo(
+        const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendAsync<WorkbookTable>(requestInfo, WorkbookTable, responseHandler) ?? Promise.reject(new Error('http core is null'));

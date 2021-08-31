@@ -1,6 +1,6 @@
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {Oauth2PermissionGrantsResponse} from './oauth2PermissionGrantsResponse';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/oauth2PermissionGrants  */
 export class Oauth2PermissionGrantsRequestBuilder {
@@ -34,9 +34,9 @@ export class Oauth2PermissionGrantsRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -45,8 +45,8 @@ export class Oauth2PermissionGrantsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -72,7 +72,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
                     skip?: number,
                     top?: number
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Oauth2PermissionGrantsResponse | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Oauth2PermissionGrantsResponse>(requestInfo, Oauth2PermissionGrantsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));

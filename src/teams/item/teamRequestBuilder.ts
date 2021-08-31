@@ -1,27 +1,36 @@
 import {Team} from '../../team';
+import {ArchiveRequestBuilder} from '../archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from '../channels/channelsRequestBuilder';
 import {ChannelRequestBuilder} from '../channels/item/channelRequestBuilder';
+import {CloneRequestBuilder} from '../clone/cloneRequestBuilder';
+import {CompleteMigrationRequestBuilder} from '../completeMigration/completeMigrationRequestBuilder';
 import {GroupRequestBuilder} from '../group/groupRequestBuilder';
 import {InstalledAppsRequestBuilder} from '../installedApps/installedAppsRequestBuilder';
 import {TeamsAppInstallationRequestBuilder} from '../installedApps/item/teamsAppInstallationRequestBuilder';
 import {ConversationMemberRequestBuilder} from '../members/item/conversationMemberRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {Microsoft.graph.archiveRequestBuilder} from '../microsoft/graph/archive/microsoft.graph.archiveRequestBuilder';
-import {Microsoft.graph.cloneRequestBuilder} from '../microsoft/graph/clone/microsoft.graph.cloneRequestBuilder';
-import {Microsoft.graph.completeMigrationRequestBuilder} from '../microsoft/graph/completeMigration/microsoft.graph.completeMigrationRequestBuilder';
-import {Microsoft.graph.sendActivityNotificationRequestBuilder} from '../microsoft/graph/sendActivityNotification/microsoft.graph.sendActivityNotificationRequestBuilder';
-import {Microsoft.graph.unarchiveRequestBuilder} from '../microsoft/graph/unarchive/microsoft.graph.unarchiveRequestBuilder';
 import {TeamsAsyncOperationRequestBuilder} from '../operations/item/teamsAsyncOperationRequestBuilder';
 import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
 import {PrimaryChannelRequestBuilder} from '../primaryChannel/primaryChannelRequestBuilder';
 import {ScheduleRequestBuilder} from '../schedule/scheduleRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from '../sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TemplateRequestBuilder} from '../template/templateRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {UnarchiveRequestBuilder} from '../unarchive/unarchiveRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /teams/{team-id}  */
 export class TeamRequestBuilder {
+    public get archive(): ArchiveRequestBuilder {
+        return new ArchiveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get clone(): CloneRequestBuilder {
+        return new CloneRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get completeMigration(): CompleteMigrationRequestBuilder {
+        return new CompleteMigrationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -38,21 +47,6 @@ export class TeamRequestBuilder {
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.archive(): Microsoft.graph.archiveRequestBuilder {
-        return new Microsoft.graph.archiveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.clone(): Microsoft.graph.cloneRequestBuilder {
-        return new Microsoft.graph.cloneRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.completeMigration(): Microsoft.graph.completeMigrationRequestBuilder {
-        return new Microsoft.graph.completeMigrationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.sendActivityNotification(): Microsoft.graph.sendActivityNotificationRequestBuilder {
-        return new Microsoft.graph.sendActivityNotificationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.unarchive(): Microsoft.graph.unarchiveRequestBuilder {
-        return new Microsoft.graph.unarchiveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -64,11 +58,17 @@ export class TeamRequestBuilder {
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get unarchive(): UnarchiveRequestBuilder {
+        return new UnarchiveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
-     * Gets an item from the MicrosoftGraph.teams.channels collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.channels collection
      * @param id Unique identifier of the item
      * @returns a ChannelRequestBuilder
      */
@@ -94,10 +94,10 @@ export class TeamRequestBuilder {
      * Delete entity from teams
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -109,13 +109,13 @@ export class TeamRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -128,11 +128,11 @@ export class TeamRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Team | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Team | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -147,7 +147,7 @@ export class TeamRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -164,13 +164,13 @@ export class TeamRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Team>(requestInfo, Team, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.installedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.installedApps collection
      * @param id Unique identifier of the item
      * @returns a TeamsAppInstallationRequestBuilder
      */
@@ -179,7 +179,7 @@ export class TeamRequestBuilder {
         return new TeamsAppInstallationRequestBuilder(this.currentPath + this.pathSegment + "/installedApps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.members collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.members collection
      * @param id Unique identifier of the item
      * @returns a ConversationMemberRequestBuilder
      */
@@ -188,7 +188,7 @@ export class TeamRequestBuilder {
         return new ConversationMemberRequestBuilder(this.currentPath + this.pathSegment + "/members/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.operations collection
      * @param id Unique identifier of the item
      * @returns a TeamsAsyncOperationRequestBuilder
      */
@@ -205,7 +205,7 @@ export class TeamRequestBuilder {
      */
     public patch(body: Team | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

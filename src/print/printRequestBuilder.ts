@@ -11,7 +11,7 @@ import {PrinterShareRequestBuilder} from './shares/item/printerShareRequestBuild
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
 import {PrintTaskDefinitionRequestBuilder} from './taskDefinitions/item/printTaskDefinitionRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print  */
 export class PrintRequestBuilder {
@@ -42,7 +42,7 @@ export class PrintRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.print.connectors collection
+     * Gets an item from the graphtypescriptv4.utilities.print.connectors collection
      * @param id Unique identifier of the item
      * @returns a PrintConnectorRequestBuilder
      */
@@ -69,13 +69,13 @@ export class PrintRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -88,11 +88,11 @@ export class PrintRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Print | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Print | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -112,13 +112,13 @@ export class PrintRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Print>(requestInfo, Print, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.print.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.print.operations collection
      * @param id Unique identifier of the item
      * @returns a PrintOperationRequestBuilder
      */
@@ -135,13 +135,13 @@ export class PrintRequestBuilder {
      */
     public patch(body: Print | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.print.printers collection
+     * Gets an item from the graphtypescriptv4.utilities.print.printers collection
      * @param id Unique identifier of the item
      * @returns a PrinterRequestBuilder
      */
@@ -150,7 +150,7 @@ export class PrintRequestBuilder {
         return new PrinterRequestBuilder(this.currentPath + this.pathSegment + "/printers/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.print.services collection
+     * Gets an item from the graphtypescriptv4.utilities.print.services collection
      * @param id Unique identifier of the item
      * @returns a PrintServiceRequestBuilder
      */
@@ -159,7 +159,7 @@ export class PrintRequestBuilder {
         return new PrintServiceRequestBuilder(this.currentPath + this.pathSegment + "/services/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.print.shares collection
+     * Gets an item from the graphtypescriptv4.utilities.print.shares collection
      * @param id Unique identifier of the item
      * @returns a PrinterShareRequestBuilder
      */
@@ -168,7 +168,7 @@ export class PrintRequestBuilder {
         return new PrinterShareRequestBuilder(this.currentPath + this.pathSegment + "/shares/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.print.taskDefinitions collection
+     * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions collection
      * @param id Unique identifier of the item
      * @returns a PrintTaskDefinitionRequestBuilder
      */

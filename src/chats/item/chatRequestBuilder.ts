@@ -5,10 +5,10 @@ import {ConversationMemberRequestBuilder} from '../members/item/conversationMemb
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
 import {ChatMessageRequestBuilder} from '../messages/item/chatMessageRequestBuilder';
 import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
-import {Microsoft.graph.sendActivityNotificationRequestBuilder} from '../microsoft/graph/sendActivityNotification/microsoft.graph.sendActivityNotificationRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from '../sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {TeamsTabRequestBuilder} from '../tabs/item/teamsTabRequestBuilder';
 import {TabsRequestBuilder} from '../tabs/tabsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /chats/{chat-id}  */
 export class ChatRequestBuilder {
@@ -27,11 +27,11 @@ export class ChatRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.sendActivityNotification(): Microsoft.graph.sendActivityNotificationRequestBuilder {
-        return new Microsoft.graph.sendActivityNotificationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
+        return new SendActivityNotificationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get tabs(): TabsRequestBuilder {
         return new TabsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -53,10 +53,10 @@ export class ChatRequestBuilder {
      * Delete entity from chats
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -68,13 +68,13 @@ export class ChatRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -87,11 +87,11 @@ export class ChatRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Chat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Chat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -106,7 +106,7 @@ export class ChatRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -123,13 +123,13 @@ export class ChatRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Chat | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Chat>(requestInfo, Chat, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.chats.installedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.installedApps collection
      * @param id Unique identifier of the item
      * @returns a TeamsAppInstallationRequestBuilder
      */
@@ -138,7 +138,7 @@ export class ChatRequestBuilder {
         return new TeamsAppInstallationRequestBuilder(this.currentPath + this.pathSegment + "/installedApps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.chats.members collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.members collection
      * @param id Unique identifier of the item
      * @returns a ConversationMemberRequestBuilder
      */
@@ -147,7 +147,7 @@ export class ChatRequestBuilder {
         return new ConversationMemberRequestBuilder(this.currentPath + this.pathSegment + "/members/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.chats.messages collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.messages collection
      * @param id Unique identifier of the item
      * @returns a ChatMessageRequestBuilder
      */
@@ -164,13 +164,13 @@ export class ChatRequestBuilder {
      */
     public patch(body: Chat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.chats.tabs collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.tabs collection
      * @param id Unique identifier of the item
      * @returns a TeamsTabRequestBuilder
      */

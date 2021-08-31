@@ -1,7 +1,7 @@
 import {Entity} from '../entity';
-import {PrintDocument} from '../me/insights/shared/lastSharedMethod/microsoft/graph/printJob/microsoft/graph/printDocument';
-import {PrintJobConfiguration} from '../me/insights/shared/lastSharedMethod/microsoft/graph/printJob/microsoft/graph/printJobConfiguration';
-import {PrintJobStatus} from '../me/insights/shared/lastSharedMethod/microsoft/graph/printJob/microsoft/graph/printJobStatus';
+import {PrintDocument} from '../me/insights/shared/lastSharedMethod/printJob/printDocument';
+import {PrintJobConfiguration} from '../me/insights/shared/lastSharedMethod/printJob/printJobConfiguration';
+import {PrintJobStatus} from '../me/insights/shared/lastSharedMethod/printJob/printJobStatus';
 import {PrintTask} from './printTask';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

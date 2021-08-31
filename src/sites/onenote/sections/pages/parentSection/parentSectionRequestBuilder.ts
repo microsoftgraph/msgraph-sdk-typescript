@@ -1,23 +1,23 @@
-import {ParentSection} from '../../../../../groups/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
+import {ParentSection} from '../../../../../me/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
 import {OnenoteSection} from '../../../../../onenoteSection';
-import {Microsoft.graph.copyToNotebookRequestBuilder} from './microsoft/graph/copyToNotebook/microsoft.graph.copyToNotebookRequestBuilder';
-import {Microsoft.graph.copyToSectionGroupRequestBuilder} from './microsoft/graph/copyToSectionGroup/microsoft.graph.copyToSectionGroupRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
+import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /sites/{site-id}/onenote/sections/{onenoteSection-id}/pages/{onenotePage-id}/parentSection  */
 export class ParentSectionRequestBuilder {
+    public get copyToNotebook(): CopyToNotebookRequestBuilder {
+        return new CopyToNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get copyToSectionGroup(): CopyToSectionGroupRequestBuilder {
+        return new CopyToSectionGroupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.copyToNotebook(): Microsoft.graph.copyToNotebookRequestBuilder {
-        return new Microsoft.graph.copyToNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.copyToSectionGroup(): Microsoft.graph.copyToSectionGroupRequestBuilder {
-        return new Microsoft.graph.copyToSectionGroupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
@@ -38,10 +38,10 @@ export class ParentSectionRequestBuilder {
      * The section that contains the page. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -53,13 +53,13 @@ export class ParentSectionRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -72,11 +72,11 @@ export class ParentSectionRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: ParentSection | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: ParentSection | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -91,7 +91,7 @@ export class ParentSectionRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -108,7 +108,7 @@ export class ParentSectionRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteSection | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<OnenoteSection>(requestInfo, OnenoteSection, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -122,7 +122,7 @@ export class ParentSectionRequestBuilder {
      */
     public patch(body: ParentSection | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

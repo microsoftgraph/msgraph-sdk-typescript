@@ -1,21 +1,24 @@
 import {MailFolder} from '../../../mailFolder';
 import {ChildFoldersRequestBuilder} from '../childFolders/childFoldersRequestBuilder';
+import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
 import {MessageRuleRequestBuilder} from '../messageRules/item/messageRuleRequestBuilder';
 import {MessageRulesRequestBuilder} from '../messageRules/messageRulesRequestBuilder';
 import {MessageRequestBuilder} from '../messages/item/messageRequestBuilder';
 import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
-import {Microsoft.graph.copyRequestBuilder} from '../microsoft/graph/copy/microsoft.graph.copyRequestBuilder';
-import {Microsoft.graph.moveRequestBuilder} from '../microsoft/graph/move/microsoft.graph.moveRequestBuilder';
+import {MoveRequestBuilder} from '../move/moveRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/mailFolders/{mailFolder-id}  */
 export class MailFolderRequestBuilder {
     public get childFolders(): ChildFoldersRequestBuilder {
         return new ChildFoldersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get copy(): CopyRequestBuilder {
+        return new CopyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -29,11 +32,8 @@ export class MailFolderRequestBuilder {
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.copy(): Microsoft.graph.copyRequestBuilder {
-        return new Microsoft.graph.copyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.move(): Microsoft.graph.moveRequestBuilder {
-        return new Microsoft.graph.moveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get move(): MoveRequestBuilder {
+        return new MoveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -44,7 +44,7 @@ export class MailFolderRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.me.mailFolders.childFolders collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.childFolders collection
      * @param id Unique identifier of the item
      * @returns a MailFolderRequestBuilder
      */
@@ -70,10 +70,10 @@ export class MailFolderRequestBuilder {
      * The user's mail folders. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -85,13 +85,13 @@ export class MailFolderRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -104,11 +104,11 @@ export class MailFolderRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: MailFolder | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: MailFolder | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -123,7 +123,7 @@ export class MailFolderRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -140,13 +140,13 @@ export class MailFolderRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MailFolder | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<MailFolder>(requestInfo, MailFolder, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.me.mailFolders.messageRules collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.messageRules collection
      * @param id Unique identifier of the item
      * @returns a MessageRuleRequestBuilder
      */
@@ -155,7 +155,7 @@ export class MailFolderRequestBuilder {
         return new MessageRuleRequestBuilder(this.currentPath + this.pathSegment + "/messageRules/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.me.mailFolders.messages collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.messages collection
      * @param id Unique identifier of the item
      * @returns a MessageRequestBuilder
      */
@@ -164,7 +164,7 @@ export class MailFolderRequestBuilder {
         return new MessageRequestBuilder(this.currentPath + this.pathSegment + "/messages/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.me.mailFolders.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -181,13 +181,13 @@ export class MailFolderRequestBuilder {
      */
     public patch(body: MailFolder | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.me.mailFolders.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
      */

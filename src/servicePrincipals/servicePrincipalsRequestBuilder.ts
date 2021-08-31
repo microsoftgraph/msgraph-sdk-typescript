@@ -1,29 +1,29 @@
 import {ServicePrincipal} from '../servicePrincipal';
-import {Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder} from './microsoft/graph/getAvailableExtensionProperties/microsoft.graph.getAvailableExtensionPropertiesRequestBuilder';
-import {Microsoft.graph.getByIdsRequestBuilder} from './microsoft/graph/getByIds/microsoft.graph.getByIdsRequestBuilder';
-import {Microsoft.graph.validatePropertiesRequestBuilder} from './microsoft/graph/validateProperties/microsoft.graph.validatePropertiesRequestBuilder';
+import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
+import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ServicePrincipalsResponse} from './servicePrincipalsResponse';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /servicePrincipals  */
 export class ServicePrincipalsRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
+    public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
+        return new GetAvailableExtensionPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get getByIds(): GetByIdsRequestBuilder {
+        return new GetByIdsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.getAvailableExtensionProperties(): Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder {
-        return new Microsoft.graph.getAvailableExtensionPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.getByIds(): Microsoft.graph.getByIdsRequestBuilder {
-        return new Microsoft.graph.getByIdsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.validateProperties(): Microsoft.graph.validatePropertiesRequestBuilder {
-        return new Microsoft.graph.validatePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new ServicePrincipalsRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -43,9 +43,9 @@ export class ServicePrincipalsRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -54,8 +54,8 @@ export class ServicePrincipalsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -68,11 +68,11 @@ export class ServicePrincipalsRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPostRequestInfo(body: ServicePrincipal | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPostRequestInformation(body: ServicePrincipal | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.POST;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -98,7 +98,7 @@ export class ServicePrincipalsRequestBuilder {
                     skip?: number,
                     top?: number
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalsResponse | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<ServicePrincipalsResponse>(requestInfo, ServicePrincipalsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -113,7 +113,7 @@ export class ServicePrincipalsRequestBuilder {
      */
     public post(body: ServicePrincipal | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInfo(
+        const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendAsync<ServicePrincipal>(requestInfo, ServicePrincipal, responseHandler) ?? Promise.reject(new Error('http core is null'));

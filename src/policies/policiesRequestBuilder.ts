@@ -21,7 +21,7 @@ import {TokenIssuancePolicyRequestBuilder} from './tokenIssuancePolicies/item/to
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePolicyRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies  */
 export class PoliciesRequestBuilder {
@@ -73,7 +73,7 @@ export class PoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.policies.activityBasedTimeoutPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.activityBasedTimeoutPolicies collection
      * @param id Unique identifier of the item
      * @returns a ActivityBasedTimeoutPolicyRequestBuilder
      */
@@ -82,7 +82,7 @@ export class PoliciesRequestBuilder {
         return new ActivityBasedTimeoutPolicyRequestBuilder(this.currentPath + this.pathSegment + "/activityBasedTimeoutPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.claimsMappingPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.claimsMappingPolicies collection
      * @param id Unique identifier of the item
      * @returns a ClaimsMappingPolicyRequestBuilder
      */
@@ -91,7 +91,7 @@ export class PoliciesRequestBuilder {
         return new ClaimsMappingPolicyRequestBuilder(this.currentPath + this.pathSegment + "/claimsMappingPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.conditionalAccessPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.conditionalAccessPolicies collection
      * @param id Unique identifier of the item
      * @returns a ConditionalAccessPolicyRequestBuilder
      */
@@ -118,13 +118,13 @@ export class PoliciesRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -137,11 +137,11 @@ export class PoliciesRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Policies | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Policies | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -150,7 +150,7 @@ export class PoliciesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.featureRolloutPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies collection
      * @param id Unique identifier of the item
      * @returns a FeatureRolloutPolicyRequestBuilder
      */
@@ -170,13 +170,13 @@ export class PoliciesRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<PolicyRoot>(requestInfo, PolicyRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.homeRealmDiscoveryPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.homeRealmDiscoveryPolicies collection
      * @param id Unique identifier of the item
      * @returns a HomeRealmDiscoveryPolicyRequestBuilder
      */
@@ -193,13 +193,13 @@ export class PoliciesRequestBuilder {
      */
     public patch(body: Policies | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies collection
      * @param id Unique identifier of the item
      * @returns a PermissionGrantPolicyRequestBuilder
      */
@@ -208,7 +208,7 @@ export class PoliciesRequestBuilder {
         return new PermissionGrantPolicyRequestBuilder(this.currentPath + this.pathSegment + "/permissionGrantPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.tokenIssuancePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.tokenIssuancePolicies collection
      * @param id Unique identifier of the item
      * @returns a TokenIssuancePolicyRequestBuilder
      */
@@ -217,7 +217,7 @@ export class PoliciesRequestBuilder {
         return new TokenIssuancePolicyRequestBuilder(this.currentPath + this.pathSegment + "/tokenIssuancePolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.policies.tokenLifetimePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.tokenLifetimePolicies collection
      * @param id Unique identifier of the item
      * @returns a TokenLifetimePolicyRequestBuilder
      */

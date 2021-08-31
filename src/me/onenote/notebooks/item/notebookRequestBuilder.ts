@@ -1,22 +1,22 @@
 import {Notebook} from '../../../../notebook';
-import {Microsoft.graph.copyNotebookRequestBuilder} from '../microsoft/graph/copyNotebook/microsoft.graph.copyNotebookRequestBuilder';
+import {CopyNotebookRequestBuilder} from '../copyNotebook/copyNotebookRequestBuilder';
 import {SectionGroupRequestBuilder} from '../sectionGroups/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from '../sectionGroups/sectionGroupsRequestBuilder';
 import {OnenoteSectionRequestBuilder} from '../sections/item/onenoteSectionRequestBuilder';
 import {SectionsRequestBuilder} from '../sections/sectionsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/notebooks/{notebook-id}  */
 export class NotebookRequestBuilder {
+    public get copyNotebook(): CopyNotebookRequestBuilder {
+        return new CopyNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.copyNotebook(): Microsoft.graph.copyNotebookRequestBuilder {
-        return new Microsoft.graph.copyNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     public get sectionGroups(): SectionGroupsRequestBuilder {
@@ -43,10 +43,10 @@ export class NotebookRequestBuilder {
      * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -58,13 +58,13 @@ export class NotebookRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -77,11 +77,11 @@ export class NotebookRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Notebook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Notebook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -96,7 +96,7 @@ export class NotebookRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -113,7 +113,7 @@ export class NotebookRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Notebook | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Notebook>(requestInfo, Notebook, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -127,13 +127,13 @@ export class NotebookRequestBuilder {
      */
     public patch(body: Notebook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.me.onenote.notebooks.sectionGroups collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.sectionGroups collection
      * @param id Unique identifier of the item
      * @returns a SectionGroupRequestBuilder
      */
@@ -142,7 +142,7 @@ export class NotebookRequestBuilder {
         return new SectionGroupRequestBuilder(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.me.onenote.notebooks.sections collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.sections collection
      * @param id Unique identifier of the item
      * @returns a OnenoteSectionRequestBuilder
      */

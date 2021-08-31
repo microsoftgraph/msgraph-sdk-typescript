@@ -1,15 +1,18 @@
 import {OnenotePage} from '../../../../../../onenotePage';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
-import {Microsoft.graph.copyToSectionRequestBuilder} from '../microsoft/graph/copyToSection/microsoft.graph.copyToSectionRequestBuilder';
-import {Microsoft.graph.onenotePatchContentRequestBuilder} from '../microsoft/graph/onenotePatchContent/microsoft.graph.onenotePatchContentRequestBuilder';
+import {CopyToSectionRequestBuilder} from '../copyToSection/copyToSectionRequestBuilder';
+import {OnenotePatchContentRequestBuilder} from '../onenotePatchContent/onenotePatchContentRequestBuilder';
 import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from '../parentSection/parentSectionRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/onenote/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id}  */
 export class OnenotePageRequestBuilder {
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get copyToSection(): CopyToSectionRequestBuilder {
+        return new CopyToSectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -17,11 +20,8 @@ export class OnenotePageRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.copyToSection(): Microsoft.graph.copyToSectionRequestBuilder {
-        return new Microsoft.graph.copyToSectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.onenotePatchContent(): Microsoft.graph.onenotePatchContentRequestBuilder {
-        return new Microsoft.graph.onenotePatchContentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get onenotePatchContent(): OnenotePatchContentRequestBuilder {
+        return new OnenotePatchContentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -49,10 +49,10 @@ export class OnenotePageRequestBuilder {
      * The collection of pages in the section.  Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -64,13 +64,13 @@ export class OnenotePageRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -83,11 +83,11 @@ export class OnenotePageRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: OnenotePage | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: OnenotePage | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -102,7 +102,7 @@ export class OnenotePageRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -119,7 +119,7 @@ export class OnenotePageRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenotePage | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<OnenotePage>(requestInfo, OnenotePage, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -133,7 +133,7 @@ export class OnenotePageRequestBuilder {
      */
     public patch(body: OnenotePage | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

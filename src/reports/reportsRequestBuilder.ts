@@ -8,7 +8,7 @@ import {PrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/item/pri
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {ReportRoot} from './reportRoot';
 import {Reports} from './reports';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /reports  */
 export class ReportsRequestBuilder {
@@ -51,13 +51,13 @@ export class ReportsRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -70,11 +70,11 @@ export class ReportsRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Reports | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Reports | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -83,7 +83,7 @@ export class ReportsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.reports.dailyPrintUsageByPrinter collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByPrinter collection
      * @param id Unique identifier of the item
      * @returns a PrintUsageByPrinterRequestBuilder
      */
@@ -92,7 +92,7 @@ export class ReportsRequestBuilder {
         return new PrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment + "/dailyPrintUsageByPrinter/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.reports.dailyPrintUsageByUser collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByUser collection
      * @param id Unique identifier of the item
      * @returns a PrintUsageByUserRequestBuilder
      */
@@ -112,13 +112,13 @@ export class ReportsRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<ReportRoot>(requestInfo, ReportRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.reports.monthlyPrintUsageByPrinter collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByPrinter collection
      * @param id Unique identifier of the item
      * @returns a PrintUsageByPrinterRequestBuilder
      */
@@ -127,7 +127,7 @@ export class ReportsRequestBuilder {
         return new PrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment + "/monthlyPrintUsageByPrinter/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.reports.monthlyPrintUsageByUser collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByUser collection
      * @param id Unique identifier of the item
      * @returns a PrintUsageByUserRequestBuilder
      */
@@ -144,7 +144,7 @@ export class ReportsRequestBuilder {
      */
     public patch(body: Reports | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

@@ -1,4 +1,3 @@
-import {Microsoft.graph.shareRequestBuilder} from './microsoft/graph/share/microsoft.graph.shareRequestBuilder';
 import {OfferShiftRequestRequestBuilder} from './offerShiftRequests/item/offerShiftRequestRequestBuilder';
 import {OfferShiftRequestsRequestBuilder} from './offerShiftRequests/offerShiftRequestsRequestBuilder';
 import {OpenShiftChangeRequestRequestBuilder} from './openShiftChangeRequests/item/openShiftChangeRequestRequestBuilder';
@@ -8,6 +7,7 @@ import {OpenShiftsRequestBuilder} from './openShifts/openShiftsRequestBuilder';
 import {Schedule} from './schedule';
 import {SchedulingGroupRequestBuilder} from './schedulingGroups/item/schedulingGroupRequestBuilder';
 import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
+import {ShareRequestBuilder} from './share/shareRequestBuilder';
 import {ShiftRequestBuilder} from './shifts/item/shiftRequestBuilder';
 import {ShiftsRequestBuilder} from './shifts/shiftsRequestBuilder';
 import {SwapShiftsChangeRequestRequestBuilder} from './swapShiftsChangeRequests/item/swapShiftsChangeRequestRequestBuilder';
@@ -18,7 +18,7 @@ import {TimeOffRequestRequestBuilder} from './timeOffRequests/item/timeOffReques
 import {TimeOffRequestsRequestBuilder} from './timeOffRequests/timeOffRequestsRequestBuilder';
 import {TimeOffRequestBuilder} from './timesOff/item/timeOffRequestBuilder';
 import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /teams/{team-id}/schedule  */
 export class ScheduleRequestBuilder {
@@ -28,9 +28,6 @@ export class ScheduleRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.share(): Microsoft.graph.shareRequestBuilder {
-        return new Microsoft.graph.shareRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -44,6 +41,9 @@ export class ScheduleRequestBuilder {
     private readonly pathSegment: string;
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get share(): ShareRequestBuilder {
+        return new ShareRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get shifts(): ShiftsRequestBuilder {
         return new ShiftsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -78,10 +78,10 @@ export class ScheduleRequestBuilder {
      * The schedule of shifts for this team.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -93,13 +93,13 @@ export class ScheduleRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -112,11 +112,11 @@ export class ScheduleRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Schedule | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Schedule | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -131,7 +131,7 @@ export class ScheduleRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -148,13 +148,13 @@ export class ScheduleRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Schedule>(requestInfo, Schedule, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.offerShiftRequests collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.offerShiftRequests collection
      * @param id Unique identifier of the item
      * @returns a OfferShiftRequestRequestBuilder
      */
@@ -163,7 +163,7 @@ export class ScheduleRequestBuilder {
         return new OfferShiftRequestRequestBuilder(this.currentPath + this.pathSegment + "/offerShiftRequests/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.openShiftChangeRequests collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.openShiftChangeRequests collection
      * @param id Unique identifier of the item
      * @returns a OpenShiftChangeRequestRequestBuilder
      */
@@ -172,7 +172,7 @@ export class ScheduleRequestBuilder {
         return new OpenShiftChangeRequestRequestBuilder(this.currentPath + this.pathSegment + "/openShiftChangeRequests/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.openShifts collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.openShifts collection
      * @param id Unique identifier of the item
      * @returns a OpenShiftRequestBuilder
      */
@@ -189,13 +189,13 @@ export class ScheduleRequestBuilder {
      */
     public patch(body: Schedule | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.schedulingGroups collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.schedulingGroups collection
      * @param id Unique identifier of the item
      * @returns a SchedulingGroupRequestBuilder
      */
@@ -204,7 +204,7 @@ export class ScheduleRequestBuilder {
         return new SchedulingGroupRequestBuilder(this.currentPath + this.pathSegment + "/schedulingGroups/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.shifts collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.shifts collection
      * @param id Unique identifier of the item
      * @returns a ShiftRequestBuilder
      */
@@ -213,7 +213,7 @@ export class ScheduleRequestBuilder {
         return new ShiftRequestBuilder(this.currentPath + this.pathSegment + "/shifts/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.swapShiftsChangeRequests collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.swapShiftsChangeRequests collection
      * @param id Unique identifier of the item
      * @returns a SwapShiftsChangeRequestRequestBuilder
      */
@@ -222,7 +222,7 @@ export class ScheduleRequestBuilder {
         return new SwapShiftsChangeRequestRequestBuilder(this.currentPath + this.pathSegment + "/swapShiftsChangeRequests/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.timeOffReasons collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.timeOffReasons collection
      * @param id Unique identifier of the item
      * @returns a TimeOffReasonRequestBuilder
      */
@@ -231,7 +231,7 @@ export class ScheduleRequestBuilder {
         return new TimeOffReasonRequestBuilder(this.currentPath + this.pathSegment + "/timeOffReasons/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.timeOffRequests collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.timeOffRequests collection
      * @param id Unique identifier of the item
      * @returns a TimeOffRequestRequestBuilder
      */
@@ -240,7 +240,7 @@ export class ScheduleRequestBuilder {
         return new TimeOffRequestRequestBuilder(this.currentPath + this.pathSegment + "/timeOffRequests/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.schedule.timesOff collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.schedule.timesOff collection
      * @param id Unique identifier of the item
      * @returns a TimeOffRequestBuilder
      */

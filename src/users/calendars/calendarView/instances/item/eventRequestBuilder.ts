@@ -1,44 +1,44 @@
 import {Event} from '../../../../../event';
-import {Microsoft.graph.acceptRequestBuilder} from '../microsoft/graph/accept/microsoft.graph.acceptRequestBuilder';
-import {Microsoft.graph.cancelRequestBuilder} from '../microsoft/graph/cancel/microsoft.graph.cancelRequestBuilder';
-import {Microsoft.graph.declineRequestBuilder} from '../microsoft/graph/decline/microsoft.graph.declineRequestBuilder';
-import {Microsoft.graph.dismissReminderRequestBuilder} from '../microsoft/graph/dismissReminder/microsoft.graph.dismissReminderRequestBuilder';
-import {Microsoft.graph.forwardRequestBuilder} from '../microsoft/graph/forward/microsoft.graph.forwardRequestBuilder';
-import {Microsoft.graph.snoozeReminderRequestBuilder} from '../microsoft/graph/snoozeReminder/microsoft.graph.snoozeReminderRequestBuilder';
-import {Microsoft.graph.tentativelyAcceptRequestBuilder} from '../microsoft/graph/tentativelyAccept/microsoft.graph.tentativelyAcceptRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {AcceptRequestBuilder} from '../accept/acceptRequestBuilder';
+import {CancelRequestBuilder} from '../cancel/cancelRequestBuilder';
+import {DeclineRequestBuilder} from '../decline/declineRequestBuilder';
+import {DismissReminderRequestBuilder} from '../dismissReminder/dismissReminderRequestBuilder';
+import {ForwardRequestBuilder} from '../forward/forwardRequestBuilder';
+import {SnoozeReminderRequestBuilder} from '../snoozeReminder/snoozeReminderRequestBuilder';
+import {TentativelyAcceptRequestBuilder} from '../tentativelyAccept/tentativelyAcceptRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/calendars/{calendar-id}/calendarView/{event-id}/instances/{event-id1}  */
 export class EventRequestBuilder {
+    public get accept(): AcceptRequestBuilder {
+        return new AcceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get cancel(): CancelRequestBuilder {
+        return new CancelRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
+    public get decline(): DeclineRequestBuilder {
+        return new DeclineRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get dismissReminder(): DismissReminderRequestBuilder {
+        return new DismissReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get forward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.accept(): Microsoft.graph.acceptRequestBuilder {
-        return new Microsoft.graph.acceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.cancel(): Microsoft.graph.cancelRequestBuilder {
-        return new Microsoft.graph.cancelRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.decline(): Microsoft.graph.declineRequestBuilder {
-        return new Microsoft.graph.declineRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.dismissReminder(): Microsoft.graph.dismissReminderRequestBuilder {
-        return new Microsoft.graph.dismissReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.forward(): Microsoft.graph.forwardRequestBuilder {
-        return new Microsoft.graph.forwardRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.snoozeReminder(): Microsoft.graph.snoozeReminderRequestBuilder {
-        return new Microsoft.graph.snoozeReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.tentativelyAccept(): Microsoft.graph.tentativelyAcceptRequestBuilder {
-        return new Microsoft.graph.tentativelyAcceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get snoozeReminder(): SnoozeReminderRequestBuilder {
+        return new SnoozeReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
+        return new TentativelyAcceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new EventRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -57,10 +57,10 @@ export class EventRequestBuilder {
      * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -72,13 +72,13 @@ export class EventRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -91,11 +91,11 @@ export class EventRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Event | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Event | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -110,7 +110,7 @@ export class EventRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -127,7 +127,7 @@ export class EventRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Event>(requestInfo, Event, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -141,7 +141,7 @@ export class EventRequestBuilder {
      */
     public patch(body: Event | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

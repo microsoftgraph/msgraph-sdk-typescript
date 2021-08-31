@@ -1,69 +1,45 @@
 import {Call} from '../../call';
-import {Microsoft.graph.answerRequestBuilder} from '../microsoft/graph/answer/microsoft.graph.answerRequestBuilder';
-import {Microsoft.graph.cancelMediaProcessingRequestBuilder} from '../microsoft/graph/cancelMediaProcessing/microsoft.graph.cancelMediaProcessingRequestBuilder';
-import {Microsoft.graph.changeScreenSharingRoleRequestBuilder} from '../microsoft/graph/changeScreenSharingRole/microsoft.graph.changeScreenSharingRoleRequestBuilder';
-import {Microsoft.graph.keepAliveRequestBuilder} from '../microsoft/graph/keepAlive/microsoft.graph.keepAliveRequestBuilder';
-import {Microsoft.graph.muteRequestBuilder} from '../microsoft/graph/mute/microsoft.graph.muteRequestBuilder';
-import {Microsoft.graph.playPromptRequestBuilder} from '../microsoft/graph/playPrompt/microsoft.graph.playPromptRequestBuilder';
-import {Microsoft.graph.recordResponseRequestBuilder} from '../microsoft/graph/recordResponse/microsoft.graph.recordResponseRequestBuilder';
-import {Microsoft.graph.redirectRequestBuilder} from '../microsoft/graph/redirect/microsoft.graph.redirectRequestBuilder';
-import {Microsoft.graph.rejectRequestBuilder} from '../microsoft/graph/reject/microsoft.graph.rejectRequestBuilder';
-import {Microsoft.graph.subscribeToToneRequestBuilder} from '../microsoft/graph/subscribeToTone/microsoft.graph.subscribeToToneRequestBuilder';
-import {Microsoft.graph.transferRequestBuilder} from '../microsoft/graph/transfer/microsoft.graph.transferRequestBuilder';
-import {Microsoft.graph.unmuteRequestBuilder} from '../microsoft/graph/unmute/microsoft.graph.unmuteRequestBuilder';
-import {Microsoft.graph.updateRecordingStatusRequestBuilder} from '../microsoft/graph/updateRecordingStatus/microsoft.graph.updateRecordingStatusRequestBuilder';
+import {AnswerRequestBuilder} from '../answer/answerRequestBuilder';
+import {CancelMediaProcessingRequestBuilder} from '../cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
+import {ChangeScreenSharingRoleRequestBuilder} from '../changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
+import {KeepAliveRequestBuilder} from '../keepAlive/keepAliveRequestBuilder';
+import {MuteRequestBuilder} from '../mute/muteRequestBuilder';
 import {CommsOperationRequestBuilder} from '../operations/item/commsOperationRequestBuilder';
 import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
 import {ParticipantRequestBuilder} from '../participants/item/participantRequestBuilder';
 import {ParticipantsRequestBuilder} from '../participants/participantsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {PlayPromptRequestBuilder} from '../playPrompt/playPromptRequestBuilder';
+import {RecordResponseRequestBuilder} from '../recordResponse/recordResponseRequestBuilder';
+import {RedirectRequestBuilder} from '../redirect/redirectRequestBuilder';
+import {RejectRequestBuilder} from '../reject/rejectRequestBuilder';
+import {SubscribeToToneRequestBuilder} from '../subscribeToTone/subscribeToToneRequestBuilder';
+import {TransferRequestBuilder} from '../transfer/transferRequestBuilder';
+import {UnmuteRequestBuilder} from '../unmute/unmuteRequestBuilder';
+import {UpdateRecordingStatusRequestBuilder} from '../updateRecordingStatus/updateRecordingStatusRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /communications/calls/{call-id}  */
 export class CallRequestBuilder {
+    public get answer(): AnswerRequestBuilder {
+        return new AnswerRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get cancelMediaProcessing(): CancelMediaProcessingRequestBuilder {
+        return new CancelMediaProcessingRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
+        return new ChangeScreenSharingRoleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.answer(): Microsoft.graph.answerRequestBuilder {
-        return new Microsoft.graph.answerRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get keepAlive(): KeepAliveRequestBuilder {
+        return new KeepAliveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.cancelMediaProcessing(): Microsoft.graph.cancelMediaProcessingRequestBuilder {
-        return new Microsoft.graph.cancelMediaProcessingRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.changeScreenSharingRole(): Microsoft.graph.changeScreenSharingRoleRequestBuilder {
-        return new Microsoft.graph.changeScreenSharingRoleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.keepAlive(): Microsoft.graph.keepAliveRequestBuilder {
-        return new Microsoft.graph.keepAliveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.mute(): Microsoft.graph.muteRequestBuilder {
-        return new Microsoft.graph.muteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.playPrompt(): Microsoft.graph.playPromptRequestBuilder {
-        return new Microsoft.graph.playPromptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.recordResponse(): Microsoft.graph.recordResponseRequestBuilder {
-        return new Microsoft.graph.recordResponseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.redirect(): Microsoft.graph.redirectRequestBuilder {
-        return new Microsoft.graph.redirectRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.reject(): Microsoft.graph.rejectRequestBuilder {
-        return new Microsoft.graph.rejectRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.subscribeToTone(): Microsoft.graph.subscribeToToneRequestBuilder {
-        return new Microsoft.graph.subscribeToToneRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.transfer(): Microsoft.graph.transferRequestBuilder {
-        return new Microsoft.graph.transferRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.unmute(): Microsoft.graph.unmuteRequestBuilder {
-        return new Microsoft.graph.unmuteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.updateRecordingStatus(): Microsoft.graph.updateRecordingStatusRequestBuilder {
-        return new Microsoft.graph.updateRecordingStatusRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get mute(): MuteRequestBuilder {
+        return new MuteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -73,6 +49,30 @@ export class CallRequestBuilder {
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get playPrompt(): PlayPromptRequestBuilder {
+        return new PlayPromptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get recordResponse(): RecordResponseRequestBuilder {
+        return new RecordResponseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get redirect(): RedirectRequestBuilder {
+        return new RedirectRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get reject(): RejectRequestBuilder {
+        return new RejectRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get subscribeToTone(): SubscribeToToneRequestBuilder {
+        return new SubscribeToToneRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get transfer(): TransferRequestBuilder {
+        return new TransferRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get unmute(): UnmuteRequestBuilder {
+        return new UnmuteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder {
+        return new UpdateRecordingStatusRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new CallRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -91,10 +91,10 @@ export class CallRequestBuilder {
      * Delete navigation property calls for communications
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -106,13 +106,13 @@ export class CallRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -125,11 +125,11 @@ export class CallRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Call | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Call | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -144,7 +144,7 @@ export class CallRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -161,13 +161,13 @@ export class CallRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Call>(requestInfo, Call, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.communications.calls.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.calls.operations collection
      * @param id Unique identifier of the item
      * @returns a CommsOperationRequestBuilder
      */
@@ -176,7 +176,7 @@ export class CallRequestBuilder {
         return new CommsOperationRequestBuilder(this.currentPath + this.pathSegment + "/operations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.communications.calls.participants collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.calls.participants collection
      * @param id Unique identifier of the item
      * @returns a ParticipantRequestBuilder
      */
@@ -193,7 +193,7 @@ export class CallRequestBuilder {
      */
     public patch(body: Call | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

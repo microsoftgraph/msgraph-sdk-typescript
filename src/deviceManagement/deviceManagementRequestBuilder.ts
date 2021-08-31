@@ -52,7 +52,7 @@ import {WindowsInformationProtectionAppLearningSummaryRequestBuilder} from './wi
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummaryRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/item/windowsInformationProtectionNetworkLearningSummaryRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement  */
 export class DeviceManagementRequestBuilder {
@@ -155,7 +155,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.complianceManagementPartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.complianceManagementPartners collection
      * @param id Unique identifier of the item
      * @returns a ComplianceManagementPartnerRequestBuilder
      */
@@ -182,13 +182,13 @@ export class DeviceManagementRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -201,11 +201,11 @@ export class DeviceManagementRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: DeviceManagement | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: DeviceManagement | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -214,7 +214,7 @@ export class DeviceManagementRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.detectedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.detectedApps collection
      * @param id Unique identifier of the item
      * @returns a DetectedAppRequestBuilder
      */
@@ -223,7 +223,7 @@ export class DeviceManagementRequestBuilder {
         return new DetectedAppRequestBuilder(this.currentPath + this.pathSegment + "/detectedApps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCategories collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCategories collection
      * @param id Unique identifier of the item
      * @returns a DeviceCategoryRequestBuilder
      */
@@ -232,7 +232,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCategoryRequestBuilder(this.currentPath + this.pathSegment + "/deviceCategories/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies collection
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyRequestBuilder
      */
@@ -241,7 +241,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCompliancePolicyRequestBuilder(this.currentPath + this.pathSegment + "/deviceCompliancePolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicySettingStateSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries collection
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicySettingStateSummaryRequestBuilder
      */
@@ -250,7 +250,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummaryRequestBuilder(this.currentPath + this.pathSegment + "/deviceCompliancePolicySettingStateSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations collection
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationRequestBuilder
      */
@@ -259,7 +259,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceConfigurationRequestBuilder(this.currentPath + this.pathSegment + "/deviceConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceEnrollmentConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations collection
      * @param id Unique identifier of the item
      * @returns a DeviceEnrollmentConfigurationRequestBuilder
      */
@@ -268,7 +268,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceEnrollmentConfigurationRequestBuilder(this.currentPath + this.pathSegment + "/deviceEnrollmentConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceManagementPartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceManagementPartners collection
      * @param id Unique identifier of the item
      * @returns a DeviceManagementPartnerRequestBuilder
      */
@@ -277,7 +277,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceManagementPartnerRequestBuilder(this.currentPath + this.pathSegment + "/deviceManagementPartners/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.exchangeConnectors collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.exchangeConnectors collection
      * @param id Unique identifier of the item
      * @returns a DeviceManagementExchangeConnectorRequestBuilder
      */
@@ -297,13 +297,13 @@ export class DeviceManagementRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagement | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<DeviceManagement>(requestInfo, DeviceManagement, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.importedWindowsAutopilotDeviceIdentities collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.importedWindowsAutopilotDeviceIdentities collection
      * @param id Unique identifier of the item
      * @returns a ImportedWindowsAutopilotDeviceIdentityRequestBuilder
      */
@@ -312,7 +312,7 @@ export class DeviceManagementRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentityRequestBuilder(this.currentPath + this.pathSegment + "/importedWindowsAutopilotDeviceIdentities/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.iosUpdateStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.iosUpdateStatuses collection
      * @param id Unique identifier of the item
      * @returns a IosUpdateDeviceStatusRequestBuilder
      */
@@ -321,7 +321,7 @@ export class DeviceManagementRequestBuilder {
         return new IosUpdateDeviceStatusRequestBuilder(this.currentPath + this.pathSegment + "/iosUpdateStatuses/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.managedDevices collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.managedDevices collection
      * @param id Unique identifier of the item
      * @returns a ManagedDeviceRequestBuilder
      */
@@ -330,7 +330,7 @@ export class DeviceManagementRequestBuilder {
         return new ManagedDeviceRequestBuilder(this.currentPath + this.pathSegment + "/managedDevices/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.mobileThreatDefenseConnectors collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.mobileThreatDefenseConnectors collection
      * @param id Unique identifier of the item
      * @returns a MobileThreatDefenseConnectorRequestBuilder
      */
@@ -339,7 +339,7 @@ export class DeviceManagementRequestBuilder {
         return new MobileThreatDefenseConnectorRequestBuilder(this.currentPath + this.pathSegment + "/mobileThreatDefenseConnectors/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.notificationMessageTemplates collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates collection
      * @param id Unique identifier of the item
      * @returns a NotificationMessageTemplateRequestBuilder
      */
@@ -356,13 +356,13 @@ export class DeviceManagementRequestBuilder {
      */
     public patch(body: DeviceManagement | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.remoteAssistancePartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.remoteAssistancePartners collection
      * @param id Unique identifier of the item
      * @returns a RemoteAssistancePartnerRequestBuilder
      */
@@ -371,7 +371,7 @@ export class DeviceManagementRequestBuilder {
         return new RemoteAssistancePartnerRequestBuilder(this.currentPath + this.pathSegment + "/remoteAssistancePartners/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.resourceOperations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.resourceOperations collection
      * @param id Unique identifier of the item
      * @returns a ResourceOperationRequestBuilder
      */
@@ -380,7 +380,7 @@ export class DeviceManagementRequestBuilder {
         return new ResourceOperationRequestBuilder(this.currentPath + this.pathSegment + "/resourceOperations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.roleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleAssignments collection
      * @param id Unique identifier of the item
      * @returns a DeviceAndAppManagementRoleAssignmentRequestBuilder
      */
@@ -389,7 +389,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceAndAppManagementRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/roleAssignments/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.roleDefinitions collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions collection
      * @param id Unique identifier of the item
      * @returns a RoleDefinitionRequestBuilder
      */
@@ -398,7 +398,7 @@ export class DeviceManagementRequestBuilder {
         return new RoleDefinitionRequestBuilder(this.currentPath + this.pathSegment + "/roleDefinitions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.telecomExpenseManagementPartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.telecomExpenseManagementPartners collection
      * @param id Unique identifier of the item
      * @returns a TelecomExpenseManagementPartnerRequestBuilder
      */
@@ -407,7 +407,7 @@ export class DeviceManagementRequestBuilder {
         return new TelecomExpenseManagementPartnerRequestBuilder(this.currentPath + this.pathSegment + "/telecomExpenseManagementPartners/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.termsAndConditions collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions collection
      * @param id Unique identifier of the item
      * @returns a TermsAndConditionsRequestBuilder
      */
@@ -416,7 +416,7 @@ export class DeviceManagementRequestBuilder {
         return new TermsAndConditionsRequestBuilder(this.currentPath + this.pathSegment + "/termsAndConditions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.troubleshootingEvents collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.troubleshootingEvents collection
      * @param id Unique identifier of the item
      * @returns a DeviceManagementTroubleshootingEventRequestBuilder
      */
@@ -425,7 +425,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceManagementTroubleshootingEventRequestBuilder(this.currentPath + this.pathSegment + "/troubleshootingEvents/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.windowsAutopilotDeviceIdentities collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsAutopilotDeviceIdentities collection
      * @param id Unique identifier of the item
      * @returns a WindowsAutopilotDeviceIdentityRequestBuilder
      */
@@ -434,7 +434,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsAutopilotDeviceIdentityRequestBuilder(this.currentPath + this.pathSegment + "/windowsAutopilotDeviceIdentities/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.windowsInformationProtectionAppLearningSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionAppLearningSummaries collection
      * @param id Unique identifier of the item
      * @returns a WindowsInformationProtectionAppLearningSummaryRequestBuilder
      */
@@ -443,7 +443,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummaryRequestBuilder(this.currentPath + this.pathSegment + "/windowsInformationProtectionAppLearningSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.windowsInformationProtectionNetworkLearningSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionNetworkLearningSummaries collection
      * @param id Unique identifier of the item
      * @returns a WindowsInformationProtectionNetworkLearningSummaryRequestBuilder
      */

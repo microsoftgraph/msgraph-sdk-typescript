@@ -1,10 +1,8 @@
-import {Site} from '../site';
-import {Microsoft.graph.addRequestBuilder} from './microsoft/graph/add/microsoft.graph.addRequestBuilder';
-import {Microsoft.graph.removeRequestBuilder} from './microsoft/graph/remove/microsoft.graph.removeRequestBuilder';
+import {Site} from '../../site';
 import {SitesResponse} from './sitesResponse';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /sites  */
+/** Builds and executes requests for operations under /sites/{site-id}/sites  */
 export class SitesRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -12,12 +10,6 @@ export class SitesRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.add(): Microsoft.graph.addRequestBuilder {
-        return new Microsoft.graph.addRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.remove(): Microsoft.graph.removeRequestBuilder {
-        return new Microsoft.graph.removeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
@@ -35,13 +27,13 @@ export class SitesRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Get entities from sites
+     * The collection of the sub-sites under this site.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -50,8 +42,8 @@ export class SitesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -60,15 +52,15 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to sites
+     * The collection of the sub-sites under this site.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPostRequestInfo(body: Site | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPostRequestInformation(body: Site | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.POST;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -77,7 +69,7 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from sites
+     * The collection of the sub-sites under this site.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -94,13 +86,13 @@ export class SitesRequestBuilder {
                     skip?: number,
                     top?: number
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SitesResponse | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<SitesResponse>(requestInfo, SitesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Add new entity to sites
+     * The collection of the sub-sites under this site.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -109,7 +101,7 @@ export class SitesRequestBuilder {
      */
     public post(body: Site | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInfo(
+        const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendAsync<Site>(requestInfo, Site, responseHandler) ?? Promise.reject(new Error('http core is null'));

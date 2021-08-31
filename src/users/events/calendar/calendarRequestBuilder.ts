@@ -1,16 +1,16 @@
-import {Calendar} from '../../../calendar';
+import {Calendar} from '../../../groups/calendar/calendar';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionRequestBuilder} from './calendarPermissions/item/calendarPermissionRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
 import {EventRequestBuilder} from './calendarView/item/eventRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
 import {EventRequestBuilder} from './events/item/eventRequestBuilder';
-import {Microsoft.graph.getScheduleRequestBuilder} from './microsoft/graph/getSchedule/microsoft.graph.getScheduleRequestBuilder';
+import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/events/{event-id}/calendar  */
 export class CalendarRequestBuilder {
@@ -25,13 +25,13 @@ export class CalendarRequestBuilder {
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get getSchedule(): GetScheduleRequestBuilder {
+        return new GetScheduleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.getSchedule(): Microsoft.graph.getScheduleRequestBuilder {
-        return new Microsoft.graph.getScheduleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -41,7 +41,7 @@ export class CalendarRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.users.events.calendar.calendarPermissions collection
+     * Gets an item from the graphtypescriptv4.utilities.users.events.calendar.calendarPermissions collection
      * @param id Unique identifier of the item
      * @returns a CalendarPermissionRequestBuilder
      */
@@ -50,7 +50,7 @@ export class CalendarRequestBuilder {
         return new CalendarPermissionRequestBuilder(this.currentPath + this.pathSegment + "/calendarPermissions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.users.events.calendar.calendarView collection
+     * Gets an item from the graphtypescriptv4.utilities.users.events.calendar.calendarView collection
      * @param id Unique identifier of the item
      * @returns a EventRequestBuilder
      */
@@ -76,10 +76,10 @@ export class CalendarRequestBuilder {
      * The calendar that contains the event. Navigation property. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -91,13 +91,13 @@ export class CalendarRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -110,11 +110,11 @@ export class CalendarRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Calendar | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Calendar | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -129,13 +129,13 @@ export class CalendarRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.users.events.calendar.events collection
+     * Gets an item from the graphtypescriptv4.utilities.users.events.calendar.events collection
      * @param id Unique identifier of the item
      * @returns a EventRequestBuilder
      */
@@ -155,13 +155,13 @@ export class CalendarRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Calendar>(requestInfo, Calendar, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.users.events.calendar.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.users.events.calendar.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -178,13 +178,13 @@ export class CalendarRequestBuilder {
      */
     public patch(body: Calendar | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.users.events.calendar.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.users.events.calendar.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
      */

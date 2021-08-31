@@ -1,24 +1,27 @@
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {CalendarSharingMessageRequestBuilder} from './calendarSharingMessage/calendarSharingMessageRequestBuilder';
 import {Entity} from './entity';
-import {Microsoft.graph.calendarSharingMessageRequestBuilder} from './microsoft/graph/calendarSharingMessage/microsoft.graph.calendarSharingMessageRequestBuilder';
-import {Microsoft.graph.managedAppProtectionRequestBuilder} from './microsoft/graph/managedAppProtection/microsoft.graph.managedAppProtectionRequestBuilder';
-import {Microsoft.graph.mobileAppContentFileRequestBuilder} from './microsoft/graph/mobileAppContentFile/microsoft.graph.mobileAppContentFileRequestBuilder';
-import {Microsoft.graph.printDocumentRequestBuilder} from './microsoft/graph/printDocument/microsoft.graph.printDocumentRequestBuilder';
-import {Microsoft.graph.printJobRequestBuilder} from './microsoft/graph/printJob/microsoft.graph.printJobRequestBuilder';
-import {Microsoft.graph.scheduleChangeRequestRequestBuilder} from './microsoft/graph/scheduleChangeRequest/microsoft.graph.scheduleChangeRequestRequestBuilder';
-import {Microsoft.graph.targetedManagedAppProtectionRequestBuilder} from './microsoft/graph/targetedManagedAppProtection/microsoft.graph.targetedManagedAppProtectionRequestBuilder';
-import {Microsoft.graph.windowsInformationProtectionRequestBuilder} from './microsoft/graph/windowsInformationProtection/microsoft.graph.windowsInformationProtectionRequestBuilder';
-import {Microsoft.graph.workbookRangeRequestBuilder} from './microsoft/graph/workbookRange/microsoft.graph.workbookRangeRequestBuilder';
-import {Microsoft.graph.workbookRangeFillRequestBuilder} from './microsoft/graph/workbookRangeFill/microsoft.graph.workbookRangeFillRequestBuilder';
-import {Microsoft.graph.workbookRangeFormatRequestBuilder} from './microsoft/graph/workbookRangeFormat/microsoft.graph.workbookRangeFormatRequestBuilder';
-import {Microsoft.graph.workbookRangeSortRequestBuilder} from './microsoft/graph/workbookRangeSort/microsoft.graph.workbookRangeSortRequestBuilder';
-import {Microsoft.graph.workbookRangeViewRequestBuilder} from './microsoft/graph/workbookRangeView/microsoft.graph.workbookRangeViewRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {ManagedAppProtectionRequestBuilder} from './managedAppProtection/managedAppProtectionRequestBuilder';
+import {MobileAppContentFileRequestBuilder} from './mobileAppContentFile/mobileAppContentFileRequestBuilder';
+import {PrintDocumentRequestBuilder} from './printDocument/printDocumentRequestBuilder';
+import {PrintJobRequestBuilder} from './printJob/printJobRequestBuilder';
+import {ScheduleChangeRequestRequestBuilder} from './scheduleChangeRequest/scheduleChangeRequestRequestBuilder';
+import {TargetedManagedAppProtectionRequestBuilder} from './targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';
+import {WindowsInformationProtectionRequestBuilder} from './windowsInformationProtection/windowsInformationProtectionRequestBuilder';
+import {WorkbookRangeRequestBuilder} from './workbookRange/workbookRangeRequestBuilder';
+import {WorkbookRangeFillRequestBuilder} from './workbookRangeFill/workbookRangeFillRequestBuilder';
+import {WorkbookRangeFormatRequestBuilder} from './workbookRangeFormat/workbookRangeFormatRequestBuilder';
+import {WorkbookRangeSortRequestBuilder} from './workbookRangeSort/workbookRangeSortRequestBuilder';
+import {WorkbookRangeViewRequestBuilder} from './workbookRangeView/workbookRangeViewRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/used/{usedInsight-id}/resource  */
 export class ResourceRequestBuilder {
     public get $ref(): $refRequestBuilder {
         return new $refRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get calendarSharingMessage(): CalendarSharingMessageRequestBuilder {
+        return new CalendarSharingMessageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -26,47 +29,44 @@ export class ResourceRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.calendarSharingMessage(): Microsoft.graph.calendarSharingMessageRequestBuilder {
-        return new Microsoft.graph.calendarSharingMessageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get managedAppProtection(): ManagedAppProtectionRequestBuilder {
+        return new ManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.managedAppProtection(): Microsoft.graph.managedAppProtectionRequestBuilder {
-        return new Microsoft.graph.managedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.mobileAppContentFile(): Microsoft.graph.mobileAppContentFileRequestBuilder {
-        return new Microsoft.graph.mobileAppContentFileRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.printDocument(): Microsoft.graph.printDocumentRequestBuilder {
-        return new Microsoft.graph.printDocumentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.printJob(): Microsoft.graph.printJobRequestBuilder {
-        return new Microsoft.graph.printJobRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.scheduleChangeRequest(): Microsoft.graph.scheduleChangeRequestRequestBuilder {
-        return new Microsoft.graph.scheduleChangeRequestRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.targetedManagedAppProtection(): Microsoft.graph.targetedManagedAppProtectionRequestBuilder {
-        return new Microsoft.graph.targetedManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.windowsInformationProtection(): Microsoft.graph.windowsInformationProtectionRequestBuilder {
-        return new Microsoft.graph.windowsInformationProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.workbookRange(): Microsoft.graph.workbookRangeRequestBuilder {
-        return new Microsoft.graph.workbookRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.workbookRangeFill(): Microsoft.graph.workbookRangeFillRequestBuilder {
-        return new Microsoft.graph.workbookRangeFillRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.workbookRangeFormat(): Microsoft.graph.workbookRangeFormatRequestBuilder {
-        return new Microsoft.graph.workbookRangeFormatRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.workbookRangeSort(): Microsoft.graph.workbookRangeSortRequestBuilder {
-        return new Microsoft.graph.workbookRangeSortRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.workbookRangeView(): Microsoft.graph.workbookRangeViewRequestBuilder {
-        return new Microsoft.graph.workbookRangeViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get mobileAppContentFile(): MobileAppContentFileRequestBuilder {
+        return new MobileAppContentFileRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get printDocument(): PrintDocumentRequestBuilder {
+        return new PrintDocumentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get printJob(): PrintJobRequestBuilder {
+        return new PrintJobRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get scheduleChangeRequest(): ScheduleChangeRequestRequestBuilder {
+        return new ScheduleChangeRequestRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get targetedManagedAppProtection(): TargetedManagedAppProtectionRequestBuilder {
+        return new TargetedManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get windowsInformationProtection(): WindowsInformationProtectionRequestBuilder {
+        return new WindowsInformationProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get workbookRange(): WorkbookRangeRequestBuilder {
+        return new WorkbookRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get workbookRangeFill(): WorkbookRangeFillRequestBuilder {
+        return new WorkbookRangeFillRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get workbookRangeFormat(): WorkbookRangeFormatRequestBuilder {
+        return new WorkbookRangeFormatRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get workbookRangeSort(): WorkbookRangeSortRequestBuilder {
+        return new WorkbookRangeSortRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get workbookRangeView(): WorkbookRangeViewRequestBuilder {
+        return new WorkbookRangeViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new ResourceRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -86,13 +86,13 @@ export class ResourceRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -112,7 +112,7 @@ export class ResourceRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Entity | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Entity>(requestInfo, Entity, responseHandler) ?? Promise.reject(new Error('http core is null'));

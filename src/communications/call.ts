@@ -1,5 +1,5 @@
 import {Entity} from '../entity';
-import {InvitationParticipantInfo} from './calls/microsoft/graph/invitationParticipantInfo';
+import {InvitationParticipantInfo} from './calls/invitationParticipantInfo';
 import {CommsOperation} from './commsOperation';
 import {MediaConfig} from './mediaConfig';
 import {Participant} from './participant';

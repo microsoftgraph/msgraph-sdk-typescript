@@ -5,7 +5,7 @@ import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProf
 import {SecureScoreRequestBuilder} from './secureScores/item/secureScoreRequestBuilder';
 import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuilder';
 import {Security} from './security';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /security  */
 export class SecurityRequestBuilder {
@@ -27,7 +27,7 @@ export class SecurityRequestBuilder {
         return new SecureScoresRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.security.alerts collection
+     * Gets an item from the graphtypescriptv4.utilities.security.alerts collection
      * @param id Unique identifier of the item
      * @returns a AlertRequestBuilder
      */
@@ -54,13 +54,13 @@ export class SecurityRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -73,11 +73,11 @@ export class SecurityRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Security | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Security | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -97,7 +97,7 @@ export class SecurityRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Security | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Security>(requestInfo, Security, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -111,13 +111,13 @@ export class SecurityRequestBuilder {
      */
     public patch(body: Security | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.security.secureScoreControlProfiles collection
+     * Gets an item from the graphtypescriptv4.utilities.security.secureScoreControlProfiles collection
      * @param id Unique identifier of the item
      * @returns a SecureScoreControlProfileRequestBuilder
      */
@@ -126,7 +126,7 @@ export class SecurityRequestBuilder {
         return new SecureScoreControlProfileRequestBuilder(this.currentPath + this.pathSegment + "/secureScoreControlProfiles/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.security.secureScores collection
+     * Gets an item from the graphtypescriptv4.utilities.security.secureScores collection
      * @param id Unique identifier of the item
      * @returns a SecureScoreRequestBuilder
      */

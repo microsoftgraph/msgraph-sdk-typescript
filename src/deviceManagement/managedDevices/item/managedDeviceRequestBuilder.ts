@@ -1,33 +1,42 @@
 import {ManagedDevice} from '../../../managedDevice';
+import {BypassActivationLockRequestBuilder} from '../bypassActivationLock/bypassActivationLockRequestBuilder';
+import {CleanWindowsDeviceRequestBuilder} from '../cleanWindowsDevice/cleanWindowsDeviceRequestBuilder';
+import {DeleteUserFromSharedAppleDeviceRequestBuilder} from '../deleteUserFromSharedAppleDevice/deleteUserFromSharedAppleDeviceRequestBuilder';
 import {DeviceCategoryRequestBuilder} from '../deviceCategory/deviceCategoryRequestBuilder';
 import {DeviceCompliancePolicyStatesRequestBuilder} from '../deviceCompliancePolicyStates/deviceCompliancePolicyStatesRequestBuilder';
 import {DeviceCompliancePolicyStateRequestBuilder} from '../deviceCompliancePolicyStates/item/deviceCompliancePolicyStateRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilder} from '../deviceConfigurationStates/deviceConfigurationStatesRequestBuilder';
 import {DeviceConfigurationStateRequestBuilder} from '../deviceConfigurationStates/item/deviceConfigurationStateRequestBuilder';
-import {Microsoft.graph.bypassActivationLockRequestBuilder} from '../microsoft/graph/bypassActivationLock/microsoft.graph.bypassActivationLockRequestBuilder';
-import {Microsoft.graph.cleanWindowsDeviceRequestBuilder} from '../microsoft/graph/cleanWindowsDevice/microsoft.graph.cleanWindowsDeviceRequestBuilder';
-import {Microsoft.graph.deleteUserFromSharedAppleDeviceRequestBuilder} from '../microsoft/graph/deleteUserFromSharedAppleDevice/microsoft.graph.deleteUserFromSharedAppleDeviceRequestBuilder';
-import {Microsoft.graph.disableLostModeRequestBuilder} from '../microsoft/graph/disableLostMode/microsoft.graph.disableLostModeRequestBuilder';
-import {Microsoft.graph.locateDeviceRequestBuilder} from '../microsoft/graph/locateDevice/microsoft.graph.locateDeviceRequestBuilder';
-import {Microsoft.graph.logoutSharedAppleDeviceActiveUserRequestBuilder} from '../microsoft/graph/logoutSharedAppleDeviceActiveUser/microsoft.graph.logoutSharedAppleDeviceActiveUserRequestBuilder';
-import {Microsoft.graph.rebootNowRequestBuilder} from '../microsoft/graph/rebootNow/microsoft.graph.rebootNowRequestBuilder';
-import {Microsoft.graph.recoverPasscodeRequestBuilder} from '../microsoft/graph/recoverPasscode/microsoft.graph.recoverPasscodeRequestBuilder';
-import {Microsoft.graph.remoteLockRequestBuilder} from '../microsoft/graph/remoteLock/microsoft.graph.remoteLockRequestBuilder';
-import {Microsoft.graph.requestRemoteAssistanceRequestBuilder} from '../microsoft/graph/requestRemoteAssistance/microsoft.graph.requestRemoteAssistanceRequestBuilder';
-import {Microsoft.graph.resetPasscodeRequestBuilder} from '../microsoft/graph/resetPasscode/microsoft.graph.resetPasscodeRequestBuilder';
-import {Microsoft.graph.retireRequestBuilder} from '../microsoft/graph/retire/microsoft.graph.retireRequestBuilder';
-import {Microsoft.graph.shutDownRequestBuilder} from '../microsoft/graph/shutDown/microsoft.graph.shutDownRequestBuilder';
-import {Microsoft.graph.syncDeviceRequestBuilder} from '../microsoft/graph/syncDevice/microsoft.graph.syncDeviceRequestBuilder';
-import {Microsoft.graph.updateWindowsDeviceAccountRequestBuilder} from '../microsoft/graph/updateWindowsDeviceAccount/microsoft.graph.updateWindowsDeviceAccountRequestBuilder';
-import {Microsoft.graph.windowsDefenderScanRequestBuilder} from '../microsoft/graph/windowsDefenderScan/microsoft.graph.windowsDefenderScanRequestBuilder';
-import {Microsoft.graph.windowsDefenderUpdateSignaturesRequestBuilder} from '../microsoft/graph/windowsDefenderUpdateSignatures/microsoft.graph.windowsDefenderUpdateSignaturesRequestBuilder';
-import {Microsoft.graph.wipeRequestBuilder} from '../microsoft/graph/wipe/microsoft.graph.wipeRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {DisableLostModeRequestBuilder} from '../disableLostMode/disableLostModeRequestBuilder';
+import {LocateDeviceRequestBuilder} from '../locateDevice/locateDeviceRequestBuilder';
+import {LogoutSharedAppleDeviceActiveUserRequestBuilder} from '../logoutSharedAppleDeviceActiveUser/logoutSharedAppleDeviceActiveUserRequestBuilder';
+import {RebootNowRequestBuilder} from '../rebootNow/rebootNowRequestBuilder';
+import {RecoverPasscodeRequestBuilder} from '../recoverPasscode/recoverPasscodeRequestBuilder';
+import {RemoteLockRequestBuilder} from '../remoteLock/remoteLockRequestBuilder';
+import {RequestRemoteAssistanceRequestBuilder} from '../requestRemoteAssistance/requestRemoteAssistanceRequestBuilder';
+import {ResetPasscodeRequestBuilder} from '../resetPasscode/resetPasscodeRequestBuilder';
+import {RetireRequestBuilder} from '../retire/retireRequestBuilder';
+import {ShutDownRequestBuilder} from '../shutDown/shutDownRequestBuilder';
+import {SyncDeviceRequestBuilder} from '../syncDevice/syncDeviceRequestBuilder';
+import {UpdateWindowsDeviceAccountRequestBuilder} from '../updateWindowsDeviceAccount/updateWindowsDeviceAccountRequestBuilder';
+import {WindowsDefenderScanRequestBuilder} from '../windowsDefenderScan/windowsDefenderScanRequestBuilder';
+import {WindowsDefenderUpdateSignaturesRequestBuilder} from '../windowsDefenderUpdateSignatures/windowsDefenderUpdateSignaturesRequestBuilder';
+import {WipeRequestBuilder} from '../wipe/wipeRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/managedDevices/{managedDevice-id}  */
 export class ManagedDeviceRequestBuilder {
+    public get bypassActivationLock(): BypassActivationLockRequestBuilder {
+        return new BypassActivationLockRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get cleanWindowsDevice(): CleanWindowsDeviceRequestBuilder {
+        return new CleanWindowsDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
+    public get deleteUserFromSharedAppleDevice(): DeleteUserFromSharedAppleDeviceRequestBuilder {
+        return new DeleteUserFromSharedAppleDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get deviceCategory(): DeviceCategoryRequestBuilder {
         return new DeviceCategoryRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -37,66 +46,57 @@ export class ManagedDeviceRequestBuilder {
     public get deviceConfigurationStates(): DeviceConfigurationStatesRequestBuilder {
         return new DeviceConfigurationStatesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get disableLostMode(): DisableLostModeRequestBuilder {
+        return new DisableLostModeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.bypassActivationLock(): Microsoft.graph.bypassActivationLockRequestBuilder {
-        return new Microsoft.graph.bypassActivationLockRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get locateDevice(): LocateDeviceRequestBuilder {
+        return new LocateDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.cleanWindowsDevice(): Microsoft.graph.cleanWindowsDeviceRequestBuilder {
-        return new Microsoft.graph.cleanWindowsDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.deleteUserFromSharedAppleDevice(): Microsoft.graph.deleteUserFromSharedAppleDeviceRequestBuilder {
-        return new Microsoft.graph.deleteUserFromSharedAppleDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.disableLostMode(): Microsoft.graph.disableLostModeRequestBuilder {
-        return new Microsoft.graph.disableLostModeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.locateDevice(): Microsoft.graph.locateDeviceRequestBuilder {
-        return new Microsoft.graph.locateDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.logoutSharedAppleDeviceActiveUser(): Microsoft.graph.logoutSharedAppleDeviceActiveUserRequestBuilder {
-        return new Microsoft.graph.logoutSharedAppleDeviceActiveUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.rebootNow(): Microsoft.graph.rebootNowRequestBuilder {
-        return new Microsoft.graph.rebootNowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.recoverPasscode(): Microsoft.graph.recoverPasscodeRequestBuilder {
-        return new Microsoft.graph.recoverPasscodeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.remoteLock(): Microsoft.graph.remoteLockRequestBuilder {
-        return new Microsoft.graph.remoteLockRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.requestRemoteAssistance(): Microsoft.graph.requestRemoteAssistanceRequestBuilder {
-        return new Microsoft.graph.requestRemoteAssistanceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.resetPasscode(): Microsoft.graph.resetPasscodeRequestBuilder {
-        return new Microsoft.graph.resetPasscodeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.retire(): Microsoft.graph.retireRequestBuilder {
-        return new Microsoft.graph.retireRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.shutDown(): Microsoft.graph.shutDownRequestBuilder {
-        return new Microsoft.graph.shutDownRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.syncDevice(): Microsoft.graph.syncDeviceRequestBuilder {
-        return new Microsoft.graph.syncDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.updateWindowsDeviceAccount(): Microsoft.graph.updateWindowsDeviceAccountRequestBuilder {
-        return new Microsoft.graph.updateWindowsDeviceAccountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.windowsDefenderScan(): Microsoft.graph.windowsDefenderScanRequestBuilder {
-        return new Microsoft.graph.windowsDefenderScanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.windowsDefenderUpdateSignatures(): Microsoft.graph.windowsDefenderUpdateSignaturesRequestBuilder {
-        return new Microsoft.graph.windowsDefenderUpdateSignaturesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.wipe(): Microsoft.graph.wipeRequestBuilder {
-        return new Microsoft.graph.wipeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get logoutSharedAppleDeviceActiveUser(): LogoutSharedAppleDeviceActiveUserRequestBuilder {
+        return new LogoutSharedAppleDeviceActiveUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get rebootNow(): RebootNowRequestBuilder {
+        return new RebootNowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get recoverPasscode(): RecoverPasscodeRequestBuilder {
+        return new RecoverPasscodeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get remoteLock(): RemoteLockRequestBuilder {
+        return new RemoteLockRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
+        return new RequestRemoteAssistanceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get resetPasscode(): ResetPasscodeRequestBuilder {
+        return new ResetPasscodeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get retire(): RetireRequestBuilder {
+        return new RetireRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get shutDown(): ShutDownRequestBuilder {
+        return new ShutDownRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get syncDevice(): SyncDeviceRequestBuilder {
+        return new SyncDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get updateWindowsDeviceAccount(): UpdateWindowsDeviceAccountRequestBuilder {
+        return new UpdateWindowsDeviceAccountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get windowsDefenderScan(): WindowsDefenderScanRequestBuilder {
+        return new WindowsDefenderScanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get windowsDefenderUpdateSignatures(): WindowsDefenderUpdateSignaturesRequestBuilder {
+        return new WindowsDefenderUpdateSignaturesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get wipe(): WipeRequestBuilder {
+        return new WipeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new ManagedDeviceRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -115,10 +115,10 @@ export class ManagedDeviceRequestBuilder {
      * The list of managed devices.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -130,13 +130,13 @@ export class ManagedDeviceRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -149,11 +149,11 @@ export class ManagedDeviceRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: ManagedDevice | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: ManagedDevice | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -168,13 +168,13 @@ export class ManagedDeviceRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.managedDevices.deviceCompliancePolicyStates collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.managedDevices.deviceCompliancePolicyStates collection
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyStateRequestBuilder
      */
@@ -183,7 +183,7 @@ export class ManagedDeviceRequestBuilder {
         return new DeviceCompliancePolicyStateRequestBuilder(this.currentPath + this.pathSegment + "/deviceCompliancePolicyStates/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.managedDevices.deviceConfigurationStates collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.managedDevices.deviceConfigurationStates collection
      * @param id Unique identifier of the item
      * @returns a DeviceConfigurationStateRequestBuilder
      */
@@ -203,7 +203,7 @@ export class ManagedDeviceRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDevice | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<ManagedDevice>(requestInfo, ManagedDevice, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -217,7 +217,7 @@ export class ManagedDeviceRequestBuilder {
      */
     public patch(body: ManagedDevice | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

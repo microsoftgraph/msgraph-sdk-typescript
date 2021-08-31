@@ -1,9 +1,9 @@
 import {ManagedAppPolicy} from '../../../managedAppPolicy';
-import {Microsoft.graph.managedAppProtectionRequestBuilder} from '../microsoft/graph/managedAppProtection/microsoft.graph.managedAppProtectionRequestBuilder';
-import {Microsoft.graph.targetAppsRequestBuilder} from '../microsoft/graph/targetApps/microsoft.graph.targetAppsRequestBuilder';
-import {Microsoft.graph.targetedManagedAppProtectionRequestBuilder} from '../microsoft/graph/targetedManagedAppProtection/microsoft.graph.targetedManagedAppProtectionRequestBuilder';
-import {Microsoft.graph.windowsInformationProtectionRequestBuilder} from '../microsoft/graph/windowsInformationProtection/microsoft.graph.windowsInformationProtectionRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {ManagedAppProtectionRequestBuilder} from '../managedAppProtection/managedAppProtectionRequestBuilder';
+import {TargetAppsRequestBuilder} from '../targetApps/targetAppsRequestBuilder';
+import {TargetedManagedAppProtectionRequestBuilder} from '../targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';
+import {WindowsInformationProtectionRequestBuilder} from '../windowsInformationProtection/windowsInformationProtectionRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedAppRegistrations/{managedAppRegistration-id}/appliedPolicies/{managedAppPolicy-id}  */
 export class ManagedAppPolicyRequestBuilder {
@@ -13,20 +13,20 @@ export class ManagedAppPolicyRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.managedAppProtection(): Microsoft.graph.managedAppProtectionRequestBuilder {
-        return new Microsoft.graph.managedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.targetApps(): Microsoft.graph.targetAppsRequestBuilder {
-        return new Microsoft.graph.targetAppsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.targetedManagedAppProtection(): Microsoft.graph.targetedManagedAppProtectionRequestBuilder {
-        return new Microsoft.graph.targetedManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.windowsInformationProtection(): Microsoft.graph.windowsInformationProtectionRequestBuilder {
-        return new Microsoft.graph.windowsInformationProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get managedAppProtection(): ManagedAppProtectionRequestBuilder {
+        return new ManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get targetApps(): TargetAppsRequestBuilder {
+        return new TargetAppsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get targetedManagedAppProtection(): TargetedManagedAppProtectionRequestBuilder {
+        return new TargetedManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get windowsInformationProtection(): WindowsInformationProtectionRequestBuilder {
+        return new WindowsInformationProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new ManagedAppPolicyRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -45,10 +45,10 @@ export class ManagedAppPolicyRequestBuilder {
      * Zero or more policys already applied on the registered app when it last synchronized with managment service.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -60,13 +60,13 @@ export class ManagedAppPolicyRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -79,11 +79,11 @@ export class ManagedAppPolicyRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: ManagedAppPolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: ManagedAppPolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -98,7 +98,7 @@ export class ManagedAppPolicyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -115,7 +115,7 @@ export class ManagedAppPolicyRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppPolicy | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<ManagedAppPolicy>(requestInfo, ManagedAppPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -129,7 +129,7 @@ export class ManagedAppPolicyRequestBuilder {
      */
     public patch(body: ManagedAppPolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

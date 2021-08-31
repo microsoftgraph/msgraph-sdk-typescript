@@ -1,34 +1,40 @@
 import {DriveItem} from '../../driveItem';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
+import {CheckinRequestBuilder} from '../checkin/checkinRequestBuilder';
+import {CheckoutRequestBuilder} from '../checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from '../children/childrenRequestBuilder';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
+import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
+import {CreateLinkRequestBuilder} from '../createLink/createLinkRequestBuilder';
+import {CreateUploadSessionRequestBuilder} from '../createUploadSession/createUploadSessionRequestBuilder';
+import {FollowRequestBuilder} from '../follow/followRequestBuilder';
+import {InviteRequestBuilder} from '../invite/inviteRequestBuilder';
 import {ListItemRequestBuilder} from '../listItem/listItemRequestBuilder';
-import {Microsoft.graph.checkinRequestBuilder} from '../microsoft/graph/checkin/microsoft.graph.checkinRequestBuilder';
-import {Microsoft.graph.checkoutRequestBuilder} from '../microsoft/graph/checkout/microsoft.graph.checkoutRequestBuilder';
-import {Microsoft.graph.copyRequestBuilder} from '../microsoft/graph/copy/microsoft.graph.copyRequestBuilder';
-import {Microsoft.graph.createLinkRequestBuilder} from '../microsoft/graph/createLink/microsoft.graph.createLinkRequestBuilder';
-import {Microsoft.graph.createUploadSessionRequestBuilder} from '../microsoft/graph/createUploadSession/microsoft.graph.createUploadSessionRequestBuilder';
-import {Microsoft.graph.followRequestBuilder} from '../microsoft/graph/follow/microsoft.graph.followRequestBuilder';
-import {Microsoft.graph.inviteRequestBuilder} from '../microsoft/graph/invite/microsoft.graph.inviteRequestBuilder';
-import {Microsoft.graph.previewRequestBuilder} from '../microsoft/graph/preview/microsoft.graph.previewRequestBuilder';
-import {Microsoft.graph.restoreRequestBuilder} from '../microsoft/graph/restore/microsoft.graph.restoreRequestBuilder';
-import {Microsoft.graph.unfollowRequestBuilder} from '../microsoft/graph/unfollow/microsoft.graph.unfollowRequestBuilder';
-import {Microsoft.graph.validatePermissionRequestBuilder} from '../microsoft/graph/validatePermission/microsoft.graph.validatePermissionRequestBuilder';
 import {PermissionRequestBuilder} from '../permissions/item/permissionRequestBuilder';
 import {PermissionsRequestBuilder} from '../permissions/permissionsRequestBuilder';
+import {PreviewRequestBuilder} from '../preview/previewRequestBuilder';
+import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {SubscriptionRequestBuilder} from '../subscriptions/item/subscriptionRequestBuilder';
 import {SubscriptionsRequestBuilder} from '../subscriptions/subscriptionsRequestBuilder';
 import {ThumbnailSetRequestBuilder} from '../thumbnails/item/thumbnailSetRequestBuilder';
 import {ThumbnailsRequestBuilder} from '../thumbnails/thumbnailsRequestBuilder';
+import {UnfollowRequestBuilder} from '../unfollow/unfollowRequestBuilder';
+import {ValidatePermissionRequestBuilder} from '../validatePermission/validatePermissionRequestBuilder';
 import {DriveItemVersionRequestBuilder} from '../versions/item/driveItemVersionRequestBuilder';
 import {VersionsRequestBuilder} from '../versions/versionsRequestBuilder';
 import {WorkbookRequestBuilder} from '../workbook/workbookRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}  */
 export class DriveItemRequestBuilder {
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkin(): CheckinRequestBuilder {
+        return new CheckinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkout(): CheckoutRequestBuilder {
+        return new CheckoutRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -36,58 +42,52 @@ export class DriveItemRequestBuilder {
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get copy(): CopyRequestBuilder {
+        return new CopyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get createLink(): CreateLinkRequestBuilder {
+        return new CreateLinkRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get createUploadSession(): CreateUploadSessionRequestBuilder {
+        return new CreateUploadSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
+    public get follow(): FollowRequestBuilder {
+        return new FollowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
+    public get invite(): InviteRequestBuilder {
+        return new InviteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkin(): Microsoft.graph.checkinRequestBuilder {
-        return new Microsoft.graph.checkinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkout(): Microsoft.graph.checkoutRequestBuilder {
-        return new Microsoft.graph.checkoutRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.copy(): Microsoft.graph.copyRequestBuilder {
-        return new Microsoft.graph.copyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.createLink(): Microsoft.graph.createLinkRequestBuilder {
-        return new Microsoft.graph.createLinkRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.createUploadSession(): Microsoft.graph.createUploadSessionRequestBuilder {
-        return new Microsoft.graph.createUploadSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.follow(): Microsoft.graph.followRequestBuilder {
-        return new Microsoft.graph.followRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.invite(): Microsoft.graph.inviteRequestBuilder {
-        return new Microsoft.graph.inviteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.preview(): Microsoft.graph.previewRequestBuilder {
-        return new Microsoft.graph.previewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.restore(): Microsoft.graph.restoreRequestBuilder {
-        return new Microsoft.graph.restoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.unfollow(): Microsoft.graph.unfollowRequestBuilder {
-        return new Microsoft.graph.unfollowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.validatePermission(): Microsoft.graph.validatePermissionRequestBuilder {
-        return new Microsoft.graph.validatePermissionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get preview(): PreviewRequestBuilder {
+        return new PreviewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get thumbnails(): ThumbnailsRequestBuilder {
         return new ThumbnailsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get unfollow(): UnfollowRequestBuilder {
+        return new UnfollowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get validatePermission(): ValidatePermissionRequestBuilder {
+        return new ValidatePermissionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -96,7 +96,7 @@ export class DriveItemRequestBuilder {
         return new WorkbookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.children collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.children collection
      * @param id Unique identifier of the item
      * @returns a DriveItemRequestBuilder
      */
@@ -122,10 +122,10 @@ export class DriveItemRequestBuilder {
      * Delete entity from workbooks
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -137,13 +137,13 @@ export class DriveItemRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -156,11 +156,11 @@ export class DriveItemRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: DriveItem | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: DriveItem | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -175,7 +175,7 @@ export class DriveItemRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -192,7 +192,7 @@ export class DriveItemRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<DriveItem>(requestInfo, DriveItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -206,13 +206,13 @@ export class DriveItemRequestBuilder {
      */
     public patch(body: DriveItem | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.permissions collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.permissions collection
      * @param id Unique identifier of the item
      * @returns a PermissionRequestBuilder
      */
@@ -221,7 +221,7 @@ export class DriveItemRequestBuilder {
         return new PermissionRequestBuilder(this.currentPath + this.pathSegment + "/permissions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.subscriptions collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.subscriptions collection
      * @param id Unique identifier of the item
      * @returns a SubscriptionRequestBuilder
      */
@@ -230,7 +230,7 @@ export class DriveItemRequestBuilder {
         return new SubscriptionRequestBuilder(this.currentPath + this.pathSegment + "/subscriptions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.thumbnails collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.thumbnails collection
      * @param id Unique identifier of the item
      * @returns a ThumbnailSetRequestBuilder
      */
@@ -239,7 +239,7 @@ export class DriveItemRequestBuilder {
         return new ThumbnailSetRequestBuilder(this.currentPath + this.pathSegment + "/thumbnails/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.versions collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.versions collection
      * @param id Unique identifier of the item
      * @returns a DriveItemVersionRequestBuilder
      */

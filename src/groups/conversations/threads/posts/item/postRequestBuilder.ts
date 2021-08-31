@@ -3,14 +3,14 @@ import {AttachmentsRequestBuilder} from '../attachments/attachmentsRequestBuilde
 import {AttachmentRequestBuilder} from '../attachments/item/attachmentRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ForwardRequestBuilder} from '../forward/forwardRequestBuilder';
 import {InReplyToRequestBuilder} from '../inReplyTo/inReplyToRequestBuilder';
-import {Microsoft.graph.forwardRequestBuilder} from '../microsoft/graph/forward/microsoft.graph.forwardRequestBuilder';
-import {Microsoft.graph.replyRequestBuilder} from '../microsoft/graph/reply/microsoft.graph.replyRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
+import {ReplyRequestBuilder} from '../reply/replyRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}/conversations/{conversation-id}/threads/{conversationThread-id}/posts/{post-id}  */
 export class PostRequestBuilder {
@@ -22,6 +22,9 @@ export class PostRequestBuilder {
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get forward(): ForwardRequestBuilder {
+        return new ForwardRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     public get inReplyTo(): InReplyToRequestBuilder {
@@ -29,22 +32,19 @@ export class PostRequestBuilder {
     }
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.forward(): Microsoft.graph.forwardRequestBuilder {
-        return new Microsoft.graph.forwardRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.reply(): Microsoft.graph.replyRequestBuilder {
-        return new Microsoft.graph.replyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get reply(): ReplyRequestBuilder {
+        return new ReplyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.groups.conversations.threads.posts.attachments collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.conversations.threads.posts.attachments collection
      * @param id Unique identifier of the item
      * @returns a AttachmentRequestBuilder
      */
@@ -70,10 +70,10 @@ export class PostRequestBuilder {
      * Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -85,13 +85,13 @@ export class PostRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -104,11 +104,11 @@ export class PostRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Post | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Post | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -123,13 +123,13 @@ export class PostRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.conversations.threads.posts.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.conversations.threads.posts.extensions collection
      * @param id Unique identifier of the item
      * @returns a ExtensionRequestBuilder
      */
@@ -149,13 +149,13 @@ export class PostRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Post | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Post>(requestInfo, Post, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.conversations.threads.posts.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.conversations.threads.posts.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
      * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -172,13 +172,13 @@ export class PostRequestBuilder {
      */
     public patch(body: Post | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.conversations.threads.posts.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.conversations.threads.posts.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
      * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
      */

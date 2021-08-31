@@ -1,28 +1,28 @@
 import {WindowsAutopilotDeviceIdentity} from '../../windowsAutopilotDeviceIdentity';
-import {Microsoft.graph.assignUserToDeviceRequestBuilder} from '../microsoft/graph/assignUserToDevice/microsoft.graph.assignUserToDeviceRequestBuilder';
-import {Microsoft.graph.unassignUserFromDeviceRequestBuilder} from '../microsoft/graph/unassignUserFromDevice/microsoft.graph.unassignUserFromDeviceRequestBuilder';
-import {Microsoft.graph.updateDevicePropertiesRequestBuilder} from '../microsoft/graph/updateDeviceProperties/microsoft.graph.updateDevicePropertiesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {AssignUserToDeviceRequestBuilder} from '../assignUserToDevice/assignUserToDeviceRequestBuilder';
+import {UnassignUserFromDeviceRequestBuilder} from '../unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
+import {UpdateDevicePropertiesRequestBuilder} from '../updateDeviceProperties/updateDevicePropertiesRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity-id}  */
 export class WindowsAutopilotDeviceIdentityRequestBuilder {
+    public get assignUserToDevice(): AssignUserToDeviceRequestBuilder {
+        return new AssignUserToDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.assignUserToDevice(): Microsoft.graph.assignUserToDeviceRequestBuilder {
-        return new Microsoft.graph.assignUserToDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.unassignUserFromDevice(): Microsoft.graph.unassignUserFromDeviceRequestBuilder {
-        return new Microsoft.graph.unassignUserFromDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.updateDeviceProperties(): Microsoft.graph.updateDevicePropertiesRequestBuilder {
-        return new Microsoft.graph.updateDevicePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
+        return new UnassignUserFromDeviceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
+        return new UpdateDevicePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
      * Instantiates a new WindowsAutopilotDeviceIdentityRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -41,10 +41,10 @@ export class WindowsAutopilotDeviceIdentityRequestBuilder {
      * The Windows autopilot device identities contained collection.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -56,13 +56,13 @@ export class WindowsAutopilotDeviceIdentityRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -75,11 +75,11 @@ export class WindowsAutopilotDeviceIdentityRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: WindowsAutopilotDeviceIdentity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: WindowsAutopilotDeviceIdentity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -94,7 +94,7 @@ export class WindowsAutopilotDeviceIdentityRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -111,7 +111,7 @@ export class WindowsAutopilotDeviceIdentityRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<WindowsAutopilotDeviceIdentity>(requestInfo, WindowsAutopilotDeviceIdentity, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -125,7 +125,7 @@ export class WindowsAutopilotDeviceIdentityRequestBuilder {
      */
     public patch(body: WindowsAutopilotDeviceIdentity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

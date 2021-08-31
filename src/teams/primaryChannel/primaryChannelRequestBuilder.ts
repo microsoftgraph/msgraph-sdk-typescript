@@ -1,17 +1,20 @@
 import {Channel} from '../../channel';
+import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
 import {ConversationMemberRequestBuilder} from './members/item/conversationMemberRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
 import {ChatMessageRequestBuilder} from './messages/item/chatMessageRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {Microsoft.graph.completeMigrationRequestBuilder} from './microsoft/graph/completeMigration/microsoft.graph.completeMigrationRequestBuilder';
 import {PrimaryChannel} from './primaryChannel';
 import {TeamsTabRequestBuilder} from './tabs/item/teamsTabRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /teams/{team-id}/primaryChannel  */
 export class PrimaryChannelRequestBuilder {
+    public get completeMigration(): CompleteMigrationRequestBuilder {
+        return new CompleteMigrationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     public get filesFolder(): FilesFolderRequestBuilder {
@@ -26,9 +29,6 @@ export class PrimaryChannelRequestBuilder {
     }
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.completeMigration(): Microsoft.graph.completeMigrationRequestBuilder {
-        return new Microsoft.graph.completeMigrationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
@@ -53,10 +53,10 @@ export class PrimaryChannelRequestBuilder {
      * The general channel for the team.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -68,13 +68,13 @@ export class PrimaryChannelRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -87,11 +87,11 @@ export class PrimaryChannelRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: PrimaryChannel | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: PrimaryChannel | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -106,7 +106,7 @@ export class PrimaryChannelRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -123,13 +123,13 @@ export class PrimaryChannelRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Channel | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Channel>(requestInfo, Channel, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.primaryChannel.members collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.primaryChannel.members collection
      * @param id Unique identifier of the item
      * @returns a ConversationMemberRequestBuilder
      */
@@ -138,7 +138,7 @@ export class PrimaryChannelRequestBuilder {
         return new ConversationMemberRequestBuilder(this.currentPath + this.pathSegment + "/members/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.primaryChannel.messages collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.primaryChannel.messages collection
      * @param id Unique identifier of the item
      * @returns a ChatMessageRequestBuilder
      */
@@ -155,13 +155,13 @@ export class PrimaryChannelRequestBuilder {
      */
     public patch(body: PrimaryChannel | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.teams.primaryChannel.tabs collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.primaryChannel.tabs collection
      * @param id Unique identifier of the item
      * @returns a TeamsTabRequestBuilder
      */

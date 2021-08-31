@@ -1,7 +1,7 @@
 import {ImportedWindowsAutopilotDeviceIdentity} from '../importedWindowsAutopilotDeviceIdentity';
+import {ImportRequestBuilder} from './import/importRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesResponse} from './importedWindowsAutopilotDeviceIdentitiesResponse';
-import {Microsoft.graph.importRequestBuilder} from './microsoft/graph/import/microsoft.graph.importRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/importedWindowsAutopilotDeviceIdentities  */
 export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
@@ -9,11 +9,11 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
+    public get import_escaped(): ImportRequestBuilder {
+        return new ImportRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.import(): Microsoft.graph.importRequestBuilder {
-        return new Microsoft.graph.importRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
@@ -35,9 +35,9 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -46,8 +46,8 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -60,11 +60,11 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPostRequestInfo(body: ImportedWindowsAutopilotDeviceIdentity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPostRequestInformation(body: ImportedWindowsAutopilotDeviceIdentity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.POST;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -90,7 +90,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
                     skip?: number,
                     top?: number
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportedWindowsAutopilotDeviceIdentitiesResponse | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<ImportedWindowsAutopilotDeviceIdentitiesResponse>(requestInfo, ImportedWindowsAutopilotDeviceIdentitiesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -105,7 +105,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
      */
     public post(body: ImportedWindowsAutopilotDeviceIdentity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ImportedWindowsAutopilotDeviceIdentity | undefined> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInfo(
+        const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendAsync<ImportedWindowsAutopilotDeviceIdentity>(requestInfo, ImportedWindowsAutopilotDeviceIdentity, responseHandler) ?? Promise.reject(new Error('http core is null'));

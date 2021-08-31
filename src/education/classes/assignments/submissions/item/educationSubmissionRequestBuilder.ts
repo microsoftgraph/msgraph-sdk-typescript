@@ -1,14 +1,14 @@
 import {EducationSubmission} from '../../../educationSubmission';
-import {Microsoft.graph.returnRequestBuilder} from '../microsoft/graph/return/microsoft.graph.returnRequestBuilder';
-import {Microsoft.graph.submitRequestBuilder} from '../microsoft/graph/submit/microsoft.graph.submitRequestBuilder';
-import {Microsoft.graph.unsubmitRequestBuilder} from '../microsoft/graph/unsubmit/microsoft.graph.unsubmitRequestBuilder';
 import {EducationOutcomeRequestBuilder} from '../outcomes/item/educationOutcomeRequestBuilder';
 import {OutcomesRequestBuilder} from '../outcomes/outcomesRequestBuilder';
 import {EducationSubmissionResourceRequestBuilder} from '../resources/item/educationSubmissionResourceRequestBuilder';
 import {ResourcesRequestBuilder} from '../resources/resourcesRequestBuilder';
+import {ReturnRequestBuilder} from '../return/returnRequestBuilder';
+import {SubmitRequestBuilder} from '../submit/submitRequestBuilder';
 import {EducationSubmissionResourceRequestBuilder} from '../submittedResources/item/educationSubmissionResourceRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from '../submittedResources/submittedResourcesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {UnsubmitRequestBuilder} from '../unsubmit/unsubmitRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/submissions/{educationSubmission-id}  */
 export class EducationSubmissionRequestBuilder {
@@ -18,15 +18,6 @@ export class EducationSubmissionRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.return(): Microsoft.graph.returnRequestBuilder {
-        return new Microsoft.graph.returnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.submit(): Microsoft.graph.submitRequestBuilder {
-        return new Microsoft.graph.submitRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.unsubmit(): Microsoft.graph.unsubmitRequestBuilder {
-        return new Microsoft.graph.unsubmitRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get outcomes(): OutcomesRequestBuilder {
         return new OutcomesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -35,8 +26,17 @@ export class EducationSubmissionRequestBuilder {
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get return_escaped(): ReturnRequestBuilder {
+        return new ReturnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get submit(): SubmitRequestBuilder {
+        return new SubmitRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get submittedResources(): SubmittedResourcesRequestBuilder {
         return new SubmittedResourcesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get unsubmit(): UnsubmitRequestBuilder {
+        return new UnsubmitRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
      * Instantiates a new EducationSubmissionRequestBuilder and sets the default values.
@@ -56,10 +56,10 @@ export class EducationSubmissionRequestBuilder {
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -71,13 +71,13 @@ export class EducationSubmissionRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -90,11 +90,11 @@ export class EducationSubmissionRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: EducationSubmission | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: EducationSubmission | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -109,7 +109,7 @@ export class EducationSubmissionRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -126,13 +126,13 @@ export class EducationSubmissionRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmission | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<EducationSubmission>(requestInfo, EducationSubmission, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.education.classes.assignments.submissions.outcomes collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions.outcomes collection
      * @param id Unique identifier of the item
      * @returns a EducationOutcomeRequestBuilder
      */
@@ -149,13 +149,13 @@ export class EducationSubmissionRequestBuilder {
      */
     public patch(body: EducationSubmission | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.education.classes.assignments.submissions.resources collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions.resources collection
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceRequestBuilder
      */
@@ -164,7 +164,7 @@ export class EducationSubmissionRequestBuilder {
         return new EducationSubmissionResourceRequestBuilder(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.education.classes.assignments.submissions.submittedResources collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions.submittedResources collection
      * @param id Unique identifier of the item
      * @returns a EducationSubmissionResourceRequestBuilder
      */

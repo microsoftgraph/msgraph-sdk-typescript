@@ -8,7 +8,7 @@ import {RestrictedSignInRequestBuilder} from './restrictedSignIns/item/restricte
 import {RestrictedSignInsRequestBuilder} from './restrictedSignIns/restrictedSignInsRequestBuilder';
 import {SignInRequestBuilder} from './signIns/item/signInRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /auditLogs  */
 export class AuditLogsRequestBuilder {
@@ -51,13 +51,13 @@ export class AuditLogsRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -70,11 +70,11 @@ export class AuditLogsRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: AuditLogs | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: AuditLogs | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -83,7 +83,7 @@ export class AuditLogsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.auditLogs.directoryAudits collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.directoryAudits collection
      * @param id Unique identifier of the item
      * @returns a DirectoryAuditRequestBuilder
      */
@@ -103,7 +103,7 @@ export class AuditLogsRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<AuditLogRoot>(requestInfo, AuditLogRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -117,13 +117,13 @@ export class AuditLogsRequestBuilder {
      */
     public patch(body: AuditLogs | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.auditLogs.provisioning collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.provisioning collection
      * @param id Unique identifier of the item
      * @returns a ProvisioningObjectSummaryRequestBuilder
      */
@@ -132,7 +132,7 @@ export class AuditLogsRequestBuilder {
         return new ProvisioningObjectSummaryRequestBuilder(this.currentPath + this.pathSegment + "/provisioning/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.auditLogs.restrictedSignIns collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.restrictedSignIns collection
      * @param id Unique identifier of the item
      * @returns a RestrictedSignInRequestBuilder
      */
@@ -141,7 +141,7 @@ export class AuditLogsRequestBuilder {
         return new RestrictedSignInRequestBuilder(this.currentPath + this.pathSegment + "/restrictedSignIns/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.auditLogs.signIns collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.signIns collection
      * @param id Unique identifier of the item
      * @returns a SignInRequestBuilder
      */

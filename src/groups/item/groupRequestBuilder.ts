@@ -1,10 +1,15 @@
 import {Group} from '../../group';
 import {AcceptedSendersRequestBuilder} from '../acceptedSenders/acceptedSendersRequestBuilder';
+import {AddFavoriteRequestBuilder} from '../addFavorite/addFavoriteRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from '../appRoleAssignments/appRoleAssignmentsRequestBuilder';
 import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/appRoleAssignmentRequestBuilder';
+import {AssignLicenseRequestBuilder} from '../assignLicense/assignLicenseRequestBuilder';
 import {CalendarRequestBuilder} from '../calendar/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from '../calendarView/calendarViewRequestBuilder';
 import {EventRequestBuilder} from '../calendarView/item/eventRequestBuilder';
+import {CheckGrantedPermissionsForAppRequestBuilder} from '../checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ConversationsRequestBuilder} from '../conversations/conversationsRequestBuilder';
 import {ConversationRequestBuilder} from '../conversations/item/conversationRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from '../createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
@@ -15,25 +20,13 @@ import {EventsRequestBuilder} from '../events/eventsRequestBuilder';
 import {EventRequestBuilder} from '../events/item/eventRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilder} from '../groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
 import {GroupLifecyclePolicyRequestBuilder} from '../groupLifecyclePolicies/item/groupLifecyclePolicyRequestBuilder';
 import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilder} from '../membersWithLicenseErrors/membersWithLicenseErrorsRequestBuilder';
-import {Microsoft.graph.addFavoriteRequestBuilder} from '../microsoft/graph/addFavorite/microsoft.graph.addFavoriteRequestBuilder';
-import {Microsoft.graph.assignLicenseRequestBuilder} from '../microsoft/graph/assignLicense/microsoft.graph.assignLicenseRequestBuilder';
-import {Microsoft.graph.checkGrantedPermissionsForAppRequestBuilder} from '../microsoft/graph/checkGrantedPermissionsForApp/microsoft.graph.checkGrantedPermissionsForAppRequestBuilder';
-import {Microsoft.graph.checkMemberGroupsRequestBuilder} from '../microsoft/graph/checkMemberGroups/microsoft.graph.checkMemberGroupsRequestBuilder';
-import {Microsoft.graph.checkMemberObjectsRequestBuilder} from '../microsoft/graph/checkMemberObjects/microsoft.graph.checkMemberObjectsRequestBuilder';
-import {Microsoft.graph.getMemberGroupsRequestBuilder} from '../microsoft/graph/getMemberGroups/microsoft.graph.getMemberGroupsRequestBuilder';
-import {Microsoft.graph.getMemberObjectsRequestBuilder} from '../microsoft/graph/getMemberObjects/microsoft.graph.getMemberObjectsRequestBuilder';
-import {Microsoft.graph.removeFavoriteRequestBuilder} from '../microsoft/graph/removeFavorite/microsoft.graph.removeFavoriteRequestBuilder';
-import {Microsoft.graph.renewRequestBuilder} from '../microsoft/graph/renew/microsoft.graph.renewRequestBuilder';
-import {Microsoft.graph.resetUnseenCountRequestBuilder} from '../microsoft/graph/resetUnseenCount/microsoft.graph.resetUnseenCountRequestBuilder';
-import {Microsoft.graph.restoreRequestBuilder} from '../microsoft/graph/restore/microsoft.graph.restoreRequestBuilder';
-import {Microsoft.graph.subscribeByMailRequestBuilder} from '../microsoft/graph/subscribeByMail/microsoft.graph.subscribeByMailRequestBuilder';
-import {Microsoft.graph.unsubscribeByMailRequestBuilder} from '../microsoft/graph/unsubscribeByMail/microsoft.graph.unsubscribeByMailRequestBuilder';
-import {Microsoft.graph.validatePropertiesRequestBuilder} from '../microsoft/graph/validateProperties/microsoft.graph.validatePropertiesRequestBuilder';
 import {OnenoteRequestBuilder} from '../onenote/onenoteRequestBuilder';
 import {OwnersRequestBuilder} from '../owners/ownersRequestBuilder';
 import {ResourceSpecificPermissionGrantRequestBuilder} from '../permissionGrants/item/resourceSpecificPermissionGrantRequestBuilder';
@@ -43,30 +36,52 @@ import {ProfilePhotoRequestBuilder} from '../photos/item/profilePhotoRequestBuil
 import {PhotosRequestBuilder} from '../photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from '../planner/plannerRequestBuilder';
 import {RejectedSendersRequestBuilder} from '../rejectedSenders/rejectedSendersRequestBuilder';
+import {RemoveFavoriteRequestBuilder} from '../removeFavorite/removeFavoriteRequestBuilder';
+import {RenewRequestBuilder} from '../renew/renewRequestBuilder';
+import {ResetUnseenCountRequestBuilder} from '../resetUnseenCount/resetUnseenCountRequestBuilder';
+import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {GroupSettingRequestBuilder} from '../settings/item/groupSettingRequestBuilder';
 import {SettingsRequestBuilder} from '../settings/settingsRequestBuilder';
 import {SiteRequestBuilder} from '../sites/item/siteRequestBuilder';
 import {SitesRequestBuilder} from '../sites/sitesRequestBuilder';
+import {SubscribeByMailRequestBuilder} from '../subscribeByMail/subscribeByMailRequestBuilder';
 import {TeamRequestBuilder} from '../team/teamRequestBuilder';
 import {ConversationThreadRequestBuilder} from '../threads/item/conversationThreadRequestBuilder';
 import {ThreadsRequestBuilder} from '../threads/threadsRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TransitiveMembersRequestBuilder} from '../transitiveMembers/transitiveMembersRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {UnsubscribeByMailRequestBuilder} from '../unsubscribeByMail/unsubscribeByMailRequestBuilder';
+import {ValidatePropertiesRequestBuilder} from '../validateProperties/validatePropertiesRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}  */
 export class GroupRequestBuilder {
     public get acceptedSenders(): AcceptedSendersRequestBuilder {
         return new AcceptedSendersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get addFavorite(): AddFavoriteRequestBuilder {
+        return new AddFavoriteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get assignLicense(): AssignLicenseRequestBuilder {
+        return new AssignLicenseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
+        return new CheckGrantedPermissionsForAppRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get conversations(): ConversationsRequestBuilder {
         return new ConversationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -88,6 +103,12 @@ export class GroupRequestBuilder {
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -103,48 +124,6 @@ export class GroupRequestBuilder {
     }
     public get membersWithLicenseErrors(): MembersWithLicenseErrorsRequestBuilder {
         return new MembersWithLicenseErrorsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.addFavorite(): Microsoft.graph.addFavoriteRequestBuilder {
-        return new Microsoft.graph.addFavoriteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.assignLicense(): Microsoft.graph.assignLicenseRequestBuilder {
-        return new Microsoft.graph.assignLicenseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkGrantedPermissionsForApp(): Microsoft.graph.checkGrantedPermissionsForAppRequestBuilder {
-        return new Microsoft.graph.checkGrantedPermissionsForAppRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkMemberGroups(): Microsoft.graph.checkMemberGroupsRequestBuilder {
-        return new Microsoft.graph.checkMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkMemberObjects(): Microsoft.graph.checkMemberObjectsRequestBuilder {
-        return new Microsoft.graph.checkMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.getMemberGroups(): Microsoft.graph.getMemberGroupsRequestBuilder {
-        return new Microsoft.graph.getMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.getMemberObjects(): Microsoft.graph.getMemberObjectsRequestBuilder {
-        return new Microsoft.graph.getMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.removeFavorite(): Microsoft.graph.removeFavoriteRequestBuilder {
-        return new Microsoft.graph.removeFavoriteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.renew(): Microsoft.graph.renewRequestBuilder {
-        return new Microsoft.graph.renewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.resetUnseenCount(): Microsoft.graph.resetUnseenCountRequestBuilder {
-        return new Microsoft.graph.resetUnseenCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.restore(): Microsoft.graph.restoreRequestBuilder {
-        return new Microsoft.graph.restoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.subscribeByMail(): Microsoft.graph.subscribeByMailRequestBuilder {
-        return new Microsoft.graph.subscribeByMailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.unsubscribeByMail(): Microsoft.graph.unsubscribeByMailRequestBuilder {
-        return new Microsoft.graph.unsubscribeByMailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.validateProperties(): Microsoft.graph.validatePropertiesRequestBuilder {
-        return new Microsoft.graph.validatePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -169,11 +148,26 @@ export class GroupRequestBuilder {
     public get rejectedSenders(): RejectedSendersRequestBuilder {
         return new RejectedSendersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get removeFavorite(): RemoveFavoriteRequestBuilder {
+        return new RemoveFavoriteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get renew(): RenewRequestBuilder {
+        return new RenewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get resetUnseenCount(): ResetUnseenCountRequestBuilder {
+        return new ResetUnseenCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get subscribeByMail(): SubscribeByMailRequestBuilder {
+        return new SubscribeByMailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -187,8 +181,14 @@ export class GroupRequestBuilder {
     public get transitiveMembers(): TransitiveMembersRequestBuilder {
         return new TransitiveMembersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get unsubscribeByMail(): UnsubscribeByMailRequestBuilder {
+        return new UnsubscribeByMailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get validateProperties(): ValidatePropertiesRequestBuilder {
+        return new ValidatePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /**
-     * Gets an item from the MicrosoftGraph.groups.appRoleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.appRoleAssignments collection
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentRequestBuilder
      */
@@ -197,7 +197,7 @@ export class GroupRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignments/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.calendarView collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.calendarView collection
      * @param id Unique identifier of the item
      * @returns a EventRequestBuilder
      */
@@ -220,7 +220,7 @@ export class GroupRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.conversations collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.conversations collection
      * @param id Unique identifier of the item
      * @returns a ConversationRequestBuilder
      */
@@ -232,10 +232,10 @@ export class GroupRequestBuilder {
      * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -247,13 +247,13 @@ export class GroupRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -266,11 +266,11 @@ export class GroupRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Group | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Group | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -285,13 +285,13 @@ export class GroupRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.drives collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.drives collection
      * @param id Unique identifier of the item
      * @returns a DriveRequestBuilder
      */
@@ -300,7 +300,7 @@ export class GroupRequestBuilder {
         return new DriveRequestBuilder(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.events collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.events collection
      * @param id Unique identifier of the item
      * @returns a EventRequestBuilder
      */
@@ -309,7 +309,7 @@ export class GroupRequestBuilder {
         return new EventRequestBuilder(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.extensions collection
      * @param id Unique identifier of the item
      * @returns a ExtensionRequestBuilder
      */
@@ -329,13 +329,13 @@ export class GroupRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Group>(requestInfo, Group, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.groupLifecyclePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.groupLifecyclePolicies collection
      * @param id Unique identifier of the item
      * @returns a GroupLifecyclePolicyRequestBuilder
      */
@@ -352,13 +352,13 @@ export class GroupRequestBuilder {
      */
     public patch(body: Group | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.permissionGrants collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.permissionGrants collection
      * @param id Unique identifier of the item
      * @returns a ResourceSpecificPermissionGrantRequestBuilder
      */
@@ -367,7 +367,7 @@ export class GroupRequestBuilder {
         return new ResourceSpecificPermissionGrantRequestBuilder(this.currentPath + this.pathSegment + "/permissionGrants/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.photos collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.photos collection
      * @param id Unique identifier of the item
      * @returns a ProfilePhotoRequestBuilder
      */
@@ -376,7 +376,7 @@ export class GroupRequestBuilder {
         return new ProfilePhotoRequestBuilder(this.currentPath + this.pathSegment + "/photos/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.settings collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.settings collection
      * @param id Unique identifier of the item
      * @returns a GroupSettingRequestBuilder
      */
@@ -385,7 +385,7 @@ export class GroupRequestBuilder {
         return new GroupSettingRequestBuilder(this.currentPath + this.pathSegment + "/settings/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.sites collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.sites collection
      * @param id Unique identifier of the item
      * @returns a SiteRequestBuilder
      */
@@ -394,7 +394,7 @@ export class GroupRequestBuilder {
         return new SiteRequestBuilder(this.currentPath + this.pathSegment + "/sites/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.groups.threads collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.threads collection
      * @param id Unique identifier of the item
      * @returns a ConversationThreadRequestBuilder
      */

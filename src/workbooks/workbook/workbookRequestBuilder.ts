@@ -1,28 +1,34 @@
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
+import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';
 import {WorkbookCommentRequestBuilder} from './comments/item/workbookCommentRequestBuilder';
+import {CreateSessionRequestBuilder} from './createSession/createSessionRequestBuilder';
 import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';
-import {Microsoft.graph.closeSessionRequestBuilder} from './microsoft/graph/closeSession/microsoft.graph.closeSessionRequestBuilder';
-import {Microsoft.graph.createSessionRequestBuilder} from './microsoft/graph/createSession/microsoft.graph.createSessionRequestBuilder';
-import {Microsoft.graph.refreshSessionRequestBuilder} from './microsoft/graph/refreshSession/microsoft.graph.refreshSessionRequestBuilder';
 import {WorkbookNamedItemRequestBuilder} from './names/item/workbookNamedItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookOperationRequestBuilder} from './operations/item/workbookOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
 import {Workbook} from './workbook';
 import {WorkbookWorksheetRequestBuilder} from './worksheets/item/workbookWorksheetRequestBuilder';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook  */
 export class WorkbookRequestBuilder {
     public get application(): ApplicationRequestBuilder {
         return new ApplicationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get closeSession(): CloseSessionRequestBuilder {
+        return new CloseSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get comments(): CommentsRequestBuilder {
         return new CommentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get createSession(): CreateSessionRequestBuilder {
+        return new CreateSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -33,15 +39,6 @@ export class WorkbookRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.closeSession(): Microsoft.graph.closeSessionRequestBuilder {
-        return new Microsoft.graph.closeSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.createSession(): Microsoft.graph.createSessionRequestBuilder {
-        return new Microsoft.graph.createSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.refreshSession(): Microsoft.graph.refreshSessionRequestBuilder {
-        return new Microsoft.graph.refreshSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get names(): NamesRequestBuilder {
         return new NamesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -50,6 +47,9 @@ export class WorkbookRequestBuilder {
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get refreshSession(): RefreshSessionRequestBuilder {
+        return new RefreshSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get tables(): TablesRequestBuilder {
         return new TablesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -57,7 +57,7 @@ export class WorkbookRequestBuilder {
         return new WorksheetsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.comments collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.comments collection
      * @param id Unique identifier of the item
      * @returns a WorkbookCommentRequestBuilder
      */
@@ -83,10 +83,10 @@ export class WorkbookRequestBuilder {
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -98,12 +98,12 @@ export class WorkbookRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -116,11 +116,11 @@ export class WorkbookRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Workbook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Workbook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -135,7 +135,7 @@ export class WorkbookRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -151,13 +151,13 @@ export class WorkbookRequestBuilder {
     public get(q?: {
                     expand?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Workbook>(requestInfo, Workbook, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.names collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names collection
      * @param id Unique identifier of the item
      * @returns a WorkbookNamedItemRequestBuilder
      */
@@ -166,7 +166,7 @@ export class WorkbookRequestBuilder {
         return new WorkbookNamedItemRequestBuilder(this.currentPath + this.pathSegment + "/names/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.operations collection
      * @param id Unique identifier of the item
      * @returns a WorkbookOperationRequestBuilder
      */
@@ -183,13 +183,13 @@ export class WorkbookRequestBuilder {
      */
     public patch(body: Workbook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.tables collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables collection
      * @param id Unique identifier of the item
      * @returns a WorkbookTableRequestBuilder
      */
@@ -198,7 +198,7 @@ export class WorkbookRequestBuilder {
         return new WorkbookTableRequestBuilder(this.currentPath + this.pathSegment + "/tables/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.worksheets collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.worksheets collection
      * @param id Unique identifier of the item
      * @returns a WorkbookWorksheetRequestBuilder
      */

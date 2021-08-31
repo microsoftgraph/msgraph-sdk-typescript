@@ -3,7 +3,7 @@ import {AcceptanceStatusesRequestBuilder} from '../acceptanceStatuses/acceptance
 import {TermsAndConditionsAcceptanceStatusRequestBuilder} from '../acceptanceStatuses/item/termsAndConditionsAcceptanceStatusRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
 import {TermsAndConditionsAssignmentRequestBuilder} from '../assignments/item/termsAndConditionsAssignmentRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/termsAndConditions/{termsAndConditions-id}  */
 export class TermsAndConditionsRequestBuilder {
@@ -22,7 +22,7 @@ export class TermsAndConditionsRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.termsAndConditions.acceptanceStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.acceptanceStatuses collection
      * @param id Unique identifier of the item
      * @returns a TermsAndConditionsAcceptanceStatusRequestBuilder
      */
@@ -31,7 +31,7 @@ export class TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsAcceptanceStatusRequestBuilder(this.currentPath + this.pathSegment + "/acceptanceStatuses/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.termsAndConditions.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.assignments collection
      * @param id Unique identifier of the item
      * @returns a TermsAndConditionsAssignmentRequestBuilder
      */
@@ -57,10 +57,10 @@ export class TermsAndConditionsRequestBuilder {
      * The terms and conditions associated with device management of the company.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -72,13 +72,13 @@ export class TermsAndConditionsRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -91,11 +91,11 @@ export class TermsAndConditionsRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: TermsAndConditions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: TermsAndConditions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -110,7 +110,7 @@ export class TermsAndConditionsRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -127,7 +127,7 @@ export class TermsAndConditionsRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditions | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<TermsAndConditions>(requestInfo, TermsAndConditions, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -141,7 +141,7 @@ export class TermsAndConditionsRequestBuilder {
      */
     public patch(body: TermsAndConditions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

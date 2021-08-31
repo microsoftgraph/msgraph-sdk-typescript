@@ -1,4 +1,4 @@
-import {SectionGroup} from '../../../../sectionGroup';
+import {SectionGroup} from '../../../sectionGroup';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SectionGroupsResponse implements Parsable {

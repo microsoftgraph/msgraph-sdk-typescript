@@ -1,12 +1,12 @@
 import {Domain} from '../../domain';
 import {DomainNameReferencesRequestBuilder} from '../domainNameReferences/domainNameReferencesRequestBuilder';
-import {Microsoft.graph.forceDeleteRequestBuilder} from '../microsoft/graph/forceDelete/microsoft.graph.forceDeleteRequestBuilder';
-import {Microsoft.graph.verifyRequestBuilder} from '../microsoft/graph/verify/microsoft.graph.verifyRequestBuilder';
+import {ForceDeleteRequestBuilder} from '../forceDelete/forceDeleteRequestBuilder';
 import {DomainDnsRecordRequestBuilder} from '../serviceConfigurationRecords/item/domainDnsRecordRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from '../serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
 import {DomainDnsRecordRequestBuilder} from '../verificationDnsRecords/item/domainDnsRecordRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from '../verificationDnsRecords/verificationDnsRecordsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {VerifyRequestBuilder} from '../verify/verifyRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /domains/{domain-id}  */
 export class DomainRequestBuilder {
@@ -15,16 +15,13 @@ export class DomainRequestBuilder {
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get forceDelete(): ForceDeleteRequestBuilder {
+        return new ForceDeleteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.forceDelete(): Microsoft.graph.forceDeleteRequestBuilder {
-        return new Microsoft.graph.forceDeleteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.verify(): Microsoft.graph.verifyRequestBuilder {
-        return new Microsoft.graph.verifyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
@@ -32,6 +29,9 @@ export class DomainRequestBuilder {
     }
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get verify(): VerifyRequestBuilder {
+        return new VerifyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
      * Instantiates a new DomainRequestBuilder and sets the default values.
@@ -51,10 +51,10 @@ export class DomainRequestBuilder {
      * Delete entity from domains
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -66,13 +66,13 @@ export class DomainRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -85,11 +85,11 @@ export class DomainRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Domain | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Domain | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -104,7 +104,7 @@ export class DomainRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -121,7 +121,7 @@ export class DomainRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Domain | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<Domain>(requestInfo, Domain, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -135,13 +135,13 @@ export class DomainRequestBuilder {
      */
     public patch(body: Domain | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.domains.serviceConfigurationRecords collection
+     * Gets an item from the graphtypescriptv4.utilities.domains.serviceConfigurationRecords collection
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordRequestBuilder
      */
@@ -150,7 +150,7 @@ export class DomainRequestBuilder {
         return new DomainDnsRecordRequestBuilder(this.currentPath + this.pathSegment + "/serviceConfigurationRecords/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.domains.verificationDnsRecords collection
+     * Gets an item from the graphtypescriptv4.utilities.domains.verificationDnsRecords collection
      * @param id Unique identifier of the item
      * @returns a DomainDnsRecordRequestBuilder
      */

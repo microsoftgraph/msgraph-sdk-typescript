@@ -1,19 +1,25 @@
 import {WorkbookTable} from '../../../../../workbookTable';
+import {ClearFiltersRequestBuilder} from '../clearFilters/clearFiltersRequestBuilder';
 import {ColumnsRequestBuilder} from '../columns/columnsRequestBuilder';
 import {WorkbookTableColumnRequestBuilder} from '../columns/item/workbookTableColumnRequestBuilder';
-import {Microsoft.graph.clearFiltersRequestBuilder} from '../microsoft/graph/clearFilters/microsoft.graph.clearFiltersRequestBuilder';
-import {Microsoft.graph.convertToRangeRequestBuilder} from '../microsoft/graph/convertToRange/microsoft.graph.convertToRangeRequestBuilder';
-import {Microsoft.graph.reapplyFiltersRequestBuilder} from '../microsoft/graph/reapplyFilters/microsoft.graph.reapplyFiltersRequestBuilder';
+import {ConvertToRangeRequestBuilder} from '../convertToRange/convertToRangeRequestBuilder';
+import {ReapplyFiltersRequestBuilder} from '../reapplyFilters/reapplyFiltersRequestBuilder';
 import {WorkbookTableRowRequestBuilder} from '../rows/item/workbookTableRowRequestBuilder';
 import {RowsRequestBuilder} from '../rows/rowsRequestBuilder';
 import {SortRequestBuilder} from '../sort/sortRequestBuilder';
 import {WorksheetRequestBuilder} from '../worksheet/worksheetRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/tables/{workbookTable-id}  */
 export class WorkbookTableRequestBuilder {
+    public get clearFilters(): ClearFiltersRequestBuilder {
+        return new ClearFiltersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get convertToRange(): ConvertToRangeRequestBuilder {
+        return new ConvertToRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -21,17 +27,11 @@ export class WorkbookTableRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.clearFilters(): Microsoft.graph.clearFiltersRequestBuilder {
-        return new Microsoft.graph.clearFiltersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.convertToRange(): Microsoft.graph.convertToRangeRequestBuilder {
-        return new Microsoft.graph.convertToRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.reapplyFilters(): Microsoft.graph.reapplyFiltersRequestBuilder {
-        return new Microsoft.graph.reapplyFiltersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get reapplyFilters(): ReapplyFiltersRequestBuilder {
+        return new ReapplyFiltersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get rows(): RowsRequestBuilder {
         return new RowsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -42,7 +42,7 @@ export class WorkbookTableRequestBuilder {
         return new WorksheetRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.worksheets.tables.columns collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.worksheets.tables.columns collection
      * @param id Unique identifier of the item
      * @returns a WorkbookTableColumnRequestBuilder
      */
@@ -68,10 +68,10 @@ export class WorkbookTableRequestBuilder {
      * Collection of tables that are part of the worksheet. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -83,13 +83,13 @@ export class WorkbookTableRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -102,11 +102,11 @@ export class WorkbookTableRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: WorkbookTable | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: WorkbookTable | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -121,7 +121,7 @@ export class WorkbookTableRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -138,7 +138,7 @@ export class WorkbookTableRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookTable | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<WorkbookTable>(requestInfo, WorkbookTable, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -152,13 +152,13 @@ export class WorkbookTableRequestBuilder {
      */
     public patch(body: WorkbookTable | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.worksheets.tables.rows collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.worksheets.tables.rows collection
      * @param id Unique identifier of the item
      * @returns a WorkbookTableRowRequestBuilder
      */

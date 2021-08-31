@@ -3,13 +3,13 @@ import {AxesRequestBuilder} from '../axes/axesRequestBuilder';
 import {DataLabelsRequestBuilder} from '../dataLabels/dataLabelsRequestBuilder';
 import {FormatRequestBuilder} from '../format/formatRequestBuilder';
 import {LegendRequestBuilder} from '../legend/legendRequestBuilder';
-import {Microsoft.graph.setDataRequestBuilder} from '../microsoft/graph/setData/microsoft.graph.setDataRequestBuilder';
-import {Microsoft.graph.setPositionRequestBuilder} from '../microsoft/graph/setPosition/microsoft.graph.setPositionRequestBuilder';
 import {WorkbookChartSeriesRequestBuilder} from '../series/item/workbookChartSeriesRequestBuilder';
 import {SeriesRequestBuilder} from '../series/seriesRequestBuilder';
+import {SetDataRequestBuilder} from '../setData/setDataRequestBuilder';
+import {SetPositionRequestBuilder} from '../setPosition/setPositionRequestBuilder';
 import {TitleRequestBuilder} from '../title/titleRequestBuilder';
 import {WorksheetRequestBuilder} from '../worksheet/worksheetRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/worksheet/charts/{workbookChart-id}  */
 export class WorkbookChartRequestBuilder {
@@ -31,16 +31,16 @@ export class WorkbookChartRequestBuilder {
     public get legend(): LegendRequestBuilder {
         return new LegendRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get microsoft.graph.setData(): Microsoft.graph.setDataRequestBuilder {
-        return new Microsoft.graph.setDataRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.setPosition(): Microsoft.graph.setPositionRequestBuilder {
-        return new Microsoft.graph.setPositionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     public get series(): SeriesRequestBuilder {
         return new SeriesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get setData(): SetDataRequestBuilder {
+        return new SetDataRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get setPosition(): SetPositionRequestBuilder {
+        return new SetPositionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get title(): TitleRequestBuilder {
         return new TitleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -66,10 +66,10 @@ export class WorkbookChartRequestBuilder {
      * Returns collection of charts that are part of the worksheet. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -81,13 +81,13 @@ export class WorkbookChartRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -100,11 +100,11 @@ export class WorkbookChartRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: WorkbookChart | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: WorkbookChart | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -119,7 +119,7 @@ export class WorkbookChartRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -136,7 +136,7 @@ export class WorkbookChartRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookChart | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<WorkbookChart>(requestInfo, WorkbookChart, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -150,13 +150,13 @@ export class WorkbookChartRequestBuilder {
      */
     public patch(body: WorkbookChart | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.workbooks.workbook.tables.worksheet.charts.series collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables.worksheet.charts.series collection
      * @param id Unique identifier of the item
      * @returns a WorkbookChartSeriesRequestBuilder
      */

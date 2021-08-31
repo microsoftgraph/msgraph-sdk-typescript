@@ -1,63 +1,63 @@
+import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
+import {ApplyBottomItemsFilterRequestBuilder} from './applyBottomItemsFilter/applyBottomItemsFilterRequestBuilder';
+import {ApplyBottomPercentFilterRequestBuilder} from './applyBottomPercentFilter/applyBottomPercentFilterRequestBuilder';
+import {ApplyCellColorFilterRequestBuilder} from './applyCellColorFilter/applyCellColorFilterRequestBuilder';
+import {ApplyCustomFilterRequestBuilder} from './applyCustomFilter/applyCustomFilterRequestBuilder';
+import {ApplyDynamicFilterRequestBuilder} from './applyDynamicFilter/applyDynamicFilterRequestBuilder';
+import {ApplyFontColorFilterRequestBuilder} from './applyFontColorFilter/applyFontColorFilterRequestBuilder';
+import {ApplyIconFilterRequestBuilder} from './applyIconFilter/applyIconFilterRequestBuilder';
+import {ApplyTopItemsFilterRequestBuilder} from './applyTopItemsFilter/applyTopItemsFilterRequestBuilder';
+import {ApplyTopPercentFilterRequestBuilder} from './applyTopPercentFilter/applyTopPercentFilterRequestBuilder';
+import {ApplyValuesFilterRequestBuilder} from './applyValuesFilter/applyValuesFilterRequestBuilder';
+import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {Filter} from './filter';
-import {Microsoft.graph.applyRequestBuilder} from './microsoft/graph/apply/microsoft.graph.applyRequestBuilder';
-import {Microsoft.graph.applyBottomItemsFilterRequestBuilder} from './microsoft/graph/applyBottomItemsFilter/microsoft.graph.applyBottomItemsFilterRequestBuilder';
-import {Microsoft.graph.applyBottomPercentFilterRequestBuilder} from './microsoft/graph/applyBottomPercentFilter/microsoft.graph.applyBottomPercentFilterRequestBuilder';
-import {Microsoft.graph.applyCellColorFilterRequestBuilder} from './microsoft/graph/applyCellColorFilter/microsoft.graph.applyCellColorFilterRequestBuilder';
-import {Microsoft.graph.applyCustomFilterRequestBuilder} from './microsoft/graph/applyCustomFilter/microsoft.graph.applyCustomFilterRequestBuilder';
-import {Microsoft.graph.applyDynamicFilterRequestBuilder} from './microsoft/graph/applyDynamicFilter/microsoft.graph.applyDynamicFilterRequestBuilder';
-import {Microsoft.graph.applyFontColorFilterRequestBuilder} from './microsoft/graph/applyFontColorFilter/microsoft.graph.applyFontColorFilterRequestBuilder';
-import {Microsoft.graph.applyIconFilterRequestBuilder} from './microsoft/graph/applyIconFilter/microsoft.graph.applyIconFilterRequestBuilder';
-import {Microsoft.graph.applyTopItemsFilterRequestBuilder} from './microsoft/graph/applyTopItemsFilter/microsoft.graph.applyTopItemsFilterRequestBuilder';
-import {Microsoft.graph.applyTopPercentFilterRequestBuilder} from './microsoft/graph/applyTopPercentFilter/microsoft.graph.applyTopPercentFilterRequestBuilder';
-import {Microsoft.graph.applyValuesFilterRequestBuilder} from './microsoft/graph/applyValuesFilter/microsoft.graph.applyValuesFilterRequestBuilder';
-import {Microsoft.graph.clearRequestBuilder} from './microsoft/graph/clear/microsoft.graph.clearRequestBuilder';
 import {WorkbookFilter} from './workbookFilter';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/columns/{workbookTableColumn-id}/filter  */
 export class FilterRequestBuilder {
+    public get apply(): ApplyRequestBuilder {
+        return new ApplyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyBottomItemsFilter(): ApplyBottomItemsFilterRequestBuilder {
+        return new ApplyBottomItemsFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyBottomPercentFilter(): ApplyBottomPercentFilterRequestBuilder {
+        return new ApplyBottomPercentFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyCellColorFilter(): ApplyCellColorFilterRequestBuilder {
+        return new ApplyCellColorFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyCustomFilter(): ApplyCustomFilterRequestBuilder {
+        return new ApplyCustomFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyDynamicFilter(): ApplyDynamicFilterRequestBuilder {
+        return new ApplyDynamicFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyFontColorFilter(): ApplyFontColorFilterRequestBuilder {
+        return new ApplyFontColorFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyIconFilter(): ApplyIconFilterRequestBuilder {
+        return new ApplyIconFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyTopItemsFilter(): ApplyTopItemsFilterRequestBuilder {
+        return new ApplyTopItemsFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyTopPercentFilter(): ApplyTopPercentFilterRequestBuilder {
+        return new ApplyTopPercentFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get applyValuesFilter(): ApplyValuesFilterRequestBuilder {
+        return new ApplyValuesFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get clear(): ClearRequestBuilder {
+        return new ClearRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.apply(): Microsoft.graph.applyRequestBuilder {
-        return new Microsoft.graph.applyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyBottomItemsFilter(): Microsoft.graph.applyBottomItemsFilterRequestBuilder {
-        return new Microsoft.graph.applyBottomItemsFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyBottomPercentFilter(): Microsoft.graph.applyBottomPercentFilterRequestBuilder {
-        return new Microsoft.graph.applyBottomPercentFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyCellColorFilter(): Microsoft.graph.applyCellColorFilterRequestBuilder {
-        return new Microsoft.graph.applyCellColorFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyCustomFilter(): Microsoft.graph.applyCustomFilterRequestBuilder {
-        return new Microsoft.graph.applyCustomFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyDynamicFilter(): Microsoft.graph.applyDynamicFilterRequestBuilder {
-        return new Microsoft.graph.applyDynamicFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyFontColorFilter(): Microsoft.graph.applyFontColorFilterRequestBuilder {
-        return new Microsoft.graph.applyFontColorFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyIconFilter(): Microsoft.graph.applyIconFilterRequestBuilder {
-        return new Microsoft.graph.applyIconFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyTopItemsFilter(): Microsoft.graph.applyTopItemsFilterRequestBuilder {
-        return new Microsoft.graph.applyTopItemsFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyTopPercentFilter(): Microsoft.graph.applyTopPercentFilterRequestBuilder {
-        return new Microsoft.graph.applyTopPercentFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.applyValuesFilter(): Microsoft.graph.applyValuesFilterRequestBuilder {
-        return new Microsoft.graph.applyValuesFilterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.clear(): Microsoft.graph.clearRequestBuilder {
-        return new Microsoft.graph.clearRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
@@ -78,10 +78,10 @@ export class FilterRequestBuilder {
      * Retrieve the filter applied to the column. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -93,13 +93,13 @@ export class FilterRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -112,11 +112,11 @@ export class FilterRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Filter | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Filter | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -131,7 +131,7 @@ export class FilterRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -148,7 +148,7 @@ export class FilterRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFilter | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<WorkbookFilter>(requestInfo, WorkbookFilter, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -162,7 +162,7 @@ export class FilterRequestBuilder {
      */
     public patch(body: Filter | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));

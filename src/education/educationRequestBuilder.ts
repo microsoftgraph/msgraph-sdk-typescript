@@ -7,7 +7,7 @@ import {EducationSchoolRequestBuilder} from './schools/item/educationSchoolReque
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {EducationUserRequestBuilder} from './users/item/educationUserRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education  */
 export class EducationRequestBuilder {
@@ -32,7 +32,7 @@ export class EducationRequestBuilder {
         return new UsersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.education.classes collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes collection
      * @param id Unique identifier of the item
      * @returns a EducationClassRequestBuilder
      */
@@ -59,13 +59,13 @@ export class EducationRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -78,11 +78,11 @@ export class EducationRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Education | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Education | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -102,7 +102,7 @@ export class EducationRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<EducationRoot>(requestInfo, EducationRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -116,13 +116,13 @@ export class EducationRequestBuilder {
      */
     public patch(body: Education | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.education.schools collection
+     * Gets an item from the graphtypescriptv4.utilities.education.schools collection
      * @param id Unique identifier of the item
      * @returns a EducationSchoolRequestBuilder
      */
@@ -131,7 +131,7 @@ export class EducationRequestBuilder {
         return new EducationSchoolRequestBuilder(this.currentPath + this.pathSegment + "/schools/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.education.users collection
+     * Gets an item from the graphtypescriptv4.utilities.education.users collection
      * @param id Unique identifier of the item
      * @returns a EducationUserRequestBuilder
      */

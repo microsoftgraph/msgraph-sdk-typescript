@@ -1,4 +1,5 @@
 import {DeviceCompliancePolicy} from '../../deviceCompliancePolicy';
+import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
 import {DeviceCompliancePolicyAssignmentRequestBuilder} from '../assignments/item/deviceCompliancePolicyAssignmentRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilder} from '../deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
@@ -6,17 +7,19 @@ import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSumm
 import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
 import {DeviceComplianceDeviceStatusRequestBuilder} from '../deviceStatuses/item/deviceComplianceDeviceStatusRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from '../deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {Microsoft.graph.assignRequestBuilder} from '../microsoft/graph/assign/microsoft.graph.assignRequestBuilder';
-import {Microsoft.graph.scheduleActionsForRulesRequestBuilder} from '../microsoft/graph/scheduleActionsForRules/microsoft.graph.scheduleActionsForRulesRequestBuilder';
+import {ScheduleActionsForRulesRequestBuilder} from '../scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
 import {DeviceComplianceScheduledActionForRuleRequestBuilder} from '../scheduledActionsForRule/item/deviceComplianceScheduledActionForRuleRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilder} from '../scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
 import {DeviceComplianceUserStatusRequestBuilder} from '../userStatuses/item/deviceComplianceUserStatusRequestBuilder';
 import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from '../userStatusOverview/userStatusOverviewRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy-id}  */
 export class DeviceCompliancePolicyRequestBuilder {
+    public get assign(): AssignRequestBuilder {
+        return new AssignRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -35,14 +38,11 @@ export class DeviceCompliancePolicyRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get microsoft.graph.assign(): Microsoft.graph.assignRequestBuilder {
-        return new Microsoft.graph.assignRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.scheduleActionsForRules(): Microsoft.graph.scheduleActionsForRulesRequestBuilder {
-        return new Microsoft.graph.scheduleActionsForRulesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
+        return new ScheduleActionsForRulesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get scheduledActionsForRule(): ScheduledActionsForRuleRequestBuilder {
         return new ScheduledActionsForRuleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -53,7 +53,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.assignments collection
      * @param id Unique identifier of the item
      * @returns a DeviceCompliancePolicyAssignmentRequestBuilder
      */
@@ -79,10 +79,10 @@ export class DeviceCompliancePolicyRequestBuilder {
      * The device compliance policies.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -94,13 +94,13 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -113,11 +113,11 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: DeviceCompliancePolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: DeviceCompliancePolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -132,13 +132,13 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.deviceSettingStateSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.deviceSettingStateSummaries collection
      * @param id Unique identifier of the item
      * @returns a SettingStateDeviceSummaryRequestBuilder
      */
@@ -147,7 +147,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new SettingStateDeviceSummaryRequestBuilder(this.currentPath + this.pathSegment + "/deviceSettingStateSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.deviceStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.deviceStatuses collection
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceDeviceStatusRequestBuilder
      */
@@ -167,7 +167,7 @@ export class DeviceCompliancePolicyRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicy | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<DeviceCompliancePolicy>(requestInfo, DeviceCompliancePolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -181,13 +181,13 @@ export class DeviceCompliancePolicyRequestBuilder {
      */
     public patch(body: DeviceCompliancePolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.scheduledActionsForRule collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.scheduledActionsForRule collection
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceScheduledActionForRuleRequestBuilder
      */
@@ -196,7 +196,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new DeviceComplianceScheduledActionForRuleRequestBuilder(this.currentPath + this.pathSegment + "/scheduledActionsForRule/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.deviceManagement.deviceCompliancePolicies.userStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.userStatuses collection
      * @param id Unique identifier of the item
      * @returns a DeviceComplianceUserStatusRequestBuilder
      */

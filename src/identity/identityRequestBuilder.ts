@@ -9,7 +9,7 @@ import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvi
 import {IdentityProviderBaseRequestBuilder} from './identityProviders/item/identityProviderBaseRequestBuilder';
 import {IdentityUserFlowAttributeRequestBuilder} from './userFlowAttributes/item/identityUserFlowAttributeRequestBuilder';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identity  */
 export class IdentityRequestBuilder {
@@ -37,7 +37,7 @@ export class IdentityRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.identity.apiConnectors collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.apiConnectors collection
      * @param id Unique identifier of the item
      * @returns a IdentityApiConnectorRequestBuilder
      */
@@ -46,7 +46,7 @@ export class IdentityRequestBuilder {
         return new IdentityApiConnectorRequestBuilder(this.currentPath + this.pathSegment + "/apiConnectors/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.identity.b2xUserFlows collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows collection
      * @param id Unique identifier of the item
      * @returns a B2xIdentityUserFlowRequestBuilder
      */
@@ -73,13 +73,13 @@ export class IdentityRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -92,11 +92,11 @@ export class IdentityRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: Identity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: Identity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -116,13 +116,13 @@ export class IdentityRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityContainer | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<IdentityContainer>(requestInfo, IdentityContainer, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.identity.identityProviders collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.identityProviders collection
      * @param id Unique identifier of the item
      * @returns a IdentityProviderBaseRequestBuilder
      */
@@ -139,13 +139,13 @@ export class IdentityRequestBuilder {
      */
     public patch(body: Identity | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.identity.userFlowAttributes collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.userFlowAttributes collection
      * @param id Unique identifier of the item
      * @returns a IdentityUserFlowAttributeRequestBuilder
      */

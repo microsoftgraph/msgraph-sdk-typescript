@@ -1,40 +1,52 @@
 import {ServicePrincipal} from '../../servicePrincipal';
+import {AddKeyRequestBuilder} from '../addKey/addKeyRequestBuilder';
+import {AddPasswordRequestBuilder} from '../addPassword/addPasswordRequestBuilder';
 import {AppRoleAssignedToRequestBuilder} from '../appRoleAssignedTo/appRoleAssignedToRequestBuilder';
 import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignedTo/item/appRoleAssignmentRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from '../appRoleAssignments/appRoleAssignmentsRequestBuilder';
 import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/appRoleAssignmentRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from '../claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
 import {CreatedObjectsRequestBuilder} from '../createdObjects/createdObjectsRequestBuilder';
 import {DelegatedPermissionClassificationsRequestBuilder} from '../delegatedPermissionClassifications/delegatedPermissionClassificationsRequestBuilder';
 import {DelegatedPermissionClassificationRequestBuilder} from '../delegatedPermissionClassifications/item/delegatedPermissionClassificationRequestBuilder';
 import {EndpointsRequestBuilder} from '../endpoints/endpointsRequestBuilder';
 import {EndpointRequestBuilder} from '../endpoints/item/endpointRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from '../homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
 import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
-import {Microsoft.graph.addKeyRequestBuilder} from '../microsoft/graph/addKey/microsoft.graph.addKeyRequestBuilder';
-import {Microsoft.graph.addPasswordRequestBuilder} from '../microsoft/graph/addPassword/microsoft.graph.addPasswordRequestBuilder';
-import {Microsoft.graph.checkMemberGroupsRequestBuilder} from '../microsoft/graph/checkMemberGroups/microsoft.graph.checkMemberGroupsRequestBuilder';
-import {Microsoft.graph.checkMemberObjectsRequestBuilder} from '../microsoft/graph/checkMemberObjects/microsoft.graph.checkMemberObjectsRequestBuilder';
-import {Microsoft.graph.getMemberGroupsRequestBuilder} from '../microsoft/graph/getMemberGroups/microsoft.graph.getMemberGroupsRequestBuilder';
-import {Microsoft.graph.getMemberObjectsRequestBuilder} from '../microsoft/graph/getMemberObjects/microsoft.graph.getMemberObjectsRequestBuilder';
-import {Microsoft.graph.removeKeyRequestBuilder} from '../microsoft/graph/removeKey/microsoft.graph.removeKeyRequestBuilder';
-import {Microsoft.graph.removePasswordRequestBuilder} from '../microsoft/graph/removePassword/microsoft.graph.removePasswordRequestBuilder';
-import {Microsoft.graph.restoreRequestBuilder} from '../microsoft/graph/restore/microsoft.graph.restoreRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from '../oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {OwnedObjectsRequestBuilder} from '../ownedObjects/ownedObjectsRequestBuilder';
 import {OwnersRequestBuilder} from '../owners/ownersRequestBuilder';
+import {RemoveKeyRequestBuilder} from '../removeKey/removeKeyRequestBuilder';
+import {RemovePasswordRequestBuilder} from '../removePassword/removePasswordRequestBuilder';
+import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from '../tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from '../tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';
-import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}  */
 export class ServicePrincipalRequestBuilder {
+    public get addKey(): AddKeyRequestBuilder {
+        return new AddKeyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get addPassword(): AddPasswordRequestBuilder {
+        return new AddPasswordRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
+        return new CheckMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
+        return new CheckMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -50,6 +62,12 @@ export class ServicePrincipalRequestBuilder {
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
+    public get getMemberGroups(): GetMemberGroupsRequestBuilder {
+        return new GetMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get getMemberObjects(): GetMemberObjectsRequestBuilder {
+        return new GetMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -59,33 +77,6 @@ export class ServicePrincipalRequestBuilder {
     private readonly isRawUrl: boolean;
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.addKey(): Microsoft.graph.addKeyRequestBuilder {
-        return new Microsoft.graph.addKeyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.addPassword(): Microsoft.graph.addPasswordRequestBuilder {
-        return new Microsoft.graph.addPasswordRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkMemberGroups(): Microsoft.graph.checkMemberGroupsRequestBuilder {
-        return new Microsoft.graph.checkMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.checkMemberObjects(): Microsoft.graph.checkMemberObjectsRequestBuilder {
-        return new Microsoft.graph.checkMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.getMemberGroups(): Microsoft.graph.getMemberGroupsRequestBuilder {
-        return new Microsoft.graph.getMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.getMemberObjects(): Microsoft.graph.getMemberObjectsRequestBuilder {
-        return new Microsoft.graph.getMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.removeKey(): Microsoft.graph.removeKeyRequestBuilder {
-        return new Microsoft.graph.removeKeyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.removePassword(): Microsoft.graph.removePasswordRequestBuilder {
-        return new Microsoft.graph.removePasswordRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get microsoft.graph.restore(): Microsoft.graph.restoreRequestBuilder {
-        return new Microsoft.graph.restoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -98,6 +89,15 @@ export class ServicePrincipalRequestBuilder {
     }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    public get removeKey(): RemoveKeyRequestBuilder {
+        return new RemoveKeyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get removePassword(): RemovePasswordRequestBuilder {
+        return new RemovePasswordRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    public get restore(): RestoreRequestBuilder {
+        return new RestoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
@@ -108,7 +108,7 @@ export class ServicePrincipalRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the MicrosoftGraph.servicePrincipals.appRoleAssignedTo collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.appRoleAssignedTo collection
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentRequestBuilder
      */
@@ -117,7 +117,7 @@ export class ServicePrincipalRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignedTo/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the MicrosoftGraph.servicePrincipals.appRoleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.appRoleAssignments collection
      * @param id Unique identifier of the item
      * @returns a AppRoleAssignmentRequestBuilder
      */
@@ -143,10 +143,10 @@ export class ServicePrincipalRequestBuilder {
      * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -158,13 +158,13 @@ export class ServicePrincipalRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createGetRequestInfo(q?: {
+    public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
-        const requestInfo = new RequestInfo();
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -177,11 +177,11 @@ export class ServicePrincipalRequestBuilder {
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInfo
+     * @returns a RequestInformation
      */
-    public createPatchRequestInfo(body: ServicePrincipal | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+    public createPatchRequestInformation(body: ServicePrincipal | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInfo();
+        const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
@@ -190,7 +190,7 @@ export class ServicePrincipalRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the MicrosoftGraph.servicePrincipals.delegatedPermissionClassifications collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.delegatedPermissionClassifications collection
      * @param id Unique identifier of the item
      * @returns a DelegatedPermissionClassificationRequestBuilder
      */
@@ -205,13 +205,13 @@ export class ServicePrincipalRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
     public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInfo(
+        const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the MicrosoftGraph.servicePrincipals.endpoints collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.endpoints collection
      * @param id Unique identifier of the item
      * @returns a EndpointRequestBuilder
      */
@@ -231,7 +231,7 @@ export class ServicePrincipalRequestBuilder {
                     expand?: string[],
                     select?: string[]
                     } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
-        const requestInfo = this.createGetRequestInfo(
+        const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
         return this.httpCore?.sendAsync<ServicePrincipal>(requestInfo, ServicePrincipal, responseHandler) ?? Promise.reject(new Error('http core is null'));
@@ -245,7 +245,7 @@ export class ServicePrincipalRequestBuilder {
      */
     public patch(body: ServicePrincipal | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInfo(
+        const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
