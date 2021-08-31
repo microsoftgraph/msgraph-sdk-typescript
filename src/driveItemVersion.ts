@@ -1,0 +1,62 @@
+import {BaseItemVersion} from './baseItemVersion';
+import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+
+export class DriveItemVersion extends BaseItemVersion implements Parsable {
+    private _content?: Binary | undefined;
+    /** Indicates the size of the content stream for this version of the item.  */
+    private _size?: Int64 | undefined;
+    /**
+     * Instantiates a new driveItemVersion and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
+     * Gets the content property value. 
+     * @returns a binary
+     */
+    public get content() {
+        return this._content;
+    };
+    /**
+     * Gets the size property value. Indicates the size of the content stream for this version of the item.
+     * @returns a int64
+     */
+    public get size() {
+        return this._size;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["content", (o, n) => { (o as unknown as DriveItemVersion).content = n.getObjectValue<Binary>(Binary); }],
+            ["size", (o, n) => { (o as unknown as DriveItemVersion).size = n.getObjectValue<Int64>(Int64); }],
+        ]);
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeObjectValue<Binary>("content", this.content);
+        writer.writeObjectValue<Int64>("size", this.size);
+    };
+    /**
+     * Sets the content property value. 
+     * @param value Value to set for the content property.
+     */
+    public set content(value: Binary | undefined) {
+        this._content = value;
+    };
+    /**
+     * Sets the size property value. Indicates the size of the content stream for this version of the item.
+     * @param value Value to set for the size property.
+     */
+    public set size(value: Int64 | undefined) {
+        this._size = value;
+    };
+}

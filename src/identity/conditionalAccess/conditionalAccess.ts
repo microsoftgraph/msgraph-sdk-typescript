@@ -1,0 +1,63 @@
+import {ConditionalAccessPolicy} from '../../conditionalAccessPolicy';
+import {Entity} from '../../entity';
+import {NamedLocation} from '../namedLocation';
+import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+
+export class ConditionalAccess extends Entity implements Parsable {
+    private _namedLocations?: NamedLocation[] | undefined;
+    private _policies?: ConditionalAccessPolicy[] | undefined;
+    /**
+     * Instantiates a new ConditionalAccess and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
+     * Gets the namedLocations property value. 
+     * @returns a namedLocation
+     */
+    public get namedLocations() {
+        return this._namedLocations;
+    };
+    /**
+     * Gets the policies property value. 
+     * @returns a conditionalAccessPolicy
+     */
+    public get policies() {
+        return this._policies;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["namedLocations", (o, n) => { (o as unknown as ConditionalAccess).namedLocations = n.getCollectionOfObjectValues<NamedLocation>(NamedLocation); }],
+            ["policies", (o, n) => { (o as unknown as ConditionalAccess).policies = n.getCollectionOfObjectValues<ConditionalAccessPolicy>(ConditionalAccessPolicy); }],
+        ]);
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeCollectionOfObjectValues<NamedLocation>("namedLocations", this.namedLocations);
+        writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", this.policies);
+    };
+    /**
+     * Sets the namedLocations property value. 
+     * @param value Value to set for the namedLocations property.
+     */
+    public set namedLocations(value: NamedLocation[] | undefined) {
+        this._namedLocations = value;
+    };
+    /**
+     * Sets the policies property value. 
+     * @param value Value to set for the policies property.
+     */
+    public set policies(value: ConditionalAccessPolicy[] | undefined) {
+        this._policies = value;
+    };
+}

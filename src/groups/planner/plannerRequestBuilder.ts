@@ -1,0 +1,136 @@
+import {Planner} from '../../planner/planner';
+import {PlannerGroup} from './plannerGroup';
+import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
+import {PlansRequestBuilder} from './plans/plansRequestBuilder';
+import {HttpCore, HttpMethod, RequestInfo, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+
+/** Builds and executes requests for operations under /groups/{group-id}/planner  */
+export class PlannerRequestBuilder {
+    /** Current path for the request  */
+    private readonly currentPath: string;
+    /** The http core service to use to execute the requests.  */
+    private readonly httpCore: HttpCore;
+    /** Whether the current path is a raw URL  */
+    private readonly isRawUrl: boolean;
+    /** Path segment to use to build the URL for the current request builder  */
+    private readonly pathSegment: string;
+    public get plans(): PlansRequestBuilder {
+        return new PlansRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    /**
+     * Instantiates a new PlannerRequestBuilder and sets the default values.
+     * @param currentPath Current path for the request
+     * @param httpCore The http core service to use to execute the requests.
+     * @param isRawUrl Whether the current path is a raw URL
+     */
+    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+        if(!currentPath) throw new Error("currentPath cannot be undefined");
+        if(!httpCore) throw new Error("httpCore cannot be undefined");
+        this.pathSegment = "/planner";
+        this.httpCore = httpCore;
+        this.currentPath = currentPath;
+        this.isRawUrl = isRawUrl;
+    };
+    /**
+     * Selective Planner services available to the group. Read-only. Nullable.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @returns a RequestInfo
+     */
+    public createDeleteRequestInfo(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+        const requestInfo = new RequestInfo();
+        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        h && requestInfo.setHeadersFromRawObject(h);
+        o && requestInfo.addMiddlewareOptions(...o);
+        return requestInfo;
+    };
+    /**
+     * Selective Planner services available to the group. Read-only. Nullable.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param q Request query parameters
+     * @returns a RequestInfo
+     */
+    public createGetRequestInfo(q?: {
+                    expand?: string[],
+                    select?: string[]
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+        const requestInfo = new RequestInfo();
+        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.httpMethod = HttpMethod.GET;
+        h && requestInfo.setHeadersFromRawObject(h);
+        q && requestInfo.setQueryStringParametersFromRawObject(q);
+        o && requestInfo.addMiddlewareOptions(...o);
+        return requestInfo;
+    };
+    /**
+     * Selective Planner services available to the group. Read-only. Nullable.
+     * @param body 
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @returns a RequestInfo
+     */
+    public createPatchRequestInfo(body: Planner | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInfo {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInfo();
+        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
+        o && requestInfo.addMiddlewareOptions(...o);
+        return requestInfo;
+    };
+    /**
+     * Selective Planner services available to the group. Read-only. Nullable.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     */
+    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        const requestInfo = this.createDeleteRequestInfo(
+            h, o
+        );
+        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Selective Planner services available to the group. Read-only. Nullable.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param q Request query parameters
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of PlannerGroup
+     */
+    public get(q?: {
+                    expand?: string[],
+                    select?: string[]
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerGroup | undefined> {
+        const requestInfo = this.createGetRequestInfo(
+            q, h, o
+        );
+        return this.httpCore?.sendAsync<PlannerGroup>(requestInfo, PlannerGroup, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Selective Planner services available to the group. Read-only. Nullable.
+     * @param body 
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     */
+    public patch(body: Planner | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = this.createPatchRequestInfo(
+            body, h, o
+        );
+        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the MicrosoftGraph.groups.planner.plans collection
+     * @param id Unique identifier of the item
+     * @returns a PlannerPlanRequestBuilder
+     */
+    public plansById(id: String) : PlannerPlanRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        return new PlannerPlanRequestBuilder(this.currentPath + this.pathSegment + "/plans/" + id, this.httpCore, false);
+    };
+}

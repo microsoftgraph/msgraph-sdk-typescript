@@ -1,0 +1,25 @@
+{
+  "name": "msgraph-sdk-typescript",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "dependencies": {
+    "tslib": "^2.3.1",
+    "typescript": "^4.4.2"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "build": "tsc"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microsoftgraph/msgraph-sdk-typescript.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/microsoftgraph/msgraph-sdk-typescript/issues"
+  },
+  "homepage": "https://github.com/microsoftgraph/msgraph-sdk-typescript#readme"
+}

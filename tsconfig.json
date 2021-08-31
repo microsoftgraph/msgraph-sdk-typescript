@@ -1,0 +1,15 @@
+{
+	"compilerOptions": {
+		"module": "CommonJS",
+		"esModuleInterop": true,
+		"target": "es5",
+        "moduleResolution": "node",
+        "downlevelIteration": true,
+        "allowSyntheticDefaultImports": true,
+        "outDir": "lib"
+	},
+	"include": ["src/"],
+	"exclude": ["node_modules"],
+	"lib": ["es2020"]
+}
+ 
