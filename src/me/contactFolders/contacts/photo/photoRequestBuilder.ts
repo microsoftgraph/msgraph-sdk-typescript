@@ -1,6 +1,6 @@
+import {Photo} from '../../../../groups/photo/photo';
 import {ProfilePhoto} from '../../../../profilePhoto';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {Photo} from './photo';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/contactFolders/{contactFolder-id}/contacts/{contact-id}/photo  */

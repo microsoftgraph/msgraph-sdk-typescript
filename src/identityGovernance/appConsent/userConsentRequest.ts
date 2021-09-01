@@ -1,4 +1,4 @@
-import {Approval} from './appConsentRequests/userConsentRequests/approval/approval';
+import {Approval} from '../approval';
 import {Request} from './request';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

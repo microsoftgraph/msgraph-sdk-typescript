@@ -1,6 +1,6 @@
-import {ParentNotebook} from '../../../../../me/onenote/notebooks/sectionGroups/parentNotebook/parentNotebook';
 import {Notebook} from '../../../../../notebook';
 import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuilder';
+import {ParentNotebook} from './parentNotebook';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /sites/{site-id}/onenote/notebooks/{notebook-id}/sectionGroups/{sectionGroup-id}/parentNotebook  */

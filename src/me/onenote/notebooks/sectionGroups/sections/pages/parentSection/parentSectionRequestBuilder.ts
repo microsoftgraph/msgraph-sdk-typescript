@@ -1,7 +1,7 @@
 import {OnenoteSection} from '../../../../../../../onenoteSection';
+import {ParentSection} from '../../../../../../../sites/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
 import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
 import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
-import {ParentSection} from './parentSection';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/notebooks/{notebook-id}/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id}/parentSection  */

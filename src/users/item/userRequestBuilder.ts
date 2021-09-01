@@ -1,4 +1,4 @@
-import {User} from '../../me/user';
+import {User} from '../../invitations/invitedUser/user';
 import {ActivitiesRequestBuilder} from '../activities/activitiesRequestBuilder';
 import {UserActivityRequestBuilder} from '../activities/item/userActivityRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from '../agreementAcceptances/agreementAcceptancesRequestBuilder';

@@ -1,5 +1,5 @@
 import {SectionGroup} from '../../../../../../../sectionGroup';
-import {ParentSectionGroup} from '../../../../../notebooks/sectionGroups/parentSectionGroup/parentSectionGroup';
+import {ParentSectionGroup} from '../../../../../../../sites/onenote/notebooks/sectionGroups/parentSectionGroup/parentSectionGroup';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/pages/{onenotePage-id}/parentSection/parentNotebook/sectionGroups/{sectionGroup-id}/parentSectionGroup  */

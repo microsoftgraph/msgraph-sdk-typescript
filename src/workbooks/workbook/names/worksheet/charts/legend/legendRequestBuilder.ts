@@ -1,6 +1,6 @@
-import {Legend} from '../../../../worksheets/charts/legend/legend';
-import {WorkbookChartLegend} from '../../../../worksheets/charts/legend/workbookChartLegend';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
+import {Legend} from './legend';
+import {WorkbookChartLegend} from './workbookChartLegend';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/legend  */

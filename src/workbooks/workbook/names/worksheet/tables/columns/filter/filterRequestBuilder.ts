@@ -1,5 +1,3 @@
-import {Filter} from '../../../../../tables/columns/filter/filter';
-import {WorkbookFilter} from '../../../../../tables/columns/filter/workbookFilter';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ApplyBottomItemsFilterRequestBuilder} from './applyBottomItemsFilter/applyBottomItemsFilterRequestBuilder';
 import {ApplyBottomPercentFilterRequestBuilder} from './applyBottomPercentFilter/applyBottomPercentFilterRequestBuilder';
@@ -12,6 +10,8 @@ import {ApplyTopItemsFilterRequestBuilder} from './applyTopItemsFilter/applyTopI
 import {ApplyTopPercentFilterRequestBuilder} from './applyTopPercentFilter/applyTopPercentFilterRequestBuilder';
 import {ApplyValuesFilterRequestBuilder} from './applyValuesFilter/applyValuesFilterRequestBuilder';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
+import {Filter} from './filter';
+import {WorkbookFilter} from './workbookFilter';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/columns/{workbookTableColumn-id}/filter  */

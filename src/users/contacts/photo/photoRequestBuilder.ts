@@ -1,4 +1,4 @@
-import {Photo} from '../../../me/contactFolders/contacts/photo/photo';
+import {Photo} from '../../../groups/photo/photo';
 import {ProfilePhoto} from '../../../profilePhoto';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

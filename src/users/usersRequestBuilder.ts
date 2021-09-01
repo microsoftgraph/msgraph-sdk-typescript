@@ -1,4 +1,4 @@
-import {User} from '../me/user';
+import {User} from '../invitations/invitedUser/user';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {UsersResponse} from './usersResponse';

@@ -1,4 +1,4 @@
-import {Approval} from '../../appConsent/appConsentRequests/userConsentRequests/approval/approval';
+import {Approval} from '../../approval';
 import {AccessPackageAssignmentApprovalsResponse} from './accessPackageAssignmentApprovalsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

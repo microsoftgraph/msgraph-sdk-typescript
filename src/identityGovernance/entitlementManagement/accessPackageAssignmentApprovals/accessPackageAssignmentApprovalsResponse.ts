@@ -1,4 +1,4 @@
-import {Approval} from '../../appConsent/appConsentRequests/userConsentRequests/approval/approval';
+import {Approval} from '../../approval';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentApprovalsResponse implements Parsable {

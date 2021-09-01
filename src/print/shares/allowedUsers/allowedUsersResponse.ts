@@ -1,4 +1,4 @@
-import {User} from '../../../me/user';
+import {User} from '../../../invitations/invitedUser/user';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AllowedUsersResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {Calendar} from '../../groups/calendar/calendar';
+import {Calendar} from '../../calendar';
 import {CalendarsResponse} from './calendarsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

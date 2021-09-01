@@ -1,4 +1,4 @@
-import {Search} from '../drive/search(q='{q}')/search';
+import {Search} from '../drive/search/search';
 import {QueryRequestBuilder} from './query/queryRequestBuilder';
 import {SearchEntity} from './searchEntity';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
