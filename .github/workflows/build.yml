@@ -28,5 +28,6 @@ jobs:
         scope: '@microsoft'
         node-version: ${{ matrix.node-version }}
         cache: 'npm'
+        token: ${{ secrets.KIOTA_FEED_TOKEN }}
     - run: npm ci
     - run: npm run build
