@@ -7,7 +7,7 @@ export class OfferShiftRequestsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OfferShiftRequest[] | undefined;
     /**
-     * Instantiates a new OfferShiftRequestsResponse and sets the default values.
+     * Instantiates a new offerShiftRequestsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

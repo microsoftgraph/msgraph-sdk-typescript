@@ -44,7 +44,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.connectors collection
      * @param id Unique identifier of the item
-     * @returns a PrintConnectorRequestBuilder
+     * @returns a printConnectorRequestBuilder
      */
     public connectorsById(id: String) : PrintConnectorRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -120,7 +120,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.operations collection
      * @param id Unique identifier of the item
-     * @returns a PrintOperationRequestBuilder
+     * @returns a printOperationRequestBuilder
      */
     public operationsById(id: String) : PrintOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -143,7 +143,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.printers collection
      * @param id Unique identifier of the item
-     * @returns a PrinterRequestBuilder
+     * @returns a printerRequestBuilder
      */
     public printersById(id: String) : PrinterRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -152,7 +152,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.services collection
      * @param id Unique identifier of the item
-     * @returns a PrintServiceRequestBuilder
+     * @returns a printServiceRequestBuilder
      */
     public servicesById(id: String) : PrintServiceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -161,7 +161,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.shares collection
      * @param id Unique identifier of the item
-     * @returns a PrinterShareRequestBuilder
+     * @returns a printerShareRequestBuilder
      */
     public sharesById(id: String) : PrinterShareRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -170,7 +170,7 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions collection
      * @param id Unique identifier of the item
-     * @returns a PrintTaskDefinitionRequestBuilder
+     * @returns a printTaskDefinitionRequestBuilder
      */
     public taskDefinitionsById(id: String) : PrintTaskDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

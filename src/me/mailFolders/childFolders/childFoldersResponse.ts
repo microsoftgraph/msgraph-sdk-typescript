@@ -7,7 +7,7 @@ export class ChildFoldersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MailFolder[] | undefined;
     /**
-     * Instantiates a new ChildFoldersResponse and sets the default values.
+     * Instantiates a new childFoldersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

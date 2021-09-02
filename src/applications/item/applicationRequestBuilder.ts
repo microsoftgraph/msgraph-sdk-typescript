@@ -155,7 +155,7 @@ export class ApplicationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.applications.extensionProperties collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionPropertyRequestBuilder
+     * @returns a extensionPropertyRequestBuilder
      */
     public extensionPropertiesById(id: String) : ExtensionPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

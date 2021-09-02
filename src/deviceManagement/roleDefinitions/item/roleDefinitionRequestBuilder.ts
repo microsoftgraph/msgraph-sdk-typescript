@@ -126,7 +126,7 @@ export class RoleDefinitionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions.roleAssignments collection
      * @param id Unique identifier of the item
-     * @returns a RoleAssignmentRequestBuilder
+     * @returns a roleAssignmentRequestBuilder
      */
     public roleAssignmentsById(id: String) : RoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

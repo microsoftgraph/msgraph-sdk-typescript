@@ -7,7 +7,7 @@ export class IosUpdateStatusesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: IosUpdateDeviceStatus[] | undefined;
     /**
-     * Instantiates a new IosUpdateStatusesResponse and sets the default values.
+     * Instantiates a new iosUpdateStatusesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

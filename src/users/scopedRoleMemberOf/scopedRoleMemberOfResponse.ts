@@ -7,7 +7,7 @@ export class ScopedRoleMemberOfResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ScopedRoleMembership[] | undefined;
     /**
-     * Instantiates a new ScopedRoleMemberOfResponse and sets the default values.
+     * Instantiates a new scopedRoleMemberOfResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

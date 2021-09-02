@@ -7,7 +7,7 @@ export class TimesOffResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TimeOff[] | undefined;
     /**
-     * Instantiates a new TimesOffResponse and sets the default values.
+     * Instantiates a new timesOffResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

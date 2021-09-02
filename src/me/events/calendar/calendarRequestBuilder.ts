@@ -1,4 +1,4 @@
-import {Calendar} from '../../../calendar';
+import {Calendar} from '../../../groups/calendar/calendar';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionRequestBuilder} from './calendarPermissions/item/calendarPermissionRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
@@ -41,9 +41,18 @@ export class CalendarRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
+     * Builds and executes requests for operations under /me/events/{event-id}/calendar/microsoft.graph.allowedCalendarSharingRoles(User='{User}')
+     * @param User Usage: User={User}
+     * @returns a allowedCalendarSharingRolesRequestBuilder
+     */
+    public allowedCalendarSharingRoles(User: string | undefined) : AllowedCalendarSharingRolesRequestBuilder {
+        if(!User) throw new Error("User cannot be undefined");
+        return new AllowedCalendarSharingRolesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, User);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.me.events.calendar.calendarPermissions collection
      * @param id Unique identifier of the item
-     * @returns a CalendarPermissionRequestBuilder
+     * @returns a calendarPermissionRequestBuilder
      */
     public calendarPermissionsById(id: String) : CalendarPermissionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -52,7 +61,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.events.calendar.calendarView collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public calendarViewById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -137,7 +146,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.events.calendar.events collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public eventsById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -163,7 +172,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.events.calendar.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
+     * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: String) : MultiValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -186,7 +195,7 @@ export class CalendarRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.events.calendar.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
+     * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: String) : SingleValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

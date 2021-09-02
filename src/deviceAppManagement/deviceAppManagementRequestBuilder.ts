@@ -88,7 +88,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.androidManagedAppProtections collection
      * @param id Unique identifier of the item
-     * @returns a AndroidManagedAppProtectionRequestBuilder
+     * @returns a androidManagedAppProtectionRequestBuilder
      */
     public androidManagedAppProtectionsById(id: String) : AndroidManagedAppProtectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -147,7 +147,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.defaultManagedAppProtections collection
      * @param id Unique identifier of the item
-     * @returns a DefaultManagedAppProtectionRequestBuilder
+     * @returns a defaultManagedAppProtectionRequestBuilder
      */
     public defaultManagedAppProtectionsById(id: String) : DefaultManagedAppProtectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -173,7 +173,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.iosManagedAppProtections collection
      * @param id Unique identifier of the item
-     * @returns a IosManagedAppProtectionRequestBuilder
+     * @returns a iosManagedAppProtectionRequestBuilder
      */
     public iosManagedAppProtectionsById(id: String) : IosManagedAppProtectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -182,7 +182,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppPolicies collection
      * @param id Unique identifier of the item
-     * @returns a ManagedAppPolicyRequestBuilder
+     * @returns a managedAppPolicyRequestBuilder
      */
     public managedAppPoliciesById(id: String) : ManagedAppPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -191,7 +191,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations collection
      * @param id Unique identifier of the item
-     * @returns a ManagedAppRegistrationRequestBuilder
+     * @returns a managedAppRegistrationRequestBuilder
      */
     public managedAppRegistrationsById(id: String) : ManagedAppRegistrationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -200,7 +200,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppStatuses collection
      * @param id Unique identifier of the item
-     * @returns a ManagedAppStatusRequestBuilder
+     * @returns a managedAppStatusRequestBuilder
      */
     public managedAppStatusesById(id: String) : ManagedAppStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -209,7 +209,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks collection
      * @param id Unique identifier of the item
-     * @returns a ManagedEBookRequestBuilder
+     * @returns a managedEBookRequestBuilder
      */
     public managedEBooksById(id: String) : ManagedEBookRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -218,7 +218,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mdmWindowsInformationProtectionPolicies collection
      * @param id Unique identifier of the item
-     * @returns a MdmWindowsInformationProtectionPolicyRequestBuilder
+     * @returns a mdmWindowsInformationProtectionPolicyRequestBuilder
      */
     public mdmWindowsInformationProtectionPoliciesById(id: String) : MdmWindowsInformationProtectionPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -227,7 +227,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppCategories collection
      * @param id Unique identifier of the item
-     * @returns a MobileAppCategoryRequestBuilder
+     * @returns a mobileAppCategoryRequestBuilder
      */
     public mobileAppCategoriesById(id: String) : MobileAppCategoryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -236,7 +236,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationRequestBuilder
+     * @returns a managedDeviceMobileAppConfigurationRequestBuilder
      */
     public mobileAppConfigurationsById(id: String) : ManagedDeviceMobileAppConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -245,7 +245,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileApps collection
      * @param id Unique identifier of the item
-     * @returns a MobileAppRequestBuilder
+     * @returns a mobileAppRequestBuilder
      */
     public mobileAppsById(id: String) : MobileAppRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -268,7 +268,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a TargetedManagedAppConfigurationRequestBuilder
+     * @returns a targetedManagedAppConfigurationRequestBuilder
      */
     public targetedManagedAppConfigurationsById(id: String) : TargetedManagedAppConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -277,7 +277,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.vppTokens collection
      * @param id Unique identifier of the item
-     * @returns a VppTokenRequestBuilder
+     * @returns a vppTokenRequestBuilder
      */
     public vppTokensById(id: String) : VppTokenRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -286,7 +286,7 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.windowsInformationProtectionPolicies collection
      * @param id Unique identifier of the item
-     * @returns a WindowsInformationProtectionPolicyRequestBuilder
+     * @returns a windowsInformationProtectionPolicyRequestBuilder
      */
     public windowsInformationProtectionPoliciesById(id: String) : WindowsInformationProtectionPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

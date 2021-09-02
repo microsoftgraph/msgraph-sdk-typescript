@@ -7,7 +7,7 @@ export class RoleDefinitionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: RoleDefinition[] | undefined;
     /**
-     * Instantiates a new RoleDefinitionsResponse and sets the default values.
+     * Instantiates a new roleDefinitionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

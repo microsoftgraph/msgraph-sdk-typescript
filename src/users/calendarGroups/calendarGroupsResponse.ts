@@ -7,7 +7,7 @@ export class CalendarGroupsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: CalendarGroup[] | undefined;
     /**
-     * Instantiates a new CalendarGroupsResponse and sets the default values.
+     * Instantiates a new calendarGroupsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

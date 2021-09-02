@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class Branding extends OrganizationalBrandingProperties implements Parsable {
     private _localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
-     * Instantiates a new Branding and sets the default values.
+     * Instantiates a new branding and sets the default values.
      */
     public constructor() {
         super();

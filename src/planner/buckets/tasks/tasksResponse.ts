@@ -7,7 +7,7 @@ export class TasksResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PlannerTask[] | undefined;
     /**
-     * Instantiates a new TasksResponse and sets the default values.
+     * Instantiates a new tasksResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -19,7 +19,7 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals collection
      * @param id Unique identifier of the item
-     * @returns a ApprovalRequestBuilder
+     * @returns a approvalRequestBuilder
      */
     public accessPackageAssignmentApprovalsById(id: String) : ApprovalRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

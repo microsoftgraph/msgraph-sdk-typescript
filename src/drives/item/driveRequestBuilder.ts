@@ -113,7 +113,7 @@ export class DriveRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.drives.following collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemRequestBuilder
+     * @returns a driveItemRequestBuilder
      */
     public followingById(id: String) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -139,7 +139,7 @@ export class DriveRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.drives.items collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemRequestBuilder
+     * @returns a driveItemRequestBuilder
      */
     public itemsById(id: String) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -160,9 +160,32 @@ export class DriveRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /drives/{drive-id}/microsoft.graph.recent()
+     * @returns a recentRequestBuilder
+     */
+    public recent() : RecentRequestBuilder {
+        return new RecentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /drives/{drive-id}/microsoft.graph.search(q='{q}')
+     * @param q Usage: q={q}
+     * @returns a searchRequestBuilder
+     */
+    public search(q: string | undefined) : SearchRequestBuilder {
+        if(!q) throw new Error("q cannot be undefined");
+        return new SearchRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, q);
+    };
+    /**
+     * Builds and executes requests for operations under /drives/{drive-id}/microsoft.graph.sharedWithMe()
+     * @returns a sharedWithMeRequestBuilder
+     */
+    public sharedWithMe() : SharedWithMeRequestBuilder {
+        return new SharedWithMeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.drives.special collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemRequestBuilder
+     * @returns a driveItemRequestBuilder
      */
     public specialById(id: String) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

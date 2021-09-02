@@ -7,7 +7,7 @@ export class MasterCategoriesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OutlookCategory[] | undefined;
     /**
-     * Instantiates a new MasterCategoriesResponse and sets the default values.
+     * Instantiates a new masterCategoriesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

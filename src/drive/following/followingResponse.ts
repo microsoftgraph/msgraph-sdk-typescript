@@ -7,7 +7,7 @@ export class FollowingResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DriveItem[] | undefined;
     /**
-     * Instantiates a new FollowingResponse and sets the default values.
+     * Instantiates a new followingResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

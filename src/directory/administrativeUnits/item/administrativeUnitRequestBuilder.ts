@@ -104,7 +104,7 @@ export class AdministrativeUnitRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -144,7 +144,7 @@ export class AdministrativeUnitRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.scopedRoleMembers collection
      * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipRequestBuilder
+     * @returns a scopedRoleMembershipRequestBuilder
      */
     public scopedRoleMembersById(id: String) : ScopedRoleMembershipRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -130,4 +130,11 @@ export class OnenotePageRequestBuilder {
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/onenote/pages/{onenotePage-id}/parentNotebook/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id1}/microsoft.graph.preview()
+     * @returns a previewRequestBuilder
+     */
+    public preview() : PreviewRequestBuilder {
+        return new PreviewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
 }

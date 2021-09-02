@@ -17,7 +17,7 @@ export class DeviceConfigurationDeviceStateSummaries extends Entity implements P
     /** Number of unknown devices  */
     private _unknownDeviceCount?: number | undefined;
     /**
-     * Instantiates a new DeviceConfigurationDeviceStateSummaries and sets the default values.
+     * Instantiates a new deviceConfigurationDeviceStateSummaries and sets the default values.
      */
     public constructor() {
         super();

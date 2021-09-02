@@ -169,7 +169,7 @@ export class CallRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.calls.operations collection
      * @param id Unique identifier of the item
-     * @returns a CommsOperationRequestBuilder
+     * @returns a commsOperationRequestBuilder
      */
     public operationsById(id: String) : CommsOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -178,7 +178,7 @@ export class CallRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.calls.participants collection
      * @param id Unique identifier of the item
-     * @returns a ParticipantRequestBuilder
+     * @returns a participantRequestBuilder
      */
     public participantsById(id: String) : ParticipantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

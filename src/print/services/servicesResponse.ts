@@ -7,7 +7,7 @@ export class ServicesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PrintService[] | undefined;
     /**
-     * Instantiates a new ServicesResponse and sets the default values.
+     * Instantiates a new servicesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

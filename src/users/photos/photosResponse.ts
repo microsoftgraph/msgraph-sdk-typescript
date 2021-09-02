@@ -7,7 +7,7 @@ export class PhotosResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ProfilePhoto[] | undefined;
     /**
-     * Instantiates a new PhotosResponse and sets the default values.
+     * Instantiates a new photosResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

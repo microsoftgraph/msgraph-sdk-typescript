@@ -7,7 +7,7 @@ export class DirectoryRoleTemplatesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryRoleTemplate[] | undefined;
     /**
-     * Instantiates a new DirectoryRoleTemplatesResponse and sets the default values.
+     * Instantiates a new directoryRoleTemplatesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

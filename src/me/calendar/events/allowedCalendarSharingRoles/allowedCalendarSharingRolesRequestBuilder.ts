@@ -11,15 +11,16 @@ export class AllowedCalendarSharingRolesRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new allowedCalendarSharingRolesRequestBuilder and sets the default values.
+     * Instantiates a new AllowedCalendarSharingRolesRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param User Usage: User={User}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, User?: string | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.allowedCalendarSharingRoles(User='{User}')";
+        this.pathSegment = `/microsoft.graph.allowedCalendarSharingRoles(User='${User ?? ''}')`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

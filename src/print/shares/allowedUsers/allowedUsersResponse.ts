@@ -1,4 +1,4 @@
-import {User} from '../../../invitations/invitedUser/user';
+import {User} from '../../../me/user';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AllowedUsersResponse implements Parsable {
@@ -7,7 +7,7 @@ export class AllowedUsersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: User[] | undefined;
     /**
-     * Instantiates a new AllowedUsersResponse and sets the default values.
+     * Instantiates a new allowedUsersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

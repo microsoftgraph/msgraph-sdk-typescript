@@ -69,12 +69,21 @@ export class UserConsentRequestsRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /identityGovernance/appConsent/appConsentRequests/{appConsentRequest-id}/userConsentRequests/microsoft.graph.filterByCurrentUser(on={on})
+     * @param on Usage: on={on}
+     * @returns a filterByCurrentUserRequestBuilder
+     */
+    public filterByCurrentUser(on: string | undefined) : FilterByCurrentUserRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, on);
+    };
+    /**
      * A list of pending user consent requests.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of UserConsentRequestsResponse
+     * @returns a Promise of userConsentRequestsResponse
      */
     public get(q?: {
                     count?: boolean,

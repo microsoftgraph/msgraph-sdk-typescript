@@ -7,7 +7,7 @@ export class SingleValueExtendedPropertiesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
-     * Instantiates a new SingleValueExtendedPropertiesResponse and sets the default values.
+     * Instantiates a new singleValueExtendedPropertiesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

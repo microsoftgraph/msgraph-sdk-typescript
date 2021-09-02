@@ -95,7 +95,7 @@ export class DeviceCompliancePolicySettingStateSummaryRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries.deviceComplianceSettingStates collection
      * @param id Unique identifier of the item
-     * @returns a DeviceComplianceSettingStateRequestBuilder
+     * @returns a deviceComplianceSettingStateRequestBuilder
      */
     public deviceComplianceSettingStatesById(id: String) : DeviceComplianceSettingStateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

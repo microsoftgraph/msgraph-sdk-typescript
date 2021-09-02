@@ -11,7 +11,7 @@ export class WindowsDefenderUpdateSignaturesRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new windowsDefenderUpdateSignaturesRequestBuilder and sets the default values.
+     * Instantiates a new WindowsDefenderUpdateSignaturesRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL

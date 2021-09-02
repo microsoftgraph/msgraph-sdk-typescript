@@ -1,7 +1,7 @@
 import {Report} from './report';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityUserDetail(period='{period}')  */
+/** Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityUserDetail(date={date})  */
 export class GetSharePointActivityUserDetailRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -12,29 +12,31 @@ export class GetSharePointActivityUserDetailRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new getSharePointActivityUserDetailRequestBuilder and sets the default values.
+     * Instantiates a new GetSharePointActivityUserDetailRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param period Usage: period={period}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: IHttpCore, period?: string | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.getSharePointActivityUserDetail(period='{period}')";
+        this.pathSegment = `/microsoft.graph.getSharePointActivityUserDetail(date=${date ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new getSharePointActivityUserDetailRequestBuilder and sets the default values.
+     * Instantiates a new GetSharePointActivityUserDetailRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
+     * @param date Usage: date={date}
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
      */
-    public constructor(currentPath: string, httpCore: IHttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, date?: string | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.getSharePointActivityUserDetail(period='{period}')";
+        this.pathSegment = `/microsoft.graph.getSharePointActivityUserDetail(date=${date ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class AppConsent extends Entity implements Parsable {
     private _appConsentRequests?: AppConsentRequest[] | undefined;
     /**
-     * Instantiates a new AppConsent and sets the default values.
+     * Instantiates a new appConsent and sets the default values.
      */
     public constructor() {
         super();

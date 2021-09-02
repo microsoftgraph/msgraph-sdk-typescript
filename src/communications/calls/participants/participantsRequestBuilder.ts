@@ -78,7 +78,7 @@ export class ParticipantsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ParticipantsResponse
+     * @returns a Promise of participantsResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -15,7 +15,7 @@ export class Font extends Entity implements Parsable {
     /** Type of underline applied to the font. The possible values are: None, Single.  */
     private _underline?: string | undefined;
     /**
-     * Instantiates a new Font and sets the default values.
+     * Instantiates a new font and sets the default values.
      */
     public constructor() {
         super();

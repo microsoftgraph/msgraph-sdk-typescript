@@ -7,7 +7,7 @@ export class WindowsInformationProtectionNetworkLearningSummariesResponse implem
     private _nextLink?: string | undefined;
     private _value?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;
     /**
-     * Instantiates a new WindowsInformationProtectionNetworkLearningSummariesResponse and sets the default values.
+     * Instantiates a new windowsInformationProtectionNetworkLearningSummariesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

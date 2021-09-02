@@ -1,8 +1,8 @@
-import {SectionGroup} from '../../../../../sectionGroup';
+import {SectionGroup} from '../../../../../../sectionGroup';
 import {SectionGroupsResponse} from './sectionGroupsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/onenote/pages/{onenotePage-id}/parentNotebook/sectionGroups  */
+/** Builds and executes requests for operations under /users/{user-id}/onenote/pages/{onenotePage-id}/parentNotebook/sectionGroups/{sectionGroup-id}/sectionGroups  */
 export class SectionGroupsRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -27,7 +27,7 @@ export class SectionGroupsRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -52,7 +52,7 @@ export class SectionGroupsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -69,12 +69,12 @@ export class SectionGroupsRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of SectionGroupsResponse
+     * @returns a Promise of sectionGroupsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -92,7 +92,7 @@ export class SectionGroupsRequestBuilder {
         return this.httpCore?.sendAsync<SectionGroupsResponse>(requestInfo, SectionGroupsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares

@@ -95,7 +95,7 @@ export class PrintServiceRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.services.endpoints collection
      * @param id Unique identifier of the item
-     * @returns a PrintServiceEndpointRequestBuilder
+     * @returns a printServiceEndpointRequestBuilder
      */
     public endpointsById(id: String) : PrintServiceEndpointRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

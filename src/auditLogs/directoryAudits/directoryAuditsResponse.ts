@@ -7,7 +7,7 @@ export class DirectoryAuditsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryAudit[] | undefined;
     /**
-     * Instantiates a new DirectoryAuditsResponse and sets the default values.
+     * Instantiates a new directoryAuditsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

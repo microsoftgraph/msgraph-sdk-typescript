@@ -11,7 +11,7 @@ export class ConditionalAccessSettings extends Entity implements Parsable {
     /** Override the default access rule when allowing a device to ensure access is granted.  */
     private _overrideDefaultRule?: boolean | undefined;
     /**
-     * Instantiates a new ConditionalAccessSettings and sets the default values.
+     * Instantiates a new conditionalAccessSettings and sets the default values.
      */
     public constructor() {
         super();

@@ -70,7 +70,7 @@ export class EventRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.calendars.events.attachments collection
      * @param id Unique identifier of the item
-     * @returns a AttachmentRequestBuilder
+     * @returns a attachmentRequestBuilder
      */
     public attachmentsById(id: String) : AttachmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -155,7 +155,7 @@ export class EventRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.calendars.events.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -181,7 +181,7 @@ export class EventRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.calendars.events.instances collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public instancesById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -190,7 +190,7 @@ export class EventRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.calendars.events.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
+     * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: String) : MultiValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -213,7 +213,7 @@ export class EventRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.calendars.events.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
+     * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: String) : SingleValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

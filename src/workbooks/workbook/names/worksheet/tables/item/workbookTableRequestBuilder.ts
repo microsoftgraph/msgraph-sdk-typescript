@@ -44,7 +44,7 @@ export class WorkbookTableRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names.worksheet.tables.columns collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookTableColumnRequestBuilder
+     * @returns a workbookTableColumnRequestBuilder
      */
     public columnsById(id: String) : WorkbookTableColumnRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -115,6 +115,13 @@ export class WorkbookTableRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/microsoft.graph.dataBodyRange()
+     * @returns a dataBodyRangeRequestBuilder
+     */
+    public dataBodyRange() : DataBodyRangeRequestBuilder {
+        return new DataBodyRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Collection of tables that are part of the worksheet. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -144,6 +151,13 @@ export class WorkbookTableRequestBuilder {
         return this.httpCore?.sendAsync<WorkbookTable>(requestInfo, WorkbookTable, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/microsoft.graph.headerRowRange()
+     * @returns a headerRowRangeRequestBuilder
+     */
+    public headerRowRange() : HeaderRowRangeRequestBuilder {
+        return new HeaderRowRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Collection of tables that are part of the worksheet. Read-only.
      * @param body 
      * @param h Request headers
@@ -158,12 +172,26 @@ export class WorkbookTableRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/microsoft.graph.range()
+     * @returns a rangeRequestBuilder
+     */
+    public range() : RangeRequestBuilder {
+        return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names.worksheet.tables.rows collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookTableRowRequestBuilder
+     * @returns a workbookTableRowRequestBuilder
      */
     public rowsById(id: String) : WorkbookTableRowRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new WorkbookTableRowRequestBuilder(this.currentPath + this.pathSegment + "/rows/" + id, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/microsoft.graph.totalRowRange()
+     * @returns a totalRowRangeRequestBuilder
+     */
+    public totalRowRange() : TotalRowRangeRequestBuilder {
+        return new TotalRowRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

@@ -110,7 +110,7 @@ export class AuthenticationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.authentication.fido2Methods collection
      * @param id Unique identifier of the item
-     * @returns a Fido2AuthenticationMethodRequestBuilder
+     * @returns a fido2AuthenticationMethodRequestBuilder
      */
     public fido2MethodsById(id: String) : Fido2AuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -136,7 +136,7 @@ export class AuthenticationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.authentication.methods collection
      * @param id Unique identifier of the item
-     * @returns a AuthenticationMethodRequestBuilder
+     * @returns a authenticationMethodRequestBuilder
      */
     public methodsById(id: String) : AuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -145,7 +145,7 @@ export class AuthenticationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.authentication.microsoftAuthenticatorMethods collection
      * @param id Unique identifier of the item
-     * @returns a MicrosoftAuthenticatorAuthenticationMethodRequestBuilder
+     * @returns a microsoftAuthenticatorAuthenticationMethodRequestBuilder
      */
     public microsoftAuthenticatorMethodsById(id: String) : MicrosoftAuthenticatorAuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -168,7 +168,7 @@ export class AuthenticationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.authentication.windowsHelloForBusinessMethods collection
      * @param id Unique identifier of the item
-     * @returns a WindowsHelloForBusinessAuthenticationMethodRequestBuilder
+     * @returns a windowsHelloForBusinessAuthenticationMethodRequestBuilder
      */
     public windowsHelloForBusinessMethodsById(id: String) : WindowsHelloForBusinessAuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class AppRoleAssignmentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AppRoleAssignment[] | undefined;
     /**
-     * Instantiates a new AppRoleAssignmentsResponse and sets the default values.
+     * Instantiates a new appRoleAssignmentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

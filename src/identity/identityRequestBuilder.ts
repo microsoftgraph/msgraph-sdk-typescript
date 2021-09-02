@@ -39,7 +39,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.apiConnectors collection
      * @param id Unique identifier of the item
-     * @returns a IdentityApiConnectorRequestBuilder
+     * @returns a identityApiConnectorRequestBuilder
      */
     public apiConnectorsById(id: String) : IdentityApiConnectorRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -48,7 +48,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows collection
      * @param id Unique identifier of the item
-     * @returns a B2xIdentityUserFlowRequestBuilder
+     * @returns a b2xIdentityUserFlowRequestBuilder
      */
     public b2xUserFlowsById(id: String) : B2xIdentityUserFlowRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -124,7 +124,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.identityProviders collection
      * @param id Unique identifier of the item
-     * @returns a IdentityProviderBaseRequestBuilder
+     * @returns a identityProviderBaseRequestBuilder
      */
     public identityProvidersById(id: String) : IdentityProviderBaseRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -147,7 +147,7 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.userFlowAttributes collection
      * @param id Unique identifier of the item
-     * @returns a IdentityUserFlowAttributeRequestBuilder
+     * @returns a identityUserFlowAttributeRequestBuilder
      */
     public userFlowAttributesById(id: String) : IdentityUserFlowAttributeRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

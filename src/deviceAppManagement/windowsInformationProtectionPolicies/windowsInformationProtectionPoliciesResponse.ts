@@ -7,7 +7,7 @@ export class WindowsInformationProtectionPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WindowsInformationProtectionPolicy[] | undefined;
     /**
-     * Instantiates a new WindowsInformationProtectionPoliciesResponse and sets the default values.
+     * Instantiates a new windowsInformationProtectionPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

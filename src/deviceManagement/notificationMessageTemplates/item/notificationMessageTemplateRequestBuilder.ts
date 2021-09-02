@@ -116,7 +116,7 @@ export class NotificationMessageTemplateRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates.localizedNotificationMessages collection
      * @param id Unique identifier of the item
-     * @returns a LocalizedNotificationMessageRequestBuilder
+     * @returns a localizedNotificationMessageRequestBuilder
      */
     public localizedNotificationMessagesById(id: String) : LocalizedNotificationMessageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

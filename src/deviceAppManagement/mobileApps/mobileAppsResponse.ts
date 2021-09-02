@@ -7,7 +7,7 @@ export class MobileAppsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MobileApp[] | undefined;
     /**
-     * Instantiates a new MobileAppsResponse and sets the default values.
+     * Instantiates a new mobileAppsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

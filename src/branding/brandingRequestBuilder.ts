@@ -87,7 +87,7 @@ export class BrandingRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.branding.localizations collection
      * @param id Unique identifier of the item
-     * @returns a OrganizationalBrandingLocalizationRequestBuilder
+     * @returns a organizationalBrandingLocalizationRequestBuilder
      */
     public localizationsById(id: String) : OrganizationalBrandingLocalizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

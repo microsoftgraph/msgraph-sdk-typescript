@@ -7,7 +7,7 @@ export class Oauth2PermissionGrantsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OAuth2PermissionGrant[] | undefined;
     /**
-     * Instantiates a new Oauth2PermissionGrantsResponse and sets the default values.
+     * Instantiates a new oauth2PermissionGrantsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

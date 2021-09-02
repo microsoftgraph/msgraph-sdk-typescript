@@ -7,7 +7,7 @@ export class CalendarPermissionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: CalendarPermission[] | undefined;
     /**
-     * Instantiates a new CalendarPermissionsResponse and sets the default values.
+     * Instantiates a new calendarPermissionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -29,7 +29,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.planner.buckets collection
      * @param id Unique identifier of the item
-     * @returns a PlannerBucketRequestBuilder
+     * @returns a plannerBucketRequestBuilder
      */
     public bucketsById(id: String) : PlannerBucketRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -119,7 +119,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.planner.plans collection
      * @param id Unique identifier of the item
-     * @returns a PlannerPlanRequestBuilder
+     * @returns a plannerPlanRequestBuilder
      */
     public plansById(id: String) : PlannerPlanRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -128,7 +128,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.planner.tasks collection
      * @param id Unique identifier of the item
-     * @returns a PlannerTaskRequestBuilder
+     * @returns a plannerTaskRequestBuilder
      */
     public tasksById(id: String) : PlannerTaskRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

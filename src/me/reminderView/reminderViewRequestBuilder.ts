@@ -12,15 +12,17 @@ export class ReminderViewRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new reminderViewRequestBuilder and sets the default values.
+     * Instantiates a new ReminderViewRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
+     * @param EndDateTime Usage: EndDateTime={EndDateTime}
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param StartDateTime Usage: StartDateTime={StartDateTime}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, StartDateTime?: string | undefined, EndDateTime?: string | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}')";
+        this.pathSegment = `/microsoft.graph.reminderView(StartDateTime='${StartDateTime ?? ''}',EndDateTime='${EndDateTime ?? ''}')`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

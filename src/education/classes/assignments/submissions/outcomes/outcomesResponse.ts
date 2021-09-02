@@ -7,7 +7,7 @@ export class OutcomesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: EducationOutcome[] | undefined;
     /**
-     * Instantiates a new OutcomesResponse and sets the default values.
+     * Instantiates a new outcomesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

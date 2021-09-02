@@ -11,7 +11,7 @@ export class Communications extends Entity implements Parsable {
     private _onlineMeetings?: OnlineMeeting[] | undefined;
     private _presences?: Presence[] | undefined;
     /**
-     * Instantiates a new Communications and sets the default values.
+     * Instantiates a new communications and sets the default values.
      */
     public constructor() {
         super();

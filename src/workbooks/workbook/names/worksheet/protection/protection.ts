@@ -7,7 +7,7 @@ export class Protection extends Entity implements Parsable {
     /** Indicates if the worksheet is protected.  Read-only.  */
     private _protected?: boolean | undefined;
     /**
-     * Instantiates a new Protection and sets the default values.
+     * Instantiates a new protection and sets the default values.
      */
     public constructor() {
         super();

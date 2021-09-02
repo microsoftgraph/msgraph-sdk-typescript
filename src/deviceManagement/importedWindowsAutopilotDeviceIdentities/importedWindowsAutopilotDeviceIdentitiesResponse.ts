@@ -7,7 +7,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesResponse implements Parsabl
     private _nextLink?: string | undefined;
     private _value?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
     /**
-     * Instantiates a new ImportedWindowsAutopilotDeviceIdentitiesResponse and sets the default values.
+     * Instantiates a new importedWindowsAutopilotDeviceIdentitiesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

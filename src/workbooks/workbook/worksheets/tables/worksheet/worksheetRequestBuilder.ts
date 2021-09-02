@@ -13,6 +13,17 @@ export class WorksheetRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/tables/{workbookTable-id}/worksheet/microsoft.graph.cell(row={row},column={column})
+     * @param column Usage: column={column}
+     * @param row Usage: row={row}
+     * @returns a cellRequestBuilder
+     */
+    public cell(row: number | undefined, column: number | undefined) : CellRequestBuilder {
+        if(!column) throw new Error("column cannot be undefined");
+        if(!row) throw new Error("row cannot be undefined");
+        return new CellRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, row, column);
+    };
+    /**
      * Instantiates a new WorksheetRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
@@ -118,5 +129,19 @@ export class WorksheetRequestBuilder {
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/tables/{workbookTable-id}/worksheet/microsoft.graph.range()
+     * @returns a rangeRequestBuilder
+     */
+    public range() : RangeRequestBuilder {
+        return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/tables/{workbookTable-id}/worksheet/microsoft.graph.usedRange()
+     * @returns a usedRangeRequestBuilder
+     */
+    public usedRange() : UsedRangeRequestBuilder {
+        return new UsedRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

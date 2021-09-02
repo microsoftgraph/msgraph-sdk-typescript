@@ -176,7 +176,7 @@ export class ManagedDeviceRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.managedDevices.deviceCompliancePolicyStates collection
      * @param id Unique identifier of the item
-     * @returns a DeviceCompliancePolicyStateRequestBuilder
+     * @returns a deviceCompliancePolicyStateRequestBuilder
      */
     public deviceCompliancePolicyStatesById(id: String) : DeviceCompliancePolicyStateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -185,7 +185,7 @@ export class ManagedDeviceRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.managedDevices.deviceConfigurationStates collection
      * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationStateRequestBuilder
+     * @returns a deviceConfigurationStateRequestBuilder
      */
     public deviceConfigurationStatesById(id: String) : DeviceConfigurationStateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

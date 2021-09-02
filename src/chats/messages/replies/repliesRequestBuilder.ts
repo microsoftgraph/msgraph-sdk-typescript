@@ -69,12 +69,19 @@ export class RepliesRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /chats/{chat-id}/messages/{chatMessage-id}/replies/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Replies for a specified message.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of RepliesResponse
+     * @returns a Promise of repliesResponse
      */
     public get(q?: {
                     count?: boolean,

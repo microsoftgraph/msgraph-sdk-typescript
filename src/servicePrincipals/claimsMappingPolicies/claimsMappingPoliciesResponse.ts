@@ -7,7 +7,7 @@ export class ClaimsMappingPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ClaimsMappingPolicy[] | undefined;
     /**
-     * Instantiates a new ClaimsMappingPoliciesResponse and sets the default values.
+     * Instantiates a new claimsMappingPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

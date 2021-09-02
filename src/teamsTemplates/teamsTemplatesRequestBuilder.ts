@@ -1,4 +1,4 @@
-import {TeamsTemplate} from '../teamsTemplate';
+import {TeamsTemplate} from '../teams/template/teamsTemplate';
 import {TeamsTemplatesResponse} from './teamsTemplatesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -74,7 +74,7 @@ export class TeamsTemplatesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of TeamsTemplatesResponse
+     * @returns a Promise of teamsTemplatesResponse
      */
     public get(q?: {
                     count?: boolean,

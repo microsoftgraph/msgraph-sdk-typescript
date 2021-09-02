@@ -126,7 +126,7 @@ export class SessionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.callRecords.sessions.segments collection
      * @param id Unique identifier of the item
-     * @returns a SegmentRequestBuilder
+     * @returns a segmentRequestBuilder
      */
     public segmentsById(id: String) : SegmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

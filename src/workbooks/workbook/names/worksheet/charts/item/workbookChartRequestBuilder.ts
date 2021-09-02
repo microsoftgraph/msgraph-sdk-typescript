@@ -142,6 +142,13 @@ export class WorkbookChartRequestBuilder {
         return this.httpCore?.sendAsync<WorkbookChart>(requestInfo, WorkbookChart, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/microsoft.graph.image()
+     * @returns a imageRequestBuilder
+     */
+    public image() : ImageRequestBuilder {
+        return new ImageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Returns collection of charts that are part of the worksheet. Read-only.
      * @param body 
      * @param h Request headers
@@ -158,7 +165,7 @@ export class WorkbookChartRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names.worksheet.charts.series collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookChartSeriesRequestBuilder
+     * @returns a workbookChartSeriesRequestBuilder
      */
     public seriesById(id: String) : WorkbookChartSeriesRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

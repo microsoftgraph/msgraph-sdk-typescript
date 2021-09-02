@@ -7,7 +7,7 @@ export class PermissionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Permission[] | undefined;
     /**
-     * Instantiates a new PermissionsResponse and sets the default values.
+     * Instantiates a new permissionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

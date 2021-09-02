@@ -74,7 +74,7 @@ export class ActivitiesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ActivitiesResponse
+     * @returns a Promise of activitiesResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -105,5 +105,12 @@ export class ActivitiesRequestBuilder {
             body, h, o
         );
         return this.httpCore?.sendAsync<UserActivity>(requestInfo, UserActivity, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/activities/microsoft.graph.recent()
+     * @returns a recentRequestBuilder
+     */
+    public recent() : RecentRequestBuilder {
+        return new RecentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

@@ -7,7 +7,7 @@ export class EndpointsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Endpoint[] | undefined;
     /**
-     * Instantiates a new EndpointsResponse and sets the default values.
+     * Instantiates a new endpointsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

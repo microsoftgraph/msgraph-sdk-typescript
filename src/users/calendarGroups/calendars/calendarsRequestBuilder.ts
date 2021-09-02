@@ -1,4 +1,4 @@
-import {Calendar} from '../../../calendar';
+import {Calendar} from '../../../groups/calendar/calendar';
 import {CalendarsResponse} from './calendarsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -74,7 +74,7 @@ export class CalendarsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of CalendarsResponse
+     * @returns a Promise of calendarsResponse
      */
     public get(q?: {
                     count?: boolean,

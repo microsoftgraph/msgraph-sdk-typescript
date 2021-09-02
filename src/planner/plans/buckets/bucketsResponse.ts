@@ -7,7 +7,7 @@ export class BucketsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PlannerBucket[] | undefined;
     /**
-     * Instantiates a new BucketsResponse and sets the default values.
+     * Instantiates a new bucketsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

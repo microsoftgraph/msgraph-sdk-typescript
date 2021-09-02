@@ -85,7 +85,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.auditLogs.directoryAudits collection
      * @param id Unique identifier of the item
-     * @returns a DirectoryAuditRequestBuilder
+     * @returns a directoryAuditRequestBuilder
      */
     public directoryAuditsById(id: String) : DirectoryAuditRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -125,7 +125,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.auditLogs.provisioning collection
      * @param id Unique identifier of the item
-     * @returns a ProvisioningObjectSummaryRequestBuilder
+     * @returns a provisioningObjectSummaryRequestBuilder
      */
     public provisioningById(id: String) : ProvisioningObjectSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -134,7 +134,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.auditLogs.restrictedSignIns collection
      * @param id Unique identifier of the item
-     * @returns a RestrictedSignInRequestBuilder
+     * @returns a restrictedSignInRequestBuilder
      */
     public restrictedSignInsById(id: String) : RestrictedSignInRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -143,7 +143,7 @@ export class AuditLogsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.auditLogs.signIns collection
      * @param id Unique identifier of the item
-     * @returns a SignInRequestBuilder
+     * @returns a signInRequestBuilder
      */
     public signInsById(id: String) : SignInRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

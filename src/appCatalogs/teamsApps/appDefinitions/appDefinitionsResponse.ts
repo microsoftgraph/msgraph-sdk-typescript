@@ -7,7 +7,7 @@ export class AppDefinitionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TeamsAppDefinition[] | undefined;
     /**
-     * Instantiates a new AppDefinitionsResponse and sets the default values.
+     * Instantiates a new appDefinitionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

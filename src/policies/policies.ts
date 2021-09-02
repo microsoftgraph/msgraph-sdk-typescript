@@ -29,7 +29,7 @@ export class Policies extends Entity implements Parsable {
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /**
-     * Instantiates a new Policies and sets the default values.
+     * Instantiates a new policies and sets the default values.
      */
     public constructor() {
         super();

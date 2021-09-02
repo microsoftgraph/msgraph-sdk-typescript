@@ -136,7 +136,7 @@ export class SharedDriveItemRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.shares.items collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemRequestBuilder
+     * @returns a driveItemRequestBuilder
      */
     public itemsById(id: String) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

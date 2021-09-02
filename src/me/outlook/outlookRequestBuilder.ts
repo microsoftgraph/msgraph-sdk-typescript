@@ -1,7 +1,7 @@
+import {Outlook} from '../../users/outlook/outlook';
+import {OutlookUser} from '../../users/outlook/outlookUser';
 import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
-import {Outlook} from './outlook';
-import {OutlookUser} from './outlookUser';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/outlook  */
@@ -113,7 +113,7 @@ export class OutlookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.outlook.masterCategories collection
      * @param id Unique identifier of the item
-     * @returns a OutlookCategoryRequestBuilder
+     * @returns a outlookCategoryRequestBuilder
      */
     public masterCategoriesById(id: String) : OutlookCategoryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -132,5 +132,19 @@ export class OutlookRequestBuilder {
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /me/outlook/microsoft.graph.supportedLanguages()
+     * @returns a supportedLanguagesRequestBuilder
+     */
+    public supportedLanguages() : SupportedLanguagesRequestBuilder {
+        return new SupportedLanguagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /me/outlook/microsoft.graph.supportedTimeZones()
+     * @returns a supportedTimeZonesRequestBuilder
+     */
+    public supportedTimeZones() : SupportedTimeZonesRequestBuilder {
+        return new SupportedTimeZonesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

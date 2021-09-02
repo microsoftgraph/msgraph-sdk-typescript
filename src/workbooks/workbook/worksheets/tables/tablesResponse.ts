@@ -7,7 +7,7 @@ export class TablesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookTable[] | undefined;
     /**
-     * Instantiates a new TablesResponse and sets the default values.
+     * Instantiates a new tablesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

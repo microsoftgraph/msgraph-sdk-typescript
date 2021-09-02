@@ -95,7 +95,7 @@ export class UserInstallStateSummaryRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.userStateSummary.deviceStates collection
      * @param id Unique identifier of the item
-     * @returns a DeviceInstallStateRequestBuilder
+     * @returns a deviceInstallStateRequestBuilder
      */
     public deviceStatesById(id: String) : DeviceInstallStateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

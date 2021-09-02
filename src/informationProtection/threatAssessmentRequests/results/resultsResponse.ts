@@ -7,7 +7,7 @@ export class ResultsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ThreatAssessmentResult[] | undefined;
     /**
-     * Instantiates a new ResultsResponse and sets the default values.
+     * Instantiates a new resultsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

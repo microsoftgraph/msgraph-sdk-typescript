@@ -12,15 +12,18 @@ export class GetGroupArchivedPrintJobsRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new getGroupArchivedPrintJobsRequestBuilder and sets the default values.
+     * Instantiates a new GetGroupArchivedPrintJobsRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
+     * @param endDateTime Usage: endDateTime={endDateTime}
+     * @param groupId Usage: groupId={groupId}
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param startDateTime Usage: startDateTime={startDateTime}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, groupId?: string | undefined, startDateTime?: DateTimeOffset | undefined, endDateTime?: DateTimeOffset | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.getGroupArchivedPrintJobs(groupId='{groupId}',startDateTime={startDateTime},endDateTime={endDateTime})";
+        this.pathSegment = `/microsoft.graph.getGroupArchivedPrintJobs(groupId='${groupId ?? ''}',startDateTime=${startDateTime ?? ''},endDateTime=${endDateTime ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

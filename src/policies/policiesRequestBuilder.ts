@@ -75,7 +75,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.activityBasedTimeoutPolicies collection
      * @param id Unique identifier of the item
-     * @returns a ActivityBasedTimeoutPolicyRequestBuilder
+     * @returns a activityBasedTimeoutPolicyRequestBuilder
      */
     public activityBasedTimeoutPoliciesById(id: String) : ActivityBasedTimeoutPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -84,7 +84,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.claimsMappingPolicies collection
      * @param id Unique identifier of the item
-     * @returns a ClaimsMappingPolicyRequestBuilder
+     * @returns a claimsMappingPolicyRequestBuilder
      */
     public claimsMappingPoliciesById(id: String) : ClaimsMappingPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -93,7 +93,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.conditionalAccessPolicies collection
      * @param id Unique identifier of the item
-     * @returns a ConditionalAccessPolicyRequestBuilder
+     * @returns a conditionalAccessPolicyRequestBuilder
      */
     public conditionalAccessPoliciesById(id: String) : ConditionalAccessPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -152,7 +152,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies collection
      * @param id Unique identifier of the item
-     * @returns a FeatureRolloutPolicyRequestBuilder
+     * @returns a featureRolloutPolicyRequestBuilder
      */
     public featureRolloutPoliciesById(id: String) : FeatureRolloutPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -178,7 +178,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.homeRealmDiscoveryPolicies collection
      * @param id Unique identifier of the item
-     * @returns a HomeRealmDiscoveryPolicyRequestBuilder
+     * @returns a homeRealmDiscoveryPolicyRequestBuilder
      */
     public homeRealmDiscoveryPoliciesById(id: String) : HomeRealmDiscoveryPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -201,7 +201,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies collection
      * @param id Unique identifier of the item
-     * @returns a PermissionGrantPolicyRequestBuilder
+     * @returns a permissionGrantPolicyRequestBuilder
      */
     public permissionGrantPoliciesById(id: String) : PermissionGrantPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -210,7 +210,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.tokenIssuancePolicies collection
      * @param id Unique identifier of the item
-     * @returns a TokenIssuancePolicyRequestBuilder
+     * @returns a tokenIssuancePolicyRequestBuilder
      */
     public tokenIssuancePoliciesById(id: String) : TokenIssuancePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -219,7 +219,7 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.tokenLifetimePolicies collection
      * @param id Unique identifier of the item
-     * @returns a TokenLifetimePolicyRequestBuilder
+     * @returns a tokenLifetimePolicyRequestBuilder
      */
     public tokenLifetimePoliciesById(id: String) : TokenLifetimePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -100,7 +100,7 @@ export class TodoTaskListRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -140,7 +140,7 @@ export class TodoTaskListRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.tasks collection
      * @param id Unique identifier of the item
-     * @returns a TodoTaskRequestBuilder
+     * @returns a todoTaskRequestBuilder
      */
     public tasksById(id: String) : TodoTaskRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

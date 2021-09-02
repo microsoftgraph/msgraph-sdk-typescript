@@ -69,12 +69,19 @@ export class InstancesRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /users/{user-id}/calendars/{calendar-id}/calendarView/{event-id}/instances/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of InstancesResponse
+     * @returns a Promise of instancesResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -37,7 +37,7 @@ export class ManagedEBookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.assignments collection
      * @param id Unique identifier of the item
-     * @returns a ManagedEBookAssignmentRequestBuilder
+     * @returns a managedEBookAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : ManagedEBookAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -122,7 +122,7 @@ export class ManagedEBookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.deviceStates collection
      * @param id Unique identifier of the item
-     * @returns a DeviceInstallStateRequestBuilder
+     * @returns a deviceInstallStateRequestBuilder
      */
     public deviceStatesById(id: String) : DeviceInstallStateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -162,7 +162,7 @@ export class ManagedEBookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.userStateSummary collection
      * @param id Unique identifier of the item
-     * @returns a UserInstallStateSummaryRequestBuilder
+     * @returns a userInstallStateSummaryRequestBuilder
      */
     public userStateSummaryById(id: String) : UserInstallStateSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -128,7 +128,7 @@ export class OnenoteSectionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.onenote.sectionGroups.sections.pages collection
      * @param id Unique identifier of the item
-     * @returns a OnenotePageRequestBuilder
+     * @returns a onenotePageRequestBuilder
      */
     public pagesById(id: String) : OnenotePageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

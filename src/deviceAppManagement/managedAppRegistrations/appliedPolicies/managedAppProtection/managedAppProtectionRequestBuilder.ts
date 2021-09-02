@@ -15,7 +15,7 @@ export class ManagedAppProtectionRequestBuilder {
         return new TargetAppsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Instantiates a new managedAppProtectionRequestBuilder and sets the default values.
+     * Instantiates a new ManagedAppProtectionRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL

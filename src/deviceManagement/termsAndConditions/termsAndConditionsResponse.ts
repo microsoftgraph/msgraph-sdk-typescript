@@ -7,7 +7,7 @@ export class TermsAndConditionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TermsAndConditions[] | undefined;
     /**
-     * Instantiates a new TermsAndConditionsResponse and sets the default values.
+     * Instantiates a new termsAndConditionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

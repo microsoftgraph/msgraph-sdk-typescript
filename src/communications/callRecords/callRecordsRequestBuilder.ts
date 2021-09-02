@@ -74,7 +74,7 @@ export class CallRecordsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of CallRecordsResponse
+     * @returns a Promise of callRecordsResponse
      */
     public get(q?: {
                     count?: boolean,

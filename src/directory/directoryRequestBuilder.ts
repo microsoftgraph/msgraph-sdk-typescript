@@ -24,7 +24,7 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits collection
      * @param id Unique identifier of the item
-     * @returns a AdministrativeUnitRequestBuilder
+     * @returns a administrativeUnitRequestBuilder
      */
     public administrativeUnitsById(id: String) : AdministrativeUnitRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -83,7 +83,7 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directory.deletedItems collection
      * @param id Unique identifier of the item
-     * @returns a DirectoryObjectRequestBuilder
+     * @returns a directoryObjectRequestBuilder
      */
     public deletedItemsById(id: String) : DirectoryObjectRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

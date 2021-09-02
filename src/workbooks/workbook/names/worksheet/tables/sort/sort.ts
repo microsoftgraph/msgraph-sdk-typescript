@@ -9,7 +9,7 @@ export class Sort extends Entity implements Parsable {
     /** Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.  */
     private _method?: string | undefined;
     /**
-     * Instantiates a new Sort and sets the default values.
+     * Instantiates a new sort and sets the default values.
      */
     public constructor() {
         super();

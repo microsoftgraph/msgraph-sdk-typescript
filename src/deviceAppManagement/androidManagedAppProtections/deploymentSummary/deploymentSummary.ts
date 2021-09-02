@@ -13,7 +13,7 @@ export class DeploymentSummary extends Entity implements Parsable {
     /** Version of the entity.  */
     private _version?: string | undefined;
     /**
-     * Instantiates a new DeploymentSummary and sets the default values.
+     * Instantiates a new deploymentSummary and sets the default values.
      */
     public constructor() {
         super();

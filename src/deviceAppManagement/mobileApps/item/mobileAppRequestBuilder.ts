@@ -27,7 +27,7 @@ export class MobileAppRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileApps.assignments collection
      * @param id Unique identifier of the item
-     * @returns a MobileAppAssignmentRequestBuilder
+     * @returns a mobileAppAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : MobileAppAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

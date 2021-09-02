@@ -7,7 +7,7 @@ export class OwnersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new OwnersResponse and sets the default values.
+     * Instantiates a new ownersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

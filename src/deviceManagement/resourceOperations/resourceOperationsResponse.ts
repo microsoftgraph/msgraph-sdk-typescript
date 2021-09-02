@@ -7,7 +7,7 @@ export class ResourceOperationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ResourceOperation[] | undefined;
     /**
-     * Instantiates a new ResourceOperationsResponse and sets the default values.
+     * Instantiates a new resourceOperationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

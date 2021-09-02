@@ -28,7 +28,7 @@ export class AgreementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.agreements.acceptances collection
      * @param id Unique identifier of the item
-     * @returns a AgreementAcceptanceRequestBuilder
+     * @returns a agreementAcceptanceRequestBuilder
      */
     public acceptancesById(id: String) : AgreementAcceptanceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -113,7 +113,7 @@ export class AgreementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.agreements.files collection
      * @param id Unique identifier of the item
-     * @returns a AgreementFileLocalizationRequestBuilder
+     * @returns a agreementFileLocalizationRequestBuilder
      */
     public filesById(id: String) : AgreementFileLocalizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class RubricsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: EducationRubric[] | undefined;
     /**
-     * Instantiates a new RubricsResponse and sets the default values.
+     * Instantiates a new rubricsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

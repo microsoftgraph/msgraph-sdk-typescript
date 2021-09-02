@@ -21,7 +21,7 @@ export class ParentNotebook extends OnenoteEntityHierarchyModel implements Parsa
     /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.  */
     private _userRole?: OnenoteUserRole | undefined;
     /**
-     * Instantiates a new ParentNotebook and sets the default values.
+     * Instantiates a new parentNotebook and sets the default values.
      */
     public constructor() {
         super();

@@ -78,7 +78,7 @@ export class UserAttributeAssignmentsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of UserAttributeAssignmentsResponse
+     * @returns a Promise of userAttributeAssignmentsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -94,6 +94,13 @@ export class UserAttributeAssignmentsRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<UserAttributeAssignmentsResponse>(requestInfo, UserAttributeAssignmentsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userAttributeAssignments/microsoft.graph.getOrder()
+     * @returns a getOrderRequestBuilder
+     */
+    public getOrder() : GetOrderRequestBuilder {
+        return new GetOrderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
      * The user attribute assignments included in the user flow.

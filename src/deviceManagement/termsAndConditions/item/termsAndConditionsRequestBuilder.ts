@@ -24,7 +24,7 @@ export class TermsAndConditionsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.acceptanceStatuses collection
      * @param id Unique identifier of the item
-     * @returns a TermsAndConditionsAcceptanceStatusRequestBuilder
+     * @returns a termsAndConditionsAcceptanceStatusRequestBuilder
      */
     public acceptanceStatusesById(id: String) : TermsAndConditionsAcceptanceStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -33,7 +33,7 @@ export class TermsAndConditionsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.assignments collection
      * @param id Unique identifier of the item
-     * @returns a TermsAndConditionsAssignmentRequestBuilder
+     * @returns a termsAndConditionsAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : TermsAndConditionsAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

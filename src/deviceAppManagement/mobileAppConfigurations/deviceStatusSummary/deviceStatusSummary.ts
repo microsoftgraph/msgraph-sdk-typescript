@@ -17,7 +17,7 @@ export class DeviceStatusSummary extends Entity implements Parsable {
     /** Number of succeeded devices  */
     private _successCount?: number | undefined;
     /**
-     * Instantiates a new DeviceStatusSummary and sets the default values.
+     * Instantiates a new deviceStatusSummary and sets the default values.
      */
     public constructor() {
         super();

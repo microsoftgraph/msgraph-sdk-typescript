@@ -7,7 +7,7 @@ export class ResourcesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: EducationSubmissionResource[] | undefined;
     /**
-     * Instantiates a new ResourcesResponse and sets the default values.
+     * Instantiates a new resourcesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class MonthlyPrintUsageByPrinterResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PrintUsageByPrinter[] | undefined;
     /**
-     * Instantiates a new MonthlyPrintUsageByPrinterResponse and sets the default values.
+     * Instantiates a new monthlyPrintUsageByPrinterResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

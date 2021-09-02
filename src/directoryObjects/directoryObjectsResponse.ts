@@ -7,7 +7,7 @@ export class DirectoryObjectsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new DirectoryObjectsResponse and sets the default values.
+     * Instantiates a new directoryObjectsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

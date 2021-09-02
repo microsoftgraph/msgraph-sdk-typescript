@@ -2,7 +2,6 @@ import {AgreementAcceptance} from '../agreementAcceptance';
 import {AppRoleAssignment} from '../appRoleAssignment';
 import {AssignedLicense} from '../assignedLicense';
 import {AssignedPlan} from '../assignedPlan';
-import {Calendar} from '../calendar';
 import {CalendarGroup} from '../calendarGroup';
 import {Chat} from '../chat';
 import {Contact} from '../contact';
@@ -12,7 +11,7 @@ import {DirectoryObject} from '../directoryObject';
 import {Drive} from '../drive/drive';
 import {Event} from '../event';
 import {Extension} from '../extension';
-import {Onenote} from '../groups/onenote/onenote';
+import {Calendar} from '../groups/calendar/calendar';
 import {LicenseDetails} from '../licenseDetails';
 import {MailFolder} from '../mailFolder';
 import {ManagedAppRegistration} from '../managedAppRegistration';
@@ -26,12 +25,13 @@ import {ProfilePhoto} from '../profilePhoto';
 import {ProvisionedPlan} from '../provisionedPlan';
 import {ScopedRoleMembership} from '../scopedRoleMembership';
 import {Site} from '../site';
+import {Onenote} from '../sites/onenote/onenote';
 import {Team} from '../team';
 import {UserActivity} from '../userActivity';
+import {OutlookUser} from '../users/outlook/outlookUser';
 import {Authentication} from './authentication/authentication';
 import {InferenceClassification} from './inferenceClassification/inferenceClassification';
 import {OfficeGraphInsights} from './insights/officeGraphInsights';
-import {OutlookUser} from './outlook/outlookUser';
 import {PlannerUser} from './planner/plannerUser';
 import {UserSettings} from './settings/userSettings';
 import {UserTeamwork} from './teamwork/userTeamwork';
@@ -263,7 +263,7 @@ export class Me extends DirectoryObject implements Parsable {
     /** A string value that can be used to classify user types in your directory, such as Member and Guest. Supports $filter (eq, ne, NOT, in,).  */
     private _userType?: string | undefined;
     /**
-     * Instantiates a new Me and sets the default values.
+     * Instantiates a new me and sets the default values.
      */
     public constructor() {
         super();

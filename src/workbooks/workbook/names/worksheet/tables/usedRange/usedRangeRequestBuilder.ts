@@ -12,21 +12,7 @@ export class UsedRangeRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new usedRangeRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
-     */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.usedRange()";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
-    };
-    /**
-     * Instantiates a new usedRangeRequestBuilder and sets the default values.
+     * Instantiates a new UsedRangeRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
@@ -34,7 +20,22 @@ export class UsedRangeRequestBuilder {
     public constructor(currentPath: string, httpCore: IHttpCore, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.usedRange()";
+        this.pathSegment = "/microsoft.graph.usedRange(valuesOnly={valuesOnly})";
+        this.httpCore = httpCore;
+        this.currentPath = currentPath;
+        this.isRawUrl = isRawUrl;
+    };
+    /**
+     * Instantiates a new UsedRangeRequestBuilder and sets the default values.
+     * @param currentPath Current path for the request
+     * @param httpCore The http core service to use to execute the requests.
+     * @param isRawUrl Whether the current path is a raw URL
+     * @param valuesOnly Usage: valuesOnly={valuesOnly}
+     */
+    public constructor(currentPath: string, httpCore: HttpCore, valuesOnly?: boolean | undefined, isRawUrl: boolean = true) {
+        if(!currentPath) throw new Error("currentPath cannot be undefined");
+        if(!httpCore) throw new Error("httpCore cannot be undefined");
+        this.pathSegment = `/microsoft.graph.usedRange(valuesOnly=${valuesOnly ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

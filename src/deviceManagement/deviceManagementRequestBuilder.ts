@@ -157,7 +157,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.complianceManagementPartners collection
      * @param id Unique identifier of the item
-     * @returns a ComplianceManagementPartnerRequestBuilder
+     * @returns a complianceManagementPartnerRequestBuilder
      */
     public complianceManagementPartnersById(id: String) : ComplianceManagementPartnerRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -216,7 +216,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.detectedApps collection
      * @param id Unique identifier of the item
-     * @returns a DetectedAppRequestBuilder
+     * @returns a detectedAppRequestBuilder
      */
     public detectedAppsById(id: String) : DetectedAppRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -225,7 +225,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCategories collection
      * @param id Unique identifier of the item
-     * @returns a DeviceCategoryRequestBuilder
+     * @returns a deviceCategoryRequestBuilder
      */
     public deviceCategoriesById(id: String) : DeviceCategoryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -234,7 +234,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies collection
      * @param id Unique identifier of the item
-     * @returns a DeviceCompliancePolicyRequestBuilder
+     * @returns a deviceCompliancePolicyRequestBuilder
      */
     public deviceCompliancePoliciesById(id: String) : DeviceCompliancePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -243,7 +243,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries collection
      * @param id Unique identifier of the item
-     * @returns a DeviceCompliancePolicySettingStateSummaryRequestBuilder
+     * @returns a deviceCompliancePolicySettingStateSummaryRequestBuilder
      */
     public deviceCompliancePolicySettingStateSummariesById(id: String) : DeviceCompliancePolicySettingStateSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -252,7 +252,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationRequestBuilder
+     * @returns a deviceConfigurationRequestBuilder
      */
     public deviceConfigurationsById(id: String) : DeviceConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -261,7 +261,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a DeviceEnrollmentConfigurationRequestBuilder
+     * @returns a deviceEnrollmentConfigurationRequestBuilder
      */
     public deviceEnrollmentConfigurationsById(id: String) : DeviceEnrollmentConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -270,7 +270,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceManagementPartners collection
      * @param id Unique identifier of the item
-     * @returns a DeviceManagementPartnerRequestBuilder
+     * @returns a deviceManagementPartnerRequestBuilder
      */
     public deviceManagementPartnersById(id: String) : DeviceManagementPartnerRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -279,7 +279,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.exchangeConnectors collection
      * @param id Unique identifier of the item
-     * @returns a DeviceManagementExchangeConnectorRequestBuilder
+     * @returns a deviceManagementExchangeConnectorRequestBuilder
      */
     public exchangeConnectorsById(id: String) : DeviceManagementExchangeConnectorRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -303,9 +303,18 @@ export class DeviceManagementRequestBuilder {
         return this.httpCore?.sendAsync<DeviceManagement>(requestInfo, DeviceManagement, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')
+     * @param scope Usage: scope={scope}
+     * @returns a getEffectivePermissionsRequestBuilder
+     */
+    public getEffectivePermissions(scope: string | undefined) : GetEffectivePermissionsRequestBuilder {
+        if(!scope) throw new Error("scope cannot be undefined");
+        return new GetEffectivePermissionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, scope);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.importedWindowsAutopilotDeviceIdentities collection
      * @param id Unique identifier of the item
-     * @returns a ImportedWindowsAutopilotDeviceIdentityRequestBuilder
+     * @returns a importedWindowsAutopilotDeviceIdentityRequestBuilder
      */
     public importedWindowsAutopilotDeviceIdentitiesById(id: String) : ImportedWindowsAutopilotDeviceIdentityRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -314,7 +323,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.iosUpdateStatuses collection
      * @param id Unique identifier of the item
-     * @returns a IosUpdateDeviceStatusRequestBuilder
+     * @returns a iosUpdateDeviceStatusRequestBuilder
      */
     public iosUpdateStatusesById(id: String) : IosUpdateDeviceStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -323,7 +332,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.managedDevices collection
      * @param id Unique identifier of the item
-     * @returns a ManagedDeviceRequestBuilder
+     * @returns a managedDeviceRequestBuilder
      */
     public managedDevicesById(id: String) : ManagedDeviceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -332,7 +341,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.mobileThreatDefenseConnectors collection
      * @param id Unique identifier of the item
-     * @returns a MobileThreatDefenseConnectorRequestBuilder
+     * @returns a mobileThreatDefenseConnectorRequestBuilder
      */
     public mobileThreatDefenseConnectorsById(id: String) : MobileThreatDefenseConnectorRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -341,7 +350,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates collection
      * @param id Unique identifier of the item
-     * @returns a NotificationMessageTemplateRequestBuilder
+     * @returns a notificationMessageTemplateRequestBuilder
      */
     public notificationMessageTemplatesById(id: String) : NotificationMessageTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -364,7 +373,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.remoteAssistancePartners collection
      * @param id Unique identifier of the item
-     * @returns a RemoteAssistancePartnerRequestBuilder
+     * @returns a remoteAssistancePartnerRequestBuilder
      */
     public remoteAssistancePartnersById(id: String) : RemoteAssistancePartnerRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -373,7 +382,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.resourceOperations collection
      * @param id Unique identifier of the item
-     * @returns a ResourceOperationRequestBuilder
+     * @returns a resourceOperationRequestBuilder
      */
     public resourceOperationsById(id: String) : ResourceOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -382,7 +391,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleAssignments collection
      * @param id Unique identifier of the item
-     * @returns a DeviceAndAppManagementRoleAssignmentRequestBuilder
+     * @returns a deviceAndAppManagementRoleAssignmentRequestBuilder
      */
     public roleAssignmentsById(id: String) : DeviceAndAppManagementRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -391,7 +400,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions collection
      * @param id Unique identifier of the item
-     * @returns a RoleDefinitionRequestBuilder
+     * @returns a roleDefinitionRequestBuilder
      */
     public roleDefinitionsById(id: String) : RoleDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -400,7 +409,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.telecomExpenseManagementPartners collection
      * @param id Unique identifier of the item
-     * @returns a TelecomExpenseManagementPartnerRequestBuilder
+     * @returns a telecomExpenseManagementPartnerRequestBuilder
      */
     public telecomExpenseManagementPartnersById(id: String) : TelecomExpenseManagementPartnerRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -409,7 +418,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions collection
      * @param id Unique identifier of the item
-     * @returns a TermsAndConditionsRequestBuilder
+     * @returns a termsAndConditionsRequestBuilder
      */
     public termsAndConditionsById(id: String) : TermsAndConditionsRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -418,16 +427,25 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.troubleshootingEvents collection
      * @param id Unique identifier of the item
-     * @returns a DeviceManagementTroubleshootingEventRequestBuilder
+     * @returns a deviceManagementTroubleshootingEventRequestBuilder
      */
     public troubleshootingEventsById(id: String) : DeviceManagementTroubleshootingEventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new DeviceManagementTroubleshootingEventRequestBuilder(this.currentPath + this.pathSegment + "/troubleshootingEvents/" + id, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /deviceManagement/microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')
+     * @param domainName Usage: domainName={domainName}
+     * @returns a verifyWindowsEnrollmentAutoDiscoveryRequestBuilder
+     */
+    public verifyWindowsEnrollmentAutoDiscovery(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryRequestBuilder {
+        if(!domainName) throw new Error("domainName cannot be undefined");
+        return new VerifyWindowsEnrollmentAutoDiscoveryRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, domainName);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsAutopilotDeviceIdentities collection
      * @param id Unique identifier of the item
-     * @returns a WindowsAutopilotDeviceIdentityRequestBuilder
+     * @returns a windowsAutopilotDeviceIdentityRequestBuilder
      */
     public windowsAutopilotDeviceIdentitiesById(id: String) : WindowsAutopilotDeviceIdentityRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -436,7 +454,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionAppLearningSummaries collection
      * @param id Unique identifier of the item
-     * @returns a WindowsInformationProtectionAppLearningSummaryRequestBuilder
+     * @returns a windowsInformationProtectionAppLearningSummaryRequestBuilder
      */
     public windowsInformationProtectionAppLearningSummariesById(id: String) : WindowsInformationProtectionAppLearningSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -445,7 +463,7 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionNetworkLearningSummaries collection
      * @param id Unique identifier of the item
-     * @returns a WindowsInformationProtectionNetworkLearningSummaryRequestBuilder
+     * @returns a windowsInformationProtectionNetworkLearningSummaryRequestBuilder
      */
     public windowsInformationProtectionNetworkLearningSummariesById(id: String) : WindowsInformationProtectionNetworkLearningSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

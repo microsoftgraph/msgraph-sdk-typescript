@@ -12,15 +12,18 @@ export class GetPrinterArchivedPrintJobsRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new getPrinterArchivedPrintJobsRequestBuilder and sets the default values.
+     * Instantiates a new GetPrinterArchivedPrintJobsRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
+     * @param endDateTime Usage: endDateTime={endDateTime}
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param printerId Usage: printerId={printerId}
+     * @param startDateTime Usage: startDateTime={startDateTime}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, printerId?: string | undefined, startDateTime?: DateTimeOffset | undefined, endDateTime?: DateTimeOffset | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.getPrinterArchivedPrintJobs(printerId='{printerId}',startDateTime={startDateTime},endDateTime={endDateTime})";
+        this.pathSegment = `/microsoft.graph.getPrinterArchivedPrintJobs(printerId='${printerId ?? ''}',startDateTime=${startDateTime ?? ''},endDateTime=${endDateTime ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

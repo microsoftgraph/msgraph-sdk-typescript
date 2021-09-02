@@ -7,7 +7,7 @@ export class AssignmentCategoriesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: EducationCategory[] | undefined;
     /**
-     * Instantiates a new AssignmentCategoriesResponse and sets the default values.
+     * Instantiates a new assignmentCategoriesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -71,12 +71,19 @@ export class CalendarViewRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /me/calendar/calendarView/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of CalendarViewResponse
+     * @returns a Promise of calendarViewResponse
      */
     public get(q?: {
                     count?: boolean,

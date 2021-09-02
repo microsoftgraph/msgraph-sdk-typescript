@@ -31,6 +31,13 @@ export class ChartsRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.count()
+     * @returns a countRequestBuilder
+     */
+    public count() : CountRequestBuilder {
+        return new CountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Returns collection of charts that are part of the worksheet. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -78,7 +85,7 @@ export class ChartsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ChartsResponse
+     * @returns a Promise of chartsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -94,6 +101,24 @@ export class ChartsRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<ChartsResponse>(requestInfo, ChartsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.item(name='{name}')
+     * @param name Usage: name={name}
+     * @returns a itemRequestBuilder
+     */
+    public item(name: string | undefined) : ItemRequestBuilder {
+        if(!name) throw new Error("name cannot be undefined");
+        return new ItemRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, name);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.itemAt(index={index})
+     * @param index Usage: index={index}
+     * @returns a itemAtRequestBuilder
+     */
+    public itemAt(index: number | undefined) : ItemAtRequestBuilder {
+        if(!index) throw new Error("index cannot be undefined");
+        return new ItemAtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, index);
     };
     /**
      * Returns collection of charts that are part of the worksheet. Read-only.

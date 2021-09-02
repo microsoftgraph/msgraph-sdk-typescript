@@ -7,7 +7,7 @@ export class InstalledAppsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TeamsAppInstallation[] | undefined;
     /**
-     * Instantiates a new InstalledAppsResponse and sets the default values.
+     * Instantiates a new installedAppsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -20,7 +20,7 @@ export class AppConsentRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.appConsent.appConsentRequests collection
      * @param id Unique identifier of the item
-     * @returns a AppConsentRequestRequestBuilder
+     * @returns a appConsentRequestRequestBuilder
      */
     public appConsentRequestsById(id: String) : AppConsentRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

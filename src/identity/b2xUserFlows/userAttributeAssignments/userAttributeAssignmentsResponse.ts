@@ -7,7 +7,7 @@ export class UserAttributeAssignmentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: IdentityUserFlowAttributeAssignment[] | undefined;
     /**
-     * Instantiates a new UserAttributeAssignmentsResponse and sets the default values.
+     * Instantiates a new userAttributeAssignmentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

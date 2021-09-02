@@ -7,7 +7,7 @@ export class RemoteAssistancePartnersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: RemoteAssistancePartner[] | undefined;
     /**
-     * Instantiates a new RemoteAssistancePartnersResponse and sets the default values.
+     * Instantiates a new remoteAssistancePartnersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

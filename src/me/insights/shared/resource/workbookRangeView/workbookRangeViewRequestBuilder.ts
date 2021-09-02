@@ -11,7 +11,7 @@ export class WorkbookRangeViewRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new workbookRangeViewRequestBuilder and sets the default values.
+     * Instantiates a new WorkbookRangeViewRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
@@ -23,5 +23,12 @@ export class WorkbookRangeViewRequestBuilder {
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;
+    };
+    /**
+     * Builds and executes requests for operations under /me/insights/shared/{sharedInsight-id}/resource/microsoft.graph.workbookRangeView/microsoft.graph.range()
+     * @returns a rangeRequestBuilder
+     */
+    public range() : RangeRequestBuilder {
+        return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

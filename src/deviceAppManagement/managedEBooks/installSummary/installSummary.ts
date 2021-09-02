@@ -15,7 +15,7 @@ export class InstallSummary extends Entity implements Parsable {
     /** Number of Users that did not install this book.  */
     private _notInstalledUserCount?: number | undefined;
     /**
-     * Instantiates a new InstallSummary and sets the default values.
+     * Instantiates a new installSummary and sets the default values.
      */
     public constructor() {
         super();

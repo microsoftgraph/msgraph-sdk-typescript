@@ -156,7 +156,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.offerShiftRequests collection
      * @param id Unique identifier of the item
-     * @returns a OfferShiftRequestRequestBuilder
+     * @returns a offerShiftRequestRequestBuilder
      */
     public offerShiftRequestsById(id: String) : OfferShiftRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -165,7 +165,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.openShiftChangeRequests collection
      * @param id Unique identifier of the item
-     * @returns a OpenShiftChangeRequestRequestBuilder
+     * @returns a openShiftChangeRequestRequestBuilder
      */
     public openShiftChangeRequestsById(id: String) : OpenShiftChangeRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -174,7 +174,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.openShifts collection
      * @param id Unique identifier of the item
-     * @returns a OpenShiftRequestBuilder
+     * @returns a openShiftRequestBuilder
      */
     public openShiftsById(id: String) : OpenShiftRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -197,7 +197,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.schedulingGroups collection
      * @param id Unique identifier of the item
-     * @returns a SchedulingGroupRequestBuilder
+     * @returns a schedulingGroupRequestBuilder
      */
     public schedulingGroupsById(id: String) : SchedulingGroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -206,7 +206,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.shifts collection
      * @param id Unique identifier of the item
-     * @returns a ShiftRequestBuilder
+     * @returns a shiftRequestBuilder
      */
     public shiftsById(id: String) : ShiftRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -215,7 +215,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.swapShiftsChangeRequests collection
      * @param id Unique identifier of the item
-     * @returns a SwapShiftsChangeRequestRequestBuilder
+     * @returns a swapShiftsChangeRequestRequestBuilder
      */
     public swapShiftsChangeRequestsById(id: String) : SwapShiftsChangeRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -224,7 +224,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.timeOffReasons collection
      * @param id Unique identifier of the item
-     * @returns a TimeOffReasonRequestBuilder
+     * @returns a timeOffReasonRequestBuilder
      */
     public timeOffReasonsById(id: String) : TimeOffReasonRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -233,7 +233,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.timeOffRequests collection
      * @param id Unique identifier of the item
-     * @returns a TimeOffRequestRequestBuilder
+     * @returns a timeOffRequestRequestBuilder
      */
     public timeOffRequestsById(id: String) : TimeOffRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -242,7 +242,7 @@ export class ScheduleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.schedule.timesOff collection
      * @param id Unique identifier of the item
-     * @returns a TimeOffRequestBuilder
+     * @returns a timeOffRequestBuilder
      */
     public timesOffById(id: String) : TimeOffRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

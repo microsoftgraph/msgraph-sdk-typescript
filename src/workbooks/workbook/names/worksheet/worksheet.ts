@@ -24,7 +24,7 @@ export class Worksheet extends Entity implements Parsable {
     /** The Visibility of the worksheet. The possible values are: Visible, Hidden, VeryHidden.  */
     private _visibility?: string | undefined;
     /**
-     * Instantiates a new Worksheet and sets the default values.
+     * Instantiates a new worksheet and sets the default values.
      */
     public constructor() {
         super();

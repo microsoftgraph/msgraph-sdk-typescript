@@ -22,7 +22,7 @@ export class DataLabels extends Entity implements Parsable {
     /** Boolean value representing if the data label value is visible or not.  */
     private _showValue?: boolean | undefined;
     /**
-     * Instantiates a new DataLabels and sets the default values.
+     * Instantiates a new dataLabels and sets the default values.
      */
     public constructor() {
         super();

@@ -125,7 +125,7 @@ export class B2xIdentityUserFlowRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.languages collection
      * @param id Unique identifier of the item
-     * @returns a UserFlowLanguageConfigurationRequestBuilder
+     * @returns a userFlowLanguageConfigurationRequestBuilder
      */
     public languagesById(id: String) : UserFlowLanguageConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -148,7 +148,7 @@ export class B2xIdentityUserFlowRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.userAttributeAssignments collection
      * @param id Unique identifier of the item
-     * @returns a IdentityUserFlowAttributeAssignmentRequestBuilder
+     * @returns a identityUserFlowAttributeAssignmentRequestBuilder
      */
     public userAttributeAssignmentsById(id: String) : IdentityUserFlowAttributeAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

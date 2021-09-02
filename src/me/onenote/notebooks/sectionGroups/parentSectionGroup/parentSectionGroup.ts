@@ -18,7 +18,7 @@ export class ParentSectionGroup extends OnenoteEntityHierarchyModel implements P
     /** The URL for the sections navigation property, which returns all the sections in the section group. Read-only.  */
     private _sectionsUrl?: string | undefined;
     /**
-     * Instantiates a new ParentSectionGroup and sets the default values.
+     * Instantiates a new parentSectionGroup and sets the default values.
      */
     public constructor() {
         super();

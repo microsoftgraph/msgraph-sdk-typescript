@@ -1,5 +1,5 @@
-import {Sort} from '../../../names/worksheet/tables/sort/sort';
-import {WorkbookTableSort} from '../../../names/worksheet/tables/sort/workbookTableSort';
+import {Sort} from '../../../tables/sort/sort';
+import {WorkbookTableSort} from '../../../tables/sort/workbookTableSort';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';

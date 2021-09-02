@@ -7,7 +7,7 @@ export class CommentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookComment[] | undefined;
     /**
-     * Instantiates a new CommentsResponse and sets the default values.
+     * Instantiates a new commentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

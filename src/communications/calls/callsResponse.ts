@@ -7,7 +7,7 @@ export class CallsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Call[] | undefined;
     /**
-     * Instantiates a new CallsResponse and sets the default values.
+     * Instantiates a new callsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

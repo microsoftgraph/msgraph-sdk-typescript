@@ -37,9 +37,20 @@ export class WorksheetRequestBuilder {
         return new TablesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/worksheet/microsoft.graph.cell(row={row},column={column})
+     * @param column Usage: column={column}
+     * @param row Usage: row={row}
+     * @returns a cellRequestBuilder
+     */
+    public cell(row: number | undefined, column: number | undefined) : CellRequestBuilder {
+        if(!column) throw new Error("column cannot be undefined");
+        if(!row) throw new Error("row cannot be undefined");
+        return new CellRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, row, column);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables.worksheet.charts collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookChartRequestBuilder
+     * @returns a workbookChartRequestBuilder
      */
     public chartsById(id: String) : WorkbookChartRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -141,7 +152,7 @@ export class WorksheetRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables.worksheet.names collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookNamedItemRequestBuilder
+     * @returns a workbookNamedItemRequestBuilder
      */
     public namesById(id: String) : WorkbookNamedItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -164,19 +175,33 @@ export class WorksheetRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables.worksheet.pivotTables collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookPivotTableRequestBuilder
+     * @returns a workbookPivotTableRequestBuilder
      */
     public pivotTablesById(id: String) : WorkbookPivotTableRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new WorkbookPivotTableRequestBuilder(this.currentPath + this.pathSegment + "/pivotTables/" + id, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/worksheet/microsoft.graph.range()
+     * @returns a rangeRequestBuilder
+     */
+    public range() : RangeRequestBuilder {
+        return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables.worksheet.tables collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookTableRequestBuilder
+     * @returns a workbookTableRequestBuilder
      */
     public tablesById(id: String) : WorkbookTableRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new WorkbookTableRequestBuilder(this.currentPath + this.pathSegment + "/tables/" + id, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/worksheet/microsoft.graph.usedRange()
+     * @returns a usedRangeRequestBuilder
+     */
+    public usedRange() : UsedRangeRequestBuilder {
+        return new UsedRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

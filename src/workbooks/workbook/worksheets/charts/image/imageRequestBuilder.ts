@@ -1,6 +1,6 @@
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/microsoft.graph.image()  */
+/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/microsoft.graph.image(width={width})  */
 export class ImageRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -11,39 +11,45 @@ export class ImageRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new imageRequestBuilder and sets the default values.
+     * Instantiates a new ImageRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param width Usage: width={width}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, width?: number | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.image()";
+        this.pathSegment = `/microsoft.graph.image(width=${width ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new imageRequestBuilder and sets the default values.
+     * Instantiates a new ImageRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param currentPath Current path for the request
      * @param currentPath Current path for the request
+     * @param fittingMode Usage: fittingMode={fittingMode}
+     * @param height Usage: height={height}
+     * @param height Usage: height={height}
      * @param httpCore The http core service to use to execute the requests.
      * @param httpCore The http core service to use to execute the requests.
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
      * @param isRawUrl Whether the current path is a raw URL
      * @param isRawUrl Whether the current path is a raw URL
+     * @param width Usage: width={width}
+     * @param width Usage: width={width}
      */
-    public constructor(currentPath: string, currentPath: string, currentPath: string, httpCore: IHttpCore, httpCore: IHttpCore, httpCore: IHttpCore, isRawUrl: boolean = true, isRawUrl: boolean = true, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, currentPath: string, currentPath: string, httpCore: IHttpCore, httpCore: IHttpCore, httpCore: IHttpCore, width?: number | undefined, height?: number | undefined, fittingMode?: string | undefined, width?: number | undefined, height?: number | undefined, isRawUrl: boolean = true, isRawUrl: boolean = true, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.image()";
+        this.pathSegment = `/microsoft.graph.image(width=${width ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

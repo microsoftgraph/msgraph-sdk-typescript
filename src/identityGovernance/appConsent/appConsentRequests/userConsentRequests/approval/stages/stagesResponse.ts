@@ -7,7 +7,7 @@ export class StagesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ApprovalStage[] | undefined;
     /**
-     * Instantiates a new StagesResponse and sets the default values.
+     * Instantiates a new stagesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

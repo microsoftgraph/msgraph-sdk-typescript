@@ -19,7 +19,7 @@ export class ExternalRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.external.connections collection
      * @param id Unique identifier of the item
-     * @returns a ExternalConnectionRequestBuilder
+     * @returns a externalConnectionRequestBuilder
      */
     public connectionsById(id: String) : ExternalConnectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

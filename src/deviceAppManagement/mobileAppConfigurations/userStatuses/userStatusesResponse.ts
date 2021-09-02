@@ -7,7 +7,7 @@ export class UserStatusesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
     /**
-     * Instantiates a new UserStatusesResponse and sets the default values.
+     * Instantiates a new userStatusesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

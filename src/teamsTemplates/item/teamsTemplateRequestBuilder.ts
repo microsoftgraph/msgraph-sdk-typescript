@@ -1,4 +1,4 @@
-import {TeamsTemplate} from '../../teamsTemplate';
+import {TeamsTemplate} from '../../teams/template/teamsTemplate';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /teamsTemplates/{teamsTemplate-id}  */

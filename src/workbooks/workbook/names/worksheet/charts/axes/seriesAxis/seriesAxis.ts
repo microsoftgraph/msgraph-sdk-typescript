@@ -22,7 +22,7 @@ export class SeriesAxis extends Entity implements Parsable {
     /** Represents the axis title. Read-only.  */
     private _title?: WorkbookChartAxisTitle | undefined;
     /**
-     * Instantiates a new SeriesAxis and sets the default values.
+     * Instantiates a new seriesAxis and sets the default values.
      */
     public constructor() {
         super();

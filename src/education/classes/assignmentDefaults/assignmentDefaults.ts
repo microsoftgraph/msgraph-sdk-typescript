@@ -9,7 +9,7 @@ export class AssignmentDefaults extends Entity implements Parsable {
     /** Default Teams channel to which notifications will be sent. Default value is null.  */
     private _notificationChannelUrl?: string | undefined;
     /**
-     * Instantiates a new AssignmentDefaults and sets the default values.
+     * Instantiates a new assignmentDefaults and sets the default values.
      */
     public constructor() {
         super();

@@ -112,7 +112,7 @@ export class UserActivityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.activities.historyItems collection
      * @param id Unique identifier of the item
-     * @returns a ActivityHistoryItemRequestBuilder
+     * @returns a activityHistoryItemRequestBuilder
      */
     public historyItemsById(id: String) : ActivityHistoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class ScheduledActionConfigurationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceComplianceActionItem[] | undefined;
     /**
-     * Instantiates a new ScheduledActionConfigurationsResponse and sets the default values.
+     * Instantiates a new scheduledActionConfigurationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -73,7 +73,7 @@ export class Root extends BaseItem implements Parsable {
     /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.  */
     private _workbook?: Workbook | undefined;
     /**
-     * Instantiates a new Root and sets the default values.
+     * Instantiates a new root and sets the default values.
      */
     public constructor() {
         super();

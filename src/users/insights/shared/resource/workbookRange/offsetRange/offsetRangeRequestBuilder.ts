@@ -12,15 +12,17 @@ export class OffsetRangeRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new offsetRangeRequestBuilder and sets the default values.
+     * Instantiates a new OffsetRangeRequestBuilder and sets the default values.
+     * @param columnOffset Usage: columnOffset={columnOffset}
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param rowOffset Usage: rowOffset={rowOffset}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, rowOffset?: number | undefined, columnOffset?: number | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.offsetRange(rowOffset={rowOffset},columnOffset={columnOffset})";
+        this.pathSegment = `/microsoft.graph.offsetRange(rowOffset=${rowOffset ?? ''},columnOffset=${columnOffset ?? ''})`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

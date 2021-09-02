@@ -69,12 +69,19 @@ export class EventsRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /users/{user-id}/events/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * The user's events. Default is to show events under the Default Calendar. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of EventsResponse
+     * @returns a Promise of eventsResponse
      */
     public get(q?: {
                     count?: boolean,

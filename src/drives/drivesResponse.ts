@@ -7,7 +7,7 @@ export class DrivesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Drive[] | undefined;
     /**
-     * Instantiates a new DrivesResponse and sets the default values.
+     * Instantiates a new drivesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -110,7 +110,7 @@ export class ServicePrincipalRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.appRoleAssignedTo collection
      * @param id Unique identifier of the item
-     * @returns a AppRoleAssignmentRequestBuilder
+     * @returns a appRoleAssignmentRequestBuilder
      */
     public appRoleAssignedToById(id: String) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -119,7 +119,7 @@ export class ServicePrincipalRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.appRoleAssignments collection
      * @param id Unique identifier of the item
-     * @returns a AppRoleAssignmentRequestBuilder
+     * @returns a appRoleAssignmentRequestBuilder
      */
     public appRoleAssignmentsById(id: String) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -192,7 +192,7 @@ export class ServicePrincipalRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.delegatedPermissionClassifications collection
      * @param id Unique identifier of the item
-     * @returns a DelegatedPermissionClassificationRequestBuilder
+     * @returns a delegatedPermissionClassificationRequestBuilder
      */
     public delegatedPermissionClassificationsById(id: String) : DelegatedPermissionClassificationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -213,7 +213,7 @@ export class ServicePrincipalRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.endpoints collection
      * @param id Unique identifier of the item
-     * @returns a EndpointRequestBuilder
+     * @returns a endpointRequestBuilder
      */
     public endpointsById(id: String) : EndpointRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class ActivitiesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: UserActivity[] | undefined;
     /**
-     * Instantiates a new ActivitiesResponse and sets the default values.
+     * Instantiates a new activitiesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

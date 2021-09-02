@@ -1,4 +1,4 @@
-import {Calendar} from '../../../../calendar';
+import {Calendar} from '../../../../groups/calendar/calendar';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -15,6 +15,15 @@ export class CalendarRequestBuilder {
     private readonly isRawUrl: boolean;
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
+    /**
+     * Builds and executes requests for operations under /me/calendars/{calendar-id}/calendarView/{event-id}/calendar/microsoft.graph.allowedCalendarSharingRoles(User='{User}')
+     * @param User Usage: User={User}
+     * @returns a allowedCalendarSharingRolesRequestBuilder
+     */
+    public allowedCalendarSharingRoles(User: string | undefined) : AllowedCalendarSharingRolesRequestBuilder {
+        if(!User) throw new Error("User cannot be undefined");
+        return new AllowedCalendarSharingRolesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, User);
+    };
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
      * @param currentPath Current path for the request

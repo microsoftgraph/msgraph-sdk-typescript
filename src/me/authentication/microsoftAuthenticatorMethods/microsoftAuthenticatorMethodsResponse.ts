@@ -7,7 +7,7 @@ export class MicrosoftAuthenticatorMethodsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
     /**
-     * Instantiates a new MicrosoftAuthenticatorMethodsResponse and sets the default values.
+     * Instantiates a new microsoftAuthenticatorMethodsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class CalendarViewResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Event[] | undefined;
     /**
-     * Instantiates a new CalendarViewResponse and sets the default values.
+     * Instantiates a new calendarViewResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

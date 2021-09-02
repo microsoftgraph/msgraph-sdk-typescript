@@ -1,5 +1,5 @@
 import {SectionGroup} from '../../../../../../sectionGroup';
-import {ParentSectionGroup} from '../../../../../../sites/onenote/notebooks/sectionGroups/parentSectionGroup/parentSectionGroup';
+import {ParentSectionGroup} from '../../../../notebooks/sectionGroups/parentSectionGroup/parentSectionGroup';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
@@ -139,7 +139,7 @@ export class ParentSectionGroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.onenote.pages.parentNotebook.sections.parentSectionGroup.sectionGroups collection
      * @param id Unique identifier of the item
-     * @returns a SectionGroupRequestBuilder
+     * @returns a sectionGroupRequestBuilder
      */
     public sectionGroupsById(id: String) : SectionGroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -148,7 +148,7 @@ export class ParentSectionGroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.onenote.pages.parentNotebook.sections.parentSectionGroup.sections collection
      * @param id Unique identifier of the item
-     * @returns a OnenoteSectionRequestBuilder
+     * @returns a onenoteSectionRequestBuilder
      */
     public sectionsById(id: String) : OnenoteSectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class ParticipantsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Participant[] | undefined;
     /**
-     * Instantiates a new ParticipantsResponse and sets the default values.
+     * Instantiates a new participantsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

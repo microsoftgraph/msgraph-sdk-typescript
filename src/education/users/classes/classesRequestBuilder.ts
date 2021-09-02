@@ -55,12 +55,19 @@ export class ClassesRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /education/users/{educationUser-id}/classes/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Classes to which the user belongs. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ClassesResponse
+     * @returns a Promise of classesResponse
      */
     public get(q?: {
                     count?: boolean,

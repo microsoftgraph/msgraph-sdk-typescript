@@ -7,7 +7,7 @@ export class MethodsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AuthenticationMethod[] | undefined;
     /**
-     * Instantiates a new MethodsResponse and sets the default values.
+     * Instantiates a new methodsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

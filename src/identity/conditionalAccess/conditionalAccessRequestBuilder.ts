@@ -118,7 +118,7 @@ export class ConditionalAccessRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.conditionalAccess.namedLocations collection
      * @param id Unique identifier of the item
-     * @returns a NamedLocationRequestBuilder
+     * @returns a namedLocationRequestBuilder
      */
     public namedLocationsById(id: String) : NamedLocationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -141,7 +141,7 @@ export class ConditionalAccessRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.conditionalAccess.policies collection
      * @param id Unique identifier of the item
-     * @returns a ConditionalAccessPolicyRequestBuilder
+     * @returns a conditionalAccessPolicyRequestBuilder
      */
     public policiesById(id: String) : ConditionalAccessPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

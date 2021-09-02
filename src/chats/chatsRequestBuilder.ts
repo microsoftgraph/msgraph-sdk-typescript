@@ -74,7 +74,7 @@ export class ChatsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ChatsResponse
+     * @returns a Promise of chatsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -90,6 +90,13 @@ export class ChatsRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<ChatsResponse>(requestInfo, ChatsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /chats/microsoft.graph.getAllMessages()
+     * @returns a getAllMessagesRequestBuilder
+     */
+    public getAllMessages() : GetAllMessagesRequestBuilder {
+        return new GetAllMessagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
      * Add new entity to chats

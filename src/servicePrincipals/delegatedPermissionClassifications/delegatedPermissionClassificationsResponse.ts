@@ -7,7 +7,7 @@ export class DelegatedPermissionClassificationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DelegatedPermissionClassification[] | undefined;
     /**
-     * Instantiates a new DelegatedPermissionClassificationsResponse and sets the default values.
+     * Instantiates a new delegatedPermissionClassificationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

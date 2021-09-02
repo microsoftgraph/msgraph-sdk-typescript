@@ -60,7 +60,7 @@ export class ManagedAppRegistrationsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ManagedAppRegistrationsResponse
+     * @returns a Promise of managedAppRegistrationsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -76,5 +76,12 @@ export class ManagedAppRegistrationsRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<ManagedAppRegistrationsResponse>(requestInfo, ManagedAppRegistrationsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/managedAppRegistrations/microsoft.graph.getUserIdsWithFlaggedAppRegistration()
+     * @returns a getUserIdsWithFlaggedAppRegistrationRequestBuilder
+     */
+    public getUserIdsWithFlaggedAppRegistration() : GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
+        return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

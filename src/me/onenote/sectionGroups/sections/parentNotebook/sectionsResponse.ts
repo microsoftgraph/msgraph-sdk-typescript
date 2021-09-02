@@ -7,7 +7,7 @@ export class SectionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OnenoteSection[] | undefined;
     /**
-     * Instantiates a new SectionsResponse and sets the default values.
+     * Instantiates a new sectionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

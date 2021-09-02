@@ -1,4 +1,4 @@
-import {TeamsTemplate} from '../teamsTemplate';
+import {TeamsTemplate} from '../teams/template/teamsTemplate';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsTemplatesResponse implements Parsable {
@@ -7,7 +7,7 @@ export class TeamsTemplatesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TeamsTemplate[] | undefined;
     /**
-     * Instantiates a new TeamsTemplatesResponse and sets the default values.
+     * Instantiates a new teamsTemplatesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

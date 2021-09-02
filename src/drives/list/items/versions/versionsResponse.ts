@@ -7,7 +7,7 @@ export class VersionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ListItemVersion[] | undefined;
     /**
-     * Instantiates a new VersionsResponse and sets the default values.
+     * Instantiates a new versionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

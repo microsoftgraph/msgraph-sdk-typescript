@@ -10,7 +10,7 @@ export class Title extends Entity implements Parsable {
     /** A boolean that specifies the visibility of an axis title.  */
     private _visible?: boolean | undefined;
     /**
-     * Instantiates a new Title and sets the default values.
+     * Instantiates a new title and sets the default values.
      */
     public constructor() {
         super();

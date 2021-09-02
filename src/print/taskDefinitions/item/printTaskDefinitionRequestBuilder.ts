@@ -126,7 +126,7 @@ export class PrintTaskDefinitionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions.tasks collection
      * @param id Unique identifier of the item
-     * @returns a PrintTaskRequestBuilder
+     * @returns a printTaskRequestBuilder
      */
     public tasksById(id: String) : PrintTaskRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

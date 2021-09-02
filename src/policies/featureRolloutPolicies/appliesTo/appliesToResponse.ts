@@ -7,7 +7,7 @@ export class AppliesToResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new AppliesToResponse and sets the default values.
+     * Instantiates a new appliesToResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

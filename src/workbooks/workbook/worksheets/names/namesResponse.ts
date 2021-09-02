@@ -7,7 +7,7 @@ export class NamesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookNamedItem[] | undefined;
     /**
-     * Instantiates a new NamesResponse and sets the default values.
+     * Instantiates a new namesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

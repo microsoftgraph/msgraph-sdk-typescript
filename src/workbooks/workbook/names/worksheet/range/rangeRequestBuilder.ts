@@ -1,7 +1,7 @@
 import {WorkbookRange} from '../../workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/microsoft.graph.range()  */
+/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/microsoft.graph.range(address='{address}')  */
 export class RangeRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -12,21 +12,7 @@ export class RangeRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new rangeRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
-     */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.range()";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
-    };
-    /**
-     * Instantiates a new rangeRequestBuilder and sets the default values.
+     * Instantiates a new RangeRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
@@ -34,7 +20,22 @@ export class RangeRequestBuilder {
     public constructor(currentPath: string, httpCore: IHttpCore, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.range()";
+        this.pathSegment = "/microsoft.graph.range(address='{address}')";
+        this.httpCore = httpCore;
+        this.currentPath = currentPath;
+        this.isRawUrl = isRawUrl;
+    };
+    /**
+     * Instantiates a new RangeRequestBuilder and sets the default values.
+     * @param address Usage: address={address}
+     * @param currentPath Current path for the request
+     * @param httpCore The http core service to use to execute the requests.
+     * @param isRawUrl Whether the current path is a raw URL
+     */
+    public constructor(currentPath: string, httpCore: HttpCore, address?: string | undefined, isRawUrl: boolean = true) {
+        if(!currentPath) throw new Error("currentPath cannot be undefined");
+        if(!httpCore) throw new Error("httpCore cannot be undefined");
+        this.pathSegment = `/microsoft.graph.range(address='${address ?? ''}')`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

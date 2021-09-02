@@ -7,7 +7,7 @@ export class SeriesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookChartSeries[] | undefined;
     /**
-     * Instantiates a new SeriesResponse and sets the default values.
+     * Instantiates a new seriesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -9,7 +9,7 @@ export class Reports extends Entity implements Parsable {
     private _monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
     private _monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /**
-     * Instantiates a new Reports and sets the default values.
+     * Instantiates a new reports and sets the default values.
      */
     public constructor() {
         super();

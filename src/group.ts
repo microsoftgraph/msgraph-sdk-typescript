@@ -1,6 +1,5 @@
 import {AppRoleAssignment} from './appRoleAssignment';
 import {AssignedLicense} from './assignedLicense';
-import {Calendar} from './calendar';
 import {Conversation} from './conversation';
 import {ConversationThread} from './conversationThread';
 import {DirectoryObject} from './directoryObject';
@@ -8,6 +7,7 @@ import {Drive} from './drive/drive';
 import {Event} from './event';
 import {Extension} from './extension';
 import {GroupLifecyclePolicy} from './groupLifecyclePolicy';
+import {Calendar} from './groups/calendar/calendar';
 import {Onenote} from './groups/onenote/onenote';
 import {PlannerGroup} from './groups/planner/plannerGroup';
 import {GroupSetting} from './groupSetting';

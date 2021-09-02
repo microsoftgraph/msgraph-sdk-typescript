@@ -10,7 +10,7 @@ export class Axes extends Entity implements Parsable {
     /** Represents the value axis in an axis. Read-only.  */
     private _valueAxis?: WorkbookChartAxis | undefined;
     /**
-     * Instantiates a new Axes and sets the default values.
+     * Instantiates a new axes and sets the default values.
      */
     public constructor() {
         super();

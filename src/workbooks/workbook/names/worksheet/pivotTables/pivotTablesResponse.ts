@@ -7,7 +7,7 @@ export class PivotTablesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookPivotTable[] | undefined;
     /**
-     * Instantiates a new PivotTablesResponse and sets the default values.
+     * Instantiates a new pivotTablesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

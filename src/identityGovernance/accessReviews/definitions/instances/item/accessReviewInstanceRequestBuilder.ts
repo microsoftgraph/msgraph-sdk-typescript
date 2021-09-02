@@ -107,7 +107,7 @@ export class AccessReviewInstanceRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions.instances.decisions collection
      * @param id Unique identifier of the item
-     * @returns a AccessReviewInstanceDecisionItemRequestBuilder
+     * @returns a accessReviewInstanceDecisionItemRequestBuilder
      */
     public decisionsById(id: String) : AccessReviewInstanceDecisionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

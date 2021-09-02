@@ -60,7 +60,7 @@ export class SiteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.columns collection
      * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionRequestBuilder
+     * @returns a columnDefinitionRequestBuilder
      */
     public columnsById(id: String) : ColumnDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -83,7 +83,7 @@ export class SiteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.contentTypes collection
      * @param id Unique identifier of the item
-     * @returns a ContentTypeRequestBuilder
+     * @returns a contentTypeRequestBuilder
      */
     public contentTypesById(id: String) : ContentTypeRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +154,7 @@ export class SiteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.drives collection
      * @param id Unique identifier of the item
-     * @returns a DriveRequestBuilder
+     * @returns a driveRequestBuilder
      */
     public drivesById(id: String) : DriveRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -178,9 +178,25 @@ export class SiteRequestBuilder {
         return this.httpCore?.sendAsync<Site>(requestInfo, Site, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /sites/{site-id}/microsoft.graph.getActivitiesByInterval()
+     * @returns a getActivitiesByIntervalRequestBuilder
+     */
+    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /sites/{site-id}/microsoft.graph.getByPath(path='{path}')
+     * @param path Usage: path={path}
+     * @returns a getByPathRequestBuilder
+     */
+    public getByPath(path: string | undefined) : GetByPathRequestBuilder {
+        if(!path) throw new Error("path cannot be undefined");
+        return new GetByPathRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, path);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.sites.items collection
      * @param id Unique identifier of the item
-     * @returns a BaseItemRequestBuilder
+     * @returns a baseItemRequestBuilder
      */
     public itemsById(id: String) : BaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -189,7 +205,7 @@ export class SiteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists collection
      * @param id Unique identifier of the item
-     * @returns a ListRequestBuilder
+     * @returns a listRequestBuilder
      */
     public listsById(id: String) : ListRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -212,7 +228,7 @@ export class SiteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.permissions collection
      * @param id Unique identifier of the item
-     * @returns a PermissionRequestBuilder
+     * @returns a permissionRequestBuilder
      */
     public permissionsById(id: String) : PermissionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -221,7 +237,7 @@ export class SiteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.sites collection
      * @param id Unique identifier of the item
-     * @returns a SiteRequestBuilder
+     * @returns a siteRequestBuilder
      */
     public sitesById(id: String) : SiteRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

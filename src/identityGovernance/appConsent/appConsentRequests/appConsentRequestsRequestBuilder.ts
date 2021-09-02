@@ -69,12 +69,21 @@ export class AppConsentRequestsRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /identityGovernance/appConsent/appConsentRequests/microsoft.graph.filterByCurrentUser(on={on})
+     * @param on Usage: on={on}
+     * @returns a filterByCurrentUserRequestBuilder
+     */
+    public filterByCurrentUser(on: string | undefined) : FilterByCurrentUserRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, on);
+    };
+    /**
      * Get appConsentRequests from identityGovernance
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AppConsentRequestsResponse
+     * @returns a Promise of appConsentRequestsResponse
      */
     public get(q?: {
                     count?: boolean,

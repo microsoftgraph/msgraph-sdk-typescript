@@ -25,7 +25,7 @@ export class TermsOfUseRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.termsOfUse.agreementAcceptances collection
      * @param id Unique identifier of the item
-     * @returns a AgreementAcceptanceRequestBuilder
+     * @returns a agreementAcceptanceRequestBuilder
      */
     public agreementAcceptancesById(id: String) : AgreementAcceptanceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -34,7 +34,7 @@ export class TermsOfUseRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.termsOfUse.agreements collection
      * @param id Unique identifier of the item
-     * @returns a AgreementRequestBuilder
+     * @returns a agreementRequestBuilder
      */
     public agreementsById(id: String) : AgreementRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

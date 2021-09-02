@@ -7,7 +7,7 @@ export class DailyPrintUsageByUserResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PrintUsageByUser[] | undefined;
     /**
-     * Instantiates a new DailyPrintUsageByUserResponse and sets the default values.
+     * Instantiates a new dailyPrintUsageByUserResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

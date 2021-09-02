@@ -190,7 +190,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.appRoleAssignments collection
      * @param id Unique identifier of the item
-     * @returns a AppRoleAssignmentRequestBuilder
+     * @returns a appRoleAssignmentRequestBuilder
      */
     public appRoleAssignmentsById(id: String) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -199,7 +199,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.calendarView collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public calendarViewById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -222,7 +222,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.conversations collection
      * @param id Unique identifier of the item
-     * @returns a ConversationRequestBuilder
+     * @returns a conversationRequestBuilder
      */
     public conversationsById(id: String) : ConversationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -293,7 +293,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.drives collection
      * @param id Unique identifier of the item
-     * @returns a DriveRequestBuilder
+     * @returns a driveRequestBuilder
      */
     public drivesById(id: String) : DriveRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -302,7 +302,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.events collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public eventsById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -311,7 +311,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -337,7 +337,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.groupLifecyclePolicies collection
      * @param id Unique identifier of the item
-     * @returns a GroupLifecyclePolicyRequestBuilder
+     * @returns a groupLifecyclePolicyRequestBuilder
      */
     public groupLifecyclePoliciesById(id: String) : GroupLifecyclePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -360,7 +360,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.permissionGrants collection
      * @param id Unique identifier of the item
-     * @returns a ResourceSpecificPermissionGrantRequestBuilder
+     * @returns a resourceSpecificPermissionGrantRequestBuilder
      */
     public permissionGrantsById(id: String) : ResourceSpecificPermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -369,7 +369,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.photos collection
      * @param id Unique identifier of the item
-     * @returns a ProfilePhotoRequestBuilder
+     * @returns a profilePhotoRequestBuilder
      */
     public photosById(id: String) : ProfilePhotoRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -378,7 +378,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.settings collection
      * @param id Unique identifier of the item
-     * @returns a GroupSettingRequestBuilder
+     * @returns a groupSettingRequestBuilder
      */
     public settingsById(id: String) : GroupSettingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -387,7 +387,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.sites collection
      * @param id Unique identifier of the item
-     * @returns a SiteRequestBuilder
+     * @returns a siteRequestBuilder
      */
     public sitesById(id: String) : SiteRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -396,7 +396,7 @@ export class GroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.threads collection
      * @param id Unique identifier of the item
-     * @returns a ConversationThreadRequestBuilder
+     * @returns a conversationThreadRequestBuilder
      */
     public threadsById(id: String) : ConversationThreadRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

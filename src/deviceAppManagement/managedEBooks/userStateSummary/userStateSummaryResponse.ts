@@ -7,7 +7,7 @@ export class UserStateSummaryResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: UserInstallStateSummary[] | undefined;
     /**
-     * Instantiates a new UserStateSummaryResponse and sets the default values.
+     * Instantiates a new userStateSummaryResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

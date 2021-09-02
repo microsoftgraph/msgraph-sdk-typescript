@@ -19,7 +19,7 @@ export class ContentTypeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists.contentTypes.columnLinks collection
      * @param id Unique identifier of the item
-     * @returns a ColumnLinkRequestBuilder
+     * @returns a columnLinkRequestBuilder
      */
     public columnLinksById(id: String) : ColumnLinkRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

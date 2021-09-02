@@ -22,7 +22,7 @@ export class CategoryAxis extends Entity implements Parsable {
     /** Represents the axis title. Read-only.  */
     private _title?: WorkbookChartAxisTitle | undefined;
     /**
-     * Instantiates a new CategoryAxis and sets the default values.
+     * Instantiates a new categoryAxis and sets the default values.
      */
     public constructor() {
         super();

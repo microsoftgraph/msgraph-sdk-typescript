@@ -13,7 +13,7 @@ export class AuditLogs extends Entity implements Parsable {
     /** Read-only. Nullable.  */
     private _signIns?: SignIn[] | undefined;
     /**
-     * Instantiates a new AuditLogs and sets the default values.
+     * Instantiates a new auditLogs and sets the default values.
      */
     public constructor() {
         super();

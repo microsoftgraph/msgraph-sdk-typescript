@@ -29,7 +29,7 @@ export class PrimaryChannel extends Entity implements Parsable {
     /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.  */
     private _webUrl?: string | undefined;
     /**
-     * Instantiates a new PrimaryChannel and sets the default values.
+     * Instantiates a new primaryChannel and sets the default values.
      */
     public constructor() {
         super();

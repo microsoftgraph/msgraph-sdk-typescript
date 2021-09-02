@@ -7,7 +7,7 @@ export class ChannelsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Channel[] | undefined;
     /**
-     * Instantiates a new ChannelsResponse and sets the default values.
+     * Instantiates a new channelsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class SwapShiftsChangeRequestsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SwapShiftsChangeRequest[] | undefined;
     /**
-     * Instantiates a new SwapShiftsChangeRequestsResponse and sets the default values.
+     * Instantiates a new swapShiftsChangeRequestsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class DeviceEnrollmentConfigurationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceEnrollmentConfiguration[] | undefined;
     /**
-     * Instantiates a new DeviceEnrollmentConfigurationsResponse and sets the default values.
+     * Instantiates a new deviceEnrollmentConfigurationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

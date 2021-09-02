@@ -7,7 +7,7 @@ export class DataPolicyOperationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DataPolicyOperation[] | undefined;
     /**
-     * Instantiates a new DataPolicyOperationsResponse and sets the default values.
+     * Instantiates a new dataPolicyOperationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

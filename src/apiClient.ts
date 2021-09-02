@@ -300,7 +300,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.agreementAcceptances collection
      * @param id Unique identifier of the item
-     * @returns a AgreementAcceptanceRequestBuilder
+     * @returns a agreementAcceptanceRequestBuilder
      */
     public agreementAcceptancesById(id: String) : AgreementAcceptanceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -309,7 +309,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.agreements collection
      * @param id Unique identifier of the item
-     * @returns a AgreementRequestBuilder
+     * @returns a agreementRequestBuilder
      */
     public agreementsById(id: String) : AgreementRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -318,7 +318,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.applications collection
      * @param id Unique identifier of the item
-     * @returns a ApplicationRequestBuilder
+     * @returns a applicationRequestBuilder
      */
     public applicationsById(id: String) : ApplicationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -327,7 +327,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.applicationTemplates collection
      * @param id Unique identifier of the item
-     * @returns a ApplicationTemplateRequestBuilder
+     * @returns a applicationTemplateRequestBuilder
      */
     public applicationTemplatesById(id: String) : ApplicationTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -336,7 +336,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.authenticationMethodConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a AuthenticationMethodConfigurationRequestBuilder
+     * @returns a authenticationMethodConfigurationRequestBuilder
      */
     public authenticationMethodConfigurationsById(id: String) : AuthenticationMethodConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -345,7 +345,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.certificateBasedAuthConfiguration collection
      * @param id Unique identifier of the item
-     * @returns a CertificateBasedAuthConfigurationRequestBuilder
+     * @returns a certificateBasedAuthConfigurationRequestBuilder
      */
     public certificateBasedAuthConfigurationById(id: String) : CertificateBasedAuthConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -354,7 +354,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.chats collection
      * @param id Unique identifier of the item
-     * @returns a ChatRequestBuilder
+     * @returns a chatRequestBuilder
      */
     public chatsById(id: String) : ChatRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -363,7 +363,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.connections collection
      * @param id Unique identifier of the item
-     * @returns a ExternalConnectionRequestBuilder
+     * @returns a externalConnectionRequestBuilder
      */
     public connectionsById(id: String) : ExternalConnectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -383,7 +383,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.contacts collection
      * @param id Unique identifier of the item
-     * @returns a OrgContactRequestBuilder
+     * @returns a orgContactRequestBuilder
      */
     public contactsById(id: String) : OrgContactRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -392,7 +392,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.contracts collection
      * @param id Unique identifier of the item
-     * @returns a ContractRequestBuilder
+     * @returns a contractRequestBuilder
      */
     public contractsById(id: String) : ContractRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -409,7 +409,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.dataPolicyOperations collection
      * @param id Unique identifier of the item
-     * @returns a DataPolicyOperationRequestBuilder
+     * @returns a dataPolicyOperationRequestBuilder
      */
     public dataPolicyOperationsById(id: String) : DataPolicyOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -418,7 +418,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.devices collection
      * @param id Unique identifier of the item
-     * @returns a DeviceRequestBuilder
+     * @returns a deviceRequestBuilder
      */
     public devicesById(id: String) : DeviceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -427,7 +427,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directoryObjects collection
      * @param id Unique identifier of the item
-     * @returns a DirectoryObjectRequestBuilder
+     * @returns a directoryObjectRequestBuilder
      */
     public directoryObjectsById(id: String) : DirectoryObjectRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -436,7 +436,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directoryRoles collection
      * @param id Unique identifier of the item
-     * @returns a DirectoryRoleRequestBuilder
+     * @returns a directoryRoleRequestBuilder
      */
     public directoryRolesById(id: String) : DirectoryRoleRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -445,7 +445,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directoryRoleTemplates collection
      * @param id Unique identifier of the item
-     * @returns a DirectoryRoleTemplateRequestBuilder
+     * @returns a directoryRoleTemplateRequestBuilder
      */
     public directoryRoleTemplatesById(id: String) : DirectoryRoleTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -454,7 +454,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.domainDnsRecords collection
      * @param id Unique identifier of the item
-     * @returns a DomainDnsRecordRequestBuilder
+     * @returns a domainDnsRecordRequestBuilder
      */
     public domainDnsRecordsById(id: String) : DomainDnsRecordRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -463,7 +463,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.domains collection
      * @param id Unique identifier of the item
-     * @returns a DomainRequestBuilder
+     * @returns a domainRequestBuilder
      */
     public domainsById(id: String) : DomainRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -472,7 +472,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.drives collection
      * @param id Unique identifier of the item
-     * @returns a DriveRequestBuilder
+     * @returns a driveRequestBuilder
      */
     public drivesById(id: String) : DriveRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -487,7 +487,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groupLifecyclePolicies collection
      * @param id Unique identifier of the item
-     * @returns a GroupLifecyclePolicyRequestBuilder
+     * @returns a groupLifecyclePolicyRequestBuilder
      */
     public groupLifecyclePoliciesById(id: String) : GroupLifecyclePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -496,7 +496,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups collection
      * @param id Unique identifier of the item
-     * @returns a GroupRequestBuilder
+     * @returns a groupRequestBuilder
      */
     public groupsById(id: String) : GroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -505,7 +505,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groupSettings collection
      * @param id Unique identifier of the item
-     * @returns a GroupSettingRequestBuilder
+     * @returns a groupSettingRequestBuilder
      */
     public groupSettingsById(id: String) : GroupSettingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -514,7 +514,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groupSettingTemplates collection
      * @param id Unique identifier of the item
-     * @returns a GroupSettingTemplateRequestBuilder
+     * @returns a groupSettingTemplateRequestBuilder
      */
     public groupSettingTemplatesById(id: String) : GroupSettingTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -523,7 +523,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityProviders collection
      * @param id Unique identifier of the item
-     * @returns a IdentityProviderRequestBuilder
+     * @returns a identityProviderRequestBuilder
      */
     public identityProvidersById(id: String) : IdentityProviderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -532,7 +532,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.invitations collection
      * @param id Unique identifier of the item
-     * @returns a InvitationRequestBuilder
+     * @returns a invitationRequestBuilder
      */
     public invitationsById(id: String) : InvitationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -541,7 +541,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.localizations collection
      * @param id Unique identifier of the item
-     * @returns a OrganizationalBrandingLocalizationRequestBuilder
+     * @returns a organizationalBrandingLocalizationRequestBuilder
      */
     public localizationsById(id: String) : OrganizationalBrandingLocalizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -550,7 +550,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.oauth2PermissionGrants collection
      * @param id Unique identifier of the item
-     * @returns a OAuth2PermissionGrantRequestBuilder
+     * @returns a oAuth2PermissionGrantRequestBuilder
      */
     public oauth2PermissionGrantsById(id: String) : OAuth2PermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -559,7 +559,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.organization collection
      * @param id Unique identifier of the item
-     * @returns a OrganizationRequestBuilder
+     * @returns a organizationRequestBuilder
      */
     public organizationById(id: String) : OrganizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -568,7 +568,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.permissionGrants collection
      * @param id Unique identifier of the item
-     * @returns a ResourceSpecificPermissionGrantRequestBuilder
+     * @returns a resourceSpecificPermissionGrantRequestBuilder
      */
     public permissionGrantsById(id: String) : ResourceSpecificPermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -577,7 +577,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.places collection
      * @param id Unique identifier of the item
-     * @returns a PlaceRequestBuilder
+     * @returns a placeRequestBuilder
      */
     public placesById(id: String) : PlaceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -586,7 +586,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.schemaExtensions collection
      * @param id Unique identifier of the item
-     * @returns a SchemaExtensionRequestBuilder
+     * @returns a schemaExtensionRequestBuilder
      */
     public schemaExtensionsById(id: String) : SchemaExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -595,7 +595,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.scopedRoleMemberships collection
      * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipRequestBuilder
+     * @returns a scopedRoleMembershipRequestBuilder
      */
     public scopedRoleMembershipsById(id: String) : ScopedRoleMembershipRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -604,7 +604,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.servicePrincipals collection
      * @param id Unique identifier of the item
-     * @returns a ServicePrincipalRequestBuilder
+     * @returns a servicePrincipalRequestBuilder
      */
     public servicePrincipalsById(id: String) : ServicePrincipalRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -613,7 +613,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.shares collection
      * @param id Unique identifier of the item
-     * @returns a SharedDriveItemRequestBuilder
+     * @returns a sharedDriveItemRequestBuilder
      */
     public sharesById(id: String) : SharedDriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -622,7 +622,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites collection
      * @param id Unique identifier of the item
-     * @returns a SiteRequestBuilder
+     * @returns a siteRequestBuilder
      */
     public sitesById(id: String) : SiteRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -631,7 +631,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.subscribedSkus collection
      * @param id Unique identifier of the item
-     * @returns a SubscribedSkuRequestBuilder
+     * @returns a subscribedSkuRequestBuilder
      */
     public subscribedSkusById(id: String) : SubscribedSkuRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -640,7 +640,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.subscriptions collection
      * @param id Unique identifier of the item
-     * @returns a SubscriptionRequestBuilder
+     * @returns a subscriptionRequestBuilder
      */
     public subscriptionsById(id: String) : SubscriptionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -649,7 +649,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams collection
      * @param id Unique identifier of the item
-     * @returns a TeamRequestBuilder
+     * @returns a teamRequestBuilder
      */
     public teamsById(id: String) : TeamRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -658,7 +658,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teamsTemplates collection
      * @param id Unique identifier of the item
-     * @returns a TeamsTemplateRequestBuilder
+     * @returns a teamsTemplateRequestBuilder
      */
     public teamsTemplatesById(id: String) : TeamsTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -667,7 +667,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users collection
      * @param id Unique identifier of the item
-     * @returns a UserRequestBuilder
+     * @returns a userRequestBuilder
      */
     public usersById(id: String) : UserRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -676,7 +676,7 @@ export class ApiClient {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemRequestBuilder
+     * @returns a driveItemRequestBuilder
      */
     public workbooksById(id: String) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

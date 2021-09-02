@@ -126,7 +126,7 @@ export class CallRecordRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.callRecords.sessions collection
      * @param id Unique identifier of the item
-     * @returns a SessionRequestBuilder
+     * @returns a sessionRequestBuilder
      */
     public sessionsById(id: String) : SessionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

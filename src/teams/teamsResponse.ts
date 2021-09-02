@@ -7,7 +7,7 @@ export class TeamsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Team[] | undefined;
     /**
-     * Instantiates a new TeamsResponse and sets the default values.
+     * Instantiates a new teamsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

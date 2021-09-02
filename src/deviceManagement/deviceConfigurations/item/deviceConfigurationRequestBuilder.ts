@@ -46,7 +46,7 @@ export class DeviceConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.assignments collection
      * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationAssignmentRequestBuilder
+     * @returns a deviceConfigurationAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : DeviceConfigurationAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -131,7 +131,7 @@ export class DeviceConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.deviceSettingStateSummaries collection
      * @param id Unique identifier of the item
-     * @returns a SettingStateDeviceSummaryRequestBuilder
+     * @returns a settingStateDeviceSummaryRequestBuilder
      */
     public deviceSettingStateSummariesById(id: String) : SettingStateDeviceSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -140,7 +140,7 @@ export class DeviceConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.deviceStatuses collection
      * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationDeviceStatusRequestBuilder
+     * @returns a deviceConfigurationDeviceStatusRequestBuilder
      */
     public deviceStatusesById(id: String) : DeviceConfigurationDeviceStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -180,7 +180,7 @@ export class DeviceConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.userStatuses collection
      * @param id Unique identifier of the item
-     * @returns a DeviceConfigurationUserStatusRequestBuilder
+     * @returns a deviceConfigurationUserStatusRequestBuilder
      */
     public userStatusesById(id: String) : DeviceConfigurationUserStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

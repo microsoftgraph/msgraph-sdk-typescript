@@ -74,7 +74,7 @@ export class ChannelsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ChannelsResponse
+     * @returns a Promise of channelsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -90,6 +90,13 @@ export class ChannelsRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<ChannelsResponse>(requestInfo, ChannelsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /teams/{team-id}/channels/microsoft.graph.getAllMessages()
+     * @returns a getAllMessagesRequestBuilder
+     */
+    public getAllMessages() : GetAllMessagesRequestBuilder {
+        return new GetAllMessagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
      * The collection of channels & messages associated with the team.

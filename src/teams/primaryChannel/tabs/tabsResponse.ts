@@ -7,7 +7,7 @@ export class TabsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TeamsTab[] | undefined;
     /**
-     * Instantiates a new TabsResponse and sets the default values.
+     * Instantiates a new tabsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -1,6 +1,6 @@
-import {Settings} from './settings';
+import {Settings} from '../../users/settings/settings';
+import {UserSettings} from '../../users/settings/userSettings';
 import {ShiftPreferencesRequestBuilder} from './shiftPreferences/shiftPreferencesRequestBuilder';
-import {UserSettings} from './userSettings';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/settings  */

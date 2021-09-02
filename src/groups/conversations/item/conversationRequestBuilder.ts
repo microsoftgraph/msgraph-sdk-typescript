@@ -126,7 +126,7 @@ export class ConversationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.conversations.threads collection
      * @param id Unique identifier of the item
-     * @returns a ConversationThreadRequestBuilder
+     * @returns a conversationThreadRequestBuilder
      */
     public threadsById(id: String) : ConversationThreadRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

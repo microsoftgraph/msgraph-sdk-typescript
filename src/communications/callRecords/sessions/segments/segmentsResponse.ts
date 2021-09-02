@@ -7,7 +7,7 @@ export class SegmentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Segment[] | undefined;
     /**
-     * Instantiates a new SegmentsResponse and sets the default values.
+     * Instantiates a new segmentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

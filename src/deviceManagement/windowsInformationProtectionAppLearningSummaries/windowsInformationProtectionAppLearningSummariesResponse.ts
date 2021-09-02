@@ -7,7 +7,7 @@ export class WindowsInformationProtectionAppLearningSummariesResponse implements
     private _nextLink?: string | undefined;
     private _value?: WindowsInformationProtectionAppLearningSummary[] | undefined;
     /**
-     * Instantiates a new WindowsInformationProtectionAppLearningSummariesResponse and sets the default values.
+     * Instantiates a new windowsInformationProtectionAppLearningSummariesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

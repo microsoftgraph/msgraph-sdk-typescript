@@ -74,7 +74,7 @@ export class FilesFolder extends BaseItem implements Parsable {
     /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.  */
     private _workbook?: Workbook | undefined;
     /**
-     * Instantiates a new FilesFolder and sets the default values.
+     * Instantiates a new filesFolder and sets the default values.
      */
     public constructor() {
         super();

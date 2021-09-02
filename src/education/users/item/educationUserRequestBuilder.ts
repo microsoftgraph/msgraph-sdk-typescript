@@ -142,7 +142,7 @@ export class EducationUserRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.users.rubrics collection
      * @param id Unique identifier of the item
-     * @returns a EducationRubricRequestBuilder
+     * @returns a educationRubricRequestBuilder
      */
     public rubricsById(id: String) : EducationRubricRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

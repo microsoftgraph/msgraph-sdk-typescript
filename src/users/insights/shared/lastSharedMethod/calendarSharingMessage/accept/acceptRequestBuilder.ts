@@ -1,4 +1,4 @@
-import {Calendar} from '../../../../../../calendar';
+import {Calendar} from '../../../../../../groups/calendar/calendar';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/insights/shared/{sharedInsight-id}/lastSharedMethod/microsoft.graph.calendarSharingMessage/microsoft.graph.accept  */
@@ -12,7 +12,7 @@ export class AcceptRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new acceptRequestBuilder and sets the default values.
+     * Instantiates a new AcceptRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL

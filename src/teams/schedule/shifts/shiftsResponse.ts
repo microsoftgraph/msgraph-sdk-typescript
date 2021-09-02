@@ -7,7 +7,7 @@ export class ShiftsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Shift[] | undefined;
     /**
-     * Instantiates a new ShiftsResponse and sets the default values.
+     * Instantiates a new shiftsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

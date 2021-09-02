@@ -7,7 +7,7 @@ export class LinkedResourcesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: LinkedResource[] | undefined;
     /**
-     * Instantiates a new LinkedResourcesResponse and sets the default values.
+     * Instantiates a new linkedResourcesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

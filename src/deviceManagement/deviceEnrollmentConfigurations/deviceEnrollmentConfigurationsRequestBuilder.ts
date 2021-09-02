@@ -74,7 +74,7 @@ export class DeviceEnrollmentConfigurationsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of DeviceEnrollmentConfigurationsResponse
+     * @returns a Promise of deviceEnrollmentConfigurationsResponse
      */
     public get(q?: {
                     count?: boolean,

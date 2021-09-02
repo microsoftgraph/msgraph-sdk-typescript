@@ -7,7 +7,7 @@ export class DomainsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Domain[] | undefined;
     /**
-     * Instantiates a new DomainsResponse and sets the default values.
+     * Instantiates a new domainsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

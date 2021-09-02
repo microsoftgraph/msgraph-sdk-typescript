@@ -7,7 +7,7 @@ export class ConnectionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ExternalConnection[] | undefined;
     /**
-     * Instantiates a new ConnectionsResponse and sets the default values.
+     * Instantiates a new connectionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

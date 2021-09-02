@@ -7,7 +7,7 @@ export class Fido2MethodsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Fido2AuthenticationMethod[] | undefined;
     /**
-     * Instantiates a new Fido2MethodsResponse and sets the default values.
+     * Instantiates a new fido2MethodsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

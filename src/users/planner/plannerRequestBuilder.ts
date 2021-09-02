@@ -1,5 +1,5 @@
-import {PlannerUser} from '../../me/planner/plannerUser';
 import {Planner} from '../../planner/planner';
+import {PlannerUser} from './plannerUser';
 import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';
@@ -132,7 +132,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.planner.plans collection
      * @param id Unique identifier of the item
-     * @returns a PlannerPlanRequestBuilder
+     * @returns a plannerPlanRequestBuilder
      */
     public plansById(id: String) : PlannerPlanRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -141,7 +141,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.planner.tasks collection
      * @param id Unique identifier of the item
-     * @returns a PlannerTaskRequestBuilder
+     * @returns a plannerTaskRequestBuilder
      */
     public tasksById(id: String) : PlannerTaskRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

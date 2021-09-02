@@ -130,7 +130,7 @@ export class ConversationThreadRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.conversations.threads.posts collection
      * @param id Unique identifier of the item
-     * @returns a PostRequestBuilder
+     * @returns a postRequestBuilder
      */
     public postsById(id: String) : PostRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

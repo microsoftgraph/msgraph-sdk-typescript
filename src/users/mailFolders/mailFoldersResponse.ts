@@ -7,7 +7,7 @@ export class MailFoldersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MailFolder[] | undefined;
     /**
-     * Instantiates a new MailFoldersResponse and sets the default values.
+     * Instantiates a new mailFoldersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

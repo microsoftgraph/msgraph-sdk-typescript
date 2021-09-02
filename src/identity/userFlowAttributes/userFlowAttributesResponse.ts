@@ -7,7 +7,7 @@ export class UserFlowAttributesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: IdentityUserFlowAttribute[] | undefined;
     /**
-     * Instantiates a new UserFlowAttributesResponse and sets the default values.
+     * Instantiates a new userFlowAttributesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

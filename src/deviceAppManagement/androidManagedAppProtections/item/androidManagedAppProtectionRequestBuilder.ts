@@ -23,7 +23,7 @@ export class AndroidManagedAppProtectionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.androidManagedAppProtections.apps collection
      * @param id Unique identifier of the item
-     * @returns a ManagedMobileAppRequestBuilder
+     * @returns a managedMobileAppRequestBuilder
      */
     public appsById(id: String) : ManagedMobileAppRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

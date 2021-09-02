@@ -37,7 +37,7 @@ export class EducationAssignmentRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.categories collection
      * @param id Unique identifier of the item
-     * @returns a EducationCategoryRequestBuilder
+     * @returns a educationCategoryRequestBuilder
      */
     public categoriesById(id: String) : EducationCategoryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -153,16 +153,23 @@ export class EducationAssignmentRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.resources collection
      * @param id Unique identifier of the item
-     * @returns a EducationAssignmentResourceRequestBuilder
+     * @returns a educationAssignmentResourceRequestBuilder
      */
     public resourcesById(id: String) : EducationAssignmentResourceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new EducationAssignmentResourceRequestBuilder(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/microsoft.graph.setUpResourcesFolder()
+     * @returns a setUpResourcesFolderRequestBuilder
+     */
+    public setUpResourcesFolder() : SetUpResourcesFolderRequestBuilder {
+        return new SetUpResourcesFolderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions collection
      * @param id Unique identifier of the item
-     * @returns a EducationSubmissionRequestBuilder
+     * @returns a educationSubmissionRequestBuilder
      */
     public submissionsById(id: String) : EducationSubmissionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class WorkbooksResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DriveItem[] | undefined;
     /**
-     * Instantiates a new WorkbooksResponse and sets the default values.
+     * Instantiates a new workbooksResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

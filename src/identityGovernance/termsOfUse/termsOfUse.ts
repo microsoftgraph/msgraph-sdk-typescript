@@ -7,7 +7,7 @@ export class TermsOfUse extends Entity implements Parsable {
     private _agreementAcceptances?: AgreementAcceptance[] | undefined;
     private _agreements?: Agreement[] | undefined;
     /**
-     * Instantiates a new TermsOfUse and sets the default values.
+     * Instantiates a new termsOfUse and sets the default values.
      */
     public constructor() {
         super();

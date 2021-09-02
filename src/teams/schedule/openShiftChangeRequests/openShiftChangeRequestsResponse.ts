@@ -7,7 +7,7 @@ export class OpenShiftChangeRequestsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OpenShiftChangeRequest[] | undefined;
     /**
-     * Instantiates a new OpenShiftChangeRequestsResponse and sets the default values.
+     * Instantiates a new openShiftChangeRequestsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

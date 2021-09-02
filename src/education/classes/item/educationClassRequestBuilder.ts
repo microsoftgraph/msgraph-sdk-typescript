@@ -48,7 +48,7 @@ export class EducationClassRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignmentCategories collection
      * @param id Unique identifier of the item
-     * @returns a EducationCategoryRequestBuilder
+     * @returns a educationCategoryRequestBuilder
      */
     public assignmentCategoriesById(id: String) : EducationCategoryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -57,7 +57,7 @@ export class EducationClassRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments collection
      * @param id Unique identifier of the item
-     * @returns a EducationAssignmentRequestBuilder
+     * @returns a educationAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : EducationAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -19,7 +19,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.authenticationMethodsPolicy.authenticationMethodConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a AuthenticationMethodConfigurationRequestBuilder
+     * @returns a authenticationMethodConfigurationRequestBuilder
      */
     public authenticationMethodConfigurationsById(id: String) : AuthenticationMethodConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

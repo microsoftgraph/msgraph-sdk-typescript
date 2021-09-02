@@ -7,7 +7,7 @@ export class ExchangeConnectorsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceManagementExchangeConnector[] | undefined;
     /**
-     * Instantiates a new ExchangeConnectorsResponse and sets the default values.
+     * Instantiates a new exchangeConnectorsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

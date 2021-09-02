@@ -13,6 +13,13 @@ export class IdentityProvidersRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
+     * Builds and executes requests for operations under /identityProviders/microsoft.graph.availableProviderTypes()
+     * @returns a availableProviderTypesRequestBuilder
+     */
+    public availableProviderTypes() : AvailableProviderTypesRequestBuilder {
+        return new AvailableProviderTypesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Instantiates a new IdentityProvidersRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
@@ -74,7 +81,7 @@ export class IdentityProvidersRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of IdentityProvidersResponse
+     * @returns a Promise of identityProvidersResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -6,7 +6,7 @@ export class Outlook extends Entity implements Parsable {
     /** A list of categories defined for the user.  */
     private _masterCategories?: OutlookCategory[] | undefined;
     /**
-     * Instantiates a new Outlook and sets the default values.
+     * Instantiates a new outlook and sets the default values.
      */
     public constructor() {
         super();

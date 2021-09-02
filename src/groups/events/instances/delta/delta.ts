@@ -1,4 +1,3 @@
-import {Calendar} from '../../../../calendar';
 import {ItemBody} from '../../../../chats/itemBody';
 import {DateTimeTimeZone} from '../../../../dateTimeTimeZone';
 import {Event} from '../../../../event';
@@ -7,6 +6,7 @@ import {MultiValueLegacyExtendedProperty} from '../../../../multiValueLegacyExte
 import {OutlookItem} from '../../../../outlookItem';
 import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
 import {Attachment} from '../../../attachment';
+import {Calendar} from '../../../calendar/calendar';
 import {Recipient} from '../../../recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

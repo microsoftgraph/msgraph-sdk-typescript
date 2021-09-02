@@ -7,7 +7,7 @@ export class ColumnsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookTableColumn[] | undefined;
     /**
-     * Instantiates a new ColumnsResponse and sets the default values.
+     * Instantiates a new columnsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

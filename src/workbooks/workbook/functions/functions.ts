@@ -3,7 +3,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class Functions extends Entity implements Parsable {
     /**
-     * Instantiates a new Functions and sets the default values.
+     * Instantiates a new functions and sets the default values.
      */
     public constructor() {
         super();

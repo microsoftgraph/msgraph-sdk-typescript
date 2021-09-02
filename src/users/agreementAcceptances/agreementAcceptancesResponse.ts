@@ -7,7 +7,7 @@ export class AgreementAcceptancesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AgreementAcceptance[] | undefined;
     /**
-     * Instantiates a new AgreementAcceptancesResponse and sets the default values.
+     * Instantiates a new agreementAcceptancesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

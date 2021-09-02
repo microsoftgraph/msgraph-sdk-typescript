@@ -7,7 +7,7 @@ export class DeviceManagementTroubleshootingEventsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceManagementTroubleshootingEvent[] | undefined;
     /**
-     * Instantiates a new DeviceManagementTroubleshootingEventsResponse and sets the default values.
+     * Instantiates a new deviceManagementTroubleshootingEventsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

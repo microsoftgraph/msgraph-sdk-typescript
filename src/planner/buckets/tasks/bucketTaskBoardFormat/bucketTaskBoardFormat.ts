@@ -5,7 +5,7 @@ export class BucketTaskBoardFormat extends Entity implements Parsable {
     /** Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.  */
     private _orderHint?: string | undefined;
     /**
-     * Instantiates a new BucketTaskBoardFormat and sets the default values.
+     * Instantiates a new bucketTaskBoardFormat and sets the default values.
      */
     public constructor() {
         super();

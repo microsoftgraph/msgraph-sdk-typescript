@@ -69,12 +69,19 @@ export class AdministrativeUnitsRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /directory/administrativeUnits/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Get administrativeUnits from directory
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AdministrativeUnitsResponse
+     * @returns a Promise of administrativeUnitsResponse
      */
     public get(q?: {
                     count?: boolean,

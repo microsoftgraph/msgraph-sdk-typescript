@@ -1,5 +1,5 @@
 import {Entity} from '../../entity';
-import {Approval} from '../approval';
+import {Approval} from '../appConsent/appConsentRequests/userConsentRequests/approval/approval';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EntitlementManagement extends Entity implements Parsable {

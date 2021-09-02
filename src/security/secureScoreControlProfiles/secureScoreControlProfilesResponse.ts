@@ -7,7 +7,7 @@ export class SecureScoreControlProfilesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SecureScoreControlProfile[] | undefined;
     /**
-     * Instantiates a new SecureScoreControlProfilesResponse and sets the default values.
+     * Instantiates a new secureScoreControlProfilesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

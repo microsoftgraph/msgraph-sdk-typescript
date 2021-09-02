@@ -38,7 +38,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists.columns collection
      * @param id Unique identifier of the item
-     * @returns a ColumnDefinitionRequestBuilder
+     * @returns a columnDefinitionRequestBuilder
      */
     public columnsById(id: String) : ColumnDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -61,7 +61,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists.contentTypes collection
      * @param id Unique identifier of the item
-     * @returns a ContentTypeRequestBuilder
+     * @returns a contentTypeRequestBuilder
      */
     public contentTypesById(id: String) : ContentTypeRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -149,7 +149,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists.items collection
      * @param id Unique identifier of the item
-     * @returns a ListItemRequestBuilder
+     * @returns a listItemRequestBuilder
      */
     public itemsById(id: String) : ListItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -172,7 +172,7 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists.subscriptions collection
      * @param id Unique identifier of the item
-     * @returns a SubscriptionRequestBuilder
+     * @returns a subscriptionRequestBuilder
      */
     public subscriptionsById(id: String) : SubscriptionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

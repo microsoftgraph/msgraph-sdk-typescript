@@ -100,7 +100,7 @@ export class InformationProtectionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.informationProtection.threatAssessmentRequests collection
      * @param id Unique identifier of the item
-     * @returns a ThreatAssessmentRequestRequestBuilder
+     * @returns a threatAssessmentRequestRequestBuilder
      */
     public threatAssessmentRequestsById(id: String) : ThreatAssessmentRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

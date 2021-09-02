@@ -1,4 +1,4 @@
-import {Calendar} from '../../calendar';
+import {Calendar} from '../../groups/calendar/calendar';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CalendarsResponse implements Parsable {
@@ -7,7 +7,7 @@ export class CalendarsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Calendar[] | undefined;
     /**
-     * Instantiates a new CalendarsResponse and sets the default values.
+     * Instantiates a new calendarsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

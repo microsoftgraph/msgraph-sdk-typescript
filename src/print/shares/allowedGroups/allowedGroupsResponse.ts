@@ -7,7 +7,7 @@ export class AllowedGroupsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Group[] | undefined;
     /**
-     * Instantiates a new AllowedGroupsResponse and sets the default values.
+     * Instantiates a new allowedGroupsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

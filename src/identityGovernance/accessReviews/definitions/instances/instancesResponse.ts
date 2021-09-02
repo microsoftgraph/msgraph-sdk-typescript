@@ -7,7 +7,7 @@ export class InstancesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AccessReviewInstance[] | undefined;
     /**
-     * Instantiates a new InstancesResponse and sets the default values.
+     * Instantiates a new instancesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

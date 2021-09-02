@@ -126,7 +126,7 @@ export class DeviceComplianceScheduledActionForRuleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.scheduledActionsForRule.scheduledActionConfigurations collection
      * @param id Unique identifier of the item
-     * @returns a DeviceComplianceActionItemRequestBuilder
+     * @returns a deviceComplianceActionItemRequestBuilder
      */
     public scheduledActionConfigurationsById(id: String) : DeviceComplianceActionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

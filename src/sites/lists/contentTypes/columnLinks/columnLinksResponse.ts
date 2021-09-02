@@ -7,7 +7,7 @@ export class ColumnLinksResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ColumnLink[] | undefined;
     /**
-     * Instantiates a new ColumnLinksResponse and sets the default values.
+     * Instantiates a new columnLinksResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

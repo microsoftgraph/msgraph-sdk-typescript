@@ -7,7 +7,7 @@ export class MultiValueExtendedPropertiesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MultiValueLegacyExtendedProperty[] | undefined;
     /**
-     * Instantiates a new MultiValueExtendedPropertiesResponse and sets the default values.
+     * Instantiates a new multiValueExtendedPropertiesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class Photo extends Entity implements Parsable {
     /** The width of the photo. Read-only.  */
     private _width?: number | undefined;
     /**
-     * Instantiates a new Photo and sets the default values.
+     * Instantiates a new photo and sets the default values.
      */
     public constructor() {
         super();

@@ -7,7 +7,7 @@ export class WindowsHelloForBusinessMethodsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
-     * Instantiates a new WindowsHelloForBusinessMethodsResponse and sets the default values.
+     * Instantiates a new windowsHelloForBusinessMethodsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

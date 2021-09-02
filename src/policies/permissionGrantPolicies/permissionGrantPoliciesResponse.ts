@@ -7,7 +7,7 @@ export class PermissionGrantPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PermissionGrantPolicy[] | undefined;
     /**
-     * Instantiates a new PermissionGrantPoliciesResponse and sets the default values.
+     * Instantiates a new permissionGrantPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class PoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ConditionalAccessPolicy[] | undefined;
     /**
-     * Instantiates a new PoliciesResponse and sets the default values.
+     * Instantiates a new policiesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

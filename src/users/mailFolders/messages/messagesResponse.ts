@@ -7,7 +7,7 @@ export class MessagesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Message[] | undefined;
     /**
-     * Instantiates a new MessagesResponse and sets the default values.
+     * Instantiates a new messagesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

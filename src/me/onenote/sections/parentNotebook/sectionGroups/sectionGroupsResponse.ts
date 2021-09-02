@@ -1,4 +1,4 @@
-import {SectionGroup} from '../../../../../sectionGroup';
+import {SectionGroup} from '../../../../../../sectionGroup';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SectionGroupsResponse implements Parsable {
@@ -7,7 +7,7 @@ export class SectionGroupsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SectionGroup[] | undefined;
     /**
-     * Instantiates a new SectionGroupsResponse and sets the default values.
+     * Instantiates a new sectionGroupsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class OrganizationResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Organization[] | undefined;
     /**
-     * Instantiates a new OrganizationResponse and sets the default values.
+     * Instantiates a new organizationResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

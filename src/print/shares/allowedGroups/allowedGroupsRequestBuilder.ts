@@ -60,7 +60,7 @@ export class AllowedGroupsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AllowedGroupsResponse
+     * @returns a Promise of allowedGroupsResponse
      */
     public get(q?: {
                     count?: boolean,

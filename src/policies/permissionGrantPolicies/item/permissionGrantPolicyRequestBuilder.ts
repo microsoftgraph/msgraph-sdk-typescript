@@ -100,7 +100,7 @@ export class PermissionGrantPolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.excludes collection
      * @param id Unique identifier of the item
-     * @returns a PermissionGrantConditionSetRequestBuilder
+     * @returns a permissionGrantConditionSetRequestBuilder
      */
     public excludesById(id: String) : PermissionGrantConditionSetRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -126,7 +126,7 @@ export class PermissionGrantPolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.includes collection
      * @param id Unique identifier of the item
-     * @returns a PermissionGrantConditionSetRequestBuilder
+     * @returns a permissionGrantConditionSetRequestBuilder
      */
     public includesById(id: String) : PermissionGrantConditionSetRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

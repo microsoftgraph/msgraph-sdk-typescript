@@ -7,7 +7,7 @@ export class RejectedSendersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new RejectedSendersResponse and sets the default values.
+     * Instantiates a new rejectedSendersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class AcceptanceStatusesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TermsAndConditionsAcceptanceStatus[] | undefined;
     /**
-     * Instantiates a new AcceptanceStatusesResponse and sets the default values.
+     * Instantiates a new acceptanceStatusesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class ManagedEBooksResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ManagedEBook[] | undefined;
     /**
-     * Instantiates a new ManagedEBooksResponse and sets the default values.
+     * Instantiates a new managedEBooksResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

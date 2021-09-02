@@ -7,7 +7,7 @@ export class HostedContentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ChatMessageHostedContent[] | undefined;
     /**
-     * Instantiates a new HostedContentsResponse and sets the default values.
+     * Instantiates a new hostedContentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -1,5 +1,5 @@
 import {Group} from '../group';
-import {User} from '../invitations/invitedUser/user';
+import {User} from '../me/user';
 import {Printer} from './printer';
 import {PrinterBase} from './printerBase';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

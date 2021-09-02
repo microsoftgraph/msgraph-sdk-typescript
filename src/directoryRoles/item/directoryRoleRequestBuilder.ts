@@ -150,7 +150,7 @@ export class DirectoryRoleRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.directoryRoles.scopedMembers collection
      * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipRequestBuilder
+     * @returns a scopedRoleMembershipRequestBuilder
      */
     public scopedMembersById(id: String) : ScopedRoleMembershipRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

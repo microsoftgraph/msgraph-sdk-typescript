@@ -8,7 +8,7 @@ export class MinorGridlines extends Entity implements Parsable {
     /** Boolean value representing if the axis gridlines are visible or not.  */
     private _visible?: boolean | undefined;
     /**
-     * Instantiates a new MinorGridlines and sets the default values.
+     * Instantiates a new minorGridlines and sets the default values.
      */
     public constructor() {
         super();

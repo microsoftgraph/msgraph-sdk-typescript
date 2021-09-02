@@ -7,7 +7,7 @@ export class SessionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Session[] | undefined;
     /**
-     * Instantiates a new SessionsResponse and sets the default values.
+     * Instantiates a new sessionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -39,7 +39,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.callRecords collection
      * @param id Unique identifier of the item
-     * @returns a CallRecordRequestBuilder
+     * @returns a callRecordRequestBuilder
      */
     public callRecordsById(id: String) : CallRecordRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -48,7 +48,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.calls collection
      * @param id Unique identifier of the item
-     * @returns a CallRequestBuilder
+     * @returns a callRequestBuilder
      */
     public callsById(id: String) : CallRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -124,7 +124,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.onlineMeetings collection
      * @param id Unique identifier of the item
-     * @returns a OnlineMeetingRequestBuilder
+     * @returns a onlineMeetingRequestBuilder
      */
     public onlineMeetingsById(id: String) : OnlineMeetingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -147,7 +147,7 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.communications.presences collection
      * @param id Unique identifier of the item
-     * @returns a PresenceRequestBuilder
+     * @returns a presenceRequestBuilder
      */
     public presencesById(id: String) : PresenceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

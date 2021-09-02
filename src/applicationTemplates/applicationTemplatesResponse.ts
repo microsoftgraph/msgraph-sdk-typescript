@@ -7,7 +7,7 @@ export class ApplicationTemplatesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ApplicationTemplate[] | undefined;
     /**
-     * Instantiates a new ApplicationTemplatesResponse and sets the default values.
+     * Instantiates a new applicationTemplatesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

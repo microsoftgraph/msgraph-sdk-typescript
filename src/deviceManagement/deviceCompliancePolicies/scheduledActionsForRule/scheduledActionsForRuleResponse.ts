@@ -7,7 +7,7 @@ export class ScheduledActionsForRuleResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceComplianceScheduledActionForRule[] | undefined;
     /**
-     * Instantiates a new ScheduledActionsForRuleResponse and sets the default values.
+     * Instantiates a new scheduledActionsForRuleResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class LanguagesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: UserFlowLanguageConfiguration[] | undefined;
     /**
-     * Instantiates a new LanguagesResponse and sets the default values.
+     * Instantiates a new languagesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

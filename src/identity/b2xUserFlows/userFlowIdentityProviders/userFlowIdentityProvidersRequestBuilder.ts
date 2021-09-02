@@ -16,6 +16,13 @@ export class UserFlowIdentityProvidersRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
+     * Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userFlowIdentityProviders/microsoft.graph.availableProviderTypes()
+     * @returns a availableProviderTypesRequestBuilder
+     */
+    public availableProviderTypes() : AvailableProviderTypesRequestBuilder {
+        return new AvailableProviderTypesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Instantiates a new UserFlowIdentityProvidersRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
@@ -60,7 +67,7 @@ export class UserFlowIdentityProvidersRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of UserFlowIdentityProvidersResponse
+     * @returns a Promise of userFlowIdentityProvidersResponse
      */
     public get(q?: {
                     count?: boolean,

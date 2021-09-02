@@ -7,7 +7,7 @@ export class VerificationDnsRecordsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DomainDnsRecord[] | undefined;
     /**
-     * Instantiates a new VerificationDnsRecordsResponse and sets the default values.
+     * Instantiates a new verificationDnsRecordsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

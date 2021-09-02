@@ -19,7 +19,7 @@ export class CalendarGroupRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.calendarGroups.calendars collection
      * @param id Unique identifier of the item
-     * @returns a CalendarRequestBuilder
+     * @returns a calendarRequestBuilder
      */
     public calendarsById(id: String) : CalendarRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

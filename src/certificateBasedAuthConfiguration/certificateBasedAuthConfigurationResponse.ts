@@ -7,7 +7,7 @@ export class CertificateBasedAuthConfigurationResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: CertificateBasedAuthConfiguration[] | undefined;
     /**
-     * Instantiates a new CertificateBasedAuthConfigurationResponse and sets the default values.
+     * Instantiates a new certificateBasedAuthConfigurationResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -127,7 +127,7 @@ export class PlannerRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.planner.plans collection
      * @param id Unique identifier of the item
-     * @returns a PlannerPlanRequestBuilder
+     * @returns a plannerPlanRequestBuilder
      */
     public plansById(id: String) : PlannerPlanRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

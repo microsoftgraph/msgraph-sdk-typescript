@@ -7,7 +7,7 @@ export class FollowedSitesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Site[] | undefined;
     /**
-     * Instantiates a new FollowedSitesResponse and sets the default values.
+     * Instantiates a new followedSitesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

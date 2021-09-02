@@ -7,7 +7,7 @@ export class OverridesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: InferenceClassificationOverride[] | undefined;
     /**
-     * Instantiates a new OverridesResponse and sets the default values.
+     * Instantiates a new overridesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

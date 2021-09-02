@@ -98,7 +98,7 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.children collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemRequestBuilder
+     * @returns a driveItemRequestBuilder
      */
     public childrenById(id: String) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -181,6 +181,13 @@ export class DriveItemRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Get entity from workbooks by key
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -196,6 +203,13 @@ export class DriveItemRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<DriveItem>(requestInfo, DriveItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.getActivitiesByInterval()
+     * @returns a getActivitiesByIntervalRequestBuilder
+     */
+    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
      * Update entity in workbooks
@@ -214,16 +228,25 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.permissions collection
      * @param id Unique identifier of the item
-     * @returns a PermissionRequestBuilder
+     * @returns a permissionRequestBuilder
      */
     public permissionsById(id: String) : PermissionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new PermissionRequestBuilder(this.currentPath + this.pathSegment + "/permissions/" + id, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.search(q='{q}')
+     * @param q Usage: q={q}
+     * @returns a searchRequestBuilder
+     */
+    public search(q: string | undefined) : SearchRequestBuilder {
+        if(!q) throw new Error("q cannot be undefined");
+        return new SearchRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, q);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.subscriptions collection
      * @param id Unique identifier of the item
-     * @returns a SubscriptionRequestBuilder
+     * @returns a subscriptionRequestBuilder
      */
     public subscriptionsById(id: String) : SubscriptionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -232,7 +255,7 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.thumbnails collection
      * @param id Unique identifier of the item
-     * @returns a ThumbnailSetRequestBuilder
+     * @returns a thumbnailSetRequestBuilder
      */
     public thumbnailsById(id: String) : ThumbnailSetRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -241,7 +264,7 @@ export class DriveItemRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.versions collection
      * @param id Unique identifier of the item
-     * @returns a DriveItemVersionRequestBuilder
+     * @returns a driveItemVersionRequestBuilder
      */
     public versionsById(id: String) : DriveItemVersionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

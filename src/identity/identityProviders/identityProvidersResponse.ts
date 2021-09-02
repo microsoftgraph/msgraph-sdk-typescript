@@ -7,7 +7,7 @@ export class IdentityProvidersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: IdentityProviderBase[] | undefined;
     /**
-     * Instantiates a new IdentityProvidersResponse and sets the default values.
+     * Instantiates a new identityProvidersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

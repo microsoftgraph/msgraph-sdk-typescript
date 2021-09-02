@@ -29,7 +29,7 @@ export class ManagedAppRegistrationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.appliedPolicies collection
      * @param id Unique identifier of the item
-     * @returns a ManagedAppPolicyRequestBuilder
+     * @returns a managedAppPolicyRequestBuilder
      */
     public appliedPoliciesById(id: String) : ManagedAppPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -131,7 +131,7 @@ export class ManagedAppRegistrationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.intendedPolicies collection
      * @param id Unique identifier of the item
-     * @returns a ManagedAppPolicyRequestBuilder
+     * @returns a managedAppPolicyRequestBuilder
      */
     public intendedPoliciesById(id: String) : ManagedAppPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -140,7 +140,7 @@ export class ManagedAppRegistrationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.operations collection
      * @param id Unique identifier of the item
-     * @returns a ManagedAppOperationRequestBuilder
+     * @returns a managedAppOperationRequestBuilder
      */
     public operationsById(id: String) : ManagedAppOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class ManagedDevicesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ManagedDevice[] | undefined;
     /**
-     * Instantiates a new ManagedDevicesResponse and sets the default values.
+     * Instantiates a new managedDevicesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

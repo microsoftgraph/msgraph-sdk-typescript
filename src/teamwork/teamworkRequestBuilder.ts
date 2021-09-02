@@ -100,7 +100,7 @@ export class TeamworkRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teamwork.workforceIntegrations collection
      * @param id Unique identifier of the item
-     * @returns a WorkforceIntegrationRequestBuilder
+     * @returns a workforceIntegrationRequestBuilder
      */
     public workforceIntegrationsById(id: String) : WorkforceIntegrationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

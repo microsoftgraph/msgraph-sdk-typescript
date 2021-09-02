@@ -11,7 +11,7 @@ export class Education implements Parsable {
     private _schools?: EducationSchool[] | undefined;
     private _users?: EducationUser[] | undefined;
     /**
-     * Instantiates a new Education and sets the default values.
+     * Instantiates a new education and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class EventsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Event[] | undefined;
     /**
-     * Instantiates a new EventsResponse and sets the default values.
+     * Instantiates a new eventsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

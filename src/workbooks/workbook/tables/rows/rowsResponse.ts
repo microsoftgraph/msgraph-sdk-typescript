@@ -7,7 +7,7 @@ export class RowsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookTableRow[] | undefined;
     /**
-     * Instantiates a new RowsResponse and sets the default values.
+     * Instantiates a new rowsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

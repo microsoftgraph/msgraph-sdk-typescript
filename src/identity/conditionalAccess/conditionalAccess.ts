@@ -7,7 +7,7 @@ export class ConditionalAccess extends Entity implements Parsable {
     private _namedLocations?: NamedLocation[] | undefined;
     private _policies?: ConditionalAccessPolicy[] | undefined;
     /**
-     * Instantiates a new ConditionalAccess and sets the default values.
+     * Instantiates a new conditionalAccess and sets the default values.
      */
     public constructor() {
         super();

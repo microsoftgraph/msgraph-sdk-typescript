@@ -84,7 +84,7 @@ export class AccessReviewsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions collection
      * @param id Unique identifier of the item
-     * @returns a AccessReviewScheduleDefinitionRequestBuilder
+     * @returns a accessReviewScheduleDefinitionRequestBuilder
      */
     public definitionsById(id: String) : AccessReviewScheduleDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

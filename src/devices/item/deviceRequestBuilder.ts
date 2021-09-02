@@ -131,7 +131,7 @@ export class DeviceRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.devices.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

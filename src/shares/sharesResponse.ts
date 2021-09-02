@@ -7,7 +7,7 @@ export class SharesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SharedDriveItem[] | undefined;
     /**
-     * Instantiates a new SharesResponse and sets the default values.
+     * Instantiates a new sharesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

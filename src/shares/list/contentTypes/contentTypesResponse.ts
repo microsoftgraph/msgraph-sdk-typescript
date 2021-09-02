@@ -7,7 +7,7 @@ export class ContentTypesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ContentType[] | undefined;
     /**
-     * Instantiates a new ContentTypesResponse and sets the default values.
+     * Instantiates a new contentTypesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

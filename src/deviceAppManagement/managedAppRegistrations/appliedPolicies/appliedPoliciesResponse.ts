@@ -7,7 +7,7 @@ export class AppliedPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ManagedAppPolicy[] | undefined;
     /**
-     * Instantiates a new AppliedPoliciesResponse and sets the default values.
+     * Instantiates a new appliedPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

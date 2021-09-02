@@ -1,4 +1,4 @@
-import {User} from '../invitations/invitedUser/user';
+import {Me} from '../education/me/me';
 import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {UserActivityRequestBuilder} from './activities/item/userActivityRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
@@ -50,7 +50,6 @@ import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/m
 import {ManagedDeviceRequestBuilder} from './managedDevices/item/managedDeviceRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {Me} from './me';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MessageRequestBuilder} from './messages/item/messageRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
@@ -81,6 +80,7 @@ import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
 import {TodoRequestBuilder} from './todo/todoRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TranslateExchangeIdsRequestBuilder} from './translateExchangeIds/translateExchangeIdsRequestBuilder';
+import {User} from './user';
 import {WipeManagedAppRegistrationsByDeviceTagRequestBuilder} from './wipeManagedAppRegistrationsByDeviceTag/wipeManagedAppRegistrationsByDeviceTagRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -283,7 +283,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.activities collection
      * @param id Unique identifier of the item
-     * @returns a UserActivityRequestBuilder
+     * @returns a userActivityRequestBuilder
      */
     public activitiesById(id: String) : UserActivityRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -292,7 +292,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.appRoleAssignments collection
      * @param id Unique identifier of the item
-     * @returns a AppRoleAssignmentRequestBuilder
+     * @returns a appRoleAssignmentRequestBuilder
      */
     public appRoleAssignmentsById(id: String) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -301,7 +301,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.calendarGroups collection
      * @param id Unique identifier of the item
-     * @returns a CalendarGroupRequestBuilder
+     * @returns a calendarGroupRequestBuilder
      */
     public calendarGroupsById(id: String) : CalendarGroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -310,7 +310,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.calendars collection
      * @param id Unique identifier of the item
-     * @returns a CalendarRequestBuilder
+     * @returns a calendarRequestBuilder
      */
     public calendarsById(id: String) : CalendarRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -319,7 +319,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.calendarView collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public calendarViewById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -328,7 +328,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.chats collection
      * @param id Unique identifier of the item
-     * @returns a ChatRequestBuilder
+     * @returns a chatRequestBuilder
      */
     public chatsById(id: String) : ChatRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -351,7 +351,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.contactFolders collection
      * @param id Unique identifier of the item
-     * @returns a ContactFolderRequestBuilder
+     * @returns a contactFolderRequestBuilder
      */
     public contactFoldersById(id: String) : ContactFolderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -360,7 +360,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.contacts collection
      * @param id Unique identifier of the item
-     * @returns a ContactRequestBuilder
+     * @returns a contactRequestBuilder
      */
     public contactsById(id: String) : ContactRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -405,7 +405,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.deviceManagementTroubleshootingEvents collection
      * @param id Unique identifier of the item
-     * @returns a DeviceManagementTroubleshootingEventRequestBuilder
+     * @returns a deviceManagementTroubleshootingEventRequestBuilder
      */
     public deviceManagementTroubleshootingEventsById(id: String) : DeviceManagementTroubleshootingEventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -414,7 +414,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.drives collection
      * @param id Unique identifier of the item
-     * @returns a DriveRequestBuilder
+     * @returns a driveRequestBuilder
      */
     public drivesById(id: String) : DriveRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -423,7 +423,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.events collection
      * @param id Unique identifier of the item
-     * @returns a EventRequestBuilder
+     * @returns a eventRequestBuilder
      */
     public eventsById(id: String) : EventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -432,7 +432,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -456,9 +456,23 @@ export class MeRequestBuilder {
         return this.httpCore?.sendAsync<User>(requestInfo, User, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /me/microsoft.graph.getManagedAppDiagnosticStatuses()
+     * @returns a getManagedAppDiagnosticStatusesRequestBuilder
+     */
+    public getManagedAppDiagnosticStatuses() : GetManagedAppDiagnosticStatusesRequestBuilder {
+        return new GetManagedAppDiagnosticStatusesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /me/microsoft.graph.getManagedAppPolicies()
+     * @returns a getManagedAppPoliciesRequestBuilder
+     */
+    public getManagedAppPolicies() : GetManagedAppPoliciesRequestBuilder {
+        return new GetManagedAppPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.me.joinedTeams collection
      * @param id Unique identifier of the item
-     * @returns a TeamRequestBuilder
+     * @returns a teamRequestBuilder
      */
     public joinedTeamsById(id: String) : TeamRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -467,7 +481,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.licenseDetails collection
      * @param id Unique identifier of the item
-     * @returns a LicenseDetailsRequestBuilder
+     * @returns a licenseDetailsRequestBuilder
      */
     public licenseDetailsById(id: String) : LicenseDetailsRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -476,7 +490,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.mailFolders collection
      * @param id Unique identifier of the item
-     * @returns a MailFolderRequestBuilder
+     * @returns a mailFolderRequestBuilder
      */
     public mailFoldersById(id: String) : MailFolderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -485,7 +499,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.managedDevices collection
      * @param id Unique identifier of the item
-     * @returns a ManagedDeviceRequestBuilder
+     * @returns a managedDeviceRequestBuilder
      */
     public managedDevicesById(id: String) : ManagedDeviceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -494,7 +508,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.messages collection
      * @param id Unique identifier of the item
-     * @returns a MessageRequestBuilder
+     * @returns a messageRequestBuilder
      */
     public messagesById(id: String) : MessageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -503,7 +517,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.onlineMeetings collection
      * @param id Unique identifier of the item
-     * @returns a OnlineMeetingRequestBuilder
+     * @returns a onlineMeetingRequestBuilder
      */
     public onlineMeetingsById(id: String) : OnlineMeetingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -526,7 +540,7 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.people collection
      * @param id Unique identifier of the item
-     * @returns a PersonRequestBuilder
+     * @returns a personRequestBuilder
      */
     public peopleById(id: String) : PersonRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -535,16 +549,27 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.photos collection
      * @param id Unique identifier of the item
-     * @returns a ProfilePhotoRequestBuilder
+     * @returns a profilePhotoRequestBuilder
      */
     public photosById(id: String) : ProfilePhotoRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new ProfilePhotoRequestBuilder(this.currentPath + this.pathSegment + "/photos/" + id, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /me/microsoft.graph.reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}')
+     * @param EndDateTime Usage: EndDateTime={EndDateTime}
+     * @param StartDateTime Usage: StartDateTime={StartDateTime}
+     * @returns a reminderViewRequestBuilder
+     */
+    public reminderView(StartDateTime: string | undefined, EndDateTime: string | undefined) : ReminderViewRequestBuilder {
+        if(!EndDateTime) throw new Error("EndDateTime cannot be undefined");
+        if(!StartDateTime) throw new Error("StartDateTime cannot be undefined");
+        return new ReminderViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, StartDateTime, EndDateTime);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.me.scopedRoleMemberOf collection
      * @param id Unique identifier of the item
-     * @returns a ScopedRoleMembershipRequestBuilder
+     * @returns a scopedRoleMembershipRequestBuilder
      */
     public scopedRoleMemberOfById(id: String) : ScopedRoleMembershipRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

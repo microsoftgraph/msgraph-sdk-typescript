@@ -1,5 +1,5 @@
+import {ParentSection} from '../../../../groups/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
 import {OnenoteSection} from '../../../../onenoteSection';
-import {ParentSection} from '../../../../sites/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
 import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
 import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
 import {OnenotePageRequestBuilder} from './pages/item/onenotePageRequestBuilder';
@@ -129,7 +129,7 @@ export class ParentSectionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.onenote.pages.parentSection.pages collection
      * @param id Unique identifier of the item
-     * @returns a OnenotePageRequestBuilder
+     * @returns a onenotePageRequestBuilder
      */
     public pagesById(id: String) : OnenotePageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

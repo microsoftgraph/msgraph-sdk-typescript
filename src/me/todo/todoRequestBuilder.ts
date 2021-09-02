@@ -1,6 +1,6 @@
+import {Todo} from '../../users/todo/todo';
 import {TodoTaskListRequestBuilder} from './lists/item/todoTaskListRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
-import {Todo} from './todo';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/todo  */
@@ -112,7 +112,7 @@ export class TodoRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.todo.lists collection
      * @param id Unique identifier of the item
-     * @returns a TodoTaskListRequestBuilder
+     * @returns a todoTaskListRequestBuilder
      */
     public listsById(id: String) : TodoTaskListRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

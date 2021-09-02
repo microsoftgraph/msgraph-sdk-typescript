@@ -7,7 +7,7 @@ export class SignInsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SignIn[] | undefined;
     /**
-     * Instantiates a new SignInsResponse and sets the default values.
+     * Instantiates a new signInsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class GroupLifecyclePoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: GroupLifecyclePolicy[] | undefined;
     /**
-     * Instantiates a new GroupLifecyclePoliciesResponse and sets the default values.
+     * Instantiates a new groupLifecyclePoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

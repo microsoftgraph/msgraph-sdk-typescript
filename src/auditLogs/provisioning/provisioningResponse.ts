@@ -7,7 +7,7 @@ export class ProvisioningResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ProvisioningObjectSummary[] | undefined;
     /**
-     * Instantiates a new ProvisioningResponse and sets the default values.
+     * Instantiates a new provisioningResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

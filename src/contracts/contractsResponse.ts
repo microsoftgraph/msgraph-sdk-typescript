@@ -7,7 +7,7 @@ export class ContractsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Contract[] | undefined;
     /**
-     * Instantiates a new ContractsResponse and sets the default values.
+     * Instantiates a new contractsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

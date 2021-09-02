@@ -7,7 +7,7 @@ export class ApiConnectorsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: IdentityApiConnector[] | undefined;
     /**
-     * Instantiates a new ApiConnectorsResponse and sets the default values.
+     * Instantiates a new apiConnectorsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

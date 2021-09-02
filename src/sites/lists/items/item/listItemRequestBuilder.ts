@@ -122,6 +122,13 @@ export class ListItemRequestBuilder {
         return this.httpCore?.sendAsync<ListItem>(requestInfo, ListItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /sites/{site-id}/lists/{list-id}/items/{listItem-id}/microsoft.graph.getActivitiesByInterval()
+     * @returns a getActivitiesByIntervalRequestBuilder
+     */
+    public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
+        return new GetActivitiesByIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * All items contained in the list.
      * @param body 
      * @param h Request headers
@@ -138,7 +145,7 @@ export class ListItemRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.lists.items.versions collection
      * @param id Unique identifier of the item
-     * @returns a ListItemVersionRequestBuilder
+     * @returns a listItemVersionRequestBuilder
      */
     public versionsById(id: String) : ListItemVersionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

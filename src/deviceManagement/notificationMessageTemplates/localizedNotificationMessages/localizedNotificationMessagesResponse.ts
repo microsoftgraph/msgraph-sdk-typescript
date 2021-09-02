@@ -7,7 +7,7 @@ export class LocalizedNotificationMessagesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: LocalizedNotificationMessage[] | undefined;
     /**
-     * Instantiates a new LocalizedNotificationMessagesResponse and sets the default values.
+     * Instantiates a new localizedNotificationMessagesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

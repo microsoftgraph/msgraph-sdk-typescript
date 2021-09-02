@@ -35,7 +35,7 @@ export class InReplyTo extends OutlookItem implements Parsable {
     /** The collection of single-value extended properties defined for the post. Read-only. Nullable.  */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
-     * Instantiates a new InReplyTo and sets the default values.
+     * Instantiates a new inReplyTo and sets the default values.
      */
     public constructor() {
         super();

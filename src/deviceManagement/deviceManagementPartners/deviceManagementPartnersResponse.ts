@@ -7,7 +7,7 @@ export class DeviceManagementPartnersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceManagementPartner[] | undefined;
     /**
-     * Instantiates a new DeviceManagementPartnersResponse and sets the default values.
+     * Instantiates a new deviceManagementPartnersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

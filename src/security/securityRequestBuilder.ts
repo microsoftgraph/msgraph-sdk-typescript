@@ -29,7 +29,7 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.security.alerts collection
      * @param id Unique identifier of the item
-     * @returns a AlertRequestBuilder
+     * @returns a alertRequestBuilder
      */
     public alertsById(id: String) : AlertRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -119,7 +119,7 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.security.secureScoreControlProfiles collection
      * @param id Unique identifier of the item
-     * @returns a SecureScoreControlProfileRequestBuilder
+     * @returns a secureScoreControlProfileRequestBuilder
      */
     public secureScoreControlProfilesById(id: String) : SecureScoreControlProfileRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -128,7 +128,7 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.security.secureScores collection
      * @param id Unique identifier of the item
-     * @returns a SecureScoreRequestBuilder
+     * @returns a secureScoreRequestBuilder
      */
     public secureScoresById(id: String) : SecureScoreRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

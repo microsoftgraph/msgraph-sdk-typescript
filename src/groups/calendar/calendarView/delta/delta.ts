@@ -1,4 +1,3 @@
-import {Calendar} from '../../../../calendar';
 import {ItemBody} from '../../../../chats/itemBody';
 import {DateTimeTimeZone} from '../../../../dateTimeTimeZone';
 import {Event} from '../../../../event';
@@ -8,6 +7,7 @@ import {OutlookItem} from '../../../../outlookItem';
 import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
 import {Attachment} from '../../../attachment';
 import {Recipient} from '../../../recipient';
+import {Calendar} from '../../calendar';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {

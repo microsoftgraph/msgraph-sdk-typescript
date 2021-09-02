@@ -7,7 +7,7 @@ export class MobileThreatDefenseConnectorsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MobileThreatDefenseConnector[] | undefined;
     /**
-     * Instantiates a new MobileThreatDefenseConnectorsResponse and sets the default values.
+     * Instantiates a new mobileThreatDefenseConnectorsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

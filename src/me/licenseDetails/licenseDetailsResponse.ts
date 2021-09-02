@@ -7,7 +7,7 @@ export class LicenseDetailsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: LicenseDetails[] | undefined;
     /**
-     * Instantiates a new LicenseDetailsResponse and sets the default values.
+     * Instantiates a new licenseDetailsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

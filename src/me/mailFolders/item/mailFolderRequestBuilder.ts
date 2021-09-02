@@ -46,7 +46,7 @@ export class MailFolderRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.childFolders collection
      * @param id Unique identifier of the item
-     * @returns a MailFolderRequestBuilder
+     * @returns a mailFolderRequestBuilder
      */
     public childFoldersById(id: String) : MailFolderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -148,7 +148,7 @@ export class MailFolderRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.messageRules collection
      * @param id Unique identifier of the item
-     * @returns a MessageRuleRequestBuilder
+     * @returns a messageRuleRequestBuilder
      */
     public messageRulesById(id: String) : MessageRuleRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -157,7 +157,7 @@ export class MailFolderRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.messages collection
      * @param id Unique identifier of the item
-     * @returns a MessageRequestBuilder
+     * @returns a messageRequestBuilder
      */
     public messagesById(id: String) : MessageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -166,7 +166,7 @@ export class MailFolderRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
+     * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: String) : MultiValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -189,7 +189,7 @@ export class MailFolderRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
+     * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: String) : SingleValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

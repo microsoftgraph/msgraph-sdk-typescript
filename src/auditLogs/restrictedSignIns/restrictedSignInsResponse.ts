@@ -7,7 +7,7 @@ export class RestrictedSignInsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: RestrictedSignIn[] | undefined;
     /**
-     * Instantiates a new RestrictedSignInsResponse and sets the default values.
+     * Instantiates a new restrictedSignInsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

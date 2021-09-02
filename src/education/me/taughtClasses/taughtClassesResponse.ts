@@ -7,7 +7,7 @@ export class TaughtClassesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: EducationClass[] | undefined;
     /**
-     * Instantiates a new TaughtClassesResponse and sets the default values.
+     * Instantiates a new taughtClassesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

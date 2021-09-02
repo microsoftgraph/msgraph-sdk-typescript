@@ -113,7 +113,7 @@ export class FileRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.agreements.file.localizations collection
      * @param id Unique identifier of the item
-     * @returns a AgreementFileLocalizationRequestBuilder
+     * @returns a agreementFileLocalizationRequestBuilder
      */
     public localizationsById(id: String) : AgreementFileLocalizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -22,7 +22,7 @@ export class Rubric extends Entity implements Parsable {
     /** The collection of qualities making up this rubric.  */
     private _qualities?: RubricQuality[] | undefined;
     /**
-     * Instantiates a new Rubric and sets the default values.
+     * Instantiates a new rubric and sets the default values.
      */
     public constructor() {
         super();

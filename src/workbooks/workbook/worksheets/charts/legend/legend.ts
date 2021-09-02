@@ -12,7 +12,7 @@ export class Legend extends Entity implements Parsable {
     /** A boolean value the represents the visibility of a ChartLegend object.  */
     private _visible?: boolean | undefined;
     /**
-     * Instantiates a new Legend and sets the default values.
+     * Instantiates a new legend and sets the default values.
      */
     public constructor() {
         super();

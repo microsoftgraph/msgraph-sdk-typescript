@@ -7,7 +7,7 @@ export class SubscribedSkusResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SubscribedSku[] | undefined;
     /**
-     * Instantiates a new SubscribedSkusResponse and sets the default values.
+     * Instantiates a new subscribedSkusResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class HomeRealmDiscoveryPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: HomeRealmDiscoveryPolicy[] | undefined;
     /**
-     * Instantiates a new HomeRealmDiscoveryPoliciesResponse and sets the default values.
+     * Instantiates a new homeRealmDiscoveryPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

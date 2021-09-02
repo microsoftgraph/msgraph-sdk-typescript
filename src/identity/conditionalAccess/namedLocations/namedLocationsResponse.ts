@@ -7,7 +7,7 @@ export class NamedLocationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: NamedLocation[] | undefined;
     /**
-     * Instantiates a new NamedLocationsResponse and sets the default values.
+     * Instantiates a new namedLocationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

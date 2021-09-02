@@ -17,7 +17,7 @@ export class UserStatusSummary extends Entity implements Parsable {
     /** Number of succeeded Users  */
     private _successCount?: number | undefined;
     /**
-     * Instantiates a new UserStatusSummary and sets the default values.
+     * Instantiates a new userStatusSummary and sets the default values.
      */
     public constructor() {
         super();

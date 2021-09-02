@@ -7,7 +7,7 @@ export class DeviceCompliancePolicySettingStateSummariesResponse implements Pars
     private _nextLink?: string | undefined;
     private _value?: DeviceCompliancePolicySettingStateSummary[] | undefined;
     /**
-     * Instantiates a new DeviceCompliancePolicySettingStateSummariesResponse and sets the default values.
+     * Instantiates a new deviceCompliancePolicySettingStateSummariesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

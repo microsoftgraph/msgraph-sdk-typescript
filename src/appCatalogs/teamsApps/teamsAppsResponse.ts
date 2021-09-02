@@ -7,7 +7,7 @@ export class TeamsAppsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TeamsApp[] | undefined;
     /**
-     * Instantiates a new TeamsAppsResponse and sets the default values.
+     * Instantiates a new teamsAppsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

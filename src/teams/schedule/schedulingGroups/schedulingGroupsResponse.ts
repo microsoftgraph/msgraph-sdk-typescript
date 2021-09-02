@@ -7,7 +7,7 @@ export class SchedulingGroupsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SchedulingGroup[] | undefined;
     /**
-     * Instantiates a new SchedulingGroupsResponse and sets the default values.
+     * Instantiates a new schedulingGroupsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

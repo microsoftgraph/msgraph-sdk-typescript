@@ -88,7 +88,7 @@ export class UserFlowLanguageConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.languages.defaultPages collection
      * @param id Unique identifier of the item
-     * @returns a UserFlowLanguagePageRequestBuilder
+     * @returns a userFlowLanguagePageRequestBuilder
      */
     public defaultPagesById(id: String) : UserFlowLanguagePageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -126,7 +126,7 @@ export class UserFlowLanguageConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.languages.overridesPages collection
      * @param id Unique identifier of the item
-     * @returns a UserFlowLanguagePageRequestBuilder
+     * @returns a userFlowLanguagePageRequestBuilder
      */
     public overridesPagesById(id: String) : UserFlowLanguagePageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

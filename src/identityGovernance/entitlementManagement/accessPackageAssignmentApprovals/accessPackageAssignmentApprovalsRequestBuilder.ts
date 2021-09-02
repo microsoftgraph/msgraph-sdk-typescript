@@ -1,4 +1,4 @@
-import {Approval} from '../../approval';
+import {Approval} from '../../appConsent/appConsentRequests/userConsentRequests/approval/approval';
 import {AccessPackageAssignmentApprovalsResponse} from './accessPackageAssignmentApprovalsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -69,12 +69,21 @@ export class AccessPackageAssignmentApprovalsRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackageAssignmentApprovals/microsoft.graph.filterByCurrentUser(on={on})
+     * @param on Usage: on={on}
+     * @returns a filterByCurrentUserRequestBuilder
+     */
+    public filterByCurrentUser(on: string | undefined) : FilterByCurrentUserRequestBuilder {
+        if(!on) throw new Error("on cannot be undefined");
+        return new FilterByCurrentUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, on);
+    };
+    /**
      * Get accessPackageAssignmentApprovals from identityGovernance
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AccessPackageAssignmentApprovalsResponse
+     * @returns a Promise of accessPackageAssignmentApprovalsResponse
      */
     public get(q?: {
                     count?: boolean,

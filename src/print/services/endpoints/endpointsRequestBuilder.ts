@@ -74,7 +74,7 @@ export class EndpointsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of EndpointsResponse
+     * @returns a Promise of endpointsResponse
      */
     public get(q?: {
                     count?: boolean,

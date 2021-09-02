@@ -1,4 +1,4 @@
-import {InferenceClassification} from '../../me/inferenceClassification/inferenceClassification';
+import {InferenceClassification} from './inferenceClassification';
 import {InferenceClassificationOverrideRequestBuilder} from './overrides/item/inferenceClassificationOverrideRequestBuilder';
 import {OverridesRequestBuilder} from './overrides/overridesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -112,7 +112,7 @@ export class InferenceClassificationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.inferenceClassification.overrides collection
      * @param id Unique identifier of the item
-     * @returns a InferenceClassificationOverrideRequestBuilder
+     * @returns a inferenceClassificationOverrideRequestBuilder
      */
     public overridesById(id: String) : InferenceClassificationOverrideRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

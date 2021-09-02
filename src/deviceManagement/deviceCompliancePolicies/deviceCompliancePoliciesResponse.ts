@@ -7,7 +7,7 @@ export class DeviceCompliancePoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceCompliancePolicy[] | undefined;
     /**
-     * Instantiates a new DeviceCompliancePoliciesResponse and sets the default values.
+     * Instantiates a new deviceCompliancePoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

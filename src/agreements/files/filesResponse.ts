@@ -7,7 +7,7 @@ export class FilesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AgreementFileLocalization[] | undefined;
     /**
-     * Instantiates a new FilesResponse and sets the default values.
+     * Instantiates a new filesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

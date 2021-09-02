@@ -137,7 +137,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.onenote.notebooks collection
      * @param id Unique identifier of the item
-     * @returns a NotebookRequestBuilder
+     * @returns a notebookRequestBuilder
      */
     public notebooksById(id: String) : NotebookRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -146,7 +146,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.onenote.operations collection
      * @param id Unique identifier of the item
-     * @returns a OnenoteOperationRequestBuilder
+     * @returns a onenoteOperationRequestBuilder
      */
     public operationsById(id: String) : OnenoteOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -155,7 +155,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.onenote.pages collection
      * @param id Unique identifier of the item
-     * @returns a OnenotePageRequestBuilder
+     * @returns a onenotePageRequestBuilder
      */
     public pagesById(id: String) : OnenotePageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -178,7 +178,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.onenote.resources collection
      * @param id Unique identifier of the item
-     * @returns a OnenoteResourceRequestBuilder
+     * @returns a onenoteResourceRequestBuilder
      */
     public resourcesById(id: String) : OnenoteResourceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -187,7 +187,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.onenote.sectionGroups collection
      * @param id Unique identifier of the item
-     * @returns a SectionGroupRequestBuilder
+     * @returns a sectionGroupRequestBuilder
      */
     public sectionGroupsById(id: String) : SectionGroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -196,7 +196,7 @@ export class OnenoteRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.onenote.sections collection
      * @param id Unique identifier of the item
-     * @returns a OnenoteSectionRequestBuilder
+     * @returns a onenoteSectionRequestBuilder
      */
     public sectionsById(id: String) : OnenoteSectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class ThreadsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ConversationThread[] | undefined;
     /**
-     * Instantiates a new ThreadsResponse and sets the default values.
+     * Instantiates a new threadsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

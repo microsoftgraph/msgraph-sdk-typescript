@@ -126,7 +126,7 @@ export class AgreementFileLocalizationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.agreements.file.localizations.versions collection
      * @param id Unique identifier of the item
-     * @returns a AgreementFileVersionRequestBuilder
+     * @returns a agreementFileVersionRequestBuilder
      */
     public versionsById(id: String) : AgreementFileVersionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

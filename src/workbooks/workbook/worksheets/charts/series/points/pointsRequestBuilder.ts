@@ -27,6 +27,13 @@ export class PointsRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/series/{workbookChartSeries-id}/points/microsoft.graph.count()
+     * @returns a countRequestBuilder
+     */
+    public count() : CountRequestBuilder {
+        return new CountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Represents a collection of all points in the series. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -74,7 +81,7 @@ export class PointsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of PointsResponse
+     * @returns a Promise of pointsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -90,6 +97,15 @@ export class PointsRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<PointsResponse>(requestInfo, PointsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/series/{workbookChartSeries-id}/points/microsoft.graph.itemAt(index={index})
+     * @param index Usage: index={index}
+     * @returns a itemAtRequestBuilder
+     */
+    public itemAt(index: number | undefined) : ItemAtRequestBuilder {
+        if(!index) throw new Error("index cannot be undefined");
+        return new ItemAtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, index);
     };
     /**
      * Represents a collection of all points in the series. Read-only.

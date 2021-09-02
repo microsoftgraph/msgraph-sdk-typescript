@@ -7,7 +7,7 @@ export class ThreatAssessmentRequestsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ThreatAssessmentRequest[] | undefined;
     /**
-     * Instantiates a new ThreatAssessmentRequestsResponse and sets the default values.
+     * Instantiates a new threatAssessmentRequestsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

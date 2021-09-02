@@ -7,7 +7,7 @@ export class ConnectorsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PrintConnector[] | undefined;
     /**
-     * Instantiates a new ConnectorsResponse and sets the default values.
+     * Instantiates a new connectorsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

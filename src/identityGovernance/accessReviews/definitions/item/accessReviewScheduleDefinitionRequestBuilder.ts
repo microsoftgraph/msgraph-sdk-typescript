@@ -116,7 +116,7 @@ export class AccessReviewScheduleDefinitionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions.instances collection
      * @param id Unique identifier of the item
-     * @returns a AccessReviewInstanceRequestBuilder
+     * @returns a accessReviewInstanceRequestBuilder
      */
     public instancesById(id: String) : AccessReviewInstanceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

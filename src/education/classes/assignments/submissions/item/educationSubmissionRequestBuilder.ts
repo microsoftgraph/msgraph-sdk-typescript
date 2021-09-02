@@ -134,7 +134,7 @@ export class EducationSubmissionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions.outcomes collection
      * @param id Unique identifier of the item
-     * @returns a EducationOutcomeRequestBuilder
+     * @returns a educationOutcomeRequestBuilder
      */
     public outcomesById(id: String) : EducationOutcomeRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -157,16 +157,23 @@ export class EducationSubmissionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions.resources collection
      * @param id Unique identifier of the item
-     * @returns a EducationSubmissionResourceRequestBuilder
+     * @returns a educationSubmissionResourceRequestBuilder
      */
     public resourcesById(id: String) : EducationSubmissionResourceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         return new EducationSubmissionResourceRequestBuilder(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/submissions/{educationSubmission-id}/microsoft.graph.setUpResourcesFolder()
+     * @returns a setUpResourcesFolderRequestBuilder
+     */
+    public setUpResourcesFolder() : SetUpResourcesFolderRequestBuilder {
+        return new SetUpResourcesFolderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments.submissions.submittedResources collection
      * @param id Unique identifier of the item
-     * @returns a EducationSubmissionResourceRequestBuilder
+     * @returns a educationSubmissionResourceRequestBuilder
      */
     public submittedResourcesById(id: String) : EducationSubmissionResourceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

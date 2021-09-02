@@ -7,7 +7,7 @@ export class B2xUserFlowsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: B2xIdentityUserFlow[] | undefined;
     /**
-     * Instantiates a new B2xUserFlowsResponse and sets the default values.
+     * Instantiates a new b2xUserFlowsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

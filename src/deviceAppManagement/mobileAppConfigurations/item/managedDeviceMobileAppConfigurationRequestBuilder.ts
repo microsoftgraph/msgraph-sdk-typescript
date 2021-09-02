@@ -41,7 +41,7 @@ export class ManagedDeviceMobileAppConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.assignments collection
      * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder
+     * @returns a managedDeviceMobileAppConfigurationAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -126,7 +126,7 @@ export class ManagedDeviceMobileAppConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.deviceStatuses collection
      * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder
+     * @returns a managedDeviceMobileAppConfigurationDeviceStatusRequestBuilder
      */
     public deviceStatusesById(id: String) : ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -166,7 +166,7 @@ export class ManagedDeviceMobileAppConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.userStatuses collection
      * @param id Unique identifier of the item
-     * @returns a ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder
+     * @returns a managedDeviceMobileAppConfigurationUserStatusRequestBuilder
      */
     public userStatusesById(id: String) : ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

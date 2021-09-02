@@ -7,7 +7,7 @@ export class MobileAppCategoriesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: MobileAppCategory[] | undefined;
     /**
-     * Instantiates a new MobileAppCategoriesResponse and sets the default values.
+     * Instantiates a new mobileAppCategoriesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

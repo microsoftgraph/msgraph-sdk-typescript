@@ -59,7 +59,7 @@ export class WorkbookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.comments collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookCommentRequestBuilder
+     * @returns a workbookCommentRequestBuilder
      */
     public commentsById(id: String) : WorkbookCommentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -159,7 +159,7 @@ export class WorkbookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookNamedItemRequestBuilder
+     * @returns a workbookNamedItemRequestBuilder
      */
     public namesById(id: String) : WorkbookNamedItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -168,7 +168,7 @@ export class WorkbookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.operations collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookOperationRequestBuilder
+     * @returns a workbookOperationRequestBuilder
      */
     public operationsById(id: String) : WorkbookOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -189,9 +189,18 @@ export class WorkbookRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/microsoft.graph.sessionInfoResource(key='{key}')
+     * @param key Usage: key={key}
+     * @returns a sessionInfoResourceRequestBuilder
+     */
+    public sessionInfoResource(key: string | undefined) : SessionInfoResourceRequestBuilder {
+        if(!key) throw new Error("key cannot be undefined");
+        return new SessionInfoResourceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, key);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookTableRequestBuilder
+     * @returns a workbookTableRequestBuilder
      */
     public tablesById(id: String) : WorkbookTableRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -200,7 +209,7 @@ export class WorkbookRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.worksheets collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookWorksheetRequestBuilder
+     * @returns a workbookWorksheetRequestBuilder
      */
     public worksheetsById(id: String) : WorkbookWorksheetRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

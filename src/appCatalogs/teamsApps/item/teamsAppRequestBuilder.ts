@@ -19,7 +19,7 @@ export class TeamsAppRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.appCatalogs.teamsApps.appDefinitions collection
      * @param id Unique identifier of the item
-     * @returns a TeamsAppDefinitionRequestBuilder
+     * @returns a teamsAppDefinitionRequestBuilder
      */
     public appDefinitionsById(id: String) : TeamsAppDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

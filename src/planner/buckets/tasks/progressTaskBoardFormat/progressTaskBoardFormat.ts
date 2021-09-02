@@ -5,7 +5,7 @@ export class ProgressTaskBoardFormat extends Entity implements Parsable {
     /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.  */
     private _orderHint?: string | undefined;
     /**
-     * Instantiates a new ProgressTaskBoardFormat and sets the default values.
+     * Instantiates a new progressTaskBoardFormat and sets the default values.
      */
     public constructor() {
         super();

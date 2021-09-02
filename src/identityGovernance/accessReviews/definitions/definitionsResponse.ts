@@ -7,7 +7,7 @@ export class DefinitionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AccessReviewScheduleDefinition[] | undefined;
     /**
-     * Instantiates a new DefinitionsResponse and sets the default values.
+     * Instantiates a new definitionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

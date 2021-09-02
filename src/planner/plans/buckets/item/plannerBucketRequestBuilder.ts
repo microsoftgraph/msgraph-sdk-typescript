@@ -126,7 +126,7 @@ export class PlannerBucketRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.planner.plans.buckets.tasks collection
      * @param id Unique identifier of the item
-     * @returns a PlannerTaskRequestBuilder
+     * @returns a plannerTaskRequestBuilder
      */
     public tasksById(id: String) : PlannerTaskRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

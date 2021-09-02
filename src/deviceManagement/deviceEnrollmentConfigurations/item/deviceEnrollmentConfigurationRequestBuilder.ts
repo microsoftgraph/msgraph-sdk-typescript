@@ -27,7 +27,7 @@ export class DeviceEnrollmentConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations.assignments collection
      * @param id Unique identifier of the item
-     * @returns a EnrollmentConfigurationAssignmentRequestBuilder
+     * @returns a enrollmentConfigurationAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : EnrollmentConfigurationAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -7,7 +7,7 @@ export class ChartsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkbookChart[] | undefined;
     /**
-     * Instantiates a new ChartsResponse and sets the default values.
+     * Instantiates a new chartsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

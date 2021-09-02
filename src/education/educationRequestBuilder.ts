@@ -34,7 +34,7 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.classes collection
      * @param id Unique identifier of the item
-     * @returns a EducationClassRequestBuilder
+     * @returns a educationClassRequestBuilder
      */
     public classesById(id: String) : EducationClassRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -124,7 +124,7 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.schools collection
      * @param id Unique identifier of the item
-     * @returns a EducationSchoolRequestBuilder
+     * @returns a educationSchoolRequestBuilder
      */
     public schoolsById(id: String) : EducationSchoolRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -133,7 +133,7 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.education.users collection
      * @param id Unique identifier of the item
-     * @returns a EducationUserRequestBuilder
+     * @returns a educationUserRequestBuilder
      */
     public usersById(id: String) : EducationUserRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

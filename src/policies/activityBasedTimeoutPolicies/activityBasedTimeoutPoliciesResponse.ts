@@ -7,7 +7,7 @@ export class ActivityBasedTimeoutPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ActivityBasedTimeoutPolicy[] | undefined;
     /**
-     * Instantiates a new ActivityBasedTimeoutPoliciesResponse and sets the default values.
+     * Instantiates a new activityBasedTimeoutPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class SubscriptionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Subscription[] | undefined;
     /**
-     * Instantiates a new SubscriptionsResponse and sets the default values.
+     * Instantiates a new subscriptionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -1,7 +1,7 @@
 import {Report} from '../report';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')  */
+/** Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentFailureDetails()  */
 export class ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -12,7 +12,7 @@ export class ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new managedDeviceEnrollmentFailureDetailsRequestBuilder and sets the default values.
+     * Instantiates a new ManagedDeviceEnrollmentFailureDetailsRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
@@ -20,21 +20,25 @@ export class ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
     public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')";
+        this.pathSegment = "/microsoft.graph.managedDeviceEnrollmentFailureDetails()";
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new managedDeviceEnrollmentFailureDetailsRequestBuilder and sets the default values.
+     * Instantiates a new ManagedDeviceEnrollmentFailureDetailsRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
+     * @param filter Usage: filter={filter}
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
+     * @param skip Usage: skip={skip}
+     * @param skipToken Usage: skipToken={skipToken}
+     * @param top Usage: top={top}
      */
-    public constructor(currentPath: string, httpCore: IHttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: IHttpCore, skip?: number | undefined, top?: number | undefined, filter?: string | undefined, skipToken?: string | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')";
+        this.pathSegment = `/microsoft.graph.managedDeviceEnrollmentFailureDetails()`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

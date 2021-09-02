@@ -7,7 +7,7 @@ export class ExcludesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PermissionGrantConditionSet[] | undefined;
     /**
-     * Instantiates a new ExcludesResponse and sets the default values.
+     * Instantiates a new excludesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

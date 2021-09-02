@@ -7,7 +7,7 @@ export class PlansResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PlannerPlan[] | undefined;
     /**
-     * Instantiates a new PlansResponse and sets the default values.
+     * Instantiates a new plansResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

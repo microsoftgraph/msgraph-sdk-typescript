@@ -7,7 +7,7 @@ export class MdmWindowsInformationProtectionPoliciesResponse implements Parsable
     private _nextLink?: string | undefined;
     private _value?: MdmWindowsInformationProtectionPolicy[] | undefined;
     /**
-     * Instantiates a new MdmWindowsInformationProtectionPoliciesResponse and sets the default values.
+     * Instantiates a new mdmWindowsInformationProtectionPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

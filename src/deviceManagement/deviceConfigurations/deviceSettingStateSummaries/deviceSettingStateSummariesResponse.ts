@@ -7,7 +7,7 @@ export class DeviceSettingStateSummariesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: SettingStateDeviceSummary[] | undefined;
     /**
-     * Instantiates a new DeviceSettingStateSummariesResponse and sets the default values.
+     * Instantiates a new deviceSettingStateSummariesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

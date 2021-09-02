@@ -7,7 +7,7 @@ export class AssignmentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TargetedManagedAppPolicyAssignment[] | undefined;
     /**
-     * Instantiates a new AssignmentsResponse and sets the default values.
+     * Instantiates a new assignmentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

@@ -7,7 +7,7 @@ export class TaskDefinitionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: PrintTaskDefinition[] | undefined;
     /**
-     * Instantiates a new TaskDefinitionsResponse and sets the default values.
+     * Instantiates a new taskDefinitionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

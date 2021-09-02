@@ -7,7 +7,7 @@ export class DefaultPagesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: UserFlowLanguagePage[] | undefined;
     /**
-     * Instantiates a new DefaultPagesResponse and sets the default values.
+     * Instantiates a new defaultPagesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

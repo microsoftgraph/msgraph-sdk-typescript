@@ -130,7 +130,7 @@ export class WorkbookChartSeriesRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.worksheets.charts.series.points collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookChartPointRequestBuilder
+     * @returns a workbookChartPointRequestBuilder
      */
     public pointsById(id: String) : WorkbookChartPointRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

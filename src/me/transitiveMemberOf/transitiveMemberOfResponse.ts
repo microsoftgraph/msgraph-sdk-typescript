@@ -7,7 +7,7 @@ export class TransitiveMemberOfResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new TransitiveMemberOfResponse and sets the default values.
+     * Instantiates a new transitiveMemberOfResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

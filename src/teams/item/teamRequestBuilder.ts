@@ -70,7 +70,7 @@ export class TeamRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.channels collection
      * @param id Unique identifier of the item
-     * @returns a ChannelRequestBuilder
+     * @returns a channelRequestBuilder
      */
     public channelsById(id: String) : ChannelRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -172,7 +172,7 @@ export class TeamRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.installedApps collection
      * @param id Unique identifier of the item
-     * @returns a TeamsAppInstallationRequestBuilder
+     * @returns a teamsAppInstallationRequestBuilder
      */
     public installedAppsById(id: String) : TeamsAppInstallationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -181,7 +181,7 @@ export class TeamRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.members collection
      * @param id Unique identifier of the item
-     * @returns a ConversationMemberRequestBuilder
+     * @returns a conversationMemberRequestBuilder
      */
     public membersById(id: String) : ConversationMemberRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -190,7 +190,7 @@ export class TeamRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.operations collection
      * @param id Unique identifier of the item
-     * @returns a TeamsAsyncOperationRequestBuilder
+     * @returns a teamsAsyncOperationRequestBuilder
      */
     public operationsById(id: String) : TeamsAsyncOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

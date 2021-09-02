@@ -74,7 +74,7 @@ export class Fido2MethodsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Fido2MethodsResponse
+     * @returns a Promise of fido2MethodsResponse
      */
     public get(q?: {
                     count?: boolean,

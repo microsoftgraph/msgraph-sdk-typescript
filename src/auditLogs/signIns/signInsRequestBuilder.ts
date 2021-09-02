@@ -74,7 +74,7 @@ export class SignInsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of SignInsResponse
+     * @returns a Promise of signInsResponse
      */
     public get(q?: {
                     count?: boolean,

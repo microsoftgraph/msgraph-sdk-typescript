@@ -80,7 +80,7 @@ export class Me extends Entity implements Parsable {
     /** A string value that can be used to classify user types in your directory, such as 'Member' and 'Guest'. Supports /$filter.  */
     private _userType?: string | undefined;
     /**
-     * Instantiates a new Me and sets the default values.
+     * Instantiates a new me and sets the default values.
      */
     public constructor() {
         super();

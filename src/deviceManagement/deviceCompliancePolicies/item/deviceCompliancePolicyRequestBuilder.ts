@@ -55,7 +55,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.assignments collection
      * @param id Unique identifier of the item
-     * @returns a DeviceCompliancePolicyAssignmentRequestBuilder
+     * @returns a deviceCompliancePolicyAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : DeviceCompliancePolicyAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -140,7 +140,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.deviceSettingStateSummaries collection
      * @param id Unique identifier of the item
-     * @returns a SettingStateDeviceSummaryRequestBuilder
+     * @returns a settingStateDeviceSummaryRequestBuilder
      */
     public deviceSettingStateSummariesById(id: String) : SettingStateDeviceSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -149,7 +149,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.deviceStatuses collection
      * @param id Unique identifier of the item
-     * @returns a DeviceComplianceDeviceStatusRequestBuilder
+     * @returns a deviceComplianceDeviceStatusRequestBuilder
      */
     public deviceStatusesById(id: String) : DeviceComplianceDeviceStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -189,7 +189,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.scheduledActionsForRule collection
      * @param id Unique identifier of the item
-     * @returns a DeviceComplianceScheduledActionForRuleRequestBuilder
+     * @returns a deviceComplianceScheduledActionForRuleRequestBuilder
      */
     public scheduledActionsForRuleById(id: String) : DeviceComplianceScheduledActionForRuleRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -198,7 +198,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.userStatuses collection
      * @param id Unique identifier of the item
-     * @returns a DeviceComplianceUserStatusRequestBuilder
+     * @returns a deviceComplianceUserStatusRequestBuilder
      */
     public userStatusesById(id: String) : DeviceComplianceUserStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

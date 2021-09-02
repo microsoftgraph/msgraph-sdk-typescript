@@ -1,4 +1,4 @@
-import {Approval} from '../../../../approval';
+import {Approval} from './approval';
 import {ApprovalStageRequestBuilder} from './stages/item/approvalStageRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -126,7 +126,7 @@ export class ApprovalRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.identityGovernance.appConsent.appConsentRequests.userConsentRequests.approval.stages collection
      * @param id Unique identifier of the item
-     * @returns a ApprovalStageRequestBuilder
+     * @returns a approvalStageRequestBuilder
      */
     public stagesById(id: String) : ApprovalStageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

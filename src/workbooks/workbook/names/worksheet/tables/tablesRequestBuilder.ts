@@ -31,6 +31,13 @@ export class TablesRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/microsoft.graph.count()
+     * @returns a countRequestBuilder
+     */
+    public count() : CountRequestBuilder {
+        return new CountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Collection of tables that are part of the worksheet. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -78,7 +85,7 @@ export class TablesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of TablesResponse
+     * @returns a Promise of tablesResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -94,6 +101,15 @@ export class TablesRequestBuilder {
             q, h, o
         );
         return this.httpCore?.sendAsync<TablesResponse>(requestInfo, TablesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/microsoft.graph.itemAt(index={index})
+     * @param index Usage: index={index}
+     * @returns a itemAtRequestBuilder
+     */
+    public itemAt(index: number | undefined) : ItemAtRequestBuilder {
+        if(!index) throw new Error("index cannot be undefined");
+        return new ItemAtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, index);
     };
     /**
      * Collection of tables that are part of the worksheet. Read-only.

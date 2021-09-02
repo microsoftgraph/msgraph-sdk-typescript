@@ -7,7 +7,7 @@ export class OnlineMeetingsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OnlineMeeting[] | undefined;
     /**
-     * Instantiates a new OnlineMeetingsResponse and sets the default values.
+     * Instantiates a new onlineMeetingsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

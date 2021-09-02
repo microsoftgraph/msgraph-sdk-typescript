@@ -7,7 +7,7 @@ export class WorkforceIntegrationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: WorkforceIntegration[] | undefined;
     /**
-     * Instantiates a new WorkforceIntegrationsResponse and sets the default values.
+     * Instantiates a new workforceIntegrationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

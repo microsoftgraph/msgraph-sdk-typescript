@@ -7,7 +7,7 @@ export class TokenLifetimePoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: TokenLifetimePolicy[] | undefined;
     /**
-     * Instantiates a new TokenLifetimePoliciesResponse and sets the default values.
+     * Instantiates a new tokenLifetimePoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

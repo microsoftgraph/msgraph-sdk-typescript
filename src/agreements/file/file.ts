@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class File extends AgreementFileProperties implements Parsable {
     private _localizations?: AgreementFileLocalization[] | undefined;
     /**
-     * Instantiates a new File and sets the default values.
+     * Instantiates a new file and sets the default values.
      */
     public constructor() {
         super();

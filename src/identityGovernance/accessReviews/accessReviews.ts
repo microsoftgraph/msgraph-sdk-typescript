@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class AccessReviews extends Entity implements Parsable {
     private _definitions?: AccessReviewScheduleDefinition[] | undefined;
     /**
-     * Instantiates a new AccessReviews and sets the default values.
+     * Instantiates a new accessReviews and sets the default values.
      */
     public constructor() {
         super();

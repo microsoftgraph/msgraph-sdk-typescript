@@ -17,7 +17,7 @@ export class UserStatusOverview extends Entity implements Parsable {
     /** Number of succeeded Users  */
     private _successCount?: number | undefined;
     /**
-     * Instantiates a new UserStatusOverview and sets the default values.
+     * Instantiates a new userStatusOverview and sets the default values.
      */
     public constructor() {
         super();

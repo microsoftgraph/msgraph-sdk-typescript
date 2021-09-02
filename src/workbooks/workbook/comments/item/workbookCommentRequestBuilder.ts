@@ -126,7 +126,7 @@ export class WorkbookCommentRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.comments.replies collection
      * @param id Unique identifier of the item
-     * @returns a WorkbookCommentReplyRequestBuilder
+     * @returns a workbookCommentReplyRequestBuilder
      */
     public repliesById(id: String) : WorkbookCommentReplyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

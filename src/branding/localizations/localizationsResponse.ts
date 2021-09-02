@@ -7,7 +7,7 @@ export class LocalizationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: OrganizationalBrandingLocalization[] | undefined;
     /**
-     * Instantiates a new LocalizationsResponse and sets the default values.
+     * Instantiates a new localizationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

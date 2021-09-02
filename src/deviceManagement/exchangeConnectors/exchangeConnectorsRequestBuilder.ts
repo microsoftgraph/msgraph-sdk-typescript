@@ -74,7 +74,7 @@ export class ExchangeConnectorsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ExchangeConnectorsResponse
+     * @returns a Promise of exchangeConnectorsResponse
      */
     public get(q?: {
                     count?: boolean,

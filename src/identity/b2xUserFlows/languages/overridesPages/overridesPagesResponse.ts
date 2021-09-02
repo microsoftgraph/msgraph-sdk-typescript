@@ -7,7 +7,7 @@ export class OverridesPagesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: UserFlowLanguagePage[] | undefined;
     /**
-     * Instantiates a new OverridesPagesResponse and sets the default values.
+     * Instantiates a new overridesPagesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

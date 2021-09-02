@@ -1,5 +1,5 @@
-import {Insights} from '../../me/insights/insights';
-import {OfficeGraphInsights} from '../../me/insights/officeGraphInsights';
+import {Insights} from './insights';
+import {OfficeGraphInsights} from './officeGraphInsights';
 import {SharedInsightRequestBuilder} from './shared/item/sharedInsightRequestBuilder';
 import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
@@ -136,7 +136,7 @@ export class InsightsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.insights.shared collection
      * @param id Unique identifier of the item
-     * @returns a SharedInsightRequestBuilder
+     * @returns a sharedInsightRequestBuilder
      */
     public sharedById(id: String) : SharedInsightRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -145,7 +145,7 @@ export class InsightsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.insights.trending collection
      * @param id Unique identifier of the item
-     * @returns a TrendingRequestBuilder
+     * @returns a trendingRequestBuilder
      */
     public trendingById(id: String) : TrendingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -154,7 +154,7 @@ export class InsightsRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.insights.used collection
      * @param id Unique identifier of the item
-     * @returns a UsedInsightRequestBuilder
+     * @returns a usedInsightRequestBuilder
      */
     public usedById(id: String) : UsedInsightRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -118,4 +118,11 @@ export class WorkbookTableRowRequestBuilder {
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/rows/{workbookTableRow-id}/microsoft.graph.range()
+     * @returns a rangeRequestBuilder
+     */
+    public range() : RangeRequestBuilder {
+        return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
 }

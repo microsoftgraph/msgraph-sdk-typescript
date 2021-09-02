@@ -7,7 +7,7 @@ export class NotebooksResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Notebook[] | undefined;
     /**
-     * Instantiates a new NotebooksResponse and sets the default values.
+     * Instantiates a new notebooksResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

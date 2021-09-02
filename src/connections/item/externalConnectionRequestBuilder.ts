@@ -121,7 +121,7 @@ export class ExternalConnectionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.connections.items collection
      * @param id Unique identifier of the item
-     * @returns a ExternalItemRequestBuilder
+     * @returns a externalItemRequestBuilder
      */
     public itemsById(id: String) : ExternalItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -130,7 +130,7 @@ export class ExternalConnectionRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.connections.operations collection
      * @param id Unique identifier of the item
-     * @returns a ConnectionOperationRequestBuilder
+     * @returns a connectionOperationRequestBuilder
      */
     public operationsById(id: String) : ConnectionOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

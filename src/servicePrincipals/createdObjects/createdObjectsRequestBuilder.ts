@@ -60,7 +60,7 @@ export class CreatedObjectsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of CreatedObjectsResponse
+     * @returns a Promise of createdObjectsResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -7,7 +7,7 @@ export class DomainNameReferencesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new DomainNameReferencesResponse and sets the default values.
+     * Instantiates a new domainNameReferencesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

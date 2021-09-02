@@ -5,7 +5,7 @@ export class Filter extends Entity implements Parsable {
     /** The currently applied filter on the given column. Read-only.  */
     private _criteria?: WorkbookFilterCriteria | undefined;
     /**
-     * Instantiates a new Filter and sets the default values.
+     * Instantiates a new filter and sets the default values.
      */
     public constructor() {
         super();

@@ -130,7 +130,7 @@ export class ChannelRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.channels.members collection
      * @param id Unique identifier of the item
-     * @returns a ConversationMemberRequestBuilder
+     * @returns a conversationMemberRequestBuilder
      */
     public membersById(id: String) : ConversationMemberRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -139,7 +139,7 @@ export class ChannelRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.channels.messages collection
      * @param id Unique identifier of the item
-     * @returns a ChatMessageRequestBuilder
+     * @returns a chatMessageRequestBuilder
      */
     public messagesById(id: String) : ChatMessageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -162,7 +162,7 @@ export class ChannelRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.channels.tabs collection
      * @param id Unique identifier of the item
-     * @returns a TeamsTabRequestBuilder
+     * @returns a teamsTabRequestBuilder
      */
     public tabsById(id: String) : TeamsTabRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -80,6 +80,13 @@ export class WorkbookTableColumnRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/columns/{workbookTableColumn-id}/microsoft.graph.dataBodyRange()
+     * @returns a dataBodyRangeRequestBuilder
+     */
+    public dataBodyRange() : DataBodyRangeRequestBuilder {
+        return new DataBodyRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Represents a collection of all the columns in the table. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -109,6 +116,13 @@ export class WorkbookTableColumnRequestBuilder {
         return this.httpCore?.sendAsync<WorkbookTableColumn>(requestInfo, WorkbookTableColumn, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/columns/{workbookTableColumn-id}/microsoft.graph.headerRowRange()
+     * @returns a headerRowRangeRequestBuilder
+     */
+    public headerRowRange() : HeaderRowRangeRequestBuilder {
+        return new HeaderRowRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Represents a collection of all the columns in the table. Read-only.
      * @param body 
      * @param h Request headers
@@ -121,5 +135,19 @@ export class WorkbookTableColumnRequestBuilder {
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/columns/{workbookTableColumn-id}/microsoft.graph.range()
+     * @returns a rangeRequestBuilder
+     */
+    public range() : RangeRequestBuilder {
+        return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/columns/{workbookTableColumn-id}/microsoft.graph.totalRowRange()
+     * @returns a totalRowRangeRequestBuilder
+     */
+    public totalRowRange() : TotalRowRangeRequestBuilder {
+        return new TotalRowRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
 }

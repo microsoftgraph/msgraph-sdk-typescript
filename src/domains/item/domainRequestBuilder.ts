@@ -143,7 +143,7 @@ export class DomainRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.domains.serviceConfigurationRecords collection
      * @param id Unique identifier of the item
-     * @returns a DomainDnsRecordRequestBuilder
+     * @returns a domainDnsRecordRequestBuilder
      */
     public serviceConfigurationRecordsById(id: String) : DomainDnsRecordRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -152,7 +152,7 @@ export class DomainRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.domains.verificationDnsRecords collection
      * @param id Unique identifier of the item
-     * @returns a DomainDnsRecordRequestBuilder
+     * @returns a domainDnsRecordRequestBuilder
      */
     public verificationDnsRecordsById(id: String) : DomainDnsRecordRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

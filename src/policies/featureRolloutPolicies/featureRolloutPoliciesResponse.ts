@@ -7,7 +7,7 @@ export class FeatureRolloutPoliciesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: FeatureRolloutPolicy[] | undefined;
     /**
-     * Instantiates a new FeatureRolloutPoliciesResponse and sets the default values.
+     * Instantiates a new featureRolloutPoliciesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

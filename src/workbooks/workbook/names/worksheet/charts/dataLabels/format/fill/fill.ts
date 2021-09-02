@@ -3,7 +3,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class Fill extends Entity implements Parsable {
     /**
-     * Instantiates a new Fill and sets the default values.
+     * Instantiates a new fill and sets the default values.
      */
     public constructor() {
         super();

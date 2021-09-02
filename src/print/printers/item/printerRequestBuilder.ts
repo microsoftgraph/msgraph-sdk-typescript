@@ -138,7 +138,7 @@ export class PrinterRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.print.printers.taskTriggers collection
      * @param id Unique identifier of the item
-     * @returns a PrintTaskTriggerRequestBuilder
+     * @returns a printTaskTriggerRequestBuilder
      */
     public taskTriggersById(id: String) : PrintTaskTriggerRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

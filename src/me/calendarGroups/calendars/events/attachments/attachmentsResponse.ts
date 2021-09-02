@@ -7,7 +7,7 @@ export class AttachmentsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Attachment[] | undefined;
     /**
-     * Instantiates a new AttachmentsResponse and sets the default values.
+     * Instantiates a new attachmentsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

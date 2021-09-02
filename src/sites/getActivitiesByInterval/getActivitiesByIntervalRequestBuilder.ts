@@ -12,7 +12,7 @@ export class GetActivitiesByIntervalRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Instantiates a new getActivitiesByIntervalRequestBuilder and sets the default values.
+     * Instantiates a new GetActivitiesByIntervalRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
@@ -26,15 +26,18 @@ export class GetActivitiesByIntervalRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new getActivitiesByIntervalRequestBuilder and sets the default values.
+     * Instantiates a new GetActivitiesByIntervalRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
+     * @param endDateTime Usage: endDateTime={endDateTime}
      * @param httpCore The http core service to use to execute the requests.
+     * @param interval Usage: interval={interval}
      * @param isRawUrl Whether the current path is a raw URL
+     * @param startDateTime Usage: startDateTime={startDateTime}
      */
-    public constructor(currentPath: string, httpCore: IHttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: IHttpCore, startDateTime?: string | undefined, endDateTime?: string | undefined, interval?: string | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.getActivitiesByInterval()";
+        this.pathSegment = `/microsoft.graph.getActivitiesByInterval()`;
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;

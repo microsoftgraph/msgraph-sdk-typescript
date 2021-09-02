@@ -7,7 +7,7 @@ export class MembersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ConversationMember[] | undefined;
     /**
-     * Instantiates a new MembersResponse and sets the default values.
+     * Instantiates a new membersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

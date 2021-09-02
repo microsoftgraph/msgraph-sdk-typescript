@@ -7,7 +7,7 @@ export class ComplianceManagementPartnersResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: ComplianceManagementPartner[] | undefined;
     /**
-     * Instantiates a new ComplianceManagementPartnersResponse and sets the default values.
+     * Instantiates a new complianceManagementPartnersResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

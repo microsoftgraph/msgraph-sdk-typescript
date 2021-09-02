@@ -109,7 +109,7 @@ export class ContactRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.contacts.extensions collection
      * @param id Unique identifier of the item
-     * @returns a ExtensionRequestBuilder
+     * @returns a extensionRequestBuilder
      */
     public extensionsById(id: String) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -135,7 +135,7 @@ export class ContactRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.contacts.multiValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a MultiValueLegacyExtendedPropertyRequestBuilder
+     * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
     public multiValueExtendedPropertiesById(id: String) : MultiValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -158,7 +158,7 @@ export class ContactRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.contacts.singleValueExtendedProperties collection
      * @param id Unique identifier of the item
-     * @returns a SingleValueLegacyExtendedPropertyRequestBuilder
+     * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */
     public singleValueExtendedPropertiesById(id: String) : SingleValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

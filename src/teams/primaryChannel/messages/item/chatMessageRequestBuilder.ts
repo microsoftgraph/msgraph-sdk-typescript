@@ -116,7 +116,7 @@ export class ChatMessageRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.primaryChannel.messages.hostedContents collection
      * @param id Unique identifier of the item
-     * @returns a ChatMessageHostedContentRequestBuilder
+     * @returns a chatMessageHostedContentRequestBuilder
      */
     public hostedContentsById(id: String) : ChatMessageHostedContentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -139,7 +139,7 @@ export class ChatMessageRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.teams.primaryChannel.messages.replies collection
      * @param id Unique identifier of the item
-     * @returns a ChatMessageRequestBuilder
+     * @returns a chatMessageRequestBuilder
      */
     public repliesById(id: String) : ChatMessageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

@@ -88,6 +88,13 @@ export class ApplePushNotificationCertificateRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
+     * Builds and executes requests for operations under /deviceManagement/applePushNotificationCertificate/microsoft.graph.downloadApplePushNotificationCertificateSigningRequest()
+     * @returns a downloadApplePushNotificationCertificateSigningRequestRequestBuilder
+     */
+    public downloadApplePushNotificationCertificateSigningRequest() : DownloadApplePushNotificationCertificateSigningRequestRequestBuilder {
+        return new DownloadApplePushNotificationCertificateSigningRequestRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * Apple push notification certificate.
      * @param h Request headers
      * @param o Request options for HTTP middlewares

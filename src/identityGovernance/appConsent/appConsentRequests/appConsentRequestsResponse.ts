@@ -7,7 +7,7 @@ export class AppConsentRequestsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: AppConsentRequest[] | undefined;
     /**
-     * Instantiates a new AppConsentRequestsResponse and sets the default values.
+     * Instantiates a new appConsentRequestsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

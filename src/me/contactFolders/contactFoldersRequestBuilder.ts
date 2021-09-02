@@ -69,12 +69,19 @@ export class ContactFoldersRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /me/contactFolders/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * The user's contacts folders. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ContactFoldersResponse
+     * @returns a Promise of contactFoldersResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -7,7 +7,7 @@ export class DefaultManagedAppProtectionsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DefaultManagedAppProtection[] | undefined;
     /**
-     * Instantiates a new DefaultManagedAppProtectionsResponse and sets the default values.
+     * Instantiates a new defaultManagedAppProtectionsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

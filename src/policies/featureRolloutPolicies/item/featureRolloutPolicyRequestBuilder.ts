@@ -19,7 +19,7 @@ export class FeatureRolloutPolicyRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies.appliesTo collection
      * @param id Unique identifier of the item
-     * @returns a DirectoryObjectRequestBuilder
+     * @returns a directoryObjectRequestBuilder
      */
     public appliesToById(id: String) : DirectoryObjectRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

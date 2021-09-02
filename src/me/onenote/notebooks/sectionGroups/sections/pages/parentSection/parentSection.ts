@@ -18,7 +18,7 @@ export class ParentSection extends OnenoteEntityHierarchyModel implements Parsab
     /** The section group that contains the section.  Read-only.  */
     private _parentSectionGroup?: SectionGroup | undefined;
     /**
-     * Instantiates a new ParentSection and sets the default values.
+     * Instantiates a new parentSection and sets the default values.
      */
     public constructor() {
         super();

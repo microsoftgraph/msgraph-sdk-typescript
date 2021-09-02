@@ -11,7 +11,7 @@ export class Details extends Entity implements Parsable {
     /** The collection of references on the task.  */
     private _references?: PlannerExternalReferences | undefined;
     /**
-     * Instantiates a new Details and sets the default values.
+     * Instantiates a new details and sets the default values.
      */
     public constructor() {
         super();

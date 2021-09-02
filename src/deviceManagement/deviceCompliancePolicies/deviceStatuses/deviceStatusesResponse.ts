@@ -7,7 +7,7 @@ export class DeviceStatusesResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: DeviceComplianceDeviceStatus[] | undefined;
     /**
-     * Instantiates a new DeviceStatusesResponse and sets the default values.
+     * Instantiates a new deviceStatusesResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

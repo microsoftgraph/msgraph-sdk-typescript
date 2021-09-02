@@ -36,7 +36,7 @@ export class TargetedManagedAppConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations.apps collection
      * @param id Unique identifier of the item
-     * @returns a ManagedMobileAppRequestBuilder
+     * @returns a managedMobileAppRequestBuilder
      */
     public appsById(id: String) : ManagedMobileAppRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
@@ -45,7 +45,7 @@ export class TargetedManagedAppConfigurationRequestBuilder {
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations.assignments collection
      * @param id Unique identifier of the item
-     * @returns a TargetedManagedAppPolicyAssignmentRequestBuilder
+     * @returns a targetedManagedAppPolicyAssignmentRequestBuilder
      */
     public assignmentsById(id: String) : TargetedManagedAppPolicyAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");

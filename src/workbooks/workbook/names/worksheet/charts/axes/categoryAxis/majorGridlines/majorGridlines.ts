@@ -8,7 +8,7 @@ export class MajorGridlines extends Entity implements Parsable {
     /** Boolean value representing if the axis gridlines are visible or not.  */
     private _visible?: boolean | undefined;
     /**
-     * Instantiates a new MajorGridlines and sets the default values.
+     * Instantiates a new majorGridlines and sets the default values.
      */
     public constructor() {
         super();

@@ -7,7 +7,7 @@ export class InvitationsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Invitation[] | undefined;
     /**
-     * Instantiates a new InvitationsResponse and sets the default values.
+     * Instantiates a new invitationsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

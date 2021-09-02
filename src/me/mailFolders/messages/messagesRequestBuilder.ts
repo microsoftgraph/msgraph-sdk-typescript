@@ -69,12 +69,19 @@ export class MessagesRequestBuilder {
         return requestInfo;
     };
     /**
+     * Builds and executes requests for operations under /me/mailFolders/{mailFolder-id}/messages/microsoft.graph.delta()
+     * @returns a deltaRequestBuilder
+     */
+    public delta() : DeltaRequestBuilder {
+        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
      * The collection of messages in the mailFolder.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of MessagesResponse
+     * @returns a Promise of messagesResponse
      */
     public get(q?: {
                     count?: boolean,

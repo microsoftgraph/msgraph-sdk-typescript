@@ -9,7 +9,7 @@ export class Format extends Entity implements Parsable {
     /** Represents chart line formatting. Read-only.  */
     private _line?: WorkbookChartLineFormat | undefined;
     /**
-     * Instantiates a new Format and sets the default values.
+     * Instantiates a new format and sets the default values.
      */
     public constructor() {
         super();

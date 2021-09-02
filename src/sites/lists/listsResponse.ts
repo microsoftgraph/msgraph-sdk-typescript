@@ -7,7 +7,7 @@ export class ListsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: List[] | undefined;
     /**
-     * Instantiates a new ListsResponse and sets the default values.
+     * Instantiates a new listsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();

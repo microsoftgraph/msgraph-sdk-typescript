@@ -7,7 +7,7 @@ export class AlertsResponse implements Parsable {
     private _nextLink?: string | undefined;
     private _value?: Alert[] | undefined;
     /**
-     * Instantiates a new AlertsResponse and sets the default values.
+     * Instantiates a new alertsResponse and sets the default values.
      */
     public constructor() {
         this._additionalData = new Map<string, unknown>();
