@@ -71,11 +71,11 @@ export class InstancesRequestBuilder {
     /**
      * Builds and executes requests for operations under /identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition-id}/instances/microsoft.graph.filterByCurrentUser(on={on})
      * @param on Usage: on={on}
-     * @returns a filterByCurrentUserRequestBuilder
+     * @returns a filterByCurrentUserWithOnRequestBuilder
      */
-    public filterByCurrentUser(on: string | undefined) : FilterByCurrentUserRequestBuilder {
+    public filterByCurrentUserWithOn(on: string | undefined) : FilterByCurrentUserWithOnRequestBuilder {
         if(!on) throw new Error("on cannot be undefined");
-        return new FilterByCurrentUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, on);
+        return new FilterByCurrentUserWithOnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, on, false);
     };
     /**
      * Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
@@ -83,7 +83,7 @@ export class InstancesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of instancesResponse
+     * @returns a Promise of InstancesResponse
      */
     public get(q?: {
                     count?: boolean,

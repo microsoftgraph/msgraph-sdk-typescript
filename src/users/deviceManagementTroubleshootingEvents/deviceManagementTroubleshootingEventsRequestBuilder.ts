@@ -74,7 +74,7 @@ export class DeviceManagementTroubleshootingEventsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of deviceManagementTroubleshootingEventsResponse
+     * @returns a Promise of DeviceManagementTroubleshootingEventsResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -67,7 +67,7 @@ export class TeachersRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of teachersResponse
+     * @returns a Promise of TeachersResponse
      */
     public get(q?: {
                     count?: boolean,

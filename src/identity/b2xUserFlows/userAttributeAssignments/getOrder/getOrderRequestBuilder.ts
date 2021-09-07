@@ -44,7 +44,7 @@ export class GetOrderRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of getOrderResponse
+     * @returns a Promise of GetOrderResponse
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AssignmentOrder | undefined> {
         const requestInfo = this.createGetRequestInformation(

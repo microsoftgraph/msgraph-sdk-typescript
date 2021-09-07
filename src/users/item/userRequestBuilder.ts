@@ -1,4 +1,4 @@
-import {User} from '../../me/user';
+import {User} from '../../invitations/invitedUser/user';
 import {ActivitiesRequestBuilder} from '../activities/activitiesRequestBuilder';
 import {UserActivityRequestBuilder} from '../activities/item/userActivityRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from '../agreementAcceptances/agreementAcceptancesRequestBuilder';
@@ -584,12 +584,12 @@ export class UserRequestBuilder {
      * Builds and executes requests for operations under /users/{user-id}/microsoft.graph.reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}')
      * @param EndDateTime Usage: EndDateTime={EndDateTime}
      * @param StartDateTime Usage: StartDateTime={StartDateTime}
-     * @returns a reminderViewRequestBuilder
+     * @returns a reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder
      */
-    public reminderView(StartDateTime: string | undefined, EndDateTime: string | undefined) : ReminderViewRequestBuilder {
+    public reminderViewWithStartDateTimeWithEndDateTime(StartDateTime: string | undefined, EndDateTime: string | undefined) : ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
         if(!EndDateTime) throw new Error("EndDateTime cannot be undefined");
         if(!StartDateTime) throw new Error("StartDateTime cannot be undefined");
-        return new ReminderViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, StartDateTime, EndDateTime);
+        return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, StartDateTime, EndDateTime, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.users.scopedRoleMemberOf collection

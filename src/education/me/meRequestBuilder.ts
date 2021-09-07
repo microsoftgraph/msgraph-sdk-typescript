@@ -1,6 +1,6 @@
+import {Me} from '../../me/me';
 import {EducationUser} from '../educationUser';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {Me} from './me';
 import {EducationRubricRequestBuilder} from './rubrics/item/educationRubricRequestBuilder';
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';

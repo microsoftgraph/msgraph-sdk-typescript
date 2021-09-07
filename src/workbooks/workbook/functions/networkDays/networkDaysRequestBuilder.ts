@@ -49,7 +49,7 @@ export class NetworkDaysRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of networkDaysResponse
+     * @returns a Promise of NetworkDaysResponse
      */
     public post(body: NetworkDaysResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");

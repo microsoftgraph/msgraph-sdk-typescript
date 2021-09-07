@@ -49,7 +49,7 @@ export class LogNorm_InvRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of logNorm_InvResponse
+     * @returns a Promise of LogNorm_InvResponse
      */
     public post(body: LogNorm_InvResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");

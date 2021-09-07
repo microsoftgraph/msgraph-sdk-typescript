@@ -86,7 +86,7 @@ export class DevicesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of devicesResponse
+     * @returns a Promise of DevicesResponse
      */
     public get(q?: {
                     count?: boolean,

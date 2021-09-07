@@ -1,4 +1,4 @@
-import {User} from '../me/user';
+import {User} from '../invitations/invitedUser/user';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {UsersResponse} from './usersResponse';
@@ -93,7 +93,7 @@ export class UsersRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of usersResponse
+     * @returns a Promise of UsersResponse
      */
     public get(q?: {
                     count?: boolean,

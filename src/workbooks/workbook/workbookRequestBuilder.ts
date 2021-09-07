@@ -191,11 +191,11 @@ export class WorkbookRequestBuilder {
     /**
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/microsoft.graph.sessionInfoResource(key='{key}')
      * @param key Usage: key={key}
-     * @returns a sessionInfoResourceRequestBuilder
+     * @returns a sessionInfoResourceWithKeyRequestBuilder
      */
-    public sessionInfoResource(key: string | undefined) : SessionInfoResourceRequestBuilder {
+    public sessionInfoResourceWithKey(key: string | undefined) : SessionInfoResourceWithKeyRequestBuilder {
         if(!key) throw new Error("key cannot be undefined");
-        return new SessionInfoResourceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, key);
+        return new SessionInfoResourceWithKeyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, key, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.tables collection

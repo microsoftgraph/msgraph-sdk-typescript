@@ -49,7 +49,7 @@ export class T_Inv_2TRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of t_Inv_2TResponse
+     * @returns a Promise of T_Inv_2TResponse
      */
     public post(body: T_Inv_2TResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctionResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");

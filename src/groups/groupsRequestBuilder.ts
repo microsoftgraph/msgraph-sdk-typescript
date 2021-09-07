@@ -93,7 +93,7 @@ export class GroupsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of groupsResponse
+     * @returns a Promise of GroupsResponse
      */
     public get(q?: {
                     count?: boolean,

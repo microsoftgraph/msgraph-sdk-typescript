@@ -1,7 +1,7 @@
-import {WorkbookRange} from '../../../workbookRange';
+import {WorkbookRange} from '../../../../workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/microsoft.graph.range()  */
+/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/worksheet/microsoft.graph.range()  */
 export class RangeRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -44,7 +44,7 @@ export class RangeRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of rangeResponse
+     * @returns a Promise of RangeResponse
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.createGetRequestInformation(

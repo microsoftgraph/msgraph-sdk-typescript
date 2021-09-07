@@ -74,7 +74,7 @@ export class MobileThreatDefenseConnectorsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of mobileThreatDefenseConnectorsResponse
+     * @returns a Promise of MobileThreatDefenseConnectorsResponse
      */
     public get(q?: {
                     count?: boolean,

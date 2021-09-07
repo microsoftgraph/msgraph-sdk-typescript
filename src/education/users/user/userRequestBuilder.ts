@@ -1,4 +1,4 @@
-import {User} from '../../../me/user';
+import {User} from '../../../invitations/invitedUser/user';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

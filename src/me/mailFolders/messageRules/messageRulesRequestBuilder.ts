@@ -74,7 +74,7 @@ export class MessageRulesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of messageRulesResponse
+     * @returns a Promise of MessageRulesResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -1,8 +1,8 @@
+import {UserTeamwork} from '../../me/teamwork/userTeamwork';
 import {Teamwork} from '../../teamwork/teamwork';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {UserScopeTeamsAppInstallationRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
-import {UserTeamwork} from './userTeamwork';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/teamwork  */

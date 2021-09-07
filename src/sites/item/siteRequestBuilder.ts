@@ -185,13 +185,26 @@ export class SiteRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /sites/{site-id}/microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
+     * @param endDateTime Usage: endDateTime={endDateTime}
+     * @param interval Usage: interval={interval}
+     * @param startDateTime Usage: startDateTime={startDateTime}
+     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     */
+    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(startDateTime: string | undefined, endDateTime: string | undefined, interval: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!interval) throw new Error("interval cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, startDateTime, endDateTime, interval, false);
+    };
+    /**
      * Builds and executes requests for operations under /sites/{site-id}/microsoft.graph.getByPath(path='{path}')
      * @param path Usage: path={path}
-     * @returns a getByPathRequestBuilder
+     * @returns a getByPathWithPathRequestBuilder
      */
-    public getByPath(path: string | undefined) : GetByPathRequestBuilder {
+    public getByPathWithPath(path: string | undefined) : GetByPathWithPathRequestBuilder {
         if(!path) throw new Error("path cannot be undefined");
-        return new GetByPathRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, path);
+        return new GetByPathWithPathRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, path, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.items collection

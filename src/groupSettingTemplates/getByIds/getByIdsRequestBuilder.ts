@@ -49,7 +49,7 @@ export class GetByIdsRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of getByIds
+     * @returns a Promise of GetByIds
      */
     public post(body: GetByIdsResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetByIds[] | undefined> {
         if(!body) throw new Error("body cannot be undefined");

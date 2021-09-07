@@ -74,7 +74,7 @@ export class CalendarsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of calendarsResponse
+     * @returns a Promise of CalendarsResponse
      */
     public get(q?: {
                     count?: boolean,

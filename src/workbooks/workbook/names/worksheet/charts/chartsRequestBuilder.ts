@@ -85,7 +85,7 @@ export class ChartsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of chartsResponse
+     * @returns a Promise of ChartsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -103,22 +103,22 @@ export class ChartsRequestBuilder {
         return this.httpCore?.sendAsync<ChartsResponse>(requestInfo, ChartsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.item(name='{name}')
-     * @param name Usage: name={name}
-     * @returns a itemRequestBuilder
-     */
-    public item(name: string | undefined) : ItemRequestBuilder {
-        if(!name) throw new Error("name cannot be undefined");
-        return new ItemRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, name);
-    };
-    /**
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.itemAt(index={index})
      * @param index Usage: index={index}
-     * @returns a itemAtRequestBuilder
+     * @returns a itemAtWithIndexRequestBuilder
      */
-    public itemAt(index: number | undefined) : ItemAtRequestBuilder {
+    public itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder {
         if(!index) throw new Error("index cannot be undefined");
-        return new ItemAtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, index);
+        return new ItemAtWithIndexRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, index, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.item(name='{name}')
+     * @param name Usage: name={name}
+     * @returns a itemWithNameRequestBuilder
+     */
+    public itemWithName(name: string | undefined) : ItemWithNameRequestBuilder {
+        if(!name) throw new Error("name cannot be undefined");
+        return new ItemWithNameRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, name, false);
     };
     /**
      * Returns collection of charts that are part of the worksheet. Read-only.

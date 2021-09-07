@@ -1,7 +1,7 @@
-import {Outlook} from '../../users/outlook/outlook';
-import {OutlookUser} from '../../users/outlook/outlookUser';
 import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
+import {Outlook} from './outlook';
+import {OutlookUser} from './outlookUser';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/outlook  */
@@ -146,5 +146,14 @@ export class OutlookRequestBuilder {
      */
     public supportedTimeZones() : SupportedTimeZonesRequestBuilder {
         return new SupportedTimeZonesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /me/outlook/microsoft.graph.supportedTimeZones(TimeZoneStandard={TimeZoneStandard})
+     * @param TimeZoneStandard Usage: TimeZoneStandard={TimeZoneStandard}
+     * @returns a supportedTimeZonesWithTimeZoneStandardRequestBuilder
+     */
+    public supportedTimeZonesWithTimeZoneStandard(TimeZoneStandard: string | undefined) : SupportedTimeZonesWithTimeZoneStandardRequestBuilder {
+        if(!TimeZoneStandard) throw new Error("TimeZoneStandard cannot be undefined");
+        return new SupportedTimeZonesWithTimeZoneStandardRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, TimeZoneStandard, false);
     };
 }

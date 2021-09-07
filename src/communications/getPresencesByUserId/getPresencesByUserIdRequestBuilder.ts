@@ -49,7 +49,7 @@ export class GetPresencesByUserIdRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of getPresencesByUserId
+     * @returns a Promise of GetPresencesByUserId
      */
     public post(body: GetPresencesByUserIdResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPresencesByUserId[] | undefined> {
         if(!body) throw new Error("body cannot be undefined");

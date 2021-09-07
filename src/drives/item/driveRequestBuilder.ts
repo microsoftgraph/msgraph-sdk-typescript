@@ -169,11 +169,11 @@ export class DriveRequestBuilder {
     /**
      * Builds and executes requests for operations under /drives/{drive-id}/microsoft.graph.search(q='{q}')
      * @param q Usage: q={q}
-     * @returns a searchRequestBuilder
+     * @returns a searchWithQRequestBuilder
      */
-    public search(q: string | undefined) : SearchRequestBuilder {
+    public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
         if(!q) throw new Error("q cannot be undefined");
-        return new SearchRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, q);
+        return new SearchWithQRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, q, false);
     };
     /**
      * Builds and executes requests for operations under /drives/{drive-id}/microsoft.graph.sharedWithMe()

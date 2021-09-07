@@ -74,7 +74,7 @@ export class SitesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of sitesResponse
+     * @returns a Promise of SitesResponse
      */
     public get(q?: {
                     count?: boolean,

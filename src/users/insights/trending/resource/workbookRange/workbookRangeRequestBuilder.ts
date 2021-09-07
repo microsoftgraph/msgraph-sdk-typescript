@@ -33,31 +33,22 @@ export class WorkbookRangeRequestBuilder {
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.boundingRect(anotherRange='{anotherRange}')
      * @param anotherRange Usage: anotherRange={anotherRange}
-     * @returns a boundingRectRequestBuilder
+     * @returns a boundingRectWithAnotherRangeRequestBuilder
      */
-    public boundingRect(anotherRange: string | undefined) : BoundingRectRequestBuilder {
+    public boundingRectWithAnotherRange(anotherRange: string | undefined) : BoundingRectWithAnotherRangeRequestBuilder {
         if(!anotherRange) throw new Error("anotherRange cannot be undefined");
-        return new BoundingRectRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, anotherRange);
+        return new BoundingRectWithAnotherRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, anotherRange, false);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.cell(row={row},column={column})
      * @param column Usage: column={column}
      * @param row Usage: row={row}
-     * @returns a cellRequestBuilder
+     * @returns a cellWithRowWithColumnRequestBuilder
      */
-    public cell(row: number | undefined, column: number | undefined) : CellRequestBuilder {
+    public cellWithRowWithColumn(row: number | undefined, column: number | undefined) : CellWithRowWithColumnRequestBuilder {
         if(!column) throw new Error("column cannot be undefined");
         if(!row) throw new Error("row cannot be undefined");
-        return new CellRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, row, column);
-    };
-    /**
-     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.column(column={column})
-     * @param column Usage: column={column}
-     * @returns a columnRequestBuilder
-     */
-    public column(column: number | undefined) : ColumnRequestBuilder {
-        if(!column) throw new Error("column cannot be undefined");
-        return new ColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, column);
+        return new CellWithRowWithColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, row, column, false);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsAfter()
@@ -67,11 +58,38 @@ export class WorkbookRangeRequestBuilder {
         return new ColumnsAfterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsAfter(count={count})
+     * @param count Usage: count={count}
+     * @returns a columnsAfterWithCountRequestBuilder
+     */
+    public columnsAfterWithCount(count: number | undefined) : ColumnsAfterWithCountRequestBuilder {
+        if(!count) throw new Error("count cannot be undefined");
+        return new ColumnsAfterWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+    };
+    /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsBefore()
      * @returns a columnsBeforeRequestBuilder
      */
     public columnsBefore() : ColumnsBeforeRequestBuilder {
         return new ColumnsBeforeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsBefore(count={count})
+     * @param count Usage: count={count}
+     * @returns a columnsBeforeWithCountRequestBuilder
+     */
+    public columnsBeforeWithCount(count: number | undefined) : ColumnsBeforeWithCountRequestBuilder {
+        if(!count) throw new Error("count cannot be undefined");
+        return new ColumnsBeforeWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+    };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.column(column={column})
+     * @param column Usage: column={column}
+     * @returns a columnWithColumnRequestBuilder
+     */
+    public columnWithColumn(column: number | undefined) : ColumnWithColumnRequestBuilder {
+        if(!column) throw new Error("column cannot be undefined");
+        return new ColumnWithColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, column, false);
     };
     /**
      * Instantiates a new WorkbookRangeRequestBuilder and sets the default values.
@@ -104,11 +122,11 @@ export class WorkbookRangeRequestBuilder {
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.intersection(anotherRange='{anotherRange}')
      * @param anotherRange Usage: anotherRange={anotherRange}
-     * @returns a intersectionRequestBuilder
+     * @returns a intersectionWithAnotherRangeRequestBuilder
      */
-    public intersection(anotherRange: string | undefined) : IntersectionRequestBuilder {
+    public intersectionWithAnotherRange(anotherRange: string | undefined) : IntersectionWithAnotherRangeRequestBuilder {
         if(!anotherRange) throw new Error("anotherRange cannot be undefined");
-        return new IntersectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, anotherRange);
+        return new IntersectionWithAnotherRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, anotherRange, false);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.lastCell()
@@ -135,32 +153,23 @@ export class WorkbookRangeRequestBuilder {
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.offsetRange(rowOffset={rowOffset},columnOffset={columnOffset})
      * @param columnOffset Usage: columnOffset={columnOffset}
      * @param rowOffset Usage: rowOffset={rowOffset}
-     * @returns a offsetRangeRequestBuilder
+     * @returns a offsetRangeWithRowOffsetWithColumnOffsetRequestBuilder
      */
-    public offsetRange(rowOffset: number | undefined, columnOffset: number | undefined) : OffsetRangeRequestBuilder {
+    public offsetRangeWithRowOffsetWithColumnOffset(rowOffset: number | undefined, columnOffset: number | undefined) : OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder {
         if(!columnOffset) throw new Error("columnOffset cannot be undefined");
         if(!rowOffset) throw new Error("rowOffset cannot be undefined");
-        return new OffsetRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, rowOffset, columnOffset);
+        return new OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, rowOffset, columnOffset, false);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.resizedRange(deltaRows={deltaRows},deltaColumns={deltaColumns})
      * @param deltaColumns Usage: deltaColumns={deltaColumns}
      * @param deltaRows Usage: deltaRows={deltaRows}
-     * @returns a resizedRangeRequestBuilder
+     * @returns a resizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder
      */
-    public resizedRange(deltaRows: number | undefined, deltaColumns: number | undefined) : ResizedRangeRequestBuilder {
+    public resizedRangeWithDeltaRowsWithDeltaColumns(deltaRows: number | undefined, deltaColumns: number | undefined) : ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder {
         if(!deltaColumns) throw new Error("deltaColumns cannot be undefined");
         if(!deltaRows) throw new Error("deltaRows cannot be undefined");
-        return new ResizedRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, deltaRows, deltaColumns);
-    };
-    /**
-     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.row(row={row})
-     * @param row Usage: row={row}
-     * @returns a rowRequestBuilder
-     */
-    public row(row: number | undefined) : RowRequestBuilder {
-        if(!row) throw new Error("row cannot be undefined");
-        return new RowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, row);
+        return new ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, deltaRows, deltaColumns, false);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsAbove()
@@ -170,6 +179,15 @@ export class WorkbookRangeRequestBuilder {
         return new RowsAboveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsAbove(count={count})
+     * @param count Usage: count={count}
+     * @returns a rowsAboveWithCountRequestBuilder
+     */
+    public rowsAboveWithCount(count: number | undefined) : RowsAboveWithCountRequestBuilder {
+        if(!count) throw new Error("count cannot be undefined");
+        return new RowsAboveWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+    };
+    /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsBelow()
      * @returns a rowsBelowRequestBuilder
      */
@@ -177,11 +195,38 @@ export class WorkbookRangeRequestBuilder {
         return new RowsBelowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsBelow(count={count})
+     * @param count Usage: count={count}
+     * @returns a rowsBelowWithCountRequestBuilder
+     */
+    public rowsBelowWithCount(count: number | undefined) : RowsBelowWithCountRequestBuilder {
+        if(!count) throw new Error("count cannot be undefined");
+        return new RowsBelowWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+    };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.row(row={row})
+     * @param row Usage: row={row}
+     * @returns a rowWithRowRequestBuilder
+     */
+    public rowWithRow(row: number | undefined) : RowWithRowRequestBuilder {
+        if(!row) throw new Error("row cannot be undefined");
+        return new RowWithRowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, row, false);
+    };
+    /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.usedRange()
      * @returns a usedRangeRequestBuilder
      */
     public usedRange() : UsedRangeRequestBuilder {
         return new UsedRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.usedRange(valuesOnly={valuesOnly})
+     * @param valuesOnly Usage: valuesOnly={valuesOnly}
+     * @returns a usedRangeWithValuesOnlyRequestBuilder
+     */
+    public usedRangeWithValuesOnly(valuesOnly: boolean | undefined) : UsedRangeWithValuesOnlyRequestBuilder {
+        if(!valuesOnly) throw new Error("valuesOnly cannot be undefined");
+        return new UsedRangeWithValuesOnlyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, valuesOnly, false);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.visibleView()

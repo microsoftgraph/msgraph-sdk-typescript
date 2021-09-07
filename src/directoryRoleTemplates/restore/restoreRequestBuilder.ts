@@ -44,7 +44,7 @@ export class RestoreRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of restoreResponse
+     * @returns a Promise of RestoreResponse
      */
     public post(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObject | undefined> {
         const requestInfo = this.createPostRequestInformation(

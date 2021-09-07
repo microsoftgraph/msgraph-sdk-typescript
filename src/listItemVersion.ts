@@ -1,5 +1,5 @@
 import {BaseItemVersion} from './baseItemVersion';
-import {FieldValueSet} from './drives/list/items/fields/fieldValueSet';
+import {FieldValueSet} from './drive/list/items/fields/fieldValueSet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ListItemVersion extends BaseItemVersion implements Parsable {

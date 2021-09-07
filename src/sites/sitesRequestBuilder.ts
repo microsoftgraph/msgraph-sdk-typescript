@@ -1,14 +1,9 @@
-import {Site} from '../site';
-import {AddRequestBuilder} from './add/addRequestBuilder';
-import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
+import {Site} from '../../site';
 import {SitesResponse} from './sitesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /sites  */
+/** Builds and executes requests for operations under /sites/{site-id}/sites  */
 export class SitesRequestBuilder {
-    public get add(): AddRequestBuilder {
-        return new AddRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Current path for the request  */
     private readonly currentPath: string;
     /** The http core service to use to execute the requests.  */
@@ -17,9 +12,6 @@ export class SitesRequestBuilder {
     private readonly isRawUrl: boolean;
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
-    public get remove(): RemoveRequestBuilder {
-        return new RemoveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /**
      * Instantiates a new SitesRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -35,7 +27,7 @@ export class SitesRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Get entities from sites
+     * The collection of the sub-sites under this site.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -60,7 +52,7 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to sites
+     * The collection of the sub-sites under this site.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -77,12 +69,12 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from sites
+     * The collection of the sub-sites under this site.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of sitesResponse
+     * @returns a Promise of SitesResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -100,7 +92,7 @@ export class SitesRequestBuilder {
         return this.httpCore?.sendAsync<SitesResponse>(requestInfo, SitesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Add new entity to sites
+     * The collection of the sub-sites under this site.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares

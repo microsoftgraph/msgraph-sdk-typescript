@@ -1,4 +1,4 @@
-import {InferenceClassification} from '../../users/inferenceClassification/inferenceClassification';
+import {InferenceClassification} from './inferenceClassification';
 import {InferenceClassificationOverrideRequestBuilder} from './overrides/item/inferenceClassificationOverrideRequestBuilder';
 import {OverridesRequestBuilder} from './overrides/overridesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

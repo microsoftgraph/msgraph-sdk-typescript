@@ -40,12 +40,12 @@ export class WorksheetRequestBuilder {
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/microsoft.graph.cell(row={row},column={column})
      * @param column Usage: column={column}
      * @param row Usage: row={row}
-     * @returns a cellRequestBuilder
+     * @returns a cellWithRowWithColumnRequestBuilder
      */
-    public cell(row: number | undefined, column: number | undefined) : CellRequestBuilder {
+    public cellWithRowWithColumn(row: number | undefined, column: number | undefined) : CellWithRowWithColumnRequestBuilder {
         if(!column) throw new Error("column cannot be undefined");
         if(!row) throw new Error("row cannot be undefined");
-        return new CellRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, row, column);
+        return new CellWithRowWithColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, row, column, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names.worksheet.charts collection
@@ -189,6 +189,15 @@ export class WorksheetRequestBuilder {
         return new RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/microsoft.graph.range(address='{address}')
+     * @param address Usage: address={address}
+     * @returns a rangeWithAddressRequestBuilder
+     */
+    public rangeWithAddress(address: string | undefined) : RangeWithAddressRequestBuilder {
+        if(!address) throw new Error("address cannot be undefined");
+        return new RangeWithAddressRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, address, false);
+    };
+    /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.workbook.names.worksheet.tables collection
      * @param id Unique identifier of the item
      * @returns a workbookTableRequestBuilder
@@ -203,5 +212,14 @@ export class WorksheetRequestBuilder {
      */
     public usedRange() : UsedRangeRequestBuilder {
         return new UsedRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/microsoft.graph.usedRange(valuesOnly={valuesOnly})
+     * @param valuesOnly Usage: valuesOnly={valuesOnly}
+     * @returns a usedRangeWithValuesOnlyRequestBuilder
+     */
+    public usedRangeWithValuesOnly(valuesOnly: boolean | undefined) : UsedRangeWithValuesOnlyRequestBuilder {
+        if(!valuesOnly) throw new Error("valuesOnly cannot be undefined");
+        return new UsedRangeWithValuesOnlyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, valuesOnly, false);
     };
 }

@@ -25,50 +25,6 @@ export class ImageRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new ImageRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param currentPath Current path for the request
-     * @param currentPath Current path for the request
-     * @param fittingMode Usage: fittingMode={fittingMode}
-     * @param height Usage: height={height}
-     * @param height Usage: height={height}
-     * @param httpCore The http core service to use to execute the requests.
-     * @param httpCore The http core service to use to execute the requests.
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
-     * @param isRawUrl Whether the current path is a raw URL
-     * @param isRawUrl Whether the current path is a raw URL
-     * @param width Usage: width={width}
-     * @param width Usage: width={width}
-     * @param width Usage: width={width}
-     */
-    public constructor(currentPath: string, currentPath: string, currentPath: string, httpCore: IHttpCore, httpCore: IHttpCore, httpCore: IHttpCore, width?: number | undefined, width?: number | undefined, height?: number | undefined, width?: number | undefined, height?: number | undefined, fittingMode?: string | undefined, isRawUrl: boolean = true, isRawUrl: boolean = true, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = `/microsoft.graph.image()`;
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
-    };
-    /**
-     * Invoke function image
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
-        requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
-        return requestInfo;
-    };
-    /**
      * Invoke function image
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -87,20 +43,7 @@ export class ImageRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of string
-     */
-    public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string | undefined> {
-        const requestInfo = this.createGetRequestInformation(
-            h, o
-        );
-        return this.httpCore?.sendPrimitiveAsync<string>(requestInfo, "string", responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Invoke function image
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of string
+     * @returns a Promise of String
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string | undefined> {
         const requestInfo = this.createGetRequestInformation(

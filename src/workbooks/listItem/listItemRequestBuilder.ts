@@ -129,6 +129,19 @@ export class ListItemRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/listItem/microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
+     * @param endDateTime Usage: endDateTime={endDateTime}
+     * @param interval Usage: interval={interval}
+     * @param startDateTime Usage: startDateTime={startDateTime}
+     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     */
+    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(startDateTime: string | undefined, endDateTime: string | undefined, interval: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!interval) throw new Error("interval cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, startDateTime, endDateTime, interval, false);
+    };
+    /**
      * For drives in SharePoint, the associated document library list item. Read-only. Nullable.
      * @param body 
      * @param h Request headers

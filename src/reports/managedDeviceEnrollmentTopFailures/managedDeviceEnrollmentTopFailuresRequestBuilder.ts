@@ -26,35 +26,6 @@ export class ManagedDeviceEnrollmentTopFailuresRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new ManagedDeviceEnrollmentTopFailuresRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
-     * @param period Usage: period={period}
-     */
-    public constructor(currentPath: string, httpCore: IHttpCore, period?: string | undefined, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = `/microsoft.graph.managedDeviceEnrollmentTopFailures()`;
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
-    };
-    /**
-     * Invoke function managedDeviceEnrollmentTopFailures
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
-        requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
-        return requestInfo;
-    };
-    /**
      * Invoke function managedDeviceEnrollmentTopFailures
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -73,20 +44,7 @@ export class ManagedDeviceEnrollmentTopFailuresRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of managedDeviceEnrollmentTopFailuresResponse
-     */
-    public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
-        const requestInfo = this.createGetRequestInformation(
-            h, o
-        );
-        return this.httpCore?.sendAsync<Report>(requestInfo, Report, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Invoke function managedDeviceEnrollmentTopFailures
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of managedDeviceEnrollmentTopFailuresResponse
+     * @returns a Promise of ManagedDeviceEnrollmentTopFailuresResponse
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
         const requestInfo = this.createGetRequestInformation(

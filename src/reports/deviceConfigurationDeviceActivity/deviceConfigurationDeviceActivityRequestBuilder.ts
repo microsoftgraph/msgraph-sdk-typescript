@@ -44,7 +44,7 @@ export class DeviceConfigurationDeviceActivityRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of deviceConfigurationDeviceActivityResponse
+     * @returns a Promise of DeviceConfigurationDeviceActivityResponse
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
         const requestInfo = this.createGetRequestInformation(

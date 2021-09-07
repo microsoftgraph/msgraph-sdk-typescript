@@ -18,6 +18,13 @@ import {MailFolder} from './mailFolder';
 import {ManagedAppRegistration} from './managedAppRegistration';
 import {ManagedDevice} from './managedDevice';
 import {Authentication} from './me/authentication/authentication';
+import {InferenceClassification} from './me/inferenceClassification/inferenceClassification';
+import {OfficeGraphInsights} from './me/insights/officeGraphInsights';
+import {OutlookUser} from './me/outlook/outlookUser';
+import {PlannerUser} from './me/planner/plannerUser';
+import {UserSettings} from './me/settings/userSettings';
+import {UserTeamwork} from './me/teamwork/userTeamwork';
+import {Todo} from './me/todo/todo';
 import {Message} from './message';
 import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import {OnlineMeeting} from './onlineMeeting';
@@ -29,13 +36,6 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Site} from './site';
 import {Team} from './team';
 import {UserActivity} from './userActivity';
-import {InferenceClassification} from './users/inferenceClassification/inferenceClassification';
-import {OfficeGraphInsights} from './users/insights/officeGraphInsights';
-import {OutlookUser} from './users/outlook/outlookUser';
-import {PlannerUser} from './users/planner/plannerUser';
-import {UserSettings} from './users/settings/userSettings';
-import {UserTeamwork} from './users/teamwork/userTeamwork';
-import {Todo} from './users/todo/todo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class User extends DirectoryObject implements Parsable {

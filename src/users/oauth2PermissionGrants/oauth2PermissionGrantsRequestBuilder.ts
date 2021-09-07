@@ -60,7 +60,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of oauth2PermissionGrantsResponse
+     * @returns a Promise of Oauth2PermissionGrantsResponse
      */
     public get(q?: {
                     count?: boolean,

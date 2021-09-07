@@ -86,7 +86,7 @@ export class DirectoryObjectsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of directoryObjectsResponse
+     * @returns a Promise of DirectoryObjectsResponse
      */
     public get(q?: {
                     count?: boolean,

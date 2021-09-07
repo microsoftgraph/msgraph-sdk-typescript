@@ -49,7 +49,7 @@ export class RecordResponseRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of recordResponseResponse
+     * @returns a Promise of RecordResponseResponse
      */
     public post(body: RecordResponseResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RecordOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");

@@ -149,6 +149,39 @@ export class WorkbookChartRequestBuilder {
         return new ImageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/microsoft.graph.image(width={width})
+     * @param width Usage: width={width}
+     * @returns a imageWithWidthRequestBuilder
+     */
+    public imageWithWidth(width: number | undefined) : ImageWithWidthRequestBuilder {
+        if(!width) throw new Error("width cannot be undefined");
+        return new ImageWithWidthRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, width, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/microsoft.graph.image(width={width},height={height})
+     * @param height Usage: height={height}
+     * @param width Usage: width={width}
+     * @returns a imageWithWidthWithHeightRequestBuilder
+     */
+    public imageWithWidthWithHeight(width: number | undefined, height: number | undefined) : ImageWithWidthWithHeightRequestBuilder {
+        if(!height) throw new Error("height cannot be undefined");
+        if(!width) throw new Error("width cannot be undefined");
+        return new ImageWithWidthWithHeightRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, width, height, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/microsoft.graph.image(width={width},height={height},fittingMode='{fittingMode}')
+     * @param fittingMode Usage: fittingMode={fittingMode}
+     * @param height Usage: height={height}
+     * @param width Usage: width={width}
+     * @returns a imageWithWidthWithHeightWithFittingModeRequestBuilder
+     */
+    public imageWithWidthWithHeightWithFittingMode(width: number | undefined, height: number | undefined, fittingMode: string | undefined) : ImageWithWidthWithHeightWithFittingModeRequestBuilder {
+        if(!fittingMode) throw new Error("fittingMode cannot be undefined");
+        if(!height) throw new Error("height cannot be undefined");
+        if(!width) throw new Error("width cannot be undefined");
+        return new ImageWithWidthWithHeightWithFittingModeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, width, height, fittingMode, false);
+    };
+    /**
      * Returns collection of charts that are part of the worksheet. Read-only.
      * @param body 
      * @param h Request headers

@@ -12,6 +12,7 @@ import {Drive} from '../../drive/drive';
 import {Event} from '../../event';
 import {Extension} from '../../extension';
 import {Calendar} from '../../groups/calendar/calendar';
+import {Onenote} from '../../groups/onenote/onenote';
 import {LicenseDetails} from '../../licenseDetails';
 import {MailFolder} from '../../mailFolder';
 import {ManagedAppRegistration} from '../../managedAppRegistration';
@@ -19,6 +20,7 @@ import {ManagedDevice} from '../../managedDevice';
 import {Authentication} from '../../me/authentication/authentication';
 import {InferenceClassification} from '../../me/inferenceClassification/inferenceClassification';
 import {OfficeGraphInsights} from '../../me/insights/officeGraphInsights';
+import {OutlookUser} from '../../me/outlook/outlookUser';
 import {PlannerUser} from '../../me/planner/plannerUser';
 import {UserSettings} from '../../me/settings/userSettings';
 import {UserTeamwork} from '../../me/teamwork/userTeamwork';
@@ -32,10 +34,8 @@ import {ProfilePhoto} from '../../profilePhoto';
 import {ProvisionedPlan} from '../../provisionedPlan';
 import {ScopedRoleMembership} from '../../scopedRoleMembership';
 import {Site} from '../../site';
-import {Onenote} from '../../sites/onenote/onenote';
 import {Team} from '../../team';
 import {UserActivity} from '../../userActivity';
-import {OutlookUser} from '../../users/outlook/outlookUser';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class User extends DirectoryObject implements Parsable {

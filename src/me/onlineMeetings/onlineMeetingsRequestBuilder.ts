@@ -78,7 +78,7 @@ export class OnlineMeetingsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of onlineMeetingsResponse
+     * @returns a Promise of OnlineMeetingsResponse
      */
     public get(q?: {
                     count?: boolean,

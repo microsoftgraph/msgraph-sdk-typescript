@@ -1,4 +1,3 @@
-import {Sort} from '../../../../tables/sort/sort';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';

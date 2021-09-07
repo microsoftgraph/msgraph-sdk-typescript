@@ -188,6 +188,15 @@ export class DriveItemRequestBuilder {
         return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.delta(token='{token}')
+     * @param token Usage: token={token}
+     * @returns a deltaWithTokenRequestBuilder
+     */
+    public deltaWithToken(token: string | undefined) : DeltaWithTokenRequestBuilder {
+        if(!token) throw new Error("token cannot be undefined");
+        return new DeltaWithTokenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, token, false);
+    };
+    /**
      * Get entity from workbooks by key
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -210,6 +219,19 @@ export class DriveItemRequestBuilder {
      */
     public getActivitiesByInterval() : GetActivitiesByIntervalRequestBuilder {
         return new GetActivitiesByIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    };
+    /**
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.getActivitiesByInterval(startDateTime='{startDateTime}',endDateTime='{endDateTime}',interval='{interval}')
+     * @param endDateTime Usage: endDateTime={endDateTime}
+     * @param interval Usage: interval={interval}
+     * @param startDateTime Usage: startDateTime={startDateTime}
+     * @returns a getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder
+     */
+    public getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval(startDateTime: string | undefined, endDateTime: string | undefined, interval: string | undefined) : GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder {
+        if(!endDateTime) throw new Error("endDateTime cannot be undefined");
+        if(!interval) throw new Error("interval cannot be undefined");
+        if(!startDateTime) throw new Error("startDateTime cannot be undefined");
+        return new GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, startDateTime, endDateTime, interval, false);
     };
     /**
      * Update entity in workbooks
@@ -237,11 +259,11 @@ export class DriveItemRequestBuilder {
     /**
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.search(q='{q}')
      * @param q Usage: q={q}
-     * @returns a searchRequestBuilder
+     * @returns a searchWithQRequestBuilder
      */
-    public search(q: string | undefined) : SearchRequestBuilder {
+    public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
         if(!q) throw new Error("q cannot be undefined");
-        return new SearchRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, q);
+        return new SearchWithQRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, q, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.workbooks.subscriptions collection

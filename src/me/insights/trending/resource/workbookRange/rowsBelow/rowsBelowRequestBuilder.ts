@@ -26,35 +26,6 @@ export class RowsBelowRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Instantiates a new RowsBelowRequestBuilder and sets the default values.
-     * @param count Usage: count={count}
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
-     */
-    public constructor(currentPath: string, httpCore: IHttpCore, count?: number | undefined, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = `/microsoft.graph.rowsBelow()`;
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
-    };
-    /**
-     * Invoke function rowsBelow
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
-        requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
-        return requestInfo;
-    };
-    /**
      * Invoke function rowsBelow
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -73,20 +44,7 @@ export class RowsBelowRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of rowsBelowResponse
-     */
-    public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
-        const requestInfo = this.createGetRequestInformation(
-            h, o
-        );
-        return this.httpCore?.sendAsync<WorkbookRange>(requestInfo, WorkbookRange, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Invoke function rowsBelow
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of rowsBelowResponse
+     * @returns a Promise of RowsBelowResponse
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.createGetRequestInformation(

@@ -305,11 +305,11 @@ export class DeviceManagementRequestBuilder {
     /**
      * Builds and executes requests for operations under /deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')
      * @param scope Usage: scope={scope}
-     * @returns a getEffectivePermissionsRequestBuilder
+     * @returns a getEffectivePermissionsWithScopeRequestBuilder
      */
-    public getEffectivePermissions(scope: string | undefined) : GetEffectivePermissionsRequestBuilder {
+    public getEffectivePermissionsWithScope(scope: string | undefined) : GetEffectivePermissionsWithScopeRequestBuilder {
         if(!scope) throw new Error("scope cannot be undefined");
-        return new GetEffectivePermissionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, scope);
+        return new GetEffectivePermissionsWithScopeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, scope, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.importedWindowsAutopilotDeviceIdentities collection
@@ -436,11 +436,11 @@ export class DeviceManagementRequestBuilder {
     /**
      * Builds and executes requests for operations under /deviceManagement/microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')
      * @param domainName Usage: domainName={domainName}
-     * @returns a verifyWindowsEnrollmentAutoDiscoveryRequestBuilder
+     * @returns a verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
      */
-    public verifyWindowsEnrollmentAutoDiscovery(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryRequestBuilder {
+    public verifyWindowsEnrollmentAutoDiscoveryWithDomainName(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
         if(!domainName) throw new Error("domainName cannot be undefined");
-        return new VerifyWindowsEnrollmentAutoDiscoveryRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, domainName);
+        return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, domainName, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsAutopilotDeviceIdentities collection

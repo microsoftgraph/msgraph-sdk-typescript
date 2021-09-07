@@ -74,7 +74,7 @@ export class UserStateSummaryRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of userStateSummaryResponse
+     * @returns a Promise of UserStateSummaryResponse
      */
     public get(q?: {
                     count?: boolean,

@@ -74,7 +74,7 @@ export class ActivitiesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of activitiesResponse
+     * @returns a Promise of ActivitiesResponse
      */
     public get(q?: {
                     count?: boolean,

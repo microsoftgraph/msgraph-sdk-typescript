@@ -78,7 +78,7 @@ export class NotebooksRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of notebooksResponse
+     * @returns a Promise of NotebooksResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -98,11 +98,11 @@ export class NotebooksRequestBuilder {
     /**
      * Builds and executes requests for operations under /users/{user-id}/onenote/notebooks/microsoft.graph.getRecentNotebooks(includePersonalNotebooks={includePersonalNotebooks})
      * @param includePersonalNotebooks Usage: includePersonalNotebooks={includePersonalNotebooks}
-     * @returns a getRecentNotebooksRequestBuilder
+     * @returns a getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder
      */
-    public getRecentNotebooks(includePersonalNotebooks: boolean | undefined) : GetRecentNotebooksRequestBuilder {
+    public getRecentNotebooksWithIncludePersonalNotebooks(includePersonalNotebooks: boolean | undefined) : GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder {
         if(!includePersonalNotebooks) throw new Error("includePersonalNotebooks cannot be undefined");
-        return new GetRecentNotebooksRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, includePersonalNotebooks);
+        return new GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, includePersonalNotebooks, false);
     };
     /**
      * The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.

@@ -1,6 +1,7 @@
 import {File} from '../../agreements/file/file';
 import {DriveItem} from '../../driveItem';
 import {DriveItemVersion} from '../../driveItemVersion';
+import {ItemAnalytics} from '../../drives/list/items/analytics/itemAnalytics';
 import {Photo} from '../../groups/photo/photo';
 import {ListItem} from '../../listItem';
 import {Permission} from '../../permission';
@@ -8,7 +9,6 @@ import {Subscription} from '../../subscription';
 import {ThumbnailSet} from '../../thumbnailSet';
 import {Workbook} from '../../workbooks/workbook/workbook';
 import {BaseItem} from '../baseItem';
-import {ItemAnalytics} from '../list/items/analytics/itemAnalytics';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Root extends BaseItem implements Parsable {

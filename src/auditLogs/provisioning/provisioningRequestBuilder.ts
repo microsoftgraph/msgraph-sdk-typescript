@@ -74,7 +74,7 @@ export class ProvisioningRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of provisioningResponse
+     * @returns a Promise of ProvisioningResponse
      */
     public get(q?: {
                     count?: boolean,

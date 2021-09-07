@@ -74,7 +74,7 @@ export class SegmentsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of segmentsResponse
+     * @returns a Promise of SegmentsResponse
      */
     public get(q?: {
                     count?: boolean,

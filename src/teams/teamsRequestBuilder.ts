@@ -74,7 +74,7 @@ export class TeamsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of teamsResponse
+     * @returns a Promise of TeamsResponse
      */
     public get(q?: {
                     count?: boolean,

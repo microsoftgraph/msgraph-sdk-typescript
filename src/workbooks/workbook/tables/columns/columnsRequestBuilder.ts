@@ -85,7 +85,7 @@ export class ColumnsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of columnsResponse
+     * @returns a Promise of ColumnsResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -105,11 +105,11 @@ export class ColumnsRequestBuilder {
     /**
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/columns/microsoft.graph.itemAt(index={index})
      * @param index Usage: index={index}
-     * @returns a itemAtRequestBuilder
+     * @returns a itemAtWithIndexRequestBuilder
      */
-    public itemAt(index: number | undefined) : ItemAtRequestBuilder {
+    public itemAtWithIndex(index: number | undefined) : ItemAtWithIndexRequestBuilder {
         if(!index) throw new Error("index cannot be undefined");
-        return new ItemAtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, index);
+        return new ItemAtWithIndexRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, index, false);
     };
     /**
      * Represents a collection of all the columns in the table. Read-only.

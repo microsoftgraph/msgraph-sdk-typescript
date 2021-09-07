@@ -43,11 +43,11 @@ export class CalendarRequestBuilder {
     /**
      * Builds and executes requests for operations under /me/calendar/microsoft.graph.allowedCalendarSharingRoles(User='{User}')
      * @param User Usage: User={User}
-     * @returns a allowedCalendarSharingRolesRequestBuilder
+     * @returns a allowedCalendarSharingRolesWithUserRequestBuilder
      */
-    public allowedCalendarSharingRoles(User: string | undefined) : AllowedCalendarSharingRolesRequestBuilder {
+    public allowedCalendarSharingRolesWithUser(User: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder {
         if(!User) throw new Error("User cannot be undefined");
-        return new AllowedCalendarSharingRolesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false, User);
+        return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, User, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarPermissions collection

@@ -17,25 +17,10 @@ export class UsedRangeRequestBuilder {
      * @param httpCore The http core service to use to execute the requests.
      * @param isRawUrl Whether the current path is a raw URL
      */
-    public constructor(currentPath: string, httpCore: IHttpCore, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.usedRange(valuesOnly={valuesOnly})";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
-    };
-    /**
-     * Instantiates a new UsedRangeRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
-     * @param valuesOnly Usage: valuesOnly={valuesOnly}
-     */
-    public constructor(currentPath: string, httpCore: HttpCore, valuesOnly?: boolean | undefined, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = `/microsoft.graph.usedRange(valuesOnly=${valuesOnly ?? ''})`;
+        this.pathSegment = "/microsoft.graph.usedRange()";
         this.httpCore = httpCore;
         this.currentPath = currentPath;
         this.isRawUrl = isRawUrl;
@@ -58,35 +43,8 @@ export class UsedRangeRequestBuilder {
      * Invoke function usedRange
      * @param h Request headers
      * @param o Request options for HTTP middlewares
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
-        requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
-        return requestInfo;
-    };
-    /**
-     * Invoke function usedRange
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of usedRangeResponse
-     */
-    public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
-        const requestInfo = this.createGetRequestInformation(
-            h, o
-        );
-        return this.httpCore?.sendAsync<WorkbookRange>(requestInfo, WorkbookRange, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Invoke function usedRange
-     * @param h Request headers
-     * @param o Request options for HTTP middlewares
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of usedRangeResponse
+     * @returns a Promise of UsedRangeResponse
      */
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookRange | undefined> {
         const requestInfo = this.createGetRequestInformation(

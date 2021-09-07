@@ -49,7 +49,7 @@ export class InviteRequestBuilder {
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of inviteResponse
+     * @returns a Promise of InviteResponse
      */
     public post(body: InviteResponse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InviteParticipantsOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
