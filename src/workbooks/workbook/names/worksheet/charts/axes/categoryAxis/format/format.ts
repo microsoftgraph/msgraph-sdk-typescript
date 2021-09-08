@@ -1,6 +1,6 @@
 import {Entity} from '../../../../../../../../entity';
-import {WorkbookChartFont} from './font/workbookChartFont';
-import {WorkbookChartLineFormat} from './line/workbookChartLineFormat';
+import {WorkbookChartFont} from '../../../../../../worksheets/workbookChartFont';
+import {WorkbookChartLineFormat} from '../../../../../../worksheets/workbookChartLineFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Format extends Entity implements Parsable {

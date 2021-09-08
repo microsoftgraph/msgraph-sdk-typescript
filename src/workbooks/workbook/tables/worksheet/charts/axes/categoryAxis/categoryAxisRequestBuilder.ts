@@ -1,4 +1,4 @@
-import {CategoryAxis} from '../../../../../worksheets/charts/axes/categoryAxis/categoryAxis';
+import {CategoryAxis} from '../../../../../names/worksheet/charts/axes/categoryAxis/categoryAxis';
 import {WorkbookChartAxis} from '../../../../../worksheets/workbookChartAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';

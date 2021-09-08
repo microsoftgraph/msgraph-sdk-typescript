@@ -14,7 +14,7 @@ export class Video implements Parsable {
     /** Bit rate of the video in bits per second.  */
     private _bitrate?: number | undefined;
     /** Duration of the file in milliseconds.  */
-    private _duration?: Int64 | undefined;
+    private _duration?: number | undefined;
     /** 'Four character code' name of the video format.  */
     private _fourCC?: string | undefined;
     /** Frame rate of the video.  */
@@ -117,7 +117,7 @@ export class Video implements Parsable {
             ["audioFormat", (o, n) => { (o as unknown as Video).audioFormat = n.getStringValue(); }],
             ["audioSamplesPerSecond", (o, n) => { (o as unknown as Video).audioSamplesPerSecond = n.getNumberValue(); }],
             ["bitrate", (o, n) => { (o as unknown as Video).bitrate = n.getNumberValue(); }],
-            ["duration", (o, n) => { (o as unknown as Video).duration = n.getObjectValue<Int64>(Int64); }],
+            ["duration", (o, n) => { (o as unknown as Video).duration = n.getNumberValue(); }],
             ["fourCC", (o, n) => { (o as unknown as Video).fourCC = n.getStringValue(); }],
             ["frameRate", (o, n) => { (o as unknown as Video).frameRate = n.getNumberValue(); }],
             ["height", (o, n) => { (o as unknown as Video).height = n.getNumberValue(); }],
@@ -135,7 +135,7 @@ export class Video implements Parsable {
         writer.writeStringValue("audioFormat", this.audioFormat);
         writer.writeNumberValue("audioSamplesPerSecond", this.audioSamplesPerSecond);
         writer.writeNumberValue("bitrate", this.bitrate);
-        writer.writeObjectValue<Int64>("duration", this.duration);
+        writer.writeNumberValue("duration", this.duration);
         writer.writeStringValue("fourCC", this.fourCC);
         writer.writeNumberValue("frameRate", this.frameRate);
         writer.writeNumberValue("height", this.height);
@@ -188,7 +188,7 @@ export class Video implements Parsable {
      * Sets the duration property value. Duration of the file in milliseconds.
      * @param value Value to set for the duration property.
      */
-    public set duration(value: Int64 | undefined) {
+    public set duration(value: number | undefined) {
         this._duration = value;
     };
     /**

@@ -8,7 +8,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
     /** Group Tag of the Windows autopilot device.  */
     private _groupTag?: string | undefined;
     /** Hardware Blob of the Windows autopilot device.  */
-    private _hardwareIdentifier?: Binary | undefined;
+    private _hardwareIdentifier?: string | undefined;
     /** The Import Id of the Windows autopilot device.  */
     private _importId?: string | undefined;
     /** Product Key of the Windows autopilot device.  */
@@ -80,7 +80,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["assignedUserPrincipalName", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).assignedUserPrincipalName = n.getStringValue(); }],
             ["groupTag", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).groupTag = n.getStringValue(); }],
-            ["hardwareIdentifier", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).hardwareIdentifier = n.getObjectValue<Binary>(Binary); }],
+            ["hardwareIdentifier", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).hardwareIdentifier = n.getStringValue(); }],
             ["importId", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).importId = n.getStringValue(); }],
             ["productKey", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).productKey = n.getStringValue(); }],
             ["serialNumber", (o, n) => { (o as unknown as ImportedWindowsAutopilotDeviceIdentity).serialNumber = n.getStringValue(); }],
@@ -96,7 +96,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
         super.serialize(writer);
         writer.writeStringValue("assignedUserPrincipalName", this.assignedUserPrincipalName);
         writer.writeStringValue("groupTag", this.groupTag);
-        writer.writeObjectValue<Binary>("hardwareIdentifier", this.hardwareIdentifier);
+        writer.writeStringValue("hardwareIdentifier", this.hardwareIdentifier);
         writer.writeStringValue("importId", this.importId);
         writer.writeStringValue("productKey", this.productKey);
         writer.writeStringValue("serialNumber", this.serialNumber);
@@ -120,7 +120,7 @@ export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Pa
      * Sets the hardwareIdentifier property value. Hardware Blob of the Windows autopilot device.
      * @param value Value to set for the hardwareIdentifier property.
      */
-    public set hardwareIdentifier(value: Binary | undefined) {
+    public set hardwareIdentifier(value: string | undefined) {
         this._hardwareIdentifier = value;
     };
     /**

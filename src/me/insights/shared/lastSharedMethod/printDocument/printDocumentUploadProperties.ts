@@ -8,7 +8,7 @@ export class PrintDocumentUploadProperties implements Parsable {
     /** The document's name.  */
     private _documentName?: string | undefined;
     /** The document's size in bytes.  */
-    private _size?: Int64 | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new printDocumentUploadProperties and sets the default values.
      */
@@ -51,7 +51,7 @@ export class PrintDocumentUploadProperties implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["contentType", (o, n) => { (o as unknown as PrintDocumentUploadProperties).contentType = n.getStringValue(); }],
             ["documentName", (o, n) => { (o as unknown as PrintDocumentUploadProperties).documentName = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as PrintDocumentUploadProperties).size = n.getObjectValue<Int64>(Int64); }],
+            ["size", (o, n) => { (o as unknown as PrintDocumentUploadProperties).size = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -62,7 +62,7 @@ export class PrintDocumentUploadProperties implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("contentType", this.contentType);
         writer.writeStringValue("documentName", this.documentName);
-        writer.writeObjectValue<Int64>("size", this.size);
+        writer.writeNumberValue("size", this.size);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -90,7 +90,7 @@ export class PrintDocumentUploadProperties implements Parsable {
      * Sets the size property value. The document's size in bytes.
      * @param value Value to set for the size property.
      */
-    public set size(value: Int64 | undefined) {
+    public set size(value: number | undefined) {
         this._size = value;
     };
 }

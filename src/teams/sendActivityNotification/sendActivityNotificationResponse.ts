@@ -8,7 +8,7 @@ export class SendActivityNotificationResponse implements Parsable {
     private _activityType?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    private _chainId?: Int64 | undefined;
+    private _chainId?: number | undefined;
     private _previewText?: ItemBody | undefined;
     private _recipient?: TeamworkNotificationRecipient | undefined;
     private _templateParameters?: KeyValuePair[] | undefined;
@@ -75,7 +75,7 @@ export class SendActivityNotificationResponse implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["activityType", (o, n) => { (o as unknown as SendActivityNotificationResponse).activityType = n.getStringValue(); }],
-            ["chainId", (o, n) => { (o as unknown as SendActivityNotificationResponse).chainId = n.getObjectValue<Int64>(Int64); }],
+            ["chainId", (o, n) => { (o as unknown as SendActivityNotificationResponse).chainId = n.getNumberValue(); }],
             ["previewText", (o, n) => { (o as unknown as SendActivityNotificationResponse).previewText = n.getObjectValue<ItemBody>(ItemBody); }],
             ["recipient", (o, n) => { (o as unknown as SendActivityNotificationResponse).recipient = n.getObjectValue<TeamworkNotificationRecipient>(TeamworkNotificationRecipient); }],
             ["templateParameters", (o, n) => { (o as unknown as SendActivityNotificationResponse).templateParameters = n.getCollectionOfObjectValues<KeyValuePair>(KeyValuePair); }],
@@ -89,7 +89,7 @@ export class SendActivityNotificationResponse implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("activityType", this.activityType);
-        writer.writeObjectValue<Int64>("chainId", this.chainId);
+        writer.writeNumberValue("chainId", this.chainId);
         writer.writeObjectValue<ItemBody>("previewText", this.previewText);
         writer.writeObjectValue<TeamworkNotificationRecipient>("recipient", this.recipient);
         writer.writeCollectionOfObjectValues<KeyValuePair>("templateParameters", this.templateParameters);
@@ -114,7 +114,7 @@ export class SendActivityNotificationResponse implements Parsable {
      * Sets the chainId property value. 
      * @param value Value to set for the chainId property.
      */
-    public set chainId(value: Int64 | undefined) {
+    public set chainId(value: number | undefined) {
         this._chainId = value;
     };
     /**

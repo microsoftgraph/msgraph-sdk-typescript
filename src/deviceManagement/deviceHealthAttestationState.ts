@@ -50,9 +50,9 @@ export class DeviceHealthAttestationState implements Parsable {
     /** Informational attribute that identifies the HASH algorithm that was used by TPM  */
     private _pcrHashAlgorithm?: string | undefined;
     /** The number of times a PC device has hibernated or resumed  */
-    private _resetCount?: Int64 | undefined;
+    private _resetCount?: number | undefined;
     /** The number of times a PC device has rebooted  */
-    private _restartCount?: Int64 | undefined;
+    private _restartCount?: number | undefined;
     /** Safe mode is a troubleshooting option for Windows that starts your computer in a limited state  */
     private _safeMode?: string | undefined;
     /** When Secure Boot is enabled, the core components must have the correct cryptographic signatures  */
@@ -333,8 +333,8 @@ export class DeviceHealthAttestationState implements Parsable {
             ["operatingSystemRevListInfo", (o, n) => { (o as unknown as DeviceHealthAttestationState).operatingSystemRevListInfo = n.getStringValue(); }],
             ["pcr0", (o, n) => { (o as unknown as DeviceHealthAttestationState).pcr0 = n.getStringValue(); }],
             ["pcrHashAlgorithm", (o, n) => { (o as unknown as DeviceHealthAttestationState).pcrHashAlgorithm = n.getStringValue(); }],
-            ["resetCount", (o, n) => { (o as unknown as DeviceHealthAttestationState).resetCount = n.getObjectValue<Int64>(Int64); }],
-            ["restartCount", (o, n) => { (o as unknown as DeviceHealthAttestationState).restartCount = n.getObjectValue<Int64>(Int64); }],
+            ["resetCount", (o, n) => { (o as unknown as DeviceHealthAttestationState).resetCount = n.getNumberValue(); }],
+            ["restartCount", (o, n) => { (o as unknown as DeviceHealthAttestationState).restartCount = n.getNumberValue(); }],
             ["safeMode", (o, n) => { (o as unknown as DeviceHealthAttestationState).safeMode = n.getStringValue(); }],
             ["secureBoot", (o, n) => { (o as unknown as DeviceHealthAttestationState).secureBoot = n.getStringValue(); }],
             ["secureBootConfigurationPolicyFingerPrint", (o, n) => { (o as unknown as DeviceHealthAttestationState).secureBootConfigurationPolicyFingerPrint = n.getStringValue(); }],
@@ -373,8 +373,8 @@ export class DeviceHealthAttestationState implements Parsable {
         writer.writeStringValue("operatingSystemRevListInfo", this.operatingSystemRevListInfo);
         writer.writeStringValue("pcr0", this.pcr0);
         writer.writeStringValue("pcrHashAlgorithm", this.pcrHashAlgorithm);
-        writer.writeObjectValue<Int64>("resetCount", this.resetCount);
-        writer.writeObjectValue<Int64>("restartCount", this.restartCount);
+        writer.writeNumberValue("resetCount", this.resetCount);
+        writer.writeNumberValue("restartCount", this.restartCount);
         writer.writeStringValue("safeMode", this.safeMode);
         writer.writeStringValue("secureBoot", this.secureBoot);
         writer.writeStringValue("secureBootConfigurationPolicyFingerPrint", this.secureBootConfigurationPolicyFingerPrint);
@@ -556,14 +556,14 @@ export class DeviceHealthAttestationState implements Parsable {
      * Sets the resetCount property value. The number of times a PC device has hibernated or resumed
      * @param value Value to set for the resetCount property.
      */
-    public set resetCount(value: Int64 | undefined) {
+    public set resetCount(value: number | undefined) {
         this._resetCount = value;
     };
     /**
      * Sets the restartCount property value. The number of times a PC device has rebooted
      * @param value Value to set for the restartCount property.
      */
-    public set restartCount(value: Int64 | undefined) {
+    public set restartCount(value: number | undefined) {
         this._restartCount = value;
     };
     /**

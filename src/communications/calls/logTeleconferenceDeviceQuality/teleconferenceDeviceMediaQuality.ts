@@ -18,7 +18,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     /** The channel index of media. Indexing begins with 1.  If a media session contains 3 video modalities, channel indexes will be 1, 2, and 3.  */
     private _channelIndex?: number | undefined;
     /** The total number of the inbound packets.  */
-    private _inboundPackets?: Int64 | undefined;
+    private _inboundPackets?: number | undefined;
     /** the local IP address for the media session.  */
     private _localIPAddress?: string | undefined;
     /** The local media port.  */
@@ -38,9 +38,9 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     /** The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations.  */
     private _mediaDuration?: string | undefined;
     /** The network link speed in bytes  */
-    private _networkLinkSpeedInBytes?: Int64 | undefined;
+    private _networkLinkSpeedInBytes?: number | undefined;
     /** The total number of the outbound packets.  */
-    private _outboundPackets?: Int64 | undefined;
+    private _outboundPackets?: number | undefined;
     /** The remote IP address for the media session.  */
     private _remoteIPAddress?: string | undefined;
     /** The remote media port.  */
@@ -218,7 +218,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
             ["averageOutboundPacketLossRateInPercentage", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundPacketLossRateInPercentage = n.getNumberValue(); }],
             ["averageOutboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundRoundTripDelay = n.getStringValue(); }],
             ["channelIndex", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).channelIndex = n.getNumberValue(); }],
-            ["inboundPackets", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).inboundPackets = n.getObjectValue<Int64>(Int64); }],
+            ["inboundPackets", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).inboundPackets = n.getNumberValue(); }],
             ["localIPAddress", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).localIPAddress = n.getStringValue(); }],
             ["localPort", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).localPort = n.getNumberValue(); }],
             ["maximumInboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumInboundJitter = n.getStringValue(); }],
@@ -228,8 +228,8 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
             ["maximumOutboundPacketLossRateInPercentage", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundPacketLossRateInPercentage = n.getNumberValue(); }],
             ["maximumOutboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundRoundTripDelay = n.getStringValue(); }],
             ["mediaDuration", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).mediaDuration = n.getStringValue(); }],
-            ["networkLinkSpeedInBytes", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).networkLinkSpeedInBytes = n.getObjectValue<Int64>(Int64); }],
-            ["outboundPackets", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).outboundPackets = n.getObjectValue<Int64>(Int64); }],
+            ["networkLinkSpeedInBytes", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).networkLinkSpeedInBytes = n.getNumberValue(); }],
+            ["outboundPackets", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).outboundPackets = n.getNumberValue(); }],
             ["remoteIPAddress", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).remoteIPAddress = n.getStringValue(); }],
             ["remotePort", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).remotePort = n.getNumberValue(); }],
         ]);
@@ -247,7 +247,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
         writer.writeNumberValue("averageOutboundPacketLossRateInPercentage", this.averageOutboundPacketLossRateInPercentage);
         writer.writeStringValue("averageOutboundRoundTripDelay", this.averageOutboundRoundTripDelay);
         writer.writeNumberValue("channelIndex", this.channelIndex);
-        writer.writeObjectValue<Int64>("inboundPackets", this.inboundPackets);
+        writer.writeNumberValue("inboundPackets", this.inboundPackets);
         writer.writeStringValue("localIPAddress", this.localIPAddress);
         writer.writeNumberValue("localPort", this.localPort);
         writer.writeStringValue("maximumInboundJitter", this.maximumInboundJitter);
@@ -257,8 +257,8 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
         writer.writeNumberValue("maximumOutboundPacketLossRateInPercentage", this.maximumOutboundPacketLossRateInPercentage);
         writer.writeStringValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
         writer.writeStringValue("mediaDuration", this.mediaDuration);
-        writer.writeObjectValue<Int64>("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
-        writer.writeObjectValue<Int64>("outboundPackets", this.outboundPackets);
+        writer.writeNumberValue("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
+        writer.writeNumberValue("outboundPackets", this.outboundPackets);
         writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
         writer.writeNumberValue("remotePort", this.remotePort);
         writer.writeAdditionalData(this.additionalData);
@@ -323,7 +323,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the inboundPackets property value. The total number of the inbound packets.
      * @param value Value to set for the inboundPackets property.
      */
-    public set inboundPackets(value: Int64 | undefined) {
+    public set inboundPackets(value: number | undefined) {
         this._inboundPackets = value;
     };
     /**
@@ -393,14 +393,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the networkLinkSpeedInBytes property value. The network link speed in bytes
      * @param value Value to set for the networkLinkSpeedInBytes property.
      */
-    public set networkLinkSpeedInBytes(value: Int64 | undefined) {
+    public set networkLinkSpeedInBytes(value: number | undefined) {
         this._networkLinkSpeedInBytes = value;
     };
     /**
      * Sets the outboundPackets property value. The total number of the outbound packets.
      * @param value Value to set for the outboundPackets property.
      */
-    public set outboundPackets(value: Int64 | undefined) {
+    public set outboundPackets(value: number | undefined) {
         this._outboundPackets = value;
     };
     /**

@@ -67,7 +67,7 @@ export class ManagedDevice extends Entity implements Parsable {
     /** Last time the device contacted Exchange. This property is read-only.  */
     private _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
     /** Free Storage in Bytes. This property is read-only.  */
-    private _freeStorageSpaceInBytes?: Int64 | undefined;
+    private _freeStorageSpaceInBytes?: number | undefined;
     /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.  */
     private _iccid?: string | undefined;
     /** IMEI. This property is read-only.  */
@@ -103,7 +103,7 @@ export class ManagedDevice extends Entity implements Parsable {
     /** Phone number of the device. This property is read-only.  */
     private _phoneNumber?: string | undefined;
     /** Total Memory in Bytes. This property is read-only.  */
-    private _physicalMemoryInBytes?: Int64 | undefined;
+    private _physicalMemoryInBytes?: number | undefined;
     /** An error string that identifies issues when creating Remote Assistance session objects. This property is read-only.  */
     private _remoteAssistanceSessionErrorDetails?: string | undefined;
     /** Url that allows a Remote Assistance session to be established with the device. This property is read-only.  */
@@ -113,7 +113,7 @@ export class ManagedDevice extends Entity implements Parsable {
     /** Subscriber Carrier. This property is read-only.  */
     private _subscriberCarrier?: string | undefined;
     /** Total Storage in Bytes. This property is read-only.  */
-    private _totalStorageSpaceInBytes?: Int64 | undefined;
+    private _totalStorageSpaceInBytes?: number | undefined;
     /** Unique Device Identifier for iOS and macOS devices. This property is read-only.  */
     private _udid?: string | undefined;
     /** User display name. This property is read-only.  */
@@ -539,7 +539,7 @@ export class ManagedDevice extends Entity implements Parsable {
             ["exchangeAccessState", (o, n) => { (o as unknown as ManagedDevice).exchangeAccessState = n.getEnumValue<DeviceManagementExchangeAccessState>(DeviceManagementExchangeAccessState); }],
             ["exchangeAccessStateReason", (o, n) => { (o as unknown as ManagedDevice).exchangeAccessStateReason = n.getEnumValue<DeviceManagementExchangeAccessStateReason>(DeviceManagementExchangeAccessStateReason); }],
             ["exchangeLastSuccessfulSyncDateTime", (o, n) => { (o as unknown as ManagedDevice).exchangeLastSuccessfulSyncDateTime = n.getDateValue(); }],
-            ["freeStorageSpaceInBytes", (o, n) => { (o as unknown as ManagedDevice).freeStorageSpaceInBytes = n.getObjectValue<Int64>(Int64); }],
+            ["freeStorageSpaceInBytes", (o, n) => { (o as unknown as ManagedDevice).freeStorageSpaceInBytes = n.getNumberValue(); }],
             ["iccid", (o, n) => { (o as unknown as ManagedDevice).iccid = n.getStringValue(); }],
             ["imei", (o, n) => { (o as unknown as ManagedDevice).imei = n.getStringValue(); }],
             ["isEncrypted", (o, n) => { (o as unknown as ManagedDevice).isEncrypted = n.getBooleanValue(); }],
@@ -557,12 +557,12 @@ export class ManagedDevice extends Entity implements Parsable {
             ["osVersion", (o, n) => { (o as unknown as ManagedDevice).osVersion = n.getStringValue(); }],
             ["partnerReportedThreatState", (o, n) => { (o as unknown as ManagedDevice).partnerReportedThreatState = n.getEnumValue<ManagedDevicePartnerReportedHealthState>(ManagedDevicePartnerReportedHealthState); }],
             ["phoneNumber", (o, n) => { (o as unknown as ManagedDevice).phoneNumber = n.getStringValue(); }],
-            ["physicalMemoryInBytes", (o, n) => { (o as unknown as ManagedDevice).physicalMemoryInBytes = n.getObjectValue<Int64>(Int64); }],
+            ["physicalMemoryInBytes", (o, n) => { (o as unknown as ManagedDevice).physicalMemoryInBytes = n.getNumberValue(); }],
             ["remoteAssistanceSessionErrorDetails", (o, n) => { (o as unknown as ManagedDevice).remoteAssistanceSessionErrorDetails = n.getStringValue(); }],
             ["remoteAssistanceSessionUrl", (o, n) => { (o as unknown as ManagedDevice).remoteAssistanceSessionUrl = n.getStringValue(); }],
             ["serialNumber", (o, n) => { (o as unknown as ManagedDevice).serialNumber = n.getStringValue(); }],
             ["subscriberCarrier", (o, n) => { (o as unknown as ManagedDevice).subscriberCarrier = n.getStringValue(); }],
-            ["totalStorageSpaceInBytes", (o, n) => { (o as unknown as ManagedDevice).totalStorageSpaceInBytes = n.getObjectValue<Int64>(Int64); }],
+            ["totalStorageSpaceInBytes", (o, n) => { (o as unknown as ManagedDevice).totalStorageSpaceInBytes = n.getNumberValue(); }],
             ["udid", (o, n) => { (o as unknown as ManagedDevice).udid = n.getStringValue(); }],
             ["userDisplayName", (o, n) => { (o as unknown as ManagedDevice).userDisplayName = n.getStringValue(); }],
             ["userId", (o, n) => { (o as unknown as ManagedDevice).userId = n.getStringValue(); }],
@@ -602,7 +602,7 @@ export class ManagedDevice extends Entity implements Parsable {
         writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
         writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
         writer.writeDateValue("exchangeLastSuccessfulSyncDateTime", this.exchangeLastSuccessfulSyncDateTime);
-        writer.writeObjectValue<Int64>("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
+        writer.writeNumberValue("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
         writer.writeStringValue("iccid", this.iccid);
         writer.writeStringValue("imei", this.imei);
         writer.writeBooleanValue("isEncrypted", this.isEncrypted);
@@ -620,12 +620,12 @@ export class ManagedDevice extends Entity implements Parsable {
         writer.writeStringValue("osVersion", this.osVersion);
         writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
         writer.writeStringValue("phoneNumber", this.phoneNumber);
-        writer.writeObjectValue<Int64>("physicalMemoryInBytes", this.physicalMemoryInBytes);
+        writer.writeNumberValue("physicalMemoryInBytes", this.physicalMemoryInBytes);
         writer.writeStringValue("remoteAssistanceSessionErrorDetails", this.remoteAssistanceSessionErrorDetails);
         writer.writeStringValue("remoteAssistanceSessionUrl", this.remoteAssistanceSessionUrl);
         writer.writeStringValue("serialNumber", this.serialNumber);
         writer.writeStringValue("subscriberCarrier", this.subscriberCarrier);
-        writer.writeObjectValue<Int64>("totalStorageSpaceInBytes", this.totalStorageSpaceInBytes);
+        writer.writeNumberValue("totalStorageSpaceInBytes", this.totalStorageSpaceInBytes);
         writer.writeStringValue("udid", this.udid);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userId", this.userId);
@@ -811,7 +811,7 @@ export class ManagedDevice extends Entity implements Parsable {
      * Sets the freeStorageSpaceInBytes property value. Free Storage in Bytes. This property is read-only.
      * @param value Value to set for the freeStorageSpaceInBytes property.
      */
-    public set freeStorageSpaceInBytes(value: Int64 | undefined) {
+    public set freeStorageSpaceInBytes(value: number | undefined) {
         this._freeStorageSpaceInBytes = value;
     };
     /**
@@ -937,7 +937,7 @@ export class ManagedDevice extends Entity implements Parsable {
      * Sets the physicalMemoryInBytes property value. Total Memory in Bytes. This property is read-only.
      * @param value Value to set for the physicalMemoryInBytes property.
      */
-    public set physicalMemoryInBytes(value: Int64 | undefined) {
+    public set physicalMemoryInBytes(value: number | undefined) {
         this._physicalMemoryInBytes = value;
     };
     /**
@@ -972,7 +972,7 @@ export class ManagedDevice extends Entity implements Parsable {
      * Sets the totalStorageSpaceInBytes property value. Total Storage in Bytes. This property is read-only.
      * @param value Value to set for the totalStorageSpaceInBytes property.
      */
-    public set totalStorageSpaceInBytes(value: Int64 | undefined) {
+    public set totalStorageSpaceInBytes(value: number | undefined) {
         this._totalStorageSpaceInBytes = value;
     };
     /**

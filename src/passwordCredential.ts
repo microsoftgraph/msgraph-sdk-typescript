@@ -4,7 +4,7 @@ export class PasswordCredential implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Do not use.  */
-    private _customKeyIdentifier?: Binary | undefined;
+    private _customKeyIdentifier?: string | undefined;
     /** Friendly name for the password. Optional.  */
     private _displayName?: string | undefined;
     /** The date and time at which the password expires represented using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.  */
@@ -85,7 +85,7 @@ export class PasswordCredential implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["customKeyIdentifier", (o, n) => { (o as unknown as PasswordCredential).customKeyIdentifier = n.getObjectValue<Binary>(Binary); }],
+            ["customKeyIdentifier", (o, n) => { (o as unknown as PasswordCredential).customKeyIdentifier = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as PasswordCredential).displayName = n.getStringValue(); }],
             ["endDateTime", (o, n) => { (o as unknown as PasswordCredential).endDateTime = n.getDateValue(); }],
             ["hint", (o, n) => { (o as unknown as PasswordCredential).hint = n.getStringValue(); }],
@@ -100,7 +100,7 @@ export class PasswordCredential implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("customKeyIdentifier", this.customKeyIdentifier);
+        writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("hint", this.hint);
@@ -120,7 +120,7 @@ export class PasswordCredential implements Parsable {
      * Sets the customKeyIdentifier property value. Do not use.
      * @param value Value to set for the customKeyIdentifier property.
      */
-    public set customKeyIdentifier(value: Binary | undefined) {
+    public set customKeyIdentifier(value: string | undefined) {
         this._customKeyIdentifier = value;
     };
     /**

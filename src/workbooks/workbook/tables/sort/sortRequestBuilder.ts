@@ -1,8 +1,8 @@
+import {Sort} from '../../names/worksheet/tables/sort/sort';
 import {WorkbookTableSort} from '../../workbookTableSort';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {ReapplyRequestBuilder} from './reapply/reapplyRequestBuilder';
-import {Sort} from './sort';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/sort  */

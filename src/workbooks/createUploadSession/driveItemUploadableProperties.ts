@@ -7,7 +7,7 @@ export class DriveItemUploadableProperties implements Parsable {
     /** Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.  */
     private _description?: string | undefined;
     /** Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.  */
-    private _fileSize?: Int64 | undefined;
+    private _fileSize?: number | undefined;
     /** File system information on client. Read-write.  */
     private _fileSystemInfo?: FileSystemInfo | undefined;
     /** The name of the item (filename and extension). Read-write.  */
@@ -60,7 +60,7 @@ export class DriveItemUploadableProperties implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["description", (o, n) => { (o as unknown as DriveItemUploadableProperties).description = n.getStringValue(); }],
-            ["fileSize", (o, n) => { (o as unknown as DriveItemUploadableProperties).fileSize = n.getObjectValue<Int64>(Int64); }],
+            ["fileSize", (o, n) => { (o as unknown as DriveItemUploadableProperties).fileSize = n.getNumberValue(); }],
             ["fileSystemInfo", (o, n) => { (o as unknown as DriveItemUploadableProperties).fileSystemInfo = n.getObjectValue<FileSystemInfo>(FileSystemInfo); }],
             ["name", (o, n) => { (o as unknown as DriveItemUploadableProperties).name = n.getStringValue(); }],
         ]);
@@ -72,7 +72,7 @@ export class DriveItemUploadableProperties implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        writer.writeObjectValue<Int64>("fileSize", this.fileSize);
+        writer.writeNumberValue("fileSize", this.fileSize);
         writer.writeObjectValue<FileSystemInfo>("fileSystemInfo", this.fileSystemInfo);
         writer.writeStringValue("name", this.name);
         writer.writeAdditionalData(this.additionalData);
@@ -95,7 +95,7 @@ export class DriveItemUploadableProperties implements Parsable {
      * Sets the fileSize property value. Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.
      * @param value Value to set for the fileSize property.
      */
-    public set fileSize(value: Int64 | undefined) {
+    public set fileSize(value: number | undefined) {
         this._fileSize = value;
     };
     /**

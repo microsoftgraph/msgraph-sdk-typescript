@@ -5,7 +5,7 @@ export class WindowsInformationProtectionAppLockerFile extends Entity implements
     /** The friendly name  */
     private _displayName?: string | undefined;
     /** File as a byte array  */
-    private _file?: Binary | undefined;
+    private _file?: string | undefined;
     /** SHA256 hash of the file  */
     private _fileHash?: string | undefined;
     /** Version of the entity.  */
@@ -51,7 +51,7 @@ export class WindowsInformationProtectionAppLockerFile extends Entity implements
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["displayName", (o, n) => { (o as unknown as WindowsInformationProtectionAppLockerFile).displayName = n.getStringValue(); }],
-            ["file", (o, n) => { (o as unknown as WindowsInformationProtectionAppLockerFile).file = n.getObjectValue<Binary>(Binary); }],
+            ["file", (o, n) => { (o as unknown as WindowsInformationProtectionAppLockerFile).file = n.getStringValue(); }],
             ["fileHash", (o, n) => { (o as unknown as WindowsInformationProtectionAppLockerFile).fileHash = n.getStringValue(); }],
             ["version", (o, n) => { (o as unknown as WindowsInformationProtectionAppLockerFile).version = n.getStringValue(); }],
         ]);
@@ -64,7 +64,7 @@ export class WindowsInformationProtectionAppLockerFile extends Entity implements
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<Binary>("file", this.file);
+        writer.writeStringValue("file", this.file);
         writer.writeStringValue("fileHash", this.fileHash);
         writer.writeStringValue("version", this.version);
     };
@@ -79,7 +79,7 @@ export class WindowsInformationProtectionAppLockerFile extends Entity implements
      * Sets the file property value. File as a byte array
      * @param value Value to set for the file property.
      */
-    public set file(value: Binary | undefined) {
+    public set file(value: string | undefined) {
         this._file = value;
     };
     /**

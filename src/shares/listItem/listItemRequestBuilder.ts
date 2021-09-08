@@ -1,9 +1,9 @@
 import {ListItem} from '../../listItem';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../../workbooks/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from '../../workbooks/listItem/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from './fields/fieldsRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {ListItemVersionRequestBuilder} from './versions/item/listItemVersionRequestBuilder';
 import {VersionsRequestBuilder} from './versions/versionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

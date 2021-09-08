@@ -4,7 +4,7 @@ export class Report implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Report content; details vary by report type.  */
-    private _content?: Binary | undefined;
+    private _content?: string | undefined;
     /**
      * Instantiates a new report and sets the default values.
      */
@@ -31,7 +31,7 @@ export class Report implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["content", (o, n) => { (o as unknown as Report).content = n.getObjectValue<Binary>(Binary); }],
+            ["content", (o, n) => { (o as unknown as Report).content = n.getStringValue(); }],
         ]);
     };
     /**
@@ -40,7 +40,7 @@ export class Report implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("content", this.content);
+        writer.writeStringValue("content", this.content);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -54,7 +54,7 @@ export class Report implements Parsable {
      * Sets the content property value. Report content; details vary by report type.
      * @param value Value to set for the content property.
      */
-    public set content(value: Binary | undefined) {
+    public set content(value: string | undefined) {
         this._content = value;
     };
 }

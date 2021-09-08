@@ -43,7 +43,7 @@ export class RemoteItem implements Parsable {
     /** Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.  */
     private _sharepointIds?: SharepointIds | undefined;
     /** Size of the remote item. Read-only.  */
-    private _size?: Int64 | undefined;
+    private _size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only.  */
     private _specialFolder?: SpecialFolder | undefined;
     /** Video metadata, if the item is a video. Read-only.  */
@@ -218,7 +218,7 @@ export class RemoteItem implements Parsable {
             ["parentReference", (o, n) => { (o as unknown as RemoteItem).parentReference = n.getObjectValue<ItemReference>(ItemReference); }],
             ["shared", (o, n) => { (o as unknown as RemoteItem).shared = n.getObjectValue<Shared>(Shared); }],
             ["sharepointIds", (o, n) => { (o as unknown as RemoteItem).sharepointIds = n.getObjectValue<SharepointIds>(SharepointIds); }],
-            ["size", (o, n) => { (o as unknown as RemoteItem).size = n.getObjectValue<Int64>(Int64); }],
+            ["size", (o, n) => { (o as unknown as RemoteItem).size = n.getNumberValue(); }],
             ["specialFolder", (o, n) => { (o as unknown as RemoteItem).specialFolder = n.getObjectValue<SpecialFolder>(SpecialFolder); }],
             ["video", (o, n) => { (o as unknown as RemoteItem).video = n.getObjectValue<Video>(Video); }],
             ["webDavUrl", (o, n) => { (o as unknown as RemoteItem).webDavUrl = n.getStringValue(); }],
@@ -245,7 +245,7 @@ export class RemoteItem implements Parsable {
         writer.writeObjectValue<ItemReference>("parentReference", this.parentReference);
         writer.writeObjectValue<Shared>("shared", this.shared);
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);
-        writer.writeObjectValue<Int64>("size", this.size);
+        writer.writeNumberValue("size", this.size);
         writer.writeObjectValue<SpecialFolder>("specialFolder", this.specialFolder);
         writer.writeObjectValue<Video>("video", this.video);
         writer.writeStringValue("webDavUrl", this.webDavUrl);
@@ -361,7 +361,7 @@ export class RemoteItem implements Parsable {
      * Sets the size property value. Size of the remote item. Read-only.
      * @param value Value to set for the size property.
      */
-    public set size(value: Int64 | undefined) {
+    public set size(value: number | undefined) {
         this._size = value;
     };
     /**

@@ -1,5 +1,5 @@
 import {ContactFolder} from '../../../contactFolder';
-import {DeltaRequestBuilder} from '../../../groups/calendar/calendarView/instances/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../../../workbooks/delta/deltaRequestBuilder';
 import {ChildFoldersResponse} from './childFoldersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

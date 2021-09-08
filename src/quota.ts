@@ -5,17 +5,17 @@ export class Quota implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Total space consumed by files in the recycle bin, in bytes. Read-only.  */
-    private _deleted?: Int64 | undefined;
+    private _deleted?: number | undefined;
     /** Total space remaining before reaching the quota limit, in bytes. Read-only.  */
-    private _remaining?: Int64 | undefined;
+    private _remaining?: number | undefined;
     /** Enumeration value that indicates the state of the storage space. Read-only.  */
     private _state?: string | undefined;
     /** Information about the drive's storage quota plans. Only in Personal OneDrive.  */
     private _storagePlanInformation?: StoragePlanInformation | undefined;
     /** Total allowed storage space, in bytes. Read-only.  */
-    private _total?: Int64 | undefined;
+    private _total?: number | undefined;
     /** Total space used, in bytes. Read-only.  */
-    private _used?: Int64 | undefined;
+    private _used?: number | undefined;
     /**
      * Instantiates a new quota and sets the default values.
      */
@@ -77,12 +77,12 @@ export class Quota implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["deleted", (o, n) => { (o as unknown as Quota).deleted = n.getObjectValue<Int64>(Int64); }],
-            ["remaining", (o, n) => { (o as unknown as Quota).remaining = n.getObjectValue<Int64>(Int64); }],
+            ["deleted", (o, n) => { (o as unknown as Quota).deleted = n.getNumberValue(); }],
+            ["remaining", (o, n) => { (o as unknown as Quota).remaining = n.getNumberValue(); }],
             ["state", (o, n) => { (o as unknown as Quota).state = n.getStringValue(); }],
             ["storagePlanInformation", (o, n) => { (o as unknown as Quota).storagePlanInformation = n.getObjectValue<StoragePlanInformation>(StoragePlanInformation); }],
-            ["total", (o, n) => { (o as unknown as Quota).total = n.getObjectValue<Int64>(Int64); }],
-            ["used", (o, n) => { (o as unknown as Quota).used = n.getObjectValue<Int64>(Int64); }],
+            ["total", (o, n) => { (o as unknown as Quota).total = n.getNumberValue(); }],
+            ["used", (o, n) => { (o as unknown as Quota).used = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -91,12 +91,12 @@ export class Quota implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Int64>("deleted", this.deleted);
-        writer.writeObjectValue<Int64>("remaining", this.remaining);
+        writer.writeNumberValue("deleted", this.deleted);
+        writer.writeNumberValue("remaining", this.remaining);
         writer.writeStringValue("state", this.state);
         writer.writeObjectValue<StoragePlanInformation>("storagePlanInformation", this.storagePlanInformation);
-        writer.writeObjectValue<Int64>("total", this.total);
-        writer.writeObjectValue<Int64>("used", this.used);
+        writer.writeNumberValue("total", this.total);
+        writer.writeNumberValue("used", this.used);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -110,14 +110,14 @@ export class Quota implements Parsable {
      * Sets the deleted property value. Total space consumed by files in the recycle bin, in bytes. Read-only.
      * @param value Value to set for the deleted property.
      */
-    public set deleted(value: Int64 | undefined) {
+    public set deleted(value: number | undefined) {
         this._deleted = value;
     };
     /**
      * Sets the remaining property value. Total space remaining before reaching the quota limit, in bytes. Read-only.
      * @param value Value to set for the remaining property.
      */
-    public set remaining(value: Int64 | undefined) {
+    public set remaining(value: number | undefined) {
         this._remaining = value;
     };
     /**
@@ -138,14 +138,14 @@ export class Quota implements Parsable {
      * Sets the total property value. Total allowed storage space, in bytes. Read-only.
      * @param value Value to set for the total property.
      */
-    public set total(value: Int64 | undefined) {
+    public set total(value: number | undefined) {
         this._total = value;
     };
     /**
      * Sets the used property value. Total space used, in bytes. Read-only.
      * @param value Value to set for the used property.
      */
-    public set used(value: Int64 | undefined) {
+    public set used(value: number | undefined) {
         this._used = value;
     };
 }

@@ -4,7 +4,7 @@ export class Thumbnail implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The content stream for the thumbnail.  */
-    private _content?: Binary | undefined;
+    private _content?: string | undefined;
     /** The height of the thumbnail, in pixels.  */
     private _height?: number | undefined;
     /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.  */
@@ -67,7 +67,7 @@ export class Thumbnail implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["content", (o, n) => { (o as unknown as Thumbnail).content = n.getObjectValue<Binary>(Binary); }],
+            ["content", (o, n) => { (o as unknown as Thumbnail).content = n.getStringValue(); }],
             ["height", (o, n) => { (o as unknown as Thumbnail).height = n.getNumberValue(); }],
             ["sourceItemId", (o, n) => { (o as unknown as Thumbnail).sourceItemId = n.getStringValue(); }],
             ["url", (o, n) => { (o as unknown as Thumbnail).url = n.getStringValue(); }],
@@ -80,7 +80,7 @@ export class Thumbnail implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("content", this.content);
+        writer.writeStringValue("content", this.content);
         writer.writeNumberValue("height", this.height);
         writer.writeStringValue("sourceItemId", this.sourceItemId);
         writer.writeStringValue("url", this.url);
@@ -98,7 +98,7 @@ export class Thumbnail implements Parsable {
      * Sets the content property value. The content stream for the thumbnail.
      * @param value Value to set for the content property.
      */
-    public set content(value: Binary | undefined) {
+    public set content(value: string | undefined) {
         this._content = value;
     };
     /**

@@ -4,7 +4,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Data recovery Certificate  */
-    private _certificate?: Binary | undefined;
+    private _certificate?: string | undefined;
     /** Data recovery Certificate description  */
     private _description?: string | undefined;
     /** Data recovery Certificate expiration datetime  */
@@ -58,7 +58,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["certificate", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).certificate = n.getObjectValue<Binary>(Binary); }],
+            ["certificate", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).certificate = n.getStringValue(); }],
             ["description", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).description = n.getStringValue(); }],
             ["expirationDateTime", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).expirationDateTime = n.getDateValue(); }],
             ["subjectName", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).subjectName = n.getStringValue(); }],
@@ -70,7 +70,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("certificate", this.certificate);
+        writer.writeStringValue("certificate", this.certificate);
         writer.writeStringValue("description", this.description);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeStringValue("subjectName", this.subjectName);
@@ -87,7 +87,7 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
      * Sets the certificate property value. Data recovery Certificate
      * @param value Value to set for the certificate property.
      */
-    public set certificate(value: Binary | undefined) {
+    public set certificate(value: string | undefined) {
         this._certificate = value;
     };
     /**

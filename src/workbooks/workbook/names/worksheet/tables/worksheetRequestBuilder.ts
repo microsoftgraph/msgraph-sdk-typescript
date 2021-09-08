@@ -1,9 +1,9 @@
 import {WorkbookWorksheet} from '../../../../../../workbookWorksheet';
-import {CellWithRowWithColumnRequestBuilder} from '../../pivotTables/worksheet/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {RangeRequestBuilder} from '../../pivotTables/worksheet/range/rangeRequestBuilder';
-import {UsedRangeRequestBuilder} from '../../pivotTables/worksheet/usedRange/usedRangeRequestBuilder';
+import {CellWithRowWithColumnRequestBuilder} from '../../cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
+import {UsedRangeRequestBuilder} from '../../charts/worksheet/usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from '../../charts/worksheet/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
+import {RangeRequestBuilder} from '../../range/rangeRequestBuilder';
 import {RangeWithAddressRequestBuilder} from '../../rangeWithAddress/rangeWithAddressRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from '../../usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {Worksheet} from '../../worksheet';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

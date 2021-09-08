@@ -10,7 +10,7 @@ export class DetectedApp extends Entity implements Parsable {
     /** The devices that have the discovered application installed  */
     private _managedDevices?: ManagedDevice[] | undefined;
     /** Discovered application size in bytes. Read-only  */
-    private _sizeInByte?: Int64 | undefined;
+    private _sizeInByte?: number | undefined;
     /** Version of the discovered application. Read-only  */
     private _version?: string | undefined;
     /**
@@ -63,7 +63,7 @@ export class DetectedApp extends Entity implements Parsable {
             ["deviceCount", (o, n) => { (o as unknown as DetectedApp).deviceCount = n.getNumberValue(); }],
             ["displayName", (o, n) => { (o as unknown as DetectedApp).displayName = n.getStringValue(); }],
             ["managedDevices", (o, n) => { (o as unknown as DetectedApp).managedDevices = n.getCollectionOfObjectValues<ManagedDevice>(ManagedDevice); }],
-            ["sizeInByte", (o, n) => { (o as unknown as DetectedApp).sizeInByte = n.getObjectValue<Int64>(Int64); }],
+            ["sizeInByte", (o, n) => { (o as unknown as DetectedApp).sizeInByte = n.getNumberValue(); }],
             ["version", (o, n) => { (o as unknown as DetectedApp).version = n.getStringValue(); }],
         ]);
     };
@@ -77,7 +77,7 @@ export class DetectedApp extends Entity implements Parsable {
         writer.writeNumberValue("deviceCount", this.deviceCount);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<ManagedDevice>("managedDevices", this.managedDevices);
-        writer.writeObjectValue<Int64>("sizeInByte", this.sizeInByte);
+        writer.writeNumberValue("sizeInByte", this.sizeInByte);
         writer.writeStringValue("version", this.version);
     };
     /**
@@ -105,7 +105,7 @@ export class DetectedApp extends Entity implements Parsable {
      * Sets the sizeInByte property value. Discovered application size in bytes. Read-only
      * @param value Value to set for the sizeInByte property.
      */
-    public set sizeInByte(value: Int64 | undefined) {
+    public set sizeInByte(value: number | undefined) {
         this._sizeInByte = value;
     };
     /**

@@ -3,7 +3,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class AgreementFileData implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    private _data?: Binary | undefined;
+    private _data?: string | undefined;
     /**
      * Instantiates a new agreementFileData and sets the default values.
      */
@@ -30,7 +30,7 @@ export class AgreementFileData implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["data", (o, n) => { (o as unknown as AgreementFileData).data = n.getObjectValue<Binary>(Binary); }],
+            ["data", (o, n) => { (o as unknown as AgreementFileData).data = n.getStringValue(); }],
         ]);
     };
     /**
@@ -39,7 +39,7 @@ export class AgreementFileData implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("data", this.data);
+        writer.writeStringValue("data", this.data);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -53,7 +53,7 @@ export class AgreementFileData implements Parsable {
      * Sets the data property value. 
      * @param value Value to set for the data property.
      */
-    public set data(value: Binary | undefined) {
+    public set data(value: string | undefined) {
         this._data = value;
     };
 }

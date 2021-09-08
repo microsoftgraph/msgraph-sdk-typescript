@@ -6,7 +6,7 @@ export class MimeContent implements Parsable {
     /** Indicates the content mime type.  */
     private _type?: string | undefined;
     /** The byte array that contains the actual content.  */
-    private _value?: Binary | undefined;
+    private _value?: string | undefined;
     /**
      * Instantiates a new mimeContent and sets the default values.
      */
@@ -41,7 +41,7 @@ export class MimeContent implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["type", (o, n) => { (o as unknown as MimeContent).type = n.getStringValue(); }],
-            ["value", (o, n) => { (o as unknown as MimeContent).value = n.getObjectValue<Binary>(Binary); }],
+            ["value", (o, n) => { (o as unknown as MimeContent).value = n.getStringValue(); }],
         ]);
     };
     /**
@@ -51,7 +51,7 @@ export class MimeContent implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("type", this.type);
-        writer.writeObjectValue<Binary>("value", this.value);
+        writer.writeStringValue("value", this.value);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -72,7 +72,7 @@ export class MimeContent implements Parsable {
      * Sets the value property value. The byte array that contains the actual content.
      * @param value Value to set for the value property.
      */
-    public set value(value: Binary | undefined) {
+    public set value(value: string | undefined) {
         this._value = value;
     };
 }

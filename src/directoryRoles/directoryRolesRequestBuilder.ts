@@ -1,5 +1,5 @@
 import {DirectoryRole} from '../directoryRole';
-import {DeltaRequestBuilder} from '../groups/calendar/calendarView/instances/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../workbooks/delta/deltaRequestBuilder';
 import {DirectoryRolesResponse} from './directoryRolesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

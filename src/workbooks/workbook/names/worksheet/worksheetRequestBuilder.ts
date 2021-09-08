@@ -1,18 +1,18 @@
 import {WorkbookWorksheet} from '../../../../workbookWorksheet';
+import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
 import {WorkbookChartRequestBuilder} from './charts/item/workbookChartRequestBuilder';
+import {UsedRangeRequestBuilder} from './charts/worksheet/usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from './charts/worksheet/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {WorkbookNamedItemRequestBuilder} from './names/item/workbookNamedItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookPivotTableRequestBuilder} from './pivotTables/item/workbookPivotTableRequestBuilder';
 import {PivotTablesRequestBuilder} from './pivotTables/pivotTablesRequestBuilder';
-import {CellWithRowWithColumnRequestBuilder} from './pivotTables/worksheet/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {RangeRequestBuilder} from './pivotTables/worksheet/range/rangeRequestBuilder';
-import {UsedRangeRequestBuilder} from './pivotTables/worksheet/usedRange/usedRangeRequestBuilder';
 import {ProtectionRequestBuilder} from './protection/protectionRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {Worksheet} from './worksheet';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

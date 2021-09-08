@@ -14,7 +14,7 @@ export class RubricQuality implements Parsable {
     /** The ID of this resource.  */
     private _qualityId?: string | undefined;
     /** If present, a numerical weight for this quality.  Weights must add up to 100.  */
-    private _weight?: Float | undefined;
+    private _weight?: number | undefined;
     /**
      * Instantiates a new rubricQuality and sets the default values.
      */
@@ -73,7 +73,7 @@ export class RubricQuality implements Parsable {
             ["description", (o, n) => { (o as unknown as RubricQuality).description = n.getObjectValue<EducationItemBody>(EducationItemBody); }],
             ["displayName", (o, n) => { (o as unknown as RubricQuality).displayName = n.getStringValue(); }],
             ["qualityId", (o, n) => { (o as unknown as RubricQuality).qualityId = n.getStringValue(); }],
-            ["weight", (o, n) => { (o as unknown as RubricQuality).weight = n.getObjectValue<Float>(Float); }],
+            ["weight", (o, n) => { (o as unknown as RubricQuality).weight = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -86,7 +86,7 @@ export class RubricQuality implements Parsable {
         writer.writeObjectValue<EducationItemBody>("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("qualityId", this.qualityId);
-        writer.writeObjectValue<Float>("weight", this.weight);
+        writer.writeNumberValue("weight", this.weight);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -128,7 +128,7 @@ export class RubricQuality implements Parsable {
      * Sets the weight property value. If present, a numerical weight for this quality.  Weights must add up to 100.
      * @param value Value to set for the weight property.
      */
-    public set weight(value: Float | undefined) {
+    public set weight(value: number | undefined) {
         this._weight = value;
     };
 }

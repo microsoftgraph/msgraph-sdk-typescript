@@ -35,7 +35,7 @@ export class FilesFolder extends BaseItem implements Parsable {
     /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.  */
     private _children?: DriveItem[] | undefined;
     /** The content stream, if the item represents a file.  */
-    private _content?: Binary | undefined;
+    private _content?: string | undefined;
     /** An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.  */
     private _cTag?: string | undefined;
     /** Information about the deleted state of the item. Read-only.  */
@@ -73,7 +73,7 @@ export class FilesFolder extends BaseItem implements Parsable {
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
     private _sharepointIds?: SharepointIds | undefined;
     /** Size of the item in bytes. Read-only.  */
-    private _size?: Int64 | undefined;
+    private _size?: number | undefined;
     /** If the current item is also available as a special folder, this facet is returned. Read-only.  */
     private _specialFolder?: SpecialFolder | undefined;
     /** The set of subscriptions on the item. Only supported on the root of a drive.  */
@@ -313,7 +313,7 @@ export class FilesFolder extends BaseItem implements Parsable {
             ["analytics", (o, n) => { (o as unknown as FilesFolder).analytics = n.getObjectValue<ItemAnalytics>(ItemAnalytics); }],
             ["audio", (o, n) => { (o as unknown as FilesFolder).audio = n.getObjectValue<Audio>(Audio); }],
             ["children", (o, n) => { (o as unknown as FilesFolder).children = n.getCollectionOfObjectValues<DriveItem>(DriveItem); }],
-            ["content", (o, n) => { (o as unknown as FilesFolder).content = n.getObjectValue<Binary>(Binary); }],
+            ["content", (o, n) => { (o as unknown as FilesFolder).content = n.getStringValue(); }],
             ["cTag", (o, n) => { (o as unknown as FilesFolder).cTag = n.getStringValue(); }],
             ["deleted", (o, n) => { (o as unknown as FilesFolder).deleted = n.getObjectValue<Deleted>(Deleted); }],
             ["file", (o, n) => { (o as unknown as FilesFolder).file = n.getObjectValue<File>(File); }],
@@ -332,7 +332,7 @@ export class FilesFolder extends BaseItem implements Parsable {
             ["searchResult", (o, n) => { (o as unknown as FilesFolder).searchResult = n.getObjectValue<SearchResult>(SearchResult); }],
             ["shared", (o, n) => { (o as unknown as FilesFolder).shared = n.getObjectValue<Shared>(Shared); }],
             ["sharepointIds", (o, n) => { (o as unknown as FilesFolder).sharepointIds = n.getObjectValue<SharepointIds>(SharepointIds); }],
-            ["size", (o, n) => { (o as unknown as FilesFolder).size = n.getObjectValue<Int64>(Int64); }],
+            ["size", (o, n) => { (o as unknown as FilesFolder).size = n.getNumberValue(); }],
             ["specialFolder", (o, n) => { (o as unknown as FilesFolder).specialFolder = n.getObjectValue<SpecialFolder>(SpecialFolder); }],
             ["subscriptions", (o, n) => { (o as unknown as FilesFolder).subscriptions = n.getCollectionOfObjectValues<Subscription>(Subscription); }],
             ["thumbnails", (o, n) => { (o as unknown as FilesFolder).thumbnails = n.getCollectionOfObjectValues<ThumbnailSet>(ThumbnailSet); }],
@@ -352,7 +352,7 @@ export class FilesFolder extends BaseItem implements Parsable {
         writer.writeObjectValue<ItemAnalytics>("analytics", this.analytics);
         writer.writeObjectValue<Audio>("audio", this.audio);
         writer.writeCollectionOfObjectValues<DriveItem>("children", this.children);
-        writer.writeObjectValue<Binary>("content", this.content);
+        writer.writeStringValue("content", this.content);
         writer.writeStringValue("cTag", this.cTag);
         writer.writeObjectValue<Deleted>("deleted", this.deleted);
         writer.writeObjectValue<File>("file", this.file);
@@ -371,7 +371,7 @@ export class FilesFolder extends BaseItem implements Parsable {
         writer.writeObjectValue<SearchResult>("searchResult", this.searchResult);
         writer.writeObjectValue<Shared>("shared", this.shared);
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);
-        writer.writeObjectValue<Int64>("size", this.size);
+        writer.writeNumberValue("size", this.size);
         writer.writeObjectValue<SpecialFolder>("specialFolder", this.specialFolder);
         writer.writeCollectionOfObjectValues<Subscription>("subscriptions", this.subscriptions);
         writer.writeCollectionOfObjectValues<ThumbnailSet>("thumbnails", this.thumbnails);
@@ -405,7 +405,7 @@ export class FilesFolder extends BaseItem implements Parsable {
      * Sets the content property value. The content stream, if the item represents a file.
      * @param value Value to set for the content property.
      */
-    public set content(value: Binary | undefined) {
+    public set content(value: string | undefined) {
         this._content = value;
     };
     /**
@@ -538,7 +538,7 @@ export class FilesFolder extends BaseItem implements Parsable {
      * Sets the size property value. Size of the item in bytes. Read-only.
      * @param value Value to set for the size property.
      */
-    public set size(value: Int64 | undefined) {
+    public set size(value: number | undefined) {
         this._size = value;
     };
     /**

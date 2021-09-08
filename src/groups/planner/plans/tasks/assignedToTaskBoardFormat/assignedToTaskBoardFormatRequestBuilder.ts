@@ -1,5 +1,5 @@
-import {AssignedToTaskBoardFormat} from '../../../../../planner/buckets/tasks/assignedToTaskBoardFormat/assignedToTaskBoardFormat';
 import {PlannerAssignedToTaskBoardTaskFormat} from '../../../../../planner/plannerAssignedToTaskBoardTaskFormat';
+import {AssignedToTaskBoardFormat} from '../../../../../planner/tasks/assignedToTaskBoardFormat/assignedToTaskBoardFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}/planner/plans/{plannerPlan-id}/tasks/{plannerTask-id}/assignedToTaskBoardFormat  */

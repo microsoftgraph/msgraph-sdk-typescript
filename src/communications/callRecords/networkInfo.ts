@@ -7,25 +7,25 @@ export class NetworkInfo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.  */
-    private _bandwidthLowEventRatio?: Float | undefined;
+    private _bandwidthLowEventRatio?: number | undefined;
     /** The wireless LAN basic service set identifier of the media endpoint used to connect to the network.  */
     private _basicServiceSetIdentifier?: string | undefined;
     /** Type of network used by the media endpoint. Possible values are: unknown, wired, wifi, mobile, tunnel, unknownFutureValue.  */
     private _connectionType?: NetworkConnectionType | undefined;
     /** Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.  */
-    private _delayEventRatio?: Float | undefined;
+    private _delayEventRatio?: number | undefined;
     /** DNS suffix associated with the network adapter of the media endpoint.  */
     private _dnsSuffix?: string | undefined;
     /** IP address of the media endpoint.  */
     private _ipAddress?: string | undefined;
     /** Link speed in bits per second reported by the network adapter used by the media endpoint.  */
-    private _linkSpeed?: Int64 | undefined;
+    private _linkSpeed?: number | undefined;
     /** The media access control (MAC) address of the media endpoint's network device.  */
     private _macAddress?: string | undefined;
     /** Network port number used by media endpoint.  */
     private _port?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.  */
-    private _receivedQualityEventRatio?: Float | undefined;
+    private _receivedQualityEventRatio?: number | undefined;
     /** IP address of the media endpoint as seen by the media relay server. This is typically the public internet IP address associated to the endpoint.  */
     private _reflexiveIPAddress?: string | undefined;
     /** IP address of the media relay server allocated by the media endpoint.  */
@@ -33,7 +33,7 @@ export class NetworkInfo implements Parsable {
     /** Network port number allocated on the media relay server by the media endpoint.  */
     private _relayPort?: number | undefined;
     /** Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.  */
-    private _sentQualityEventRatio?: Float | undefined;
+    private _sentQualityEventRatio?: number | undefined;
     /** Subnet used for media stream by the media endpoint.  */
     private _subnet?: string | undefined;
     /** WiFi band used by the media endpoint. Possible values are: unknown, frequency24GHz, frequency50GHz, frequency60GHz, unknownFutureValue.  */
@@ -241,20 +241,20 @@ export class NetworkInfo implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["bandwidthLowEventRatio", (o, n) => { (o as unknown as NetworkInfo).bandwidthLowEventRatio = n.getObjectValue<Float>(Float); }],
+            ["bandwidthLowEventRatio", (o, n) => { (o as unknown as NetworkInfo).bandwidthLowEventRatio = n.getNumberValue(); }],
             ["basicServiceSetIdentifier", (o, n) => { (o as unknown as NetworkInfo).basicServiceSetIdentifier = n.getStringValue(); }],
             ["connectionType", (o, n) => { (o as unknown as NetworkInfo).connectionType = n.getEnumValue<NetworkConnectionType>(NetworkConnectionType); }],
-            ["delayEventRatio", (o, n) => { (o as unknown as NetworkInfo).delayEventRatio = n.getObjectValue<Float>(Float); }],
+            ["delayEventRatio", (o, n) => { (o as unknown as NetworkInfo).delayEventRatio = n.getNumberValue(); }],
             ["dnsSuffix", (o, n) => { (o as unknown as NetworkInfo).dnsSuffix = n.getStringValue(); }],
             ["ipAddress", (o, n) => { (o as unknown as NetworkInfo).ipAddress = n.getStringValue(); }],
-            ["linkSpeed", (o, n) => { (o as unknown as NetworkInfo).linkSpeed = n.getObjectValue<Int64>(Int64); }],
+            ["linkSpeed", (o, n) => { (o as unknown as NetworkInfo).linkSpeed = n.getNumberValue(); }],
             ["macAddress", (o, n) => { (o as unknown as NetworkInfo).macAddress = n.getStringValue(); }],
             ["port", (o, n) => { (o as unknown as NetworkInfo).port = n.getNumberValue(); }],
-            ["receivedQualityEventRatio", (o, n) => { (o as unknown as NetworkInfo).receivedQualityEventRatio = n.getObjectValue<Float>(Float); }],
+            ["receivedQualityEventRatio", (o, n) => { (o as unknown as NetworkInfo).receivedQualityEventRatio = n.getNumberValue(); }],
             ["reflexiveIPAddress", (o, n) => { (o as unknown as NetworkInfo).reflexiveIPAddress = n.getStringValue(); }],
             ["relayIPAddress", (o, n) => { (o as unknown as NetworkInfo).relayIPAddress = n.getStringValue(); }],
             ["relayPort", (o, n) => { (o as unknown as NetworkInfo).relayPort = n.getNumberValue(); }],
-            ["sentQualityEventRatio", (o, n) => { (o as unknown as NetworkInfo).sentQualityEventRatio = n.getObjectValue<Float>(Float); }],
+            ["sentQualityEventRatio", (o, n) => { (o as unknown as NetworkInfo).sentQualityEventRatio = n.getNumberValue(); }],
             ["subnet", (o, n) => { (o as unknown as NetworkInfo).subnet = n.getStringValue(); }],
             ["wifiBand", (o, n) => { (o as unknown as NetworkInfo).wifiBand = n.getEnumValue<WifiBand>(WifiBand); }],
             ["wifiBatteryCharge", (o, n) => { (o as unknown as NetworkInfo).wifiBatteryCharge = n.getNumberValue(); }],
@@ -273,20 +273,20 @@ export class NetworkInfo implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Float>("bandwidthLowEventRatio", this.bandwidthLowEventRatio);
+        writer.writeNumberValue("bandwidthLowEventRatio", this.bandwidthLowEventRatio);
         writer.writeStringValue("basicServiceSetIdentifier", this.basicServiceSetIdentifier);
         writer.writeEnumValue<NetworkConnectionType>("connectionType", this.connectionType);
-        writer.writeObjectValue<Float>("delayEventRatio", this.delayEventRatio);
+        writer.writeNumberValue("delayEventRatio", this.delayEventRatio);
         writer.writeStringValue("dnsSuffix", this.dnsSuffix);
         writer.writeStringValue("ipAddress", this.ipAddress);
-        writer.writeObjectValue<Int64>("linkSpeed", this.linkSpeed);
+        writer.writeNumberValue("linkSpeed", this.linkSpeed);
         writer.writeStringValue("macAddress", this.macAddress);
         writer.writeNumberValue("port", this.port);
-        writer.writeObjectValue<Float>("receivedQualityEventRatio", this.receivedQualityEventRatio);
+        writer.writeNumberValue("receivedQualityEventRatio", this.receivedQualityEventRatio);
         writer.writeStringValue("reflexiveIPAddress", this.reflexiveIPAddress);
         writer.writeStringValue("relayIPAddress", this.relayIPAddress);
         writer.writeNumberValue("relayPort", this.relayPort);
-        writer.writeObjectValue<Float>("sentQualityEventRatio", this.sentQualityEventRatio);
+        writer.writeNumberValue("sentQualityEventRatio", this.sentQualityEventRatio);
         writer.writeStringValue("subnet", this.subnet);
         writer.writeEnumValue<WifiBand>("wifiBand", this.wifiBand);
         writer.writeNumberValue("wifiBatteryCharge", this.wifiBatteryCharge);
@@ -310,7 +310,7 @@ export class NetworkInfo implements Parsable {
      * Sets the bandwidthLowEventRatio property value. Fraction of the call that the media endpoint detected the available bandwidth or bandwidth policy was low enough to cause poor quality of the audio sent.
      * @param value Value to set for the bandwidthLowEventRatio property.
      */
-    public set bandwidthLowEventRatio(value: Float | undefined) {
+    public set bandwidthLowEventRatio(value: number | undefined) {
         this._bandwidthLowEventRatio = value;
     };
     /**
@@ -331,7 +331,7 @@ export class NetworkInfo implements Parsable {
      * Sets the delayEventRatio property value. Fraction of the call that the media endpoint detected the network delay was significant enough to impact the ability to have real-time two-way communication.
      * @param value Value to set for the delayEventRatio property.
      */
-    public set delayEventRatio(value: Float | undefined) {
+    public set delayEventRatio(value: number | undefined) {
         this._delayEventRatio = value;
     };
     /**
@@ -352,7 +352,7 @@ export class NetworkInfo implements Parsable {
      * Sets the linkSpeed property value. Link speed in bits per second reported by the network adapter used by the media endpoint.
      * @param value Value to set for the linkSpeed property.
      */
-    public set linkSpeed(value: Int64 | undefined) {
+    public set linkSpeed(value: number | undefined) {
         this._linkSpeed = value;
     };
     /**
@@ -373,7 +373,7 @@ export class NetworkInfo implements Parsable {
      * Sets the receivedQualityEventRatio property value. Fraction of the call that the media endpoint detected the network was causing poor quality of the audio received.
      * @param value Value to set for the receivedQualityEventRatio property.
      */
-    public set receivedQualityEventRatio(value: Float | undefined) {
+    public set receivedQualityEventRatio(value: number | undefined) {
         this._receivedQualityEventRatio = value;
     };
     /**
@@ -401,7 +401,7 @@ export class NetworkInfo implements Parsable {
      * Sets the sentQualityEventRatio property value. Fraction of the call that the media endpoint detected the network was causing poor quality of the audio sent.
      * @param value Value to set for the sentQualityEventRatio property.
      */
-    public set sentQualityEventRatio(value: Float | undefined) {
+    public set sentQualityEventRatio(value: number | undefined) {
         this._sentQualityEventRatio = value;
     };
     /**

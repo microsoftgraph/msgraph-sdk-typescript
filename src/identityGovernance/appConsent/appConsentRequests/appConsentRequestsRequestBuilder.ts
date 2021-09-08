@@ -1,4 +1,4 @@
-import {FilterByCurrentUserWithOnRequestBuilder} from '../../accessReviews/definitions/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {FilterByCurrentUserWithOnRequestBuilder} from '../../accessReviews/definitions/instances/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AppConsentRequest} from '../../appConsentRequest';
 import {AppConsentRequestsResponse} from './appConsentRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,9 +1,8 @@
-import {SeriesAxis} from '../../../../../worksheets/charts/axes/seriesAxis/seriesAxis';
+import {SeriesAxis} from '../../../../../names/worksheet/charts/axes/seriesAxis/seriesAxis';
 import {WorkbookChartAxis} from '../../../../../worksheets/workbookChartAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
-import {SeriesAxis} from './seriesAxis';
 import {TitleRequestBuilder} from './title/titleRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

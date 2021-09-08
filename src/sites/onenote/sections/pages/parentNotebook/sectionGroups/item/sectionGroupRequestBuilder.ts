@@ -1,12 +1,7 @@
-import {SectionGroup} from '../../../../../../../sectionGroup';
-import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
-import {ParentSectionGroupRequestBuilder} from '../parentSectionGroup/parentSectionGroupRequestBuilder';
-import {SectionGroupsRequestBuilder} from '../sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from '../sections/item/onenoteSectionRequestBuilder';
-import {SectionsRequestBuilder} from '../sections/sectionsRequestBuilder';
+import {SectionGroup} from '../../../../../../../../sectionGroup';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /sites/{site-id}/onenote/sections/{onenoteSection-id}/pages/{onenotePage-id}/parentNotebook/sectionGroups/{sectionGroup-id}  */
+/** Builds and executes requests for operations under /sites/{site-id}/onenote/sections/{onenoteSection-id}/pages/{onenotePage-id}/parentNotebook/sectionGroups/{sectionGroup-id}/sectionGroups/{sectionGroup-id1}  */
 export class SectionGroupRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -14,20 +9,8 @@ export class SectionGroupRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get parentNotebook(): ParentNotebookRequestBuilder {
-        return new ParentNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
-        return new ParentSectionGroupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
-    public get sectionGroups(): SectionGroupsRequestBuilder {
-        return new SectionGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get sections(): SectionsRequestBuilder {
-        return new SectionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /**
      * Instantiates a new SectionGroupRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -43,7 +26,7 @@ export class SectionGroupRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
@@ -57,7 +40,7 @@ export class SectionGroupRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -76,7 +59,7 @@ export class SectionGroupRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -93,7 +76,7 @@ export class SectionGroupRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -105,7 +88,7 @@ export class SectionGroupRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -122,7 +105,7 @@ export class SectionGroupRequestBuilder {
         return this.httpCore?.sendAsync<SectionGroup>(requestInfo, SectionGroup, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The section groups in the notebook. Read-only. Nullable.
+     * The section groups in the section. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
@@ -134,23 +117,5 @@ export class SectionGroupRequestBuilder {
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the graphtypescriptv4.utilities.sites.onenote.sections.pages.parentNotebook.sectionGroups.sectionGroups collection
-     * @param id Unique identifier of the item
-     * @returns a sectionGroupRequestBuilder
-     */
-    public sectionGroupsById(id: String) : SectionGroupRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        return new SectionGroupRequestBuilder(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
-    };
-    /**
-     * Gets an item from the graphtypescriptv4.utilities.sites.onenote.sections.pages.parentNotebook.sectionGroups.sections collection
-     * @param id Unique identifier of the item
-     * @returns a onenoteSectionRequestBuilder
-     */
-    public sectionsById(id: String) : OnenoteSectionRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        return new OnenoteSectionRequestBuilder(this.currentPath + this.pathSegment + "/sections/" + id, this.httpCore, false);
     };
 }

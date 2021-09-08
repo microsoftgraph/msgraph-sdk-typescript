@@ -3,7 +3,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class TeamworkHostedContent extends Entity implements Parsable {
     /** Write only. Bytes for the hosted content (such as images).  */
-    private _contentBytes?: Binary | undefined;
+    private _contentBytes?: string | undefined;
     /** Write only. Content type, such as image/png, image/jpg.  */
     private _contentType?: string | undefined;
     /**
@@ -32,7 +32,7 @@ export class TeamworkHostedContent extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["contentBytes", (o, n) => { (o as unknown as TeamworkHostedContent).contentBytes = n.getObjectValue<Binary>(Binary); }],
+            ["contentBytes", (o, n) => { (o as unknown as TeamworkHostedContent).contentBytes = n.getStringValue(); }],
             ["contentType", (o, n) => { (o as unknown as TeamworkHostedContent).contentType = n.getStringValue(); }],
         ]);
     };
@@ -43,14 +43,14 @@ export class TeamworkHostedContent extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<Binary>("contentBytes", this.contentBytes);
+        writer.writeStringValue("contentBytes", this.contentBytes);
         writer.writeStringValue("contentType", this.contentType);
     };
     /**
      * Sets the contentBytes property value. Write only. Bytes for the hosted content (such as images).
      * @param value Value to set for the contentBytes property.
      */
-    public set contentBytes(value: Binary | undefined) {
+    public set contentBytes(value: string | undefined) {
         this._contentBytes = value;
     };
     /**

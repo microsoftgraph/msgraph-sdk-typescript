@@ -1,5 +1,5 @@
+import {ParentSection} from '../../../../groups/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
 import {OnenoteSection} from '../../../../onenoteSection';
-import {ParentSection} from '../../../../sites/onenote/notebooks/sectionGroups/sections/pages/parentSection/parentSection';
 import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
 import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
 import {OnenotePageRequestBuilder} from './pages/item/onenotePageRequestBuilder';

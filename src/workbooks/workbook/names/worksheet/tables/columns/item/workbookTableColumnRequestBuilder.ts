@@ -1,9 +1,9 @@
 import {WorkbookTableColumn} from '../../../../../workbookTableColumn';
-import {RangeRequestBuilder} from '../../../pivotTables/worksheet/range/rangeRequestBuilder';
-import {DataBodyRangeRequestBuilder} from '../dataBodyRange/dataBodyRangeRequestBuilder';
+import {RangeRequestBuilder} from '../../../range/rangeRequestBuilder';
+import {DataBodyRangeRequestBuilder} from '../../dataBodyRange/dataBodyRangeRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from '../../headerRowRange/headerRowRangeRequestBuilder';
+import {TotalRowRangeRequestBuilder} from '../../totalRowRange/totalRowRangeRequestBuilder';
 import {FilterRequestBuilder} from '../filter/filterRequestBuilder';
-import {HeaderRowRangeRequestBuilder} from '../headerRowRange/headerRowRangeRequestBuilder';
-import {TotalRowRangeRequestBuilder} from '../totalRowRange/totalRowRangeRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/columns/{workbookTableColumn-id}  */

@@ -13,7 +13,7 @@ export class AttachmentItem implements Parsable {
     /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.  */
     private _name?: string | undefined;
     /** The length of the attachment in bytes. Required.  */
-    private _size?: Int64 | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new attachmentItem and sets the default values.
      */
@@ -72,7 +72,7 @@ export class AttachmentItem implements Parsable {
             ["contentType", (o, n) => { (o as unknown as AttachmentItem).contentType = n.getStringValue(); }],
             ["isInline", (o, n) => { (o as unknown as AttachmentItem).isInline = n.getBooleanValue(); }],
             ["name", (o, n) => { (o as unknown as AttachmentItem).name = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as AttachmentItem).size = n.getObjectValue<Int64>(Int64); }],
+            ["size", (o, n) => { (o as unknown as AttachmentItem).size = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -85,7 +85,7 @@ export class AttachmentItem implements Parsable {
         writer.writeStringValue("contentType", this.contentType);
         writer.writeBooleanValue("isInline", this.isInline);
         writer.writeStringValue("name", this.name);
-        writer.writeObjectValue<Int64>("size", this.size);
+        writer.writeNumberValue("size", this.size);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -127,7 +127,7 @@ export class AttachmentItem implements Parsable {
      * Sets the size property value. The length of the attachment in bytes. Required.
      * @param value Value to set for the size property.
      */
-    public set size(value: Int64 | undefined) {
+    public set size(value: number | undefined) {
         this._size = value;
     };
 }

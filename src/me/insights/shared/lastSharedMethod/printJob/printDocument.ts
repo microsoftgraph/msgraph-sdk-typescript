@@ -7,7 +7,7 @@ export class PrintDocument extends Entity implements Parsable {
     /** The document's name. Read-only.  */
     private _displayName?: string | undefined;
     /** The document's size in bytes. Read-only.  */
-    private _size?: Int64 | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new printDocument and sets the default values.
      */
@@ -43,7 +43,7 @@ export class PrintDocument extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["contentType", (o, n) => { (o as unknown as PrintDocument).contentType = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as PrintDocument).displayName = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as PrintDocument).size = n.getObjectValue<Int64>(Int64); }],
+            ["size", (o, n) => { (o as unknown as PrintDocument).size = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -55,7 +55,7 @@ export class PrintDocument extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("contentType", this.contentType);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<Int64>("size", this.size);
+        writer.writeNumberValue("size", this.size);
     };
     /**
      * Sets the contentType property value. The document's content (MIME) type. Read-only.
@@ -75,7 +75,7 @@ export class PrintDocument extends Entity implements Parsable {
      * Sets the size property value. The document's size in bytes. Read-only.
      * @param value Value to set for the size property.
      */
-    public set size(value: Int64 | undefined) {
+    public set size(value: number | undefined) {
         this._size = value;
     };
 }

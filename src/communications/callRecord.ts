@@ -25,7 +25,7 @@ export class CallRecord extends Entity implements Parsable {
     /** Indicates the type of the call. Possible values are: unknown, groupCall, peerToPeer, unknownFutureValue.  */
     private _type?: CallType | undefined;
     /** Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.  */
-    private _version?: Int64 | undefined;
+    private _version?: number | undefined;
     /**
      * Instantiates a new callRecord and sets the default values.
      */
@@ -117,7 +117,7 @@ export class CallRecord extends Entity implements Parsable {
             ["sessions", (o, n) => { (o as unknown as CallRecord).sessions = n.getCollectionOfObjectValues<Session>(Session); }],
             ["startDateTime", (o, n) => { (o as unknown as CallRecord).startDateTime = n.getDateValue(); }],
             ["type", (o, n) => { (o as unknown as CallRecord).type = n.getEnumValue<CallType>(CallType); }],
-            ["version", (o, n) => { (o as unknown as CallRecord).version = n.getObjectValue<Int64>(Int64); }],
+            ["version", (o, n) => { (o as unknown as CallRecord).version = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -136,7 +136,7 @@ export class CallRecord extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Session>("sessions", this.sessions);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeEnumValue<CallType>("type", this.type);
-        writer.writeObjectValue<Int64>("version", this.version);
+        writer.writeNumberValue("version", this.version);
     };
     /**
      * Sets the endDateTime property value. UTC time when the last user left the call. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -205,7 +205,7 @@ export class CallRecord extends Entity implements Parsable {
      * Sets the version property value. Monotonically increasing version of the call record. Higher version call records with the same ID includes additional data compared to the lower version.
      * @param value Value to set for the version property.
      */
-    public set version(value: Int64 | undefined) {
+    public set version(value: number | undefined) {
         this._version = value;
     };
 }

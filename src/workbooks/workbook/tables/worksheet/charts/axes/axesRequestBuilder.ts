@@ -1,4 +1,4 @@
-import {Axes} from '../../../../worksheets/charts/axes/axes';
+import {Axes} from '../../../../names/worksheet/charts/axes/axes';
 import {WorkbookChartAxes} from '../../../../worksheets/workbookChartAxes';
 import {CategoryAxisRequestBuilder} from './categoryAxis/categoryAxisRequestBuilder';
 import {SeriesAxisRequestBuilder} from './seriesAxis/seriesAxisRequestBuilder';

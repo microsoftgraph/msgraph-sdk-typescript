@@ -2,9 +2,9 @@ import {BaseItemVersion} from './baseItemVersion';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DriveItemVersion extends BaseItemVersion implements Parsable {
-    private _content?: Binary | undefined;
+    private _content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item.  */
-    private _size?: Int64 | undefined;
+    private _size?: number | undefined;
     /**
      * Instantiates a new driveItemVersion and sets the default values.
      */
@@ -31,8 +31,8 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["content", (o, n) => { (o as unknown as DriveItemVersion).content = n.getObjectValue<Binary>(Binary); }],
-            ["size", (o, n) => { (o as unknown as DriveItemVersion).size = n.getObjectValue<Int64>(Int64); }],
+            ["content", (o, n) => { (o as unknown as DriveItemVersion).content = n.getStringValue(); }],
+            ["size", (o, n) => { (o as unknown as DriveItemVersion).size = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -42,21 +42,21 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<Binary>("content", this.content);
-        writer.writeObjectValue<Int64>("size", this.size);
+        writer.writeStringValue("content", this.content);
+        writer.writeNumberValue("size", this.size);
     };
     /**
      * Sets the content property value. 
      * @param value Value to set for the content property.
      */
-    public set content(value: Binary | undefined) {
+    public set content(value: string | undefined) {
         this._content = value;
     };
     /**
      * Sets the size property value. Indicates the size of the content stream for this version of the item.
      * @param value Value to set for the size property.
      */
-    public set size(value: Int64 | undefined) {
+    public set size(value: number | undefined) {
         this._size = value;
     };
 }

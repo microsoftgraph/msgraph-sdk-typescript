@@ -54,7 +54,7 @@ export class Application extends DirectoryObject implements Parsable {
     /** The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, NOT, ge, le).  */
     private _keyCredentials?: KeyCredential[] | undefined;
     /** The main logo for the application. Not nullable.  */
-    private _logo?: Binary | undefined;
+    private _logo?: string | undefined;
     /** Notes relevant for the management of the application.  */
     private _notes?: string | undefined;
     private _oauth2RequirePostResponse?: boolean | undefined;
@@ -360,7 +360,7 @@ export class Application extends DirectoryObject implements Parsable {
             ["isDeviceOnlyAuthSupported", (o, n) => { (o as unknown as Application).isDeviceOnlyAuthSupported = n.getBooleanValue(); }],
             ["isFallbackPublicClient", (o, n) => { (o as unknown as Application).isFallbackPublicClient = n.getBooleanValue(); }],
             ["keyCredentials", (o, n) => { (o as unknown as Application).keyCredentials = n.getCollectionOfObjectValues<KeyCredential>(KeyCredential); }],
-            ["logo", (o, n) => { (o as unknown as Application).logo = n.getObjectValue<Binary>(Binary); }],
+            ["logo", (o, n) => { (o as unknown as Application).logo = n.getStringValue(); }],
             ["notes", (o, n) => { (o as unknown as Application).notes = n.getStringValue(); }],
             ["oauth2RequirePostResponse", (o, n) => { (o as unknown as Application).oauth2RequirePostResponse = n.getBooleanValue(); }],
             ["optionalClaims", (o, n) => { (o as unknown as Application).optionalClaims = n.getObjectValue<OptionalClaims>(OptionalClaims); }],
@@ -404,7 +404,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeBooleanValue("isDeviceOnlyAuthSupported", this.isDeviceOnlyAuthSupported);
         writer.writeBooleanValue("isFallbackPublicClient", this.isFallbackPublicClient);
         writer.writeCollectionOfObjectValues<KeyCredential>("keyCredentials", this.keyCredentials);
-        writer.writeObjectValue<Binary>("logo", this.logo);
+        writer.writeStringValue("logo", this.logo);
         writer.writeStringValue("notes", this.notes);
         writer.writeBooleanValue("oauth2RequirePostResponse", this.oauth2RequirePostResponse);
         writer.writeObjectValue<OptionalClaims>("optionalClaims", this.optionalClaims);
@@ -552,7 +552,7 @@ export class Application extends DirectoryObject implements Parsable {
      * Sets the logo property value. The main logo for the application. Not nullable.
      * @param value Value to set for the logo property.
      */
-    public set logo(value: Binary | undefined) {
+    public set logo(value: string | undefined) {
         this._logo = value;
     };
     /**

@@ -8,7 +8,7 @@ export class DeviceCompliancePolicySettingState implements Parsable {
     /** Current value of setting on device  */
     private _currentValue?: string | undefined;
     /** Error code for the setting  */
-    private _errorCode?: Int64 | undefined;
+    private _errorCode?: number | undefined;
     /** Error description  */
     private _errorDescription?: string | undefined;
     /** Name of setting instance that is being reported.  */
@@ -133,7 +133,7 @@ export class DeviceCompliancePolicySettingState implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["currentValue", (o, n) => { (o as unknown as DeviceCompliancePolicySettingState).currentValue = n.getStringValue(); }],
-            ["errorCode", (o, n) => { (o as unknown as DeviceCompliancePolicySettingState).errorCode = n.getObjectValue<Int64>(Int64); }],
+            ["errorCode", (o, n) => { (o as unknown as DeviceCompliancePolicySettingState).errorCode = n.getNumberValue(); }],
             ["errorDescription", (o, n) => { (o as unknown as DeviceCompliancePolicySettingState).errorDescription = n.getStringValue(); }],
             ["instanceDisplayName", (o, n) => { (o as unknown as DeviceCompliancePolicySettingState).instanceDisplayName = n.getStringValue(); }],
             ["setting", (o, n) => { (o as unknown as DeviceCompliancePolicySettingState).setting = n.getStringValue(); }],
@@ -153,7 +153,7 @@ export class DeviceCompliancePolicySettingState implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("currentValue", this.currentValue);
-        writer.writeObjectValue<Int64>("errorCode", this.errorCode);
+        writer.writeNumberValue("errorCode", this.errorCode);
         writer.writeStringValue("errorDescription", this.errorDescription);
         writer.writeStringValue("instanceDisplayName", this.instanceDisplayName);
         writer.writeStringValue("setting", this.setting);
@@ -184,7 +184,7 @@ export class DeviceCompliancePolicySettingState implements Parsable {
      * Sets the errorCode property value. Error code for the setting
      * @param value Value to set for the errorCode property.
      */
-    public set errorCode(value: Int64 | undefined) {
+    public set errorCode(value: number | undefined) {
         this._errorCode = value;
     };
     /**

@@ -4,13 +4,13 @@ export class KeyCredential implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Custom key identifier  */
-    private _customKeyIdentifier?: Binary | undefined;
+    private _customKeyIdentifier?: string | undefined;
     /** Friendly name for the key. Optional.  */
     private _displayName?: string | undefined;
     /** The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _endDateTime?: Date | undefined;
     /** Value for the key credential. Should be a base 64 encoded value.  */
-    private _key?: Binary | undefined;
+    private _key?: string | undefined;
     /** The unique identifier (GUID) for the key.  */
     private _keyId?: string | undefined;
     /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
@@ -94,10 +94,10 @@ export class KeyCredential implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["customKeyIdentifier", (o, n) => { (o as unknown as KeyCredential).customKeyIdentifier = n.getObjectValue<Binary>(Binary); }],
+            ["customKeyIdentifier", (o, n) => { (o as unknown as KeyCredential).customKeyIdentifier = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as KeyCredential).displayName = n.getStringValue(); }],
             ["endDateTime", (o, n) => { (o as unknown as KeyCredential).endDateTime = n.getDateValue(); }],
-            ["key", (o, n) => { (o as unknown as KeyCredential).key = n.getObjectValue<Binary>(Binary); }],
+            ["key", (o, n) => { (o as unknown as KeyCredential).key = n.getStringValue(); }],
             ["keyId", (o, n) => { (o as unknown as KeyCredential).keyId = n.getStringValue(); }],
             ["startDateTime", (o, n) => { (o as unknown as KeyCredential).startDateTime = n.getDateValue(); }],
             ["type", (o, n) => { (o as unknown as KeyCredential).type = n.getStringValue(); }],
@@ -110,10 +110,10 @@ export class KeyCredential implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("customKeyIdentifier", this.customKeyIdentifier);
+        writer.writeStringValue("customKeyIdentifier", this.customKeyIdentifier);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("endDateTime", this.endDateTime);
-        writer.writeObjectValue<Binary>("key", this.key);
+        writer.writeStringValue("key", this.key);
         writer.writeStringValue("keyId", this.keyId);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("type", this.type);
@@ -131,7 +131,7 @@ export class KeyCredential implements Parsable {
      * Sets the customKeyIdentifier property value. Custom key identifier
      * @param value Value to set for the customKeyIdentifier property.
      */
-    public set customKeyIdentifier(value: Binary | undefined) {
+    public set customKeyIdentifier(value: string | undefined) {
         this._customKeyIdentifier = value;
     };
     /**
@@ -152,7 +152,7 @@ export class KeyCredential implements Parsable {
      * Sets the key property value. Value for the key credential. Should be a base 64 encoded value.
      * @param value Value to set for the key property.
      */
-    public set key(value: Binary | undefined) {
+    public set key(value: string | undefined) {
         this._key = value;
     };
     /**

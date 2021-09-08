@@ -4,7 +4,7 @@ export class CertificateAuthority implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Required. The base64 encoded string representing the public certificate.  */
-    private _certificate?: Binary | undefined;
+    private _certificate?: string | undefined;
     /** The URL of the certificate revocation list.  */
     private _certificateRevocationListUrl?: string | undefined;
     /** The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.  */
@@ -76,7 +76,7 @@ export class CertificateAuthority implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["certificate", (o, n) => { (o as unknown as CertificateAuthority).certificate = n.getObjectValue<Binary>(Binary); }],
+            ["certificate", (o, n) => { (o as unknown as CertificateAuthority).certificate = n.getStringValue(); }],
             ["certificateRevocationListUrl", (o, n) => { (o as unknown as CertificateAuthority).certificateRevocationListUrl = n.getStringValue(); }],
             ["deltaCertificateRevocationListUrl", (o, n) => { (o as unknown as CertificateAuthority).deltaCertificateRevocationListUrl = n.getStringValue(); }],
             ["isRootAuthority", (o, n) => { (o as unknown as CertificateAuthority).isRootAuthority = n.getBooleanValue(); }],
@@ -90,7 +90,7 @@ export class CertificateAuthority implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("certificate", this.certificate);
+        writer.writeStringValue("certificate", this.certificate);
         writer.writeStringValue("certificateRevocationListUrl", this.certificateRevocationListUrl);
         writer.writeStringValue("deltaCertificateRevocationListUrl", this.deltaCertificateRevocationListUrl);
         writer.writeBooleanValue("isRootAuthority", this.isRootAuthority);
@@ -109,7 +109,7 @@ export class CertificateAuthority implements Parsable {
      * Sets the certificate property value. Required. The base64 encoded string representing the public certificate.
      * @param value Value to set for the certificate property.
      */
-    public set certificate(value: Binary | undefined) {
+    public set certificate(value: string | undefined) {
         this._certificate = value;
     };
     /**

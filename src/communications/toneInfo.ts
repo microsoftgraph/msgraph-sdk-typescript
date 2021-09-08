@@ -5,7 +5,7 @@ export class ToneInfo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** An incremental identifier used for ordering DTMF events.  */
-    private _sequenceId?: Int64 | undefined;
+    private _sequenceId?: number | undefined;
     /** Possible values are: tone0, tone1, tone2, tone3, tone4, tone5, tone6, tone7, tone8, tone9, star, pound, a, b, c, d, flash.  */
     private _tone?: Tone | undefined;
     /**
@@ -41,7 +41,7 @@ export class ToneInfo implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["sequenceId", (o, n) => { (o as unknown as ToneInfo).sequenceId = n.getObjectValue<Int64>(Int64); }],
+            ["sequenceId", (o, n) => { (o as unknown as ToneInfo).sequenceId = n.getNumberValue(); }],
             ["tone", (o, n) => { (o as unknown as ToneInfo).tone = n.getEnumValue<Tone>(Tone); }],
         ]);
     };
@@ -51,7 +51,7 @@ export class ToneInfo implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Int64>("sequenceId", this.sequenceId);
+        writer.writeNumberValue("sequenceId", this.sequenceId);
         writer.writeEnumValue<Tone>("tone", this.tone);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -66,7 +66,7 @@ export class ToneInfo implements Parsable {
      * Sets the sequenceId property value. An incremental identifier used for ordering DTMF events.
      * @param value Value to set for the sequenceId property.
      */
-    public set sequenceId(value: Int64 | undefined) {
+    public set sequenceId(value: number | undefined) {
         this._sequenceId = value;
     };
     /**

@@ -6,7 +6,7 @@ export class AlternativeSecurityId implements Parsable {
     /** For internal use only  */
     private _identityProvider?: string | undefined;
     /** For internal use only  */
-    private _key?: Binary | undefined;
+    private _key?: string | undefined;
     /** For internal use only  */
     private _type?: number | undefined;
     /**
@@ -50,7 +50,7 @@ export class AlternativeSecurityId implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["identityProvider", (o, n) => { (o as unknown as AlternativeSecurityId).identityProvider = n.getStringValue(); }],
-            ["key", (o, n) => { (o as unknown as AlternativeSecurityId).key = n.getObjectValue<Binary>(Binary); }],
+            ["key", (o, n) => { (o as unknown as AlternativeSecurityId).key = n.getStringValue(); }],
             ["type", (o, n) => { (o as unknown as AlternativeSecurityId).type = n.getNumberValue(); }],
         ]);
     };
@@ -61,7 +61,7 @@ export class AlternativeSecurityId implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("identityProvider", this.identityProvider);
-        writer.writeObjectValue<Binary>("key", this.key);
+        writer.writeStringValue("key", this.key);
         writer.writeNumberValue("type", this.type);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -83,7 +83,7 @@ export class AlternativeSecurityId implements Parsable {
      * Sets the key property value. For internal use only
      * @param value Value to set for the key property.
      */
-    public set key(value: Binary | undefined) {
+    public set key(value: string | undefined) {
         this._key = value;
     };
     /**

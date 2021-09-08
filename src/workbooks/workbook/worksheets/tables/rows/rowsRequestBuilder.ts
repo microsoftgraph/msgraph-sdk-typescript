@@ -1,5 +1,5 @@
-import {ItemAtWithIndexRequestBuilder} from '../../../names/worksheet/charts/itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {CountRequestBuilder} from '../../../names/worksheet/charts/series/count/countRequestBuilder';
+import {CountRequestBuilder} from '../../../names/worksheet/charts/count/countRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from '../../../names/worksheet/charts/series/points/itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {WorkbookTableRow} from '../../../workbookTableRow';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {RowsResponse} from './rowsResponse';

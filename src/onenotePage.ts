@@ -6,7 +6,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** The page's HTML content.  */
-    private _content?: Binary | undefined;
+    private _content?: string | undefined;
     /** The URL for the page's HTML content.  Read-only.  */
     private _contentUrl?: string | undefined;
     /** The unique identifier of the application that created the page. Read-only.  */
@@ -115,7 +115,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["content", (o, n) => { (o as unknown as OnenotePage).content = n.getObjectValue<Binary>(Binary); }],
+            ["content", (o, n) => { (o as unknown as OnenotePage).content = n.getStringValue(); }],
             ["contentUrl", (o, n) => { (o as unknown as OnenotePage).contentUrl = n.getStringValue(); }],
             ["createdByAppId", (o, n) => { (o as unknown as OnenotePage).createdByAppId = n.getStringValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as OnenotePage).lastModifiedDateTime = n.getDateValue(); }],
@@ -135,7 +135,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<Binary>("content", this.content);
+        writer.writeStringValue("content", this.content);
         writer.writeStringValue("contentUrl", this.contentUrl);
         writer.writeStringValue("createdByAppId", this.createdByAppId);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
@@ -151,7 +151,7 @@ export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsa
      * Sets the content property value. The page's HTML content.
      * @param value Value to set for the content property.
      */
-    public set content(value: Binary | undefined) {
+    public set content(value: string | undefined) {
         this._content = value;
     };
     /**

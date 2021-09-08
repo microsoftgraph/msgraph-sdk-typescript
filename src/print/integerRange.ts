@@ -4,9 +4,9 @@ export class IntegerRange implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The inclusive upper bound of the integer range.  */
-    private _end?: Int64 | undefined;
+    private _end?: number | undefined;
     /** The inclusive lower bound of the integer range.  */
-    private _start?: Int64 | undefined;
+    private _start?: number | undefined;
     /**
      * Instantiates a new integerRange and sets the default values.
      */
@@ -40,8 +40,8 @@ export class IntegerRange implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["end", (o, n) => { (o as unknown as IntegerRange).end = n.getObjectValue<Int64>(Int64); }],
-            ["start", (o, n) => { (o as unknown as IntegerRange).start = n.getObjectValue<Int64>(Int64); }],
+            ["end", (o, n) => { (o as unknown as IntegerRange).end = n.getNumberValue(); }],
+            ["start", (o, n) => { (o as unknown as IntegerRange).start = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -50,8 +50,8 @@ export class IntegerRange implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Int64>("end", this.end);
-        writer.writeObjectValue<Int64>("start", this.start);
+        writer.writeNumberValue("end", this.end);
+        writer.writeNumberValue("start", this.start);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -65,14 +65,14 @@ export class IntegerRange implements Parsable {
      * Sets the end property value. The inclusive upper bound of the integer range.
      * @param value Value to set for the end property.
      */
-    public set end(value: Int64 | undefined) {
+    public set end(value: number | undefined) {
         this._end = value;
     };
     /**
      * Sets the start property value. The inclusive lower bound of the integer range.
      * @param value Value to set for the start property.
      */
-    public set start(value: Int64 | undefined) {
+    public set start(value: number | undefined) {
         this._start = value;
     };
 }

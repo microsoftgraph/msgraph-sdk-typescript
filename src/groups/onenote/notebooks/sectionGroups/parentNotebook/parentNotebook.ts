@@ -1,6 +1,8 @@
 import {OnenoteEntityHierarchyModel} from '../../../../../onenoteEntityHierarchyModel';
 import {OnenoteSection} from '../../../../../onenoteSection';
 import {SectionGroup} from '../../../../../sectionGroup';
+import {NotebookLinks} from '../../../notebookLinks';
+import {OnenoteUserRole} from '../../../onenoteUserRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ParentNotebook extends OnenoteEntityHierarchyModel implements Parsable {
@@ -95,7 +97,7 @@ export class ParentNotebook extends OnenoteEntityHierarchyModel implements Parsa
             ["sectionGroupsUrl", (o, n) => { (o as unknown as ParentNotebook).sectionGroupsUrl = n.getStringValue(); }],
             ["sections", (o, n) => { (o as unknown as ParentNotebook).sections = n.getCollectionOfObjectValues<OnenoteSection>(OnenoteSection); }],
             ["sectionsUrl", (o, n) => { (o as unknown as ParentNotebook).sectionsUrl = n.getStringValue(); }],
-            ["userRole", (o, n) => { (o as unknown as ParentNotebook).userRole = n.getObjectValue<OnenoteUserRole>(OnenoteUserRole); }],
+            ["userRole", (o, n) => { (o as unknown as ParentNotebook).userRole = n.getEnumValue<OnenoteUserRole>(OnenoteUserRole); }],
         ]);
     };
     /**
@@ -112,7 +114,7 @@ export class ParentNotebook extends OnenoteEntityHierarchyModel implements Parsa
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         writer.writeCollectionOfObjectValues<OnenoteSection>("sections", this.sections);
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
-        writer.writeObjectValue<OnenoteUserRole>("userRole", this.userRole);
+        writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
     };
     /**
      * Sets the isDefault property value. Indicates whether this is the user's default notebook. Read-only.

@@ -4,17 +4,17 @@ export class FileEncryptionInfo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The key used to encrypt the file content.  */
-    private _encryptionKey?: Binary | undefined;
+    private _encryptionKey?: string | undefined;
     /** The file digest prior to encryption.  */
-    private _fileDigest?: Binary | undefined;
+    private _fileDigest?: string | undefined;
     /** The file digest algorithm.  */
     private _fileDigestAlgorithm?: string | undefined;
     /** The initialization vector used for the encryption algorithm.  */
-    private _initializationVector?: Binary | undefined;
+    private _initializationVector?: string | undefined;
     /** The hash of the encrypted file content + IV (content hash).  */
-    private _mac?: Binary | undefined;
+    private _mac?: string | undefined;
     /** The key used to get mac.  */
-    private _macKey?: Binary | undefined;
+    private _macKey?: string | undefined;
     /** The the profile identifier.  */
     private _profileIdentifier?: string | undefined;
     /**
@@ -85,12 +85,12 @@ export class FileEncryptionInfo implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["encryptionKey", (o, n) => { (o as unknown as FileEncryptionInfo).encryptionKey = n.getObjectValue<Binary>(Binary); }],
-            ["fileDigest", (o, n) => { (o as unknown as FileEncryptionInfo).fileDigest = n.getObjectValue<Binary>(Binary); }],
+            ["encryptionKey", (o, n) => { (o as unknown as FileEncryptionInfo).encryptionKey = n.getStringValue(); }],
+            ["fileDigest", (o, n) => { (o as unknown as FileEncryptionInfo).fileDigest = n.getStringValue(); }],
             ["fileDigestAlgorithm", (o, n) => { (o as unknown as FileEncryptionInfo).fileDigestAlgorithm = n.getStringValue(); }],
-            ["initializationVector", (o, n) => { (o as unknown as FileEncryptionInfo).initializationVector = n.getObjectValue<Binary>(Binary); }],
-            ["mac", (o, n) => { (o as unknown as FileEncryptionInfo).mac = n.getObjectValue<Binary>(Binary); }],
-            ["macKey", (o, n) => { (o as unknown as FileEncryptionInfo).macKey = n.getObjectValue<Binary>(Binary); }],
+            ["initializationVector", (o, n) => { (o as unknown as FileEncryptionInfo).initializationVector = n.getStringValue(); }],
+            ["mac", (o, n) => { (o as unknown as FileEncryptionInfo).mac = n.getStringValue(); }],
+            ["macKey", (o, n) => { (o as unknown as FileEncryptionInfo).macKey = n.getStringValue(); }],
             ["profileIdentifier", (o, n) => { (o as unknown as FileEncryptionInfo).profileIdentifier = n.getStringValue(); }],
         ]);
     };
@@ -100,12 +100,12 @@ export class FileEncryptionInfo implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<Binary>("encryptionKey", this.encryptionKey);
-        writer.writeObjectValue<Binary>("fileDigest", this.fileDigest);
+        writer.writeStringValue("encryptionKey", this.encryptionKey);
+        writer.writeStringValue("fileDigest", this.fileDigest);
         writer.writeStringValue("fileDigestAlgorithm", this.fileDigestAlgorithm);
-        writer.writeObjectValue<Binary>("initializationVector", this.initializationVector);
-        writer.writeObjectValue<Binary>("mac", this.mac);
-        writer.writeObjectValue<Binary>("macKey", this.macKey);
+        writer.writeStringValue("initializationVector", this.initializationVector);
+        writer.writeStringValue("mac", this.mac);
+        writer.writeStringValue("macKey", this.macKey);
         writer.writeStringValue("profileIdentifier", this.profileIdentifier);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -120,14 +120,14 @@ export class FileEncryptionInfo implements Parsable {
      * Sets the encryptionKey property value. The key used to encrypt the file content.
      * @param value Value to set for the encryptionKey property.
      */
-    public set encryptionKey(value: Binary | undefined) {
+    public set encryptionKey(value: string | undefined) {
         this._encryptionKey = value;
     };
     /**
      * Sets the fileDigest property value. The file digest prior to encryption.
      * @param value Value to set for the fileDigest property.
      */
-    public set fileDigest(value: Binary | undefined) {
+    public set fileDigest(value: string | undefined) {
         this._fileDigest = value;
     };
     /**
@@ -141,21 +141,21 @@ export class FileEncryptionInfo implements Parsable {
      * Sets the initializationVector property value. The initialization vector used for the encryption algorithm.
      * @param value Value to set for the initializationVector property.
      */
-    public set initializationVector(value: Binary | undefined) {
+    public set initializationVector(value: string | undefined) {
         this._initializationVector = value;
     };
     /**
      * Sets the mac property value. The hash of the encrypted file content + IV (content hash).
      * @param value Value to set for the mac property.
      */
-    public set mac(value: Binary | undefined) {
+    public set mac(value: string | undefined) {
         this._mac = value;
     };
     /**
      * Sets the macKey property value. The key used to get mac.
      * @param value Value to set for the macKey property.
      */
-    public set macKey(value: Binary | undefined) {
+    public set macKey(value: string | undefined) {
         this._macKey = value;
     };
     /**

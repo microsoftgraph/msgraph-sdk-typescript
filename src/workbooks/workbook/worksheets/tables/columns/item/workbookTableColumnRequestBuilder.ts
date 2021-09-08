@@ -1,7 +1,7 @@
-import {RangeRequestBuilder} from '../../../../names/worksheet/pivotTables/worksheet/range/rangeRequestBuilder';
-import {DataBodyRangeRequestBuilder} from '../../../../names/worksheet/tables/columns/dataBodyRange/dataBodyRangeRequestBuilder';
-import {HeaderRowRangeRequestBuilder} from '../../../../names/worksheet/tables/columns/headerRowRange/headerRowRangeRequestBuilder';
-import {TotalRowRangeRequestBuilder} from '../../../../names/worksheet/tables/columns/totalRowRange/totalRowRangeRequestBuilder';
+import {RangeRequestBuilder} from '../../../../names/worksheet/range/rangeRequestBuilder';
+import {DataBodyRangeRequestBuilder} from '../../../../names/worksheet/tables/dataBodyRange/dataBodyRangeRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from '../../../../names/worksheet/tables/headerRowRange/headerRowRangeRequestBuilder';
+import {TotalRowRangeRequestBuilder} from '../../../../names/worksheet/tables/totalRowRange/totalRowRangeRequestBuilder';
 import {WorkbookTableColumn} from '../../../../workbookTableColumn';
 import {FilterRequestBuilder} from '../filter/filterRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

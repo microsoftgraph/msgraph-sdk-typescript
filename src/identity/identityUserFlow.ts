@@ -4,7 +4,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class IdentityUserFlow extends Entity implements Parsable {
     private _userFlowType?: UserFlowType | undefined;
-    private _userFlowTypeVersion?: Float | undefined;
+    private _userFlowTypeVersion?: number | undefined;
     /**
      * Instantiates a new identityUserFlow and sets the default values.
      */
@@ -32,7 +32,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["userFlowType", (o, n) => { (o as unknown as IdentityUserFlow).userFlowType = n.getEnumValue<UserFlowType>(UserFlowType); }],
-            ["userFlowTypeVersion", (o, n) => { (o as unknown as IdentityUserFlow).userFlowTypeVersion = n.getObjectValue<Float>(Float); }],
+            ["userFlowTypeVersion", (o, n) => { (o as unknown as IdentityUserFlow).userFlowTypeVersion = n.getNumberValue(); }],
         ]);
     };
     /**
@@ -43,7 +43,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<UserFlowType>("userFlowType", this.userFlowType);
-        writer.writeObjectValue<Float>("userFlowTypeVersion", this.userFlowTypeVersion);
+        writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
     };
     /**
      * Sets the userFlowType property value. 
@@ -56,7 +56,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
      * Sets the userFlowTypeVersion property value. 
      * @param value Value to set for the userFlowTypeVersion property.
      */
-    public set userFlowTypeVersion(value: Float | undefined) {
+    public set userFlowTypeVersion(value: number | undefined) {
         this._userFlowTypeVersion = value;
     };
 }

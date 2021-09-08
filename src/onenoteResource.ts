@@ -3,7 +3,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable {
     /** The content stream  */
-    private _content?: Binary | undefined;
+    private _content?: string | undefined;
     /** The URL for downloading the content  */
     private _contentUrl?: string | undefined;
     /**
@@ -32,7 +32,7 @@ export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["content", (o, n) => { (o as unknown as OnenoteResource).content = n.getObjectValue<Binary>(Binary); }],
+            ["content", (o, n) => { (o as unknown as OnenoteResource).content = n.getStringValue(); }],
             ["contentUrl", (o, n) => { (o as unknown as OnenoteResource).contentUrl = n.getStringValue(); }],
         ]);
     };
@@ -43,14 +43,14 @@ export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<Binary>("content", this.content);
+        writer.writeStringValue("content", this.content);
         writer.writeStringValue("contentUrl", this.contentUrl);
     };
     /**
      * Sets the content property value. The content stream
      * @param value Value to set for the content property.
      */
-    public set content(value: Binary | undefined) {
+    public set content(value: string | undefined) {
         this._content = value;
     };
     /**

@@ -1,4 +1,4 @@
-import {Format} from '../../axes/categoryAxis/format/format';
+import {Format} from '../../../../names/worksheet/charts/axes/categoryAxis/format/format';
 import {WorkbookChartSeriesFormat} from '../../workbookChartSeriesFormat';
 import {FillRequestBuilder} from './fill/fillRequestBuilder';
 import {LineRequestBuilder} from './line/lineRequestBuilder';

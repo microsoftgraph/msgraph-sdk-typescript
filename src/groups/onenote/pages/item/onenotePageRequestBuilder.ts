@@ -1,9 +1,9 @@
 import {OnenotePage} from '../../../../onenotePage';
+import {PreviewRequestBuilder} from '../../../../workbooks/preview/previewRequestBuilder';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyToSectionRequestBuilder} from '../copyToSection/copyToSectionRequestBuilder';
 import {OnenotePatchContentRequestBuilder} from '../onenotePatchContent/onenotePatchContentRequestBuilder';
 import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
-import {PreviewRequestBuilder} from '../parentNotebook/sectionGroups/sections/pages/preview/previewRequestBuilder';
 import {ParentSectionRequestBuilder} from '../parentSection/parentSectionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

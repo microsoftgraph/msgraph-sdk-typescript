@@ -10,7 +10,7 @@ export class Audio implements Parsable {
     /** The performing artist for the audio file.  */
     private _artist?: string | undefined;
     /** Bitrate expressed in kbps.  */
-    private _bitrate?: Int64 | undefined;
+    private _bitrate?: number | undefined;
     /** The name of the composer of the audio file.  */
     private _composers?: string | undefined;
     /** Copyright information for the audio file.  */
@@ -20,7 +20,7 @@ export class Audio implements Parsable {
     /** The total number of discs in this album.  */
     private _discCount?: number | undefined;
     /** Duration of the audio file, expressed in milliseconds  */
-    private _duration?: Int64 | undefined;
+    private _duration?: number | undefined;
     /** The genre of this audio file.  */
     private _genre?: string | undefined;
     /** Indicates if the file is protected with digital rights management.  */
@@ -169,12 +169,12 @@ export class Audio implements Parsable {
             ["album", (o, n) => { (o as unknown as Audio).album = n.getStringValue(); }],
             ["albumArtist", (o, n) => { (o as unknown as Audio).albumArtist = n.getStringValue(); }],
             ["artist", (o, n) => { (o as unknown as Audio).artist = n.getStringValue(); }],
-            ["bitrate", (o, n) => { (o as unknown as Audio).bitrate = n.getObjectValue<Int64>(Int64); }],
+            ["bitrate", (o, n) => { (o as unknown as Audio).bitrate = n.getNumberValue(); }],
             ["composers", (o, n) => { (o as unknown as Audio).composers = n.getStringValue(); }],
             ["copyright", (o, n) => { (o as unknown as Audio).copyright = n.getStringValue(); }],
             ["disc", (o, n) => { (o as unknown as Audio).disc = n.getNumberValue(); }],
             ["discCount", (o, n) => { (o as unknown as Audio).discCount = n.getNumberValue(); }],
-            ["duration", (o, n) => { (o as unknown as Audio).duration = n.getObjectValue<Int64>(Int64); }],
+            ["duration", (o, n) => { (o as unknown as Audio).duration = n.getNumberValue(); }],
             ["genre", (o, n) => { (o as unknown as Audio).genre = n.getStringValue(); }],
             ["hasDrm", (o, n) => { (o as unknown as Audio).hasDrm = n.getBooleanValue(); }],
             ["isVariableBitrate", (o, n) => { (o as unknown as Audio).isVariableBitrate = n.getBooleanValue(); }],
@@ -193,12 +193,12 @@ export class Audio implements Parsable {
         writer.writeStringValue("album", this.album);
         writer.writeStringValue("albumArtist", this.albumArtist);
         writer.writeStringValue("artist", this.artist);
-        writer.writeObjectValue<Int64>("bitrate", this.bitrate);
+        writer.writeNumberValue("bitrate", this.bitrate);
         writer.writeStringValue("composers", this.composers);
         writer.writeStringValue("copyright", this.copyright);
         writer.writeNumberValue("disc", this.disc);
         writer.writeNumberValue("discCount", this.discCount);
-        writer.writeObjectValue<Int64>("duration", this.duration);
+        writer.writeNumberValue("duration", this.duration);
         writer.writeStringValue("genre", this.genre);
         writer.writeBooleanValue("hasDrm", this.hasDrm);
         writer.writeBooleanValue("isVariableBitrate", this.isVariableBitrate);
@@ -240,7 +240,7 @@ export class Audio implements Parsable {
      * Sets the bitrate property value. Bitrate expressed in kbps.
      * @param value Value to set for the bitrate property.
      */
-    public set bitrate(value: Int64 | undefined) {
+    public set bitrate(value: number | undefined) {
         this._bitrate = value;
     };
     /**
@@ -275,7 +275,7 @@ export class Audio implements Parsable {
      * Sets the duration property value. Duration of the audio file, expressed in milliseconds
      * @param value Value to set for the duration property.
      */
-    public set duration(value: Int64 | undefined) {
+    public set duration(value: number | undefined) {
         this._duration = value;
     };
     /**

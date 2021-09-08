@@ -25,7 +25,7 @@ export class Delta extends OutlookItem implements Parsable {
     /** The ID of the conversation the email belongs to.  */
     private _conversationId?: string | undefined;
     /** Indicates the position of the message within the conversation.  */
-    private _conversationIndex?: Binary | undefined;
+    private _conversationIndex?: string | undefined;
     /** The collection of open extensions defined for the message. Nullable.  */
     private _extensions?: Extension[] | undefined;
     /** The flag value that indicates the status, start date, due date, or completion date for the message.  */
@@ -300,7 +300,7 @@ export class Delta extends OutlookItem implements Parsable {
             ["bodyPreview", (o, n) => { (o as unknown as Delta).bodyPreview = n.getStringValue(); }],
             ["ccRecipients", (o, n) => { (o as unknown as Delta).ccRecipients = n.getCollectionOfObjectValues<Recipient>(Recipient); }],
             ["conversationId", (o, n) => { (o as unknown as Delta).conversationId = n.getStringValue(); }],
-            ["conversationIndex", (o, n) => { (o as unknown as Delta).conversationIndex = n.getObjectValue<Binary>(Binary); }],
+            ["conversationIndex", (o, n) => { (o as unknown as Delta).conversationIndex = n.getStringValue(); }],
             ["extensions", (o, n) => { (o as unknown as Delta).extensions = n.getCollectionOfObjectValues<Extension>(Extension); }],
             ["flag", (o, n) => { (o as unknown as Delta).flag = n.getObjectValue<FollowupFlag>(FollowupFlag); }],
             ["from", (o, n) => { (o as unknown as Delta).from = n.getObjectValue<Recipient>(Recipient); }],
@@ -339,7 +339,7 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeStringValue("bodyPreview", this.bodyPreview);
         writer.writeCollectionOfObjectValues<Recipient>("ccRecipients", this.ccRecipients);
         writer.writeStringValue("conversationId", this.conversationId);
-        writer.writeObjectValue<Binary>("conversationIndex", this.conversationIndex);
+        writer.writeStringValue("conversationIndex", this.conversationIndex);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
         writer.writeObjectValue<FollowupFlag>("flag", this.flag);
         writer.writeObjectValue<Recipient>("from", this.from);
@@ -410,7 +410,7 @@ export class Delta extends OutlookItem implements Parsable {
      * Sets the conversationIndex property value. Indicates the position of the message within the conversation.
      * @param value Value to set for the conversationIndex property.
      */
-    public set conversationIndex(value: Binary | undefined) {
+    public set conversationIndex(value: string | undefined) {
         this._conversationIndex = value;
     };
     /**

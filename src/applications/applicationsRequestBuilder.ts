@@ -1,5 +1,5 @@
 import {Application} from '../application';
-import {DeltaRequestBuilder} from '../groups/calendar/calendarView/instances/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../workbooks/delta/deltaRequestBuilder';
 import {ApplicationsResponse} from './applicationsResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
