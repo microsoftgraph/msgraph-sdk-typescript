@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {VppTokenAccountType} from './vppTokenAccountType';
+import {VppTokenState} from './vppTokenState';
+import {VppTokenSyncStatus} from './vppTokenSyncStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VppToken extends Entity implements Parsable {
@@ -119,11 +122,11 @@ export class VppToken extends Entity implements Parsable {
             ["expirationDateTime", (o, n) => { (o as unknown as VppToken).expirationDateTime = n.getDateValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as VppToken).lastModifiedDateTime = n.getDateValue(); }],
             ["lastSyncDateTime", (o, n) => { (o as unknown as VppToken).lastSyncDateTime = n.getDateValue(); }],
-            ["lastSyncStatus", (o, n) => { (o as unknown as VppToken).lastSyncStatus = n.getObjectValue<VppTokenSyncStatus>(VppTokenSyncStatus); }],
+            ["lastSyncStatus", (o, n) => { (o as unknown as VppToken).lastSyncStatus = n.getEnumValue<VppTokenSyncStatus>(VppTokenSyncStatus); }],
             ["organizationName", (o, n) => { (o as unknown as VppToken).organizationName = n.getStringValue(); }],
-            ["state", (o, n) => { (o as unknown as VppToken).state = n.getObjectValue<VppTokenState>(VppTokenState); }],
+            ["state", (o, n) => { (o as unknown as VppToken).state = n.getEnumValue<VppTokenState>(VppTokenState); }],
             ["token", (o, n) => { (o as unknown as VppToken).token = n.getStringValue(); }],
-            ["vppTokenAccountType", (o, n) => { (o as unknown as VppToken).vppTokenAccountType = n.getObjectValue<VppTokenAccountType>(VppTokenAccountType); }],
+            ["vppTokenAccountType", (o, n) => { (o as unknown as VppToken).vppTokenAccountType = n.getEnumValue<VppTokenAccountType>(VppTokenAccountType); }],
         ]);
     };
     /**
@@ -139,11 +142,11 @@ export class VppToken extends Entity implements Parsable {
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
-        writer.writeObjectValue<VppTokenSyncStatus>("lastSyncStatus", this.lastSyncStatus);
+        writer.writeEnumValue<VppTokenSyncStatus>("lastSyncStatus", this.lastSyncStatus);
         writer.writeStringValue("organizationName", this.organizationName);
-        writer.writeObjectValue<VppTokenState>("state", this.state);
+        writer.writeEnumValue<VppTokenState>("state", this.state);
         writer.writeStringValue("token", this.token);
-        writer.writeObjectValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
+        writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
     };
     /**
      * Sets the appleId property value. The apple Id associated with the given Apple Volume Purchase Program Token.

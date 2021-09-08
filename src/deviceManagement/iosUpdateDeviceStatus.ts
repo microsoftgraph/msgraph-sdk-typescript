@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {ComplianceStatus} from './complianceStatus';
+import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IosUpdateDeviceStatus extends Entity implements Parsable {
@@ -117,10 +119,10 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
             ["deviceDisplayName", (o, n) => { (o as unknown as IosUpdateDeviceStatus).deviceDisplayName = n.getStringValue(); }],
             ["deviceId", (o, n) => { (o as unknown as IosUpdateDeviceStatus).deviceId = n.getStringValue(); }],
             ["deviceModel", (o, n) => { (o as unknown as IosUpdateDeviceStatus).deviceModel = n.getStringValue(); }],
-            ["installStatus", (o, n) => { (o as unknown as IosUpdateDeviceStatus).installStatus = n.getObjectValue<IosUpdatesInstallStatus>(IosUpdatesInstallStatus); }],
+            ["installStatus", (o, n) => { (o as unknown as IosUpdateDeviceStatus).installStatus = n.getEnumValue<IosUpdatesInstallStatus>(IosUpdatesInstallStatus); }],
             ["lastReportedDateTime", (o, n) => { (o as unknown as IosUpdateDeviceStatus).lastReportedDateTime = n.getDateValue(); }],
             ["osVersion", (o, n) => { (o as unknown as IosUpdateDeviceStatus).osVersion = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as IosUpdateDeviceStatus).status = n.getObjectValue<ComplianceStatus>(ComplianceStatus); }],
+            ["status", (o, n) => { (o as unknown as IosUpdateDeviceStatus).status = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
             ["userId", (o, n) => { (o as unknown as IosUpdateDeviceStatus).userId = n.getStringValue(); }],
             ["userName", (o, n) => { (o as unknown as IosUpdateDeviceStatus).userName = n.getStringValue(); }],
             ["userPrincipalName", (o, n) => { (o as unknown as IosUpdateDeviceStatus).userPrincipalName = n.getStringValue(); }],
@@ -137,10 +139,10 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
         writer.writeStringValue("deviceDisplayName", this.deviceDisplayName);
         writer.writeStringValue("deviceId", this.deviceId);
         writer.writeStringValue("deviceModel", this.deviceModel);
-        writer.writeObjectValue<IosUpdatesInstallStatus>("installStatus", this.installStatus);
+        writer.writeEnumValue<IosUpdatesInstallStatus>("installStatus", this.installStatus);
         writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
         writer.writeStringValue("osVersion", this.osVersion);
-        writer.writeObjectValue<ComplianceStatus>("status", this.status);
+        writer.writeEnumValue<ComplianceStatus>("status", this.status);
         writer.writeStringValue("userId", this.userId);
         writer.writeStringValue("userName", this.userName);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);

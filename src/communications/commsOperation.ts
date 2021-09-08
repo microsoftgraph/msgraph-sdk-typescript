@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {OperationStatus} from '../operationStatus';
+import {ResultInfo} from './resultInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CommsOperation extends Entity implements Parsable {
@@ -43,7 +45,7 @@ export class CommsOperation extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["clientContext", (o, n) => { (o as unknown as CommsOperation).clientContext = n.getStringValue(); }],
             ["resultInfo", (o, n) => { (o as unknown as CommsOperation).resultInfo = n.getObjectValue<ResultInfo>(ResultInfo); }],
-            ["status", (o, n) => { (o as unknown as CommsOperation).status = n.getObjectValue<OperationStatus>(OperationStatus); }],
+            ["status", (o, n) => { (o as unknown as CommsOperation).status = n.getEnumValue<OperationStatus>(OperationStatus); }],
         ]);
     };
     /**
@@ -55,7 +57,7 @@ export class CommsOperation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("clientContext", this.clientContext);
         writer.writeObjectValue<ResultInfo>("resultInfo", this.resultInfo);
-        writer.writeObjectValue<OperationStatus>("status", this.status);
+        writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
      * Sets the clientContext property value. Unique Client Context string. Max limit is 256 chars.

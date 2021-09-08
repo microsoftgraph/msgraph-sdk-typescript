@@ -1,3 +1,4 @@
+import {AttachmentType} from './attachmentType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AttachmentItem implements Parsable {
@@ -67,7 +68,7 @@ export class AttachmentItem implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["attachmentType", (o, n) => { (o as unknown as AttachmentItem).attachmentType = n.getObjectValue<AttachmentType>(AttachmentType); }],
+            ["attachmentType", (o, n) => { (o as unknown as AttachmentItem).attachmentType = n.getEnumValue<AttachmentType>(AttachmentType); }],
             ["contentType", (o, n) => { (o as unknown as AttachmentItem).contentType = n.getStringValue(); }],
             ["isInline", (o, n) => { (o as unknown as AttachmentItem).isInline = n.getBooleanValue(); }],
             ["name", (o, n) => { (o as unknown as AttachmentItem).name = n.getStringValue(); }],
@@ -80,7 +81,7 @@ export class AttachmentItem implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<AttachmentType>("attachmentType", this.attachmentType);
+        writer.writeEnumValue<AttachmentType>("attachmentType", this.attachmentType);
         writer.writeStringValue("contentType", this.contentType);
         writer.writeBooleanValue("isInline", this.isInline);
         writer.writeStringValue("name", this.name);

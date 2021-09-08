@@ -1,9 +1,12 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {PlannerAssignedToTaskBoardTaskFormat} from './planner/buckets/tasks/assignedToTaskBoardFormat/plannerAssignedToTaskBoardTaskFormat';
-import {PlannerBucketTaskBoardTaskFormat} from './planner/buckets/tasks/bucketTaskBoardFormat/plannerBucketTaskBoardTaskFormat';
-import {PlannerTaskDetails} from './planner/buckets/tasks/details/plannerTaskDetails';
-import {PlannerProgressTaskBoardTaskFormat} from './planner/buckets/tasks/progressTaskBoardFormat/plannerProgressTaskBoardTaskFormat';
+import {PlannerAppliedCategories} from './planner/plannerAppliedCategories';
+import {PlannerAssignedToTaskBoardTaskFormat} from './planner/plannerAssignedToTaskBoardTaskFormat';
+import {PlannerAssignments} from './planner/plannerAssignments';
+import {PlannerBucketTaskBoardTaskFormat} from './planner/plannerBucketTaskBoardTaskFormat';
+import {PlannerPreviewType} from './planner/plannerPreviewType';
+import {PlannerProgressTaskBoardTaskFormat} from './planner/plannerProgressTaskBoardTaskFormat';
+import {PlannerTaskDetails} from './planner/plannerTaskDetails';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlannerTask extends Entity implements Parsable {
@@ -254,7 +257,7 @@ export class PlannerTask extends Entity implements Parsable {
             ["orderHint", (o, n) => { (o as unknown as PlannerTask).orderHint = n.getStringValue(); }],
             ["percentComplete", (o, n) => { (o as unknown as PlannerTask).percentComplete = n.getNumberValue(); }],
             ["planId", (o, n) => { (o as unknown as PlannerTask).planId = n.getStringValue(); }],
-            ["previewType", (o, n) => { (o as unknown as PlannerTask).previewType = n.getObjectValue<PlannerPreviewType>(PlannerPreviewType); }],
+            ["previewType", (o, n) => { (o as unknown as PlannerTask).previewType = n.getEnumValue<PlannerPreviewType>(PlannerPreviewType); }],
             ["progressTaskBoardFormat", (o, n) => { (o as unknown as PlannerTask).progressTaskBoardFormat = n.getObjectValue<PlannerProgressTaskBoardTaskFormat>(PlannerProgressTaskBoardTaskFormat); }],
             ["referenceCount", (o, n) => { (o as unknown as PlannerTask).referenceCount = n.getNumberValue(); }],
             ["startDateTime", (o, n) => { (o as unknown as PlannerTask).startDateTime = n.getDateValue(); }],
@@ -287,7 +290,7 @@ export class PlannerTask extends Entity implements Parsable {
         writer.writeStringValue("orderHint", this.orderHint);
         writer.writeNumberValue("percentComplete", this.percentComplete);
         writer.writeStringValue("planId", this.planId);
-        writer.writeObjectValue<PlannerPreviewType>("previewType", this.previewType);
+        writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         writer.writeObjectValue<PlannerProgressTaskBoardTaskFormat>("progressTaskBoardFormat", this.progressTaskBoardFormat);
         writer.writeNumberValue("referenceCount", this.referenceCount);
         writer.writeDateValue("startDateTime", this.startDateTime);

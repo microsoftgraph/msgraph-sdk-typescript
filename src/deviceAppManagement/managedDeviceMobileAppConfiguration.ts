@@ -1,9 +1,9 @@
 import {Entity} from '../entity';
 import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobileAppConfigurationAssignment';
 import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMobileAppConfigurationDeviceStatus';
+import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
 import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
-import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './mobileAppConfigurations/deviceStatusSummary/managedDeviceMobileAppConfigurationDeviceSummary';
-import {ManagedDeviceMobileAppConfigurationUserSummary} from './mobileAppConfigurations/userStatusSummary/managedDeviceMobileAppConfigurationUserSummary';
+import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable {

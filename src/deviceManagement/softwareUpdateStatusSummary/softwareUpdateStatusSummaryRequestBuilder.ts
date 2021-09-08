@@ -1,5 +1,5 @@
+import {SoftwareUpdateStatusSummary} from '../softwareUpdateStatusSummary';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
-import {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/softwareUpdateStatusSummary  */

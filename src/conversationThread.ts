@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {Post} from './groups/post';
-import {Recipient} from './groups/recipient';
+import {Recipient} from './recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConversationThread extends Entity implements Parsable {

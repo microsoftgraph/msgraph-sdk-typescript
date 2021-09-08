@@ -1,6 +1,6 @@
+import {EntitlementManagement} from '../entitlementManagement';
 import {AccessPackageAssignmentApprovalsRequestBuilder} from './accessPackageAssignmentApprovals/accessPackageAssignmentApprovalsRequestBuilder';
 import {ApprovalRequestBuilder} from './accessPackageAssignmentApprovals/item/approvalRequestBuilder';
-import {EntitlementManagement} from './entitlementManagement';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/entitlementManagement  */

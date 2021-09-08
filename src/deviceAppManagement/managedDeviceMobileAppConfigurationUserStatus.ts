@@ -1,3 +1,4 @@
+import {ComplianceStatus} from '../deviceManagement/complianceStatus';
 import {Entity} from '../entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -61,7 +62,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatus extends Entity implem
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["devicesCount", (o, n) => { (o as unknown as ManagedDeviceMobileAppConfigurationUserStatus).devicesCount = n.getNumberValue(); }],
             ["lastReportedDateTime", (o, n) => { (o as unknown as ManagedDeviceMobileAppConfigurationUserStatus).lastReportedDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as ManagedDeviceMobileAppConfigurationUserStatus).status = n.getObjectValue<ComplianceStatus>(ComplianceStatus); }],
+            ["status", (o, n) => { (o as unknown as ManagedDeviceMobileAppConfigurationUserStatus).status = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
             ["userDisplayName", (o, n) => { (o as unknown as ManagedDeviceMobileAppConfigurationUserStatus).userDisplayName = n.getStringValue(); }],
             ["userPrincipalName", (o, n) => { (o as unknown as ManagedDeviceMobileAppConfigurationUserStatus).userPrincipalName = n.getStringValue(); }],
         ]);
@@ -75,7 +76,7 @@ export class ManagedDeviceMobileAppConfigurationUserStatus extends Entity implem
         super.serialize(writer);
         writer.writeNumberValue("devicesCount", this.devicesCount);
         writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
-        writer.writeObjectValue<ComplianceStatus>("status", this.status);
+        writer.writeEnumValue<ComplianceStatus>("status", this.status);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };

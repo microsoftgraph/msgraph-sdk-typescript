@@ -1,5 +1,6 @@
-import {ManagedAppPolicyDeploymentSummary} from './androidManagedAppProtections/deploymentSummary/managedAppPolicyDeploymentSummary';
 import {KeyValuePair} from './keyValuePair';
+import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
+import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedAppProtection} from './managedAppProtection';
 import {ManagedMobileApp} from './managedMobileApp';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
@@ -125,7 +126,7 @@ export class DefaultManagedAppProtection extends ManagedAppProtection implements
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["appDataEncryptionType", (o, n) => { (o as unknown as DefaultManagedAppProtection).appDataEncryptionType = n.getObjectValue<ManagedAppDataEncryptionType>(ManagedAppDataEncryptionType); }],
+            ["appDataEncryptionType", (o, n) => { (o as unknown as DefaultManagedAppProtection).appDataEncryptionType = n.getEnumValue<ManagedAppDataEncryptionType>(ManagedAppDataEncryptionType); }],
             ["apps", (o, n) => { (o as unknown as DefaultManagedAppProtection).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp); }],
             ["customSettings", (o, n) => { (o as unknown as DefaultManagedAppProtection).customSettings = n.getCollectionOfObjectValues<KeyValuePair>(KeyValuePair); }],
             ["deployedAppCount", (o, n) => { (o as unknown as DefaultManagedAppProtection).deployedAppCount = n.getNumberValue(); }],
@@ -146,7 +147,7 @@ export class DefaultManagedAppProtection extends ManagedAppProtection implements
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
+        writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", this.apps);
         writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", this.customSettings);
         writer.writeNumberValue("deployedAppCount", this.deployedAppCount);

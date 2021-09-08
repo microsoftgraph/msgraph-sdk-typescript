@@ -1,4 +1,4 @@
-import {AuthorizationPolicy} from './authorizationPolicy';
+import {AuthorizationPolicy} from '../authorizationPolicy';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/authorizationPolicy  */

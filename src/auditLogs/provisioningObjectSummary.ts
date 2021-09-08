@@ -1,4 +1,12 @@
 import {Entity} from '../entity';
+import {Initiator} from './initiator';
+import {ModifiedProperty} from './modifiedProperty';
+import {ProvisionedIdentity} from './provisionedIdentity';
+import {ProvisioningAction} from './provisioningAction';
+import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
+import {ProvisioningStatusInfo} from './provisioningStatusInfo';
+import {ProvisioningStep} from './provisioningStep';
+import {ProvisioningSystem} from './provisioningSystem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningObjectSummary extends Entity implements Parsable {
@@ -164,10 +172,10 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
             ["durationInMilliseconds", (o, n) => { (o as unknown as ProvisioningObjectSummary).durationInMilliseconds = n.getNumberValue(); }],
             ["initiatedBy", (o, n) => { (o as unknown as ProvisioningObjectSummary).initiatedBy = n.getObjectValue<Initiator>(Initiator); }],
             ["jobId", (o, n) => { (o as unknown as ProvisioningObjectSummary).jobId = n.getStringValue(); }],
-            ["modifiedProperties", (o, n) => { (o as unknown as ProvisioningObjectSummary).modifiedProperties = n.getCollectionOfPrimitiveValues<modifiedProperty>(); }],
-            ["provisioningAction", (o, n) => { (o as unknown as ProvisioningObjectSummary).provisioningAction = n.getObjectValue<ProvisioningAction>(ProvisioningAction); }],
+            ["modifiedProperties", (o, n) => { (o as unknown as ProvisioningObjectSummary).modifiedProperties = n.getCollectionOfObjectValues<ModifiedProperty>(ModifiedProperty); }],
+            ["provisioningAction", (o, n) => { (o as unknown as ProvisioningObjectSummary).provisioningAction = n.getEnumValue<ProvisioningAction>(ProvisioningAction); }],
             ["provisioningStatusInfo", (o, n) => { (o as unknown as ProvisioningObjectSummary).provisioningStatusInfo = n.getObjectValue<ProvisioningStatusInfo>(ProvisioningStatusInfo); }],
-            ["provisioningSteps", (o, n) => { (o as unknown as ProvisioningObjectSummary).provisioningSteps = n.getCollectionOfPrimitiveValues<provisioningStep>(); }],
+            ["provisioningSteps", (o, n) => { (o as unknown as ProvisioningObjectSummary).provisioningSteps = n.getCollectionOfObjectValues<ProvisioningStep>(ProvisioningStep); }],
             ["servicePrincipal", (o, n) => { (o as unknown as ProvisioningObjectSummary).servicePrincipal = n.getObjectValue<ProvisioningServicePrincipal>(ProvisioningServicePrincipal); }],
             ["sourceIdentity", (o, n) => { (o as unknown as ProvisioningObjectSummary).sourceIdentity = n.getObjectValue<ProvisionedIdentity>(ProvisionedIdentity); }],
             ["sourceSystem", (o, n) => { (o as unknown as ProvisioningObjectSummary).sourceSystem = n.getObjectValue<ProvisioningSystem>(ProvisioningSystem); }],
@@ -189,10 +197,10 @@ export class ProvisioningObjectSummary extends Entity implements Parsable {
         writer.writeNumberValue("durationInMilliseconds", this.durationInMilliseconds);
         writer.writeObjectValue<Initiator>("initiatedBy", this.initiatedBy);
         writer.writeStringValue("jobId", this.jobId);
-        writer.writeCollectionOfPrimitiveValues<modifiedProperty>("modifiedProperties", this.modifiedProperties);
-        writer.writeObjectValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
+        writer.writeCollectionOfObjectValues<ModifiedProperty>("modifiedProperties", this.modifiedProperties);
+        writer.writeEnumValue<ProvisioningAction>("provisioningAction", this.provisioningAction);
         writer.writeObjectValue<ProvisioningStatusInfo>("provisioningStatusInfo", this.provisioningStatusInfo);
-        writer.writeCollectionOfPrimitiveValues<provisioningStep>("provisioningSteps", this.provisioningSteps);
+        writer.writeCollectionOfObjectValues<ProvisioningStep>("provisioningSteps", this.provisioningSteps);
         writer.writeObjectValue<ProvisioningServicePrincipal>("servicePrincipal", this.servicePrincipal);
         writer.writeObjectValue<ProvisionedIdentity>("sourceIdentity", this.sourceIdentity);
         writer.writeObjectValue<ProvisioningSystem>("sourceSystem", this.sourceSystem);

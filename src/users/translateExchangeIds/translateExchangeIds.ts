@@ -1,3 +1,4 @@
+import {GenericError} from '../../me/translateExchangeIds/genericError';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TranslateExchangeIds implements Parsable {

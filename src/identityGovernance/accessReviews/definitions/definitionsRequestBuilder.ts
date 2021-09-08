@@ -1,6 +1,6 @@
 import {AccessReviewScheduleDefinition} from '../../accessReviewScheduleDefinition';
-import {FilterByCurrentUserWithOnRequestBuilder} from '../../entitlementManagement/accessPackageAssignmentApprovals/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {DefinitionsResponse} from './definitionsResponse';
+import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews/definitions  */

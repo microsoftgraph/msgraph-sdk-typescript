@@ -1,7 +1,8 @@
 import {Entity} from '../../../../../../entity';
-import {WorkbookChartAxisFormat} from './format/workbookChartAxisFormat';
-import {WorkbookChartGridlines} from './majorGridlines/workbookChartGridlines';
-import {WorkbookChartAxisTitle} from './title/workbookChartAxisTitle';
+import {Json} from '../../../../../../me/json';
+import {WorkbookChartAxisFormat} from '../../../workbookChartAxisFormat';
+import {WorkbookChartAxisTitle} from '../../../workbookChartAxisTitle';
+import {WorkbookChartGridlines} from '../../../workbookChartGridlines';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CategoryAxis extends Entity implements Parsable {

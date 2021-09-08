@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {PermissionClassificationType} from './servicePrincipals/permissionClassificationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DelegatedPermissionClassification extends Entity implements Parsable {
@@ -41,7 +42,7 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["classification", (o, n) => { (o as unknown as DelegatedPermissionClassification).classification = n.getObjectValue<PermissionClassificationType>(PermissionClassificationType); }],
+            ["classification", (o, n) => { (o as unknown as DelegatedPermissionClassification).classification = n.getEnumValue<PermissionClassificationType>(PermissionClassificationType); }],
             ["permissionId", (o, n) => { (o as unknown as DelegatedPermissionClassification).permissionId = n.getStringValue(); }],
             ["permissionName", (o, n) => { (o as unknown as DelegatedPermissionClassification).permissionName = n.getStringValue(); }],
         ]);
@@ -53,7 +54,7 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<PermissionClassificationType>("classification", this.classification);
+        writer.writeEnumValue<PermissionClassificationType>("classification", this.classification);
         writer.writeStringValue("permissionId", this.permissionId);
         writer.writeStringValue("permissionName", this.permissionName);
     };

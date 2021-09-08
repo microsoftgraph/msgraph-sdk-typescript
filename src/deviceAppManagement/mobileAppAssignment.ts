@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {DeviceAndAppManagementAssignmentTarget} from './managedEBooks/deviceAndAppManagementAssignmentTarget';
+import {InstallIntent} from './managedEBooks/installIntent';
+import {MobileAppAssignmentSettings} from './mobileApps/mobileAppAssignmentSettings';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileAppAssignment extends Entity implements Parsable {
@@ -41,7 +44,7 @@ export class MobileAppAssignment extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["intent", (o, n) => { (o as unknown as MobileAppAssignment).intent = n.getObjectValue<InstallIntent>(InstallIntent); }],
+            ["intent", (o, n) => { (o as unknown as MobileAppAssignment).intent = n.getEnumValue<InstallIntent>(InstallIntent); }],
             ["settings", (o, n) => { (o as unknown as MobileAppAssignment).settings = n.getObjectValue<MobileAppAssignmentSettings>(MobileAppAssignmentSettings); }],
             ["target", (o, n) => { (o as unknown as MobileAppAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget); }],
         ]);
@@ -53,7 +56,7 @@ export class MobileAppAssignment extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<InstallIntent>("intent", this.intent);
+        writer.writeEnumValue<InstallIntent>("intent", this.intent);
         writer.writeObjectValue<MobileAppAssignmentSettings>("settings", this.settings);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
     };

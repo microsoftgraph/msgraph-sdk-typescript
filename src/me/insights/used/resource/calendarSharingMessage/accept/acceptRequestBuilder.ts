@@ -1,4 +1,4 @@
-import {Calendar} from '../../../../../../groups/calendar/calendar';
+import {Calendar} from '../../../../../../calendar';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/used/{usedInsight-id}/resource/microsoft.graph.calendarSharingMessage/microsoft.graph.accept  */

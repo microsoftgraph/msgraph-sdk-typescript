@@ -1,4 +1,12 @@
+import {ChatMessageAttachment} from './chatMessageAttachment';
+import {ChatMessageMention} from './chatMessageMention';
+import {ChatMessageReaction} from './chatMessageReaction';
+import {ChannelIdentity} from './chats/channelIdentity';
+import {ChatMessageFromIdentitySet} from './chats/chatMessageFromIdentitySet';
 import {ChatMessageHostedContent} from './chats/chatMessageHostedContent';
+import {ChatMessageImportance} from './chats/chatMessageImportance';
+import {ChatMessagePolicyViolation} from './chats/chatMessagePolicyViolation';
+import {ChatMessageType} from './chats/chatMessageType';
 import {ItemBody} from './chats/itemBody';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
@@ -213,7 +221,7 @@ export class ChatMessage extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["attachments", (o, n) => { (o as unknown as ChatMessage).attachments = n.getCollectionOfPrimitiveValues<chatMessageAttachment>(); }],
+            ["attachments", (o, n) => { (o as unknown as ChatMessage).attachments = n.getCollectionOfObjectValues<ChatMessageAttachment>(ChatMessageAttachment); }],
             ["body", (o, n) => { (o as unknown as ChatMessage).body = n.getObjectValue<ItemBody>(ItemBody); }],
             ["channelIdentity", (o, n) => { (o as unknown as ChatMessage).channelIdentity = n.getObjectValue<ChannelIdentity>(ChannelIdentity); }],
             ["chatId", (o, n) => { (o as unknown as ChatMessage).chatId = n.getStringValue(); }],
@@ -222,14 +230,14 @@ export class ChatMessage extends Entity implements Parsable {
             ["etag", (o, n) => { (o as unknown as ChatMessage).etag = n.getStringValue(); }],
             ["from", (o, n) => { (o as unknown as ChatMessage).from = n.getObjectValue<ChatMessageFromIdentitySet>(ChatMessageFromIdentitySet); }],
             ["hostedContents", (o, n) => { (o as unknown as ChatMessage).hostedContents = n.getCollectionOfObjectValues<ChatMessageHostedContent>(ChatMessageHostedContent); }],
-            ["importance", (o, n) => { (o as unknown as ChatMessage).importance = n.getObjectValue<ChatMessageImportance>(ChatMessageImportance); }],
+            ["importance", (o, n) => { (o as unknown as ChatMessage).importance = n.getEnumValue<ChatMessageImportance>(ChatMessageImportance); }],
             ["lastEditedDateTime", (o, n) => { (o as unknown as ChatMessage).lastEditedDateTime = n.getDateValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as ChatMessage).lastModifiedDateTime = n.getDateValue(); }],
             ["locale", (o, n) => { (o as unknown as ChatMessage).locale = n.getStringValue(); }],
-            ["mentions", (o, n) => { (o as unknown as ChatMessage).mentions = n.getCollectionOfPrimitiveValues<chatMessageMention>(); }],
-            ["messageType", (o, n) => { (o as unknown as ChatMessage).messageType = n.getObjectValue<ChatMessageType>(ChatMessageType); }],
+            ["mentions", (o, n) => { (o as unknown as ChatMessage).mentions = n.getCollectionOfObjectValues<ChatMessageMention>(ChatMessageMention); }],
+            ["messageType", (o, n) => { (o as unknown as ChatMessage).messageType = n.getEnumValue<ChatMessageType>(ChatMessageType); }],
             ["policyViolation", (o, n) => { (o as unknown as ChatMessage).policyViolation = n.getObjectValue<ChatMessagePolicyViolation>(ChatMessagePolicyViolation); }],
-            ["reactions", (o, n) => { (o as unknown as ChatMessage).reactions = n.getCollectionOfPrimitiveValues<chatMessageReaction>(); }],
+            ["reactions", (o, n) => { (o as unknown as ChatMessage).reactions = n.getCollectionOfObjectValues<ChatMessageReaction>(ChatMessageReaction); }],
             ["replies", (o, n) => { (o as unknown as ChatMessage).replies = n.getCollectionOfObjectValues<ChatMessage>(ChatMessage); }],
             ["replyToId", (o, n) => { (o as unknown as ChatMessage).replyToId = n.getStringValue(); }],
             ["subject", (o, n) => { (o as unknown as ChatMessage).subject = n.getStringValue(); }],
@@ -244,7 +252,7 @@ export class ChatMessage extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<chatMessageAttachment>("attachments", this.attachments);
+        writer.writeCollectionOfObjectValues<ChatMessageAttachment>("attachments", this.attachments);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeObjectValue<ChannelIdentity>("channelIdentity", this.channelIdentity);
         writer.writeStringValue("chatId", this.chatId);
@@ -253,14 +261,14 @@ export class ChatMessage extends Entity implements Parsable {
         writer.writeStringValue("etag", this.etag);
         writer.writeObjectValue<ChatMessageFromIdentitySet>("from", this.from);
         writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("hostedContents", this.hostedContents);
-        writer.writeObjectValue<ChatMessageImportance>("importance", this.importance);
+        writer.writeEnumValue<ChatMessageImportance>("importance", this.importance);
         writer.writeDateValue("lastEditedDateTime", this.lastEditedDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeStringValue("locale", this.locale);
-        writer.writeCollectionOfPrimitiveValues<chatMessageMention>("mentions", this.mentions);
-        writer.writeObjectValue<ChatMessageType>("messageType", this.messageType);
+        writer.writeCollectionOfObjectValues<ChatMessageMention>("mentions", this.mentions);
+        writer.writeEnumValue<ChatMessageType>("messageType", this.messageType);
         writer.writeObjectValue<ChatMessagePolicyViolation>("policyViolation", this.policyViolation);
-        writer.writeCollectionOfPrimitiveValues<chatMessageReaction>("reactions", this.reactions);
+        writer.writeCollectionOfObjectValues<ChatMessageReaction>("reactions", this.reactions);
         writer.writeCollectionOfObjectValues<ChatMessage>("replies", this.replies);
         writer.writeStringValue("replyToId", this.replyToId);
         writer.writeStringValue("subject", this.subject);

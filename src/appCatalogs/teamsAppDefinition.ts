@@ -1,6 +1,7 @@
+import {TeamsAppPublishingState} from '../chats/teamsAppPublishingState';
+import {TeamworkBot} from '../chats/teamworkBot';
 import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
-import {TeamworkBot} from './teamsApps/appDefinitions/bot/teamworkBot';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppDefinition extends Entity implements Parsable {
@@ -100,7 +101,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
             ["description", (o, n) => { (o as unknown as TeamsAppDefinition).description = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as TeamsAppDefinition).displayName = n.getStringValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as TeamsAppDefinition).lastModifiedDateTime = n.getDateValue(); }],
-            ["publishingState", (o, n) => { (o as unknown as TeamsAppDefinition).publishingState = n.getObjectValue<TeamsAppPublishingState>(TeamsAppPublishingState); }],
+            ["publishingState", (o, n) => { (o as unknown as TeamsAppDefinition).publishingState = n.getEnumValue<TeamsAppPublishingState>(TeamsAppPublishingState); }],
             ["shortDescription", (o, n) => { (o as unknown as TeamsAppDefinition).shortDescription = n.getStringValue(); }],
             ["teamsAppId", (o, n) => { (o as unknown as TeamsAppDefinition).teamsAppId = n.getStringValue(); }],
             ["version", (o, n) => { (o as unknown as TeamsAppDefinition).version = n.getStringValue(); }],
@@ -118,7 +119,7 @@ export class TeamsAppDefinition extends Entity implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeObjectValue<TeamsAppPublishingState>("publishingState", this.publishingState);
+        writer.writeEnumValue<TeamsAppPublishingState>("publishingState", this.publishingState);
         writer.writeStringValue("shortDescription", this.shortDescription);
         writer.writeStringValue("teamsAppId", this.teamsAppId);
         writer.writeStringValue("version", this.version);

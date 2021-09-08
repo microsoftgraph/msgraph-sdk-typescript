@@ -1,3 +1,4 @@
+import {RejectReason} from './rejectReason';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RejectResponse implements Parsable {
@@ -39,7 +40,7 @@ export class RejectResponse implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["callbackUri", (o, n) => { (o as unknown as RejectResponse).callbackUri = n.getStringValue(); }],
-            ["reason", (o, n) => { (o as unknown as RejectResponse).reason = n.getObjectValue<RejectReason>(RejectReason); }],
+            ["reason", (o, n) => { (o as unknown as RejectResponse).reason = n.getEnumValue<RejectReason>(RejectReason); }],
         ]);
     };
     /**
@@ -49,7 +50,7 @@ export class RejectResponse implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("callbackUri", this.callbackUri);
-        writer.writeObjectValue<RejectReason>("reason", this.reason);
+        writer.writeEnumValue<RejectReason>("reason", this.reason);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

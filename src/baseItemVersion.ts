@@ -1,5 +1,6 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
+import {PublicationFacet} from './publicationFacet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class BaseItemVersion extends Entity implements Parsable {

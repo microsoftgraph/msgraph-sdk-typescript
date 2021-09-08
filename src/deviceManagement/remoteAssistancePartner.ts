@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RemoteAssistancePartner extends Entity implements Parsable {
@@ -52,7 +53,7 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["displayName", (o, n) => { (o as unknown as RemoteAssistancePartner).displayName = n.getStringValue(); }],
             ["lastConnectionDateTime", (o, n) => { (o as unknown as RemoteAssistancePartner).lastConnectionDateTime = n.getDateValue(); }],
-            ["onboardingStatus", (o, n) => { (o as unknown as RemoteAssistancePartner).onboardingStatus = n.getObjectValue<RemoteAssistanceOnboardingStatus>(RemoteAssistanceOnboardingStatus); }],
+            ["onboardingStatus", (o, n) => { (o as unknown as RemoteAssistancePartner).onboardingStatus = n.getEnumValue<RemoteAssistanceOnboardingStatus>(RemoteAssistanceOnboardingStatus); }],
             ["onboardingUrl", (o, n) => { (o as unknown as RemoteAssistancePartner).onboardingUrl = n.getStringValue(); }],
         ]);
     };
@@ -65,7 +66,7 @@ export class RemoteAssistancePartner extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastConnectionDateTime", this.lastConnectionDateTime);
-        writer.writeObjectValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", this.onboardingStatus);
+        writer.writeEnumValue<RemoteAssistanceOnboardingStatus>("onboardingStatus", this.onboardingStatus);
         writer.writeStringValue("onboardingUrl", this.onboardingUrl);
     };
     /**

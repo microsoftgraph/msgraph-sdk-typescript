@@ -1,4 +1,5 @@
 import {TeamsApp} from './appCatalogs/teamsApp';
+import {TeamsTabConfiguration} from './chats/teamsTabConfiguration';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

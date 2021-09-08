@@ -1,4 +1,7 @@
 import {Entity} from './entity';
+import {OperationError} from './teams/operationError';
+import {TeamsAsyncOperationStatus} from './teams/teamsAsyncOperationStatus';
+import {TeamsAsyncOperationType} from './teams/teamsAsyncOperationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsAsyncOperation extends Entity implements Parsable {
@@ -90,8 +93,8 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
             ["createdDateTime", (o, n) => { (o as unknown as TeamsAsyncOperation).createdDateTime = n.getDateValue(); }],
             ["error", (o, n) => { (o as unknown as TeamsAsyncOperation).error = n.getObjectValue<OperationError>(OperationError); }],
             ["lastActionDateTime", (o, n) => { (o as unknown as TeamsAsyncOperation).lastActionDateTime = n.getDateValue(); }],
-            ["operationType", (o, n) => { (o as unknown as TeamsAsyncOperation).operationType = n.getObjectValue<TeamsAsyncOperationType>(TeamsAsyncOperationType); }],
-            ["status", (o, n) => { (o as unknown as TeamsAsyncOperation).status = n.getObjectValue<TeamsAsyncOperationStatus>(TeamsAsyncOperationStatus); }],
+            ["operationType", (o, n) => { (o as unknown as TeamsAsyncOperation).operationType = n.getEnumValue<TeamsAsyncOperationType>(TeamsAsyncOperationType); }],
+            ["status", (o, n) => { (o as unknown as TeamsAsyncOperation).status = n.getEnumValue<TeamsAsyncOperationStatus>(TeamsAsyncOperationStatus); }],
             ["targetResourceId", (o, n) => { (o as unknown as TeamsAsyncOperation).targetResourceId = n.getStringValue(); }],
             ["targetResourceLocation", (o, n) => { (o as unknown as TeamsAsyncOperation).targetResourceLocation = n.getStringValue(); }],
         ]);
@@ -107,8 +110,8 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<OperationError>("error", this.error);
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
-        writer.writeObjectValue<TeamsAsyncOperationType>("operationType", this.operationType);
-        writer.writeObjectValue<TeamsAsyncOperationStatus>("status", this.status);
+        writer.writeEnumValue<TeamsAsyncOperationType>("operationType", this.operationType);
+        writer.writeEnumValue<TeamsAsyncOperationStatus>("status", this.status);
         writer.writeStringValue("targetResourceId", this.targetResourceId);
         writer.writeStringValue("targetResourceLocation", this.targetResourceLocation);
     };

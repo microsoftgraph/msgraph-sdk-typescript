@@ -1,3 +1,4 @@
+import {Workbook} from '../../workbook';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';
@@ -12,7 +13,6 @@ import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionReque
 import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
-import {Workbook} from './workbook';
 import {WorkbookWorksheetRequestBuilder} from './worksheets/item/workbookWorksheetRequestBuilder';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

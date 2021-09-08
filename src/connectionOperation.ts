@@ -1,4 +1,6 @@
+import {ConnectionOperationStatus} from './connections/connectionOperationStatus';
 import {Entity} from './entity';
+import {PublicError} from './publicError';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConnectionOperation extends Entity implements Parsable {
@@ -31,7 +33,7 @@ export class ConnectionOperation extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["error", (o, n) => { (o as unknown as ConnectionOperation).error = n.getObjectValue<PublicError>(PublicError); }],
-            ["status", (o, n) => { (o as unknown as ConnectionOperation).status = n.getObjectValue<ConnectionOperationStatus>(ConnectionOperationStatus); }],
+            ["status", (o, n) => { (o as unknown as ConnectionOperation).status = n.getEnumValue<ConnectionOperationStatus>(ConnectionOperationStatus); }],
         ]);
     };
     /**
@@ -42,7 +44,7 @@ export class ConnectionOperation extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<PublicError>("error", this.error);
-        writer.writeObjectValue<ConnectionOperationStatus>("status", this.status);
+        writer.writeEnumValue<ConnectionOperationStatus>("status", this.status);
     };
     /**
      * Sets the error property value. 

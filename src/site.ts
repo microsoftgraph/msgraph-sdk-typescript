@@ -1,12 +1,15 @@
 import {ColumnDefinition} from './columnDefinition';
 import {ContentType} from './contentType';
+import {Drive} from './drive';
 import {BaseItem} from './drive/baseItem';
-import {Drive} from './drive/drive';
-import {ItemAnalytics} from './drive/list/items/analytics/itemAnalytics';
-import {Root} from './drive/root/root';
-import {Onenote} from './groups/onenote/onenote';
+import {ItemAnalytics} from './itemAnalytics';
 import {List} from './list';
+import {Onenote} from './onenote';
 import {Permission} from './permission';
+import {PublicError} from './publicError';
+import {Root} from './root';
+import {SharepointIds} from './sharepointIds';
+import {SiteCollection} from './siteCollection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Site extends BaseItem implements Parsable {

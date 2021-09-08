@@ -1,3 +1,4 @@
+import {Json} from '../../../../me/json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class HypGeom_DistResponse implements Parsable {

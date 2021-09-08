@@ -1,5 +1,6 @@
 import {Entity} from '../entity';
 import {UserConsentRequest} from './appConsent/userConsentRequest';
+import {AppConsentRequestScope} from './appConsentRequestScope';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AppConsentRequest extends Entity implements Parsable {
@@ -53,7 +54,7 @@ export class AppConsentRequest extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["appDisplayName", (o, n) => { (o as unknown as AppConsentRequest).appDisplayName = n.getStringValue(); }],
             ["appId", (o, n) => { (o as unknown as AppConsentRequest).appId = n.getStringValue(); }],
-            ["pendingScopes", (o, n) => { (o as unknown as AppConsentRequest).pendingScopes = n.getCollectionOfPrimitiveValues<appConsentRequestScope>(); }],
+            ["pendingScopes", (o, n) => { (o as unknown as AppConsentRequest).pendingScopes = n.getCollectionOfObjectValues<AppConsentRequestScope>(AppConsentRequestScope); }],
             ["userConsentRequests", (o, n) => { (o as unknown as AppConsentRequest).userConsentRequests = n.getCollectionOfObjectValues<UserConsentRequest>(UserConsentRequest); }],
         ]);
     };
@@ -66,7 +67,7 @@ export class AppConsentRequest extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("appDisplayName", this.appDisplayName);
         writer.writeStringValue("appId", this.appId);
-        writer.writeCollectionOfPrimitiveValues<appConsentRequestScope>("pendingScopes", this.pendingScopes);
+        writer.writeCollectionOfObjectValues<AppConsentRequestScope>("pendingScopes", this.pendingScopes);
         writer.writeCollectionOfObjectValues<UserConsentRequest>("userConsentRequests", this.userConsentRequests);
     };
     /**

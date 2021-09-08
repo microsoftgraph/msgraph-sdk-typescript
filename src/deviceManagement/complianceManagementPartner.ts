@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
+import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ComplianceManagementPartner extends Entity implements Parsable {
@@ -95,15 +97,15 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["androidEnrollmentAssignments", (o, n) => { (o as unknown as ComplianceManagementPartner).androidEnrollmentAssignments = n.getCollectionOfPrimitiveValues<complianceManagementPartnerAssignment>(); }],
+            ["androidEnrollmentAssignments", (o, n) => { (o as unknown as ComplianceManagementPartner).androidEnrollmentAssignments = n.getCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment); }],
             ["androidOnboarded", (o, n) => { (o as unknown as ComplianceManagementPartner).androidOnboarded = n.getBooleanValue(); }],
             ["displayName", (o, n) => { (o as unknown as ComplianceManagementPartner).displayName = n.getStringValue(); }],
-            ["iosEnrollmentAssignments", (o, n) => { (o as unknown as ComplianceManagementPartner).iosEnrollmentAssignments = n.getCollectionOfPrimitiveValues<complianceManagementPartnerAssignment>(); }],
+            ["iosEnrollmentAssignments", (o, n) => { (o as unknown as ComplianceManagementPartner).iosEnrollmentAssignments = n.getCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment); }],
             ["iosOnboarded", (o, n) => { (o as unknown as ComplianceManagementPartner).iosOnboarded = n.getBooleanValue(); }],
             ["lastHeartbeatDateTime", (o, n) => { (o as unknown as ComplianceManagementPartner).lastHeartbeatDateTime = n.getDateValue(); }],
-            ["macOsEnrollmentAssignments", (o, n) => { (o as unknown as ComplianceManagementPartner).macOsEnrollmentAssignments = n.getCollectionOfPrimitiveValues<complianceManagementPartnerAssignment>(); }],
+            ["macOsEnrollmentAssignments", (o, n) => { (o as unknown as ComplianceManagementPartner).macOsEnrollmentAssignments = n.getCollectionOfObjectValues<ComplianceManagementPartnerAssignment>(ComplianceManagementPartnerAssignment); }],
             ["macOsOnboarded", (o, n) => { (o as unknown as ComplianceManagementPartner).macOsOnboarded = n.getBooleanValue(); }],
-            ["partnerState", (o, n) => { (o as unknown as ComplianceManagementPartner).partnerState = n.getObjectValue<DeviceManagementPartnerTenantState>(DeviceManagementPartnerTenantState); }],
+            ["partnerState", (o, n) => { (o as unknown as ComplianceManagementPartner).partnerState = n.getEnumValue<DeviceManagementPartnerTenantState>(DeviceManagementPartnerTenantState); }],
         ]);
     };
     /**
@@ -113,15 +115,15 @@ export class ComplianceManagementPartner extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<complianceManagementPartnerAssignment>("androidEnrollmentAssignments", this.androidEnrollmentAssignments);
+        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("androidEnrollmentAssignments", this.androidEnrollmentAssignments);
         writer.writeBooleanValue("androidOnboarded", this.androidOnboarded);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfPrimitiveValues<complianceManagementPartnerAssignment>("iosEnrollmentAssignments", this.iosEnrollmentAssignments);
+        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("iosEnrollmentAssignments", this.iosEnrollmentAssignments);
         writer.writeBooleanValue("iosOnboarded", this.iosOnboarded);
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
-        writer.writeCollectionOfPrimitiveValues<complianceManagementPartnerAssignment>("macOsEnrollmentAssignments", this.macOsEnrollmentAssignments);
+        writer.writeCollectionOfObjectValues<ComplianceManagementPartnerAssignment>("macOsEnrollmentAssignments", this.macOsEnrollmentAssignments);
         writer.writeBooleanValue("macOsOnboarded", this.macOsOnboarded);
-        writer.writeObjectValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
+        writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
     };
     /**
      * Sets the androidEnrollmentAssignments property value. User groups which enroll Android devices through partner.

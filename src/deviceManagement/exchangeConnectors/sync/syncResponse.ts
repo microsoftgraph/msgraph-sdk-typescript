@@ -1,3 +1,4 @@
+import {DeviceManagementExchangeConnectorSyncType} from './deviceManagementExchangeConnectorSyncType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SyncResponse implements Parsable {
@@ -30,7 +31,7 @@ export class SyncResponse implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["syncType", (o, n) => { (o as unknown as SyncResponse).syncType = n.getObjectValue<DeviceManagementExchangeConnectorSyncType>(DeviceManagementExchangeConnectorSyncType); }],
+            ["syncType", (o, n) => { (o as unknown as SyncResponse).syncType = n.getEnumValue<DeviceManagementExchangeConnectorSyncType>(DeviceManagementExchangeConnectorSyncType); }],
         ]);
     };
     /**
@@ -39,7 +40,7 @@ export class SyncResponse implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<DeviceManagementExchangeConnectorSyncType>("syncType", this.syncType);
+        writer.writeEnumValue<DeviceManagementExchangeConnectorSyncType>("syncType", this.syncType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

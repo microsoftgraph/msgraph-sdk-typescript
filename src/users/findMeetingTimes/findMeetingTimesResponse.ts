@@ -1,3 +1,6 @@
+import {AttendeeBase} from '../../attendeeBase';
+import {LocationConstraint} from '../../me/locationConstraint';
+import {TimeConstraint} from '../../me/timeConstraint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class FindMeetingTimesResponse implements Parsable {
@@ -86,7 +89,7 @@ export class FindMeetingTimesResponse implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["attendees", (o, n) => { (o as unknown as FindMeetingTimesResponse).attendees = n.getCollectionOfPrimitiveValues<attendeeBase>(); }],
+            ["attendees", (o, n) => { (o as unknown as FindMeetingTimesResponse).attendees = n.getCollectionOfObjectValues<AttendeeBase>(AttendeeBase); }],
             ["isOrganizerOptional", (o, n) => { (o as unknown as FindMeetingTimesResponse).isOrganizerOptional = n.getBooleanValue(); }],
             ["locationConstraint", (o, n) => { (o as unknown as FindMeetingTimesResponse).locationConstraint = n.getObjectValue<LocationConstraint>(LocationConstraint); }],
             ["maxCandidates", (o, n) => { (o as unknown as FindMeetingTimesResponse).maxCandidates = n.getNumberValue(); }],
@@ -102,7 +105,7 @@ export class FindMeetingTimesResponse implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<attendeeBase>("attendees", this.attendees);
+        writer.writeCollectionOfObjectValues<AttendeeBase>("attendees", this.attendees);
         writer.writeBooleanValue("isOrganizerOptional", this.isOrganizerOptional);
         writer.writeObjectValue<LocationConstraint>("locationConstraint", this.locationConstraint);
         writer.writeNumberValue("maxCandidates", this.maxCandidates);

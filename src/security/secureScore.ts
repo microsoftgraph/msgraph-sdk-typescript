@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {AverageComparativeScore} from './averageComparativeScore';
+import {ControlScore} from './controlScore';
+import {SecurityVendorInformation} from './securityVendorInformation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SecureScore extends Entity implements Parsable {
@@ -105,9 +108,9 @@ export class SecureScore extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["activeUserCount", (o, n) => { (o as unknown as SecureScore).activeUserCount = n.getNumberValue(); }],
-            ["averageComparativeScores", (o, n) => { (o as unknown as SecureScore).averageComparativeScores = n.getCollectionOfPrimitiveValues<averageComparativeScore>(); }],
+            ["averageComparativeScores", (o, n) => { (o as unknown as SecureScore).averageComparativeScores = n.getCollectionOfObjectValues<AverageComparativeScore>(AverageComparativeScore); }],
             ["azureTenantId", (o, n) => { (o as unknown as SecureScore).azureTenantId = n.getStringValue(); }],
-            ["controlScores", (o, n) => { (o as unknown as SecureScore).controlScores = n.getCollectionOfPrimitiveValues<controlScore>(); }],
+            ["controlScores", (o, n) => { (o as unknown as SecureScore).controlScores = n.getCollectionOfObjectValues<ControlScore>(ControlScore); }],
             ["createdDateTime", (o, n) => { (o as unknown as SecureScore).createdDateTime = n.getDateValue(); }],
             ["currentScore", (o, n) => { (o as unknown as SecureScore).currentScore = n.getNumberValue(); }],
             ["enabledServices", (o, n) => { (o as unknown as SecureScore).enabledServices = n.getCollectionOfPrimitiveValues<string>(); }],
@@ -124,9 +127,9 @@ export class SecureScore extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeNumberValue("activeUserCount", this.activeUserCount);
-        writer.writeCollectionOfPrimitiveValues<averageComparativeScore>("averageComparativeScores", this.averageComparativeScores);
+        writer.writeCollectionOfObjectValues<AverageComparativeScore>("averageComparativeScores", this.averageComparativeScores);
         writer.writeStringValue("azureTenantId", this.azureTenantId);
-        writer.writeCollectionOfPrimitiveValues<controlScore>("controlScores", this.controlScores);
+        writer.writeCollectionOfObjectValues<ControlScore>("controlScores", this.controlScores);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeNumberValue("currentScore", this.currentScore);
         writer.writeCollectionOfPrimitiveValues<string>("enabledServices", this.enabledServices);

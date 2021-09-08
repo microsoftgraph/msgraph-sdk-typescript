@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {Thumbnail} from './workbooks/thumbnail';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ThumbnailSet extends Entity implements Parsable {

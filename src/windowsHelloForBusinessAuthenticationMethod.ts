@@ -1,5 +1,6 @@
 import {AuthenticationMethod} from './authenticationMethod';
 import {Device} from './device';
+import {AuthenticationMethodKeyStrength} from './me/authentication/authenticationMethodKeyStrength';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsHelloForBusinessAuthenticationMethod extends AuthenticationMethod implements Parsable {
@@ -54,7 +55,7 @@ export class WindowsHelloForBusinessAuthenticationMethod extends AuthenticationM
             ["createdDateTime", (o, n) => { (o as unknown as WindowsHelloForBusinessAuthenticationMethod).createdDateTime = n.getDateValue(); }],
             ["device", (o, n) => { (o as unknown as WindowsHelloForBusinessAuthenticationMethod).device = n.getObjectValue<Device>(Device); }],
             ["displayName", (o, n) => { (o as unknown as WindowsHelloForBusinessAuthenticationMethod).displayName = n.getStringValue(); }],
-            ["keyStrength", (o, n) => { (o as unknown as WindowsHelloForBusinessAuthenticationMethod).keyStrength = n.getObjectValue<AuthenticationMethodKeyStrength>(AuthenticationMethodKeyStrength); }],
+            ["keyStrength", (o, n) => { (o as unknown as WindowsHelloForBusinessAuthenticationMethod).keyStrength = n.getEnumValue<AuthenticationMethodKeyStrength>(AuthenticationMethodKeyStrength); }],
         ]);
     };
     /**
@@ -67,7 +68,7 @@ export class WindowsHelloForBusinessAuthenticationMethod extends AuthenticationM
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<Device>("device", this.device);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<AuthenticationMethodKeyStrength>("keyStrength", this.keyStrength);
+        writer.writeEnumValue<AuthenticationMethodKeyStrength>("keyStrength", this.keyStrength);
     };
     /**
      * Sets the createdDateTime property value. The date and time that this Windows Hello for Business key was registered.

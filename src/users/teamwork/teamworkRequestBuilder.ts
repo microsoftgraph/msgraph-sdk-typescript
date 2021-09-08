@@ -1,5 +1,5 @@
-import {UserTeamwork} from '../../me/teamwork/userTeamwork';
 import {Teamwork} from '../../teamwork/teamwork';
+import {UserTeamwork} from '../../userTeamwork';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
 import {UserScopeTeamsAppInstallationRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';

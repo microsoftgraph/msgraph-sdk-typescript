@@ -1,4 +1,10 @@
 import {ItemBody} from './chats/itemBody';
+import {AudioConferencing} from './communications/audioConferencing';
+import {ChatInfo} from './communications/chatInfo';
+import {LobbyBypassSettings} from './communications/lobbyBypassSettings';
+import {MeetingChatMode} from './communications/meetingChatMode';
+import {MeetingParticipants} from './communications/meetingParticipants';
+import {OnlineMeetingPresenters} from './communications/onlineMeetingPresenters';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -179,8 +185,8 @@ export class OnlineMeeting extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["allowAttendeeToEnableCamera", (o, n) => { (o as unknown as OnlineMeeting).allowAttendeeToEnableCamera = n.getBooleanValue(); }],
             ["allowAttendeeToEnableMic", (o, n) => { (o as unknown as OnlineMeeting).allowAttendeeToEnableMic = n.getBooleanValue(); }],
-            ["allowedPresenters", (o, n) => { (o as unknown as OnlineMeeting).allowedPresenters = n.getObjectValue<OnlineMeetingPresenters>(OnlineMeetingPresenters); }],
-            ["allowMeetingChat", (o, n) => { (o as unknown as OnlineMeeting).allowMeetingChat = n.getObjectValue<MeetingChatMode>(MeetingChatMode); }],
+            ["allowedPresenters", (o, n) => { (o as unknown as OnlineMeeting).allowedPresenters = n.getEnumValue<OnlineMeetingPresenters>(OnlineMeetingPresenters); }],
+            ["allowMeetingChat", (o, n) => { (o as unknown as OnlineMeeting).allowMeetingChat = n.getEnumValue<MeetingChatMode>(MeetingChatMode); }],
             ["allowTeamworkReactions", (o, n) => { (o as unknown as OnlineMeeting).allowTeamworkReactions = n.getBooleanValue(); }],
             ["audioConferencing", (o, n) => { (o as unknown as OnlineMeeting).audioConferencing = n.getObjectValue<AudioConferencing>(AudioConferencing); }],
             ["chatInfo", (o, n) => { (o as unknown as OnlineMeeting).chatInfo = n.getObjectValue<ChatInfo>(ChatInfo); }],
@@ -206,8 +212,8 @@ export class OnlineMeeting extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeBooleanValue("allowAttendeeToEnableCamera", this.allowAttendeeToEnableCamera);
         writer.writeBooleanValue("allowAttendeeToEnableMic", this.allowAttendeeToEnableMic);
-        writer.writeObjectValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
-        writer.writeObjectValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
+        writer.writeEnumValue<OnlineMeetingPresenters>("allowedPresenters", this.allowedPresenters);
+        writer.writeEnumValue<MeetingChatMode>("allowMeetingChat", this.allowMeetingChat);
         writer.writeBooleanValue("allowTeamworkReactions", this.allowTeamworkReactions);
         writer.writeObjectValue<AudioConferencing>("audioConferencing", this.audioConferencing);
         writer.writeObjectValue<ChatInfo>("chatInfo", this.chatInfo);

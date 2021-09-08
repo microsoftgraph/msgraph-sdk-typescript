@@ -1,4 +1,4 @@
-import {Drive} from '../../drive/drive';
+import {Drive} from '../../drive';
 import {DrivesResponse} from './drivesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

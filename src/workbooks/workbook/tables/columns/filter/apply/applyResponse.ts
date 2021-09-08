@@ -1,3 +1,4 @@
+import {WorkbookFilterCriteria} from '../../../workbookFilterCriteria';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplyResponse implements Parsable {

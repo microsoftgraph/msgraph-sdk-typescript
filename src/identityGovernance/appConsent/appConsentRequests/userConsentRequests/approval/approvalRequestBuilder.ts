@@ -1,4 +1,4 @@
-import {Approval} from './approval';
+import {Approval} from '../../../../approval';
 import {ApprovalStageRequestBuilder} from './stages/item/approvalStageRequestBuilder';
 import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

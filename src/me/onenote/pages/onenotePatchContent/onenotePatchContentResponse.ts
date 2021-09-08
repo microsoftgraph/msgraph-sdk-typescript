@@ -1,3 +1,4 @@
+import {OnenotePatchContentCommand} from '../../../../sites/onenote/notebooks/sectionGroups/sections/pages/onenotePatchContent/onenotePatchContentCommand';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OnenotePatchContentResponse implements Parsable {
@@ -30,7 +31,7 @@ export class OnenotePatchContentResponse implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["commands", (o, n) => { (o as unknown as OnenotePatchContentResponse).commands = n.getCollectionOfPrimitiveValues<onenotePatchContentCommand>(); }],
+            ["commands", (o, n) => { (o as unknown as OnenotePatchContentResponse).commands = n.getCollectionOfObjectValues<OnenotePatchContentCommand>(OnenotePatchContentCommand); }],
         ]);
     };
     /**
@@ -39,7 +40,7 @@ export class OnenotePatchContentResponse implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<onenotePatchContentCommand>("commands", this.commands);
+        writer.writeCollectionOfObjectValues<OnenotePatchContentCommand>("commands", this.commands);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

@@ -1,4 +1,7 @@
 import {Entity} from './entity';
+import {ResourceReference} from './me/insights/resourceReference';
+import {ResourceVisualization} from './me/insights/resourceVisualization';
+import {UsageDetails} from './me/insights/usageDetails';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UsedInsight extends Entity implements Parsable {

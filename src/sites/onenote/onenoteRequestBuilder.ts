@@ -1,4 +1,4 @@
-import {Onenote} from '../../groups/onenote/onenote';
+import {Onenote} from '../../onenote';
 import {NotebookRequestBuilder} from './notebooks/item/notebookRequestBuilder';
 import {NotebooksRequestBuilder} from './notebooks/notebooksRequestBuilder';
 import {OnenoteOperationRequestBuilder} from './operations/item/onenoteOperationRequestBuilder';

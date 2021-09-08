@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Extension} from './extension';
 import {TodoTask} from './me/todo/todoTask';
+import {WellknownListName} from './me/todo/wellknownListName';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TodoTaskList extends Entity implements Parsable {
@@ -75,7 +76,7 @@ export class TodoTaskList extends Entity implements Parsable {
             ["isOwner", (o, n) => { (o as unknown as TodoTaskList).isOwner = n.getBooleanValue(); }],
             ["isShared", (o, n) => { (o as unknown as TodoTaskList).isShared = n.getBooleanValue(); }],
             ["tasks", (o, n) => { (o as unknown as TodoTaskList).tasks = n.getCollectionOfObjectValues<TodoTask>(TodoTask); }],
-            ["wellknownListName", (o, n) => { (o as unknown as TodoTaskList).wellknownListName = n.getObjectValue<WellknownListName>(WellknownListName); }],
+            ["wellknownListName", (o, n) => { (o as unknown as TodoTaskList).wellknownListName = n.getEnumValue<WellknownListName>(WellknownListName); }],
         ]);
     };
     /**
@@ -90,7 +91,7 @@ export class TodoTaskList extends Entity implements Parsable {
         writer.writeBooleanValue("isOwner", this.isOwner);
         writer.writeBooleanValue("isShared", this.isShared);
         writer.writeCollectionOfObjectValues<TodoTask>("tasks", this.tasks);
-        writer.writeObjectValue<WellknownListName>("wellknownListName", this.wellknownListName);
+        writer.writeEnumValue<WellknownListName>("wellknownListName", this.wellknownListName);
     };
     /**
      * Sets the displayName property value. The name of the task list.

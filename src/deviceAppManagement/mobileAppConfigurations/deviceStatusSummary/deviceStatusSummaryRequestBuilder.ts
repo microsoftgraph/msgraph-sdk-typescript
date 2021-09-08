@@ -1,5 +1,5 @@
+import {ManagedDeviceMobileAppConfigurationDeviceSummary} from '../../managedDeviceMobileAppConfigurationDeviceSummary';
 import {DeviceStatusSummary} from './deviceStatusSummary';
-import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration-id}/deviceStatusSummary  */

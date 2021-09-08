@@ -1,5 +1,6 @@
 import {Entity} from '../../entity';
-import {WorkbookFilter} from './tables/columns/filter/workbookFilter';
+import {Json} from '../../me/json';
+import {WorkbookFilter} from './tables/workbookFilter';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookTableColumn extends Entity implements Parsable {

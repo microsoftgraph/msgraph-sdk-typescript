@@ -1,4 +1,5 @@
 import {DateTimeTimeZone} from '../../dateTimeTimeZone';
+import {Location} from '../../groups/location';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ReminderViewWithStartDateTimeWithEndDateTime implements Parsable {

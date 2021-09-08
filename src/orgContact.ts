@@ -1,4 +1,7 @@
 import {DirectoryObject} from './directoryObject';
+import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import {Phone} from './phone';
+import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OrgContact extends DirectoryObject implements Parsable {
@@ -175,7 +178,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["addresses", (o, n) => { (o as unknown as OrgContact).addresses = n.getCollectionOfPrimitiveValues<physicalOfficeAddress>(); }],
+            ["addresses", (o, n) => { (o as unknown as OrgContact).addresses = n.getCollectionOfObjectValues<PhysicalOfficeAddress>(PhysicalOfficeAddress); }],
             ["companyName", (o, n) => { (o as unknown as OrgContact).companyName = n.getStringValue(); }],
             ["department", (o, n) => { (o as unknown as OrgContact).department = n.getStringValue(); }],
             ["directReports", (o, n) => { (o as unknown as OrgContact).directReports = n.getCollectionOfObjectValues<DirectoryObject>(DirectoryObject); }],
@@ -187,9 +190,9 @@ export class OrgContact extends DirectoryObject implements Parsable {
             ["manager", (o, n) => { (o as unknown as OrgContact).manager = n.getObjectValue<DirectoryObject>(DirectoryObject); }],
             ["memberOf", (o, n) => { (o as unknown as OrgContact).memberOf = n.getCollectionOfObjectValues<DirectoryObject>(DirectoryObject); }],
             ["onPremisesLastSyncDateTime", (o, n) => { (o as unknown as OrgContact).onPremisesLastSyncDateTime = n.getDateValue(); }],
-            ["onPremisesProvisioningErrors", (o, n) => { (o as unknown as OrgContact).onPremisesProvisioningErrors = n.getCollectionOfPrimitiveValues<onPremisesProvisioningError>(); }],
+            ["onPremisesProvisioningErrors", (o, n) => { (o as unknown as OrgContact).onPremisesProvisioningErrors = n.getCollectionOfObjectValues<OnPremisesProvisioningError>(OnPremisesProvisioningError); }],
             ["onPremisesSyncEnabled", (o, n) => { (o as unknown as OrgContact).onPremisesSyncEnabled = n.getBooleanValue(); }],
-            ["phones", (o, n) => { (o as unknown as OrgContact).phones = n.getCollectionOfPrimitiveValues<phone>(); }],
+            ["phones", (o, n) => { (o as unknown as OrgContact).phones = n.getCollectionOfObjectValues<Phone>(Phone); }],
             ["proxyAddresses", (o, n) => { (o as unknown as OrgContact).proxyAddresses = n.getCollectionOfPrimitiveValues<string>(); }],
             ["surname", (o, n) => { (o as unknown as OrgContact).surname = n.getStringValue(); }],
             ["transitiveMemberOf", (o, n) => { (o as unknown as OrgContact).transitiveMemberOf = n.getCollectionOfObjectValues<DirectoryObject>(DirectoryObject); }],
@@ -202,7 +205,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<physicalOfficeAddress>("addresses", this.addresses);
+        writer.writeCollectionOfObjectValues<PhysicalOfficeAddress>("addresses", this.addresses);
         writer.writeStringValue("companyName", this.companyName);
         writer.writeStringValue("department", this.department);
         writer.writeCollectionOfObjectValues<DirectoryObject>("directReports", this.directReports);
@@ -214,9 +217,9 @@ export class OrgContact extends DirectoryObject implements Parsable {
         writer.writeObjectValue<DirectoryObject>("manager", this.manager);
         writer.writeCollectionOfObjectValues<DirectoryObject>("memberOf", this.memberOf);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
-        writer.writeCollectionOfPrimitiveValues<onPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
+        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
-        writer.writeCollectionOfPrimitiveValues<phone>("phones", this.phones);
+        writer.writeCollectionOfObjectValues<Phone>("phones", this.phones);
         writer.writeCollectionOfPrimitiveValues<string>("proxyAddresses", this.proxyAddresses);
         writer.writeStringValue("surname", this.surname);
         writer.writeCollectionOfObjectValues<DirectoryObject>("transitiveMemberOf", this.transitiveMemberOf);

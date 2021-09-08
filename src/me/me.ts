@@ -2,40 +2,47 @@ import {AgreementAcceptance} from '../agreementAcceptance';
 import {AppRoleAssignment} from '../appRoleAssignment';
 import {AssignedLicense} from '../assignedLicense';
 import {AssignedPlan} from '../assignedPlan';
+import {Authentication} from '../authentication';
+import {Calendar} from '../calendar';
 import {CalendarGroup} from '../calendarGroup';
 import {Chat} from '../chat';
 import {Contact} from '../contact';
 import {ContactFolder} from '../contactFolder';
 import {DeviceManagementTroubleshootingEvent} from '../deviceManagementTroubleshootingEvent';
 import {DirectoryObject} from '../directoryObject';
-import {Drive} from '../drive/drive';
+import {Drive} from '../drive';
+import {EmployeeOrgData} from '../employeeOrgData';
 import {Event} from '../event';
 import {Extension} from '../extension';
-import {Calendar} from '../groups/calendar/calendar';
-import {Onenote} from '../groups/onenote/onenote';
+import {InferenceClassification} from '../inferenceClassification';
+import {LicenseAssignmentState} from '../licenseAssignmentState';
 import {LicenseDetails} from '../licenseDetails';
+import {MailboxSettings} from '../mailboxSettings';
 import {MailFolder} from '../mailFolder';
 import {ManagedAppRegistration} from '../managedAppRegistration';
 import {ManagedDevice} from '../managedDevice';
 import {Message} from '../message';
 import {OAuth2PermissionGrant} from '../oAuth2PermissionGrant';
+import {ObjectIdentity} from '../objectIdentity';
+import {OfficeGraphInsights} from '../officeGraphInsights';
+import {Onenote} from '../onenote';
 import {OnlineMeeting} from '../onlineMeeting';
+import {OnPremisesExtensionAttributes} from '../onPremisesExtensionAttributes';
+import {OnPremisesProvisioningError} from '../onPremisesProvisioningError';
+import {OutlookUser} from '../outlookUser';
+import {PasswordProfile} from '../passwordProfile';
 import {Person} from '../person';
+import {PlannerUser} from '../plannerUser';
 import {Presence} from '../presence';
 import {ProfilePhoto} from '../profilePhoto';
 import {ProvisionedPlan} from '../provisionedPlan';
 import {ScopedRoleMembership} from '../scopedRoleMembership';
 import {Site} from '../site';
 import {Team} from '../team';
+import {Todo} from '../todo';
 import {UserActivity} from '../userActivity';
-import {Authentication} from './authentication/authentication';
-import {InferenceClassification} from './inferenceClassification/inferenceClassification';
-import {OfficeGraphInsights} from './insights/officeGraphInsights';
-import {OutlookUser} from './outlook/outlookUser';
-import {PlannerUser} from './planner/plannerUser';
-import {UserSettings} from './settings/userSettings';
-import {UserTeamwork} from './teamwork/userTeamwork';
-import {Todo} from './todo/todo';
+import {UserSettings} from '../userSettings';
+import {UserTeamwork} from '../userTeamwork';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Me extends DirectoryObject implements Parsable {
@@ -1123,7 +1130,7 @@ export class Me extends DirectoryObject implements Parsable {
             ["followedSites", (o, n) => { (o as unknown as Me).followedSites = n.getCollectionOfObjectValues<Site>(Site); }],
             ["givenName", (o, n) => { (o as unknown as Me).givenName = n.getStringValue(); }],
             ["hireDate", (o, n) => { (o as unknown as Me).hireDate = n.getDateValue(); }],
-            ["identities", (o, n) => { (o as unknown as Me).identities = n.getCollectionOfPrimitiveValues<objectIdentity>(); }],
+            ["identities", (o, n) => { (o as unknown as Me).identities = n.getCollectionOfObjectValues<ObjectIdentity>(ObjectIdentity); }],
             ["imAddresses", (o, n) => { (o as unknown as Me).imAddresses = n.getCollectionOfPrimitiveValues<string>(); }],
             ["inferenceClassification", (o, n) => { (o as unknown as Me).inferenceClassification = n.getObjectValue<InferenceClassification>(InferenceClassification); }],
             ["insights", (o, n) => { (o as unknown as Me).insights = n.getObjectValue<OfficeGraphInsights>(OfficeGraphInsights); }],
@@ -1133,7 +1140,7 @@ export class Me extends DirectoryObject implements Parsable {
             ["joinedTeams", (o, n) => { (o as unknown as Me).joinedTeams = n.getCollectionOfObjectValues<Team>(Team); }],
             ["lastPasswordChangeDateTime", (o, n) => { (o as unknown as Me).lastPasswordChangeDateTime = n.getDateValue(); }],
             ["legalAgeGroupClassification", (o, n) => { (o as unknown as Me).legalAgeGroupClassification = n.getStringValue(); }],
-            ["licenseAssignmentStates", (o, n) => { (o as unknown as Me).licenseAssignmentStates = n.getCollectionOfPrimitiveValues<licenseAssignmentState>(); }],
+            ["licenseAssignmentStates", (o, n) => { (o as unknown as Me).licenseAssignmentStates = n.getCollectionOfObjectValues<LicenseAssignmentState>(LicenseAssignmentState); }],
             ["licenseDetails", (o, n) => { (o as unknown as Me).licenseDetails = n.getCollectionOfObjectValues<LicenseDetails>(LicenseDetails); }],
             ["mail", (o, n) => { (o as unknown as Me).mail = n.getStringValue(); }],
             ["mailboxSettings", (o, n) => { (o as unknown as Me).mailboxSettings = n.getObjectValue<MailboxSettings>(MailboxSettings); }],
@@ -1155,7 +1162,7 @@ export class Me extends DirectoryObject implements Parsable {
             ["onPremisesExtensionAttributes", (o, n) => { (o as unknown as Me).onPremisesExtensionAttributes = n.getObjectValue<OnPremisesExtensionAttributes>(OnPremisesExtensionAttributes); }],
             ["onPremisesImmutableId", (o, n) => { (o as unknown as Me).onPremisesImmutableId = n.getStringValue(); }],
             ["onPremisesLastSyncDateTime", (o, n) => { (o as unknown as Me).onPremisesLastSyncDateTime = n.getDateValue(); }],
-            ["onPremisesProvisioningErrors", (o, n) => { (o as unknown as Me).onPremisesProvisioningErrors = n.getCollectionOfPrimitiveValues<onPremisesProvisioningError>(); }],
+            ["onPremisesProvisioningErrors", (o, n) => { (o as unknown as Me).onPremisesProvisioningErrors = n.getCollectionOfObjectValues<OnPremisesProvisioningError>(OnPremisesProvisioningError); }],
             ["onPremisesSamAccountName", (o, n) => { (o as unknown as Me).onPremisesSamAccountName = n.getStringValue(); }],
             ["onPremisesSecurityIdentifier", (o, n) => { (o as unknown as Me).onPremisesSecurityIdentifier = n.getStringValue(); }],
             ["onPremisesSyncEnabled", (o, n) => { (o as unknown as Me).onPremisesSyncEnabled = n.getBooleanValue(); }],
@@ -1247,7 +1254,7 @@ export class Me extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<Site>("followedSites", this.followedSites);
         writer.writeStringValue("givenName", this.givenName);
         writer.writeDateValue("hireDate", this.hireDate);
-        writer.writeCollectionOfPrimitiveValues<objectIdentity>("identities", this.identities);
+        writer.writeCollectionOfObjectValues<ObjectIdentity>("identities", this.identities);
         writer.writeCollectionOfPrimitiveValues<string>("imAddresses", this.imAddresses);
         writer.writeObjectValue<InferenceClassification>("inferenceClassification", this.inferenceClassification);
         writer.writeObjectValue<OfficeGraphInsights>("insights", this.insights);
@@ -1257,7 +1264,7 @@ export class Me extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<Team>("joinedTeams", this.joinedTeams);
         writer.writeDateValue("lastPasswordChangeDateTime", this.lastPasswordChangeDateTime);
         writer.writeStringValue("legalAgeGroupClassification", this.legalAgeGroupClassification);
-        writer.writeCollectionOfPrimitiveValues<licenseAssignmentState>("licenseAssignmentStates", this.licenseAssignmentStates);
+        writer.writeCollectionOfObjectValues<LicenseAssignmentState>("licenseAssignmentStates", this.licenseAssignmentStates);
         writer.writeCollectionOfObjectValues<LicenseDetails>("licenseDetails", this.licenseDetails);
         writer.writeStringValue("mail", this.mail);
         writer.writeObjectValue<MailboxSettings>("mailboxSettings", this.mailboxSettings);
@@ -1279,7 +1286,7 @@ export class Me extends DirectoryObject implements Parsable {
         writer.writeObjectValue<OnPremisesExtensionAttributes>("onPremisesExtensionAttributes", this.onPremisesExtensionAttributes);
         writer.writeStringValue("onPremisesImmutableId", this.onPremisesImmutableId);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
-        writer.writeCollectionOfPrimitiveValues<onPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
+        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
         writer.writeStringValue("onPremisesSamAccountName", this.onPremisesSamAccountName);
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);

@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {ThreatAssessmentResultType} from './threatAssessmentRequests/threatAssessmentResultType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentResult extends Entity implements Parsable {
@@ -43,7 +44,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["createdDateTime", (o, n) => { (o as unknown as ThreatAssessmentResult).createdDateTime = n.getDateValue(); }],
             ["message", (o, n) => { (o as unknown as ThreatAssessmentResult).message = n.getStringValue(); }],
-            ["resultType", (o, n) => { (o as unknown as ThreatAssessmentResult).resultType = n.getObjectValue<ThreatAssessmentResultType>(ThreatAssessmentResultType); }],
+            ["resultType", (o, n) => { (o as unknown as ThreatAssessmentResult).resultType = n.getEnumValue<ThreatAssessmentResultType>(ThreatAssessmentResultType); }],
         ]);
     };
     /**
@@ -55,7 +56,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("message", this.message);
-        writer.writeObjectValue<ThreatAssessmentResultType>("resultType", this.resultType);
+        writer.writeEnumValue<ThreatAssessmentResultType>("resultType", this.resultType);
     };
     /**
      * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.

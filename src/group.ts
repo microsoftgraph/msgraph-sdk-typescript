@@ -1,16 +1,19 @@
 import {AppRoleAssignment} from './appRoleAssignment';
+import {AssignedLabel} from './assignedLabel';
 import {AssignedLicense} from './assignedLicense';
+import {Calendar} from './calendar';
 import {Conversation} from './conversation';
 import {ConversationThread} from './conversationThread';
 import {DirectoryObject} from './directoryObject';
-import {Drive} from './drive/drive';
+import {Drive} from './drive';
 import {Event} from './event';
 import {Extension} from './extension';
 import {GroupLifecyclePolicy} from './groupLifecyclePolicy';
-import {Calendar} from './groups/calendar/calendar';
-import {Onenote} from './groups/onenote/onenote';
-import {PlannerGroup} from './groups/planner/plannerGroup';
 import {GroupSetting} from './groupSetting';
+import {LicenseProcessingState} from './licenseProcessingState';
+import {Onenote} from './onenote';
+import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
+import {PlannerGroup} from './plannerGroup';
 import {ProfilePhoto} from './profilePhoto';
 import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant';
 import {Site} from './site';
@@ -614,7 +617,7 @@ export class Group extends DirectoryObject implements Parsable {
             ["acceptedSenders", (o, n) => { (o as unknown as Group).acceptedSenders = n.getCollectionOfObjectValues<DirectoryObject>(DirectoryObject); }],
             ["allowExternalSenders", (o, n) => { (o as unknown as Group).allowExternalSenders = n.getBooleanValue(); }],
             ["appRoleAssignments", (o, n) => { (o as unknown as Group).appRoleAssignments = n.getCollectionOfObjectValues<AppRoleAssignment>(AppRoleAssignment); }],
-            ["assignedLabels", (o, n) => { (o as unknown as Group).assignedLabels = n.getCollectionOfPrimitiveValues<assignedLabel>(); }],
+            ["assignedLabels", (o, n) => { (o as unknown as Group).assignedLabels = n.getCollectionOfObjectValues<AssignedLabel>(AssignedLabel); }],
             ["assignedLicenses", (o, n) => { (o as unknown as Group).assignedLicenses = n.getCollectionOfObjectValues<AssignedLicense>(AssignedLicense); }],
             ["autoSubscribeNewMembers", (o, n) => { (o as unknown as Group).autoSubscribeNewMembers = n.getBooleanValue(); }],
             ["calendar", (o, n) => { (o as unknown as Group).calendar = n.getObjectValue<Calendar>(Calendar); }],
@@ -651,7 +654,7 @@ export class Group extends DirectoryObject implements Parsable {
             ["onPremisesDomainName", (o, n) => { (o as unknown as Group).onPremisesDomainName = n.getStringValue(); }],
             ["onPremisesLastSyncDateTime", (o, n) => { (o as unknown as Group).onPremisesLastSyncDateTime = n.getDateValue(); }],
             ["onPremisesNetBiosName", (o, n) => { (o as unknown as Group).onPremisesNetBiosName = n.getStringValue(); }],
-            ["onPremisesProvisioningErrors", (o, n) => { (o as unknown as Group).onPremisesProvisioningErrors = n.getCollectionOfPrimitiveValues<onPremisesProvisioningError>(); }],
+            ["onPremisesProvisioningErrors", (o, n) => { (o as unknown as Group).onPremisesProvisioningErrors = n.getCollectionOfObjectValues<OnPremisesProvisioningError>(OnPremisesProvisioningError); }],
             ["onPremisesSamAccountName", (o, n) => { (o as unknown as Group).onPremisesSamAccountName = n.getStringValue(); }],
             ["onPremisesSecurityIdentifier", (o, n) => { (o as unknown as Group).onPremisesSecurityIdentifier = n.getStringValue(); }],
             ["onPremisesSyncEnabled", (o, n) => { (o as unknown as Group).onPremisesSyncEnabled = n.getBooleanValue(); }],
@@ -688,7 +691,7 @@ export class Group extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<DirectoryObject>("acceptedSenders", this.acceptedSenders);
         writer.writeBooleanValue("allowExternalSenders", this.allowExternalSenders);
         writer.writeCollectionOfObjectValues<AppRoleAssignment>("appRoleAssignments", this.appRoleAssignments);
-        writer.writeCollectionOfPrimitiveValues<assignedLabel>("assignedLabels", this.assignedLabels);
+        writer.writeCollectionOfObjectValues<AssignedLabel>("assignedLabels", this.assignedLabels);
         writer.writeCollectionOfObjectValues<AssignedLicense>("assignedLicenses", this.assignedLicenses);
         writer.writeBooleanValue("autoSubscribeNewMembers", this.autoSubscribeNewMembers);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);
@@ -725,7 +728,7 @@ export class Group extends DirectoryObject implements Parsable {
         writer.writeStringValue("onPremisesDomainName", this.onPremisesDomainName);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         writer.writeStringValue("onPremisesNetBiosName", this.onPremisesNetBiosName);
-        writer.writeCollectionOfPrimitiveValues<onPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
+        writer.writeCollectionOfObjectValues<OnPremisesProvisioningError>("onPremisesProvisioningErrors", this.onPremisesProvisioningErrors);
         writer.writeStringValue("onPremisesSamAccountName", this.onPremisesSamAccountName);
         writer.writeStringValue("onPremisesSecurityIdentifier", this.onPremisesSecurityIdentifier);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);

@@ -1,5 +1,5 @@
-import {PlannerUser} from '../../me/planner/plannerUser';
 import {Planner} from '../../planner/planner';
+import {PlannerUser} from '../../plannerUser';
 import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';

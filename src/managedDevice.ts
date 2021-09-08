@@ -1,6 +1,17 @@
+import {DeviceActionResult} from './deviceActionResult';
+import {ComplianceState} from './deviceManagement/complianceState';
+import {ConfigurationManagerClientEnabledFeatures} from './deviceManagement/configurationManagerClientEnabledFeatures';
 import {DeviceCategory} from './deviceManagement/deviceCategory';
 import {DeviceCompliancePolicyState} from './deviceManagement/deviceCompliancePolicyState';
 import {DeviceConfigurationState} from './deviceManagement/deviceConfigurationState';
+import {DeviceEnrollmentType} from './deviceManagement/deviceEnrollmentType';
+import {DeviceHealthAttestationState} from './deviceManagement/deviceHealthAttestationState';
+import {DeviceManagementExchangeAccessState} from './deviceManagement/deviceManagementExchangeAccessState';
+import {DeviceManagementExchangeAccessStateReason} from './deviceManagement/deviceManagementExchangeAccessStateReason';
+import {DeviceRegistrationState} from './deviceManagement/deviceRegistrationState';
+import {ManagedDeviceOwnerType} from './deviceManagement/managedDeviceOwnerType';
+import {ManagedDevicePartnerReportedHealthState} from './deviceManagement/managedDevicePartnerReportedHealthState';
+import {ManagementAgentType} from './deviceManagement/managementAgentType';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -508,25 +519,25 @@ export class ManagedDevice extends Entity implements Parsable {
             ["azureADDeviceId", (o, n) => { (o as unknown as ManagedDevice).azureADDeviceId = n.getStringValue(); }],
             ["azureADRegistered", (o, n) => { (o as unknown as ManagedDevice).azureADRegistered = n.getBooleanValue(); }],
             ["complianceGracePeriodExpirationDateTime", (o, n) => { (o as unknown as ManagedDevice).complianceGracePeriodExpirationDateTime = n.getDateValue(); }],
-            ["complianceState", (o, n) => { (o as unknown as ManagedDevice).complianceState = n.getObjectValue<ComplianceState>(ComplianceState); }],
+            ["complianceState", (o, n) => { (o as unknown as ManagedDevice).complianceState = n.getEnumValue<ComplianceState>(ComplianceState); }],
             ["configurationManagerClientEnabledFeatures", (o, n) => { (o as unknown as ManagedDevice).configurationManagerClientEnabledFeatures = n.getObjectValue<ConfigurationManagerClientEnabledFeatures>(ConfigurationManagerClientEnabledFeatures); }],
-            ["deviceActionResults", (o, n) => { (o as unknown as ManagedDevice).deviceActionResults = n.getCollectionOfPrimitiveValues<deviceActionResult>(); }],
+            ["deviceActionResults", (o, n) => { (o as unknown as ManagedDevice).deviceActionResults = n.getCollectionOfObjectValues<DeviceActionResult>(DeviceActionResult); }],
             ["deviceCategory", (o, n) => { (o as unknown as ManagedDevice).deviceCategory = n.getObjectValue<DeviceCategory>(DeviceCategory); }],
             ["deviceCategoryDisplayName", (o, n) => { (o as unknown as ManagedDevice).deviceCategoryDisplayName = n.getStringValue(); }],
             ["deviceCompliancePolicyStates", (o, n) => { (o as unknown as ManagedDevice).deviceCompliancePolicyStates = n.getCollectionOfObjectValues<DeviceCompliancePolicyState>(DeviceCompliancePolicyState); }],
             ["deviceConfigurationStates", (o, n) => { (o as unknown as ManagedDevice).deviceConfigurationStates = n.getCollectionOfObjectValues<DeviceConfigurationState>(DeviceConfigurationState); }],
-            ["deviceEnrollmentType", (o, n) => { (o as unknown as ManagedDevice).deviceEnrollmentType = n.getObjectValue<DeviceEnrollmentType>(DeviceEnrollmentType); }],
+            ["deviceEnrollmentType", (o, n) => { (o as unknown as ManagedDevice).deviceEnrollmentType = n.getEnumValue<DeviceEnrollmentType>(DeviceEnrollmentType); }],
             ["deviceHealthAttestationState", (o, n) => { (o as unknown as ManagedDevice).deviceHealthAttestationState = n.getObjectValue<DeviceHealthAttestationState>(DeviceHealthAttestationState); }],
             ["deviceName", (o, n) => { (o as unknown as ManagedDevice).deviceName = n.getStringValue(); }],
-            ["deviceRegistrationState", (o, n) => { (o as unknown as ManagedDevice).deviceRegistrationState = n.getObjectValue<DeviceRegistrationState>(DeviceRegistrationState); }],
+            ["deviceRegistrationState", (o, n) => { (o as unknown as ManagedDevice).deviceRegistrationState = n.getEnumValue<DeviceRegistrationState>(DeviceRegistrationState); }],
             ["easActivated", (o, n) => { (o as unknown as ManagedDevice).easActivated = n.getBooleanValue(); }],
             ["easActivationDateTime", (o, n) => { (o as unknown as ManagedDevice).easActivationDateTime = n.getDateValue(); }],
             ["easDeviceId", (o, n) => { (o as unknown as ManagedDevice).easDeviceId = n.getStringValue(); }],
             ["emailAddress", (o, n) => { (o as unknown as ManagedDevice).emailAddress = n.getStringValue(); }],
             ["enrolledDateTime", (o, n) => { (o as unknown as ManagedDevice).enrolledDateTime = n.getDateValue(); }],
             ["ethernetMacAddress", (o, n) => { (o as unknown as ManagedDevice).ethernetMacAddress = n.getStringValue(); }],
-            ["exchangeAccessState", (o, n) => { (o as unknown as ManagedDevice).exchangeAccessState = n.getObjectValue<DeviceManagementExchangeAccessState>(DeviceManagementExchangeAccessState); }],
-            ["exchangeAccessStateReason", (o, n) => { (o as unknown as ManagedDevice).exchangeAccessStateReason = n.getObjectValue<DeviceManagementExchangeAccessStateReason>(DeviceManagementExchangeAccessStateReason); }],
+            ["exchangeAccessState", (o, n) => { (o as unknown as ManagedDevice).exchangeAccessState = n.getEnumValue<DeviceManagementExchangeAccessState>(DeviceManagementExchangeAccessState); }],
+            ["exchangeAccessStateReason", (o, n) => { (o as unknown as ManagedDevice).exchangeAccessStateReason = n.getEnumValue<DeviceManagementExchangeAccessStateReason>(DeviceManagementExchangeAccessStateReason); }],
             ["exchangeLastSuccessfulSyncDateTime", (o, n) => { (o as unknown as ManagedDevice).exchangeLastSuccessfulSyncDateTime = n.getDateValue(); }],
             ["freeStorageSpaceInBytes", (o, n) => { (o as unknown as ManagedDevice).freeStorageSpaceInBytes = n.getObjectValue<Int64>(Int64); }],
             ["iccid", (o, n) => { (o as unknown as ManagedDevice).iccid = n.getStringValue(); }],
@@ -536,15 +547,15 @@ export class ManagedDevice extends Entity implements Parsable {
             ["jailBroken", (o, n) => { (o as unknown as ManagedDevice).jailBroken = n.getStringValue(); }],
             ["lastSyncDateTime", (o, n) => { (o as unknown as ManagedDevice).lastSyncDateTime = n.getDateValue(); }],
             ["managedDeviceName", (o, n) => { (o as unknown as ManagedDevice).managedDeviceName = n.getStringValue(); }],
-            ["managedDeviceOwnerType", (o, n) => { (o as unknown as ManagedDevice).managedDeviceOwnerType = n.getObjectValue<ManagedDeviceOwnerType>(ManagedDeviceOwnerType); }],
-            ["managementAgent", (o, n) => { (o as unknown as ManagedDevice).managementAgent = n.getObjectValue<ManagementAgentType>(ManagementAgentType); }],
+            ["managedDeviceOwnerType", (o, n) => { (o as unknown as ManagedDevice).managedDeviceOwnerType = n.getEnumValue<ManagedDeviceOwnerType>(ManagedDeviceOwnerType); }],
+            ["managementAgent", (o, n) => { (o as unknown as ManagedDevice).managementAgent = n.getEnumValue<ManagementAgentType>(ManagementAgentType); }],
             ["manufacturer", (o, n) => { (o as unknown as ManagedDevice).manufacturer = n.getStringValue(); }],
             ["meid", (o, n) => { (o as unknown as ManagedDevice).meid = n.getStringValue(); }],
             ["model", (o, n) => { (o as unknown as ManagedDevice).model = n.getStringValue(); }],
             ["notes", (o, n) => { (o as unknown as ManagedDevice).notes = n.getStringValue(); }],
             ["operatingSystem", (o, n) => { (o as unknown as ManagedDevice).operatingSystem = n.getStringValue(); }],
             ["osVersion", (o, n) => { (o as unknown as ManagedDevice).osVersion = n.getStringValue(); }],
-            ["partnerReportedThreatState", (o, n) => { (o as unknown as ManagedDevice).partnerReportedThreatState = n.getObjectValue<ManagedDevicePartnerReportedHealthState>(ManagedDevicePartnerReportedHealthState); }],
+            ["partnerReportedThreatState", (o, n) => { (o as unknown as ManagedDevice).partnerReportedThreatState = n.getEnumValue<ManagedDevicePartnerReportedHealthState>(ManagedDevicePartnerReportedHealthState); }],
             ["phoneNumber", (o, n) => { (o as unknown as ManagedDevice).phoneNumber = n.getStringValue(); }],
             ["physicalMemoryInBytes", (o, n) => { (o as unknown as ManagedDevice).physicalMemoryInBytes = n.getObjectValue<Int64>(Int64); }],
             ["remoteAssistanceSessionErrorDetails", (o, n) => { (o as unknown as ManagedDevice).remoteAssistanceSessionErrorDetails = n.getStringValue(); }],
@@ -571,25 +582,25 @@ export class ManagedDevice extends Entity implements Parsable {
         writer.writeStringValue("azureADDeviceId", this.azureADDeviceId);
         writer.writeBooleanValue("azureADRegistered", this.azureADRegistered);
         writer.writeDateValue("complianceGracePeriodExpirationDateTime", this.complianceGracePeriodExpirationDateTime);
-        writer.writeObjectValue<ComplianceState>("complianceState", this.complianceState);
+        writer.writeEnumValue<ComplianceState>("complianceState", this.complianceState);
         writer.writeObjectValue<ConfigurationManagerClientEnabledFeatures>("configurationManagerClientEnabledFeatures", this.configurationManagerClientEnabledFeatures);
-        writer.writeCollectionOfPrimitiveValues<deviceActionResult>("deviceActionResults", this.deviceActionResults);
+        writer.writeCollectionOfObjectValues<DeviceActionResult>("deviceActionResults", this.deviceActionResults);
         writer.writeObjectValue<DeviceCategory>("deviceCategory", this.deviceCategory);
         writer.writeStringValue("deviceCategoryDisplayName", this.deviceCategoryDisplayName);
         writer.writeCollectionOfObjectValues<DeviceCompliancePolicyState>("deviceCompliancePolicyStates", this.deviceCompliancePolicyStates);
         writer.writeCollectionOfObjectValues<DeviceConfigurationState>("deviceConfigurationStates", this.deviceConfigurationStates);
-        writer.writeObjectValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
+        writer.writeEnumValue<DeviceEnrollmentType>("deviceEnrollmentType", this.deviceEnrollmentType);
         writer.writeObjectValue<DeviceHealthAttestationState>("deviceHealthAttestationState", this.deviceHealthAttestationState);
         writer.writeStringValue("deviceName", this.deviceName);
-        writer.writeObjectValue<DeviceRegistrationState>("deviceRegistrationState", this.deviceRegistrationState);
+        writer.writeEnumValue<DeviceRegistrationState>("deviceRegistrationState", this.deviceRegistrationState);
         writer.writeBooleanValue("easActivated", this.easActivated);
         writer.writeDateValue("easActivationDateTime", this.easActivationDateTime);
         writer.writeStringValue("easDeviceId", this.easDeviceId);
         writer.writeStringValue("emailAddress", this.emailAddress);
         writer.writeDateValue("enrolledDateTime", this.enrolledDateTime);
         writer.writeStringValue("ethernetMacAddress", this.ethernetMacAddress);
-        writer.writeObjectValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
-        writer.writeObjectValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
+        writer.writeEnumValue<DeviceManagementExchangeAccessState>("exchangeAccessState", this.exchangeAccessState);
+        writer.writeEnumValue<DeviceManagementExchangeAccessStateReason>("exchangeAccessStateReason", this.exchangeAccessStateReason);
         writer.writeDateValue("exchangeLastSuccessfulSyncDateTime", this.exchangeLastSuccessfulSyncDateTime);
         writer.writeObjectValue<Int64>("freeStorageSpaceInBytes", this.freeStorageSpaceInBytes);
         writer.writeStringValue("iccid", this.iccid);
@@ -599,15 +610,15 @@ export class ManagedDevice extends Entity implements Parsable {
         writer.writeStringValue("jailBroken", this.jailBroken);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("managedDeviceName", this.managedDeviceName);
-        writer.writeObjectValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", this.managedDeviceOwnerType);
-        writer.writeObjectValue<ManagementAgentType>("managementAgent", this.managementAgent);
+        writer.writeEnumValue<ManagedDeviceOwnerType>("managedDeviceOwnerType", this.managedDeviceOwnerType);
+        writer.writeEnumValue<ManagementAgentType>("managementAgent", this.managementAgent);
         writer.writeStringValue("manufacturer", this.manufacturer);
         writer.writeStringValue("meid", this.meid);
         writer.writeStringValue("model", this.model);
         writer.writeStringValue("notes", this.notes);
         writer.writeStringValue("operatingSystem", this.operatingSystem);
         writer.writeStringValue("osVersion", this.osVersion);
-        writer.writeObjectValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
+        writer.writeEnumValue<ManagedDevicePartnerReportedHealthState>("partnerReportedThreatState", this.partnerReportedThreatState);
         writer.writeStringValue("phoneNumber", this.phoneNumber);
         writer.writeObjectValue<Int64>("physicalMemoryInBytes", this.physicalMemoryInBytes);
         writer.writeStringValue("remoteAssistanceSessionErrorDetails", this.remoteAssistanceSessionErrorDetails);

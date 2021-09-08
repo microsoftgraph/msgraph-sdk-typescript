@@ -1,5 +1,7 @@
+import {Identity} from '../../../auditLogs/identity';
+import {UserIdentity} from '../../../auditLogs/userIdentity';
 import {Entity} from '../../../entity';
-import {Identity} from '../../../identity';
+import {AccessReviewInstanceDecisionItemResource} from './instances/accessReviewInstanceDecisionItemResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewInstanceDecisionItem extends Entity implements Parsable {

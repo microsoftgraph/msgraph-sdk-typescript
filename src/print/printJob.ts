@@ -1,3 +1,4 @@
+import {UserIdentity} from '../auditLogs/userIdentity';
 import {Entity} from '../entity';
 import {PrintDocument} from '../me/insights/shared/lastSharedMethod/printJob/printDocument';
 import {PrintJobConfiguration} from '../me/insights/shared/lastSharedMethod/printJob/printJobConfiguration';

@@ -1,4 +1,4 @@
-import {Todo} from '../../me/todo/todo';
+import {Todo} from '../../todo';
 import {TodoTaskListRequestBuilder} from './lists/item/todoTaskListRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

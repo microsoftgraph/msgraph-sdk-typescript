@@ -1,3 +1,13 @@
+import {IntegerRange} from '../../../../../print/integerRange';
+import {PrintColorMode} from '../../../../../print/printColorMode';
+import {PrintDuplexMode} from '../../../../../print/printDuplexMode';
+import {PrintFinishing} from '../../../../../print/printFinishing';
+import {PrintMultipageLayout} from '../../../../../print/printMultipageLayout';
+import {PrintOrientation} from '../../../../../print/printOrientation';
+import {PrintQuality} from '../../../../../print/printQuality';
+import {PrintScaling} from '../../../../../print/printScaling';
+import {PrinterFeedOrientation} from './printerFeedOrientation';
+import {PrintMargin} from './printMargin';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintJobConfiguration implements Parsable {
@@ -193,24 +203,24 @@ export class PrintJobConfiguration implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["collate", (o, n) => { (o as unknown as PrintJobConfiguration).collate = n.getBooleanValue(); }],
-            ["colorMode", (o, n) => { (o as unknown as PrintJobConfiguration).colorMode = n.getObjectValue<PrintColorMode>(PrintColorMode); }],
+            ["colorMode", (o, n) => { (o as unknown as PrintJobConfiguration).colorMode = n.getEnumValue<PrintColorMode>(PrintColorMode); }],
             ["copies", (o, n) => { (o as unknown as PrintJobConfiguration).copies = n.getNumberValue(); }],
             ["dpi", (o, n) => { (o as unknown as PrintJobConfiguration).dpi = n.getNumberValue(); }],
-            ["duplexMode", (o, n) => { (o as unknown as PrintJobConfiguration).duplexMode = n.getObjectValue<PrintDuplexMode>(PrintDuplexMode); }],
-            ["feedOrientation", (o, n) => { (o as unknown as PrintJobConfiguration).feedOrientation = n.getObjectValue<PrinterFeedOrientation>(PrinterFeedOrientation); }],
-            ["finishings", (o, n) => { (o as unknown as PrintJobConfiguration).finishings = n.getCollectionOfPrimitiveValues<printFinishing>(); }],
+            ["duplexMode", (o, n) => { (o as unknown as PrintJobConfiguration).duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); }],
+            ["feedOrientation", (o, n) => { (o as unknown as PrintJobConfiguration).feedOrientation = n.getEnumValue<PrinterFeedOrientation>(PrinterFeedOrientation); }],
+            ["finishings", (o, n) => { (o as unknown as PrintJobConfiguration).finishings = n.getCollectionOfObjectValues<PrintFinishing>(PrintFinishing); }],
             ["fitPdfToPage", (o, n) => { (o as unknown as PrintJobConfiguration).fitPdfToPage = n.getBooleanValue(); }],
             ["inputBin", (o, n) => { (o as unknown as PrintJobConfiguration).inputBin = n.getStringValue(); }],
             ["margin", (o, n) => { (o as unknown as PrintJobConfiguration).margin = n.getObjectValue<PrintMargin>(PrintMargin); }],
             ["mediaSize", (o, n) => { (o as unknown as PrintJobConfiguration).mediaSize = n.getStringValue(); }],
             ["mediaType", (o, n) => { (o as unknown as PrintJobConfiguration).mediaType = n.getStringValue(); }],
-            ["multipageLayout", (o, n) => { (o as unknown as PrintJobConfiguration).multipageLayout = n.getObjectValue<PrintMultipageLayout>(PrintMultipageLayout); }],
-            ["orientation", (o, n) => { (o as unknown as PrintJobConfiguration).orientation = n.getObjectValue<PrintOrientation>(PrintOrientation); }],
+            ["multipageLayout", (o, n) => { (o as unknown as PrintJobConfiguration).multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); }],
+            ["orientation", (o, n) => { (o as unknown as PrintJobConfiguration).orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); }],
             ["outputBin", (o, n) => { (o as unknown as PrintJobConfiguration).outputBin = n.getStringValue(); }],
-            ["pageRanges", (o, n) => { (o as unknown as PrintJobConfiguration).pageRanges = n.getCollectionOfPrimitiveValues<integerRange>(); }],
+            ["pageRanges", (o, n) => { (o as unknown as PrintJobConfiguration).pageRanges = n.getCollectionOfObjectValues<IntegerRange>(IntegerRange); }],
             ["pagesPerSheet", (o, n) => { (o as unknown as PrintJobConfiguration).pagesPerSheet = n.getNumberValue(); }],
-            ["quality", (o, n) => { (o as unknown as PrintJobConfiguration).quality = n.getObjectValue<PrintQuality>(PrintQuality); }],
-            ["scaling", (o, n) => { (o as unknown as PrintJobConfiguration).scaling = n.getObjectValue<PrintScaling>(PrintScaling); }],
+            ["quality", (o, n) => { (o as unknown as PrintJobConfiguration).quality = n.getEnumValue<PrintQuality>(PrintQuality); }],
+            ["scaling", (o, n) => { (o as unknown as PrintJobConfiguration).scaling = n.getEnumValue<PrintScaling>(PrintScaling); }],
         ]);
     };
     /**
@@ -220,24 +230,24 @@ export class PrintJobConfiguration implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("collate", this.collate);
-        writer.writeObjectValue<PrintColorMode>("colorMode", this.colorMode);
+        writer.writeEnumValue<PrintColorMode>("colorMode", this.colorMode);
         writer.writeNumberValue("copies", this.copies);
         writer.writeNumberValue("dpi", this.dpi);
-        writer.writeObjectValue<PrintDuplexMode>("duplexMode", this.duplexMode);
-        writer.writeObjectValue<PrinterFeedOrientation>("feedOrientation", this.feedOrientation);
-        writer.writeCollectionOfPrimitiveValues<printFinishing>("finishings", this.finishings);
+        writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
+        writer.writeEnumValue<PrinterFeedOrientation>("feedOrientation", this.feedOrientation);
+        writer.writeCollectionOfObjectValues<PrintFinishing>("finishings", this.finishings);
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         writer.writeStringValue("inputBin", this.inputBin);
         writer.writeObjectValue<PrintMargin>("margin", this.margin);
         writer.writeStringValue("mediaSize", this.mediaSize);
         writer.writeStringValue("mediaType", this.mediaType);
-        writer.writeObjectValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
-        writer.writeObjectValue<PrintOrientation>("orientation", this.orientation);
+        writer.writeEnumValue<PrintMultipageLayout>("multipageLayout", this.multipageLayout);
+        writer.writeEnumValue<PrintOrientation>("orientation", this.orientation);
         writer.writeStringValue("outputBin", this.outputBin);
-        writer.writeCollectionOfPrimitiveValues<integerRange>("pageRanges", this.pageRanges);
+        writer.writeCollectionOfObjectValues<IntegerRange>("pageRanges", this.pageRanges);
         writer.writeNumberValue("pagesPerSheet", this.pagesPerSheet);
-        writer.writeObjectValue<PrintQuality>("quality", this.quality);
-        writer.writeObjectValue<PrintScaling>("scaling", this.scaling);
+        writer.writeEnumValue<PrintQuality>("quality", this.quality);
+        writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

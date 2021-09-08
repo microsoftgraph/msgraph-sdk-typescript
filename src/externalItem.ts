@@ -1,3 +1,6 @@
+import {Acl} from './acl';
+import {ExternalItemContent} from './connections/externalItemContent';
+import {Properties} from './connections/properties';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -38,7 +41,7 @@ export class ExternalItem extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["acl", (o, n) => { (o as unknown as ExternalItem).acl = n.getCollectionOfPrimitiveValues<acl>(); }],
+            ["acl", (o, n) => { (o as unknown as ExternalItem).acl = n.getCollectionOfObjectValues<Acl>(Acl); }],
             ["content", (o, n) => { (o as unknown as ExternalItem).content = n.getObjectValue<ExternalItemContent>(ExternalItemContent); }],
             ["properties", (o, n) => { (o as unknown as ExternalItem).properties = n.getObjectValue<Properties>(Properties); }],
         ]);
@@ -50,7 +53,7 @@ export class ExternalItem extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<acl>("acl", this.acl);
+        writer.writeCollectionOfObjectValues<Acl>("acl", this.acl);
         writer.writeObjectValue<ExternalItemContent>("content", this.content);
         writer.writeObjectValue<Properties>("properties", this.properties);
     };

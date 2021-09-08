@@ -1,4 +1,8 @@
-import {Recipient} from '../../groups/recipient';
+import {EmailAddress} from '../../emailAddress';
+import {AutomaticRepliesMailTips} from '../../me/getMailTips/automaticRepliesMailTips';
+import {MailTipsError} from '../../me/getMailTips/mailTipsError';
+import {RecipientScopeType} from '../../me/getMailTips/recipientScopeType';
+import {Recipient} from '../../recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GetMailTips implements Parsable {
@@ -140,7 +144,7 @@ export class GetMailTips implements Parsable {
             ["isModerated", (o, n) => { (o as unknown as GetMailTips).isModerated = n.getBooleanValue(); }],
             ["mailboxFull", (o, n) => { (o as unknown as GetMailTips).mailboxFull = n.getBooleanValue(); }],
             ["maxMessageSize", (o, n) => { (o as unknown as GetMailTips).maxMessageSize = n.getNumberValue(); }],
-            ["recipientScope", (o, n) => { (o as unknown as GetMailTips).recipientScope = n.getObjectValue<RecipientScopeType>(RecipientScopeType); }],
+            ["recipientScope", (o, n) => { (o as unknown as GetMailTips).recipientScope = n.getEnumValue<RecipientScopeType>(RecipientScopeType); }],
             ["recipientSuggestions", (o, n) => { (o as unknown as GetMailTips).recipientSuggestions = n.getCollectionOfObjectValues<Recipient>(Recipient); }],
             ["totalMemberCount", (o, n) => { (o as unknown as GetMailTips).totalMemberCount = n.getNumberValue(); }],
         ]);
@@ -160,7 +164,7 @@ export class GetMailTips implements Parsable {
         writer.writeBooleanValue("isModerated", this.isModerated);
         writer.writeBooleanValue("mailboxFull", this.mailboxFull);
         writer.writeNumberValue("maxMessageSize", this.maxMessageSize);
-        writer.writeObjectValue<RecipientScopeType>("recipientScope", this.recipientScope);
+        writer.writeEnumValue<RecipientScopeType>("recipientScope", this.recipientScope);
         writer.writeCollectionOfObjectValues<Recipient>("recipientSuggestions", this.recipientSuggestions);
         writer.writeNumberValue("totalMemberCount", this.totalMemberCount);
         writer.writeAdditionalData(this.additionalData);

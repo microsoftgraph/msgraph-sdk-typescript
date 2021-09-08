@@ -2,6 +2,7 @@ import {IdentityProvider} from '../identityProvider';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlow} from './identityUserFlow';
 import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
+import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
 import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

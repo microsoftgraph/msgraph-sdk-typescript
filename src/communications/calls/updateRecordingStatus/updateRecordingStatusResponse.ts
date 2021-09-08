@@ -1,3 +1,4 @@
+import {RecordingStatus} from '../recordingStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UpdateRecordingStatusResponse implements Parsable {
@@ -39,7 +40,7 @@ export class UpdateRecordingStatusResponse implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["clientContext", (o, n) => { (o as unknown as UpdateRecordingStatusResponse).clientContext = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as UpdateRecordingStatusResponse).status = n.getObjectValue<RecordingStatus>(RecordingStatus); }],
+            ["status", (o, n) => { (o as unknown as UpdateRecordingStatusResponse).status = n.getEnumValue<RecordingStatus>(RecordingStatus); }],
         ]);
     };
     /**
@@ -49,7 +50,7 @@ export class UpdateRecordingStatusResponse implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("clientContext", this.clientContext);
-        writer.writeObjectValue<RecordingStatus>("status", this.status);
+        writer.writeEnumValue<RecordingStatus>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

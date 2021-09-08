@@ -1,9 +1,21 @@
 import {Entity} from '../entity';
+import {CallDirection} from './callDirection';
+import {CallMediaState} from './callMediaState';
+import {CallOptions} from './callOptions';
+import {CallRoute} from './callRoute';
 import {InvitationParticipantInfo} from './calls/invitationParticipantInfo';
+import {CallState} from './callState';
+import {CallTranscriptionInfo} from './callTranscriptionInfo';
+import {ChatInfo} from './chatInfo';
 import {CommsOperation} from './commsOperation';
+import {IncomingContext} from './incomingContext';
 import {MediaConfig} from './mediaConfig';
+import {MeetingInfo} from './meetingInfo';
+import {Modality} from './modality';
 import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
+import {ResultInfo} from './resultInfo';
+import {ToneInfo} from './toneInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Call extends Entity implements Parsable {
@@ -210,9 +222,9 @@ export class Call extends Entity implements Parsable {
             ["callbackUri", (o, n) => { (o as unknown as Call).callbackUri = n.getStringValue(); }],
             ["callChainId", (o, n) => { (o as unknown as Call).callChainId = n.getStringValue(); }],
             ["callOptions", (o, n) => { (o as unknown as Call).callOptions = n.getObjectValue<CallOptions>(CallOptions); }],
-            ["callRoutes", (o, n) => { (o as unknown as Call).callRoutes = n.getCollectionOfPrimitiveValues<callRoute>(); }],
+            ["callRoutes", (o, n) => { (o as unknown as Call).callRoutes = n.getCollectionOfObjectValues<CallRoute>(CallRoute); }],
             ["chatInfo", (o, n) => { (o as unknown as Call).chatInfo = n.getObjectValue<ChatInfo>(ChatInfo); }],
-            ["direction", (o, n) => { (o as unknown as Call).direction = n.getObjectValue<CallDirection>(CallDirection); }],
+            ["direction", (o, n) => { (o as unknown as Call).direction = n.getEnumValue<CallDirection>(CallDirection); }],
             ["incomingContext", (o, n) => { (o as unknown as Call).incomingContext = n.getObjectValue<IncomingContext>(IncomingContext); }],
             ["mediaConfig", (o, n) => { (o as unknown as Call).mediaConfig = n.getObjectValue<MediaConfig>(MediaConfig); }],
             ["mediaState", (o, n) => { (o as unknown as Call).mediaState = n.getObjectValue<CallMediaState>(CallMediaState); }],
@@ -220,10 +232,10 @@ export class Call extends Entity implements Parsable {
             ["myParticipantId", (o, n) => { (o as unknown as Call).myParticipantId = n.getStringValue(); }],
             ["operations", (o, n) => { (o as unknown as Call).operations = n.getCollectionOfObjectValues<CommsOperation>(CommsOperation); }],
             ["participants", (o, n) => { (o as unknown as Call).participants = n.getCollectionOfObjectValues<Participant>(Participant); }],
-            ["requestedModalities", (o, n) => { (o as unknown as Call).requestedModalities = n.getCollectionOfPrimitiveValues<modality>(); }],
+            ["requestedModalities", (o, n) => { (o as unknown as Call).requestedModalities = n.getCollectionOfObjectValues<Modality>(Modality); }],
             ["resultInfo", (o, n) => { (o as unknown as Call).resultInfo = n.getObjectValue<ResultInfo>(ResultInfo); }],
             ["source", (o, n) => { (o as unknown as Call).source = n.getObjectValue<ParticipantInfo>(ParticipantInfo); }],
-            ["state", (o, n) => { (o as unknown as Call).state = n.getObjectValue<CallState>(CallState); }],
+            ["state", (o, n) => { (o as unknown as Call).state = n.getEnumValue<CallState>(CallState); }],
             ["subject", (o, n) => { (o as unknown as Call).subject = n.getStringValue(); }],
             ["targets", (o, n) => { (o as unknown as Call).targets = n.getCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo); }],
             ["tenantId", (o, n) => { (o as unknown as Call).tenantId = n.getStringValue(); }],
@@ -241,9 +253,9 @@ export class Call extends Entity implements Parsable {
         writer.writeStringValue("callbackUri", this.callbackUri);
         writer.writeStringValue("callChainId", this.callChainId);
         writer.writeObjectValue<CallOptions>("callOptions", this.callOptions);
-        writer.writeCollectionOfPrimitiveValues<callRoute>("callRoutes", this.callRoutes);
+        writer.writeCollectionOfObjectValues<CallRoute>("callRoutes", this.callRoutes);
         writer.writeObjectValue<ChatInfo>("chatInfo", this.chatInfo);
-        writer.writeObjectValue<CallDirection>("direction", this.direction);
+        writer.writeEnumValue<CallDirection>("direction", this.direction);
         writer.writeObjectValue<IncomingContext>("incomingContext", this.incomingContext);
         writer.writeObjectValue<MediaConfig>("mediaConfig", this.mediaConfig);
         writer.writeObjectValue<CallMediaState>("mediaState", this.mediaState);
@@ -251,10 +263,10 @@ export class Call extends Entity implements Parsable {
         writer.writeStringValue("myParticipantId", this.myParticipantId);
         writer.writeCollectionOfObjectValues<CommsOperation>("operations", this.operations);
         writer.writeCollectionOfObjectValues<Participant>("participants", this.participants);
-        writer.writeCollectionOfPrimitiveValues<modality>("requestedModalities", this.requestedModalities);
+        writer.writeCollectionOfObjectValues<Modality>("requestedModalities", this.requestedModalities);
         writer.writeObjectValue<ResultInfo>("resultInfo", this.resultInfo);
         writer.writeObjectValue<ParticipantInfo>("source", this.source);
-        writer.writeObjectValue<CallState>("state", this.state);
+        writer.writeEnumValue<CallState>("state", this.state);
         writer.writeStringValue("subject", this.subject);
         writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("targets", this.targets);
         writer.writeStringValue("tenantId", this.tenantId);

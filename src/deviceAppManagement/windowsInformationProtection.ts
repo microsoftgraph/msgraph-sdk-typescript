@@ -1,6 +1,12 @@
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
+import {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
 import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';
+import {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
+import {WindowsInformationProtectionEnforcementLevel} from './windowsInformationProtectionEnforcementLevel';
+import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
+import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
+import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
@@ -244,28 +250,28 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
             ["assignments", (o, n) => { (o as unknown as WindowsInformationProtection).assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(TargetedManagedAppPolicyAssignment); }],
             ["azureRightsManagementServicesAllowed", (o, n) => { (o as unknown as WindowsInformationProtection).azureRightsManagementServicesAllowed = n.getBooleanValue(); }],
             ["dataRecoveryCertificate", (o, n) => { (o as unknown as WindowsInformationProtection).dataRecoveryCertificate = n.getObjectValue<WindowsInformationProtectionDataRecoveryCertificate>(WindowsInformationProtectionDataRecoveryCertificate); }],
-            ["enforcementLevel", (o, n) => { (o as unknown as WindowsInformationProtection).enforcementLevel = n.getObjectValue<WindowsInformationProtectionEnforcementLevel>(WindowsInformationProtectionEnforcementLevel); }],
+            ["enforcementLevel", (o, n) => { (o as unknown as WindowsInformationProtection).enforcementLevel = n.getEnumValue<WindowsInformationProtectionEnforcementLevel>(WindowsInformationProtectionEnforcementLevel); }],
             ["enterpriseDomain", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseDomain = n.getStringValue(); }],
-            ["enterpriseInternalProxyServers", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseInternalProxyServers = n.getCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>(); }],
-            ["enterpriseIPRanges", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseIPRanges = n.getCollectionOfPrimitiveValues<windowsInformationProtectionIPRangeCollection>(); }],
+            ["enterpriseInternalProxyServers", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseInternalProxyServers = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection); }],
+            ["enterpriseIPRanges", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseIPRanges = n.getCollectionOfObjectValues<WindowsInformationProtectionIPRangeCollection>(WindowsInformationProtectionIPRangeCollection); }],
             ["enterpriseIPRangesAreAuthoritative", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseIPRangesAreAuthoritative = n.getBooleanValue(); }],
-            ["enterpriseNetworkDomainNames", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseNetworkDomainNames = n.getCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>(); }],
-            ["enterpriseProtectedDomainNames", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProtectedDomainNames = n.getCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>(); }],
-            ["enterpriseProxiedDomains", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProxiedDomains = n.getCollectionOfPrimitiveValues<windowsInformationProtectionProxiedDomainCollection>(); }],
-            ["enterpriseProxyServers", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProxyServers = n.getCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>(); }],
+            ["enterpriseNetworkDomainNames", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseNetworkDomainNames = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection); }],
+            ["enterpriseProtectedDomainNames", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProtectedDomainNames = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection); }],
+            ["enterpriseProxiedDomains", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProxiedDomains = n.getCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollection>(WindowsInformationProtectionProxiedDomainCollection); }],
+            ["enterpriseProxyServers", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProxyServers = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection); }],
             ["enterpriseProxyServersAreAuthoritative", (o, n) => { (o as unknown as WindowsInformationProtection).enterpriseProxyServersAreAuthoritative = n.getBooleanValue(); }],
             ["exemptAppLockerFiles", (o, n) => { (o as unknown as WindowsInformationProtection).exemptAppLockerFiles = n.getCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>(WindowsInformationProtectionAppLockerFile); }],
-            ["exemptApps", (o, n) => { (o as unknown as WindowsInformationProtection).exemptApps = n.getCollectionOfPrimitiveValues<windowsInformationProtectionApp>(); }],
+            ["exemptApps", (o, n) => { (o as unknown as WindowsInformationProtection).exemptApps = n.getCollectionOfObjectValues<WindowsInformationProtectionApp>(WindowsInformationProtectionApp); }],
             ["iconsVisible", (o, n) => { (o as unknown as WindowsInformationProtection).iconsVisible = n.getBooleanValue(); }],
             ["indexingEncryptedStoresOrItemsBlocked", (o, n) => { (o as unknown as WindowsInformationProtection).indexingEncryptedStoresOrItemsBlocked = n.getBooleanValue(); }],
             ["isAssigned", (o, n) => { (o as unknown as WindowsInformationProtection).isAssigned = n.getBooleanValue(); }],
-            ["neutralDomainResources", (o, n) => { (o as unknown as WindowsInformationProtection).neutralDomainResources = n.getCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>(); }],
+            ["neutralDomainResources", (o, n) => { (o as unknown as WindowsInformationProtection).neutralDomainResources = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection); }],
             ["protectedAppLockerFiles", (o, n) => { (o as unknown as WindowsInformationProtection).protectedAppLockerFiles = n.getCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>(WindowsInformationProtectionAppLockerFile); }],
-            ["protectedApps", (o, n) => { (o as unknown as WindowsInformationProtection).protectedApps = n.getCollectionOfPrimitiveValues<windowsInformationProtectionApp>(); }],
+            ["protectedApps", (o, n) => { (o as unknown as WindowsInformationProtection).protectedApps = n.getCollectionOfObjectValues<WindowsInformationProtectionApp>(WindowsInformationProtectionApp); }],
             ["protectionUnderLockConfigRequired", (o, n) => { (o as unknown as WindowsInformationProtection).protectionUnderLockConfigRequired = n.getBooleanValue(); }],
             ["revokeOnUnenrollDisabled", (o, n) => { (o as unknown as WindowsInformationProtection).revokeOnUnenrollDisabled = n.getBooleanValue(); }],
             ["rightsManagementServicesTemplateId", (o, n) => { (o as unknown as WindowsInformationProtection).rightsManagementServicesTemplateId = n.getStringValue(); }],
-            ["smbAutoEncryptedFileExtensions", (o, n) => { (o as unknown as WindowsInformationProtection).smbAutoEncryptedFileExtensions = n.getCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>(); }],
+            ["smbAutoEncryptedFileExtensions", (o, n) => { (o as unknown as WindowsInformationProtection).smbAutoEncryptedFileExtensions = n.getCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>(WindowsInformationProtectionResourceCollection); }],
         ]);
     };
     /**
@@ -278,28 +284,28 @@ export class WindowsInformationProtection extends ManagedAppPolicy implements Pa
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", this.assignments);
         writer.writeBooleanValue("azureRightsManagementServicesAllowed", this.azureRightsManagementServicesAllowed);
         writer.writeObjectValue<WindowsInformationProtectionDataRecoveryCertificate>("dataRecoveryCertificate", this.dataRecoveryCertificate);
-        writer.writeObjectValue<WindowsInformationProtectionEnforcementLevel>("enforcementLevel", this.enforcementLevel);
+        writer.writeEnumValue<WindowsInformationProtectionEnforcementLevel>("enforcementLevel", this.enforcementLevel);
         writer.writeStringValue("enterpriseDomain", this.enterpriseDomain);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>("enterpriseInternalProxyServers", this.enterpriseInternalProxyServers);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionIPRangeCollection>("enterpriseIPRanges", this.enterpriseIPRanges);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseInternalProxyServers", this.enterpriseInternalProxyServers);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionIPRangeCollection>("enterpriseIPRanges", this.enterpriseIPRanges);
         writer.writeBooleanValue("enterpriseIPRangesAreAuthoritative", this.enterpriseIPRangesAreAuthoritative);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>("enterpriseNetworkDomainNames", this.enterpriseNetworkDomainNames);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>("enterpriseProtectedDomainNames", this.enterpriseProtectedDomainNames);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionProxiedDomainCollection>("enterpriseProxiedDomains", this.enterpriseProxiedDomains);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>("enterpriseProxyServers", this.enterpriseProxyServers);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseNetworkDomainNames", this.enterpriseNetworkDomainNames);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseProtectedDomainNames", this.enterpriseProtectedDomainNames);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionProxiedDomainCollection>("enterpriseProxiedDomains", this.enterpriseProxiedDomains);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("enterpriseProxyServers", this.enterpriseProxyServers);
         writer.writeBooleanValue("enterpriseProxyServersAreAuthoritative", this.enterpriseProxyServersAreAuthoritative);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("exemptAppLockerFiles", this.exemptAppLockerFiles);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionApp>("exemptApps", this.exemptApps);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionApp>("exemptApps", this.exemptApps);
         writer.writeBooleanValue("iconsVisible", this.iconsVisible);
         writer.writeBooleanValue("indexingEncryptedStoresOrItemsBlocked", this.indexingEncryptedStoresOrItemsBlocked);
         writer.writeBooleanValue("isAssigned", this.isAssigned);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>("neutralDomainResources", this.neutralDomainResources);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("neutralDomainResources", this.neutralDomainResources);
         writer.writeCollectionOfObjectValues<WindowsInformationProtectionAppLockerFile>("protectedAppLockerFiles", this.protectedAppLockerFiles);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionApp>("protectedApps", this.protectedApps);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionApp>("protectedApps", this.protectedApps);
         writer.writeBooleanValue("protectionUnderLockConfigRequired", this.protectionUnderLockConfigRequired);
         writer.writeBooleanValue("revokeOnUnenrollDisabled", this.revokeOnUnenrollDisabled);
         writer.writeStringValue("rightsManagementServicesTemplateId", this.rightsManagementServicesTemplateId);
-        writer.writeCollectionOfPrimitiveValues<windowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", this.smbAutoEncryptedFileExtensions);
+        writer.writeCollectionOfObjectValues<WindowsInformationProtectionResourceCollection>("smbAutoEncryptedFileExtensions", this.smbAutoEncryptedFileExtensions);
     };
     /**
      * Sets the assignments property value. Navigation property to list of security groups targeted for policy.

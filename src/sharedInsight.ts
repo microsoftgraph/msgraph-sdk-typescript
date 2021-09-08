@@ -1,4 +1,7 @@
 import {Entity} from './entity';
+import {ResourceReference} from './me/insights/resourceReference';
+import {ResourceVisualization} from './me/insights/resourceVisualization';
+import {SharingDetail} from './me/insights/sharingDetail';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SharedInsight extends Entity implements Parsable {
@@ -71,7 +74,7 @@ export class SharedInsight extends Entity implements Parsable {
             ["resource", (o, n) => { (o as unknown as SharedInsight).resource = n.getObjectValue<Entity>(Entity); }],
             ["resourceReference", (o, n) => { (o as unknown as SharedInsight).resourceReference = n.getObjectValue<ResourceReference>(ResourceReference); }],
             ["resourceVisualization", (o, n) => { (o as unknown as SharedInsight).resourceVisualization = n.getObjectValue<ResourceVisualization>(ResourceVisualization); }],
-            ["sharingHistory", (o, n) => { (o as unknown as SharedInsight).sharingHistory = n.getCollectionOfPrimitiveValues<sharingDetail>(); }],
+            ["sharingHistory", (o, n) => { (o as unknown as SharedInsight).sharingHistory = n.getCollectionOfObjectValues<SharingDetail>(SharingDetail); }],
         ]);
     };
     /**
@@ -86,7 +89,7 @@ export class SharedInsight extends Entity implements Parsable {
         writer.writeObjectValue<Entity>("resource", this.resource);
         writer.writeObjectValue<ResourceReference>("resourceReference", this.resourceReference);
         writer.writeObjectValue<ResourceVisualization>("resourceVisualization", this.resourceVisualization);
-        writer.writeCollectionOfPrimitiveValues<sharingDetail>("sharingHistory", this.sharingHistory);
+        writer.writeCollectionOfObjectValues<SharingDetail>("sharingHistory", this.sharingHistory);
     };
     /**
      * Sets the lastShared property value. Details about the shared item. Read only.

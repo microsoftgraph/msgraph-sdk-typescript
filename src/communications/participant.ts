@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {RecordingInfo} from './calls/recordingInfo';
+import {MediaStream} from './mediaStream';
 import {ParticipantInfo} from './participantInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -62,7 +64,7 @@ export class Participant extends Entity implements Parsable {
             ["info", (o, n) => { (o as unknown as Participant).info = n.getObjectValue<ParticipantInfo>(ParticipantInfo); }],
             ["isInLobby", (o, n) => { (o as unknown as Participant).isInLobby = n.getBooleanValue(); }],
             ["isMuted", (o, n) => { (o as unknown as Participant).isMuted = n.getBooleanValue(); }],
-            ["mediaStreams", (o, n) => { (o as unknown as Participant).mediaStreams = n.getCollectionOfPrimitiveValues<mediaStream>(); }],
+            ["mediaStreams", (o, n) => { (o as unknown as Participant).mediaStreams = n.getCollectionOfObjectValues<MediaStream>(MediaStream); }],
             ["recordingInfo", (o, n) => { (o as unknown as Participant).recordingInfo = n.getObjectValue<RecordingInfo>(RecordingInfo); }],
         ]);
     };
@@ -76,7 +78,7 @@ export class Participant extends Entity implements Parsable {
         writer.writeObjectValue<ParticipantInfo>("info", this.info);
         writer.writeBooleanValue("isInLobby", this.isInLobby);
         writer.writeBooleanValue("isMuted", this.isMuted);
-        writer.writeCollectionOfPrimitiveValues<mediaStream>("mediaStreams", this.mediaStreams);
+        writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", this.mediaStreams);
         writer.writeObjectValue<RecordingInfo>("recordingInfo", this.recordingInfo);
     };
     /**

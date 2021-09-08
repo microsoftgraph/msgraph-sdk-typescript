@@ -1,4 +1,6 @@
 import {Entity} from './entity';
+import {WorkbookOperationError} from './workbooks/workbook/workbookOperationError';
+import {WorkbookOperationStatus} from './workbooks/workbook/workbookOperationStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookOperation extends Entity implements Parsable {
@@ -43,7 +45,7 @@ export class WorkbookOperation extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["error", (o, n) => { (o as unknown as WorkbookOperation).error = n.getObjectValue<WorkbookOperationError>(WorkbookOperationError); }],
             ["resourceLocation", (o, n) => { (o as unknown as WorkbookOperation).resourceLocation = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as WorkbookOperation).status = n.getObjectValue<WorkbookOperationStatus>(WorkbookOperationStatus); }],
+            ["status", (o, n) => { (o as unknown as WorkbookOperation).status = n.getEnumValue<WorkbookOperationStatus>(WorkbookOperationStatus); }],
         ]);
     };
     /**
@@ -55,7 +57,7 @@ export class WorkbookOperation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<WorkbookOperationError>("error", this.error);
         writer.writeStringValue("resourceLocation", this.resourceLocation);
-        writer.writeObjectValue<WorkbookOperationStatus>("status", this.status);
+        writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
     };
     /**
      * Sets the error property value. The error returned by the operation.

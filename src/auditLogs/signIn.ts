@@ -1,4 +1,13 @@
 import {Entity} from '../entity';
+import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
+import {ConditionalAccessStatus} from './conditionalAccessStatus';
+import {DeviceDetail} from './deviceDetail';
+import {RiskDetail} from './riskDetail';
+import {RiskEventType} from './riskEventType';
+import {RiskLevel} from './riskLevel';
+import {RiskState} from './riskState';
+import {SignInLocation} from './signInLocation';
+import {SignInStatus} from './signInStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SignIn extends Entity implements Parsable {
@@ -223,9 +232,9 @@ export class SignIn extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["appDisplayName", (o, n) => { (o as unknown as SignIn).appDisplayName = n.getStringValue(); }],
             ["appId", (o, n) => { (o as unknown as SignIn).appId = n.getStringValue(); }],
-            ["appliedConditionalAccessPolicies", (o, n) => { (o as unknown as SignIn).appliedConditionalAccessPolicies = n.getCollectionOfPrimitiveValues<appliedConditionalAccessPolicy>(); }],
+            ["appliedConditionalAccessPolicies", (o, n) => { (o as unknown as SignIn).appliedConditionalAccessPolicies = n.getCollectionOfObjectValues<AppliedConditionalAccessPolicy>(AppliedConditionalAccessPolicy); }],
             ["clientAppUsed", (o, n) => { (o as unknown as SignIn).clientAppUsed = n.getStringValue(); }],
-            ["conditionalAccessStatus", (o, n) => { (o as unknown as SignIn).conditionalAccessStatus = n.getObjectValue<ConditionalAccessStatus>(ConditionalAccessStatus); }],
+            ["conditionalAccessStatus", (o, n) => { (o as unknown as SignIn).conditionalAccessStatus = n.getEnumValue<ConditionalAccessStatus>(ConditionalAccessStatus); }],
             ["correlationId", (o, n) => { (o as unknown as SignIn).correlationId = n.getStringValue(); }],
             ["createdDateTime", (o, n) => { (o as unknown as SignIn).createdDateTime = n.getDateValue(); }],
             ["deviceDetail", (o, n) => { (o as unknown as SignIn).deviceDetail = n.getObjectValue<DeviceDetail>(DeviceDetail); }],
@@ -234,12 +243,12 @@ export class SignIn extends Entity implements Parsable {
             ["location", (o, n) => { (o as unknown as SignIn).location = n.getObjectValue<SignInLocation>(SignInLocation); }],
             ["resourceDisplayName", (o, n) => { (o as unknown as SignIn).resourceDisplayName = n.getStringValue(); }],
             ["resourceId", (o, n) => { (o as unknown as SignIn).resourceId = n.getStringValue(); }],
-            ["riskDetail", (o, n) => { (o as unknown as SignIn).riskDetail = n.getObjectValue<RiskDetail>(RiskDetail); }],
-            ["riskEventTypes", (o, n) => { (o as unknown as SignIn).riskEventTypes = n.getCollectionOfPrimitiveValues<riskEventType>(); }],
+            ["riskDetail", (o, n) => { (o as unknown as SignIn).riskDetail = n.getEnumValue<RiskDetail>(RiskDetail); }],
+            ["riskEventTypes", (o, n) => { (o as unknown as SignIn).riskEventTypes = n.getCollectionOfObjectValues<RiskEventType>(RiskEventType); }],
             ["riskEventTypes_v2", (o, n) => { (o as unknown as SignIn).riskEventTypes_v2 = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["riskLevelAggregated", (o, n) => { (o as unknown as SignIn).riskLevelAggregated = n.getObjectValue<RiskLevel>(RiskLevel); }],
-            ["riskLevelDuringSignIn", (o, n) => { (o as unknown as SignIn).riskLevelDuringSignIn = n.getObjectValue<RiskLevel>(RiskLevel); }],
-            ["riskState", (o, n) => { (o as unknown as SignIn).riskState = n.getObjectValue<RiskState>(RiskState); }],
+            ["riskLevelAggregated", (o, n) => { (o as unknown as SignIn).riskLevelAggregated = n.getEnumValue<RiskLevel>(RiskLevel); }],
+            ["riskLevelDuringSignIn", (o, n) => { (o as unknown as SignIn).riskLevelDuringSignIn = n.getEnumValue<RiskLevel>(RiskLevel); }],
+            ["riskState", (o, n) => { (o as unknown as SignIn).riskState = n.getEnumValue<RiskState>(RiskState); }],
             ["status", (o, n) => { (o as unknown as SignIn).status = n.getObjectValue<SignInStatus>(SignInStatus); }],
             ["userDisplayName", (o, n) => { (o as unknown as SignIn).userDisplayName = n.getStringValue(); }],
             ["userId", (o, n) => { (o as unknown as SignIn).userId = n.getStringValue(); }],
@@ -255,9 +264,9 @@ export class SignIn extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("appDisplayName", this.appDisplayName);
         writer.writeStringValue("appId", this.appId);
-        writer.writeCollectionOfPrimitiveValues<appliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", this.appliedConditionalAccessPolicies);
+        writer.writeCollectionOfObjectValues<AppliedConditionalAccessPolicy>("appliedConditionalAccessPolicies", this.appliedConditionalAccessPolicies);
         writer.writeStringValue("clientAppUsed", this.clientAppUsed);
-        writer.writeObjectValue<ConditionalAccessStatus>("conditionalAccessStatus", this.conditionalAccessStatus);
+        writer.writeEnumValue<ConditionalAccessStatus>("conditionalAccessStatus", this.conditionalAccessStatus);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DeviceDetail>("deviceDetail", this.deviceDetail);
@@ -266,12 +275,12 @@ export class SignIn extends Entity implements Parsable {
         writer.writeObjectValue<SignInLocation>("location", this.location);
         writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
         writer.writeStringValue("resourceId", this.resourceId);
-        writer.writeObjectValue<RiskDetail>("riskDetail", this.riskDetail);
-        writer.writeCollectionOfPrimitiveValues<riskEventType>("riskEventTypes", this.riskEventTypes);
+        writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
+        writer.writeCollectionOfObjectValues<RiskEventType>("riskEventTypes", this.riskEventTypes);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes_v2", this.riskEventTypes_v2);
-        writer.writeObjectValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
-        writer.writeObjectValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
-        writer.writeObjectValue<RiskState>("riskState", this.riskState);
+        writer.writeEnumValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
+        writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);
+        writer.writeEnumValue<RiskState>("riskState", this.riskState);
         writer.writeObjectValue<SignInStatus>("status", this.status);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userId", this.userId);

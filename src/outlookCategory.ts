@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {CategoryColor} from './me/outlook/categoryColor';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OutlookCategory extends Entity implements Parsable {
@@ -32,7 +33,7 @@ export class OutlookCategory extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["color", (o, n) => { (o as unknown as OutlookCategory).color = n.getObjectValue<CategoryColor>(CategoryColor); }],
+            ["color", (o, n) => { (o as unknown as OutlookCategory).color = n.getEnumValue<CategoryColor>(CategoryColor); }],
             ["displayName", (o, n) => { (o as unknown as OutlookCategory).displayName = n.getStringValue(); }],
         ]);
     };
@@ -43,7 +44,7 @@ export class OutlookCategory extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<CategoryColor>("color", this.color);
+        writer.writeEnumValue<CategoryColor>("color", this.color);
         writer.writeStringValue("displayName", this.displayName);
     };
     /**

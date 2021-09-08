@@ -1,4 +1,5 @@
 import {Entity} from '../../entity';
+import {DeviceComplianceActionType} from './scheduledActionsForRule/deviceComplianceActionType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceActionItem extends Entity implements Parsable {
@@ -50,7 +51,7 @@ export class DeviceComplianceActionItem extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["actionType", (o, n) => { (o as unknown as DeviceComplianceActionItem).actionType = n.getObjectValue<DeviceComplianceActionType>(DeviceComplianceActionType); }],
+            ["actionType", (o, n) => { (o as unknown as DeviceComplianceActionItem).actionType = n.getEnumValue<DeviceComplianceActionType>(DeviceComplianceActionType); }],
             ["gracePeriodHours", (o, n) => { (o as unknown as DeviceComplianceActionItem).gracePeriodHours = n.getNumberValue(); }],
             ["notificationMessageCCList", (o, n) => { (o as unknown as DeviceComplianceActionItem).notificationMessageCCList = n.getCollectionOfPrimitiveValues<string>(); }],
             ["notificationTemplateId", (o, n) => { (o as unknown as DeviceComplianceActionItem).notificationTemplateId = n.getStringValue(); }],
@@ -63,7 +64,7 @@ export class DeviceComplianceActionItem extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<DeviceComplianceActionType>("actionType", this.actionType);
+        writer.writeEnumValue<DeviceComplianceActionType>("actionType", this.actionType);
         writer.writeNumberValue("gracePeriodHours", this.gracePeriodHours);
         writer.writeCollectionOfPrimitiveValues<string>("notificationMessageCCList", this.notificationMessageCCList);
         writer.writeStringValue("notificationTemplateId", this.notificationTemplateId);

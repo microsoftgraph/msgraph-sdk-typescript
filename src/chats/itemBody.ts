@@ -1,3 +1,4 @@
+import {BodyType} from './bodyType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ItemBody implements Parsable {
@@ -41,7 +42,7 @@ export class ItemBody implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["content", (o, n) => { (o as unknown as ItemBody).content = n.getStringValue(); }],
-            ["contentType", (o, n) => { (o as unknown as ItemBody).contentType = n.getObjectValue<BodyType>(BodyType); }],
+            ["contentType", (o, n) => { (o as unknown as ItemBody).contentType = n.getEnumValue<BodyType>(BodyType); }],
         ]);
     };
     /**
@@ -51,7 +52,7 @@ export class ItemBody implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("content", this.content);
-        writer.writeObjectValue<BodyType>("contentType", this.contentType);
+        writer.writeEnumValue<BodyType>("contentType", this.contentType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

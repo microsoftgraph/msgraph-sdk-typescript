@@ -1,3 +1,4 @@
+import {PrintTaskProcessingState} from './printTaskProcessingState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskStatus implements Parsable {
@@ -41,7 +42,7 @@ export class PrintTaskStatus implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["description", (o, n) => { (o as unknown as PrintTaskStatus).description = n.getStringValue(); }],
-            ["state", (o, n) => { (o as unknown as PrintTaskStatus).state = n.getObjectValue<PrintTaskProcessingState>(PrintTaskProcessingState); }],
+            ["state", (o, n) => { (o as unknown as PrintTaskStatus).state = n.getEnumValue<PrintTaskProcessingState>(PrintTaskProcessingState); }],
         ]);
     };
     /**
@@ -51,7 +52,7 @@ export class PrintTaskStatus implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        writer.writeObjectValue<PrintTaskProcessingState>("state", this.state);
+        writer.writeEnumValue<PrintTaskProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

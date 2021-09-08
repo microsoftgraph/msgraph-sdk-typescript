@@ -1,4 +1,4 @@
-import {ChangeTrackedEntity} from './teamwork/changeTrackedEntity';
+import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {

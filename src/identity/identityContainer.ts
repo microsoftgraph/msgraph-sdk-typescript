@@ -1,6 +1,6 @@
 import {Entity} from '../entity';
 import {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
-import {ConditionalAccessRoot} from './conditionalAccess/conditionalAccessRoot';
+import {ConditionalAccessRoot} from './conditionalAccessRoot';
 import {IdentityApiConnector} from './identityApiConnector';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';

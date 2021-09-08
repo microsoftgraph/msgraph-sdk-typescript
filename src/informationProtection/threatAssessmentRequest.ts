@@ -1,6 +1,11 @@
 import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
+import {ThreatAssessmentContentType} from './threatAssessmentContentType';
+import {ThreatAssessmentRequestSource} from './threatAssessmentRequestSource';
 import {ThreatAssessmentResult} from './threatAssessmentResult';
+import {ThreatAssessmentStatus} from './threatAssessmentStatus';
+import {ThreatCategory} from './threatCategory';
+import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentRequest extends Entity implements Parsable {
@@ -88,14 +93,14 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["category", (o, n) => { (o as unknown as ThreatAssessmentRequest).category = n.getObjectValue<ThreatCategory>(ThreatCategory); }],
-            ["contentType", (o, n) => { (o as unknown as ThreatAssessmentRequest).contentType = n.getObjectValue<ThreatAssessmentContentType>(ThreatAssessmentContentType); }],
+            ["category", (o, n) => { (o as unknown as ThreatAssessmentRequest).category = n.getEnumValue<ThreatCategory>(ThreatCategory); }],
+            ["contentType", (o, n) => { (o as unknown as ThreatAssessmentRequest).contentType = n.getEnumValue<ThreatAssessmentContentType>(ThreatAssessmentContentType); }],
             ["createdBy", (o, n) => { (o as unknown as ThreatAssessmentRequest).createdBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["createdDateTime", (o, n) => { (o as unknown as ThreatAssessmentRequest).createdDateTime = n.getDateValue(); }],
-            ["expectedAssessment", (o, n) => { (o as unknown as ThreatAssessmentRequest).expectedAssessment = n.getObjectValue<ThreatExpectedAssessment>(ThreatExpectedAssessment); }],
-            ["requestSource", (o, n) => { (o as unknown as ThreatAssessmentRequest).requestSource = n.getObjectValue<ThreatAssessmentRequestSource>(ThreatAssessmentRequestSource); }],
+            ["expectedAssessment", (o, n) => { (o as unknown as ThreatAssessmentRequest).expectedAssessment = n.getEnumValue<ThreatExpectedAssessment>(ThreatExpectedAssessment); }],
+            ["requestSource", (o, n) => { (o as unknown as ThreatAssessmentRequest).requestSource = n.getEnumValue<ThreatAssessmentRequestSource>(ThreatAssessmentRequestSource); }],
             ["results", (o, n) => { (o as unknown as ThreatAssessmentRequest).results = n.getCollectionOfObjectValues<ThreatAssessmentResult>(ThreatAssessmentResult); }],
-            ["status", (o, n) => { (o as unknown as ThreatAssessmentRequest).status = n.getObjectValue<ThreatAssessmentStatus>(ThreatAssessmentStatus); }],
+            ["status", (o, n) => { (o as unknown as ThreatAssessmentRequest).status = n.getEnumValue<ThreatAssessmentStatus>(ThreatAssessmentStatus); }],
         ]);
     };
     /**
@@ -105,14 +110,14 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<ThreatCategory>("category", this.category);
-        writer.writeObjectValue<ThreatAssessmentContentType>("contentType", this.contentType);
+        writer.writeEnumValue<ThreatCategory>("category", this.category);
+        writer.writeEnumValue<ThreatAssessmentContentType>("contentType", this.contentType);
         writer.writeObjectValue<IdentitySet>("createdBy", this.createdBy);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
-        writer.writeObjectValue<ThreatExpectedAssessment>("expectedAssessment", this.expectedAssessment);
-        writer.writeObjectValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
+        writer.writeEnumValue<ThreatExpectedAssessment>("expectedAssessment", this.expectedAssessment);
+        writer.writeEnumValue<ThreatAssessmentRequestSource>("requestSource", this.requestSource);
         writer.writeCollectionOfObjectValues<ThreatAssessmentResult>("results", this.results);
-        writer.writeObjectValue<ThreatAssessmentStatus>("status", this.status);
+        writer.writeEnumValue<ThreatAssessmentStatus>("status", this.status);
     };
     /**
      * Sets the category property value. The threat category. Possible values are: spam, phishing, malware.

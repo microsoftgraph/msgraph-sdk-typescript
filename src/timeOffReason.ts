@@ -1,4 +1,5 @@
-import {ChangeTrackedEntity} from './teamwork/changeTrackedEntity';
+import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {TimeOffReasonIconType} from './teams/schedule/timeOffReasonIconType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
@@ -42,7 +43,7 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["displayName", (o, n) => { (o as unknown as TimeOffReason).displayName = n.getStringValue(); }],
-            ["iconType", (o, n) => { (o as unknown as TimeOffReason).iconType = n.getObjectValue<TimeOffReasonIconType>(TimeOffReasonIconType); }],
+            ["iconType", (o, n) => { (o as unknown as TimeOffReason).iconType = n.getEnumValue<TimeOffReasonIconType>(TimeOffReasonIconType); }],
             ["isActive", (o, n) => { (o as unknown as TimeOffReason).isActive = n.getBooleanValue(); }],
         ]);
     };
@@ -54,7 +55,7 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<TimeOffReasonIconType>("iconType", this.iconType);
+        writer.writeEnumValue<TimeOffReasonIconType>("iconType", this.iconType);
         writer.writeBooleanValue("isActive", this.isActive);
     };
     /**

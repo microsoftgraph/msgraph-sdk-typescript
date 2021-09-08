@@ -3,6 +3,7 @@ import {Printer} from './printer';
 import {PrinterShare} from './printerShare';
 import {PrintOperation} from './printOperation';
 import {PrintService} from './printService';
+import {PrintSettings} from './printSettings';
 import {PrintTaskDefinition} from './printTaskDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

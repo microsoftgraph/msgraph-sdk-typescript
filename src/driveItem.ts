@@ -1,14 +1,29 @@
 import {File} from './agreements/file/file';
+import {Audio} from './audio';
+import {Deleted} from './deleted';
 import {BaseItem} from './drive/baseItem';
-import {ItemAnalytics} from './drive/list/items/analytics/itemAnalytics';
-import {Root} from './drive/root/root';
 import {DriveItemVersion} from './driveItemVersion';
-import {Photo} from './groups/photo/photo';
+import {FileSystemInfo} from './fileSystemInfo';
+import {Folder} from './folder';
+import {GeoCoordinates} from './geoCoordinates';
+import {Image} from './image';
+import {ItemAnalytics} from './itemAnalytics';
 import {ListItem} from './listItem';
+import {Package} from './package';
+import {PendingOperations} from './pendingOperations';
 import {Permission} from './permission';
+import {Photo} from './photo';
+import {PublicationFacet} from './publicationFacet';
+import {RemoteItem} from './remoteItem';
+import {Root} from './root';
+import {SearchResult} from './searchResult';
+import {Shared} from './shared';
+import {SharepointIds} from './sharepointIds';
+import {SpecialFolder} from './specialFolder';
 import {Subscription} from './subscription';
 import {ThumbnailSet} from './thumbnailSet';
-import {Workbook} from './workbooks/workbook/workbook';
+import {Video} from './video';
+import {Workbook} from './workbook';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DriveItem extends BaseItem implements Parsable {

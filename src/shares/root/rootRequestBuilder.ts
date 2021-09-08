@@ -1,5 +1,5 @@
-import {Root} from '../../drive/root/root';
 import {DriveItem} from '../../driveItem';
+import {Root} from '../../root';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

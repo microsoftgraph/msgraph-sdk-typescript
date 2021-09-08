@@ -1,4 +1,5 @@
-import {ManagedAppPolicyDeploymentSummary} from './androidManagedAppProtections/deploymentSummary/managedAppPolicyDeploymentSummary';
+import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
+import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
@@ -79,7 +80,7 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["appDataEncryptionType", (o, n) => { (o as unknown as IosManagedAppProtection).appDataEncryptionType = n.getObjectValue<ManagedAppDataEncryptionType>(ManagedAppDataEncryptionType); }],
+            ["appDataEncryptionType", (o, n) => { (o as unknown as IosManagedAppProtection).appDataEncryptionType = n.getEnumValue<ManagedAppDataEncryptionType>(ManagedAppDataEncryptionType); }],
             ["apps", (o, n) => { (o as unknown as IosManagedAppProtection).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp); }],
             ["customBrowserProtocol", (o, n) => { (o as unknown as IosManagedAppProtection).customBrowserProtocol = n.getStringValue(); }],
             ["deployedAppCount", (o, n) => { (o as unknown as IosManagedAppProtection).deployedAppCount = n.getNumberValue(); }],
@@ -95,7 +96,7 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
+        writer.writeEnumValue<ManagedAppDataEncryptionType>("appDataEncryptionType", this.appDataEncryptionType);
         writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", this.apps);
         writer.writeStringValue("customBrowserProtocol", this.customBrowserProtocol);
         writer.writeNumberValue("deployedAppCount", this.deployedAppCount);

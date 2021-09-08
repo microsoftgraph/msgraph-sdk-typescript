@@ -1,5 +1,8 @@
 import {Entity} from '../../../entity';
+import {Json} from '../../../me/json';
 import {WorkbookWorksheet} from '../../../workbookWorksheet';
+import {WorkbookRangeFormat} from './workbookRangeFormat';
+import {WorkbookRangeSort} from './workbookRangeSort';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRange extends Entity implements Parsable {

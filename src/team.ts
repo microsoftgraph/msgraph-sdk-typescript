@@ -2,10 +2,16 @@ import {Channel} from './channel';
 import {ConversationMember} from './conversationMember';
 import {Entity} from './entity';
 import {Group} from './group';
-import {Schedule} from './teams/schedule/schedule';
-import {TeamsTemplate} from './teams/template/teamsTemplate';
+import {Schedule} from './schedule';
+import {TeamFunSettings} from './teamFunSettings';
+import {TeamGuestSettings} from './teamGuestSettings';
+import {TeamMemberSettings} from './teamMemberSettings';
+import {TeamMessagingSettings} from './teamMessagingSettings';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsAsyncOperation} from './teamsAsyncOperation';
+import {TeamSpecialization} from './teamSpecialization';
+import {TeamsTemplate} from './teamsTemplate';
+import {TeamVisibilityType} from './teamVisibilityType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Team extends Entity implements Parsable {
@@ -226,9 +232,9 @@ export class Team extends Entity implements Parsable {
             ["operations", (o, n) => { (o as unknown as Team).operations = n.getCollectionOfObjectValues<TeamsAsyncOperation>(TeamsAsyncOperation); }],
             ["primaryChannel", (o, n) => { (o as unknown as Team).primaryChannel = n.getObjectValue<Channel>(Channel); }],
             ["schedule", (o, n) => { (o as unknown as Team).schedule = n.getObjectValue<Schedule>(Schedule); }],
-            ["specialization", (o, n) => { (o as unknown as Team).specialization = n.getObjectValue<TeamSpecialization>(TeamSpecialization); }],
+            ["specialization", (o, n) => { (o as unknown as Team).specialization = n.getEnumValue<TeamSpecialization>(TeamSpecialization); }],
             ["template", (o, n) => { (o as unknown as Team).template = n.getObjectValue<TeamsTemplate>(TeamsTemplate); }],
-            ["visibility", (o, n) => { (o as unknown as Team).visibility = n.getObjectValue<TeamVisibilityType>(TeamVisibilityType); }],
+            ["visibility", (o, n) => { (o as unknown as Team).visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); }],
             ["webUrl", (o, n) => { (o as unknown as Team).webUrl = n.getStringValue(); }],
         ]);
     };
@@ -256,9 +262,9 @@ export class Team extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TeamsAsyncOperation>("operations", this.operations);
         writer.writeObjectValue<Channel>("primaryChannel", this.primaryChannel);
         writer.writeObjectValue<Schedule>("schedule", this.schedule);
-        writer.writeObjectValue<TeamSpecialization>("specialization", this.specialization);
+        writer.writeEnumValue<TeamSpecialization>("specialization", this.specialization);
         writer.writeObjectValue<TeamsTemplate>("template", this.template);
-        writer.writeObjectValue<TeamVisibilityType>("visibility", this.visibility);
+        writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**

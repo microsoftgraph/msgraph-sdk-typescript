@@ -1,3 +1,4 @@
+import {ExchangeIdFormat} from '../../me/exchangeIdFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TranslateExchangeIdsResponse implements Parsable {
@@ -47,8 +48,8 @@ export class TranslateExchangeIdsResponse implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["inputIds", (o, n) => { (o as unknown as TranslateExchangeIdsResponse).inputIds = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["sourceIdType", (o, n) => { (o as unknown as TranslateExchangeIdsResponse).sourceIdType = n.getObjectValue<ExchangeIdFormat>(ExchangeIdFormat); }],
-            ["targetIdType", (o, n) => { (o as unknown as TranslateExchangeIdsResponse).targetIdType = n.getObjectValue<ExchangeIdFormat>(ExchangeIdFormat); }],
+            ["sourceIdType", (o, n) => { (o as unknown as TranslateExchangeIdsResponse).sourceIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); }],
+            ["targetIdType", (o, n) => { (o as unknown as TranslateExchangeIdsResponse).targetIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); }],
         ]);
     };
     /**
@@ -58,8 +59,8 @@ export class TranslateExchangeIdsResponse implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("inputIds", this.inputIds);
-        writer.writeObjectValue<ExchangeIdFormat>("sourceIdType", this.sourceIdType);
-        writer.writeObjectValue<ExchangeIdFormat>("targetIdType", this.targetIdType);
+        writer.writeEnumValue<ExchangeIdFormat>("sourceIdType", this.sourceIdType);
+        writer.writeEnumValue<ExchangeIdFormat>("targetIdType", this.targetIdType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

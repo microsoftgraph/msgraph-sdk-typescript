@@ -6,10 +6,12 @@ import {DelegatedPermissionClassification} from './delegatedPermissionClassifica
 import {DirectoryObject} from './directoryObject';
 import {Endpoint} from './endpoint';
 import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
+import {InformationalUrl} from './informationalUrl';
 import {KeyCredential} from './keyCredential';
 import {OAuth2PermissionGrant} from './oAuth2PermissionGrant';
 import {PasswordCredential} from './passwordCredential';
 import {PermissionScope} from './permissionScope';
+import {SamlSingleSignOnSettings} from './samlSingleSignOnSettings';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

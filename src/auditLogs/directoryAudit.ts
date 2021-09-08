@@ -1,6 +1,8 @@
 import {Entity} from '../entity';
 import {KeyValue} from '../keyValue';
 import {AuditActivityInitiator} from './auditActivityInitiator';
+import {OperationResult} from './operationResult';
+import {TargetResource} from './targetResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DirectoryAudit extends Entity implements Parsable {
@@ -121,9 +123,9 @@ export class DirectoryAudit extends Entity implements Parsable {
             ["initiatedBy", (o, n) => { (o as unknown as DirectoryAudit).initiatedBy = n.getObjectValue<AuditActivityInitiator>(AuditActivityInitiator); }],
             ["loggedByService", (o, n) => { (o as unknown as DirectoryAudit).loggedByService = n.getStringValue(); }],
             ["operationType", (o, n) => { (o as unknown as DirectoryAudit).operationType = n.getStringValue(); }],
-            ["result", (o, n) => { (o as unknown as DirectoryAudit).result = n.getObjectValue<OperationResult>(OperationResult); }],
+            ["result", (o, n) => { (o as unknown as DirectoryAudit).result = n.getEnumValue<OperationResult>(OperationResult); }],
             ["resultReason", (o, n) => { (o as unknown as DirectoryAudit).resultReason = n.getStringValue(); }],
-            ["targetResources", (o, n) => { (o as unknown as DirectoryAudit).targetResources = n.getCollectionOfPrimitiveValues<targetResource>(); }],
+            ["targetResources", (o, n) => { (o as unknown as DirectoryAudit).targetResources = n.getCollectionOfObjectValues<TargetResource>(TargetResource); }],
         ]);
     };
     /**
@@ -141,9 +143,9 @@ export class DirectoryAudit extends Entity implements Parsable {
         writer.writeObjectValue<AuditActivityInitiator>("initiatedBy", this.initiatedBy);
         writer.writeStringValue("loggedByService", this.loggedByService);
         writer.writeStringValue("operationType", this.operationType);
-        writer.writeObjectValue<OperationResult>("result", this.result);
+        writer.writeEnumValue<OperationResult>("result", this.result);
         writer.writeStringValue("resultReason", this.resultReason);
-        writer.writeCollectionOfPrimitiveValues<targetResource>("targetResources", this.targetResources);
+        writer.writeCollectionOfObjectValues<TargetResource>("targetResources", this.targetResources);
     };
     /**
      * Sets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.

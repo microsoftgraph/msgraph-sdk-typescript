@@ -1,5 +1,5 @@
+import {EducationAssignmentDefaults} from '../../educationAssignmentDefaults';
 import {AssignmentDefaults} from './assignmentDefaults';
-import {EducationAssignmentDefaults} from './educationAssignmentDefaults';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/classes/{educationClass-id}/assignmentDefaults  */

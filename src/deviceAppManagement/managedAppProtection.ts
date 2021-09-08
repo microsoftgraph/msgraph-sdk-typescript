@@ -1,4 +1,9 @@
+import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
+import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
+import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
+import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedAppPolicy} from './managedAppPolicy';
+import {ManagedBrowserType} from './managedBrowserType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
@@ -257,16 +262,16 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allowedDataStorageLocations", (o, n) => { (o as unknown as ManagedAppProtection).allowedDataStorageLocations = n.getCollectionOfPrimitiveValues<managedAppDataStorageLocation>(); }],
-            ["allowedInboundDataTransferSources", (o, n) => { (o as unknown as ManagedAppProtection).allowedInboundDataTransferSources = n.getObjectValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); }],
-            ["allowedOutboundClipboardSharingLevel", (o, n) => { (o as unknown as ManagedAppProtection).allowedOutboundClipboardSharingLevel = n.getObjectValue<ManagedAppClipboardSharingLevel>(ManagedAppClipboardSharingLevel); }],
-            ["allowedOutboundDataTransferDestinations", (o, n) => { (o as unknown as ManagedAppProtection).allowedOutboundDataTransferDestinations = n.getObjectValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); }],
+            ["allowedDataStorageLocations", (o, n) => { (o as unknown as ManagedAppProtection).allowedDataStorageLocations = n.getCollectionOfObjectValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); }],
+            ["allowedInboundDataTransferSources", (o, n) => { (o as unknown as ManagedAppProtection).allowedInboundDataTransferSources = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); }],
+            ["allowedOutboundClipboardSharingLevel", (o, n) => { (o as unknown as ManagedAppProtection).allowedOutboundClipboardSharingLevel = n.getEnumValue<ManagedAppClipboardSharingLevel>(ManagedAppClipboardSharingLevel); }],
+            ["allowedOutboundDataTransferDestinations", (o, n) => { (o as unknown as ManagedAppProtection).allowedOutboundDataTransferDestinations = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); }],
             ["contactSyncBlocked", (o, n) => { (o as unknown as ManagedAppProtection).contactSyncBlocked = n.getBooleanValue(); }],
             ["dataBackupBlocked", (o, n) => { (o as unknown as ManagedAppProtection).dataBackupBlocked = n.getBooleanValue(); }],
             ["deviceComplianceRequired", (o, n) => { (o as unknown as ManagedAppProtection).deviceComplianceRequired = n.getBooleanValue(); }],
             ["disableAppPinIfDevicePinIsSet", (o, n) => { (o as unknown as ManagedAppProtection).disableAppPinIfDevicePinIsSet = n.getBooleanValue(); }],
             ["fingerprintBlocked", (o, n) => { (o as unknown as ManagedAppProtection).fingerprintBlocked = n.getBooleanValue(); }],
-            ["managedBrowser", (o, n) => { (o as unknown as ManagedAppProtection).managedBrowser = n.getObjectValue<ManagedBrowserType>(ManagedBrowserType); }],
+            ["managedBrowser", (o, n) => { (o as unknown as ManagedAppProtection).managedBrowser = n.getEnumValue<ManagedBrowserType>(ManagedBrowserType); }],
             ["managedBrowserToOpenLinksRequired", (o, n) => { (o as unknown as ManagedAppProtection).managedBrowserToOpenLinksRequired = n.getBooleanValue(); }],
             ["maximumPinRetries", (o, n) => { (o as unknown as ManagedAppProtection).maximumPinRetries = n.getNumberValue(); }],
             ["minimumPinLength", (o, n) => { (o as unknown as ManagedAppProtection).minimumPinLength = n.getNumberValue(); }],
@@ -279,7 +284,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
             ["periodOfflineBeforeAccessCheck", (o, n) => { (o as unknown as ManagedAppProtection).periodOfflineBeforeAccessCheck = n.getStringValue(); }],
             ["periodOfflineBeforeWipeIsEnforced", (o, n) => { (o as unknown as ManagedAppProtection).periodOfflineBeforeWipeIsEnforced = n.getStringValue(); }],
             ["periodOnlineBeforeAccessCheck", (o, n) => { (o as unknown as ManagedAppProtection).periodOnlineBeforeAccessCheck = n.getStringValue(); }],
-            ["pinCharacterSet", (o, n) => { (o as unknown as ManagedAppProtection).pinCharacterSet = n.getObjectValue<ManagedAppPinCharacterSet>(ManagedAppPinCharacterSet); }],
+            ["pinCharacterSet", (o, n) => { (o as unknown as ManagedAppProtection).pinCharacterSet = n.getEnumValue<ManagedAppPinCharacterSet>(ManagedAppPinCharacterSet); }],
             ["pinRequired", (o, n) => { (o as unknown as ManagedAppProtection).pinRequired = n.getBooleanValue(); }],
             ["printBlocked", (o, n) => { (o as unknown as ManagedAppProtection).printBlocked = n.getBooleanValue(); }],
             ["saveAsBlocked", (o, n) => { (o as unknown as ManagedAppProtection).saveAsBlocked = n.getBooleanValue(); }],
@@ -293,16 +298,16 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<managedAppDataStorageLocation>("allowedDataStorageLocations", this.allowedDataStorageLocations);
-        writer.writeObjectValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
-        writer.writeObjectValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
-        writer.writeObjectValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);
+        writer.writeCollectionOfObjectValues<ManagedAppDataStorageLocation>("allowedDataStorageLocations", this.allowedDataStorageLocations);
+        writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
+        writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
+        writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);
         writer.writeBooleanValue("contactSyncBlocked", this.contactSyncBlocked);
         writer.writeBooleanValue("dataBackupBlocked", this.dataBackupBlocked);
         writer.writeBooleanValue("deviceComplianceRequired", this.deviceComplianceRequired);
         writer.writeBooleanValue("disableAppPinIfDevicePinIsSet", this.disableAppPinIfDevicePinIsSet);
         writer.writeBooleanValue("fingerprintBlocked", this.fingerprintBlocked);
-        writer.writeObjectValue<ManagedBrowserType>("managedBrowser", this.managedBrowser);
+        writer.writeEnumValue<ManagedBrowserType>("managedBrowser", this.managedBrowser);
         writer.writeBooleanValue("managedBrowserToOpenLinksRequired", this.managedBrowserToOpenLinksRequired);
         writer.writeNumberValue("maximumPinRetries", this.maximumPinRetries);
         writer.writeNumberValue("minimumPinLength", this.minimumPinLength);
@@ -315,7 +320,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         writer.writeStringValue("periodOfflineBeforeAccessCheck", this.periodOfflineBeforeAccessCheck);
         writer.writeStringValue("periodOfflineBeforeWipeIsEnforced", this.periodOfflineBeforeWipeIsEnforced);
         writer.writeStringValue("periodOnlineBeforeAccessCheck", this.periodOnlineBeforeAccessCheck);
-        writer.writeObjectValue<ManagedAppPinCharacterSet>("pinCharacterSet", this.pinCharacterSet);
+        writer.writeEnumValue<ManagedAppPinCharacterSet>("pinCharacterSet", this.pinCharacterSet);
         writer.writeBooleanValue("pinRequired", this.pinRequired);
         writer.writeBooleanValue("printBlocked", this.printBlocked);
         writer.writeBooleanValue("saveAsBlocked", this.saveAsBlocked);

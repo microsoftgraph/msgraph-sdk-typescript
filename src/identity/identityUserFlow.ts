@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {UserFlowType} from './userFlowType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlow extends Entity implements Parsable {
@@ -30,7 +31,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["userFlowType", (o, n) => { (o as unknown as IdentityUserFlow).userFlowType = n.getObjectValue<UserFlowType>(UserFlowType); }],
+            ["userFlowType", (o, n) => { (o as unknown as IdentityUserFlow).userFlowType = n.getEnumValue<UserFlowType>(UserFlowType); }],
             ["userFlowTypeVersion", (o, n) => { (o as unknown as IdentityUserFlow).userFlowTypeVersion = n.getObjectValue<Float>(Float); }],
         ]);
     };
@@ -41,7 +42,7 @@ export class IdentityUserFlow extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<UserFlowType>("userFlowType", this.userFlowType);
+        writer.writeEnumValue<UserFlowType>("userFlowType", this.userFlowType);
         writer.writeObjectValue<Float>("userFlowTypeVersion", this.userFlowTypeVersion);
     };
     /**

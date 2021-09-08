@@ -1,3 +1,4 @@
+import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -139,7 +140,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
             ["deviceOSVersion", (o, n) => { (o as unknown as AgreementAcceptance).deviceOSVersion = n.getStringValue(); }],
             ["expirationDateTime", (o, n) => { (o as unknown as AgreementAcceptance).expirationDateTime = n.getDateValue(); }],
             ["recordedDateTime", (o, n) => { (o as unknown as AgreementAcceptance).recordedDateTime = n.getDateValue(); }],
-            ["state", (o, n) => { (o as unknown as AgreementAcceptance).state = n.getObjectValue<AgreementAcceptanceState>(AgreementAcceptanceState); }],
+            ["state", (o, n) => { (o as unknown as AgreementAcceptance).state = n.getEnumValue<AgreementAcceptanceState>(AgreementAcceptanceState); }],
             ["userDisplayName", (o, n) => { (o as unknown as AgreementAcceptance).userDisplayName = n.getStringValue(); }],
             ["userEmail", (o, n) => { (o as unknown as AgreementAcceptance).userEmail = n.getStringValue(); }],
             ["userId", (o, n) => { (o as unknown as AgreementAcceptance).userId = n.getStringValue(); }],
@@ -161,7 +162,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
         writer.writeStringValue("deviceOSVersion", this.deviceOSVersion);
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeDateValue("recordedDateTime", this.recordedDateTime);
-        writer.writeObjectValue<AgreementAcceptanceState>("state", this.state);
+        writer.writeEnumValue<AgreementAcceptanceState>("state", this.state);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userEmail", this.userEmail);
         writer.writeStringValue("userId", this.userId);

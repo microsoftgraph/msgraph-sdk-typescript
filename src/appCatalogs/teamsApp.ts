@@ -1,5 +1,6 @@
 import {Entity} from '../entity';
 import {TeamsAppDefinition} from './teamsAppDefinition';
+import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsApp extends Entity implements Parsable {
@@ -53,7 +54,7 @@ export class TeamsApp extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["appDefinitions", (o, n) => { (o as unknown as TeamsApp).appDefinitions = n.getCollectionOfObjectValues<TeamsAppDefinition>(TeamsAppDefinition); }],
             ["displayName", (o, n) => { (o as unknown as TeamsApp).displayName = n.getStringValue(); }],
-            ["distributionMethod", (o, n) => { (o as unknown as TeamsApp).distributionMethod = n.getObjectValue<TeamsAppDistributionMethod>(TeamsAppDistributionMethod); }],
+            ["distributionMethod", (o, n) => { (o as unknown as TeamsApp).distributionMethod = n.getEnumValue<TeamsAppDistributionMethod>(TeamsAppDistributionMethod); }],
             ["externalId", (o, n) => { (o as unknown as TeamsApp).externalId = n.getStringValue(); }],
         ]);
     };
@@ -66,7 +67,7 @@ export class TeamsApp extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<TeamsAppDefinition>("appDefinitions", this.appDefinitions);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<TeamsAppDistributionMethod>("distributionMethod", this.distributionMethod);
+        writer.writeEnumValue<TeamsAppDistributionMethod>("distributionMethod", this.distributionMethod);
         writer.writeStringValue("externalId", this.externalId);
     };
     /**

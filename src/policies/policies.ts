@@ -6,11 +6,11 @@ import {HomeRealmDiscoveryPolicy} from '../homeRealmDiscoveryPolicy';
 import {TokenIssuancePolicy} from '../tokenIssuancePolicy';
 import {TokenLifetimePolicy} from '../tokenLifetimePolicy';
 import {ActivityBasedTimeoutPolicy} from './activityBasedTimeoutPolicy';
-import {AdminConsentRequestPolicy} from './adminConsentRequestPolicy/adminConsentRequestPolicy';
-import {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy/authenticationFlowsPolicy';
-import {AuthorizationPolicy} from './authorizationPolicy/authorizationPolicy';
+import {AdminConsentRequestPolicy} from './adminConsentRequestPolicy';
+import {AuthenticationFlowsPolicy} from './authenticationFlowsPolicy';
+import {AuthorizationPolicy} from './authorizationPolicy';
 import {FeatureRolloutPolicy} from './featureRolloutPolicy';
-import {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefaultsEnforcementPolicy/identitySecurityDefaultsEnforcementPolicy';
+import {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefaultsEnforcementPolicy';
 import {PermissionGrantPolicy} from './permissionGrantPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

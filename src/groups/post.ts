@@ -2,9 +2,9 @@ import {ItemBody} from '../chats/itemBody';
 import {Extension} from '../extension';
 import {MultiValueLegacyExtendedProperty} from '../multiValueLegacyExtendedProperty';
 import {OutlookItem} from '../outlookItem';
+import {Recipient} from '../recipient';
 import {SingleValueLegacyExtendedProperty} from '../singleValueLegacyExtendedProperty';
 import {Attachment} from './attachment';
-import {Recipient} from './recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Post extends OutlookItem implements Parsable {

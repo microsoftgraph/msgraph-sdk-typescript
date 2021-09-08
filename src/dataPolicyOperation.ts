@@ -1,3 +1,4 @@
+import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -70,7 +71,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["completedDateTime", (o, n) => { (o as unknown as DataPolicyOperation).completedDateTime = n.getDateValue(); }],
             ["progress", (o, n) => { (o as unknown as DataPolicyOperation).progress = n.getNumberValue(); }],
-            ["status", (o, n) => { (o as unknown as DataPolicyOperation).status = n.getObjectValue<DataPolicyOperationStatus>(DataPolicyOperationStatus); }],
+            ["status", (o, n) => { (o as unknown as DataPolicyOperation).status = n.getEnumValue<DataPolicyOperationStatus>(DataPolicyOperationStatus); }],
             ["storageLocation", (o, n) => { (o as unknown as DataPolicyOperation).storageLocation = n.getStringValue(); }],
             ["submittedDateTime", (o, n) => { (o as unknown as DataPolicyOperation).submittedDateTime = n.getDateValue(); }],
             ["userId", (o, n) => { (o as unknown as DataPolicyOperation).userId = n.getStringValue(); }],
@@ -85,7 +86,7 @@ export class DataPolicyOperation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("completedDateTime", this.completedDateTime);
         writer.writeNumberValue("progress", this.progress);
-        writer.writeObjectValue<DataPolicyOperationStatus>("status", this.status);
+        writer.writeEnumValue<DataPolicyOperationStatus>("status", this.status);
         writer.writeStringValue("storageLocation", this.storageLocation);
         writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         writer.writeStringValue("userId", this.userId);

@@ -1,5 +1,5 @@
 import {Entity} from '../../../../../entity';
-import {WorkbookChartAxis} from './categoryAxis/workbookChartAxis';
+import {WorkbookChartAxis} from '../../workbookChartAxis';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Axes extends Entity implements Parsable {

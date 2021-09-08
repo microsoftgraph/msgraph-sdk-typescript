@@ -1,3 +1,4 @@
+import {WorkbookFunctions} from '../../../workbookFunctions';
 import {AbsRequestBuilder} from './abs/absRequestBuilder';
 import {AccrIntRequestBuilder} from './accrInt/accrIntRequestBuilder';
 import {AccrIntMRequestBuilder} from './accrIntM/accrIntMRequestBuilder';
@@ -354,7 +355,6 @@ import {VlookupRequestBuilder} from './vlookup/vlookupRequestBuilder';
 import {WeekdayRequestBuilder} from './weekday/weekdayRequestBuilder';
 import {WeekNumRequestBuilder} from './weekNum/weekNumRequestBuilder';
 import {Weibull_DistRequestBuilder} from './weibull_Dist/weibull_DistRequestBuilder';
-import {WorkbookFunctions} from './workbookFunctions';
 import {WorkDay_IntlRequestBuilder} from './workDay_Intl/workDay_IntlRequestBuilder';
 import {WorkDayRequestBuilder} from './workDay/workDayRequestBuilder';
 import {XirrRequestBuilder} from './xirr/xirrRequestBuilder';

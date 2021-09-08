@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {PrinterCapabilities} from './printerCapabilities';
+import {PrinterDefaults} from './printerDefaults';
+import {PrinterLocation} from './printerLocation';
 import {PrinterStatus} from './printerStatus';
 import {PrintJob} from './printJob';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

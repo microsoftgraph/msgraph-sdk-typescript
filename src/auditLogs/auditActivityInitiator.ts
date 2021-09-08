@@ -1,4 +1,5 @@
 import {AppIdentity} from './appIdentity';
+import {UserIdentity} from './userIdentity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AuditActivityInitiator implements Parsable {

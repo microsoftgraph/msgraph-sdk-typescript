@@ -1,4 +1,6 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {ChangeTrackedEntity} from '../changeTrackedEntity';
+import {WorkforceIntegrationEncryption} from './workforceIntegrationEncryption';
+import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSupportedEntities';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkforceIntegration extends ChangeTrackedEntity implements Parsable {
@@ -72,7 +74,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
             ["displayName", (o, n) => { (o as unknown as WorkforceIntegration).displayName = n.getStringValue(); }],
             ["encryption", (o, n) => { (o as unknown as WorkforceIntegration).encryption = n.getObjectValue<WorkforceIntegrationEncryption>(WorkforceIntegrationEncryption); }],
             ["isActive", (o, n) => { (o as unknown as WorkforceIntegration).isActive = n.getBooleanValue(); }],
-            ["supportedEntities", (o, n) => { (o as unknown as WorkforceIntegration).supportedEntities = n.getObjectValue<WorkforceIntegrationSupportedEntities>(WorkforceIntegrationSupportedEntities); }],
+            ["supportedEntities", (o, n) => { (o as unknown as WorkforceIntegration).supportedEntities = n.getEnumValue<WorkforceIntegrationSupportedEntities>(WorkforceIntegrationSupportedEntities); }],
             ["url", (o, n) => { (o as unknown as WorkforceIntegration).url = n.getStringValue(); }],
         ]);
     };
@@ -87,7 +89,7 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<WorkforceIntegrationEncryption>("encryption", this.encryption);
         writer.writeBooleanValue("isActive", this.isActive);
-        writer.writeObjectValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
+        writer.writeEnumValue<WorkforceIntegrationSupportedEntities>("supportedEntities", this.supportedEntities);
         writer.writeStringValue("url", this.url);
     };
     /**

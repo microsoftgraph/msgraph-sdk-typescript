@@ -1,6 +1,8 @@
+import {MimeContent} from '../deviceManagement/mimeContent';
 import {Entity} from '../entity';
 import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppCategory} from './mobileAppCategory';
+import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileApp extends Entity implements Parsable {
@@ -165,7 +167,7 @@ export class MobileApp extends Entity implements Parsable {
             ["owner", (o, n) => { (o as unknown as MobileApp).owner = n.getStringValue(); }],
             ["privacyInformationUrl", (o, n) => { (o as unknown as MobileApp).privacyInformationUrl = n.getStringValue(); }],
             ["publisher", (o, n) => { (o as unknown as MobileApp).publisher = n.getStringValue(); }],
-            ["publishingState", (o, n) => { (o as unknown as MobileApp).publishingState = n.getObjectValue<MobileAppPublishingState>(MobileAppPublishingState); }],
+            ["publishingState", (o, n) => { (o as unknown as MobileApp).publishingState = n.getEnumValue<MobileAppPublishingState>(MobileAppPublishingState); }],
         ]);
     };
     /**
@@ -189,7 +191,7 @@ export class MobileApp extends Entity implements Parsable {
         writer.writeStringValue("owner", this.owner);
         writer.writeStringValue("privacyInformationUrl", this.privacyInformationUrl);
         writer.writeStringValue("publisher", this.publisher);
-        writer.writeObjectValue<MobileAppPublishingState>("publishingState", this.publishingState);
+        writer.writeEnumValue<MobileAppPublishingState>("publishingState", this.publishingState);
     };
     /**
      * Sets the assignments property value. The list of group assignments for this mobile app.

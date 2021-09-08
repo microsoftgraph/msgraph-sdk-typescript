@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
+import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementPartner extends Entity implements Parsable {
@@ -89,8 +91,8 @@ export class DeviceManagementPartner extends Entity implements Parsable {
             ["displayName", (o, n) => { (o as unknown as DeviceManagementPartner).displayName = n.getStringValue(); }],
             ["isConfigured", (o, n) => { (o as unknown as DeviceManagementPartner).isConfigured = n.getBooleanValue(); }],
             ["lastHeartbeatDateTime", (o, n) => { (o as unknown as DeviceManagementPartner).lastHeartbeatDateTime = n.getDateValue(); }],
-            ["partnerAppType", (o, n) => { (o as unknown as DeviceManagementPartner).partnerAppType = n.getObjectValue<DeviceManagementPartnerAppType>(DeviceManagementPartnerAppType); }],
-            ["partnerState", (o, n) => { (o as unknown as DeviceManagementPartner).partnerState = n.getObjectValue<DeviceManagementPartnerTenantState>(DeviceManagementPartnerTenantState); }],
+            ["partnerAppType", (o, n) => { (o as unknown as DeviceManagementPartner).partnerAppType = n.getEnumValue<DeviceManagementPartnerAppType>(DeviceManagementPartnerAppType); }],
+            ["partnerState", (o, n) => { (o as unknown as DeviceManagementPartner).partnerState = n.getEnumValue<DeviceManagementPartnerTenantState>(DeviceManagementPartnerTenantState); }],
             ["singleTenantAppId", (o, n) => { (o as unknown as DeviceManagementPartner).singleTenantAppId = n.getStringValue(); }],
             ["whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", (o, n) => { (o as unknown as DeviceManagementPartner).whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime = n.getDateValue(); }],
             ["whenPartnerDevicesWillBeRemovedDateTime", (o, n) => { (o as unknown as DeviceManagementPartner).whenPartnerDevicesWillBeRemovedDateTime = n.getDateValue(); }],
@@ -106,8 +108,8 @@ export class DeviceManagementPartner extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeBooleanValue("isConfigured", this.isConfigured);
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
-        writer.writeObjectValue<DeviceManagementPartnerAppType>("partnerAppType", this.partnerAppType);
-        writer.writeObjectValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
+        writer.writeEnumValue<DeviceManagementPartnerAppType>("partnerAppType", this.partnerAppType);
+        writer.writeEnumValue<DeviceManagementPartnerTenantState>("partnerState", this.partnerState);
         writer.writeStringValue("singleTenantAppId", this.singleTenantAppId);
         writer.writeDateValue("whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime", this.whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime);
         writer.writeDateValue("whenPartnerDevicesWillBeRemovedDateTime", this.whenPartnerDevicesWillBeRemovedDateTime);

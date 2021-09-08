@@ -1,11 +1,11 @@
 import {Entity} from '../../entity';
 import {WorkbookWorksheet} from '../../workbookWorksheet';
-import {WorkbookChartAxes} from './worksheets/charts/axes/workbookChartAxes';
-import {WorkbookChartDataLabels} from './worksheets/charts/dataLabels/workbookChartDataLabels';
-import {WorkbookChartAreaFormat} from './worksheets/charts/format/workbookChartAreaFormat';
-import {WorkbookChartLegend} from './worksheets/charts/legend/workbookChartLegend';
-import {WorkbookChartTitle} from './worksheets/charts/title/workbookChartTitle';
+import {WorkbookChartAreaFormat} from './worksheets/workbookChartAreaFormat';
+import {WorkbookChartAxes} from './worksheets/workbookChartAxes';
+import {WorkbookChartDataLabels} from './worksheets/workbookChartDataLabels';
+import {WorkbookChartLegend} from './worksheets/workbookChartLegend';
 import {WorkbookChartSeries} from './worksheets/workbookChartSeries';
+import {WorkbookChartTitle} from './worksheets/workbookChartTitle';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChart extends Entity implements Parsable {

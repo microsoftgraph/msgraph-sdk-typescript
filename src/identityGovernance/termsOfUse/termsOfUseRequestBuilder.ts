@@ -1,9 +1,9 @@
+import {TermsOfUseContainer} from '../termsOfUseContainer';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
 import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
 import {AgreementRequestBuilder} from './agreements/item/agreementRequestBuilder';
 import {TermsOfUse} from './termsOfUse';
-import {TermsOfUseContainer} from './termsOfUseContainer';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/termsOfUse  */

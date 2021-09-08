@@ -1,5 +1,6 @@
 import {Entity} from '../entity';
 import {RoleAssignment} from './roleAssignment';
+import {RolePermission} from './rolePermission';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RoleDefinition extends Entity implements Parsable {
@@ -64,7 +65,7 @@ export class RoleDefinition extends Entity implements Parsable {
             ["displayName", (o, n) => { (o as unknown as RoleDefinition).displayName = n.getStringValue(); }],
             ["isBuiltIn", (o, n) => { (o as unknown as RoleDefinition).isBuiltIn = n.getBooleanValue(); }],
             ["roleAssignments", (o, n) => { (o as unknown as RoleDefinition).roleAssignments = n.getCollectionOfObjectValues<RoleAssignment>(RoleAssignment); }],
-            ["rolePermissions", (o, n) => { (o as unknown as RoleDefinition).rolePermissions = n.getCollectionOfPrimitiveValues<rolePermission>(); }],
+            ["rolePermissions", (o, n) => { (o as unknown as RoleDefinition).rolePermissions = n.getCollectionOfObjectValues<RolePermission>(RolePermission); }],
         ]);
     };
     /**
@@ -78,7 +79,7 @@ export class RoleDefinition extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeBooleanValue("isBuiltIn", this.isBuiltIn);
         writer.writeCollectionOfObjectValues<RoleAssignment>("roleAssignments", this.roleAssignments);
-        writer.writeCollectionOfPrimitiveValues<rolePermission>("rolePermissions", this.rolePermissions);
+        writer.writeCollectionOfObjectValues<RolePermission>("rolePermissions", this.rolePermissions);
     };
     /**
      * Sets the description property value. Description of the Role definition.

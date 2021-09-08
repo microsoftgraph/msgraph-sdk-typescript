@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {PrintEvent} from './printers/printEvent';
 import {PrintTaskDefinition} from './printTaskDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -33,7 +34,7 @@ export class PrintTaskTrigger extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["definition", (o, n) => { (o as unknown as PrintTaskTrigger).definition = n.getObjectValue<PrintTaskDefinition>(PrintTaskDefinition); }],
-            ["event", (o, n) => { (o as unknown as PrintTaskTrigger).event = n.getObjectValue<PrintEvent>(PrintEvent); }],
+            ["event", (o, n) => { (o as unknown as PrintTaskTrigger).event = n.getEnumValue<PrintEvent>(PrintEvent); }],
         ]);
     };
     /**
@@ -44,7 +45,7 @@ export class PrintTaskTrigger extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<PrintTaskDefinition>("definition", this.definition);
-        writer.writeObjectValue<PrintEvent>("event", this.event);
+        writer.writeEnumValue<PrintEvent>("event", this.event);
     };
     /**
      * Sets the definition property value. 

@@ -1,6 +1,8 @@
 import {Endpoint} from '../endpoint';
 import {Entity} from '../entity';
+import {FailureInfo} from './callRecords/failureInfo';
 import {Segment} from './callRecords/segment';
+import {Modality} from './modality';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Session extends Entity implements Parsable {
@@ -83,7 +85,7 @@ export class Session extends Entity implements Parsable {
             ["caller", (o, n) => { (o as unknown as Session).caller = n.getObjectValue<Endpoint>(Endpoint); }],
             ["endDateTime", (o, n) => { (o as unknown as Session).endDateTime = n.getDateValue(); }],
             ["failureInfo", (o, n) => { (o as unknown as Session).failureInfo = n.getObjectValue<FailureInfo>(FailureInfo); }],
-            ["modalities", (o, n) => { (o as unknown as Session).modalities = n.getCollectionOfPrimitiveValues<modality>(); }],
+            ["modalities", (o, n) => { (o as unknown as Session).modalities = n.getCollectionOfObjectValues<Modality>(Modality); }],
             ["segments", (o, n) => { (o as unknown as Session).segments = n.getCollectionOfObjectValues<Segment>(Segment); }],
             ["startDateTime", (o, n) => { (o as unknown as Session).startDateTime = n.getDateValue(); }],
         ]);
@@ -99,7 +101,7 @@ export class Session extends Entity implements Parsable {
         writer.writeObjectValue<Endpoint>("caller", this.caller);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeObjectValue<FailureInfo>("failureInfo", this.failureInfo);
-        writer.writeCollectionOfPrimitiveValues<modality>("modalities", this.modalities);
+        writer.writeCollectionOfObjectValues<Modality>("modalities", this.modalities);
         writer.writeCollectionOfObjectValues<Segment>("segments", this.segments);
         writer.writeDateValue("startDateTime", this.startDateTime);
     };

@@ -1,9 +1,9 @@
 import {Entity} from '../entity';
+import {DeviceComplianceDeviceOverview} from './deviceComplianceDeviceOverview';
 import {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
-import {DeviceComplianceDeviceOverview} from './deviceCompliancePolicies/deviceStatusOverview/deviceComplianceDeviceOverview';
-import {DeviceComplianceUserOverview} from './deviceCompliancePolicies/userStatusOverview/deviceComplianceUserOverview';
 import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
 import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
+import {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
 import {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

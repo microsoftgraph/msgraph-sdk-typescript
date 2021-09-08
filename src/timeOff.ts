@@ -1,4 +1,5 @@
-import {ChangeTrackedEntity} from './teamwork/changeTrackedEntity';
+import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {TimeOffItem} from './teams/schedule/timeOffItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TimeOff extends ChangeTrackedEntity implements Parsable {

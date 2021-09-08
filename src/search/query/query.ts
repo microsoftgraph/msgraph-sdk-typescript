@@ -1,3 +1,4 @@
+import {SearchHitsContainer} from './searchHitsContainer';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Query implements Parsable {
@@ -40,7 +41,7 @@ export class Query implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["hitsContainers", (o, n) => { (o as unknown as Query).hitsContainers = n.getCollectionOfPrimitiveValues<searchHitsContainer>(); }],
+            ["hitsContainers", (o, n) => { (o as unknown as Query).hitsContainers = n.getCollectionOfObjectValues<SearchHitsContainer>(SearchHitsContainer); }],
             ["searchTerms", (o, n) => { (o as unknown as Query).searchTerms = n.getCollectionOfPrimitiveValues<string>(); }],
         ]);
     };
@@ -50,7 +51,7 @@ export class Query implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<searchHitsContainer>("hitsContainers", this.hitsContainers);
+        writer.writeCollectionOfObjectValues<SearchHitsContainer>("hitsContainers", this.hitsContainers);
         writer.writeCollectionOfPrimitiveValues<string>("searchTerms", this.searchTerms);
         writer.writeAdditionalData(this.additionalData);
     };

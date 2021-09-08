@@ -1,5 +1,6 @@
 import {Entity} from '../entity';
 import {UserActivity} from '../userActivity';
+import {Status} from './status';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ActivityHistoryItem extends Entity implements Parsable {
@@ -102,7 +103,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
             ["lastActiveDateTime", (o, n) => { (o as unknown as ActivityHistoryItem).lastActiveDateTime = n.getDateValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as ActivityHistoryItem).lastModifiedDateTime = n.getDateValue(); }],
             ["startedDateTime", (o, n) => { (o as unknown as ActivityHistoryItem).startedDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as ActivityHistoryItem).status = n.getObjectValue<Status>(Status); }],
+            ["status", (o, n) => { (o as unknown as ActivityHistoryItem).status = n.getEnumValue<Status>(Status); }],
             ["userTimezone", (o, n) => { (o as unknown as ActivityHistoryItem).userTimezone = n.getStringValue(); }],
         ]);
     };
@@ -120,7 +121,7 @@ export class ActivityHistoryItem extends Entity implements Parsable {
         writer.writeDateValue("lastActiveDateTime", this.lastActiveDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeDateValue("startedDateTime", this.startedDateTime);
-        writer.writeObjectValue<Status>("status", this.status);
+        writer.writeEnumValue<Status>("status", this.status);
         writer.writeStringValue("userTimezone", this.userTimezone);
     };
     /**

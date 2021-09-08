@@ -1,4 +1,4 @@
-import {Drive} from '../drive/drive';
+import {Drive} from '../drive';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DrivesResponse implements Parsable {

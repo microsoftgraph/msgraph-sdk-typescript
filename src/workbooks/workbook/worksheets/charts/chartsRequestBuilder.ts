@@ -1,9 +1,9 @@
+import {ItemAtWithIndexRequestBuilder} from '../../names/worksheet/charts/itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import {ItemWithNameRequestBuilder} from '../../names/worksheet/charts/itemWithName/itemWithNameRequestBuilder';
+import {CountRequestBuilder} from '../../names/worksheet/charts/series/count/countRequestBuilder';
 import {WorkbookChart} from '../../workbookChart';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ChartsResponse} from './chartsResponse';
-import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {ItemWithNameRequestBuilder} from './itemWithName/itemWithNameRequestBuilder';
-import {CountRequestBuilder} from './series/count/countRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts  */

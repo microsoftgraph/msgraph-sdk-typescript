@@ -1,4 +1,6 @@
+import {EmailAddress} from './emailAddress';
 import {Entity} from './entity';
+import {CalendarRoleType} from './groups/calendar/calendarRoleType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CalendarPermission extends Entity implements Parsable {
@@ -59,11 +61,11 @@ export class CalendarPermission extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allowedRoles", (o, n) => { (o as unknown as CalendarPermission).allowedRoles = n.getCollectionOfPrimitiveValues<calendarRoleType>(); }],
+            ["allowedRoles", (o, n) => { (o as unknown as CalendarPermission).allowedRoles = n.getCollectionOfObjectValues<CalendarRoleType>(CalendarRoleType); }],
             ["emailAddress", (o, n) => { (o as unknown as CalendarPermission).emailAddress = n.getObjectValue<EmailAddress>(EmailAddress); }],
             ["isInsideOrganization", (o, n) => { (o as unknown as CalendarPermission).isInsideOrganization = n.getBooleanValue(); }],
             ["isRemovable", (o, n) => { (o as unknown as CalendarPermission).isRemovable = n.getBooleanValue(); }],
-            ["role", (o, n) => { (o as unknown as CalendarPermission).role = n.getObjectValue<CalendarRoleType>(CalendarRoleType); }],
+            ["role", (o, n) => { (o as unknown as CalendarPermission).role = n.getEnumValue<CalendarRoleType>(CalendarRoleType); }],
         ]);
     };
     /**
@@ -73,11 +75,11 @@ export class CalendarPermission extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<calendarRoleType>("allowedRoles", this.allowedRoles);
+        writer.writeCollectionOfObjectValues<CalendarRoleType>("allowedRoles", this.allowedRoles);
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
         writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         writer.writeBooleanValue("isRemovable", this.isRemovable);
-        writer.writeObjectValue<CalendarRoleType>("role", this.role);
+        writer.writeEnumValue<CalendarRoleType>("role", this.role);
     };
     /**
      * Sets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.

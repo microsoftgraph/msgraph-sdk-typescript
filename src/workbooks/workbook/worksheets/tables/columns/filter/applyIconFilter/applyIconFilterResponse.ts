@@ -1,3 +1,4 @@
+import {WorkbookIcon} from '../../../../../tables/workbookIcon';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplyIconFilterResponse implements Parsable {

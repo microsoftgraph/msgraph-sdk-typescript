@@ -1,5 +1,5 @@
+import {PlannerBucketTaskBoardTaskFormat} from '../../../plannerBucketTaskBoardTaskFormat';
 import {BucketTaskBoardFormat} from './bucketTaskBoardFormat';
-import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/buckets/{plannerBucket-id}/tasks/{plannerTask-id}/bucketTaskBoardFormat  */

@@ -1,6 +1,6 @@
 import {Entity} from '../../../entity';
-import {WorkbookChartSeriesFormat} from './charts/series/format/workbookChartSeriesFormat';
 import {WorkbookChartPoint} from './charts/workbookChartPoint';
+import {WorkbookChartSeriesFormat} from './charts/workbookChartSeriesFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartSeries extends Entity implements Parsable {

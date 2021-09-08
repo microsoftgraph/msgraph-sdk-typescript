@@ -1,4 +1,5 @@
 import {WindowsInformationProtection} from './windowsInformationProtection';
+import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {
@@ -128,10 +129,10 @@ export class WindowsInformationProtectionPolicy extends WindowsInformationProtec
             ["numberOfPastPinsRemembered", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).numberOfPastPinsRemembered = n.getNumberValue(); }],
             ["passwordMaximumAttemptCount", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).passwordMaximumAttemptCount = n.getNumberValue(); }],
             ["pinExpirationDays", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinExpirationDays = n.getNumberValue(); }],
-            ["pinLowercaseLetters", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinLowercaseLetters = n.getObjectValue<WindowsInformationProtectionPinCharacterRequirements>(WindowsInformationProtectionPinCharacterRequirements); }],
+            ["pinLowercaseLetters", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinLowercaseLetters = n.getEnumValue<WindowsInformationProtectionPinCharacterRequirements>(WindowsInformationProtectionPinCharacterRequirements); }],
             ["pinMinimumLength", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinMinimumLength = n.getNumberValue(); }],
-            ["pinSpecialCharacters", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinSpecialCharacters = n.getObjectValue<WindowsInformationProtectionPinCharacterRequirements>(WindowsInformationProtectionPinCharacterRequirements); }],
-            ["pinUppercaseLetters", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinUppercaseLetters = n.getObjectValue<WindowsInformationProtectionPinCharacterRequirements>(WindowsInformationProtectionPinCharacterRequirements); }],
+            ["pinSpecialCharacters", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinSpecialCharacters = n.getEnumValue<WindowsInformationProtectionPinCharacterRequirements>(WindowsInformationProtectionPinCharacterRequirements); }],
+            ["pinUppercaseLetters", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).pinUppercaseLetters = n.getEnumValue<WindowsInformationProtectionPinCharacterRequirements>(WindowsInformationProtectionPinCharacterRequirements); }],
             ["revokeOnMdmHandoffDisabled", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).revokeOnMdmHandoffDisabled = n.getBooleanValue(); }],
             ["windowsHelloForBusinessBlocked", (o, n) => { (o as unknown as WindowsInformationProtectionPolicy).windowsHelloForBusinessBlocked = n.getBooleanValue(); }],
         ]);
@@ -149,10 +150,10 @@ export class WindowsInformationProtectionPolicy extends WindowsInformationProtec
         writer.writeNumberValue("numberOfPastPinsRemembered", this.numberOfPastPinsRemembered);
         writer.writeNumberValue("passwordMaximumAttemptCount", this.passwordMaximumAttemptCount);
         writer.writeNumberValue("pinExpirationDays", this.pinExpirationDays);
-        writer.writeObjectValue<WindowsInformationProtectionPinCharacterRequirements>("pinLowercaseLetters", this.pinLowercaseLetters);
+        writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinLowercaseLetters", this.pinLowercaseLetters);
         writer.writeNumberValue("pinMinimumLength", this.pinMinimumLength);
-        writer.writeObjectValue<WindowsInformationProtectionPinCharacterRequirements>("pinSpecialCharacters", this.pinSpecialCharacters);
-        writer.writeObjectValue<WindowsInformationProtectionPinCharacterRequirements>("pinUppercaseLetters", this.pinUppercaseLetters);
+        writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinSpecialCharacters", this.pinSpecialCharacters);
+        writer.writeEnumValue<WindowsInformationProtectionPinCharacterRequirements>("pinUppercaseLetters", this.pinUppercaseLetters);
         writer.writeBooleanValue("revokeOnMdmHandoffDisabled", this.revokeOnMdmHandoffDisabled);
         writer.writeBooleanValue("windowsHelloForBusinessBlocked", this.windowsHelloForBusinessBlocked);
     };

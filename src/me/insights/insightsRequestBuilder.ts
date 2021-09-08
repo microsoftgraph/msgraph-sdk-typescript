@@ -1,5 +1,5 @@
+import {OfficeGraphInsights} from '../../officeGraphInsights';
 import {Insights} from './insights';
-import {OfficeGraphInsights} from './officeGraphInsights';
 import {SharedInsightRequestBuilder} from './shared/item/sharedInsightRequestBuilder';
 import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';

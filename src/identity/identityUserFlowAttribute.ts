@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {IdentityUserFlowAttributeDataType} from './identityUserFlowAttributeDataType';
+import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttribute extends Entity implements Parsable {
@@ -50,10 +52,10 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["dataType", (o, n) => { (o as unknown as IdentityUserFlowAttribute).dataType = n.getObjectValue<IdentityUserFlowAttributeDataType>(IdentityUserFlowAttributeDataType); }],
+            ["dataType", (o, n) => { (o as unknown as IdentityUserFlowAttribute).dataType = n.getEnumValue<IdentityUserFlowAttributeDataType>(IdentityUserFlowAttributeDataType); }],
             ["description", (o, n) => { (o as unknown as IdentityUserFlowAttribute).description = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as IdentityUserFlowAttribute).displayName = n.getStringValue(); }],
-            ["userFlowAttributeType", (o, n) => { (o as unknown as IdentityUserFlowAttribute).userFlowAttributeType = n.getObjectValue<IdentityUserFlowAttributeType>(IdentityUserFlowAttributeType); }],
+            ["userFlowAttributeType", (o, n) => { (o as unknown as IdentityUserFlowAttribute).userFlowAttributeType = n.getEnumValue<IdentityUserFlowAttributeType>(IdentityUserFlowAttributeType); }],
         ]);
     };
     /**
@@ -63,10 +65,10 @@ export class IdentityUserFlowAttribute extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<IdentityUserFlowAttributeDataType>("dataType", this.dataType);
+        writer.writeEnumValue<IdentityUserFlowAttributeDataType>("dataType", this.dataType);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
+        writer.writeEnumValue<IdentityUserFlowAttributeType>("userFlowAttributeType", this.userFlowAttributeType);
     };
     /**
      * Sets the dataType property value. The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime.

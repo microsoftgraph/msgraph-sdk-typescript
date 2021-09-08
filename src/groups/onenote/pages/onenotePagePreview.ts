@@ -1,3 +1,4 @@
+import {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OnenotePagePreview implements Parsable {

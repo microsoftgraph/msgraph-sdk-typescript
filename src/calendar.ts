@@ -1,7 +1,10 @@
+import {CalendarColor} from './calendarColor';
 import {CalendarPermission} from './calendarPermission';
+import {EmailAddress} from './emailAddress';
 import {Entity} from './entity';
 import {Event} from './event';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -180,15 +183,15 @@ export class Calendar extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allowedOnlineMeetingProviders", (o, n) => { (o as unknown as Calendar).allowedOnlineMeetingProviders = n.getCollectionOfPrimitiveValues<onlineMeetingProviderType>(); }],
+            ["allowedOnlineMeetingProviders", (o, n) => { (o as unknown as Calendar).allowedOnlineMeetingProviders = n.getCollectionOfObjectValues<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
             ["calendarPermissions", (o, n) => { (o as unknown as Calendar).calendarPermissions = n.getCollectionOfObjectValues<CalendarPermission>(CalendarPermission); }],
             ["calendarView", (o, n) => { (o as unknown as Calendar).calendarView = n.getCollectionOfObjectValues<Event>(Event); }],
             ["canEdit", (o, n) => { (o as unknown as Calendar).canEdit = n.getBooleanValue(); }],
             ["canShare", (o, n) => { (o as unknown as Calendar).canShare = n.getBooleanValue(); }],
             ["canViewPrivateItems", (o, n) => { (o as unknown as Calendar).canViewPrivateItems = n.getBooleanValue(); }],
             ["changeKey", (o, n) => { (o as unknown as Calendar).changeKey = n.getStringValue(); }],
-            ["color", (o, n) => { (o as unknown as Calendar).color = n.getObjectValue<CalendarColor>(CalendarColor); }],
-            ["defaultOnlineMeetingProvider", (o, n) => { (o as unknown as Calendar).defaultOnlineMeetingProvider = n.getObjectValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
+            ["color", (o, n) => { (o as unknown as Calendar).color = n.getEnumValue<CalendarColor>(CalendarColor); }],
+            ["defaultOnlineMeetingProvider", (o, n) => { (o as unknown as Calendar).defaultOnlineMeetingProvider = n.getEnumValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
             ["events", (o, n) => { (o as unknown as Calendar).events = n.getCollectionOfObjectValues<Event>(Event); }],
             ["hexColor", (o, n) => { (o as unknown as Calendar).hexColor = n.getStringValue(); }],
             ["isDefaultCalendar", (o, n) => { (o as unknown as Calendar).isDefaultCalendar = n.getBooleanValue(); }],
@@ -207,15 +210,15 @@ export class Calendar extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<onlineMeetingProviderType>("allowedOnlineMeetingProviders", this.allowedOnlineMeetingProviders);
+        writer.writeCollectionOfObjectValues<OnlineMeetingProviderType>("allowedOnlineMeetingProviders", this.allowedOnlineMeetingProviders);
         writer.writeCollectionOfObjectValues<CalendarPermission>("calendarPermissions", this.calendarPermissions);
         writer.writeCollectionOfObjectValues<Event>("calendarView", this.calendarView);
         writer.writeBooleanValue("canEdit", this.canEdit);
         writer.writeBooleanValue("canShare", this.canShare);
         writer.writeBooleanValue("canViewPrivateItems", this.canViewPrivateItems);
         writer.writeStringValue("changeKey", this.changeKey);
-        writer.writeObjectValue<CalendarColor>("color", this.color);
-        writer.writeObjectValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
+        writer.writeEnumValue<CalendarColor>("color", this.color);
+        writer.writeEnumValue<OnlineMeetingProviderType>("defaultOnlineMeetingProvider", this.defaultOnlineMeetingProvider);
         writer.writeCollectionOfObjectValues<Event>("events", this.events);
         writer.writeStringValue("hexColor", this.hexColor);
         writer.writeBooleanValue("isDefaultCalendar", this.isDefaultCalendar);

@@ -1,7 +1,7 @@
-import {AccessReviewSet} from './accessReviews/accessReviewSet';
-import {AppConsentApprovalRoute} from './appConsent/appConsentApprovalRoute';
-import {EntitlementManagement} from './entitlementManagement/entitlementManagement';
-import {TermsOfUseContainer} from './termsOfUse/termsOfUseContainer';
+import {AccessReviewSet} from './accessReviewSet';
+import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
+import {EntitlementManagement} from './entitlementManagement';
+import {TermsOfUseContainer} from './termsOfUseContainer';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityGovernance implements Parsable {

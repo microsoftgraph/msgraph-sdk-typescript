@@ -1,7 +1,9 @@
+import {Configuration} from './configuration';
 import {ConnectionOperation} from './connectionOperation';
-import {Schema} from './connections/schema/schema';
+import {ConnectionState} from './connectionState';
 import {Entity} from './entity';
 import {ExternalItem} from './externalItem';
+import {Schema} from './schema';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ExternalConnection extends Entity implements Parsable {
@@ -79,7 +81,7 @@ export class ExternalConnection extends Entity implements Parsable {
             ["name", (o, n) => { (o as unknown as ExternalConnection).name = n.getStringValue(); }],
             ["operations", (o, n) => { (o as unknown as ExternalConnection).operations = n.getCollectionOfObjectValues<ConnectionOperation>(ConnectionOperation); }],
             ["schema", (o, n) => { (o as unknown as ExternalConnection).schema = n.getObjectValue<Schema>(Schema); }],
-            ["state", (o, n) => { (o as unknown as ExternalConnection).state = n.getObjectValue<ConnectionState>(ConnectionState); }],
+            ["state", (o, n) => { (o as unknown as ExternalConnection).state = n.getEnumValue<ConnectionState>(ConnectionState); }],
         ]);
     };
     /**
@@ -95,7 +97,7 @@ export class ExternalConnection extends Entity implements Parsable {
         writer.writeStringValue("name", this.name);
         writer.writeCollectionOfObjectValues<ConnectionOperation>("operations", this.operations);
         writer.writeObjectValue<Schema>("schema", this.schema);
-        writer.writeObjectValue<ConnectionState>("state", this.state);
+        writer.writeEnumValue<ConnectionState>("state", this.state);
     };
     /**
      * Sets the configuration property value. 

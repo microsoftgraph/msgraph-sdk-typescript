@@ -1,3 +1,5 @@
+import {TeamVisibilityType} from '../../teamVisibilityType';
+import {ClonableTeamParts} from './clonableTeamParts';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CloneResponse implements Parsable {
@@ -74,8 +76,8 @@ export class CloneResponse implements Parsable {
             ["description", (o, n) => { (o as unknown as CloneResponse).description = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as CloneResponse).displayName = n.getStringValue(); }],
             ["mailNickname", (o, n) => { (o as unknown as CloneResponse).mailNickname = n.getStringValue(); }],
-            ["partsToClone", (o, n) => { (o as unknown as CloneResponse).partsToClone = n.getObjectValue<ClonableTeamParts>(ClonableTeamParts); }],
-            ["visibility", (o, n) => { (o as unknown as CloneResponse).visibility = n.getObjectValue<TeamVisibilityType>(TeamVisibilityType); }],
+            ["partsToClone", (o, n) => { (o as unknown as CloneResponse).partsToClone = n.getEnumValue<ClonableTeamParts>(ClonableTeamParts); }],
+            ["visibility", (o, n) => { (o as unknown as CloneResponse).visibility = n.getEnumValue<TeamVisibilityType>(TeamVisibilityType); }],
         ]);
     };
     /**
@@ -88,8 +90,8 @@ export class CloneResponse implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("mailNickname", this.mailNickname);
-        writer.writeObjectValue<ClonableTeamParts>("partsToClone", this.partsToClone);
-        writer.writeObjectValue<TeamVisibilityType>("visibility", this.visibility);
+        writer.writeEnumValue<ClonableTeamParts>("partsToClone", this.partsToClone);
+        writer.writeEnumValue<TeamVisibilityType>("visibility", this.visibility);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

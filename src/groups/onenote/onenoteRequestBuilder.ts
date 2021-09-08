@@ -1,6 +1,6 @@
+import {Onenote} from '../../onenote';
 import {NotebookRequestBuilder} from './notebooks/item/notebookRequestBuilder';
 import {NotebooksRequestBuilder} from './notebooks/notebooksRequestBuilder';
-import {Onenote} from './onenote';
 import {OnenoteOperationRequestBuilder} from './operations/item/onenoteOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {OnenotePageRequestBuilder} from './pages/item/onenotePageRequestBuilder';

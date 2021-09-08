@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityApiConnector extends Entity implements Parsable {

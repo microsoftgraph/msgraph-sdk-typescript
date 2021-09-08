@@ -1,11 +1,21 @@
+import {Attendee} from './attendee';
+import {Calendar} from './calendar';
 import {ItemBody} from './chats/itemBody';
 import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {Extension} from './extension';
 import {Attachment} from './groups/attachment';
-import {Calendar} from './groups/calendar/calendar';
-import {Recipient} from './groups/recipient';
+import {EventType} from './groups/eventType';
+import {FreeBusyStatus} from './groups/freeBusyStatus';
+import {Importance} from './groups/importance';
+import {Location} from './groups/location';
+import {OnlineMeetingInfo} from './groups/onlineMeetingInfo';
+import {PatternedRecurrence} from './groups/patternedRecurrence';
+import {ResponseStatus} from './groups/responseStatus';
+import {Sensitivity} from './groups/sensitivity';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
+import {OnlineMeetingProviderType} from './onlineMeetingProviderType';
 import {OutlookItem} from './outlookItem';
+import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -402,7 +412,7 @@ export class Event extends OutlookItem implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["allowNewTimeProposals", (o, n) => { (o as unknown as Event).allowNewTimeProposals = n.getBooleanValue(); }],
             ["attachments", (o, n) => { (o as unknown as Event).attachments = n.getCollectionOfObjectValues<Attachment>(Attachment); }],
-            ["attendees", (o, n) => { (o as unknown as Event).attendees = n.getCollectionOfPrimitiveValues<attendee>(); }],
+            ["attendees", (o, n) => { (o as unknown as Event).attendees = n.getCollectionOfObjectValues<Attendee>(Attendee); }],
             ["body", (o, n) => { (o as unknown as Event).body = n.getObjectValue<ItemBody>(ItemBody); }],
             ["bodyPreview", (o, n) => { (o as unknown as Event).bodyPreview = n.getStringValue(); }],
             ["calendar", (o, n) => { (o as unknown as Event).calendar = n.getObjectValue<Calendar>(Calendar); }],
@@ -411,7 +421,7 @@ export class Event extends OutlookItem implements Parsable {
             ["hasAttachments", (o, n) => { (o as unknown as Event).hasAttachments = n.getBooleanValue(); }],
             ["hideAttendees", (o, n) => { (o as unknown as Event).hideAttendees = n.getBooleanValue(); }],
             ["iCalUId", (o, n) => { (o as unknown as Event).iCalUId = n.getStringValue(); }],
-            ["importance", (o, n) => { (o as unknown as Event).importance = n.getObjectValue<Importance>(Importance); }],
+            ["importance", (o, n) => { (o as unknown as Event).importance = n.getEnumValue<Importance>(Importance); }],
             ["instances", (o, n) => { (o as unknown as Event).instances = n.getCollectionOfObjectValues<Event>(Event); }],
             ["isAllDay", (o, n) => { (o as unknown as Event).isAllDay = n.getBooleanValue(); }],
             ["isCancelled", (o, n) => { (o as unknown as Event).isCancelled = n.getBooleanValue(); }],
@@ -420,10 +430,10 @@ export class Event extends OutlookItem implements Parsable {
             ["isOrganizer", (o, n) => { (o as unknown as Event).isOrganizer = n.getBooleanValue(); }],
             ["isReminderOn", (o, n) => { (o as unknown as Event).isReminderOn = n.getBooleanValue(); }],
             ["location", (o, n) => { (o as unknown as Event).location = n.getObjectValue<Location>(Location); }],
-            ["locations", (o, n) => { (o as unknown as Event).locations = n.getCollectionOfPrimitiveValues<location>(); }],
+            ["locations", (o, n) => { (o as unknown as Event).locations = n.getCollectionOfObjectValues<Location>(Location); }],
             ["multiValueExtendedProperties", (o, n) => { (o as unknown as Event).multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty); }],
             ["onlineMeeting", (o, n) => { (o as unknown as Event).onlineMeeting = n.getObjectValue<OnlineMeetingInfo>(OnlineMeetingInfo); }],
-            ["onlineMeetingProvider", (o, n) => { (o as unknown as Event).onlineMeetingProvider = n.getObjectValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
+            ["onlineMeetingProvider", (o, n) => { (o as unknown as Event).onlineMeetingProvider = n.getEnumValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
             ["onlineMeetingUrl", (o, n) => { (o as unknown as Event).onlineMeetingUrl = n.getStringValue(); }],
             ["organizer", (o, n) => { (o as unknown as Event).organizer = n.getObjectValue<Recipient>(Recipient); }],
             ["originalEndTimeZone", (o, n) => { (o as unknown as Event).originalEndTimeZone = n.getStringValue(); }],
@@ -433,14 +443,14 @@ export class Event extends OutlookItem implements Parsable {
             ["reminderMinutesBeforeStart", (o, n) => { (o as unknown as Event).reminderMinutesBeforeStart = n.getNumberValue(); }],
             ["responseRequested", (o, n) => { (o as unknown as Event).responseRequested = n.getBooleanValue(); }],
             ["responseStatus", (o, n) => { (o as unknown as Event).responseStatus = n.getObjectValue<ResponseStatus>(ResponseStatus); }],
-            ["sensitivity", (o, n) => { (o as unknown as Event).sensitivity = n.getObjectValue<Sensitivity>(Sensitivity); }],
+            ["sensitivity", (o, n) => { (o as unknown as Event).sensitivity = n.getEnumValue<Sensitivity>(Sensitivity); }],
             ["seriesMasterId", (o, n) => { (o as unknown as Event).seriesMasterId = n.getStringValue(); }],
-            ["showAs", (o, n) => { (o as unknown as Event).showAs = n.getObjectValue<FreeBusyStatus>(FreeBusyStatus); }],
+            ["showAs", (o, n) => { (o as unknown as Event).showAs = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); }],
             ["singleValueExtendedProperties", (o, n) => { (o as unknown as Event).singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty); }],
             ["start", (o, n) => { (o as unknown as Event).start = n.getObjectValue<DateTimeTimeZone>(DateTimeTimeZone); }],
             ["subject", (o, n) => { (o as unknown as Event).subject = n.getStringValue(); }],
             ["transactionId", (o, n) => { (o as unknown as Event).transactionId = n.getStringValue(); }],
-            ["type", (o, n) => { (o as unknown as Event).type = n.getObjectValue<EventType>(EventType); }],
+            ["type", (o, n) => { (o as unknown as Event).type = n.getEnumValue<EventType>(EventType); }],
             ["webLink", (o, n) => { (o as unknown as Event).webLink = n.getStringValue(); }],
         ]);
     };
@@ -453,7 +463,7 @@ export class Event extends OutlookItem implements Parsable {
         super.serialize(writer);
         writer.writeBooleanValue("allowNewTimeProposals", this.allowNewTimeProposals);
         writer.writeCollectionOfObjectValues<Attachment>("attachments", this.attachments);
-        writer.writeCollectionOfPrimitiveValues<attendee>("attendees", this.attendees);
+        writer.writeCollectionOfObjectValues<Attendee>("attendees", this.attendees);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeStringValue("bodyPreview", this.bodyPreview);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);
@@ -462,7 +472,7 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         writer.writeBooleanValue("hideAttendees", this.hideAttendees);
         writer.writeStringValue("iCalUId", this.iCalUId);
-        writer.writeObjectValue<Importance>("importance", this.importance);
+        writer.writeEnumValue<Importance>("importance", this.importance);
         writer.writeCollectionOfObjectValues<Event>("instances", this.instances);
         writer.writeBooleanValue("isAllDay", this.isAllDay);
         writer.writeBooleanValue("isCancelled", this.isCancelled);
@@ -471,10 +481,10 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeBooleanValue("isOrganizer", this.isOrganizer);
         writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         writer.writeObjectValue<Location>("location", this.location);
-        writer.writeCollectionOfPrimitiveValues<location>("locations", this.locations);
+        writer.writeCollectionOfObjectValues<Location>("locations", this.locations);
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", this.multiValueExtendedProperties);
         writer.writeObjectValue<OnlineMeetingInfo>("onlineMeeting", this.onlineMeeting);
-        writer.writeObjectValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
+        writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
         writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
         writer.writeObjectValue<Recipient>("organizer", this.organizer);
         writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
@@ -484,14 +494,14 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
         writer.writeBooleanValue("responseRequested", this.responseRequested);
         writer.writeObjectValue<ResponseStatus>("responseStatus", this.responseStatus);
-        writer.writeObjectValue<Sensitivity>("sensitivity", this.sensitivity);
+        writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
         writer.writeStringValue("seriesMasterId", this.seriesMasterId);
-        writer.writeObjectValue<FreeBusyStatus>("showAs", this.showAs);
+        writer.writeEnumValue<FreeBusyStatus>("showAs", this.showAs);
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
         writer.writeStringValue("subject", this.subject);
         writer.writeStringValue("transactionId", this.transactionId);
-        writer.writeObjectValue<EventType>("type", this.type);
+        writer.writeEnumValue<EventType>("type", this.type);
         writer.writeStringValue("webLink", this.webLink);
     };
     /**

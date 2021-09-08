@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {InstallState} from './managedEBooks/installState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceInstallState extends Entity implements Parsable {
@@ -89,7 +90,7 @@ export class DeviceInstallState extends Entity implements Parsable {
             ["deviceId", (o, n) => { (o as unknown as DeviceInstallState).deviceId = n.getStringValue(); }],
             ["deviceName", (o, n) => { (o as unknown as DeviceInstallState).deviceName = n.getStringValue(); }],
             ["errorCode", (o, n) => { (o as unknown as DeviceInstallState).errorCode = n.getStringValue(); }],
-            ["installState", (o, n) => { (o as unknown as DeviceInstallState).installState = n.getObjectValue<InstallState>(InstallState); }],
+            ["installState", (o, n) => { (o as unknown as DeviceInstallState).installState = n.getEnumValue<InstallState>(InstallState); }],
             ["lastSyncDateTime", (o, n) => { (o as unknown as DeviceInstallState).lastSyncDateTime = n.getDateValue(); }],
             ["osDescription", (o, n) => { (o as unknown as DeviceInstallState).osDescription = n.getStringValue(); }],
             ["osVersion", (o, n) => { (o as unknown as DeviceInstallState).osVersion = n.getStringValue(); }],
@@ -106,7 +107,7 @@ export class DeviceInstallState extends Entity implements Parsable {
         writer.writeStringValue("deviceId", this.deviceId);
         writer.writeStringValue("deviceName", this.deviceName);
         writer.writeStringValue("errorCode", this.errorCode);
-        writer.writeObjectValue<InstallState>("installState", this.installState);
+        writer.writeEnumValue<InstallState>("installState", this.installState);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("osDescription", this.osDescription);
         writer.writeStringValue("osVersion", this.osVersion);

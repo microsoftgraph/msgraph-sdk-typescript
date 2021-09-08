@@ -1,5 +1,8 @@
 import {Entity} from './entity';
 import {ConditionalAccessConditionSet} from './policies/conditionalAccessConditionSet';
+import {ConditionalAccessGrantControls} from './policies/conditionalAccessGrantControls';
+import {ConditionalAccessPolicyState} from './policies/conditionalAccessPolicyState';
+import {ConditionalAccessSessionControls} from './policies/conditionalAccessSessionControls';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessPolicy extends Entity implements Parsable {
@@ -93,7 +96,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
             ["grantControls", (o, n) => { (o as unknown as ConditionalAccessPolicy).grantControls = n.getObjectValue<ConditionalAccessGrantControls>(ConditionalAccessGrantControls); }],
             ["modifiedDateTime", (o, n) => { (o as unknown as ConditionalAccessPolicy).modifiedDateTime = n.getDateValue(); }],
             ["sessionControls", (o, n) => { (o as unknown as ConditionalAccessPolicy).sessionControls = n.getObjectValue<ConditionalAccessSessionControls>(ConditionalAccessSessionControls); }],
-            ["state", (o, n) => { (o as unknown as ConditionalAccessPolicy).state = n.getObjectValue<ConditionalAccessPolicyState>(ConditionalAccessPolicyState); }],
+            ["state", (o, n) => { (o as unknown as ConditionalAccessPolicy).state = n.getEnumValue<ConditionalAccessPolicyState>(ConditionalAccessPolicyState); }],
         ]);
     };
     /**
@@ -110,7 +113,7 @@ export class ConditionalAccessPolicy extends Entity implements Parsable {
         writer.writeObjectValue<ConditionalAccessGrantControls>("grantControls", this.grantControls);
         writer.writeDateValue("modifiedDateTime", this.modifiedDateTime);
         writer.writeObjectValue<ConditionalAccessSessionControls>("sessionControls", this.sessionControls);
-        writer.writeObjectValue<ConditionalAccessPolicyState>("state", this.state);
+        writer.writeEnumValue<ConditionalAccessPolicyState>("state", this.state);
     };
     /**
      * Sets the conditions property value. 

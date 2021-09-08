@@ -1,5 +1,7 @@
 import {Entity} from '../entity';
+import {IdentityUserFlowAttributeInputType} from './b2xUserFlows/identityUserFlowAttributeInputType';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
+import {UserAttributeValuesItem} from './userAttributeValuesItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttributeAssignment extends Entity implements Parsable {
@@ -73,8 +75,8 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
             ["isOptional", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).isOptional = n.getBooleanValue(); }],
             ["requiresVerification", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).requiresVerification = n.getBooleanValue(); }],
             ["userAttribute", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).userAttribute = n.getObjectValue<IdentityUserFlowAttribute>(IdentityUserFlowAttribute); }],
-            ["userAttributeValues", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).userAttributeValues = n.getCollectionOfPrimitiveValues<userAttributeValuesItem>(); }],
-            ["userInputType", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).userInputType = n.getObjectValue<IdentityUserFlowAttributeInputType>(IdentityUserFlowAttributeInputType); }],
+            ["userAttributeValues", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).userAttributeValues = n.getCollectionOfObjectValues<UserAttributeValuesItem>(UserAttributeValuesItem); }],
+            ["userInputType", (o, n) => { (o as unknown as IdentityUserFlowAttributeAssignment).userInputType = n.getEnumValue<IdentityUserFlowAttributeInputType>(IdentityUserFlowAttributeInputType); }],
         ]);
     };
     /**
@@ -88,8 +90,8 @@ export class IdentityUserFlowAttributeAssignment extends Entity implements Parsa
         writer.writeBooleanValue("isOptional", this.isOptional);
         writer.writeBooleanValue("requiresVerification", this.requiresVerification);
         writer.writeObjectValue<IdentityUserFlowAttribute>("userAttribute", this.userAttribute);
-        writer.writeCollectionOfPrimitiveValues<userAttributeValuesItem>("userAttributeValues", this.userAttributeValues);
-        writer.writeObjectValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
+        writer.writeCollectionOfObjectValues<UserAttributeValuesItem>("userAttributeValues", this.userAttributeValues);
+        writer.writeEnumValue<IdentityUserFlowAttributeInputType>("userInputType", this.userInputType);
     };
     /**
      * Sets the displayName property value. The display name of the identityUserFlowAttribute within a user flow.

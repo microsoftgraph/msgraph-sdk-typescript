@@ -1,7 +1,8 @@
+import {MimeContent} from '../deviceManagement/mimeContent';
 import {Entity} from '../entity';
 import {DeviceInstallState} from './deviceInstallState';
+import {EBookInstallSummary} from './eBookInstallSummary';
 import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {EBookInstallSummary} from './managedEBooks/installSummary/eBookInstallSummary';
 import {UserInstallStateSummary} from './userInstallStateSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

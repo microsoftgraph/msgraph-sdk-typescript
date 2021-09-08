@@ -1,9 +1,12 @@
 import {ColumnDefinition} from './columnDefinition';
 import {ContentType} from './contentType';
+import {Drive} from './drive';
 import {BaseItem} from './drive/baseItem';
-import {Drive} from './drive/drive';
+import {ListInfo} from './listInfo';
 import {ListItem} from './listItem';
+import {SharepointIds} from './sharepointIds';
 import {Subscription} from './subscription';
+import {SystemFacet} from './systemFacet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class List extends BaseItem implements Parsable {

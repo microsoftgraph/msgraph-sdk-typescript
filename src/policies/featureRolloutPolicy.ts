@@ -1,5 +1,6 @@
 import {DirectoryObject} from '../directoryObject';
 import {Entity} from '../entity';
+import {StagedFeatureName} from './stagedFeatureName';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class FeatureRolloutPolicy extends Entity implements Parsable {
@@ -72,7 +73,7 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
             ["appliesTo", (o, n) => { (o as unknown as FeatureRolloutPolicy).appliesTo = n.getCollectionOfObjectValues<DirectoryObject>(DirectoryObject); }],
             ["description", (o, n) => { (o as unknown as FeatureRolloutPolicy).description = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as FeatureRolloutPolicy).displayName = n.getStringValue(); }],
-            ["feature", (o, n) => { (o as unknown as FeatureRolloutPolicy).feature = n.getObjectValue<StagedFeatureName>(StagedFeatureName); }],
+            ["feature", (o, n) => { (o as unknown as FeatureRolloutPolicy).feature = n.getEnumValue<StagedFeatureName>(StagedFeatureName); }],
             ["isAppliedToOrganization", (o, n) => { (o as unknown as FeatureRolloutPolicy).isAppliedToOrganization = n.getBooleanValue(); }],
             ["isEnabled", (o, n) => { (o as unknown as FeatureRolloutPolicy).isEnabled = n.getBooleanValue(); }],
         ]);
@@ -87,7 +88,7 @@ export class FeatureRolloutPolicy extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<DirectoryObject>("appliesTo", this.appliesTo);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<StagedFeatureName>("feature", this.feature);
+        writer.writeEnumValue<StagedFeatureName>("feature", this.feature);
         writer.writeBooleanValue("isAppliedToOrganization", this.isAppliedToOrganization);
         writer.writeBooleanValue("isEnabled", this.isEnabled);
     };

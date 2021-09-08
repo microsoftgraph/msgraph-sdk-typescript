@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {DeviceAndAppManagementAssignmentTarget} from './managedEBooks/deviceAndAppManagementAssignmentTarget';
+import {InstallIntent} from './managedEBooks/installIntent';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBookAssignment extends Entity implements Parsable {
@@ -32,7 +34,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["installIntent", (o, n) => { (o as unknown as ManagedEBookAssignment).installIntent = n.getObjectValue<InstallIntent>(InstallIntent); }],
+            ["installIntent", (o, n) => { (o as unknown as ManagedEBookAssignment).installIntent = n.getEnumValue<InstallIntent>(InstallIntent); }],
             ["target", (o, n) => { (o as unknown as ManagedEBookAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget); }],
         ]);
     };
@@ -43,7 +45,7 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<InstallIntent>("installIntent", this.installIntent);
+        writer.writeEnumValue<InstallIntent>("installIntent", this.installIntent);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
     };
     /**

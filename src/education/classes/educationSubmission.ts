@@ -1,7 +1,9 @@
 import {Entity} from '../../entity';
 import {IdentitySet} from '../../identitySet';
 import {EducationOutcome} from './assignments/educationOutcome';
+import {EducationSubmissionRecipient} from './assignments/educationSubmissionRecipient';
 import {EducationSubmissionResource} from './assignments/educationSubmissionResource';
+import {EducationSubmissionStatus} from './assignments/educationSubmissionStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EducationSubmission extends Entity implements Parsable {
@@ -131,7 +133,7 @@ export class EducationSubmission extends Entity implements Parsable {
             ["resourcesFolderUrl", (o, n) => { (o as unknown as EducationSubmission).resourcesFolderUrl = n.getStringValue(); }],
             ["returnedBy", (o, n) => { (o as unknown as EducationSubmission).returnedBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["returnedDateTime", (o, n) => { (o as unknown as EducationSubmission).returnedDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as EducationSubmission).status = n.getObjectValue<EducationSubmissionStatus>(EducationSubmissionStatus); }],
+            ["status", (o, n) => { (o as unknown as EducationSubmission).status = n.getEnumValue<EducationSubmissionStatus>(EducationSubmissionStatus); }],
             ["submittedBy", (o, n) => { (o as unknown as EducationSubmission).submittedBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["submittedDateTime", (o, n) => { (o as unknown as EducationSubmission).submittedDateTime = n.getDateValue(); }],
             ["submittedResources", (o, n) => { (o as unknown as EducationSubmission).submittedResources = n.getCollectionOfObjectValues<EducationSubmissionResource>(EducationSubmissionResource); }],
@@ -152,7 +154,7 @@ export class EducationSubmission extends Entity implements Parsable {
         writer.writeStringValue("resourcesFolderUrl", this.resourcesFolderUrl);
         writer.writeObjectValue<IdentitySet>("returnedBy", this.returnedBy);
         writer.writeDateValue("returnedDateTime", this.returnedDateTime);
-        writer.writeObjectValue<EducationSubmissionStatus>("status", this.status);
+        writer.writeEnumValue<EducationSubmissionStatus>("status", this.status);
         writer.writeObjectValue<IdentitySet>("submittedBy", this.submittedBy);
         writer.writeDateValue("submittedDateTime", this.submittedDateTime);
         writer.writeCollectionOfObjectValues<EducationSubmissionResource>("submittedResources", this.submittedResources);

@@ -2,7 +2,10 @@ import {ItemBody} from '../../chats/itemBody';
 import {DateTimeTimeZone} from '../../dateTimeTimeZone';
 import {Entity} from '../../entity';
 import {Extension} from '../../extension';
+import {Importance} from '../../groups/importance';
+import {PatternedRecurrence} from '../../groups/patternedRecurrence';
 import {LinkedResource} from './lists/linkedResource';
+import {TaskStatus} from './lists/taskStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TodoTask extends Entity implements Parsable {
@@ -150,13 +153,13 @@ export class TodoTask extends Entity implements Parsable {
             ["createdDateTime", (o, n) => { (o as unknown as TodoTask).createdDateTime = n.getDateValue(); }],
             ["dueDateTime", (o, n) => { (o as unknown as TodoTask).dueDateTime = n.getObjectValue<DateTimeTimeZone>(DateTimeTimeZone); }],
             ["extensions", (o, n) => { (o as unknown as TodoTask).extensions = n.getCollectionOfObjectValues<Extension>(Extension); }],
-            ["importance", (o, n) => { (o as unknown as TodoTask).importance = n.getObjectValue<Importance>(Importance); }],
+            ["importance", (o, n) => { (o as unknown as TodoTask).importance = n.getEnumValue<Importance>(Importance); }],
             ["isReminderOn", (o, n) => { (o as unknown as TodoTask).isReminderOn = n.getBooleanValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as TodoTask).lastModifiedDateTime = n.getDateValue(); }],
             ["linkedResources", (o, n) => { (o as unknown as TodoTask).linkedResources = n.getCollectionOfObjectValues<LinkedResource>(LinkedResource); }],
             ["recurrence", (o, n) => { (o as unknown as TodoTask).recurrence = n.getObjectValue<PatternedRecurrence>(PatternedRecurrence); }],
             ["reminderDateTime", (o, n) => { (o as unknown as TodoTask).reminderDateTime = n.getObjectValue<DateTimeTimeZone>(DateTimeTimeZone); }],
-            ["status", (o, n) => { (o as unknown as TodoTask).status = n.getObjectValue<TaskStatus>(TaskStatus); }],
+            ["status", (o, n) => { (o as unknown as TodoTask).status = n.getEnumValue<TaskStatus>(TaskStatus); }],
             ["title", (o, n) => { (o as unknown as TodoTask).title = n.getStringValue(); }],
         ]);
     };
@@ -173,13 +176,13 @@ export class TodoTask extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", this.dueDateTime);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
-        writer.writeObjectValue<Importance>("importance", this.importance);
+        writer.writeEnumValue<Importance>("importance", this.importance);
         writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
         writer.writeCollectionOfObjectValues<LinkedResource>("linkedResources", this.linkedResources);
         writer.writeObjectValue<PatternedRecurrence>("recurrence", this.recurrence);
         writer.writeObjectValue<DateTimeTimeZone>("reminderDateTime", this.reminderDateTime);
-        writer.writeObjectValue<TaskStatus>("status", this.status);
+        writer.writeEnumValue<TaskStatus>("status", this.status);
         writer.writeStringValue("title", this.title);
     };
     /**

@@ -1,13 +1,23 @@
+import {Attendee} from '../../../attendee';
+import {Calendar} from '../../../calendar';
 import {ItemBody} from '../../../chats/itemBody';
 import {DateTimeTimeZone} from '../../../dateTimeTimeZone';
 import {Event} from '../../../event';
 import {Extension} from '../../../extension';
 import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
+import {OnlineMeetingProviderType} from '../../../onlineMeetingProviderType';
 import {OutlookItem} from '../../../outlookItem';
+import {Recipient} from '../../../recipient';
 import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
 import {Attachment} from '../../attachment';
-import {Calendar} from '../../calendar/calendar';
-import {Recipient} from '../../recipient';
+import {EventType} from '../../eventType';
+import {FreeBusyStatus} from '../../freeBusyStatus';
+import {Importance} from '../../importance';
+import {Location} from '../../location';
+import {OnlineMeetingInfo} from '../../onlineMeetingInfo';
+import {PatternedRecurrence} from '../../patternedRecurrence';
+import {ResponseStatus} from '../../responseStatus';
+import {Sensitivity} from '../../sensitivity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {
@@ -403,7 +413,7 @@ export class Delta extends OutlookItem implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["allowNewTimeProposals", (o, n) => { (o as unknown as Delta).allowNewTimeProposals = n.getBooleanValue(); }],
             ["attachments", (o, n) => { (o as unknown as Delta).attachments = n.getCollectionOfObjectValues<Attachment>(Attachment); }],
-            ["attendees", (o, n) => { (o as unknown as Delta).attendees = n.getCollectionOfPrimitiveValues<attendee>(); }],
+            ["attendees", (o, n) => { (o as unknown as Delta).attendees = n.getCollectionOfObjectValues<Attendee>(Attendee); }],
             ["body", (o, n) => { (o as unknown as Delta).body = n.getObjectValue<ItemBody>(ItemBody); }],
             ["bodyPreview", (o, n) => { (o as unknown as Delta).bodyPreview = n.getStringValue(); }],
             ["calendar", (o, n) => { (o as unknown as Delta).calendar = n.getObjectValue<Calendar>(Calendar); }],
@@ -412,7 +422,7 @@ export class Delta extends OutlookItem implements Parsable {
             ["hasAttachments", (o, n) => { (o as unknown as Delta).hasAttachments = n.getBooleanValue(); }],
             ["hideAttendees", (o, n) => { (o as unknown as Delta).hideAttendees = n.getBooleanValue(); }],
             ["iCalUId", (o, n) => { (o as unknown as Delta).iCalUId = n.getStringValue(); }],
-            ["importance", (o, n) => { (o as unknown as Delta).importance = n.getObjectValue<Importance>(Importance); }],
+            ["importance", (o, n) => { (o as unknown as Delta).importance = n.getEnumValue<Importance>(Importance); }],
             ["instances", (o, n) => { (o as unknown as Delta).instances = n.getCollectionOfObjectValues<Event>(Event); }],
             ["isAllDay", (o, n) => { (o as unknown as Delta).isAllDay = n.getBooleanValue(); }],
             ["isCancelled", (o, n) => { (o as unknown as Delta).isCancelled = n.getBooleanValue(); }],
@@ -421,10 +431,10 @@ export class Delta extends OutlookItem implements Parsable {
             ["isOrganizer", (o, n) => { (o as unknown as Delta).isOrganizer = n.getBooleanValue(); }],
             ["isReminderOn", (o, n) => { (o as unknown as Delta).isReminderOn = n.getBooleanValue(); }],
             ["location", (o, n) => { (o as unknown as Delta).location = n.getObjectValue<Location>(Location); }],
-            ["locations", (o, n) => { (o as unknown as Delta).locations = n.getCollectionOfPrimitiveValues<location>(); }],
+            ["locations", (o, n) => { (o as unknown as Delta).locations = n.getCollectionOfObjectValues<Location>(Location); }],
             ["multiValueExtendedProperties", (o, n) => { (o as unknown as Delta).multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty); }],
             ["onlineMeeting", (o, n) => { (o as unknown as Delta).onlineMeeting = n.getObjectValue<OnlineMeetingInfo>(OnlineMeetingInfo); }],
-            ["onlineMeetingProvider", (o, n) => { (o as unknown as Delta).onlineMeetingProvider = n.getObjectValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
+            ["onlineMeetingProvider", (o, n) => { (o as unknown as Delta).onlineMeetingProvider = n.getEnumValue<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
             ["onlineMeetingUrl", (o, n) => { (o as unknown as Delta).onlineMeetingUrl = n.getStringValue(); }],
             ["organizer", (o, n) => { (o as unknown as Delta).organizer = n.getObjectValue<Recipient>(Recipient); }],
             ["originalEndTimeZone", (o, n) => { (o as unknown as Delta).originalEndTimeZone = n.getStringValue(); }],
@@ -434,14 +444,14 @@ export class Delta extends OutlookItem implements Parsable {
             ["reminderMinutesBeforeStart", (o, n) => { (o as unknown as Delta).reminderMinutesBeforeStart = n.getNumberValue(); }],
             ["responseRequested", (o, n) => { (o as unknown as Delta).responseRequested = n.getBooleanValue(); }],
             ["responseStatus", (o, n) => { (o as unknown as Delta).responseStatus = n.getObjectValue<ResponseStatus>(ResponseStatus); }],
-            ["sensitivity", (o, n) => { (o as unknown as Delta).sensitivity = n.getObjectValue<Sensitivity>(Sensitivity); }],
+            ["sensitivity", (o, n) => { (o as unknown as Delta).sensitivity = n.getEnumValue<Sensitivity>(Sensitivity); }],
             ["seriesMasterId", (o, n) => { (o as unknown as Delta).seriesMasterId = n.getStringValue(); }],
-            ["showAs", (o, n) => { (o as unknown as Delta).showAs = n.getObjectValue<FreeBusyStatus>(FreeBusyStatus); }],
+            ["showAs", (o, n) => { (o as unknown as Delta).showAs = n.getEnumValue<FreeBusyStatus>(FreeBusyStatus); }],
             ["singleValueExtendedProperties", (o, n) => { (o as unknown as Delta).singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty); }],
             ["start", (o, n) => { (o as unknown as Delta).start = n.getObjectValue<DateTimeTimeZone>(DateTimeTimeZone); }],
             ["subject", (o, n) => { (o as unknown as Delta).subject = n.getStringValue(); }],
             ["transactionId", (o, n) => { (o as unknown as Delta).transactionId = n.getStringValue(); }],
-            ["type", (o, n) => { (o as unknown as Delta).type = n.getObjectValue<EventType>(EventType); }],
+            ["type", (o, n) => { (o as unknown as Delta).type = n.getEnumValue<EventType>(EventType); }],
             ["webLink", (o, n) => { (o as unknown as Delta).webLink = n.getStringValue(); }],
         ]);
     };
@@ -454,7 +464,7 @@ export class Delta extends OutlookItem implements Parsable {
         super.serialize(writer);
         writer.writeBooleanValue("allowNewTimeProposals", this.allowNewTimeProposals);
         writer.writeCollectionOfObjectValues<Attachment>("attachments", this.attachments);
-        writer.writeCollectionOfPrimitiveValues<attendee>("attendees", this.attendees);
+        writer.writeCollectionOfObjectValues<Attendee>("attendees", this.attendees);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeStringValue("bodyPreview", this.bodyPreview);
         writer.writeObjectValue<Calendar>("calendar", this.calendar);
@@ -463,7 +473,7 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
         writer.writeBooleanValue("hideAttendees", this.hideAttendees);
         writer.writeStringValue("iCalUId", this.iCalUId);
-        writer.writeObjectValue<Importance>("importance", this.importance);
+        writer.writeEnumValue<Importance>("importance", this.importance);
         writer.writeCollectionOfObjectValues<Event>("instances", this.instances);
         writer.writeBooleanValue("isAllDay", this.isAllDay);
         writer.writeBooleanValue("isCancelled", this.isCancelled);
@@ -472,10 +482,10 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeBooleanValue("isOrganizer", this.isOrganizer);
         writer.writeBooleanValue("isReminderOn", this.isReminderOn);
         writer.writeObjectValue<Location>("location", this.location);
-        writer.writeCollectionOfPrimitiveValues<location>("locations", this.locations);
+        writer.writeCollectionOfObjectValues<Location>("locations", this.locations);
         writer.writeCollectionOfObjectValues<MultiValueLegacyExtendedProperty>("multiValueExtendedProperties", this.multiValueExtendedProperties);
         writer.writeObjectValue<OnlineMeetingInfo>("onlineMeeting", this.onlineMeeting);
-        writer.writeObjectValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
+        writer.writeEnumValue<OnlineMeetingProviderType>("onlineMeetingProvider", this.onlineMeetingProvider);
         writer.writeStringValue("onlineMeetingUrl", this.onlineMeetingUrl);
         writer.writeObjectValue<Recipient>("organizer", this.organizer);
         writer.writeStringValue("originalEndTimeZone", this.originalEndTimeZone);
@@ -485,14 +495,14 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeNumberValue("reminderMinutesBeforeStart", this.reminderMinutesBeforeStart);
         writer.writeBooleanValue("responseRequested", this.responseRequested);
         writer.writeObjectValue<ResponseStatus>("responseStatus", this.responseStatus);
-        writer.writeObjectValue<Sensitivity>("sensitivity", this.sensitivity);
+        writer.writeEnumValue<Sensitivity>("sensitivity", this.sensitivity);
         writer.writeStringValue("seriesMasterId", this.seriesMasterId);
-        writer.writeObjectValue<FreeBusyStatus>("showAs", this.showAs);
+        writer.writeEnumValue<FreeBusyStatus>("showAs", this.showAs);
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
         writer.writeObjectValue<DateTimeTimeZone>("start", this.start);
         writer.writeStringValue("subject", this.subject);
         writer.writeStringValue("transactionId", this.transactionId);
-        writer.writeObjectValue<EventType>("type", this.type);
+        writer.writeEnumValue<EventType>("type", this.type);
         writer.writeStringValue("webLink", this.webLink);
     };
     /**

@@ -1,4 +1,5 @@
 import {Entity} from '../../../entity';
+import {ManagedAppPolicyDeploymentSummaryPerApp} from '../../managedAppPolicyDeploymentSummaryPerApp';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeploymentSummary extends Entity implements Parsable {
@@ -60,7 +61,7 @@ export class DeploymentSummary extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["configurationDeployedUserCount", (o, n) => { (o as unknown as DeploymentSummary).configurationDeployedUserCount = n.getNumberValue(); }],
-            ["configurationDeploymentSummaryPerApp", (o, n) => { (o as unknown as DeploymentSummary).configurationDeploymentSummaryPerApp = n.getCollectionOfPrimitiveValues<managedAppPolicyDeploymentSummaryPerApp>(); }],
+            ["configurationDeploymentSummaryPerApp", (o, n) => { (o as unknown as DeploymentSummary).configurationDeploymentSummaryPerApp = n.getCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerApp>(ManagedAppPolicyDeploymentSummaryPerApp); }],
             ["displayName", (o, n) => { (o as unknown as DeploymentSummary).displayName = n.getStringValue(); }],
             ["lastRefreshTime", (o, n) => { (o as unknown as DeploymentSummary).lastRefreshTime = n.getDateValue(); }],
             ["version", (o, n) => { (o as unknown as DeploymentSummary).version = n.getStringValue(); }],
@@ -74,7 +75,7 @@ export class DeploymentSummary extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeNumberValue("configurationDeployedUserCount", this.configurationDeployedUserCount);
-        writer.writeCollectionOfPrimitiveValues<managedAppPolicyDeploymentSummaryPerApp>("configurationDeploymentSummaryPerApp", this.configurationDeploymentSummaryPerApp);
+        writer.writeCollectionOfObjectValues<ManagedAppPolicyDeploymentSummaryPerApp>("configurationDeploymentSummaryPerApp", this.configurationDeploymentSummaryPerApp);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastRefreshTime", this.lastRefreshTime);
         writer.writeStringValue("version", this.version);

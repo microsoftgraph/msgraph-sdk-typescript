@@ -1,4 +1,5 @@
 import {ChatMessage} from './chatMessage';
+import {ChatType} from './chatType';
 import {ConversationMember} from './conversationMember';
 import {Entity} from './entity';
 import {TeamsAppInstallation} from './teamsAppInstallation';
@@ -89,7 +90,7 @@ export class Chat extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["chatType", (o, n) => { (o as unknown as Chat).chatType = n.getObjectValue<ChatType>(ChatType); }],
+            ["chatType", (o, n) => { (o as unknown as Chat).chatType = n.getEnumValue<ChatType>(ChatType); }],
             ["createdDateTime", (o, n) => { (o as unknown as Chat).createdDateTime = n.getDateValue(); }],
             ["installedApps", (o, n) => { (o as unknown as Chat).installedApps = n.getCollectionOfObjectValues<TeamsAppInstallation>(TeamsAppInstallation); }],
             ["lastUpdatedDateTime", (o, n) => { (o as unknown as Chat).lastUpdatedDateTime = n.getDateValue(); }],
@@ -106,7 +107,7 @@ export class Chat extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<ChatType>("chatType", this.chatType);
+        writer.writeEnumValue<ChatType>("chatType", this.chatType);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeCollectionOfObjectValues<TeamsAppInstallation>("installedApps", this.installedApps);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);

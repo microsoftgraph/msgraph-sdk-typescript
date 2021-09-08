@@ -1,3 +1,4 @@
+import {PageLinks} from './groups/onenote/pageLinks';
 import {Notebook} from './notebook';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import {OnenoteSection} from './onenoteSection';

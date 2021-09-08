@@ -1,3 +1,4 @@
+import {AuthenticationMethodState} from './authenticationMethodState';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -23,7 +24,7 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["state", (o, n) => { (o as unknown as AuthenticationMethodConfiguration).state = n.getObjectValue<AuthenticationMethodState>(AuthenticationMethodState); }],
+            ["state", (o, n) => { (o as unknown as AuthenticationMethodConfiguration).state = n.getEnumValue<AuthenticationMethodState>(AuthenticationMethodState); }],
         ]);
     };
     /**
@@ -33,7 +34,7 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<AuthenticationMethodState>("state", this.state);
+        writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
     };
     /**
      * Sets the state property value. The state of the policy. Possible values are: enabled, disabled.

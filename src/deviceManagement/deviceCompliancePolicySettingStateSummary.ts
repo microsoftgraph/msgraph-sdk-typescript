@@ -1,5 +1,6 @@
 import {Entity} from '../entity';
 import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
+import {PolicyPlatformType} from './policyPlatformType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable {
@@ -120,7 +121,7 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
             ["errorDeviceCount", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).errorDeviceCount = n.getNumberValue(); }],
             ["nonCompliantDeviceCount", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).nonCompliantDeviceCount = n.getNumberValue(); }],
             ["notApplicableDeviceCount", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).notApplicableDeviceCount = n.getNumberValue(); }],
-            ["platformType", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).platformType = n.getObjectValue<PolicyPlatformType>(PolicyPlatformType); }],
+            ["platformType", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).platformType = n.getEnumValue<PolicyPlatformType>(PolicyPlatformType); }],
             ["remediatedDeviceCount", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).remediatedDeviceCount = n.getNumberValue(); }],
             ["setting", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).setting = n.getStringValue(); }],
             ["settingName", (o, n) => { (o as unknown as DeviceCompliancePolicySettingStateSummary).settingName = n.getStringValue(); }],
@@ -140,7 +141,7 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
         writer.writeNumberValue("errorDeviceCount", this.errorDeviceCount);
         writer.writeNumberValue("nonCompliantDeviceCount", this.nonCompliantDeviceCount);
         writer.writeNumberValue("notApplicableDeviceCount", this.notApplicableDeviceCount);
-        writer.writeObjectValue<PolicyPlatformType>("platformType", this.platformType);
+        writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         writer.writeNumberValue("remediatedDeviceCount", this.remediatedDeviceCount);
         writer.writeStringValue("setting", this.setting);
         writer.writeStringValue("settingName", this.settingName);

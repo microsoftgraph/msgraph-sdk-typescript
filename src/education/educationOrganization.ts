@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {EducationExternalSource} from './educationExternalSource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EducationOrganization extends Entity implements Parsable {
@@ -52,7 +53,7 @@ export class EducationOrganization extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["description", (o, n) => { (o as unknown as EducationOrganization).description = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as EducationOrganization).displayName = n.getStringValue(); }],
-            ["externalSource", (o, n) => { (o as unknown as EducationOrganization).externalSource = n.getObjectValue<EducationExternalSource>(EducationExternalSource); }],
+            ["externalSource", (o, n) => { (o as unknown as EducationOrganization).externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); }],
             ["externalSourceDetail", (o, n) => { (o as unknown as EducationOrganization).externalSourceDetail = n.getStringValue(); }],
         ]);
     };
@@ -65,7 +66,7 @@ export class EducationOrganization extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<EducationExternalSource>("externalSource", this.externalSource);
+        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
     };
     /**

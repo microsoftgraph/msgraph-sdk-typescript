@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {PermissionType} from './permissionGrantPolicies/permissionType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PermissionGrantConditionSet extends Entity implements Parsable {
@@ -92,7 +93,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
             ["clientApplicationTenantIds", (o, n) => { (o as unknown as PermissionGrantConditionSet).clientApplicationTenantIds = n.getCollectionOfPrimitiveValues<string>(); }],
             ["permissionClassification", (o, n) => { (o as unknown as PermissionGrantConditionSet).permissionClassification = n.getStringValue(); }],
             ["permissions", (o, n) => { (o as unknown as PermissionGrantConditionSet).permissions = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["permissionType", (o, n) => { (o as unknown as PermissionGrantConditionSet).permissionType = n.getObjectValue<PermissionType>(PermissionType); }],
+            ["permissionType", (o, n) => { (o as unknown as PermissionGrantConditionSet).permissionType = n.getEnumValue<PermissionType>(PermissionType); }],
             ["resourceApplication", (o, n) => { (o as unknown as PermissionGrantConditionSet).resourceApplication = n.getStringValue(); }],
         ]);
     };
@@ -109,7 +110,7 @@ export class PermissionGrantConditionSet extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("clientApplicationTenantIds", this.clientApplicationTenantIds);
         writer.writeStringValue("permissionClassification", this.permissionClassification);
         writer.writeCollectionOfPrimitiveValues<string>("permissions", this.permissions);
-        writer.writeObjectValue<PermissionType>("permissionType", this.permissionType);
+        writer.writeEnumValue<PermissionType>("permissionType", this.permissionType);
         writer.writeStringValue("resourceApplication", this.resourceApplication);
     };
     /**

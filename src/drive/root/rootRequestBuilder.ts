@@ -1,6 +1,6 @@
 import {DriveItem} from '../../driveItem';
+import {Root} from '../../root';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {Root} from './root';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive/root  */

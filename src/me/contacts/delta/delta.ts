@@ -1,6 +1,8 @@
+import {EmailAddress} from '../../../emailAddress';
 import {Extension} from '../../../extension';
 import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
 import {OutlookItem} from '../../../outlookItem';
+import {PhysicalAddress} from '../../../physicalAddress';
 import {ProfilePhoto} from '../../../profilePhoto';
 import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
@@ -360,7 +362,7 @@ export class Delta extends OutlookItem implements Parsable {
             ["companyName", (o, n) => { (o as unknown as Delta).companyName = n.getStringValue(); }],
             ["department", (o, n) => { (o as unknown as Delta).department = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as Delta).displayName = n.getStringValue(); }],
-            ["emailAddresses", (o, n) => { (o as unknown as Delta).emailAddresses = n.getCollectionOfPrimitiveValues<emailAddress>(); }],
+            ["emailAddresses", (o, n) => { (o as unknown as Delta).emailAddresses = n.getCollectionOfObjectValues<EmailAddress>(EmailAddress); }],
             ["extensions", (o, n) => { (o as unknown as Delta).extensions = n.getCollectionOfObjectValues<Extension>(Extension); }],
             ["fileAs", (o, n) => { (o as unknown as Delta).fileAs = n.getStringValue(); }],
             ["generation", (o, n) => { (o as unknown as Delta).generation = n.getStringValue(); }],
@@ -406,7 +408,7 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeStringValue("companyName", this.companyName);
         writer.writeStringValue("department", this.department);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfPrimitiveValues<emailAddress>("emailAddresses", this.emailAddresses);
+        writer.writeCollectionOfObjectValues<EmailAddress>("emailAddresses", this.emailAddresses);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
         writer.writeStringValue("fileAs", this.fileAs);
         writer.writeStringValue("generation", this.generation);

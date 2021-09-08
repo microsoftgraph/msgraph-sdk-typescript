@@ -1,4 +1,7 @@
 import {Entity} from '../../../../entity';
+import {PlannerChecklistItems} from '../../../plannerChecklistItems';
+import {PlannerExternalReferences} from '../../../plannerExternalReferences';
+import {PlannerPreviewType} from '../../../plannerPreviewType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Details extends Entity implements Parsable {
@@ -52,7 +55,7 @@ export class Details extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["checklist", (o, n) => { (o as unknown as Details).checklist = n.getObjectValue<PlannerChecklistItems>(PlannerChecklistItems); }],
             ["description", (o, n) => { (o as unknown as Details).description = n.getStringValue(); }],
-            ["previewType", (o, n) => { (o as unknown as Details).previewType = n.getObjectValue<PlannerPreviewType>(PlannerPreviewType); }],
+            ["previewType", (o, n) => { (o as unknown as Details).previewType = n.getEnumValue<PlannerPreviewType>(PlannerPreviewType); }],
             ["references", (o, n) => { (o as unknown as Details).references = n.getObjectValue<PlannerExternalReferences>(PlannerExternalReferences); }],
         ]);
     };
@@ -65,7 +68,7 @@ export class Details extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<PlannerChecklistItems>("checklist", this.checklist);
         writer.writeStringValue("description", this.description);
-        writer.writeObjectValue<PlannerPreviewType>("previewType", this.previewType);
+        writer.writeEnumValue<PlannerPreviewType>("previewType", this.previewType);
         writer.writeObjectValue<PlannerExternalReferences>("references", this.references);
     };
     /**

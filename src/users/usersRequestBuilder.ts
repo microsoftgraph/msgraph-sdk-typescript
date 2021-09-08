@@ -1,5 +1,5 @@
-import {User} from '../me/user';
-import {DeltaRequestBuilder} from '../servicePrincipals/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../groups/calendar/calendarView/instances/delta/deltaRequestBuilder';
+import {User} from '../user';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {UsersResponse} from './usersResponse';

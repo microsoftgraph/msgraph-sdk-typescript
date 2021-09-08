@@ -1,3 +1,4 @@
+import {ItemReference} from '../../itemReference';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CopyResponse implements Parsable {

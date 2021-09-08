@@ -1,4 +1,6 @@
 import {Entity} from '../../entity';
+import {AccessReviewReviewerScope} from '../accessReviewReviewerScope';
+import {AccessReviewScope} from './accessReviewScope';
 import {AccessReviewInstanceDecisionItem} from './definitions/accessReviewInstanceDecisionItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -78,8 +80,8 @@ export class AccessReviewInstance extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["decisions", (o, n) => { (o as unknown as AccessReviewInstance).decisions = n.getCollectionOfObjectValues<AccessReviewInstanceDecisionItem>(AccessReviewInstanceDecisionItem); }],
             ["endDateTime", (o, n) => { (o as unknown as AccessReviewInstance).endDateTime = n.getDateValue(); }],
-            ["fallbackReviewers", (o, n) => { (o as unknown as AccessReviewInstance).fallbackReviewers = n.getCollectionOfPrimitiveValues<accessReviewReviewerScope>(); }],
-            ["reviewers", (o, n) => { (o as unknown as AccessReviewInstance).reviewers = n.getCollectionOfPrimitiveValues<accessReviewReviewerScope>(); }],
+            ["fallbackReviewers", (o, n) => { (o as unknown as AccessReviewInstance).fallbackReviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope); }],
+            ["reviewers", (o, n) => { (o as unknown as AccessReviewInstance).reviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope); }],
             ["scope", (o, n) => { (o as unknown as AccessReviewInstance).scope = n.getObjectValue<AccessReviewScope>(AccessReviewScope); }],
             ["startDateTime", (o, n) => { (o as unknown as AccessReviewInstance).startDateTime = n.getDateValue(); }],
             ["status", (o, n) => { (o as unknown as AccessReviewInstance).status = n.getStringValue(); }],
@@ -94,8 +96,8 @@ export class AccessReviewInstance extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AccessReviewInstanceDecisionItem>("decisions", this.decisions);
         writer.writeDateValue("endDateTime", this.endDateTime);
-        writer.writeCollectionOfPrimitiveValues<accessReviewReviewerScope>("fallbackReviewers", this.fallbackReviewers);
-        writer.writeCollectionOfPrimitiveValues<accessReviewReviewerScope>("reviewers", this.reviewers);
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", this.fallbackReviewers);
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", this.reviewers);
         writer.writeObjectValue<AccessReviewScope>("scope", this.scope);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeStringValue("status", this.status);

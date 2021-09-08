@@ -1,3 +1,5 @@
+import {NotebookLinks} from './groups/onenote/notebookLinks';
+import {OnenoteUserRole} from './groups/onenote/onenoteUserRole';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
@@ -95,7 +97,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
             ["sectionGroupsUrl", (o, n) => { (o as unknown as Notebook).sectionGroupsUrl = n.getStringValue(); }],
             ["sections", (o, n) => { (o as unknown as Notebook).sections = n.getCollectionOfObjectValues<OnenoteSection>(OnenoteSection); }],
             ["sectionsUrl", (o, n) => { (o as unknown as Notebook).sectionsUrl = n.getStringValue(); }],
-            ["userRole", (o, n) => { (o as unknown as Notebook).userRole = n.getObjectValue<OnenoteUserRole>(OnenoteUserRole); }],
+            ["userRole", (o, n) => { (o as unknown as Notebook).userRole = n.getEnumValue<OnenoteUserRole>(OnenoteUserRole); }],
         ]);
     };
     /**
@@ -112,7 +114,7 @@ export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         writer.writeCollectionOfObjectValues<OnenoteSection>("sections", this.sections);
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
-        writer.writeObjectValue<OnenoteUserRole>("userRole", this.userRole);
+        writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
     };
     /**
      * Sets the isDefault property value. Indicates whether this is the user's default notebook. Read-only.

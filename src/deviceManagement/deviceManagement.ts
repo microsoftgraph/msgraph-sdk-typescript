@@ -1,29 +1,32 @@
 import {DeviceManagementTroubleshootingEvent} from '../deviceManagementTroubleshootingEvent';
 import {Entity} from '../entity';
 import {ManagedDevice} from '../managedDevice';
-import {ApplePushNotificationCertificate} from './applePushNotificationCertificate/applePushNotificationCertificate';
+import {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
 import {ComplianceManagementPartner} from './complianceManagementPartner';
-import {OnPremisesConditionalAccessSettings} from './conditionalAccessSettings/onPremisesConditionalAccessSettings';
 import {DetectedApp} from './detectedApp';
 import {DeviceAndAppManagementRoleAssignment} from './deviceAndAppManagementRoleAssignment';
 import {DeviceCategory} from './deviceCategory';
 import {DeviceCompliancePolicy} from './deviceCompliancePolicy';
-import {DeviceCompliancePolicyDeviceStateSummary} from './deviceCompliancePolicyDeviceStateSummary/deviceCompliancePolicyDeviceStateSummary';
+import {DeviceCompliancePolicyDeviceStateSummary} from './deviceCompliancePolicyDeviceStateSummary';
 import {DeviceCompliancePolicySettingStateSummary} from './deviceCompliancePolicySettingStateSummary';
 import {DeviceConfiguration} from './deviceConfiguration';
-import {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDeviceStateSummaries/deviceConfigurationDeviceStateSummary';
+import {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDeviceStateSummary';
 import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
 import {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
 import {DeviceManagementPartner} from './deviceManagementPartner';
+import {DeviceManagementSettings} from './deviceManagementSettings';
+import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionState';
 import {ImportedWindowsAutopilotDeviceIdentity} from './importedWindowsAutopilotDeviceIdentity';
+import {IntuneBrand} from './intuneBrand';
 import {IosUpdateDeviceStatus} from './iosUpdateDeviceStatus';
-import {ManagedDeviceOverview} from './managedDeviceOverview/managedDeviceOverview';
+import {ManagedDeviceOverview} from './managedDeviceOverview';
 import {MobileThreatDefenseConnector} from './mobileThreatDefenseConnector';
 import {NotificationMessageTemplate} from './notificationMessageTemplate';
+import {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
 import {RemoteAssistancePartner} from './remoteAssistancePartner';
 import {ResourceOperation} from './resourceOperation';
 import {RoleDefinition} from './roleDefinition';
-import {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary/softwareUpdateStatusSummary';
+import {SoftwareUpdateStatusSummary} from './softwareUpdateStatusSummary';
 import {TelecomExpenseManagementPartner} from './telecomExpenseManagementPartner';
 import {TermsAndConditions} from './termsAndConditions';
 import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
@@ -377,7 +380,7 @@ export class DeviceManagement extends Entity implements Parsable {
             ["roleDefinitions", (o, n) => { (o as unknown as DeviceManagement).roleDefinitions = n.getCollectionOfObjectValues<RoleDefinition>(RoleDefinition); }],
             ["settings", (o, n) => { (o as unknown as DeviceManagement).settings = n.getObjectValue<DeviceManagementSettings>(DeviceManagementSettings); }],
             ["softwareUpdateStatusSummary", (o, n) => { (o as unknown as DeviceManagement).softwareUpdateStatusSummary = n.getObjectValue<SoftwareUpdateStatusSummary>(SoftwareUpdateStatusSummary); }],
-            ["subscriptionState", (o, n) => { (o as unknown as DeviceManagement).subscriptionState = n.getObjectValue<DeviceManagementSubscriptionState>(DeviceManagementSubscriptionState); }],
+            ["subscriptionState", (o, n) => { (o as unknown as DeviceManagement).subscriptionState = n.getEnumValue<DeviceManagementSubscriptionState>(DeviceManagementSubscriptionState); }],
             ["telecomExpenseManagementPartners", (o, n) => { (o as unknown as DeviceManagement).telecomExpenseManagementPartners = n.getCollectionOfObjectValues<TelecomExpenseManagementPartner>(TelecomExpenseManagementPartner); }],
             ["termsAndConditions", (o, n) => { (o as unknown as DeviceManagement).termsAndConditions = n.getCollectionOfObjectValues<TermsAndConditions>(TermsAndConditions); }],
             ["troubleshootingEvents", (o, n) => { (o as unknown as DeviceManagement).troubleshootingEvents = n.getCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>(DeviceManagementTroubleshootingEvent); }],
@@ -420,7 +423,7 @@ export class DeviceManagement extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<RoleDefinition>("roleDefinitions", this.roleDefinitions);
         writer.writeObjectValue<DeviceManagementSettings>("settings", this.settings);
         writer.writeObjectValue<SoftwareUpdateStatusSummary>("softwareUpdateStatusSummary", this.softwareUpdateStatusSummary);
-        writer.writeObjectValue<DeviceManagementSubscriptionState>("subscriptionState", this.subscriptionState);
+        writer.writeEnumValue<DeviceManagementSubscriptionState>("subscriptionState", this.subscriptionState);
         writer.writeCollectionOfObjectValues<TelecomExpenseManagementPartner>("telecomExpenseManagementPartners", this.telecomExpenseManagementPartners);
         writer.writeCollectionOfObjectValues<TermsAndConditions>("termsAndConditions", this.termsAndConditions);
         writer.writeCollectionOfObjectValues<DeviceManagementTroubleshootingEvent>("troubleshootingEvents", this.troubleshootingEvents);

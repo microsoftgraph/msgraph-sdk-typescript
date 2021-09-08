@@ -1,5 +1,6 @@
 import {DirectoryObject} from './directoryObject';
 import {DomainDnsRecord} from './domainDnsRecord';
+import {DomainState} from './domainState';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

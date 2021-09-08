@@ -1,4 +1,4 @@
-import {AgreementFile} from './agreementFile';
+import {AgreementFile} from '../../agreementFile';
 import {File} from './file';
 import {AgreementFileLocalizationRequestBuilder} from './localizations/item/agreementFileLocalizationRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';

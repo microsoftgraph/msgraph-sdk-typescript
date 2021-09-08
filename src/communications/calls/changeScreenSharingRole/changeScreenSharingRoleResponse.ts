@@ -1,3 +1,4 @@
+import {ScreenSharingRole} from './screenSharingRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ChangeScreenSharingRoleResponse implements Parsable {
@@ -30,7 +31,7 @@ export class ChangeScreenSharingRoleResponse implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["role", (o, n) => { (o as unknown as ChangeScreenSharingRoleResponse).role = n.getObjectValue<ScreenSharingRole>(ScreenSharingRole); }],
+            ["role", (o, n) => { (o as unknown as ChangeScreenSharingRoleResponse).role = n.getEnumValue<ScreenSharingRole>(ScreenSharingRole); }],
         ]);
     };
     /**
@@ -39,7 +40,7 @@ export class ChangeScreenSharingRoleResponse implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<ScreenSharingRole>("role", this.role);
+        writer.writeEnumValue<ScreenSharingRole>("role", this.role);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

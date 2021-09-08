@@ -1,3 +1,8 @@
+import {RiskLevel} from '../auditLogs/riskLevel';
+import {ConditionalAccessApplications} from './conditionalAccessApplications';
+import {ConditionalAccessClientApp} from './conditionalAccessClientApp';
+import {ConditionalAccessLocations} from './conditionalAccessLocations';
+import {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
 import {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -86,11 +91,11 @@ export class ConditionalAccessConditionSet implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["applications", (o, n) => { (o as unknown as ConditionalAccessConditionSet).applications = n.getObjectValue<ConditionalAccessApplications>(ConditionalAccessApplications); }],
-            ["clientAppTypes", (o, n) => { (o as unknown as ConditionalAccessConditionSet).clientAppTypes = n.getCollectionOfPrimitiveValues<conditionalAccessClientApp>(); }],
+            ["clientAppTypes", (o, n) => { (o as unknown as ConditionalAccessConditionSet).clientAppTypes = n.getCollectionOfObjectValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); }],
             ["locations", (o, n) => { (o as unknown as ConditionalAccessConditionSet).locations = n.getObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations); }],
             ["platforms", (o, n) => { (o as unknown as ConditionalAccessConditionSet).platforms = n.getObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms); }],
-            ["signInRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).signInRiskLevels = n.getCollectionOfPrimitiveValues<riskLevel>(); }],
-            ["userRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).userRiskLevels = n.getCollectionOfPrimitiveValues<riskLevel>(); }],
+            ["signInRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).signInRiskLevels = n.getCollectionOfObjectValues<RiskLevel>(RiskLevel); }],
+            ["userRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).userRiskLevels = n.getCollectionOfObjectValues<RiskLevel>(RiskLevel); }],
             ["users", (o, n) => { (o as unknown as ConditionalAccessConditionSet).users = n.getObjectValue<ConditionalAccessUsers>(ConditionalAccessUsers); }],
         ]);
     };
@@ -101,11 +106,11 @@ export class ConditionalAccessConditionSet implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ConditionalAccessApplications>("applications", this.applications);
-        writer.writeCollectionOfPrimitiveValues<conditionalAccessClientApp>("clientAppTypes", this.clientAppTypes);
+        writer.writeCollectionOfObjectValues<ConditionalAccessClientApp>("clientAppTypes", this.clientAppTypes);
         writer.writeObjectValue<ConditionalAccessLocations>("locations", this.locations);
         writer.writeObjectValue<ConditionalAccessPlatforms>("platforms", this.platforms);
-        writer.writeCollectionOfPrimitiveValues<riskLevel>("signInRiskLevels", this.signInRiskLevels);
-        writer.writeCollectionOfPrimitiveValues<riskLevel>("userRiskLevels", this.userRiskLevels);
+        writer.writeCollectionOfObjectValues<RiskLevel>("signInRiskLevels", this.signInRiskLevels);
+        writer.writeCollectionOfObjectValues<RiskLevel>("userRiskLevels", this.userRiskLevels);
         writer.writeObjectValue<ConditionalAccessUsers>("users", this.users);
         writer.writeAdditionalData(this.additionalData);
     };

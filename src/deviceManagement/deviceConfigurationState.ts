@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {ComplianceStatus} from './complianceStatus';
+import {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
+import {PolicyPlatformType} from './policyPlatformType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationState extends Entity implements Parsable {
@@ -68,10 +71,10 @@ export class DeviceConfigurationState extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["displayName", (o, n) => { (o as unknown as DeviceConfigurationState).displayName = n.getStringValue(); }],
-            ["platformType", (o, n) => { (o as unknown as DeviceConfigurationState).platformType = n.getObjectValue<PolicyPlatformType>(PolicyPlatformType); }],
+            ["platformType", (o, n) => { (o as unknown as DeviceConfigurationState).platformType = n.getEnumValue<PolicyPlatformType>(PolicyPlatformType); }],
             ["settingCount", (o, n) => { (o as unknown as DeviceConfigurationState).settingCount = n.getNumberValue(); }],
-            ["settingStates", (o, n) => { (o as unknown as DeviceConfigurationState).settingStates = n.getCollectionOfPrimitiveValues<deviceConfigurationSettingState>(); }],
-            ["state", (o, n) => { (o as unknown as DeviceConfigurationState).state = n.getObjectValue<ComplianceStatus>(ComplianceStatus); }],
+            ["settingStates", (o, n) => { (o as unknown as DeviceConfigurationState).settingStates = n.getCollectionOfObjectValues<DeviceConfigurationSettingState>(DeviceConfigurationSettingState); }],
+            ["state", (o, n) => { (o as unknown as DeviceConfigurationState).state = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
             ["version", (o, n) => { (o as unknown as DeviceConfigurationState).version = n.getNumberValue(); }],
         ]);
     };
@@ -83,10 +86,10 @@ export class DeviceConfigurationState extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<PolicyPlatformType>("platformType", this.platformType);
+        writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         writer.writeNumberValue("settingCount", this.settingCount);
-        writer.writeCollectionOfPrimitiveValues<deviceConfigurationSettingState>("settingStates", this.settingStates);
-        writer.writeObjectValue<ComplianceStatus>("state", this.state);
+        writer.writeCollectionOfObjectValues<DeviceConfigurationSettingState>("settingStates", this.settingStates);
+        writer.writeEnumValue<ComplianceStatus>("state", this.state);
         writer.writeNumberValue("version", this.version);
     };
     /**

@@ -1,7 +1,7 @@
-import {Format} from '../../format/format';
+import {WorkbookChartLegendFormat} from '../../../workbookChartLegendFormat';
+import {Format} from '../../axes/categoryAxis/format/format';
 import {FillRequestBuilder} from './fill/fillRequestBuilder';
 import {FontRequestBuilder} from './font/fontRequestBuilder';
-import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/legend/format  */

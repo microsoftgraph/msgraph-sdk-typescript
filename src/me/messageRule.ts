@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {MessageRuleActions} from './mailFolders/messageRuleActions';
+import {MessageRulePredicates} from './mailFolders/messageRulePredicates';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MessageRule extends Entity implements Parsable {

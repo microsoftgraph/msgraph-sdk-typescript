@@ -1,5 +1,5 @@
+import {AppConsentApprovalRoute} from '../appConsentApprovalRoute';
 import {AppConsent} from './appConsent';
-import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
 import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
 import {AppConsentRequestRequestBuilder} from './appConsentRequests/item/appConsentRequestRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

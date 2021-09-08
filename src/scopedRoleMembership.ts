@@ -1,5 +1,5 @@
+import {Identity} from './auditLogs/identity';
 import {Entity} from './entity';
-import {Identity} from './identity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ScopedRoleMembership extends Entity implements Parsable {

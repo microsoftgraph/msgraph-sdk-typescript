@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {Json} from './me/json';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

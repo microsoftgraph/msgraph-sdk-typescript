@@ -1,5 +1,7 @@
 import {Entity} from './entity';
+import {ItemReference} from './itemReference';
 import {ColumnLink} from './sites/columnLink';
+import {ContentTypeOrder} from './sites/contentTypeOrder';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ContentType extends Entity implements Parsable {

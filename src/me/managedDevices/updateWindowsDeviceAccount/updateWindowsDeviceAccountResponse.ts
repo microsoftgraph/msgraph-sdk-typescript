@@ -1,3 +1,4 @@
+import {UpdateWindowsDeviceAccountActionParameter} from '../../../deviceManagement/managedDevices/updateWindowsDeviceAccountActionParameter';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UpdateWindowsDeviceAccountResponse implements Parsable {

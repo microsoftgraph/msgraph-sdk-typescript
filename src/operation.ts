@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {OperationStatus} from './operationStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Operation extends Entity implements Parsable {
@@ -43,7 +44,7 @@ export class Operation extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["createdDateTime", (o, n) => { (o as unknown as Operation).createdDateTime = n.getDateValue(); }],
             ["lastActionDateTime", (o, n) => { (o as unknown as Operation).lastActionDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as Operation).status = n.getObjectValue<OperationStatus>(OperationStatus); }],
+            ["status", (o, n) => { (o as unknown as Operation).status = n.getEnumValue<OperationStatus>(OperationStatus); }],
         ]);
     };
     /**
@@ -55,7 +56,7 @@ export class Operation extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("lastActionDateTime", this.lastActionDateTime);
-        writer.writeObjectValue<OperationStatus>("status", this.status);
+        writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
      * Sets the createdDateTime property value. The start time of the operation.

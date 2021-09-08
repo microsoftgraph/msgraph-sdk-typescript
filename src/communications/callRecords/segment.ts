@@ -1,5 +1,7 @@
 import {Endpoint} from '../../endpoint';
 import {Entity} from '../../entity';
+import {FailureInfo} from './failureInfo';
+import {Media} from './media';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Segment extends Entity implements Parsable {
@@ -73,7 +75,7 @@ export class Segment extends Entity implements Parsable {
             ["caller", (o, n) => { (o as unknown as Segment).caller = n.getObjectValue<Endpoint>(Endpoint); }],
             ["endDateTime", (o, n) => { (o as unknown as Segment).endDateTime = n.getDateValue(); }],
             ["failureInfo", (o, n) => { (o as unknown as Segment).failureInfo = n.getObjectValue<FailureInfo>(FailureInfo); }],
-            ["media", (o, n) => { (o as unknown as Segment).media = n.getCollectionOfPrimitiveValues<media>(); }],
+            ["media", (o, n) => { (o as unknown as Segment).media = n.getCollectionOfObjectValues<Media>(Media); }],
             ["startDateTime", (o, n) => { (o as unknown as Segment).startDateTime = n.getDateValue(); }],
         ]);
     };
@@ -88,7 +90,7 @@ export class Segment extends Entity implements Parsable {
         writer.writeObjectValue<Endpoint>("caller", this.caller);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeObjectValue<FailureInfo>("failureInfo", this.failureInfo);
-        writer.writeCollectionOfPrimitiveValues<media>("media", this.media);
+        writer.writeCollectionOfObjectValues<Media>("media", this.media);
         writer.writeDateValue("startDateTime", this.startDateTime);
     };
     /**

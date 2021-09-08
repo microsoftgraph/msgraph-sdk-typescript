@@ -1,3 +1,4 @@
+import {ChannelMembershipType} from '../../channelMembershipType';
 import {ChatMessage} from '../../chatMessage';
 import {ConversationMember} from '../../conversationMember';
 import {DriveItem} from '../../driveItem';
@@ -124,7 +125,7 @@ export class PrimaryChannel extends Entity implements Parsable {
             ["filesFolder", (o, n) => { (o as unknown as PrimaryChannel).filesFolder = n.getObjectValue<DriveItem>(DriveItem); }],
             ["isFavoriteByDefault", (o, n) => { (o as unknown as PrimaryChannel).isFavoriteByDefault = n.getBooleanValue(); }],
             ["members", (o, n) => { (o as unknown as PrimaryChannel).members = n.getCollectionOfObjectValues<ConversationMember>(ConversationMember); }],
-            ["membershipType", (o, n) => { (o as unknown as PrimaryChannel).membershipType = n.getObjectValue<ChannelMembershipType>(ChannelMembershipType); }],
+            ["membershipType", (o, n) => { (o as unknown as PrimaryChannel).membershipType = n.getEnumValue<ChannelMembershipType>(ChannelMembershipType); }],
             ["messages", (o, n) => { (o as unknown as PrimaryChannel).messages = n.getCollectionOfObjectValues<ChatMessage>(ChatMessage); }],
             ["tabs", (o, n) => { (o as unknown as PrimaryChannel).tabs = n.getCollectionOfObjectValues<TeamsTab>(TeamsTab); }],
             ["webUrl", (o, n) => { (o as unknown as PrimaryChannel).webUrl = n.getStringValue(); }],
@@ -144,7 +145,7 @@ export class PrimaryChannel extends Entity implements Parsable {
         writer.writeObjectValue<DriveItem>("filesFolder", this.filesFolder);
         writer.writeBooleanValue("isFavoriteByDefault", this.isFavoriteByDefault);
         writer.writeCollectionOfObjectValues<ConversationMember>("members", this.members);
-        writer.writeObjectValue<ChannelMembershipType>("membershipType", this.membershipType);
+        writer.writeEnumValue<ChannelMembershipType>("membershipType", this.membershipType);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", this.messages);
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", this.tabs);
         writer.writeStringValue("webUrl", this.webUrl);

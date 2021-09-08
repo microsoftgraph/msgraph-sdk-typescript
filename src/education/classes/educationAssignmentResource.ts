@@ -1,4 +1,5 @@
 import {Entity} from '../../entity';
+import {EducationResource} from './assignments/educationResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentResource extends Entity implements Parsable {

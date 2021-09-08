@@ -1,4 +1,6 @@
-import {ChangeTrackedEntity} from './teamwork/changeTrackedEntity';
+import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {ScheduleChangeRequestActor} from './teams/schedule/scheduleChangeRequestActor';
+import {ScheduleChangeState} from './teams/schedule/scheduleChangeState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable {
@@ -78,14 +80,14 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["assignedTo", (o, n) => { (o as unknown as ScheduleChangeRequest).assignedTo = n.getObjectValue<ScheduleChangeRequestActor>(ScheduleChangeRequestActor); }],
+            ["assignedTo", (o, n) => { (o as unknown as ScheduleChangeRequest).assignedTo = n.getEnumValue<ScheduleChangeRequestActor>(ScheduleChangeRequestActor); }],
             ["managerActionDateTime", (o, n) => { (o as unknown as ScheduleChangeRequest).managerActionDateTime = n.getDateValue(); }],
             ["managerActionMessage", (o, n) => { (o as unknown as ScheduleChangeRequest).managerActionMessage = n.getStringValue(); }],
             ["managerUserId", (o, n) => { (o as unknown as ScheduleChangeRequest).managerUserId = n.getStringValue(); }],
             ["senderDateTime", (o, n) => { (o as unknown as ScheduleChangeRequest).senderDateTime = n.getDateValue(); }],
             ["senderMessage", (o, n) => { (o as unknown as ScheduleChangeRequest).senderMessage = n.getStringValue(); }],
             ["senderUserId", (o, n) => { (o as unknown as ScheduleChangeRequest).senderUserId = n.getStringValue(); }],
-            ["state", (o, n) => { (o as unknown as ScheduleChangeRequest).state = n.getObjectValue<ScheduleChangeState>(ScheduleChangeState); }],
+            ["state", (o, n) => { (o as unknown as ScheduleChangeRequest).state = n.getEnumValue<ScheduleChangeState>(ScheduleChangeState); }],
         ]);
     };
     /**
@@ -95,14 +97,14 @@ export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsab
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
+        writer.writeEnumValue<ScheduleChangeRequestActor>("assignedTo", this.assignedTo);
         writer.writeDateValue("managerActionDateTime", this.managerActionDateTime);
         writer.writeStringValue("managerActionMessage", this.managerActionMessage);
         writer.writeStringValue("managerUserId", this.managerUserId);
         writer.writeDateValue("senderDateTime", this.senderDateTime);
         writer.writeStringValue("senderMessage", this.senderMessage);
         writer.writeStringValue("senderUserId", this.senderUserId);
-        writer.writeObjectValue<ScheduleChangeState>("state", this.state);
+        writer.writeEnumValue<ScheduleChangeState>("state", this.state);
     };
     /**
      * Sets the assignedTo property value. 

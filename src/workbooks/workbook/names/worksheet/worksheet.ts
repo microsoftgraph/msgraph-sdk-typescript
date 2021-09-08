@@ -3,7 +3,7 @@ import {WorkbookNamedItem} from '../../../../workbookNamedItem';
 import {WorkbookTable} from '../../../../workbookTable';
 import {WorkbookChart} from '../../workbookChart';
 import {WorkbookPivotTable} from '../../workbookPivotTable';
-import {WorkbookWorksheetProtection} from '../../worksheets/protection/workbookWorksheetProtection';
+import {WorkbookWorksheetProtection} from '../../workbookWorksheetProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Worksheet extends Entity implements Parsable {

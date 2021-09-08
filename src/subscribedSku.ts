@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

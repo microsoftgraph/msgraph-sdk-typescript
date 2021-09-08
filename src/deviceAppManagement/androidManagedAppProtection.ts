@@ -1,4 +1,4 @@
-import {ManagedAppPolicyDeploymentSummary} from './androidManagedAppProtections/deploymentSummary/managedAppPolicyDeploymentSummary';
+import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

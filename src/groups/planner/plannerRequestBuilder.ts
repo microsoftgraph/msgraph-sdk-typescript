@@ -1,5 +1,5 @@
 import {Planner} from '../../planner/planner';
-import {PlannerGroup} from './plannerGroup';
+import {PlannerGroup} from '../../plannerGroup';
 import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,11 +1,14 @@
 import {Entity} from '../entity';
 import {Group} from '../group';
 import {IdentitySet} from '../identitySet';
-import {EducationAssignmentDefaults} from './classes/assignmentDefaults/educationAssignmentDefaults';
-import {EducationAssignmentSettings} from './classes/assignmentSettings/educationAssignmentSettings';
 import {EducationAssignment} from './educationAssignment';
+import {EducationAssignmentDefaults} from './educationAssignmentDefaults';
+import {EducationAssignmentSettings} from './educationAssignmentSettings';
 import {EducationCategory} from './educationCategory';
+import {EducationCourse} from './educationCourse';
+import {EducationExternalSource} from './educationExternalSource';
 import {EducationSchool} from './educationSchool';
+import {EducationTerm} from './educationTerm';
 import {EducationUser} from './educationUser';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -210,7 +213,7 @@ export class EducationClass extends Entity implements Parsable {
             ["displayName", (o, n) => { (o as unknown as EducationClass).displayName = n.getStringValue(); }],
             ["externalId", (o, n) => { (o as unknown as EducationClass).externalId = n.getStringValue(); }],
             ["externalName", (o, n) => { (o as unknown as EducationClass).externalName = n.getStringValue(); }],
-            ["externalSource", (o, n) => { (o as unknown as EducationClass).externalSource = n.getObjectValue<EducationExternalSource>(EducationExternalSource); }],
+            ["externalSource", (o, n) => { (o as unknown as EducationClass).externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); }],
             ["externalSourceDetail", (o, n) => { (o as unknown as EducationClass).externalSourceDetail = n.getStringValue(); }],
             ["grade", (o, n) => { (o as unknown as EducationClass).grade = n.getStringValue(); }],
             ["group", (o, n) => { (o as unknown as EducationClass).group = n.getObjectValue<Group>(Group); }],
@@ -239,7 +242,7 @@ export class EducationClass extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("externalId", this.externalId);
         writer.writeStringValue("externalName", this.externalName);
-        writer.writeObjectValue<EducationExternalSource>("externalSource", this.externalSource);
+        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         writer.writeStringValue("grade", this.grade);
         writer.writeObjectValue<Group>("group", this.group);

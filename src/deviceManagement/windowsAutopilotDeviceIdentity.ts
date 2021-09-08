@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {EnrollmentState} from './enrollmentState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
@@ -161,7 +162,7 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
             ["addressableUserName", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).addressableUserName = n.getStringValue(); }],
             ["azureActiveDirectoryDeviceId", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).azureActiveDirectoryDeviceId = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).displayName = n.getStringValue(); }],
-            ["enrollmentState", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).enrollmentState = n.getObjectValue<EnrollmentState>(EnrollmentState); }],
+            ["enrollmentState", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).enrollmentState = n.getEnumValue<EnrollmentState>(EnrollmentState); }],
             ["groupTag", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).groupTag = n.getStringValue(); }],
             ["lastContactedDateTime", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).lastContactedDateTime = n.getDateValue(); }],
             ["managedDeviceId", (o, n) => { (o as unknown as WindowsAutopilotDeviceIdentity).managedDeviceId = n.getStringValue(); }],
@@ -186,7 +187,7 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
         writer.writeStringValue("addressableUserName", this.addressableUserName);
         writer.writeStringValue("azureActiveDirectoryDeviceId", this.azureActiveDirectoryDeviceId);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<EnrollmentState>("enrollmentState", this.enrollmentState);
+        writer.writeEnumValue<EnrollmentState>("enrollmentState", this.enrollmentState);
         writer.writeStringValue("groupTag", this.groupTag);
         writer.writeDateValue("lastContactedDateTime", this.lastContactedDateTime);
         writer.writeStringValue("managedDeviceId", this.managedDeviceId);

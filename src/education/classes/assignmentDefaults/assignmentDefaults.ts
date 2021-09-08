@@ -1,4 +1,5 @@
 import {Entity} from '../../../entity';
+import {EducationAddedStudentAction} from '../../educationAddedStudentAction';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignmentDefaults extends Entity implements Parsable {
@@ -41,7 +42,7 @@ export class AssignmentDefaults extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["addedStudentAction", (o, n) => { (o as unknown as AssignmentDefaults).addedStudentAction = n.getObjectValue<EducationAddedStudentAction>(EducationAddedStudentAction); }],
+            ["addedStudentAction", (o, n) => { (o as unknown as AssignmentDefaults).addedStudentAction = n.getEnumValue<EducationAddedStudentAction>(EducationAddedStudentAction); }],
             ["dueTime", (o, n) => { (o as unknown as AssignmentDefaults).dueTime = n.getStringValue(); }],
             ["notificationChannelUrl", (o, n) => { (o as unknown as AssignmentDefaults).notificationChannelUrl = n.getStringValue(); }],
         ]);
@@ -53,7 +54,7 @@ export class AssignmentDefaults extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
+        writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
         writer.writeStringValue("dueTime", this.dueTime);
         writer.writeStringValue("notificationChannelUrl", this.notificationChannelUrl);
     };

@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {ComplianceStatus} from './complianceStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceUserStatus extends Entity implements Parsable {
@@ -61,7 +62,7 @@ export class DeviceComplianceUserStatus extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["devicesCount", (o, n) => { (o as unknown as DeviceComplianceUserStatus).devicesCount = n.getNumberValue(); }],
             ["lastReportedDateTime", (o, n) => { (o as unknown as DeviceComplianceUserStatus).lastReportedDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as DeviceComplianceUserStatus).status = n.getObjectValue<ComplianceStatus>(ComplianceStatus); }],
+            ["status", (o, n) => { (o as unknown as DeviceComplianceUserStatus).status = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
             ["userDisplayName", (o, n) => { (o as unknown as DeviceComplianceUserStatus).userDisplayName = n.getStringValue(); }],
             ["userPrincipalName", (o, n) => { (o as unknown as DeviceComplianceUserStatus).userPrincipalName = n.getStringValue(); }],
         ]);
@@ -75,7 +76,7 @@ export class DeviceComplianceUserStatus extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeNumberValue("devicesCount", this.devicesCount);
         writer.writeDateValue("lastReportedDateTime", this.lastReportedDateTime);
-        writer.writeObjectValue<ComplianceStatus>("status", this.status);
+        writer.writeEnumValue<ComplianceStatus>("status", this.status);
         writer.writeStringValue("userDisplayName", this.userDisplayName);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };

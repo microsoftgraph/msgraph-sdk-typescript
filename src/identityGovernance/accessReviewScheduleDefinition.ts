@@ -1,5 +1,9 @@
+import {UserIdentity} from '../auditLogs/userIdentity';
 import {Entity} from '../entity';
+import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AccessReviewInstance} from './accessReviews/accessReviewInstance';
+import {AccessReviewScheduleSettings} from './accessReviews/accessReviewScheduleSettings';
+import {AccessReviewScope} from './accessReviews/accessReviewScope';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {
@@ -137,11 +141,11 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
             ["descriptionForAdmins", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).descriptionForAdmins = n.getStringValue(); }],
             ["descriptionForReviewers", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).descriptionForReviewers = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).displayName = n.getStringValue(); }],
-            ["fallbackReviewers", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).fallbackReviewers = n.getCollectionOfPrimitiveValues<accessReviewReviewerScope>(); }],
+            ["fallbackReviewers", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).fallbackReviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope); }],
             ["instanceEnumerationScope", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).instanceEnumerationScope = n.getObjectValue<AccessReviewScope>(AccessReviewScope); }],
             ["instances", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).instances = n.getCollectionOfObjectValues<AccessReviewInstance>(AccessReviewInstance); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).lastModifiedDateTime = n.getDateValue(); }],
-            ["reviewers", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).reviewers = n.getCollectionOfPrimitiveValues<accessReviewReviewerScope>(); }],
+            ["reviewers", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).reviewers = n.getCollectionOfObjectValues<AccessReviewReviewerScope>(AccessReviewReviewerScope); }],
             ["scope", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).scope = n.getObjectValue<AccessReviewScope>(AccessReviewScope); }],
             ["settings", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).settings = n.getObjectValue<AccessReviewScheduleSettings>(AccessReviewScheduleSettings); }],
             ["status", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).status = n.getStringValue(); }],
@@ -159,11 +163,11 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         writer.writeStringValue("descriptionForAdmins", this.descriptionForAdmins);
         writer.writeStringValue("descriptionForReviewers", this.descriptionForReviewers);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeCollectionOfPrimitiveValues<accessReviewReviewerScope>("fallbackReviewers", this.fallbackReviewers);
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("fallbackReviewers", this.fallbackReviewers);
         writer.writeObjectValue<AccessReviewScope>("instanceEnumerationScope", this.instanceEnumerationScope);
         writer.writeCollectionOfObjectValues<AccessReviewInstance>("instances", this.instances);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfPrimitiveValues<accessReviewReviewerScope>("reviewers", this.reviewers);
+        writer.writeCollectionOfObjectValues<AccessReviewReviewerScope>("reviewers", this.reviewers);
         writer.writeObjectValue<AccessReviewScope>("scope", this.scope);
         writer.writeObjectValue<AccessReviewScheduleSettings>("settings", this.settings);
         writer.writeStringValue("status", this.status);

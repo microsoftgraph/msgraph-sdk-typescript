@@ -1,3 +1,5 @@
+import {ImageInfo} from './imageInfo';
+import {Json} from './json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VisualInfo implements Parsable {

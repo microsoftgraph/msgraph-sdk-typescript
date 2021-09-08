@@ -1,3 +1,4 @@
+import {FileEncryptionInfo} from '../../../lastSharedMethod/mobileAppContentFile/fileEncryptionInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CommitResponse implements Parsable {

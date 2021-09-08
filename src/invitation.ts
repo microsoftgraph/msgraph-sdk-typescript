@@ -1,4 +1,5 @@
 import {Entity} from './entity';
+import {InvitedUserMessageInfo} from './invitedUserMessageInfo';
 import {User} from './user';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

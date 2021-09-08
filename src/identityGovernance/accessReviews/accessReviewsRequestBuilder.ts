@@ -1,5 +1,5 @@
+import {AccessReviewSet} from '../accessReviewSet';
 import {AccessReviews} from './accessReviews';
-import {AccessReviewSet} from './accessReviewSet';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
 import {AccessReviewScheduleDefinitionRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

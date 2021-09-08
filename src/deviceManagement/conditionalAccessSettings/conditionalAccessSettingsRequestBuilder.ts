@@ -1,5 +1,5 @@
+import {OnPremisesConditionalAccessSettings} from '../onPremisesConditionalAccessSettings';
 import {ConditionalAccessSettings} from './conditionalAccessSettings';
-import {OnPremisesConditionalAccessSettings} from './onPremisesConditionalAccessSettings';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/conditionalAccessSettings  */

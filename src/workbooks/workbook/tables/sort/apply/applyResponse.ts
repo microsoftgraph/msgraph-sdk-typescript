@@ -1,3 +1,4 @@
+import {WorkbookSortField} from '../../../workbookSortField';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplyResponse implements Parsable {
@@ -46,7 +47,7 @@ export class ApplyResponse implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["fields", (o, n) => { (o as unknown as ApplyResponse).fields = n.getCollectionOfPrimitiveValues<workbookSortField>(); }],
+            ["fields", (o, n) => { (o as unknown as ApplyResponse).fields = n.getCollectionOfObjectValues<WorkbookSortField>(WorkbookSortField); }],
             ["matchCase", (o, n) => { (o as unknown as ApplyResponse).matchCase = n.getBooleanValue(); }],
             ["method", (o, n) => { (o as unknown as ApplyResponse).method = n.getStringValue(); }],
         ]);
@@ -57,7 +58,7 @@ export class ApplyResponse implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfPrimitiveValues<workbookSortField>("fields", this.fields);
+        writer.writeCollectionOfObjectValues<WorkbookSortField>("fields", this.fields);
         writer.writeBooleanValue("matchCase", this.matchCase);
         writer.writeStringValue("method", this.method);
         writer.writeAdditionalData(this.additionalData);

@@ -1,5 +1,5 @@
+import {ConditionalAccessRoot} from '../conditionalAccessRoot';
 import {ConditionalAccess} from './conditionalAccess';
-import {ConditionalAccessRoot} from './conditionalAccessRoot';
 import {NamedLocationRequestBuilder} from './namedLocations/item/namedLocationRequestBuilder';
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
 import {ConditionalAccessPolicyRequestBuilder} from './policies/item/conditionalAccessPolicyRequestBuilder';

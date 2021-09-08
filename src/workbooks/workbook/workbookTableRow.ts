@@ -1,4 +1,5 @@
 import {Entity} from '../../entity';
+import {Json} from '../../me/json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookTableRow extends Entity implements Parsable {

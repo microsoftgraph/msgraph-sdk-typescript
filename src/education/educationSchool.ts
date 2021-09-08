@@ -1,5 +1,6 @@
 import {AdministrativeUnit} from '../directory/administrativeUnit';
 import {IdentitySet} from '../identitySet';
+import {PhysicalAddress} from '../physicalAddress';
 import {EducationClass} from './educationClass';
 import {EducationOrganization} from './educationOrganization';
 import {EducationUser} from './educationUser';

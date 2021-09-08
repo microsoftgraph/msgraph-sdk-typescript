@@ -1,3 +1,4 @@
+import {AgreementFileData} from './agreementFileData';
 import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,24 @@
 import {Entity} from '../entity';
+import {AlertDetection} from './alertDetection';
+import {AlertFeedback} from './alertFeedback';
+import {AlertHistoryState} from './alertHistoryState';
+import {AlertSeverity} from './alertSeverity';
+import {AlertStatus} from './alertStatus';
+import {AlertTrigger} from './alertTrigger';
+import {CloudAppSecurityState} from './cloudAppSecurityState';
+import {FileSecurityState} from './fileSecurityState';
+import {HostSecurityState} from './hostSecurityState';
+import {InvestigationSecurityState} from './investigationSecurityState';
+import {MalwareState} from './malwareState';
+import {MessageSecurityState} from './messageSecurityState';
+import {NetworkConnection} from './networkConnection';
+import {Process} from './process';
+import {RegistryKeyState} from './registryKeyState';
+import {SecurityResource} from './securityResource';
+import {SecurityVendorInformation} from './securityVendorInformation';
+import {UriClickSecurityState} from './uriClickSecurityState';
+import {UserSecurityState} from './userSecurityState';
+import {VulnerabilityState} from './vulnerabilityState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Alert extends Entity implements Parsable {
@@ -361,44 +381,44 @@ export class Alert extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["activityGroupName", (o, n) => { (o as unknown as Alert).activityGroupName = n.getStringValue(); }],
-            ["alertDetections", (o, n) => { (o as unknown as Alert).alertDetections = n.getCollectionOfPrimitiveValues<alertDetection>(); }],
+            ["alertDetections", (o, n) => { (o as unknown as Alert).alertDetections = n.getCollectionOfObjectValues<AlertDetection>(AlertDetection); }],
             ["assignedTo", (o, n) => { (o as unknown as Alert).assignedTo = n.getStringValue(); }],
             ["azureSubscriptionId", (o, n) => { (o as unknown as Alert).azureSubscriptionId = n.getStringValue(); }],
             ["azureTenantId", (o, n) => { (o as unknown as Alert).azureTenantId = n.getStringValue(); }],
             ["category", (o, n) => { (o as unknown as Alert).category = n.getStringValue(); }],
             ["closedDateTime", (o, n) => { (o as unknown as Alert).closedDateTime = n.getDateValue(); }],
-            ["cloudAppStates", (o, n) => { (o as unknown as Alert).cloudAppStates = n.getCollectionOfPrimitiveValues<cloudAppSecurityState>(); }],
+            ["cloudAppStates", (o, n) => { (o as unknown as Alert).cloudAppStates = n.getCollectionOfObjectValues<CloudAppSecurityState>(CloudAppSecurityState); }],
             ["comments", (o, n) => { (o as unknown as Alert).comments = n.getCollectionOfPrimitiveValues<string>(); }],
             ["confidence", (o, n) => { (o as unknown as Alert).confidence = n.getNumberValue(); }],
             ["createdDateTime", (o, n) => { (o as unknown as Alert).createdDateTime = n.getDateValue(); }],
             ["description", (o, n) => { (o as unknown as Alert).description = n.getStringValue(); }],
             ["detectionIds", (o, n) => { (o as unknown as Alert).detectionIds = n.getCollectionOfPrimitiveValues<string>(); }],
             ["eventDateTime", (o, n) => { (o as unknown as Alert).eventDateTime = n.getDateValue(); }],
-            ["feedback", (o, n) => { (o as unknown as Alert).feedback = n.getObjectValue<AlertFeedback>(AlertFeedback); }],
-            ["fileStates", (o, n) => { (o as unknown as Alert).fileStates = n.getCollectionOfPrimitiveValues<fileSecurityState>(); }],
-            ["historyStates", (o, n) => { (o as unknown as Alert).historyStates = n.getCollectionOfPrimitiveValues<alertHistoryState>(); }],
-            ["hostStates", (o, n) => { (o as unknown as Alert).hostStates = n.getCollectionOfPrimitiveValues<hostSecurityState>(); }],
+            ["feedback", (o, n) => { (o as unknown as Alert).feedback = n.getEnumValue<AlertFeedback>(AlertFeedback); }],
+            ["fileStates", (o, n) => { (o as unknown as Alert).fileStates = n.getCollectionOfObjectValues<FileSecurityState>(FileSecurityState); }],
+            ["historyStates", (o, n) => { (o as unknown as Alert).historyStates = n.getCollectionOfObjectValues<AlertHistoryState>(AlertHistoryState); }],
+            ["hostStates", (o, n) => { (o as unknown as Alert).hostStates = n.getCollectionOfObjectValues<HostSecurityState>(HostSecurityState); }],
             ["incidentIds", (o, n) => { (o as unknown as Alert).incidentIds = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["investigationSecurityStates", (o, n) => { (o as unknown as Alert).investigationSecurityStates = n.getCollectionOfPrimitiveValues<investigationSecurityState>(); }],
+            ["investigationSecurityStates", (o, n) => { (o as unknown as Alert).investigationSecurityStates = n.getCollectionOfObjectValues<InvestigationSecurityState>(InvestigationSecurityState); }],
             ["lastEventDateTime", (o, n) => { (o as unknown as Alert).lastEventDateTime = n.getDateValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as Alert).lastModifiedDateTime = n.getDateValue(); }],
-            ["malwareStates", (o, n) => { (o as unknown as Alert).malwareStates = n.getCollectionOfPrimitiveValues<malwareState>(); }],
-            ["messageSecurityStates", (o, n) => { (o as unknown as Alert).messageSecurityStates = n.getCollectionOfPrimitiveValues<messageSecurityState>(); }],
-            ["networkConnections", (o, n) => { (o as unknown as Alert).networkConnections = n.getCollectionOfPrimitiveValues<networkConnection>(); }],
-            ["processes", (o, n) => { (o as unknown as Alert).processes = n.getCollectionOfPrimitiveValues<process>(); }],
+            ["malwareStates", (o, n) => { (o as unknown as Alert).malwareStates = n.getCollectionOfObjectValues<MalwareState>(MalwareState); }],
+            ["messageSecurityStates", (o, n) => { (o as unknown as Alert).messageSecurityStates = n.getCollectionOfObjectValues<MessageSecurityState>(MessageSecurityState); }],
+            ["networkConnections", (o, n) => { (o as unknown as Alert).networkConnections = n.getCollectionOfObjectValues<NetworkConnection>(NetworkConnection); }],
+            ["processes", (o, n) => { (o as unknown as Alert).processes = n.getCollectionOfObjectValues<Process>(Process); }],
             ["recommendedActions", (o, n) => { (o as unknown as Alert).recommendedActions = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["registryKeyStates", (o, n) => { (o as unknown as Alert).registryKeyStates = n.getCollectionOfPrimitiveValues<registryKeyState>(); }],
-            ["securityResources", (o, n) => { (o as unknown as Alert).securityResources = n.getCollectionOfPrimitiveValues<securityResource>(); }],
-            ["severity", (o, n) => { (o as unknown as Alert).severity = n.getObjectValue<AlertSeverity>(AlertSeverity); }],
+            ["registryKeyStates", (o, n) => { (o as unknown as Alert).registryKeyStates = n.getCollectionOfObjectValues<RegistryKeyState>(RegistryKeyState); }],
+            ["securityResources", (o, n) => { (o as unknown as Alert).securityResources = n.getCollectionOfObjectValues<SecurityResource>(SecurityResource); }],
+            ["severity", (o, n) => { (o as unknown as Alert).severity = n.getEnumValue<AlertSeverity>(AlertSeverity); }],
             ["sourceMaterials", (o, n) => { (o as unknown as Alert).sourceMaterials = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["status", (o, n) => { (o as unknown as Alert).status = n.getObjectValue<AlertStatus>(AlertStatus); }],
+            ["status", (o, n) => { (o as unknown as Alert).status = n.getEnumValue<AlertStatus>(AlertStatus); }],
             ["tags", (o, n) => { (o as unknown as Alert).tags = n.getCollectionOfPrimitiveValues<string>(); }],
             ["title", (o, n) => { (o as unknown as Alert).title = n.getStringValue(); }],
-            ["triggers", (o, n) => { (o as unknown as Alert).triggers = n.getCollectionOfPrimitiveValues<alertTrigger>(); }],
-            ["uriClickSecurityStates", (o, n) => { (o as unknown as Alert).uriClickSecurityStates = n.getCollectionOfPrimitiveValues<uriClickSecurityState>(); }],
-            ["userStates", (o, n) => { (o as unknown as Alert).userStates = n.getCollectionOfPrimitiveValues<userSecurityState>(); }],
+            ["triggers", (o, n) => { (o as unknown as Alert).triggers = n.getCollectionOfObjectValues<AlertTrigger>(AlertTrigger); }],
+            ["uriClickSecurityStates", (o, n) => { (o as unknown as Alert).uriClickSecurityStates = n.getCollectionOfObjectValues<UriClickSecurityState>(UriClickSecurityState); }],
+            ["userStates", (o, n) => { (o as unknown as Alert).userStates = n.getCollectionOfObjectValues<UserSecurityState>(UserSecurityState); }],
             ["vendorInformation", (o, n) => { (o as unknown as Alert).vendorInformation = n.getObjectValue<SecurityVendorInformation>(SecurityVendorInformation); }],
-            ["vulnerabilityStates", (o, n) => { (o as unknown as Alert).vulnerabilityStates = n.getCollectionOfPrimitiveValues<vulnerabilityState>(); }],
+            ["vulnerabilityStates", (o, n) => { (o as unknown as Alert).vulnerabilityStates = n.getCollectionOfObjectValues<VulnerabilityState>(VulnerabilityState); }],
         ]);
     };
     /**
@@ -409,44 +429,44 @@ export class Alert extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("activityGroupName", this.activityGroupName);
-        writer.writeCollectionOfPrimitiveValues<alertDetection>("alertDetections", this.alertDetections);
+        writer.writeCollectionOfObjectValues<AlertDetection>("alertDetections", this.alertDetections);
         writer.writeStringValue("assignedTo", this.assignedTo);
         writer.writeStringValue("azureSubscriptionId", this.azureSubscriptionId);
         writer.writeStringValue("azureTenantId", this.azureTenantId);
         writer.writeStringValue("category", this.category);
         writer.writeDateValue("closedDateTime", this.closedDateTime);
-        writer.writeCollectionOfPrimitiveValues<cloudAppSecurityState>("cloudAppStates", this.cloudAppStates);
+        writer.writeCollectionOfObjectValues<CloudAppSecurityState>("cloudAppStates", this.cloudAppStates);
         writer.writeCollectionOfPrimitiveValues<string>("comments", this.comments);
         writer.writeNumberValue("confidence", this.confidence);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("description", this.description);
         writer.writeCollectionOfPrimitiveValues<string>("detectionIds", this.detectionIds);
         writer.writeDateValue("eventDateTime", this.eventDateTime);
-        writer.writeObjectValue<AlertFeedback>("feedback", this.feedback);
-        writer.writeCollectionOfPrimitiveValues<fileSecurityState>("fileStates", this.fileStates);
-        writer.writeCollectionOfPrimitiveValues<alertHistoryState>("historyStates", this.historyStates);
-        writer.writeCollectionOfPrimitiveValues<hostSecurityState>("hostStates", this.hostStates);
+        writer.writeEnumValue<AlertFeedback>("feedback", this.feedback);
+        writer.writeCollectionOfObjectValues<FileSecurityState>("fileStates", this.fileStates);
+        writer.writeCollectionOfObjectValues<AlertHistoryState>("historyStates", this.historyStates);
+        writer.writeCollectionOfObjectValues<HostSecurityState>("hostStates", this.hostStates);
         writer.writeCollectionOfPrimitiveValues<string>("incidentIds", this.incidentIds);
-        writer.writeCollectionOfPrimitiveValues<investigationSecurityState>("investigationSecurityStates", this.investigationSecurityStates);
+        writer.writeCollectionOfObjectValues<InvestigationSecurityState>("investigationSecurityStates", this.investigationSecurityStates);
         writer.writeDateValue("lastEventDateTime", this.lastEventDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfPrimitiveValues<malwareState>("malwareStates", this.malwareStates);
-        writer.writeCollectionOfPrimitiveValues<messageSecurityState>("messageSecurityStates", this.messageSecurityStates);
-        writer.writeCollectionOfPrimitiveValues<networkConnection>("networkConnections", this.networkConnections);
-        writer.writeCollectionOfPrimitiveValues<process>("processes", this.processes);
+        writer.writeCollectionOfObjectValues<MalwareState>("malwareStates", this.malwareStates);
+        writer.writeCollectionOfObjectValues<MessageSecurityState>("messageSecurityStates", this.messageSecurityStates);
+        writer.writeCollectionOfObjectValues<NetworkConnection>("networkConnections", this.networkConnections);
+        writer.writeCollectionOfObjectValues<Process>("processes", this.processes);
         writer.writeCollectionOfPrimitiveValues<string>("recommendedActions", this.recommendedActions);
-        writer.writeCollectionOfPrimitiveValues<registryKeyState>("registryKeyStates", this.registryKeyStates);
-        writer.writeCollectionOfPrimitiveValues<securityResource>("securityResources", this.securityResources);
-        writer.writeObjectValue<AlertSeverity>("severity", this.severity);
+        writer.writeCollectionOfObjectValues<RegistryKeyState>("registryKeyStates", this.registryKeyStates);
+        writer.writeCollectionOfObjectValues<SecurityResource>("securityResources", this.securityResources);
+        writer.writeEnumValue<AlertSeverity>("severity", this.severity);
         writer.writeCollectionOfPrimitiveValues<string>("sourceMaterials", this.sourceMaterials);
-        writer.writeObjectValue<AlertStatus>("status", this.status);
+        writer.writeEnumValue<AlertStatus>("status", this.status);
         writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
         writer.writeStringValue("title", this.title);
-        writer.writeCollectionOfPrimitiveValues<alertTrigger>("triggers", this.triggers);
-        writer.writeCollectionOfPrimitiveValues<uriClickSecurityState>("uriClickSecurityStates", this.uriClickSecurityStates);
-        writer.writeCollectionOfPrimitiveValues<userSecurityState>("userStates", this.userStates);
+        writer.writeCollectionOfObjectValues<AlertTrigger>("triggers", this.triggers);
+        writer.writeCollectionOfObjectValues<UriClickSecurityState>("uriClickSecurityStates", this.uriClickSecurityStates);
+        writer.writeCollectionOfObjectValues<UserSecurityState>("userStates", this.userStates);
         writer.writeObjectValue<SecurityVendorInformation>("vendorInformation", this.vendorInformation);
-        writer.writeCollectionOfPrimitiveValues<vulnerabilityState>("vulnerabilityStates", this.vulnerabilityStates);
+        writer.writeCollectionOfObjectValues<VulnerabilityState>("vulnerabilityStates", this.vulnerabilityStates);
     };
     /**
      * Sets the activityGroupName property value. Name or alias of the activity group (attacker) this alert is attributed to.

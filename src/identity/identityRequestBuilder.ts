@@ -1,4 +1,4 @@
-import {Identity} from '../identity';
+import {Identity} from '../auditLogs/identity';
 import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
 import {IdentityApiConnectorRequestBuilder} from './apiConnectors/item/identityApiConnectorRequestBuilder';
 import {B2xUserFlowsRequestBuilder} from './b2xUserFlows/b2xUserFlowsRequestBuilder';

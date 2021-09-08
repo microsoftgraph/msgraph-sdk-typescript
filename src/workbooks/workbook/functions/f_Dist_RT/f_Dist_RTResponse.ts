@@ -1,3 +1,4 @@
+import {Json} from '../../../../me/json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class F_Dist_RTResponse implements Parsable {

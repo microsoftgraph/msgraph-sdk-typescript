@@ -1,4 +1,4 @@
-import {Drive} from '../../drive/drive';
+import {Drive} from '../../drive';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}/drive  */

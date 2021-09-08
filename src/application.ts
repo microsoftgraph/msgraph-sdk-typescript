@@ -1,13 +1,20 @@
 import {AddIn} from './addIn';
+import {ApiApplication} from './apiApplication';
 import {AppRole} from './appRole';
 import {DirectoryObject} from './directoryObject';
 import {ExtensionProperty} from './extensionProperty';
 import {HomeRealmDiscoveryPolicy} from './homeRealmDiscoveryPolicy';
+import {InformationalUrl} from './informationalUrl';
 import {KeyCredential} from './keyCredential';
+import {OptionalClaims} from './optionalClaims';
+import {ParentalControlSettings} from './parentalControlSettings';
 import {PasswordCredential} from './passwordCredential';
+import {PublicClientApplication} from './publicClientApplication';
 import {RequiredResourceAccess} from './requiredResourceAccess';
+import {SpaApplication} from './spaApplication';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
+import {WebApplication} from './webApplication';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Application extends DirectoryObject implements Parsable {

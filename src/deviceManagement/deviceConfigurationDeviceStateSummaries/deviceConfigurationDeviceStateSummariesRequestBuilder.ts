@@ -1,5 +1,5 @@
+import {DeviceConfigurationDeviceStateSummary} from '../deviceConfigurationDeviceStateSummary';
 import {DeviceConfigurationDeviceStateSummaries} from './deviceConfigurationDeviceStateSummaries';
-import {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDeviceStateSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceConfigurationDeviceStateSummaries  */

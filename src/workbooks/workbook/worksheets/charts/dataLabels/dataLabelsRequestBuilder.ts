@@ -1,6 +1,7 @@
+import {DataLabels} from '../../../names/worksheet/charts/dataLabels/dataLabels';
+import {WorkbookChartDataLabels} from '../../workbookChartDataLabels';
 import {DataLabels} from './dataLabels';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {WorkbookChartDataLabels} from './workbookChartDataLabels';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/dataLabels  */

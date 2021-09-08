@@ -1,4 +1,5 @@
 import {AuthenticationMethod} from './authenticationMethod';
+import {AttestationLevel} from './me/authentication/attestationLevel';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable {
@@ -70,7 +71,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["aaGuid", (o, n) => { (o as unknown as Fido2AuthenticationMethod).aaGuid = n.getStringValue(); }],
             ["attestationCertificates", (o, n) => { (o as unknown as Fido2AuthenticationMethod).attestationCertificates = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["attestationLevel", (o, n) => { (o as unknown as Fido2AuthenticationMethod).attestationLevel = n.getObjectValue<AttestationLevel>(AttestationLevel); }],
+            ["attestationLevel", (o, n) => { (o as unknown as Fido2AuthenticationMethod).attestationLevel = n.getEnumValue<AttestationLevel>(AttestationLevel); }],
             ["createdDateTime", (o, n) => { (o as unknown as Fido2AuthenticationMethod).createdDateTime = n.getDateValue(); }],
             ["displayName", (o, n) => { (o as unknown as Fido2AuthenticationMethod).displayName = n.getStringValue(); }],
             ["model", (o, n) => { (o as unknown as Fido2AuthenticationMethod).model = n.getStringValue(); }],
@@ -85,7 +86,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         super.serialize(writer);
         writer.writeStringValue("aaGuid", this.aaGuid);
         writer.writeCollectionOfPrimitiveValues<string>("attestationCertificates", this.attestationCertificates);
-        writer.writeObjectValue<AttestationLevel>("attestationLevel", this.attestationLevel);
+        writer.writeEnumValue<AttestationLevel>("attestationLevel", this.attestationLevel);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("model", this.model);

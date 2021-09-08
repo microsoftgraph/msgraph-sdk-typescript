@@ -2,10 +2,10 @@ import {ItemBody} from '../../../../../chats/itemBody';
 import {Extension} from '../../../../../extension';
 import {MultiValueLegacyExtendedProperty} from '../../../../../multiValueLegacyExtendedProperty';
 import {OutlookItem} from '../../../../../outlookItem';
+import {Recipient} from '../../../../../recipient';
 import {SingleValueLegacyExtendedProperty} from '../../../../../singleValueLegacyExtendedProperty';
 import {Attachment} from '../../../../attachment';
 import {Post} from '../../../../post';
-import {Recipient} from '../../../../recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class InReplyTo extends OutlookItem implements Parsable {

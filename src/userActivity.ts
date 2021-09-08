@@ -1,5 +1,7 @@
 import {Entity} from './entity';
 import {ActivityHistoryItem} from './me/activityHistoryItem';
+import {Json} from './me/json';
+import {Status} from './me/status';
 import {VisualInfo} from './me/visualInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -152,7 +154,7 @@ export class UserActivity extends Entity implements Parsable {
             ["fallbackUrl", (o, n) => { (o as unknown as UserActivity).fallbackUrl = n.getStringValue(); }],
             ["historyItems", (o, n) => { (o as unknown as UserActivity).historyItems = n.getCollectionOfObjectValues<ActivityHistoryItem>(ActivityHistoryItem); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as UserActivity).lastModifiedDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as UserActivity).status = n.getObjectValue<Status>(Status); }],
+            ["status", (o, n) => { (o as unknown as UserActivity).status = n.getEnumValue<Status>(Status); }],
             ["userTimezone", (o, n) => { (o as unknown as UserActivity).userTimezone = n.getStringValue(); }],
             ["visualElements", (o, n) => { (o as unknown as UserActivity).visualElements = n.getObjectValue<VisualInfo>(VisualInfo); }],
         ]);
@@ -175,7 +177,7 @@ export class UserActivity extends Entity implements Parsable {
         writer.writeStringValue("fallbackUrl", this.fallbackUrl);
         writer.writeCollectionOfObjectValues<ActivityHistoryItem>("historyItems", this.historyItems);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeObjectValue<Status>("status", this.status);
+        writer.writeEnumValue<Status>("status", this.status);
         writer.writeStringValue("userTimezone", this.userTimezone);
         writer.writeObjectValue<VisualInfo>("visualElements", this.visualElements);
     };

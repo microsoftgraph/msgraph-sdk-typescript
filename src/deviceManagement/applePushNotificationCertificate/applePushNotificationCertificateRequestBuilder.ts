@@ -1,4 +1,4 @@
-import {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
+import {ApplePushNotificationCertificate} from '../applePushNotificationCertificate';
 import {DownloadApplePushNotificationCertificateSigningRequestRequestBuilder} from './downloadApplePushNotificationCertificateSigningRequest/downloadApplePushNotificationCertificateSigningRequestRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,3 +1,5 @@
+import {ChatInfo} from '../../chatInfo';
+import {MeetingParticipants} from '../../meetingParticipants';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateOrGetResponse implements Parsable {

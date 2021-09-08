@@ -1,5 +1,5 @@
-import {Format} from '../../../../format/format';
-import {WorkbookChartGridlinesFormat} from '../../majorGridlines/format/workbookChartGridlinesFormat';
+import {WorkbookChartGridlinesFormat} from '../../../../../workbookChartGridlinesFormat';
+import {Format} from '../../format/format';
 import {LineRequestBuilder} from './line/lineRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

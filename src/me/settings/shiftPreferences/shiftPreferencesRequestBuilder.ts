@@ -1,4 +1,4 @@
-import {ShiftPreferences} from './shiftPreferences';
+import {ShiftPreferences} from '../../../shiftPreferences';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/settings/shiftPreferences  */

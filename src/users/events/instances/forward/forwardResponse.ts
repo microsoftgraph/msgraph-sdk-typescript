@@ -1,4 +1,4 @@
-import {Recipient} from '../../../../groups/recipient';
+import {Recipient} from '../../../../recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ForwardResponse implements Parsable {

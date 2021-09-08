@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {ComplianceInformation} from './complianceInformation';
+import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
+import {SecurityVendorInformation} from './securityVendorInformation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SecureScoreControlProfile extends Entity implements Parsable {
@@ -187,9 +190,9 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
             ["actionType", (o, n) => { (o as unknown as SecureScoreControlProfile).actionType = n.getStringValue(); }],
             ["actionUrl", (o, n) => { (o as unknown as SecureScoreControlProfile).actionUrl = n.getStringValue(); }],
             ["azureTenantId", (o, n) => { (o as unknown as SecureScoreControlProfile).azureTenantId = n.getStringValue(); }],
-            ["complianceInformation", (o, n) => { (o as unknown as SecureScoreControlProfile).complianceInformation = n.getCollectionOfPrimitiveValues<complianceInformation>(); }],
+            ["complianceInformation", (o, n) => { (o as unknown as SecureScoreControlProfile).complianceInformation = n.getCollectionOfObjectValues<ComplianceInformation>(ComplianceInformation); }],
             ["controlCategory", (o, n) => { (o as unknown as SecureScoreControlProfile).controlCategory = n.getStringValue(); }],
-            ["controlStateUpdates", (o, n) => { (o as unknown as SecureScoreControlProfile).controlStateUpdates = n.getCollectionOfPrimitiveValues<secureScoreControlStateUpdate>(); }],
+            ["controlStateUpdates", (o, n) => { (o as unknown as SecureScoreControlProfile).controlStateUpdates = n.getCollectionOfObjectValues<SecureScoreControlStateUpdate>(SecureScoreControlStateUpdate); }],
             ["deprecated", (o, n) => { (o as unknown as SecureScoreControlProfile).deprecated = n.getBooleanValue(); }],
             ["implementationCost", (o, n) => { (o as unknown as SecureScoreControlProfile).implementationCost = n.getStringValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as SecureScoreControlProfile).lastModifiedDateTime = n.getDateValue(); }],
@@ -215,9 +218,9 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         writer.writeStringValue("actionType", this.actionType);
         writer.writeStringValue("actionUrl", this.actionUrl);
         writer.writeStringValue("azureTenantId", this.azureTenantId);
-        writer.writeCollectionOfPrimitiveValues<complianceInformation>("complianceInformation", this.complianceInformation);
+        writer.writeCollectionOfObjectValues<ComplianceInformation>("complianceInformation", this.complianceInformation);
         writer.writeStringValue("controlCategory", this.controlCategory);
-        writer.writeCollectionOfPrimitiveValues<secureScoreControlStateUpdate>("controlStateUpdates", this.controlStateUpdates);
+        writer.writeCollectionOfObjectValues<SecureScoreControlStateUpdate>("controlStateUpdates", this.controlStateUpdates);
         writer.writeBooleanValue("deprecated", this.deprecated);
         writer.writeStringValue("implementationCost", this.implementationCost);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);

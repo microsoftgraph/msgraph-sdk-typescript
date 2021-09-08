@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedMobileApp extends Entity implements Parsable {

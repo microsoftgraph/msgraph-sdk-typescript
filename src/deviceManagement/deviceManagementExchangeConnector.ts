@@ -1,4 +1,6 @@
 import {Entity} from '../entity';
+import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
+import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementExchangeConnector extends Entity implements Parsable {
@@ -97,12 +99,12 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["connectorServerName", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).connectorServerName = n.getStringValue(); }],
             ["exchangeAlias", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).exchangeAlias = n.getStringValue(); }],
-            ["exchangeConnectorType", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).exchangeConnectorType = n.getObjectValue<DeviceManagementExchangeConnectorType>(DeviceManagementExchangeConnectorType); }],
+            ["exchangeConnectorType", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).exchangeConnectorType = n.getEnumValue<DeviceManagementExchangeConnectorType>(DeviceManagementExchangeConnectorType); }],
             ["exchangeOrganization", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).exchangeOrganization = n.getStringValue(); }],
             ["lastSyncDateTime", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).lastSyncDateTime = n.getDateValue(); }],
             ["primarySmtpAddress", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).primarySmtpAddress = n.getStringValue(); }],
             ["serverName", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).serverName = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).status = n.getObjectValue<DeviceManagementExchangeConnectorStatus>(DeviceManagementExchangeConnectorStatus); }],
+            ["status", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).status = n.getEnumValue<DeviceManagementExchangeConnectorStatus>(DeviceManagementExchangeConnectorStatus); }],
             ["version", (o, n) => { (o as unknown as DeviceManagementExchangeConnector).version = n.getStringValue(); }],
         ]);
     };
@@ -115,12 +117,12 @@ export class DeviceManagementExchangeConnector extends Entity implements Parsabl
         super.serialize(writer);
         writer.writeStringValue("connectorServerName", this.connectorServerName);
         writer.writeStringValue("exchangeAlias", this.exchangeAlias);
-        writer.writeObjectValue<DeviceManagementExchangeConnectorType>("exchangeConnectorType", this.exchangeConnectorType);
+        writer.writeEnumValue<DeviceManagementExchangeConnectorType>("exchangeConnectorType", this.exchangeConnectorType);
         writer.writeStringValue("exchangeOrganization", this.exchangeOrganization);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("primarySmtpAddress", this.primarySmtpAddress);
         writer.writeStringValue("serverName", this.serverName);
-        writer.writeObjectValue<DeviceManagementExchangeConnectorStatus>("status", this.status);
+        writer.writeEnumValue<DeviceManagementExchangeConnectorStatus>("status", this.status);
         writer.writeStringValue("version", this.version);
     };
     /**

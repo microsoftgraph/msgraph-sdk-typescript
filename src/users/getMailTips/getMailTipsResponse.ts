@@ -1,3 +1,4 @@
+import {MailTipsType} from '../../me/mailTipsType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GetMailTipsResponse implements Parsable {
@@ -39,7 +40,7 @@ export class GetMailTipsResponse implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["emailAddresses", (o, n) => { (o as unknown as GetMailTipsResponse).emailAddresses = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["mailTipsOptions", (o, n) => { (o as unknown as GetMailTipsResponse).mailTipsOptions = n.getObjectValue<MailTipsType>(MailTipsType); }],
+            ["mailTipsOptions", (o, n) => { (o as unknown as GetMailTipsResponse).mailTipsOptions = n.getEnumValue<MailTipsType>(MailTipsType); }],
         ]);
     };
     /**
@@ -49,7 +50,7 @@ export class GetMailTipsResponse implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("emailAddresses", this.emailAddresses);
-        writer.writeObjectValue<MailTipsType>("mailTipsOptions", this.mailTipsOptions);
+        writer.writeEnumValue<MailTipsType>("mailTipsOptions", this.mailTipsOptions);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

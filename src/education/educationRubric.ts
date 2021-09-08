@@ -1,5 +1,9 @@
 import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
+import {EducationAssignmentGradeType} from './classes/educationAssignmentGradeType';
+import {EducationItemBody} from './classes/educationItemBody';
+import {RubricLevel} from './rubricLevel';
+import {RubricQuality} from './rubricQuality';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EducationRubric extends Entity implements Parsable {
@@ -103,8 +107,8 @@ export class EducationRubric extends Entity implements Parsable {
             ["grading", (o, n) => { (o as unknown as EducationRubric).grading = n.getObjectValue<EducationAssignmentGradeType>(EducationAssignmentGradeType); }],
             ["lastModifiedBy", (o, n) => { (o as unknown as EducationRubric).lastModifiedBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as EducationRubric).lastModifiedDateTime = n.getDateValue(); }],
-            ["levels", (o, n) => { (o as unknown as EducationRubric).levels = n.getCollectionOfPrimitiveValues<rubricLevel>(); }],
-            ["qualities", (o, n) => { (o as unknown as EducationRubric).qualities = n.getCollectionOfPrimitiveValues<rubricQuality>(); }],
+            ["levels", (o, n) => { (o as unknown as EducationRubric).levels = n.getCollectionOfObjectValues<RubricLevel>(RubricLevel); }],
+            ["qualities", (o, n) => { (o as unknown as EducationRubric).qualities = n.getCollectionOfObjectValues<RubricQuality>(RubricQuality); }],
         ]);
     };
     /**
@@ -121,8 +125,8 @@ export class EducationRubric extends Entity implements Parsable {
         writer.writeObjectValue<EducationAssignmentGradeType>("grading", this.grading);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfPrimitiveValues<rubricLevel>("levels", this.levels);
-        writer.writeCollectionOfPrimitiveValues<rubricQuality>("qualities", this.qualities);
+        writer.writeCollectionOfObjectValues<RubricLevel>("levels", this.levels);
+        writer.writeCollectionOfObjectValues<RubricQuality>("qualities", this.qualities);
     };
     /**
      * Sets the createdBy property value. The user who created this resource.

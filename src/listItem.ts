@@ -1,8 +1,10 @@
+import {ContentTypeInfo} from './contentTypeInfo';
 import {BaseItem} from './drive/baseItem';
-import {ItemAnalytics} from './drive/list/items/analytics/itemAnalytics';
-import {FieldValueSet} from './drive/list/items/fields/fieldValueSet';
 import {DriveItem} from './driveItem';
+import {FieldValueSet} from './fieldValueSet';
+import {ItemAnalytics} from './itemAnalytics';
 import {ListItemVersion} from './listItemVersion';
+import {SharepointIds} from './sharepointIds';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ListItem extends BaseItem implements Parsable {

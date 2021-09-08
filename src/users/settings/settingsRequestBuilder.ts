@@ -1,5 +1,5 @@
 import {Settings} from '../../me/settings/settings';
-import {UserSettings} from '../../me/settings/userSettings';
+import {UserSettings} from '../../userSettings';
 import {ShiftPreferencesRequestBuilder} from './shiftPreferences/shiftPreferencesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

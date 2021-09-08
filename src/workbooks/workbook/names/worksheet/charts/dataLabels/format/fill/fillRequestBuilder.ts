@@ -1,6 +1,6 @@
-import {Fill} from '../../../../../../worksheets/charts/format/fill/fill';
-import {WorkbookChartFill} from '../../../../../../worksheets/charts/format/fill/workbookChartFill';
+import {WorkbookChartFill} from '../../../../../../worksheets/workbookChartFill';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
+import {Fill} from './fill';
 import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

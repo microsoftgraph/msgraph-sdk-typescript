@@ -3,6 +3,8 @@ import {OrganizationalBranding} from './branding/organizationalBranding';
 import {CertificateBasedAuthConfiguration} from './certificateBasedAuthConfiguration';
 import {DirectoryObject} from './directoryObject';
 import {Extension} from './extension';
+import {MdmAuthority} from './mdmAuthority';
+import {PrivacyProfile} from './privacyProfile';
 import {ProvisionedPlan} from './provisionedPlan';
 import {VerifiedDomain} from './verifiedDomain';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
@@ -252,7 +254,7 @@ export class Organization extends DirectoryObject implements Parsable {
             ["displayName", (o, n) => { (o as unknown as Organization).displayName = n.getStringValue(); }],
             ["extensions", (o, n) => { (o as unknown as Organization).extensions = n.getCollectionOfObjectValues<Extension>(Extension); }],
             ["marketingNotificationEmails", (o, n) => { (o as unknown as Organization).marketingNotificationEmails = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["mobileDeviceManagementAuthority", (o, n) => { (o as unknown as Organization).mobileDeviceManagementAuthority = n.getObjectValue<MdmAuthority>(MdmAuthority); }],
+            ["mobileDeviceManagementAuthority", (o, n) => { (o as unknown as Organization).mobileDeviceManagementAuthority = n.getEnumValue<MdmAuthority>(MdmAuthority); }],
             ["onPremisesLastSyncDateTime", (o, n) => { (o as unknown as Organization).onPremisesLastSyncDateTime = n.getDateValue(); }],
             ["onPremisesSyncEnabled", (o, n) => { (o as unknown as Organization).onPremisesSyncEnabled = n.getBooleanValue(); }],
             ["postalCode", (o, n) => { (o as unknown as Organization).postalCode = n.getStringValue(); }],
@@ -286,7 +288,7 @@ export class Organization extends DirectoryObject implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeCollectionOfObjectValues<Extension>("extensions", this.extensions);
         writer.writeCollectionOfPrimitiveValues<string>("marketingNotificationEmails", this.marketingNotificationEmails);
-        writer.writeObjectValue<MdmAuthority>("mobileDeviceManagementAuthority", this.mobileDeviceManagementAuthority);
+        writer.writeEnumValue<MdmAuthority>("mobileDeviceManagementAuthority", this.mobileDeviceManagementAuthority);
         writer.writeDateValue("onPremisesLastSyncDateTime", this.onPremisesLastSyncDateTime);
         writer.writeBooleanValue("onPremisesSyncEnabled", this.onPremisesSyncEnabled);
         writer.writeStringValue("postalCode", this.postalCode);

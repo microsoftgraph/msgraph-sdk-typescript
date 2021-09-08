@@ -1,4 +1,9 @@
 import {Entity} from './entity';
+import {Location} from './groups/location';
+import {PersonType} from './me/personType';
+import {Phone} from './phone';
+import {ScoredEmailAddress} from './scoredEmailAddress';
+import {Website} from './website';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Person extends Entity implements Parsable {
@@ -196,13 +201,13 @@ export class Person extends Entity implements Parsable {
             ["officeLocation", (o, n) => { (o as unknown as Person).officeLocation = n.getStringValue(); }],
             ["personNotes", (o, n) => { (o as unknown as Person).personNotes = n.getStringValue(); }],
             ["personType", (o, n) => { (o as unknown as Person).personType = n.getObjectValue<PersonType>(PersonType); }],
-            ["phones", (o, n) => { (o as unknown as Person).phones = n.getCollectionOfPrimitiveValues<phone>(); }],
-            ["postalAddresses", (o, n) => { (o as unknown as Person).postalAddresses = n.getCollectionOfPrimitiveValues<location>(); }],
+            ["phones", (o, n) => { (o as unknown as Person).phones = n.getCollectionOfObjectValues<Phone>(Phone); }],
+            ["postalAddresses", (o, n) => { (o as unknown as Person).postalAddresses = n.getCollectionOfObjectValues<Location>(Location); }],
             ["profession", (o, n) => { (o as unknown as Person).profession = n.getStringValue(); }],
-            ["scoredEmailAddresses", (o, n) => { (o as unknown as Person).scoredEmailAddresses = n.getCollectionOfPrimitiveValues<scoredEmailAddress>(); }],
+            ["scoredEmailAddresses", (o, n) => { (o as unknown as Person).scoredEmailAddresses = n.getCollectionOfObjectValues<ScoredEmailAddress>(ScoredEmailAddress); }],
             ["surname", (o, n) => { (o as unknown as Person).surname = n.getStringValue(); }],
             ["userPrincipalName", (o, n) => { (o as unknown as Person).userPrincipalName = n.getStringValue(); }],
-            ["websites", (o, n) => { (o as unknown as Person).websites = n.getCollectionOfPrimitiveValues<website>(); }],
+            ["websites", (o, n) => { (o as unknown as Person).websites = n.getCollectionOfObjectValues<Website>(Website); }],
             ["yomiCompany", (o, n) => { (o as unknown as Person).yomiCompany = n.getStringValue(); }],
         ]);
     };
@@ -224,13 +229,13 @@ export class Person extends Entity implements Parsable {
         writer.writeStringValue("officeLocation", this.officeLocation);
         writer.writeStringValue("personNotes", this.personNotes);
         writer.writeObjectValue<PersonType>("personType", this.personType);
-        writer.writeCollectionOfPrimitiveValues<phone>("phones", this.phones);
-        writer.writeCollectionOfPrimitiveValues<location>("postalAddresses", this.postalAddresses);
+        writer.writeCollectionOfObjectValues<Phone>("phones", this.phones);
+        writer.writeCollectionOfObjectValues<Location>("postalAddresses", this.postalAddresses);
         writer.writeStringValue("profession", this.profession);
-        writer.writeCollectionOfPrimitiveValues<scoredEmailAddress>("scoredEmailAddresses", this.scoredEmailAddresses);
+        writer.writeCollectionOfObjectValues<ScoredEmailAddress>("scoredEmailAddresses", this.scoredEmailAddresses);
         writer.writeStringValue("surname", this.surname);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
-        writer.writeCollectionOfPrimitiveValues<website>("websites", this.websites);
+        writer.writeCollectionOfObjectValues<Website>("websites", this.websites);
         writer.writeStringValue("yomiCompany", this.yomiCompany);
     };
     /**

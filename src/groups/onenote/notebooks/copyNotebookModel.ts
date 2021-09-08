@@ -1,4 +1,6 @@
 import {IdentitySet} from '../../../identitySet';
+import {NotebookLinks} from '../notebookLinks';
+import {OnenoteUserRole} from '../onenoteUserRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CopyNotebookModel implements Parsable {
@@ -157,7 +159,7 @@ export class CopyNotebookModel implements Parsable {
             ["sectionGroupsUrl", (o, n) => { (o as unknown as CopyNotebookModel).sectionGroupsUrl = n.getStringValue(); }],
             ["sectionsUrl", (o, n) => { (o as unknown as CopyNotebookModel).sectionsUrl = n.getStringValue(); }],
             ["self", (o, n) => { (o as unknown as CopyNotebookModel).self = n.getStringValue(); }],
-            ["userRole", (o, n) => { (o as unknown as CopyNotebookModel).userRole = n.getObjectValue<OnenoteUserRole>(OnenoteUserRole); }],
+            ["userRole", (o, n) => { (o as unknown as CopyNotebookModel).userRole = n.getEnumValue<OnenoteUserRole>(OnenoteUserRole); }],
         ]);
     };
     /**
@@ -180,7 +182,7 @@ export class CopyNotebookModel implements Parsable {
         writer.writeStringValue("sectionGroupsUrl", this.sectionGroupsUrl);
         writer.writeStringValue("sectionsUrl", this.sectionsUrl);
         writer.writeStringValue("self", this.self);
-        writer.writeObjectValue<OnenoteUserRole>("userRole", this.userRole);
+        writer.writeEnumValue<OnenoteUserRole>("userRole", this.userRole);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

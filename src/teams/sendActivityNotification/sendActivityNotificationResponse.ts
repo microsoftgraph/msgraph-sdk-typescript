@@ -1,4 +1,6 @@
 import {ItemBody} from '../../chats/itemBody';
+import {TeamworkActivityTopic} from '../../chats/teamworkActivityTopic';
+import {TeamworkNotificationRecipient} from '../../chats/teamworkNotificationRecipient';
 import {KeyValuePair} from '../../deviceAppManagement/keyValuePair';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

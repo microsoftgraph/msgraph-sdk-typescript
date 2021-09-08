@@ -1,3 +1,4 @@
+import {MeetingTimeSuggestion} from './meetingTimeSuggestion';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestionsResult implements Parsable {
@@ -41,7 +42,7 @@ export class MeetingTimeSuggestionsResult implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["emptySuggestionsReason", (o, n) => { (o as unknown as MeetingTimeSuggestionsResult).emptySuggestionsReason = n.getStringValue(); }],
-            ["meetingTimeSuggestions", (o, n) => { (o as unknown as MeetingTimeSuggestionsResult).meetingTimeSuggestions = n.getCollectionOfPrimitiveValues<meetingTimeSuggestion>(); }],
+            ["meetingTimeSuggestions", (o, n) => { (o as unknown as MeetingTimeSuggestionsResult).meetingTimeSuggestions = n.getCollectionOfObjectValues<MeetingTimeSuggestion>(MeetingTimeSuggestion); }],
         ]);
     };
     /**
@@ -51,7 +52,7 @@ export class MeetingTimeSuggestionsResult implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("emptySuggestionsReason", this.emptySuggestionsReason);
-        writer.writeCollectionOfPrimitiveValues<meetingTimeSuggestion>("meetingTimeSuggestions", this.meetingTimeSuggestions);
+        writer.writeCollectionOfObjectValues<MeetingTimeSuggestion>("meetingTimeSuggestions", this.meetingTimeSuggestions);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

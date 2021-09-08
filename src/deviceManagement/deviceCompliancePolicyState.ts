@@ -1,4 +1,7 @@
 import {Entity} from '../entity';
+import {ComplianceStatus} from './complianceStatus';
+import {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
+import {PolicyPlatformType} from './policyPlatformType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicyState extends Entity implements Parsable {
@@ -68,10 +71,10 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["displayName", (o, n) => { (o as unknown as DeviceCompliancePolicyState).displayName = n.getStringValue(); }],
-            ["platformType", (o, n) => { (o as unknown as DeviceCompliancePolicyState).platformType = n.getObjectValue<PolicyPlatformType>(PolicyPlatformType); }],
+            ["platformType", (o, n) => { (o as unknown as DeviceCompliancePolicyState).platformType = n.getEnumValue<PolicyPlatformType>(PolicyPlatformType); }],
             ["settingCount", (o, n) => { (o as unknown as DeviceCompliancePolicyState).settingCount = n.getNumberValue(); }],
-            ["settingStates", (o, n) => { (o as unknown as DeviceCompliancePolicyState).settingStates = n.getCollectionOfPrimitiveValues<deviceCompliancePolicySettingState>(); }],
-            ["state", (o, n) => { (o as unknown as DeviceCompliancePolicyState).state = n.getObjectValue<ComplianceStatus>(ComplianceStatus); }],
+            ["settingStates", (o, n) => { (o as unknown as DeviceCompliancePolicyState).settingStates = n.getCollectionOfObjectValues<DeviceCompliancePolicySettingState>(DeviceCompliancePolicySettingState); }],
+            ["state", (o, n) => { (o as unknown as DeviceCompliancePolicyState).state = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
             ["version", (o, n) => { (o as unknown as DeviceCompliancePolicyState).version = n.getNumberValue(); }],
         ]);
     };
@@ -83,10 +86,10 @@ export class DeviceCompliancePolicyState extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<PolicyPlatformType>("platformType", this.platformType);
+        writer.writeEnumValue<PolicyPlatformType>("platformType", this.platformType);
         writer.writeNumberValue("settingCount", this.settingCount);
-        writer.writeCollectionOfPrimitiveValues<deviceCompliancePolicySettingState>("settingStates", this.settingStates);
-        writer.writeObjectValue<ComplianceStatus>("state", this.state);
+        writer.writeCollectionOfObjectValues<DeviceCompliancePolicySettingState>("settingStates", this.settingStates);
+        writer.writeEnumValue<ComplianceStatus>("state", this.state);
         writer.writeNumberValue("version", this.version);
     };
     /**

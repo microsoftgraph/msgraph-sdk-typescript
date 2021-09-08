@@ -1,9 +1,13 @@
 import {ItemBody} from '../../../chats/itemBody';
 import {Extension} from '../../../extension';
 import {Attachment} from '../../../groups/attachment';
-import {Recipient} from '../../../groups/recipient';
+import {Importance} from '../../../groups/importance';
+import {InternetMessageHeader} from '../../../internetMessageHeader';
+import {FollowupFlag} from '../../../me/followupFlag';
+import {InferenceClassificationType} from '../../../me/inferenceClassificationType';
 import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
 import {OutlookItem} from '../../../outlookItem';
+import {Recipient} from '../../../recipient';
 import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
@@ -301,9 +305,9 @@ export class Delta extends OutlookItem implements Parsable {
             ["flag", (o, n) => { (o as unknown as Delta).flag = n.getObjectValue<FollowupFlag>(FollowupFlag); }],
             ["from", (o, n) => { (o as unknown as Delta).from = n.getObjectValue<Recipient>(Recipient); }],
             ["hasAttachments", (o, n) => { (o as unknown as Delta).hasAttachments = n.getBooleanValue(); }],
-            ["importance", (o, n) => { (o as unknown as Delta).importance = n.getObjectValue<Importance>(Importance); }],
-            ["inferenceClassification", (o, n) => { (o as unknown as Delta).inferenceClassification = n.getObjectValue<InferenceClassificationType>(InferenceClassificationType); }],
-            ["internetMessageHeaders", (o, n) => { (o as unknown as Delta).internetMessageHeaders = n.getCollectionOfPrimitiveValues<internetMessageHeader>(); }],
+            ["importance", (o, n) => { (o as unknown as Delta).importance = n.getEnumValue<Importance>(Importance); }],
+            ["inferenceClassification", (o, n) => { (o as unknown as Delta).inferenceClassification = n.getEnumValue<InferenceClassificationType>(InferenceClassificationType); }],
+            ["internetMessageHeaders", (o, n) => { (o as unknown as Delta).internetMessageHeaders = n.getCollectionOfObjectValues<InternetMessageHeader>(InternetMessageHeader); }],
             ["internetMessageId", (o, n) => { (o as unknown as Delta).internetMessageId = n.getStringValue(); }],
             ["isDeliveryReceiptRequested", (o, n) => { (o as unknown as Delta).isDeliveryReceiptRequested = n.getBooleanValue(); }],
             ["isDraft", (o, n) => { (o as unknown as Delta).isDraft = n.getBooleanValue(); }],
@@ -340,9 +344,9 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeObjectValue<FollowupFlag>("flag", this.flag);
         writer.writeObjectValue<Recipient>("from", this.from);
         writer.writeBooleanValue("hasAttachments", this.hasAttachments);
-        writer.writeObjectValue<Importance>("importance", this.importance);
-        writer.writeObjectValue<InferenceClassificationType>("inferenceClassification", this.inferenceClassification);
-        writer.writeCollectionOfPrimitiveValues<internetMessageHeader>("internetMessageHeaders", this.internetMessageHeaders);
+        writer.writeEnumValue<Importance>("importance", this.importance);
+        writer.writeEnumValue<InferenceClassificationType>("inferenceClassification", this.inferenceClassification);
+        writer.writeCollectionOfObjectValues<InternetMessageHeader>("internetMessageHeaders", this.internetMessageHeaders);
         writer.writeStringValue("internetMessageId", this.internetMessageId);
         writer.writeBooleanValue("isDeliveryReceiptRequested", this.isDeliveryReceiptRequested);
         writer.writeBooleanValue("isDraft", this.isDraft);

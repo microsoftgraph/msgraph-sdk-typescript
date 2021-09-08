@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {ApplicationType} from './applicationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable {
@@ -42,7 +43,7 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["applicationName", (o, n) => { (o as unknown as WindowsInformationProtectionAppLearningSummary).applicationName = n.getStringValue(); }],
-            ["applicationType", (o, n) => { (o as unknown as WindowsInformationProtectionAppLearningSummary).applicationType = n.getObjectValue<ApplicationType>(ApplicationType); }],
+            ["applicationType", (o, n) => { (o as unknown as WindowsInformationProtectionAppLearningSummary).applicationType = n.getEnumValue<ApplicationType>(ApplicationType); }],
             ["deviceCount", (o, n) => { (o as unknown as WindowsInformationProtectionAppLearningSummary).deviceCount = n.getNumberValue(); }],
         ]);
     };
@@ -54,7 +55,7 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("applicationName", this.applicationName);
-        writer.writeObjectValue<ApplicationType>("applicationType", this.applicationType);
+        writer.writeEnumValue<ApplicationType>("applicationType", this.applicationType);
         writer.writeNumberValue("deviceCount", this.deviceCount);
     };
     /**

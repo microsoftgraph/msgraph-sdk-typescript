@@ -1,5 +1,6 @@
 import {Entity} from '../entity';
 import {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class NotificationMessageTemplate extends Entity implements Parsable {
@@ -60,7 +61,7 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["brandingOptions", (o, n) => { (o as unknown as NotificationMessageTemplate).brandingOptions = n.getObjectValue<NotificationTemplateBrandingOptions>(NotificationTemplateBrandingOptions); }],
+            ["brandingOptions", (o, n) => { (o as unknown as NotificationMessageTemplate).brandingOptions = n.getEnumValue<NotificationTemplateBrandingOptions>(NotificationTemplateBrandingOptions); }],
             ["defaultLocale", (o, n) => { (o as unknown as NotificationMessageTemplate).defaultLocale = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as NotificationMessageTemplate).displayName = n.getStringValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as NotificationMessageTemplate).lastModifiedDateTime = n.getDateValue(); }],
@@ -74,7 +75,7 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<NotificationTemplateBrandingOptions>("brandingOptions", this.brandingOptions);
+        writer.writeEnumValue<NotificationTemplateBrandingOptions>("brandingOptions", this.brandingOptions);
         writer.writeStringValue("defaultLocale", this.defaultLocale);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);

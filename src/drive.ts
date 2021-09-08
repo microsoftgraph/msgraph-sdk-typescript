@@ -1,7 +1,10 @@
-import {BaseItem} from './baseItem';
-import {List} from './drive/list/list';
+import {BaseItem} from './drive/baseItem';
 import {DriveItem} from './driveItem';
 import {IdentitySet} from './identitySet';
+import {List} from './list';
+import {Quota} from './quota';
+import {SharepointIds} from './sharepointIds';
+import {SystemFacet} from './systemFacet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Drive extends BaseItem implements Parsable {

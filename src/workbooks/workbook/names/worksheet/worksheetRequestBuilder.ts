@@ -1,18 +1,18 @@
-import {CellWithRowWithColumnRequestBuilder} from '../../../../me/insights/trending/resource/workbookRange/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {UsedRangeRequestBuilder} from '../../../../me/insights/trending/resource/workbookRange/usedRange/usedRangeRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from '../../../../me/insights/trending/resource/workbookRange/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
-import {RangeRequestBuilder} from '../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookWorksheet} from '../../../../workbookWorksheet';
-import {RangeWithAddressRequestBuilder} from '../../worksheets/charts/worksheet/rangeWithAddress/rangeWithAddressRequestBuilder';
 import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
 import {WorkbookChartRequestBuilder} from './charts/item/workbookChartRequestBuilder';
 import {WorkbookNamedItemRequestBuilder} from './names/item/workbookNamedItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookPivotTableRequestBuilder} from './pivotTables/item/workbookPivotTableRequestBuilder';
 import {PivotTablesRequestBuilder} from './pivotTables/pivotTablesRequestBuilder';
+import {CellWithRowWithColumnRequestBuilder} from './pivotTables/worksheet/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
+import {RangeRequestBuilder} from './pivotTables/worksheet/range/rangeRequestBuilder';
+import {UsedRangeRequestBuilder} from './pivotTables/worksheet/usedRange/usedRangeRequestBuilder';
 import {ProtectionRequestBuilder} from './protection/protectionRequestBuilder';
+import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {Worksheet} from './worksheet';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

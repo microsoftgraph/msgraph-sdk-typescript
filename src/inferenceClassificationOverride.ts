@@ -1,4 +1,6 @@
+import {EmailAddress} from './emailAddress';
 import {Entity} from './entity';
+import {InferenceClassificationType} from './me/inferenceClassificationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class InferenceClassificationOverride extends Entity implements Parsable {
@@ -32,7 +34,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["classifyAs", (o, n) => { (o as unknown as InferenceClassificationOverride).classifyAs = n.getObjectValue<InferenceClassificationType>(InferenceClassificationType); }],
+            ["classifyAs", (o, n) => { (o as unknown as InferenceClassificationOverride).classifyAs = n.getEnumValue<InferenceClassificationType>(InferenceClassificationType); }],
             ["senderEmailAddress", (o, n) => { (o as unknown as InferenceClassificationOverride).senderEmailAddress = n.getObjectValue<EmailAddress>(EmailAddress); }],
         ]);
     };
@@ -43,7 +45,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<InferenceClassificationType>("classifyAs", this.classifyAs);
+        writer.writeEnumValue<InferenceClassificationType>("classifyAs", this.classifyAs);
         writer.writeObjectValue<EmailAddress>("senderEmailAddress", this.senderEmailAddress);
     };
     /**

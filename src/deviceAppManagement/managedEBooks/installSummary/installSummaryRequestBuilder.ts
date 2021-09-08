@@ -1,4 +1,4 @@
-import {EBookInstallSummary} from './eBookInstallSummary';
+import {EBookInstallSummary} from '../../eBookInstallSummary';
 import {InstallSummary} from './installSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

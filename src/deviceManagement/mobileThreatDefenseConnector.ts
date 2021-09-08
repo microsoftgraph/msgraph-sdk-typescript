@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileThreatDefenseConnector extends Entity implements Parsable {
@@ -91,7 +92,7 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
             ["iosDeviceBlockedOnMissingPartnerData", (o, n) => { (o as unknown as MobileThreatDefenseConnector).iosDeviceBlockedOnMissingPartnerData = n.getBooleanValue(); }],
             ["iosEnabled", (o, n) => { (o as unknown as MobileThreatDefenseConnector).iosEnabled = n.getBooleanValue(); }],
             ["lastHeartbeatDateTime", (o, n) => { (o as unknown as MobileThreatDefenseConnector).lastHeartbeatDateTime = n.getDateValue(); }],
-            ["partnerState", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerState = n.getObjectValue<MobileThreatPartnerTenantState>(MobileThreatPartnerTenantState); }],
+            ["partnerState", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerState = n.getEnumValue<MobileThreatPartnerTenantState>(MobileThreatPartnerTenantState); }],
             ["partnerUnresponsivenessThresholdInDays", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerUnresponsivenessThresholdInDays = n.getNumberValue(); }],
             ["partnerUnsupportedOsVersionBlocked", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerUnsupportedOsVersionBlocked = n.getBooleanValue(); }],
         ]);
@@ -108,7 +109,7 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         writer.writeBooleanValue("iosDeviceBlockedOnMissingPartnerData", this.iosDeviceBlockedOnMissingPartnerData);
         writer.writeBooleanValue("iosEnabled", this.iosEnabled);
         writer.writeDateValue("lastHeartbeatDateTime", this.lastHeartbeatDateTime);
-        writer.writeObjectValue<MobileThreatPartnerTenantState>("partnerState", this.partnerState);
+        writer.writeEnumValue<MobileThreatPartnerTenantState>("partnerState", this.partnerState);
         writer.writeNumberValue("partnerUnresponsivenessThresholdInDays", this.partnerUnresponsivenessThresholdInDays);
         writer.writeBooleanValue("partnerUnsupportedOsVersionBlocked", this.partnerUnsupportedOsVersionBlocked);
     };

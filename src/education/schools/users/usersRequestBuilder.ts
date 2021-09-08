@@ -1,4 +1,4 @@
-import {DeltaRequestBuilder} from '../../../servicePrincipals/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../../../groups/calendar/calendarView/instances/delta/deltaRequestBuilder';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {UsersResponse} from './usersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

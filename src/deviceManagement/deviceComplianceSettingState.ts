@@ -1,4 +1,5 @@
 import {Entity} from '../entity';
+import {ComplianceStatus} from './complianceStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceSettingState extends Entity implements Parsable {
@@ -119,7 +120,7 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
             ["deviceName", (o, n) => { (o as unknown as DeviceComplianceSettingState).deviceName = n.getStringValue(); }],
             ["setting", (o, n) => { (o as unknown as DeviceComplianceSettingState).setting = n.getStringValue(); }],
             ["settingName", (o, n) => { (o as unknown as DeviceComplianceSettingState).settingName = n.getStringValue(); }],
-            ["state", (o, n) => { (o as unknown as DeviceComplianceSettingState).state = n.getObjectValue<ComplianceStatus>(ComplianceStatus); }],
+            ["state", (o, n) => { (o as unknown as DeviceComplianceSettingState).state = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
             ["userEmail", (o, n) => { (o as unknown as DeviceComplianceSettingState).userEmail = n.getStringValue(); }],
             ["userId", (o, n) => { (o as unknown as DeviceComplianceSettingState).userId = n.getStringValue(); }],
             ["userName", (o, n) => { (o as unknown as DeviceComplianceSettingState).userName = n.getStringValue(); }],
@@ -139,7 +140,7 @@ export class DeviceComplianceSettingState extends Entity implements Parsable {
         writer.writeStringValue("deviceName", this.deviceName);
         writer.writeStringValue("setting", this.setting);
         writer.writeStringValue("settingName", this.settingName);
-        writer.writeObjectValue<ComplianceStatus>("state", this.state);
+        writer.writeEnumValue<ComplianceStatus>("state", this.state);
         writer.writeStringValue("userEmail", this.userEmail);
         writer.writeStringValue("userId", this.userId);
         writer.writeStringValue("userName", this.userName);

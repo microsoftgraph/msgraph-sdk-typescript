@@ -1,7 +1,12 @@
 import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
+import {EducationAssignmentGradeType} from './classes/educationAssignmentGradeType';
+import {EducationAssignmentRecipient} from './classes/educationAssignmentRecipient';
 import {EducationAssignmentResource} from './classes/educationAssignmentResource';
+import {EducationAssignmentStatus} from './classes/educationAssignmentStatus';
+import {EducationItemBody} from './classes/educationItemBody';
 import {EducationSubmission} from './classes/educationSubmission';
+import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationCategory} from './educationCategory';
 import {EducationRubric} from './educationRubric';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
@@ -235,7 +240,7 @@ export class EducationAssignment extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["addedStudentAction", (o, n) => { (o as unknown as EducationAssignment).addedStudentAction = n.getObjectValue<EducationAddedStudentAction>(EducationAddedStudentAction); }],
+            ["addedStudentAction", (o, n) => { (o as unknown as EducationAssignment).addedStudentAction = n.getEnumValue<EducationAddedStudentAction>(EducationAddedStudentAction); }],
             ["allowLateSubmissions", (o, n) => { (o as unknown as EducationAssignment).allowLateSubmissions = n.getBooleanValue(); }],
             ["allowStudentsToAddResourcesToSubmission", (o, n) => { (o as unknown as EducationAssignment).allowStudentsToAddResourcesToSubmission = n.getBooleanValue(); }],
             ["assignDateTime", (o, n) => { (o as unknown as EducationAssignment).assignDateTime = n.getDateValue(); }],
@@ -256,7 +261,7 @@ export class EducationAssignment extends Entity implements Parsable {
             ["resources", (o, n) => { (o as unknown as EducationAssignment).resources = n.getCollectionOfObjectValues<EducationAssignmentResource>(EducationAssignmentResource); }],
             ["resourcesFolderUrl", (o, n) => { (o as unknown as EducationAssignment).resourcesFolderUrl = n.getStringValue(); }],
             ["rubric", (o, n) => { (o as unknown as EducationAssignment).rubric = n.getObjectValue<EducationRubric>(EducationRubric); }],
-            ["status", (o, n) => { (o as unknown as EducationAssignment).status = n.getObjectValue<EducationAssignmentStatus>(EducationAssignmentStatus); }],
+            ["status", (o, n) => { (o as unknown as EducationAssignment).status = n.getEnumValue<EducationAssignmentStatus>(EducationAssignmentStatus); }],
             ["submissions", (o, n) => { (o as unknown as EducationAssignment).submissions = n.getCollectionOfObjectValues<EducationSubmission>(EducationSubmission); }],
             ["webUrl", (o, n) => { (o as unknown as EducationAssignment).webUrl = n.getStringValue(); }],
         ]);
@@ -268,7 +273,7 @@ export class EducationAssignment extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
+        writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
         writer.writeBooleanValue("allowLateSubmissions", this.allowLateSubmissions);
         writer.writeBooleanValue("allowStudentsToAddResourcesToSubmission", this.allowStudentsToAddResourcesToSubmission);
         writer.writeDateValue("assignDateTime", this.assignDateTime);
@@ -289,7 +294,7 @@ export class EducationAssignment extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<EducationAssignmentResource>("resources", this.resources);
         writer.writeStringValue("resourcesFolderUrl", this.resourcesFolderUrl);
         writer.writeObjectValue<EducationRubric>("rubric", this.rubric);
-        writer.writeObjectValue<EducationAssignmentStatus>("status", this.status);
+        writer.writeEnumValue<EducationAssignmentStatus>("status", this.status);
         writer.writeCollectionOfObjectValues<EducationSubmission>("submissions", this.submissions);
         writer.writeStringValue("webUrl", this.webUrl);
     };

@@ -1,3 +1,4 @@
+import {DeviceAndAppManagementAssignmentTarget} from '../deviceAppManagement/managedEBooks/deviceAndAppManagementAssignmentTarget';
 import {Entity} from '../entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

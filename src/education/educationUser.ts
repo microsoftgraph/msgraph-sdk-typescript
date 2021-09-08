@@ -2,11 +2,18 @@ import {AssignedLicense} from '../assignedLicense';
 import {AssignedPlan} from '../assignedPlan';
 import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
+import {PasswordProfile} from '../passwordProfile';
+import {PhysicalAddress} from '../physicalAddress';
 import {ProvisionedPlan} from '../provisionedPlan';
 import {User} from '../user';
 import {EducationClass} from './educationClass';
+import {EducationExternalSource} from './educationExternalSource';
+import {EducationOnPremisesInfo} from './educationOnPremisesInfo';
 import {EducationRubric} from './educationRubric';
 import {EducationSchool} from './educationSchool';
+import {EducationStudent} from './educationStudent';
+import {EducationTeacher} from './educationTeacher';
+import {EducationUserRole} from './educationUserRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EducationUser extends Entity implements Parsable {
@@ -351,7 +358,7 @@ export class EducationUser extends Entity implements Parsable {
             ["createdBy", (o, n) => { (o as unknown as EducationUser).createdBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["department", (o, n) => { (o as unknown as EducationUser).department = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as EducationUser).displayName = n.getStringValue(); }],
-            ["externalSource", (o, n) => { (o as unknown as EducationUser).externalSource = n.getObjectValue<EducationExternalSource>(EducationExternalSource); }],
+            ["externalSource", (o, n) => { (o as unknown as EducationUser).externalSource = n.getEnumValue<EducationExternalSource>(EducationExternalSource); }],
             ["externalSourceDetail", (o, n) => { (o as unknown as EducationUser).externalSourceDetail = n.getStringValue(); }],
             ["givenName", (o, n) => { (o as unknown as EducationUser).givenName = n.getStringValue(); }],
             ["mail", (o, n) => { (o as unknown as EducationUser).mail = n.getStringValue(); }],
@@ -364,7 +371,7 @@ export class EducationUser extends Entity implements Parsable {
             ["passwordPolicies", (o, n) => { (o as unknown as EducationUser).passwordPolicies = n.getStringValue(); }],
             ["passwordProfile", (o, n) => { (o as unknown as EducationUser).passwordProfile = n.getObjectValue<PasswordProfile>(PasswordProfile); }],
             ["preferredLanguage", (o, n) => { (o as unknown as EducationUser).preferredLanguage = n.getStringValue(); }],
-            ["primaryRole", (o, n) => { (o as unknown as EducationUser).primaryRole = n.getObjectValue<EducationUserRole>(EducationUserRole); }],
+            ["primaryRole", (o, n) => { (o as unknown as EducationUser).primaryRole = n.getEnumValue<EducationUserRole>(EducationUserRole); }],
             ["provisionedPlans", (o, n) => { (o as unknown as EducationUser).provisionedPlans = n.getCollectionOfObjectValues<ProvisionedPlan>(ProvisionedPlan); }],
             ["refreshTokensValidFromDateTime", (o, n) => { (o as unknown as EducationUser).refreshTokensValidFromDateTime = n.getDateValue(); }],
             ["residenceAddress", (o, n) => { (o as unknown as EducationUser).residenceAddress = n.getObjectValue<PhysicalAddress>(PhysicalAddress); }],
@@ -396,7 +403,7 @@ export class EducationUser extends Entity implements Parsable {
         writer.writeObjectValue<IdentitySet>("createdBy", this.createdBy);
         writer.writeStringValue("department", this.department);
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeObjectValue<EducationExternalSource>("externalSource", this.externalSource);
+        writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
         writer.writeStringValue("givenName", this.givenName);
         writer.writeStringValue("mail", this.mail);
@@ -409,7 +416,7 @@ export class EducationUser extends Entity implements Parsable {
         writer.writeStringValue("passwordPolicies", this.passwordPolicies);
         writer.writeObjectValue<PasswordProfile>("passwordProfile", this.passwordProfile);
         writer.writeStringValue("preferredLanguage", this.preferredLanguage);
-        writer.writeObjectValue<EducationUserRole>("primaryRole", this.primaryRole);
+        writer.writeEnumValue<EducationUserRole>("primaryRole", this.primaryRole);
         writer.writeCollectionOfObjectValues<ProvisionedPlan>("provisionedPlans", this.provisionedPlans);
         writer.writeDateValue("refreshTokensValidFromDateTime", this.refreshTokensValidFromDateTime);
         writer.writeObjectValue<PhysicalAddress>("residenceAddress", this.residenceAddress);

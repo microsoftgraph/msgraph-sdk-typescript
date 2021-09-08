@@ -1,5 +1,5 @@
-import {Format} from '../../../../worksheets/charts/format/format';
-import {WorkbookChartAreaFormat} from '../../../../worksheets/charts/format/workbookChartAreaFormat';
+import {Format} from '../../../../worksheets/charts/axes/categoryAxis/format/format';
+import {WorkbookChartAreaFormat} from '../../../../worksheets/workbookChartAreaFormat';
 import {FillRequestBuilder} from './fill/fillRequestBuilder';
 import {FontRequestBuilder} from './font/fontRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

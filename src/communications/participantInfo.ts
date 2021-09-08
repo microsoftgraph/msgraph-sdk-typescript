@@ -1,4 +1,5 @@
 import {IdentitySet} from '../identitySet';
+import {EndpointType} from './endpointType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ParticipantInfo implements Parsable {
@@ -68,7 +69,7 @@ export class ParticipantInfo implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["countryCode", (o, n) => { (o as unknown as ParticipantInfo).countryCode = n.getStringValue(); }],
-            ["endpointType", (o, n) => { (o as unknown as ParticipantInfo).endpointType = n.getObjectValue<EndpointType>(EndpointType); }],
+            ["endpointType", (o, n) => { (o as unknown as ParticipantInfo).endpointType = n.getEnumValue<EndpointType>(EndpointType); }],
             ["identity", (o, n) => { (o as unknown as ParticipantInfo).identity = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["languageId", (o, n) => { (o as unknown as ParticipantInfo).languageId = n.getStringValue(); }],
             ["region", (o, n) => { (o as unknown as ParticipantInfo).region = n.getStringValue(); }],
@@ -81,7 +82,7 @@ export class ParticipantInfo implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("countryCode", this.countryCode);
-        writer.writeObjectValue<EndpointType>("endpointType", this.endpointType);
+        writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
         writer.writeObjectValue<IdentitySet>("identity", this.identity);
         writer.writeStringValue("languageId", this.languageId);
         writer.writeStringValue("region", this.region);

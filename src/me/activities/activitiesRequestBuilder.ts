@@ -1,6 +1,6 @@
+import {RecentRequestBuilder} from '../../drives/recent/recentRequestBuilder';
 import {UserActivity} from '../../userActivity';
 import {ActivitiesResponse} from './activitiesResponse';
-import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/activities  */

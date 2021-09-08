@@ -1,3 +1,4 @@
+import {AccessAction} from './accessAction';
 import {DriveItem} from './driveItem';
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
