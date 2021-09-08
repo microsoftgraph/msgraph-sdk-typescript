@@ -1,5 +1,5 @@
-import {DataLabels} from '../../../../names/worksheet/charts/dataLabels/dataLabels';
-import {WorkbookChartDataLabels} from '../../../../names/worksheet/charts/dataLabels/workbookChartDataLabels';
+import {DataLabels} from '../../../../worksheets/charts/dataLabels/dataLabels';
+import {WorkbookChartDataLabels} from '../../../../worksheets/charts/dataLabels/workbookChartDataLabels';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

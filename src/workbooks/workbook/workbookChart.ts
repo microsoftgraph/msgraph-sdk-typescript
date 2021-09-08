@@ -1,10 +1,10 @@
 import {Entity} from '../../entity';
 import {WorkbookWorksheet} from '../../workbookWorksheet';
-import {WorkbookChartAxes} from './names/worksheet/charts/axes/workbookChartAxes';
-import {WorkbookChartDataLabels} from './names/worksheet/charts/dataLabels/workbookChartDataLabels';
-import {WorkbookChartAreaFormat} from './names/worksheet/charts/format/workbookChartAreaFormat';
-import {WorkbookChartLegend} from './names/worksheet/charts/legend/workbookChartLegend';
-import {WorkbookChartTitle} from './names/worksheet/charts/title/workbookChartTitle';
+import {WorkbookChartAxes} from './worksheets/charts/axes/workbookChartAxes';
+import {WorkbookChartDataLabels} from './worksheets/charts/dataLabels/workbookChartDataLabels';
+import {WorkbookChartAreaFormat} from './worksheets/charts/format/workbookChartAreaFormat';
+import {WorkbookChartLegend} from './worksheets/charts/legend/workbookChartLegend';
+import {WorkbookChartTitle} from './worksheets/charts/title/workbookChartTitle';
 import {WorkbookChartSeries} from './worksheets/workbookChartSeries';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

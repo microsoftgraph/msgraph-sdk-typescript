@@ -1,5 +1,5 @@
-import {Filter} from '../../../../names/worksheet/tables/columns/filter/filter';
-import {WorkbookFilter} from '../../../../names/worksheet/tables/columns/filter/workbookFilter';
+import {Filter} from '../../../../tables/columns/filter/filter';
+import {WorkbookFilter} from '../../../../tables/columns/filter/workbookFilter';
 import {ApplyRequestBuilder} from './apply/applyRequestBuilder';
 import {ApplyBottomItemsFilterRequestBuilder} from './applyBottomItemsFilter/applyBottomItemsFilterRequestBuilder';
 import {ApplyBottomPercentFilterRequestBuilder} from './applyBottomPercentFilter/applyBottomPercentFilterRequestBuilder';

@@ -1,3 +1,4 @@
+import {RangeRequestBuilder} from '../../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookNamedItem} from '../../../../../workbookNamedItem';
 import {WorksheetRequestBuilder} from '../worksheet/worksheetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

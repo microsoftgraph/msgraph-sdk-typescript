@@ -1,5 +1,5 @@
-import {TeamsTemplate} from '../../teamsTemplate';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {TeamsTemplate} from './teamsTemplate';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /teams/{team-id}/template  */

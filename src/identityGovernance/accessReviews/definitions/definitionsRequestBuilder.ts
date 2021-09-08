@@ -1,4 +1,5 @@
 import {AccessReviewScheduleDefinition} from '../../accessReviewScheduleDefinition';
+import {FilterByCurrentUserWithOnRequestBuilder} from '../../entitlementManagement/accessPackageAssignmentApprovals/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {DefinitionsResponse} from './definitionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

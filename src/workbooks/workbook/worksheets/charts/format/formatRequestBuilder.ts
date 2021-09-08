@@ -1,7 +1,7 @@
-import {Format} from '../../../names/worksheet/charts/axes/categoryAxis/format/format';
-import {WorkbookChartAreaFormat} from '../../../names/worksheet/charts/format/workbookChartAreaFormat';
 import {FillRequestBuilder} from './fill/fillRequestBuilder';
 import {FontRequestBuilder} from './font/fontRequestBuilder';
+import {Format} from './format';
+import {WorkbookChartAreaFormat} from './workbookChartAreaFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/format  */

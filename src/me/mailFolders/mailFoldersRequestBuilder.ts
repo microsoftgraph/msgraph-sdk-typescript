@@ -1,4 +1,5 @@
 import {MailFolder} from '../../mailFolder';
+import {DeltaRequestBuilder} from '../../servicePrincipals/delta/deltaRequestBuilder';
 import {MailFoldersResponse} from './mailFoldersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

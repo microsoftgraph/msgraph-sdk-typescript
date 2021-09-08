@@ -1,8 +1,31 @@
+import {BoundingRectWithAnotherRangeRequestBuilder} from './boundingRectWithAnotherRange/boundingRectWithAnotherRangeRequestBuilder';
+import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
+import {ColumnsAfterRequestBuilder} from './columnsAfter/columnsAfterRequestBuilder';
+import {ColumnsAfterWithCountRequestBuilder} from './columnsAfterWithCount/columnsAfterWithCountRequestBuilder';
+import {ColumnsBeforeRequestBuilder} from './columnsBefore/columnsBeforeRequestBuilder';
+import {ColumnsBeforeWithCountRequestBuilder} from './columnsBeforeWithCount/columnsBeforeWithCountRequestBuilder';
+import {ColumnWithColumnRequestBuilder} from './columnWithColumn/columnWithColumnRequestBuilder';
 import {DeleteRequestBuilder} from './delete/deleteRequestBuilder';
+import {EntireColumnRequestBuilder} from './entireColumn/entireColumnRequestBuilder';
+import {EntireRowRequestBuilder} from './entireRow/entireRowRequestBuilder';
 import {InsertRequestBuilder} from './insert/insertRequestBuilder';
+import {IntersectionWithAnotherRangeRequestBuilder} from './intersectionWithAnotherRange/intersectionWithAnotherRangeRequestBuilder';
+import {LastCellRequestBuilder} from './lastCell/lastCellRequestBuilder';
+import {LastColumnRequestBuilder} from './lastColumn/lastColumnRequestBuilder';
+import {LastRowRequestBuilder} from './lastRow/lastRowRequestBuilder';
 import {MergeRequestBuilder} from './merge/mergeRequestBuilder';
+import {OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder} from './offsetRangeWithRowOffsetWithColumnOffset/offsetRangeWithRowOffsetWithColumnOffsetRequestBuilder';
+import {ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder} from './resizedRangeWithDeltaRowsWithDeltaColumns/resizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder';
+import {RowsAboveRequestBuilder} from './rowsAbove/rowsAboveRequestBuilder';
+import {RowsAboveWithCountRequestBuilder} from './rowsAboveWithCount/rowsAboveWithCountRequestBuilder';
+import {RowsBelowRequestBuilder} from './rowsBelow/rowsBelowRequestBuilder';
+import {RowsBelowWithCountRequestBuilder} from './rowsBelowWithCount/rowsBelowWithCountRequestBuilder';
+import {RowWithRowRequestBuilder} from './rowWithRow/rowWithRowRequestBuilder';
 import {UnmergeRequestBuilder} from './unmerge/unmergeRequestBuilder';
+import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
+import {VisibleViewRequestBuilder} from './visibleView/visibleViewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange  */

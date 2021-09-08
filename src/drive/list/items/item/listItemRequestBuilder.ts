@@ -1,4 +1,6 @@
 import {ListItem} from '../../../../listItem';
+import {GetActivitiesByIntervalRequestBuilder} from '../../../../sites/lists/items/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../../../../sites/lists/items/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
 import {DriveItemRequestBuilder} from '../driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from '../fields/fieldsRequestBuilder';

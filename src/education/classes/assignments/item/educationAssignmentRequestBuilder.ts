@@ -6,6 +6,7 @@ import {EducationAssignmentResourceRequestBuilder} from '../resources/item/educa
 import {ResourcesRequestBuilder} from '../resources/resourcesRequestBuilder';
 import {RubricRequestBuilder} from '../rubric/rubricRequestBuilder';
 import {EducationSubmissionRequestBuilder} from '../submissions/item/educationSubmissionRequestBuilder';
+import {SetUpResourcesFolderRequestBuilder} from '../submissions/setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmissionsRequestBuilder} from '../submissions/submissionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

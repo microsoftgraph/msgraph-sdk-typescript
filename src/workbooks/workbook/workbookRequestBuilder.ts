@@ -9,6 +9,7 @@ import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookOperationRequestBuilder} from './operations/item/workbookOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
+import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
 import {Workbook} from './workbook';

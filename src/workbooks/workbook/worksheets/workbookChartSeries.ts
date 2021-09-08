@@ -1,5 +1,5 @@
 import {Entity} from '../../../entity';
-import {WorkbookChartSeriesFormat} from '../names/worksheet/charts/series/format/workbookChartSeriesFormat';
+import {WorkbookChartSeriesFormat} from './charts/series/format/workbookChartSeriesFormat';
 import {WorkbookChartPoint} from './charts/workbookChartPoint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

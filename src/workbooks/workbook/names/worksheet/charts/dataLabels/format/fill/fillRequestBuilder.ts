@@ -1,7 +1,7 @@
+import {Fill} from '../../../../../../worksheets/charts/format/fill/fill';
+import {WorkbookChartFill} from '../../../../../../worksheets/charts/format/fill/workbookChartFill';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
-import {Fill} from './fill';
 import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';
-import {WorkbookChartFill} from './workbookChartFill';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/dataLabels/format/fill  */

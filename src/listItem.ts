@@ -1,7 +1,7 @@
 import {BaseItem} from './drive/baseItem';
+import {ItemAnalytics} from './drive/list/items/analytics/itemAnalytics';
 import {FieldValueSet} from './drive/list/items/fields/fieldValueSet';
 import {DriveItem} from './driveItem';
-import {ItemAnalytics} from './drives/list/items/analytics/itemAnalytics';
 import {ListItemVersion} from './listItemVersion';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,8 +1,8 @@
-import {Axes} from './axes';
+import {Axes} from '../../../../worksheets/charts/axes/axes';
+import {WorkbookChartAxes} from '../../../../worksheets/charts/axes/workbookChartAxes';
 import {CategoryAxisRequestBuilder} from './categoryAxis/categoryAxisRequestBuilder';
 import {SeriesAxisRequestBuilder} from './seriesAxis/seriesAxisRequestBuilder';
 import {ValueAxisRequestBuilder} from './valueAxis/valueAxisRequestBuilder';
-import {WorkbookChartAxes} from './workbookChartAxes';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/axes  */

@@ -4,6 +4,7 @@ import {OutcomesRequestBuilder} from '../outcomes/outcomesRequestBuilder';
 import {EducationSubmissionResourceRequestBuilder} from '../resources/item/educationSubmissionResourceRequestBuilder';
 import {ResourcesRequestBuilder} from '../resources/resourcesRequestBuilder';
 import {ReturnRequestBuilder} from '../return/returnRequestBuilder';
+import {SetUpResourcesFolderRequestBuilder} from '../setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmitRequestBuilder} from '../submit/submitRequestBuilder';
 import {EducationSubmissionResourceRequestBuilder} from '../submittedResources/item/educationSubmissionResourceRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from '../submittedResources/submittedResourcesRequestBuilder';

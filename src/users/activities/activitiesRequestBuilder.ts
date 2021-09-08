@@ -1,3 +1,4 @@
+import {RecentRequestBuilder} from '../../me/activities/recent/recentRequestBuilder';
 import {UserActivity} from '../../userActivity';
 import {ActivitiesResponse} from './activitiesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

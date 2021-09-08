@@ -1,4 +1,5 @@
 import {IdentityUserFlowAttributeAssignment} from '../../identityUserFlowAttributeAssignment';
+import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
 import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
 import {UserAttributeAssignmentsResponse} from './userAttributeAssignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -2,8 +2,8 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {PlannerAssignedToTaskBoardTaskFormat} from './planner/buckets/tasks/assignedToTaskBoardFormat/plannerAssignedToTaskBoardTaskFormat';
 import {PlannerBucketTaskBoardTaskFormat} from './planner/buckets/tasks/bucketTaskBoardFormat/plannerBucketTaskBoardTaskFormat';
-import {PlannerTaskDetails} from './planner/tasks/details/plannerTaskDetails';
-import {PlannerProgressTaskBoardTaskFormat} from './planner/tasks/progressTaskBoardFormat/plannerProgressTaskBoardTaskFormat';
+import {PlannerTaskDetails} from './planner/buckets/tasks/details/plannerTaskDetails';
+import {PlannerProgressTaskBoardTaskFormat} from './planner/buckets/tasks/progressTaskBoardFormat/plannerProgressTaskBoardTaskFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlannerTask extends Entity implements Parsable {

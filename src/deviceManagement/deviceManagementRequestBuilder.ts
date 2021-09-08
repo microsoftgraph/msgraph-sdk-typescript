@@ -21,6 +21,7 @@ import {DeviceManagementPartnersRequestBuilder} from './deviceManagementPartners
 import {DeviceManagementPartnerRequestBuilder} from './deviceManagementPartners/item/deviceManagementPartnerRequestBuilder';
 import {ExchangeConnectorsRequestBuilder} from './exchangeConnectors/exchangeConnectorsRequestBuilder';
 import {DeviceManagementExchangeConnectorRequestBuilder} from './exchangeConnectors/item/deviceManagementExchangeConnectorRequestBuilder';
+import {GetEffectivePermissionsWithScopeRequestBuilder} from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/importedWindowsAutopilotDeviceIdentitiesRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentityRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/item/importedWindowsAutopilotDeviceIdentityRequestBuilder';
 import {IosUpdateStatusesRequestBuilder} from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
@@ -46,6 +47,7 @@ import {TelecomExpenseManagementPartnersRequestBuilder} from './telecomExpenseMa
 import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
 import {DeviceManagementTroubleshootingEventRequestBuilder} from './troubleshootingEvents/item/deviceManagementTroubleshootingEventRequestBuilder';
 import {TroubleshootingEventsRequestBuilder} from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
+import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
 import {WindowsAutopilotDeviceIdentityRequestBuilder} from './windowsAutopilotDeviceIdentities/item/windowsAutopilotDeviceIdentityRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummaryRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/item/windowsInformationProtectionAppLearningSummaryRequestBuilder';

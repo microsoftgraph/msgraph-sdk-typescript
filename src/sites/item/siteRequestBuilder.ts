@@ -7,9 +7,12 @@ import {ContentTypeRequestBuilder} from '../contentTypes/item/contentTypeRequest
 import {DriveRequestBuilder} from '../drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from '../drives/drivesRequestBuilder';
 import {DriveRequestBuilder} from '../drives/item/driveRequestBuilder';
+import {GetByPathWithPathRequestBuilder} from '../getByPathWithPath/getByPathWithPathRequestBuilder';
 import {BaseItemRequestBuilder} from '../items/item/baseItemRequestBuilder';
 import {ItemsRequestBuilder} from '../items/itemsRequestBuilder';
 import {ListRequestBuilder} from '../lists/item/listRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from '../lists/items/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../lists/items/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {ListsRequestBuilder} from '../lists/listsRequestBuilder';
 import {OnenoteRequestBuilder} from '../onenote/onenoteRequestBuilder';
 import {PermissionRequestBuilder} from '../permissions/item/permissionRequestBuilder';

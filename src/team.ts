@@ -3,9 +3,9 @@ import {ConversationMember} from './conversationMember';
 import {Entity} from './entity';
 import {Group} from './group';
 import {Schedule} from './teams/schedule/schedule';
+import {TeamsTemplate} from './teams/template/teamsTemplate';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsAsyncOperation} from './teamsAsyncOperation';
-import {TeamsTemplate} from './teamsTemplate';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Team extends Entity implements Parsable {

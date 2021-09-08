@@ -1,4 +1,7 @@
 import {WorkbookChart} from '../../../workbookChart';
+import {ItemAtWithIndexRequestBuilder} from '../../../worksheets/charts/itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import {ItemWithNameRequestBuilder} from '../../../worksheets/charts/itemWithName/itemWithNameRequestBuilder';
+import {CountRequestBuilder} from '../../../worksheets/charts/series/count/countRequestBuilder';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ChartsResponse} from './chartsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,3 +1,4 @@
+import {DeltaRequestBuilder} from '../../../servicePrincipals/delta/deltaRequestBuilder';
 import {TodoTaskList} from '../../../todoTaskList';
 import {ListsResponse} from './listsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

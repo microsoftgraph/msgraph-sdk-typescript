@@ -1,4 +1,4 @@
-import {TeamsTemplate} from '../teamsTemplate';
+import {TeamsTemplate} from '../teams/template/teamsTemplate';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsTemplatesResponse implements Parsable {

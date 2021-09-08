@@ -1,8 +1,8 @@
 import {Entity} from './entity';
 import {WorkbookNamedItem} from './workbookNamedItem';
-import {WorkbookWorksheetProtection} from './workbooks/workbook/names/worksheet/protection/workbookWorksheetProtection';
 import {WorkbookChart} from './workbooks/workbook/workbookChart';
 import {WorkbookPivotTable} from './workbooks/workbook/workbookPivotTable';
+import {WorkbookWorksheetProtection} from './workbooks/workbook/worksheets/protection/workbookWorksheetProtection';
 import {WorkbookTable} from './workbookTable';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

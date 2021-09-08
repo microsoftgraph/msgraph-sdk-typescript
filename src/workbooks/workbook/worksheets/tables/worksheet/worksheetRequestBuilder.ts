@@ -1,5 +1,10 @@
+import {CellWithRowWithColumnRequestBuilder} from '../../../../../me/insights/trending/resource/workbookRange/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
+import {UsedRangeRequestBuilder} from '../../../../../me/insights/trending/resource/workbookRange/usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from '../../../../../me/insights/trending/resource/workbookRange/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
+import {RangeRequestBuilder} from '../../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookWorksheet} from '../../../../../workbookWorksheet';
 import {Worksheet} from '../../../names/worksheet/worksheet';
+import {RangeWithAddressRequestBuilder} from '../../charts/worksheet/rangeWithAddress/rangeWithAddressRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/tables/{workbookTable-id}/worksheet  */

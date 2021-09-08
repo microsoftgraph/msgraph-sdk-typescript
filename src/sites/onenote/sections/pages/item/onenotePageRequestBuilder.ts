@@ -4,6 +4,7 @@ import {CopyToSectionRequestBuilder} from '../copyToSection/copyToSectionRequest
 import {OnenotePatchContentRequestBuilder} from '../onenotePatchContent/onenotePatchContentRequestBuilder';
 import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from '../parentSection/parentSectionRequestBuilder';
+import {PreviewRequestBuilder} from '../preview/previewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /sites/{site-id}/onenote/sections/{onenoteSection-id}/pages/{onenotePage-id}  */

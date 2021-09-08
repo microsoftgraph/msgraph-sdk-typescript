@@ -1,4 +1,8 @@
+import {SearchWithQRequestBuilder} from '../../drive/searchWithQ/searchWithQRequestBuilder';
 import {DriveItem} from '../../driveItem';
+import {DeltaRequestBuilder} from '../../servicePrincipals/delta/deltaRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from '../../sites/lists/items/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../../sites/lists/items/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from '../checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from '../checkout/checkoutRequestBuilder';
@@ -7,6 +11,7 @@ import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
 import {CreateLinkRequestBuilder} from '../createLink/createLinkRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from '../createUploadSession/createUploadSessionRequestBuilder';
+import {DeltaWithTokenRequestBuilder} from '../deltaWithToken/deltaWithTokenRequestBuilder';
 import {FollowRequestBuilder} from '../follow/followRequestBuilder';
 import {InviteRequestBuilder} from '../invite/inviteRequestBuilder';
 import {ListItemRequestBuilder} from '../listItem/listItemRequestBuilder';

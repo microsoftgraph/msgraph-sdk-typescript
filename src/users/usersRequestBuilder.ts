@@ -1,4 +1,5 @@
-import {User} from '../invitations/invitedUser/user';
+import {User} from '../me/user';
+import {DeltaRequestBuilder} from '../servicePrincipals/delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {UsersResponse} from './usersResponse';

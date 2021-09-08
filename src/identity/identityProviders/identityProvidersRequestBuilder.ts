@@ -1,4 +1,5 @@
 import {IdentityProviderBase} from '../identityProviderBase';
+import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import {IdentityProvidersResponse} from './identityProvidersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

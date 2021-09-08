@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {WorkbookTableSort} from './workbooks/workbook/names/worksheet/tables/sort/workbookTableSort';
+import {WorkbookTableSort} from './workbooks/workbook/tables/sort/workbookTableSort';
 import {WorkbookTableColumn} from './workbooks/workbook/workbookTableColumn';
 import {WorkbookTableRow} from './workbooks/workbook/workbookTableRow';
 import {WorkbookWorksheet} from './workbookWorksheet';

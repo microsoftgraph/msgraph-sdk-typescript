@@ -1,7 +1,7 @@
 import {Entity} from '../../../../../../../entity';
-import {WorkbookChartAxisFormat} from '../categoryAxis/format/workbookChartAxisFormat';
-import {WorkbookChartGridlines} from '../categoryAxis/majorGridlines/workbookChartGridlines';
-import {WorkbookChartAxisTitle} from '../categoryAxis/title/workbookChartAxisTitle';
+import {WorkbookChartAxisTitle} from '../../../../../worksheets/charts/axes/categoryAxis/title/workbookChartAxisTitle';
+import {WorkbookChartAxisFormat} from './format/workbookChartAxisFormat';
+import {WorkbookChartGridlines} from './majorGridlines/workbookChartGridlines';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ValueAxis extends Entity implements Parsable {

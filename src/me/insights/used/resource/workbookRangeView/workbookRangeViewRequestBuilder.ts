@@ -1,3 +1,4 @@
+import {RangeRequestBuilder} from '../../../trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/used/{usedInsight-id}/resource/microsoft.graph.workbookRangeView  */

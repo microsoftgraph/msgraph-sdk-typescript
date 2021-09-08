@@ -1,4 +1,7 @@
 import {Drive} from '../../drive/drive';
+import {SearchWithQRequestBuilder} from '../../drive/searchWithQ/searchWithQRequestBuilder';
+import {SharedWithMeRequestBuilder} from '../../drive/sharedWithMe/sharedWithMeRequestBuilder';
+import {RecentRequestBuilder} from '../../me/activities/recent/recentRequestBuilder';
 import {FollowingRequestBuilder} from '../following/followingRequestBuilder';
 import {DriveItemRequestBuilder} from '../following/item/driveItemRequestBuilder';
 import {DriveItemRequestBuilder} from '../items/item/driveItemRequestBuilder';

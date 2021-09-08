@@ -1,3 +1,4 @@
+import {RangeRequestBuilder} from '../../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookTableRow} from '../../../workbookTableRow';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

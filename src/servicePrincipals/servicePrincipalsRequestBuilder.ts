@@ -1,4 +1,5 @@
 import {ServicePrincipal} from '../servicePrincipal';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ServicePrincipalsResponse} from './servicePrincipalsResponse';

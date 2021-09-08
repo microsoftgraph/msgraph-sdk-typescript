@@ -1,9 +1,9 @@
-import {WorkbookChartAxis} from '../categoryAxis/workbookChartAxis';
+import {WorkbookChartAxis} from '../../../../../worksheets/charts/axes/categoryAxis/workbookChartAxis';
+import {ValueAxis} from '../../../../../worksheets/charts/axes/valueAxis/valueAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
 import {TitleRequestBuilder} from './title/titleRequestBuilder';
-import {ValueAxis} from './valueAxis';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/axes/valueAxis  */

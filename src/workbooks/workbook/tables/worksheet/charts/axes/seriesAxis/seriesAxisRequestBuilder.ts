@@ -1,5 +1,5 @@
-import {WorkbookChartAxis} from '../../../../../names/worksheet/charts/axes/categoryAxis/workbookChartAxis';
-import {SeriesAxis} from '../../../../../names/worksheet/charts/axes/seriesAxis/seriesAxis';
+import {WorkbookChartAxis} from '../../../../../worksheets/charts/axes/categoryAxis/workbookChartAxis';
+import {SeriesAxis} from '../../../../../worksheets/charts/axes/seriesAxis/seriesAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';

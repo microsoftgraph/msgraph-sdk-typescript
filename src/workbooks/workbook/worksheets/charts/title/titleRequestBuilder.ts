@@ -1,6 +1,6 @@
-import {Title} from '../../../names/worksheet/charts/axes/categoryAxis/title/title';
-import {WorkbookChartTitle} from '../../../names/worksheet/charts/title/workbookChartTitle';
+import {Title} from '../axes/categoryAxis/title/title';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
+import {WorkbookChartTitle} from './workbookChartTitle';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/title  */

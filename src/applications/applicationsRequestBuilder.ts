@@ -1,4 +1,5 @@
 import {Application} from '../application';
+import {DeltaRequestBuilder} from '../servicePrincipals/delta/deltaRequestBuilder';
 import {ApplicationsResponse} from './applicationsResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

@@ -1,4 +1,4 @@
-import {ItemAnalytics} from '../../../drives/list/items/analytics/itemAnalytics';
+import {ItemAnalytics} from '../../../drive/list/items/analytics/itemAnalytics';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

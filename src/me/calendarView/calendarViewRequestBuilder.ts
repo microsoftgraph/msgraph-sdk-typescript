@@ -1,4 +1,5 @@
 import {Event} from '../../event';
+import {DeltaRequestBuilder} from '../../servicePrincipals/delta/deltaRequestBuilder';
 import {CalendarViewResponse} from './calendarViewResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

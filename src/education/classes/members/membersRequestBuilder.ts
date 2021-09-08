@@ -1,3 +1,4 @@
+import {DeltaRequestBuilder} from '../../../servicePrincipals/delta/deltaRequestBuilder';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {MembersResponse} from './membersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,5 +1,8 @@
 import {Outlook} from '../../me/outlook/outlook';
 import {OutlookUser} from '../../me/outlook/outlookUser';
+import {SupportedLanguagesRequestBuilder} from '../../me/outlook/supportedLanguages/supportedLanguagesRequestBuilder';
+import {SupportedTimeZonesRequestBuilder} from '../../me/outlook/supportedTimeZones/supportedTimeZonesRequestBuilder';
+import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from '../../me/outlook/supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

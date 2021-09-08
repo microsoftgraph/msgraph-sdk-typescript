@@ -1,5 +1,6 @@
 import {Chat} from '../chat';
 import {ChatsResponse} from './chatsResponse';
+import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /chats  */

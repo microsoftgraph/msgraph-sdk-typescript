@@ -1,7 +1,7 @@
+import {Protection} from '../../../worksheets/protection/protection';
+import {WorkbookWorksheetProtection} from '../../../worksheets/protection/workbookWorksheetProtection';
 import {ProtectRequestBuilder} from './protect/protectRequestBuilder';
-import {Protection} from './protection';
 import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';
-import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/protection  */

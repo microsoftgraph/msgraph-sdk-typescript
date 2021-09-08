@@ -1,4 +1,5 @@
 import {OrgContact} from '../orgContact';
+import {DeltaRequestBuilder} from '../servicePrincipals/delta/deltaRequestBuilder';
 import {ContactsResponse} from './contactsResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
