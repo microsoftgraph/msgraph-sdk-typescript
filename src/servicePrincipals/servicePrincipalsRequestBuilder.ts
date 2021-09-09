@@ -1,7 +1,7 @@
-import {ServicePrincipal} from '../servicePrincipal';
-import {DeltaRequestBuilder} from '../workbooks/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
+import {ServicePrincipal} from './servicePrincipal';
 import {ServicePrincipalsResponse} from './servicePrincipalsResponse';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

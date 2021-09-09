@@ -1,4 +1,4 @@
-import {AccessReviewInstanceDecisionItem} from '../../accessReviewInstanceDecisionItem';
+import {AccessReviewInstanceDecisionItem} from '../accessReviewInstanceDecisionItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DecisionsResponse implements Parsable {

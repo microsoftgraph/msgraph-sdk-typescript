@@ -1,5 +1,5 @@
+import {Fields} from '../../../../drive/list/items/fields/fields';
 import {FieldValueSet} from '../../../../fieldValueSet';
-import {Fields} from './fields';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drives/{drive-id}/list/items/{listItem-id}/fields  */

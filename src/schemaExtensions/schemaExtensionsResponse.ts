@@ -1,4 +1,4 @@
-import {SchemaExtension} from '../schemaExtension';
+import {SchemaExtension} from './schemaExtension';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SchemaExtensionsResponse implements Parsable {

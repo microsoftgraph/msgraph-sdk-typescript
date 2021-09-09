@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import {DirectoryObject} from './applications/directoryObject';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AppRoleAssignment extends DirectoryObject implements Parsable {

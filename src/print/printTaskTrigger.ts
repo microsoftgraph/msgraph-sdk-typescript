@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {PrintEvent} from './printers/printEvent';
+import {Entity} from '../applicationTemplates/entity';
+import {PrintEvent} from './printEvent';
 import {PrintTaskDefinition} from './printTaskDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {UserFlowLanguageConfiguration} from '../../../userFlowLanguageConfiguration';
+import {UserFlowLanguageConfiguration} from '../../userFlowLanguageConfiguration';
 import {DefaultPagesRequestBuilder} from '../defaultPages/defaultPagesRequestBuilder';
 import {UserFlowLanguagePageRequestBuilder} from '../defaultPages/item/userFlowLanguagePageRequestBuilder';
 import {UserFlowLanguagePageRequestBuilder} from '../overridesPages/item/userFlowLanguagePageRequestBuilder';

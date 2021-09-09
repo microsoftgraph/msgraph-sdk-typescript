@@ -1,6 +1,6 @@
 import {AttendeeBase} from '../../attendeeBase';
-import {LocationConstraint} from '../../me/locationConstraint';
-import {TimeConstraint} from '../../me/timeConstraint';
+import {LocationConstraint} from '../../me/findMeetingTimes/locationConstraint';
+import {TimeConstraint} from '../../me/findMeetingTimes/timeConstraint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class FindMeetingTimesResponse implements Parsable {

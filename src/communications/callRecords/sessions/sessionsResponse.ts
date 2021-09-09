@@ -1,4 +1,4 @@
-import {Session} from '../../session';
+import {Session} from '../session';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SessionsResponse implements Parsable {

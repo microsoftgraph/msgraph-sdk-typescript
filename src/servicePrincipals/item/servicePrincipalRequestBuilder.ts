@@ -1,4 +1,3 @@
-import {ServicePrincipal} from '../../servicePrincipal';
 import {AddKeyRequestBuilder} from '../addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from '../addPassword/addPasswordRequestBuilder';
 import {AppRoleAssignedToRequestBuilder} from '../appRoleAssignedTo/appRoleAssignedToRequestBuilder';
@@ -23,6 +22,7 @@ import {OwnersRequestBuilder} from '../owners/ownersRequestBuilder';
 import {RemoveKeyRequestBuilder} from '../removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from '../removePassword/removePasswordRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
+import {ServicePrincipal} from '../servicePrincipal';
 import {TokenIssuancePoliciesRequestBuilder} from '../tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from '../tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';

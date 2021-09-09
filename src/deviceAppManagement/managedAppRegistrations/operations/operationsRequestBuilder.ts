@@ -1,4 +1,4 @@
-import {ManagedAppOperation} from '../../managedAppOperation';
+import {ManagedAppOperation} from '../managedAppOperation';
 import {OperationsResponse} from './operationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

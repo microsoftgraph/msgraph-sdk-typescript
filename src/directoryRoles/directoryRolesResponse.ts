@@ -1,4 +1,4 @@
-import {DirectoryRole} from '../directoryRole';
+import {DirectoryRole} from './directoryRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DirectoryRolesResponse implements Parsable {

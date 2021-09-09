@@ -1,4 +1,4 @@
-import {ApplicationTemplate} from '../applicationTemplate';
+import {ApplicationTemplate} from './applicationTemplate';
 import {ApplicationTemplatesResponse} from './applicationTemplatesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

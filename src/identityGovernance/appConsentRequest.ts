@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {UserConsentRequest} from './appConsent/userConsentRequest';
+import {Entity} from '../applicationTemplates/entity';
+import {UserConsentRequest} from './appConsent/appConsentRequests/userConsentRequest';
 import {AppConsentRequestScope} from './appConsentRequestScope';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

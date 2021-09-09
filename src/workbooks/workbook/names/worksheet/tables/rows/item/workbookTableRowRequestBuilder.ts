@@ -1,5 +1,5 @@
-import {WorkbookTableRow} from '../../../../../workbookTableRow';
-import {RangeRequestBuilder} from '../../../range/rangeRequestBuilder';
+import {WorkbookTableRow} from '../../../../../tables/workbookTableRow';
+import {RangeRequestBuilder} from '../../../../../worksheets/charts/worksheet/range/rangeRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/rows/{workbookTableRow-id}  */

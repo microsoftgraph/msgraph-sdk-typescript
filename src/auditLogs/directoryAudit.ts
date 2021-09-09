@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {KeyValue} from '../keyValue';
-import {AuditActivityInitiator} from './auditActivityInitiator';
-import {OperationResult} from './operationResult';
+import {AuditActivityInitiator} from './directoryAudits/auditActivityInitiator';
+import {OperationResult} from './directoryAudits/operationResult';
 import {TargetResource} from './targetResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {Endpoint} from '../../endpoint';
+import {Endpoint} from '../endpoint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EndpointsResponse implements Parsable {

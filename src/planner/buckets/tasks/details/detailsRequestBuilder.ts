@@ -1,4 +1,4 @@
-import {PlannerTaskDetails} from '../../../plannerTaskDetails';
+import {PlannerTaskDetails} from '../../../tasks/plannerTaskDetails';
 import {Details} from './details';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

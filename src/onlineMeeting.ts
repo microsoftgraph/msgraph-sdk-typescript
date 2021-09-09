@@ -1,11 +1,11 @@
-import {ItemBody} from './chats/itemBody';
-import {AudioConferencing} from './communications/audioConferencing';
-import {ChatInfo} from './communications/chatInfo';
-import {LobbyBypassSettings} from './communications/lobbyBypassSettings';
-import {MeetingChatMode} from './communications/meetingChatMode';
-import {MeetingParticipants} from './communications/meetingParticipants';
-import {OnlineMeetingPresenters} from './communications/onlineMeetingPresenters';
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
+import {AudioConferencing} from './audioConferencing';
+import {ChatInfo} from './chatInfo';
+import {ItemBody} from './itemBody';
+import {LobbyBypassSettings} from './lobbyBypassSettings';
+import {MeetingChatMode} from './meetingChatMode';
+import {MeetingParticipants} from './meetingParticipants';
+import {OnlineMeetingPresenters} from './onlineMeetingPresenters';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OnlineMeeting extends Entity implements Parsable {

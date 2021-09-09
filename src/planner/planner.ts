@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {PlannerPlan} from '../plannerPlan';
 import {PlannerTask} from '../plannerTask';
 import {PlannerBucket} from './plannerBucket';

@@ -1,4 +1,4 @@
-import {ChatMessageHostedContent} from '../../chatMessageHostedContent';
+import {ChatMessageHostedContent} from '../chatMessageHostedContent';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class HostedContentsResponse implements Parsable {

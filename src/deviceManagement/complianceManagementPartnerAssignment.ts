@@ -1,4 +1,4 @@
-import {DeviceAndAppManagementAssignmentTarget} from '../deviceAppManagement/managedEBooks/deviceAndAppManagementAssignmentTarget';
+import {DeviceAndAppManagementAssignmentTarget} from '../deviceAndAppManagementAssignmentTarget';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ComplianceManagementPartnerAssignment implements Parsable {

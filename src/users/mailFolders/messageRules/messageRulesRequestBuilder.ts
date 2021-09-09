@@ -1,4 +1,4 @@
-import {MessageRule} from '../../../me/messageRule';
+import {MessageRule} from '../../../me/mailFolders/messageRule';
 import {MessageRulesResponse} from './messageRulesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

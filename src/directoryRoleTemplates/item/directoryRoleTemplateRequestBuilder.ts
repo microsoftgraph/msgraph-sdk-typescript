@@ -1,6 +1,6 @@
-import {DirectoryRoleTemplate} from '../../directoryRoleTemplate';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
+import {DirectoryRoleTemplate} from '../directoryRoleTemplate';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';

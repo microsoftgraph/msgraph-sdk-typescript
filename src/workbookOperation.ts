@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {WorkbookOperationError} from './workbooks/workbook/workbookOperationError';
-import {WorkbookOperationStatus} from './workbooks/workbook/workbookOperationStatus';
+import {Entity} from './applicationTemplates/entity';
+import {WorkbookOperationError} from './workbooks/workbook/operations/workbookOperationError';
+import {WorkbookOperationStatus} from './workbooks/workbook/operations/workbookOperationStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookOperation extends Entity implements Parsable {

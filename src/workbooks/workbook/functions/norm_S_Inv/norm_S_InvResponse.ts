@@ -1,4 +1,4 @@
-import {Json} from '../../../../me/json';
+import {Json} from '../../../../me/activities/json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Norm_S_InvResponse implements Parsable {

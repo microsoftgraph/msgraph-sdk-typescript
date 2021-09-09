@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {Post} from './groups/post';
+import {Entity} from './applicationTemplates/entity';
+import {Post} from './groups/threads/post';
 import {Recipient} from './recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

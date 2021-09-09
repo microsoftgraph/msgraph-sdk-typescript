@@ -1,4 +1,4 @@
-import {WorkbookChartFont} from '../../../../../../../worksheets/workbookChartFont';
+import {WorkbookChartFont} from '../../../../../../../worksheets/charts/workbookChartFont';
 import {Font} from './font';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

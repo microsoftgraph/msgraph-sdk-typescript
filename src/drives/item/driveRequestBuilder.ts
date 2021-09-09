@@ -1,13 +1,13 @@
 import {Drive} from '../../drive';
+import {SharedWithMeRequestBuilder} from '../../drive/sharedWithMe/sharedWithMeRequestBuilder';
+import {RecentRequestBuilder} from '../../users/activities/recent/recentRequestBuilder';
 import {SearchWithQRequestBuilder} from '../../workbooks/searchWithQ/searchWithQRequestBuilder';
 import {FollowingRequestBuilder} from '../following/followingRequestBuilder';
 import {DriveItemRequestBuilder} from '../following/item/driveItemRequestBuilder';
 import {DriveItemRequestBuilder} from '../items/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from '../items/itemsRequestBuilder';
 import {ListRequestBuilder} from '../list/listRequestBuilder';
-import {RecentRequestBuilder} from '../recent/recentRequestBuilder';
 import {RootRequestBuilder} from '../root/rootRequestBuilder';
-import {SharedWithMeRequestBuilder} from '../sharedWithMe/sharedWithMeRequestBuilder';
 import {DriveItemRequestBuilder} from '../special/item/driveItemRequestBuilder';
 import {SpecialRequestBuilder} from '../special/specialRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

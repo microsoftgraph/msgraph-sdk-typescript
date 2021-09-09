@@ -1,4 +1,4 @@
-import {PrintDocumentUploadProperties} from '../../../../../../me/insights/shared/lastSharedMethod/printDocument/printDocumentUploadProperties';
+import {PrintDocumentUploadProperties} from '../../../../../../me/insights/printDocumentUploadProperties';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateUploadSessionResponse implements Parsable {

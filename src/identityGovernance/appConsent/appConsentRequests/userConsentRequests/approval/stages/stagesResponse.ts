@@ -1,4 +1,4 @@
-import {ApprovalStage} from '../../../../../entitlementManagement/approvalStage';
+import {ApprovalStage} from '../../../../../entitlementManagement/accessPackageAssignmentApprovals/approvalStage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class StagesResponse implements Parsable {

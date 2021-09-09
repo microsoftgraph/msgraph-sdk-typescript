@@ -1,4 +1,4 @@
-import {ApprovalStage} from '../../../approvalStage';
+import {ApprovalStage} from '../../approvalStage';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackageAssignmentApprovals/{approval-id}/stages/{approvalStage-id}  */

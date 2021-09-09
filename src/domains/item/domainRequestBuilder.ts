@@ -1,4 +1,4 @@
-import {Domain} from '../../domain';
+import {Domain} from '../domain';
 import {DomainNameReferencesRequestBuilder} from '../domainNameReferences/domainNameReferencesRequestBuilder';
 import {ForceDeleteRequestBuilder} from '../forceDelete/forceDeleteRequestBuilder';
 import {DomainDnsRecordRequestBuilder} from '../serviceConfigurationRecords/item/domainDnsRecordRequestBuilder';

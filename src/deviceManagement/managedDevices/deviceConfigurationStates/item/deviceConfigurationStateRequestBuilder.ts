@@ -1,4 +1,4 @@
-import {DeviceConfigurationState} from '../../../deviceConfigurationState';
+import {DeviceConfigurationState} from '../../../../deviceConfigurationState';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/managedDevices/{managedDevice-id}/deviceConfigurationStates/{deviceConfigurationState-id}  */

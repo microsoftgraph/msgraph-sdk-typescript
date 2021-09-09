@@ -1,4 +1,4 @@
-import {Participant} from '../../../participant';
+import {Participant} from '../../participant';
 import {MuteRequestBuilder} from '../mute/muteRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

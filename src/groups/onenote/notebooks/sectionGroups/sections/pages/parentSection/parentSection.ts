@@ -1,8 +1,8 @@
+import {SectionLinks} from '../../../../../../../me/onenote/sectionLinks';
 import {Notebook} from '../../../../../../../notebook';
 import {OnenoteEntityHierarchyModel} from '../../../../../../../onenoteEntityHierarchyModel';
 import {OnenotePage} from '../../../../../../../onenotePage';
 import {SectionGroup} from '../../../../../../../sectionGroup';
-import {SectionLinks} from '../../../../../sectionLinks';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ParentSection extends OnenoteEntityHierarchyModel implements Parsable {

@@ -1,4 +1,4 @@
-import {TermsAndConditionsAssignment} from '../../../termsAndConditionsAssignment';
+import {TermsAndConditionsAssignment} from '../../termsAndConditionsAssignment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/termsAndConditions/{termsAndConditions-id}/assignments/{termsAndConditionsAssignment-id}  */

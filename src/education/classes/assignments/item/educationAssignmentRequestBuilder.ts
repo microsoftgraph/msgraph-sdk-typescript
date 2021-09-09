@@ -1,4 +1,4 @@
-import {EducationAssignment} from '../../../educationAssignment';
+import {EducationAssignment} from '../../educationAssignment';
 import {CategoriesRequestBuilder} from '../categories/categoriesRequestBuilder';
 import {EducationCategoryRequestBuilder} from '../categories/item/educationCategoryRequestBuilder';
 import {PublishRequestBuilder} from '../publish/publishRequestBuilder';

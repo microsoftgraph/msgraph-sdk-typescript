@@ -1,5 +1,5 @@
-import {MeetingTimeSuggestionsResult} from '../meetingTimeSuggestionsResult';
 import {FindMeetingTimesResponse} from './findMeetingTimesResponse';
+import {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/microsoft.graph.findMeetingTimes  */

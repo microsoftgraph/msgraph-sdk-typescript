@@ -1,4 +1,4 @@
-import {Attachment} from '../../../groups/attachment';
+import {Attachment} from '../../../me/attachment';
 import {AttachmentsResponse} from './attachmentsResponse';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

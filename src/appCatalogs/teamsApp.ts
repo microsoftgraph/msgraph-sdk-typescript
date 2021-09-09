@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
-import {TeamsAppDefinition} from './teamsAppDefinition';
-import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
+import {Entity} from '../applicationTemplates/entity';
+import {TeamsAppDefinition} from './teamsApps/teamsAppDefinition';
+import {TeamsAppDistributionMethod} from './teamsApps/teamsAppDistributionMethod';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsApp extends Entity implements Parsable {

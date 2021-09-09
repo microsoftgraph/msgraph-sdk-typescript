@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookCommentReply} from './workbooks/workbook/workbookCommentReply';
+import {Entity} from './applicationTemplates/entity';
+import {WorkbookCommentReply} from './workbooks/workbook/comments/workbookCommentReply';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookComment extends Entity implements Parsable {

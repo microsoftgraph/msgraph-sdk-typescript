@@ -1,5 +1,5 @@
+import {Entity} from './applicationTemplates/entity';
 import {AuthenticationMethod} from './authenticationMethod';
-import {Entity} from './entity';
 import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';

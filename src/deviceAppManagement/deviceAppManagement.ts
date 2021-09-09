@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {ManagedAppRegistration} from '../managedAppRegistration';
 import {AndroidManagedAppProtection} from './androidManagedAppProtection';
 import {DefaultManagedAppProtection} from './defaultManagedAppProtection';

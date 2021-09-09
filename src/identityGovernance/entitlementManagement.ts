@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {Approval} from './approval';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

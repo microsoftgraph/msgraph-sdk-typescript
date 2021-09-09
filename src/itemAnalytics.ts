@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {ItemActivityStat} from './itemActivityStat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

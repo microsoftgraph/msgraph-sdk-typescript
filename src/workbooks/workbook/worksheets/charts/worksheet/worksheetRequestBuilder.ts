@@ -1,10 +1,10 @@
 import {WorkbookWorksheet} from '../../../../../workbookWorksheet';
-import {CellWithRowWithColumnRequestBuilder} from '../../../names/worksheet/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {UsedRangeRequestBuilder} from '../../../names/worksheet/charts/worksheet/usedRange/usedRangeRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from '../../../names/worksheet/charts/worksheet/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
-import {RangeRequestBuilder} from '../../../names/worksheet/range/rangeRequestBuilder';
-import {RangeWithAddressRequestBuilder} from '../../../names/worksheet/rangeWithAddress/rangeWithAddressRequestBuilder';
 import {Worksheet} from '../../../names/worksheet/worksheet';
+import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
+import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
+import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/worksheet  */

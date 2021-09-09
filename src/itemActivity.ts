@@ -1,6 +1,6 @@
 import {AccessAction} from './accessAction';
+import {Entity} from './applicationTemplates/entity';
 import {DriveItem} from './driveItem';
-import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

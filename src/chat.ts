@@ -1,7 +1,7 @@
+import {Entity} from './applicationTemplates/entity';
 import {ChatMessage} from './chatMessage';
-import {ChatType} from './chatType';
+import {ChatType} from './chats/chatType';
 import {ConversationMember} from './conversationMember';
-import {Entity} from './entity';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsTab} from './teamsTab';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

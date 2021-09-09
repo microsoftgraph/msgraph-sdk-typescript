@@ -1,4 +1,4 @@
-import {DeviceConfigurationUserStatus} from '../../deviceConfigurationUserStatus';
+import {DeviceConfigurationUserStatus} from '../deviceConfigurationUserStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UserStatusesResponse implements Parsable {

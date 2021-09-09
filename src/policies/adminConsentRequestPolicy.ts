@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {AccessReviewReviewerScope} from '../identityGovernance/accessReviewReviewerScope';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

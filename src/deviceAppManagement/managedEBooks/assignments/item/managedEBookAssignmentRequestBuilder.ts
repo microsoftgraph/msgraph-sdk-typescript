@@ -1,4 +1,4 @@
-import {ManagedEBookAssignment} from '../../../managedEBookAssignment';
+import {ManagedEBookAssignment} from '../../managedEBookAssignment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedEBooks/{managedEBook-id}/assignments/{managedEBookAssignment-id}  */

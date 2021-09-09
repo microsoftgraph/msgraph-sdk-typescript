@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicyState} from '../../../deviceCompliancePolicyState';
+import {DeviceCompliancePolicyState} from '../../../../deviceCompliancePolicyState';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/managedDevices/{managedDevice-id}/deviceCompliancePolicyStates/{deviceCompliancePolicyState-id}  */

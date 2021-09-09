@@ -1,6 +1,6 @@
-import {ItemBody} from '../../../chats/itemBody';
-import {TeamworkActivityTopic} from '../../../chats/teamworkActivityTopic';
 import {KeyValuePair} from '../../../deviceAppManagement/keyValuePair';
+import {ItemBody} from '../../../itemBody';
+import {TeamworkActivityTopic} from '../../../teamworkActivityTopic';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SendActivityNotificationResponse implements Parsable {

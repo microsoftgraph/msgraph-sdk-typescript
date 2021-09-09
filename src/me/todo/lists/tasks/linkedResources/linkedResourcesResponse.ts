@@ -1,4 +1,4 @@
-import {LinkedResource} from '../../linkedResource';
+import {LinkedResource} from '../linkedResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LinkedResourcesResponse implements Parsable {

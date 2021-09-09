@@ -1,6 +1,6 @@
-import {InReplyTo} from '../../../conversations/threads/posts/inReplyTo/inReplyTo';
-import {Post} from '../../../post';
+import {Post} from '../../post';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
+import {InReplyTo} from './inReplyTo';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

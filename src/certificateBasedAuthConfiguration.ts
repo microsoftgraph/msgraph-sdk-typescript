@@ -1,5 +1,5 @@
-import {CertificateAuthority} from './certificateAuthority';
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
+import {CertificateAuthority} from './certificateBasedAuthConfiguration/certificateAuthority';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CertificateBasedAuthConfiguration extends Entity implements Parsable {

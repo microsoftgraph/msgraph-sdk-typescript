@@ -1,5 +1,5 @@
-import {Entity} from '../../../entity';
-import {Json} from '../../../me/json';
+import {Json} from '../../../me/activities/json';
+import {Entity} from '../../../me/insights/shared/lastSharedMethod/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFunctionResult extends Entity implements Parsable {

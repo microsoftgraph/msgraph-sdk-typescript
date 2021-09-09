@@ -1,4 +1,4 @@
-import {Session} from '../../../session';
+import {Session} from '../../session';
 import {SegmentRequestBuilder} from '../segments/item/segmentRequestBuilder';
 import {SegmentsRequestBuilder} from '../segments/segmentsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

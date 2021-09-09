@@ -1,5 +1,5 @@
+import {Entity} from './applicationTemplates/entity';
 import {EmailAddress} from './emailAddress';
-import {Entity} from './entity';
 import {InferenceClassificationType} from './me/inferenceClassificationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

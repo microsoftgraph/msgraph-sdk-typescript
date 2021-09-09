@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
-import {DeviceManagementExchangeConnectorStatus} from './deviceManagementExchangeConnectorStatus';
-import {DeviceManagementExchangeConnectorType} from './deviceManagementExchangeConnectorType';
+import {Entity} from '../applicationTemplates/entity';
+import {DeviceManagementExchangeConnectorStatus} from './exchangeConnectors/deviceManagementExchangeConnectorStatus';
+import {DeviceManagementExchangeConnectorType} from './exchangeConnectors/deviceManagementExchangeConnectorType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementExchangeConnector extends Entity implements Parsable {

@@ -1,4 +1,4 @@
-import {ApprovalStage} from '../../../../../entitlementManagement/approvalStage';
+import {ApprovalStage} from '../../../../../entitlementManagement/accessPackageAssignmentApprovals/approvalStage';
 import {StagesResponse} from './stagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

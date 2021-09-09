@@ -1,9 +1,9 @@
-import {Entity} from '../entity';
-import {DeviceConfigurationAssignment} from './deviceConfigurationAssignment';
-import {DeviceConfigurationDeviceOverview} from './deviceConfigurationDeviceOverview';
-import {DeviceConfigurationDeviceStatus} from './deviceConfigurationDeviceStatus';
-import {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview';
-import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
+import {Entity} from '../applicationTemplates/entity';
+import {DeviceConfigurationAssignment} from './deviceConfigurations/deviceConfigurationAssignment';
+import {DeviceConfigurationDeviceOverview} from './deviceConfigurations/deviceConfigurationDeviceOverview';
+import {DeviceConfigurationDeviceStatus} from './deviceConfigurations/deviceConfigurationDeviceStatus';
+import {DeviceConfigurationUserOverview} from './deviceConfigurations/deviceConfigurationUserOverview';
+import {DeviceConfigurationUserStatus} from './deviceConfigurations/deviceConfigurationUserStatus';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

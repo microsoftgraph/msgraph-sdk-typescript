@@ -1,4 +1,4 @@
-import {WorkbookChartGridlines} from '../../../../../../worksheets/workbookChartGridlines';
+import {WorkbookChartGridlines} from '../../../../../../worksheets/charts/workbookChartGridlines';
 import {MinorGridlines} from '../../categoryAxis/minorGridlines/minorGridlines';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

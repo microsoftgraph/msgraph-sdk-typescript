@@ -1,4 +1,4 @@
-import {OnenoteOperationError} from './groups/onenote/onenoteOperationError';
+import {OnenoteOperationError} from './me/onenote/operations/onenoteOperationError';
 import {Operation} from './operation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

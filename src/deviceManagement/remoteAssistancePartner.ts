@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStatus';
+import {Entity} from '../applicationTemplates/entity';
+import {RemoteAssistanceOnboardingStatus} from './remoteAssistancePartners/remoteAssistanceOnboardingStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RemoteAssistancePartner extends Entity implements Parsable {

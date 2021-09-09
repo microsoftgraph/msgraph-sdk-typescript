@@ -1,4 +1,4 @@
-import {WorkbookTableRow} from '../../workbookTableRow';
+import {WorkbookTableRow} from '../workbookTableRow';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RowsResponse implements Parsable {

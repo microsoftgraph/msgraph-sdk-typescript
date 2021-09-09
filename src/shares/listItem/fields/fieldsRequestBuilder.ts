@@ -1,4 +1,4 @@
-import {Fields} from '../../../drives/list/items/fields/fields';
+import {Fields} from '../../../drive/list/items/fields/fields';
 import {FieldValueSet} from '../../../fieldValueSet';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

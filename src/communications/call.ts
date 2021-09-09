@@ -1,21 +1,21 @@
-import {Entity} from '../entity';
-import {CallDirection} from './callDirection';
-import {CallMediaState} from './callMediaState';
-import {CallOptions} from './callOptions';
+import {Entity} from '../applicationTemplates/entity';
+import {ChatInfo} from '../chatInfo';
 import {CallRoute} from './callRoute';
+import {CallDirection} from './calls/callDirection';
+import {CallMediaState} from './calls/callMediaState';
+import {CallOptions} from './calls/callOptions';
+import {CallState} from './calls/callState';
+import {CallTranscriptionInfo} from './calls/callTranscriptionInfo';
+import {CommsOperation} from './calls/commsOperation';
+import {IncomingContext} from './calls/incomingContext';
 import {InvitationParticipantInfo} from './calls/invitationParticipantInfo';
-import {CallState} from './callState';
-import {CallTranscriptionInfo} from './callTranscriptionInfo';
-import {ChatInfo} from './chatInfo';
-import {CommsOperation} from './commsOperation';
-import {IncomingContext} from './incomingContext';
-import {MediaConfig} from './mediaConfig';
-import {MeetingInfo} from './meetingInfo';
+import {MediaConfig} from './calls/mediaConfig';
+import {MeetingInfo} from './calls/meetingInfo';
+import {Participant} from './calls/participant';
+import {ParticipantInfo} from './calls/participantInfo';
+import {ResultInfo} from './calls/resultInfo';
+import {ToneInfo} from './calls/toneInfo';
 import {Modality} from './modality';
-import {Participant} from './participant';
-import {ParticipantInfo} from './participantInfo';
-import {ResultInfo} from './resultInfo';
-import {ToneInfo} from './toneInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Call extends Entity implements Parsable {

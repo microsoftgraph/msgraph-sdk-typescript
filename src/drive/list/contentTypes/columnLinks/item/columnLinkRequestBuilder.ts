@@ -1,4 +1,4 @@
-import {ColumnLink} from '../../../../../sites/columnLink';
+import {ColumnLink} from '../../../../../columnLink';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive/list/contentTypes/{contentType-id}/columnLinks/{columnLink-id}  */

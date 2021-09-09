@@ -1,4 +1,4 @@
-import {EducationSubmission} from '../../../educationSubmission';
+import {EducationSubmission} from '../../educationSubmission';
 import {SetUpResourcesFolderRequestBuilder} from '../../setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {EducationOutcomeRequestBuilder} from '../outcomes/item/educationOutcomeRequestBuilder';
 import {OutcomesRequestBuilder} from '../outcomes/outcomesRequestBuilder';

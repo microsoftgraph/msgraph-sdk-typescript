@@ -1,4 +1,4 @@
-import {EducationOutcome} from '../../educationOutcome';
+import {EducationOutcome} from '../educationOutcome';
 import {OutcomesResponse} from './outcomesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

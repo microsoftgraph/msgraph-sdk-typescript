@@ -1,4 +1,4 @@
-import {Application} from '../application';
+import {Application} from './application';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplicationsResponse implements Parsable {

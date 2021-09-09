@@ -1,4 +1,4 @@
-import {LinkedResource} from '../../../../../../me/todo/lists/linkedResource';
+import {LinkedResource} from '../../../../../../me/todo/lists/tasks/linkedResource';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/todo/lists/{todoTaskList-id}/tasks/{todoTask-id}/linkedResources/{linkedResource-id}  */

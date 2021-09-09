@@ -1,4 +1,4 @@
-import {WorkbookChartSeries} from '../../workbookChartSeries';
+import {WorkbookChartSeries} from '../workbookChartSeries';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SeriesResponse implements Parsable {

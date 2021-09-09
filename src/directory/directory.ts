@@ -1,5 +1,5 @@
+import {Entity} from '../applicationTemplates/entity';
 import {DirectoryObject} from '../directoryObject';
-import {Entity} from '../entity';
 import {AdministrativeUnit} from './administrativeUnit';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

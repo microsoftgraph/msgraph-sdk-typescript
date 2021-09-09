@@ -1,5 +1,5 @@
+import {Entity} from '../applicationTemplates/entity';
 import {DeviceManagementTroubleshootingEvent} from '../deviceManagementTroubleshootingEvent';
-import {Entity} from '../entity';
 import {ManagedDevice} from '../managedDevice';
 import {ApplePushNotificationCertificate} from './applePushNotificationCertificate';
 import {ComplianceManagementPartner} from './complianceManagementPartner';

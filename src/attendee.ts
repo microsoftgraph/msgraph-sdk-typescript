@@ -1,6 +1,6 @@
 import {AttendeeBase} from './attendeeBase';
-import {TimeSlot} from './groups/calendarView/timeSlot';
-import {ResponseStatus} from './groups/responseStatus';
+import {ResponseStatus} from './me/responseStatus';
+import {TimeSlot} from './me/timeSlot';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Attendee extends AttendeeBase implements Parsable {

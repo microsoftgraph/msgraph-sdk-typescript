@@ -1,4 +1,4 @@
-import {DeviceComplianceSettingState} from '../../deviceComplianceSettingState';
+import {DeviceComplianceSettingState} from '../deviceComplianceSettingState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceSettingStatesResponse implements Parsable {

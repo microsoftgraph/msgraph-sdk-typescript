@@ -1,5 +1,5 @@
 import {AuthenticationMethod} from './authenticationMethod';
-import {AttestationLevel} from './me/authentication/attestationLevel';
+import {AttestationLevel} from './me/authentication/fido2Methods/attestationLevel';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable {

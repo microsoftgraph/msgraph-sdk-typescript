@@ -1,4 +1,4 @@
-import {Entity} from '../../../entity';
+import {Entity} from '../../../me/insights/shared/lastSharedMethod/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Functions extends Entity implements Parsable {

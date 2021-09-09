@@ -1,4 +1,4 @@
-import {ActivityHistoryItem} from '../../../me/activityHistoryItem';
+import {ActivityHistoryItem} from '../../../me/activities/activityHistoryItem';
 import {HistoryItemsResponse} from './historyItemsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

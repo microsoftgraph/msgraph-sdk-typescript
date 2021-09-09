@@ -1,7 +1,7 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {Extension} from './extension';
-import {TodoTask} from './me/todo/todoTask';
-import {WellknownListName} from './me/todo/wellknownListName';
+import {TodoTask} from './me/todo/lists/todoTask';
+import {WellknownListName} from './me/todo/lists/wellknownListName';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TodoTaskList extends Entity implements Parsable {

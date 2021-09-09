@@ -1,4 +1,4 @@
-import {EducationSubmission} from '../../../educationSubmission';
+import {EducationSubmission} from '../../educationSubmission';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/submissions/{educationSubmission-id}/microsoft.graph.unsubmit  */

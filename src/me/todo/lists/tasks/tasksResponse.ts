@@ -1,4 +1,4 @@
-import {TodoTask} from '../../todoTask';
+import {TodoTask} from '../todoTask';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TasksResponse implements Parsable {

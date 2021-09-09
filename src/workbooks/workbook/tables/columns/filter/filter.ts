@@ -1,5 +1,5 @@
-import {Entity} from '../../../../../entity';
-import {WorkbookFilterCriteria} from '../../workbookFilterCriteria';
+import {Entity} from '../../../../../me/insights/used/resource/entity';
+import {WorkbookFilterCriteria} from '../workbookFilterCriteria';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Filter extends Entity implements Parsable {

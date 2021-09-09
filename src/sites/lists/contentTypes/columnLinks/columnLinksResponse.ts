@@ -1,4 +1,4 @@
-import {ColumnLink} from '../../../columnLink';
+import {ColumnLink} from '../../../../columnLink';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ColumnLinksResponse implements Parsable {

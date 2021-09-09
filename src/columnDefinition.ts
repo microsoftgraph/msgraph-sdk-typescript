@@ -1,15 +1,15 @@
-import {Entity} from './entity';
-import {BooleanColumn} from './sites/booleanColumn';
-import {CalculatedColumn} from './sites/calculatedColumn';
-import {ChoiceColumn} from './sites/choiceColumn';
-import {CurrencyColumn} from './sites/currencyColumn';
-import {DateTimeColumn} from './sites/dateTimeColumn';
-import {DefaultColumnValue} from './sites/defaultColumnValue';
-import {GeolocationColumn} from './sites/geolocationColumn';
-import {LookupColumn} from './sites/lookupColumn';
-import {NumberColumn} from './sites/numberColumn';
-import {PersonOrGroupColumn} from './sites/personOrGroupColumn';
-import {TextColumn} from './sites/textColumn';
+import {Entity} from './applicationTemplates/entity';
+import {BooleanColumn} from './booleanColumn';
+import {CalculatedColumn} from './calculatedColumn';
+import {ChoiceColumn} from './choiceColumn';
+import {CurrencyColumn} from './currencyColumn';
+import {DateTimeColumn} from './dateTimeColumn';
+import {DefaultColumnValue} from './defaultColumnValue';
+import {GeolocationColumn} from './geolocationColumn';
+import {LookupColumn} from './lookupColumn';
+import {NumberColumn} from './numberColumn';
+import {PersonOrGroupColumn} from './personOrGroupColumn';
+import {TextColumn} from './textColumn';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ColumnDefinition extends Entity implements Parsable {

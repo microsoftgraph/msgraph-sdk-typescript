@@ -1,7 +1,7 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {IdentitySet} from './identitySet';
 import {PlannerBucket} from './planner/plannerBucket';
-import {PlannerPlanDetails} from './planner/plannerPlanDetails';
+import {PlannerPlanDetails} from './planner/plans/plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

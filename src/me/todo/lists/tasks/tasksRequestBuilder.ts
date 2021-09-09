@@ -1,5 +1,5 @@
-import {DeltaRequestBuilder} from '../../../../workbooks/delta/deltaRequestBuilder';
-import {TodoTask} from '../../todoTask';
+import {DeltaRequestBuilder} from '../../../../servicePrincipals/delta/deltaRequestBuilder';
+import {TodoTask} from '../todoTask';
 import {TasksResponse} from './tasksResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

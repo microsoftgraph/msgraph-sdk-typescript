@@ -1,4 +1,4 @@
-import {WorkbookRange} from '../../../../../../workbooks/workbook/names/workbookRange';
+import {WorkbookRange} from '../../../../../../workbooks/workbook/workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/shared/{sharedInsight-id}/lastSharedMethod/microsoft.graph.workbookRange/microsoft.graph.lastColumn()  */

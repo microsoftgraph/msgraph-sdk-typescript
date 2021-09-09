@@ -1,4 +1,4 @@
-import {WorkbookChartFill} from '../../../../../../worksheets/workbookChartFill';
+import {WorkbookChartFill} from '../../../../../../worksheets/charts/workbookChartFill';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {Fill} from './fill';
 import {SetSolidColorRequestBuilder} from './setSolidColor/setSolidColorRequestBuilder';

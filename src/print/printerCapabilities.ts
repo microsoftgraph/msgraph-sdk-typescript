@@ -1,4 +1,4 @@
-import {PrinterFeedOrientation} from '../me/insights/shared/lastSharedMethod/printJob/printerFeedOrientation';
+import {PrinterFeedOrientation} from '../me/insights/printerFeedOrientation';
 import {IntegerRange} from './integerRange';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';

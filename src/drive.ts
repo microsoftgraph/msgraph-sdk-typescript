@@ -1,4 +1,4 @@
-import {BaseItem} from './drive/baseItem';
+import {BaseItem} from './baseItem';
 import {DriveItem} from './driveItem';
 import {IdentitySet} from './identitySet';
 import {List} from './list';

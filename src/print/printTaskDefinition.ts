@@ -1,6 +1,6 @@
-import {AppIdentity} from '../auditLogs/appIdentity';
-import {Entity} from '../entity';
-import {PrintTask} from './printTask';
+import {AppIdentity} from '../appIdentity';
+import {Entity} from '../applicationTemplates/entity';
+import {PrintTask} from './taskDefinitions/printTask';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskDefinition extends Entity implements Parsable {

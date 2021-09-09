@@ -1,5 +1,5 @@
-import {DirectoryRole} from '../directoryRole';
-import {DeltaRequestBuilder} from '../workbooks/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../servicePrincipals/delta/deltaRequestBuilder';
+import {DirectoryRole} from './directoryRole';
 import {DirectoryRolesResponse} from './directoryRolesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

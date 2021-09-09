@@ -1,4 +1,4 @@
-import {DelegatedPermissionClassification} from '../../delegatedPermissionClassification';
+import {DelegatedPermissionClassification} from '../delegatedPermissionClassification';
 import {DelegatedPermissionClassificationsResponse} from './delegatedPermissionClassificationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

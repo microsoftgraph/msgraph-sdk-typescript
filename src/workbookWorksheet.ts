@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookChart} from './workbooks/workbook/workbookChart';
 import {WorkbookPivotTable} from './workbooks/workbook/workbookPivotTable';

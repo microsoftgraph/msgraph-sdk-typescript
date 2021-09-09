@@ -1,4 +1,4 @@
-import {PrintJobStatus} from '../../../../shared/lastSharedMethod/printJob/printJobStatus';
+import {PrintJobStatus} from '../../../../printJobStatus';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/used/{usedInsight-id}/resource/microsoft.graph.printJob/microsoft.graph.start  */

@@ -1,6 +1,6 @@
+import {Entity} from './applicationTemplates/entity';
 import {Channel} from './channel';
 import {ConversationMember} from './conversationMember';
-import {Entity} from './entity';
 import {Group} from './group';
 import {Schedule} from './schedule';
 import {TeamFunSettings} from './teamFunSettings';

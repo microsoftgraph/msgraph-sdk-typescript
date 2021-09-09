@@ -1,5 +1,5 @@
-import {Application} from '../../application';
-import {ServicePrincipal} from '../../servicePrincipal';
+import {Application} from '../../applications/application';
+import {ServicePrincipal} from '../../servicePrincipals/servicePrincipal';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplicationServicePrincipal implements Parsable {

@@ -1,4 +1,4 @@
-import {SectionLinks} from './groups/onenote/sectionLinks';
+import {SectionLinks} from './me/onenote/sectionLinks';
 import {Notebook} from './notebook';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenotePage} from './onenotePage';

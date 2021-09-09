@@ -1,4 +1,4 @@
-import {MobileAppAssignment} from '../../mobileAppAssignment';
+import {MobileAppAssignment} from '../mobileAppAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignmentsResponse implements Parsable {

@@ -1,7 +1,7 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {ResourceReference} from './me/insights/resourceReference';
 import {ResourceVisualization} from './me/insights/resourceVisualization';
-import {SharingDetail} from './me/insights/sharingDetail';
+import {SharingDetail} from './me/insights/shared/sharingDetail';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SharedInsight extends Entity implements Parsable {

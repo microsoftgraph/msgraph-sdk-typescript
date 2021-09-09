@@ -1,4 +1,4 @@
-import {WorkbookRange} from '../../../../workbookRange';
+import {WorkbookRange} from '../../../../../workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/pivotTables/{workbookPivotTable-id}/worksheet/microsoft.graph.range()  */

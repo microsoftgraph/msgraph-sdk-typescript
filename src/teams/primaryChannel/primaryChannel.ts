@@ -2,7 +2,7 @@ import {ChannelMembershipType} from '../../channelMembershipType';
 import {ChatMessage} from '../../chatMessage';
 import {ConversationMember} from '../../conversationMember';
 import {DriveItem} from '../../driveItem';
-import {Entity} from '../../entity';
+import {Entity} from '../../me/insights/shared/lastSharedMethod/entity';
 import {TeamsTab} from '../../teamsTab';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

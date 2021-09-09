@@ -1,4 +1,4 @@
-import {AttachmentItem} from '../attachmentItem';
+import {AttachmentItem} from '../../../../me/attachmentItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateUploadSessionResponse implements Parsable {

@@ -1,5 +1,5 @@
+import {Entity} from '../../applicationTemplates/entity';
 import {ConditionalAccessPolicy} from '../../conditionalAccessPolicy';
-import {Entity} from '../../entity';
 import {NamedLocation} from '../namedLocation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

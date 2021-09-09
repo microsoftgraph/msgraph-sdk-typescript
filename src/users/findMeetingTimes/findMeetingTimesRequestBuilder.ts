@@ -1,4 +1,4 @@
-import {MeetingTimeSuggestionsResult} from '../../me/meetingTimeSuggestionsResult';
+import {MeetingTimeSuggestionsResult} from '../../me/findMeetingTimes/meetingTimeSuggestionsResult';
 import {FindMeetingTimesResponse} from './findMeetingTimesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

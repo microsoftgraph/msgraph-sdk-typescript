@@ -1,9 +1,9 @@
-import {Entity} from '../../../entity';
 import {MailFolder} from '../../../mailFolder';
 import {Message} from '../../../message';
 import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
-import {MessageRule} from '../../messageRule';
+import {Entity} from '../../insights/used/resource/entity';
+import {MessageRule} from '../messageRule';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends Entity implements Parsable {

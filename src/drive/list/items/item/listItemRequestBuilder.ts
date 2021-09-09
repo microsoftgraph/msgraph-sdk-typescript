@@ -1,6 +1,6 @@
 import {ListItem} from '../../../../listItem';
+import {GetActivitiesByIntervalRequestBuilder} from '../../../../workbooks/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../../../../workbooks/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {GetActivitiesByIntervalRequestBuilder} from '../../../../workbooks/listItem/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
 import {DriveItemRequestBuilder} from '../driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from '../fields/fieldsRequestBuilder';

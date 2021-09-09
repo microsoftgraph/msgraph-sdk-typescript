@@ -1,4 +1,4 @@
-import {Organization} from '../organization';
+import {Organization} from './organization';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OrganizationResponse implements Parsable {

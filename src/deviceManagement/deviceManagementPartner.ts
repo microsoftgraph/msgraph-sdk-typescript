@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {DeviceManagementPartnerAppType} from './deviceManagementPartnerAppType';
+import {Entity} from '../applicationTemplates/entity';
+import {DeviceManagementPartnerAppType} from './deviceManagementPartners/deviceManagementPartnerAppType';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

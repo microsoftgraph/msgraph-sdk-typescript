@@ -1,5 +1,5 @@
-import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from '../../deviceAppManagement/managedAppRegistrations/getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {ManagedAppRegistrationsResponse} from './managedAppRegistrationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicyAssignment} from '../../deviceCompliancePolicyAssignment';
+import {DeviceCompliancePolicyAssignment} from '../deviceCompliancePolicyAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignResponse implements Parsable {

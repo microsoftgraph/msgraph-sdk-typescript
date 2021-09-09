@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {Alert} from './alert';
 import {SecureScore} from './secureScore';
 import {SecureScoreControlProfile} from './secureScoreControlProfile';

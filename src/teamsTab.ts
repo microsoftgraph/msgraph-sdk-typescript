@@ -1,6 +1,6 @@
 import {TeamsApp} from './appCatalogs/teamsApp';
-import {TeamsTabConfiguration} from './chats/teamsTabConfiguration';
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
+import {TeamsTabConfiguration} from './chats/tabs/teamsTabConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsTab extends Entity implements Parsable {

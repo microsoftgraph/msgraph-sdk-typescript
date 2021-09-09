@@ -1,14 +1,14 @@
+import {Entity} from './applicationTemplates/entity';
 import {ChatMessageAttachment} from './chatMessageAttachment';
 import {ChatMessageMention} from './chatMessageMention';
 import {ChatMessageReaction} from './chatMessageReaction';
-import {ChannelIdentity} from './chats/channelIdentity';
-import {ChatMessageFromIdentitySet} from './chats/chatMessageFromIdentitySet';
-import {ChatMessageHostedContent} from './chats/chatMessageHostedContent';
-import {ChatMessageImportance} from './chats/chatMessageImportance';
-import {ChatMessagePolicyViolation} from './chats/chatMessagePolicyViolation';
-import {ChatMessageType} from './chats/chatMessageType';
-import {ItemBody} from './chats/itemBody';
-import {Entity} from './entity';
+import {ChannelIdentity} from './chats/messages/channelIdentity';
+import {ChatMessageFromIdentitySet} from './chats/messages/chatMessageFromIdentitySet';
+import {ChatMessageHostedContent} from './chats/messages/chatMessageHostedContent';
+import {ChatMessageImportance} from './chats/messages/chatMessageImportance';
+import {ChatMessagePolicyViolation} from './chats/messages/chatMessagePolicyViolation';
+import {ChatMessageType} from './chats/messages/chatMessageType';
+import {ItemBody} from './itemBody';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ChatMessage extends Entity implements Parsable {

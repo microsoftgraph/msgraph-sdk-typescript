@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {MessageRule} from './me/messageRule';
+import {Entity} from './applicationTemplates/entity';
+import {MessageRule} from './me/mailFolders/messageRule';
 import {Message} from './message';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';

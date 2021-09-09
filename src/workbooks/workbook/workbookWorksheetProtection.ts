@@ -1,4 +1,4 @@
-import {Entity} from '../../entity';
+import {Entity} from '../../applicationTemplates/entity';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

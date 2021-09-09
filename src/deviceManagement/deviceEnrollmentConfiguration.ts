@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
+import {Entity} from '../applicationTemplates/entity';
+import {EnrollmentConfigurationAssignment} from './deviceEnrollmentConfigurations/enrollmentConfigurationAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentConfiguration extends Entity implements Parsable {

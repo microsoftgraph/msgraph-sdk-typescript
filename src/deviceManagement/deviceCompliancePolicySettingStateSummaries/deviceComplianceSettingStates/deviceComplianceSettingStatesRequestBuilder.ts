@@ -1,4 +1,4 @@
-import {DeviceComplianceSettingState} from '../../deviceComplianceSettingState';
+import {DeviceComplianceSettingState} from '../deviceComplianceSettingState';
 import {DeviceComplianceSettingStatesResponse} from './deviceComplianceSettingStatesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

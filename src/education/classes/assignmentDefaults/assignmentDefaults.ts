@@ -1,5 +1,5 @@
-import {Entity} from '../../../entity';
-import {EducationAddedStudentAction} from '../../educationAddedStudentAction';
+import {Entity} from '../../../applicationTemplates/entity';
+import {EducationAddedStudentAction} from '../educationAddedStudentAction';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignmentDefaults extends Entity implements Parsable {

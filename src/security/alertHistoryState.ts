@@ -1,5 +1,5 @@
-import {AlertFeedback} from './alertFeedback';
-import {AlertStatus} from './alertStatus';
+import {AlertFeedback} from './alerts/alertFeedback';
+import {AlertStatus} from './alerts/alertStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AlertHistoryState implements Parsable {

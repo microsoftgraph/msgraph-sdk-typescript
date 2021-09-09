@@ -1,4 +1,4 @@
-import {AgreementFileLocalization} from '../../../agreementFileLocalization';
+import {AgreementFileLocalization} from '../../agreementFileLocalization';
 import {AgreementFileVersionRequestBuilder} from '../versions/item/agreementFileVersionRequestBuilder';
 import {VersionsRequestBuilder} from '../versions/versionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

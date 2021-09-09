@@ -1,4 +1,4 @@
-import {DirectoryObject} from '../../directoryObject';
+import {DirectoryObject} from '../directoryObject';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

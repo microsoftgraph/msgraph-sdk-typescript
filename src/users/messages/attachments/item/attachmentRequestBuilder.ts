@@ -1,4 +1,4 @@
-import {Attachment} from '../../../../groups/attachment';
+import {Attachment} from '../../../../me/attachment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/messages/{message-id}/attachments/{attachment-id}  */

@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {PrinterCapabilities} from './printerCapabilities';
 import {PrinterDefaults} from './printerDefaults';
 import {PrinterLocation} from './printerLocation';

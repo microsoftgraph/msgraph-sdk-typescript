@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {ApplicationType} from './applicationType';
+import {Entity} from '../applicationTemplates/entity';
+import {ApplicationType} from './windowsInformationProtectionAppLearningSummaries/applicationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable {

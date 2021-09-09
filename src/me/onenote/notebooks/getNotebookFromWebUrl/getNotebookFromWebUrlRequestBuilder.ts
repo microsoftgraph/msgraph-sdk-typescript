@@ -1,4 +1,4 @@
-import {CopyNotebookModel} from '../../../../groups/onenote/notebooks/copyNotebookModel';
+import {CopyNotebookModel} from './copyNotebookModel';
 import {GetNotebookFromWebUrlResponse} from './getNotebookFromWebUrlResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

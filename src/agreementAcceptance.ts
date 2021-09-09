@@ -1,5 +1,5 @@
-import {AgreementAcceptanceState} from './agreementAcceptanceState';
-import {Entity} from './entity';
+import {AgreementAcceptanceState} from './agreementAcceptances/agreementAcceptanceState';
+import {Entity} from './applicationTemplates/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AgreementAcceptance extends Entity implements Parsable {

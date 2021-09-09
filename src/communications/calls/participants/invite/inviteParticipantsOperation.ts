@@ -1,4 +1,4 @@
-import {CommsOperation} from '../../../commsOperation';
+import {CommsOperation} from '../../commsOperation';
 import {InvitationParticipantInfo} from '../../invitationParticipantInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

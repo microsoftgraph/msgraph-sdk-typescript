@@ -1,6 +1,6 @@
-import {Application} from '../../application';
 import {AddKeyRequestBuilder} from '../addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from '../addPassword/addPasswordRequestBuilder';
+import {Application} from '../application';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from '../createdOnBehalfOf/createdOnBehalfOfRequestBuilder';

@@ -1,4 +1,4 @@
-import {TodoTask} from '../../../../../me/todo/todoTask';
+import {TodoTask} from '../../../../../me/todo/lists/todoTask';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
 import {LinkedResourceRequestBuilder} from '../linkedResources/item/linkedResourceRequestBuilder';

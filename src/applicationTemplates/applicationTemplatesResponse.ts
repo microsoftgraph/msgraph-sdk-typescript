@@ -1,4 +1,4 @@
-import {ApplicationTemplate} from '../applicationTemplate';
+import {ApplicationTemplate} from './applicationTemplate';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplicationTemplatesResponse implements Parsable {

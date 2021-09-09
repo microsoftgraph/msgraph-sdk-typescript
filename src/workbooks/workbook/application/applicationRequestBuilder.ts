@@ -1,4 +1,4 @@
-import {Application} from '../../../application';
+import {Application} from '../../../applications/application';
 import {WorkbookApplication} from '../../../workbookApplication';
 import {CalculateRequestBuilder} from './calculate/calculateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

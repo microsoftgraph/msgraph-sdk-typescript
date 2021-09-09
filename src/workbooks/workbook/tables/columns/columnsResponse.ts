@@ -1,4 +1,4 @@
-import {WorkbookTableColumn} from '../../workbookTableColumn';
+import {WorkbookTableColumn} from '../workbookTableColumn';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ColumnsResponse implements Parsable {

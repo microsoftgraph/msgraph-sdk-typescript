@@ -1,4 +1,4 @@
-import {OnenotePagePreview} from '../../../../../../../groups/onenote/pages/onenotePagePreview';
+import {OnenotePagePreview} from '../../../../../../../me/onenote/pages/preview/onenotePagePreview';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/onenote/sectionGroups/{sectionGroup-id}/parentNotebook/sections/{onenoteSection-id}/pages/{onenotePage-id}/microsoft.graph.preview()  */

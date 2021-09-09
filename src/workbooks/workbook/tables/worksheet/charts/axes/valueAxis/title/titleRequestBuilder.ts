@@ -1,5 +1,5 @@
 import {Title} from '../../../../../../names/worksheet/charts/axes/categoryAxis/title/title';
-import {WorkbookChartAxisTitle} from '../../../../../../worksheets/workbookChartAxisTitle';
+import {WorkbookChartAxisTitle} from '../../../../../../worksheets/charts/workbookChartAxisTitle';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

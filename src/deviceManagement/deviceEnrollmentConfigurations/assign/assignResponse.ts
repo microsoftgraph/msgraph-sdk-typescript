@@ -1,4 +1,4 @@
-import {EnrollmentConfigurationAssignment} from '../../enrollmentConfigurationAssignment';
+import {EnrollmentConfigurationAssignment} from '../enrollmentConfigurationAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignResponse implements Parsable {

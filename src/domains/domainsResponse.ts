@@ -1,4 +1,4 @@
-import {Domain} from '../domain';
+import {Domain} from './domain';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DomainsResponse implements Parsable {

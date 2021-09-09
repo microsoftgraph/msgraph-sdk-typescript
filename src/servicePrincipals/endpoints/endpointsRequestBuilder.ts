@@ -1,4 +1,4 @@
-import {Endpoint} from '../../endpoint';
+import {Endpoint} from '../endpoint';
 import {EndpointsResponse} from './endpointsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

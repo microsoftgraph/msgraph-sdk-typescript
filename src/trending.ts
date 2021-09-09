@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {ResourceReference} from './me/insights/resourceReference';
 import {ResourceVisualization} from './me/insights/resourceVisualization';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {ExternalItem} from '../../externalItem';
+import {ExternalItem} from '../externalItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ItemsResponse implements Parsable {

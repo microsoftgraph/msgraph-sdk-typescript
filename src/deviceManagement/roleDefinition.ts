@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {RoleAssignment} from './roleAssignment';
 import {RolePermission} from './rolePermission';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

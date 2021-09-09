@@ -1,4 +1,4 @@
-import {WorkbookChartPoint} from '../../../../../worksheets/charts/workbookChartPoint';
+import {WorkbookChartPoint} from '../../../../../worksheets/charts/series/workbookChartPoint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PointsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {AppliedConditionalAccessPolicy} from './appliedConditionalAccessPolicy';
 import {ConditionalAccessStatus} from './conditionalAccessStatus';
 import {DeviceDetail} from './deviceDetail';

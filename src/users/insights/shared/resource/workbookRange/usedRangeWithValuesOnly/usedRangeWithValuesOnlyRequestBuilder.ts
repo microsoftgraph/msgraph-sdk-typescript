@@ -1,4 +1,4 @@
-import {WorkbookRange} from '../../../../../../workbooks/workbook/names/workbookRange';
+import {WorkbookRange} from '../../../../../../workbooks/workbook/workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/insights/shared/{sharedInsight-id}/resource/microsoft.graph.workbookRange/microsoft.graph.usedRange(valuesOnly={valuesOnly})  */

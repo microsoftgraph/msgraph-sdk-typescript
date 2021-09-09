@@ -1,4 +1,4 @@
-import {DeltaRequestBuilder} from '../../workbooks/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../../servicePrincipals/delta/deltaRequestBuilder';
 import {AdministrativeUnit} from '../administrativeUnit';
 import {AdministrativeUnitsResponse} from './administrativeUnitsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

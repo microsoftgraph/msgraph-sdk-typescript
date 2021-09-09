@@ -1,4 +1,4 @@
-import {EducationCategory} from '../../../educationCategory';
+import {EducationCategory} from '../../educationCategory';
 import {CategoriesResponse} from './categoriesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

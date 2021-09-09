@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {WorkbookTableColumn} from './workbooks/workbook/workbookTableColumn';
-import {WorkbookTableRow} from './workbooks/workbook/workbookTableRow';
-import {WorkbookTableSort} from './workbooks/workbook/workbookTableSort';
+import {Entity} from './applicationTemplates/entity';
+import {WorkbookTableColumn} from './workbooks/workbook/tables/workbookTableColumn';
+import {WorkbookTableRow} from './workbooks/workbook/tables/workbookTableRow';
+import {WorkbookTableSort} from './workbooks/workbook/tables/workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

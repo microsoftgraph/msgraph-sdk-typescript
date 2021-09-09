@@ -1,5 +1,5 @@
-import {Entity} from '../../../../../../../../entity';
-import {WorkbookChartAxisTitleFormat} from '../../../../../../worksheets/workbookChartAxisTitleFormat';
+import {Entity} from '../../../../../../../../me/insights/used/resource/entity';
+import {WorkbookChartAxisTitleFormat} from '../../../../../../worksheets/charts/workbookChartAxisTitleFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Title extends Entity implements Parsable {

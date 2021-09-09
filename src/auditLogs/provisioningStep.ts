@@ -1,5 +1,5 @@
-import {DetailsInfo} from './detailsInfo';
-import {ProvisioningResult} from './provisioningResult';
+import {DetailsInfo} from './provisioning/detailsInfo';
+import {ProvisioningResult} from './provisioning/provisioningResult';
 import {ProvisioningStepType} from './provisioningStepType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

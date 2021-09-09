@@ -1,4 +1,4 @@
-import {UserInstallStateSummary} from '../../userInstallStateSummary';
+import {UserInstallStateSummary} from '../userInstallStateSummary';
 import {UserStateSummaryResponse} from './userStateSummaryResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

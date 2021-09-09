@@ -1,4 +1,4 @@
-import {SubscribedSku} from '../subscribedSku';
+import {SubscribedSku} from './subscribedSku';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SubscribedSkusResponse implements Parsable {

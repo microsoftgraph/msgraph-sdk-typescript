@@ -1,4 +1,4 @@
-import {SchemaExtension} from '../schemaExtension';
+import {SchemaExtension} from './schemaExtension';
 import {SchemaExtensionsResponse} from './schemaExtensionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {OrgContact} from '../orgContact';
+import {OrgContact} from './orgContact';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ContactsResponse implements Parsable {

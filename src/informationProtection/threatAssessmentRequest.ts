@@ -1,11 +1,11 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {IdentitySet} from '../identitySet';
-import {ThreatAssessmentContentType} from './threatAssessmentContentType';
-import {ThreatAssessmentRequestSource} from './threatAssessmentRequestSource';
-import {ThreatAssessmentResult} from './threatAssessmentResult';
-import {ThreatAssessmentStatus} from './threatAssessmentStatus';
-import {ThreatCategory} from './threatCategory';
-import {ThreatExpectedAssessment} from './threatExpectedAssessment';
+import {ThreatAssessmentContentType} from './threatAssessmentRequests/threatAssessmentContentType';
+import {ThreatAssessmentRequestSource} from './threatAssessmentRequests/threatAssessmentRequestSource';
+import {ThreatAssessmentResult} from './threatAssessmentRequests/threatAssessmentResult';
+import {ThreatAssessmentStatus} from './threatAssessmentRequests/threatAssessmentStatus';
+import {ThreatCategory} from './threatAssessmentRequests/threatCategory';
+import {ThreatExpectedAssessment} from './threatAssessmentRequests/threatExpectedAssessment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentRequest extends Entity implements Parsable {

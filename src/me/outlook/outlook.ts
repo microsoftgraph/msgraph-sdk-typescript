@@ -1,5 +1,5 @@
-import {Entity} from '../../entity';
 import {OutlookCategory} from '../../outlookCategory';
+import {Entity} from '../insights/used/resource/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Outlook extends Entity implements Parsable {

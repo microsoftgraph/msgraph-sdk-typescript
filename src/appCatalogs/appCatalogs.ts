@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {TeamsApp} from './teamsApp';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

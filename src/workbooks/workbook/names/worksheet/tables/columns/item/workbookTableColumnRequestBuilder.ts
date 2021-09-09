@@ -1,8 +1,8 @@
-import {WorkbookTableColumn} from '../../../../../workbookTableColumn';
-import {RangeRequestBuilder} from '../../../range/rangeRequestBuilder';
-import {DataBodyRangeRequestBuilder} from '../../dataBodyRange/dataBodyRangeRequestBuilder';
-import {HeaderRowRangeRequestBuilder} from '../../headerRowRange/headerRowRangeRequestBuilder';
-import {TotalRowRangeRequestBuilder} from '../../totalRowRange/totalRowRangeRequestBuilder';
+import {WorkbookTableColumn} from '../../../../../tables/workbookTableColumn';
+import {RangeRequestBuilder} from '../../../../../worksheets/charts/worksheet/range/rangeRequestBuilder';
+import {TotalRowRangeRequestBuilder} from '../../../../../worksheets/tables/columns/totalRowRange/totalRowRangeRequestBuilder';
+import {DataBodyRangeRequestBuilder} from '../../../../../worksheets/tables/dataBodyRange/dataBodyRangeRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from '../../../../../worksheets/tables/headerRowRange/headerRowRangeRequestBuilder';
 import {FilterRequestBuilder} from '../filter/filterRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

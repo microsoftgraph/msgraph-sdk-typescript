@@ -1,4 +1,4 @@
-import {Participant} from '../../participant';
+import {Participant} from '../participant';
 import {InviteRequestBuilder} from './invite/inviteRequestBuilder';
 import {ParticipantsResponse} from './participantsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

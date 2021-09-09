@@ -1,4 +1,4 @@
-import {WorkbookChartSeries} from '../../../workbookChartSeries';
+import {WorkbookChartSeries} from '../../workbookChartSeries';
 import {FormatRequestBuilder} from '../format/formatRequestBuilder';
 import {WorkbookChartPointRequestBuilder} from '../points/item/workbookChartPointRequestBuilder';
 import {PointsRequestBuilder} from '../points/pointsRequestBuilder';

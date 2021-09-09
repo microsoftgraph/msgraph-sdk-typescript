@@ -1,4 +1,4 @@
-import {Post} from '../../../post';
+import {Post} from '../../../threads/post';
 import {PostsResponse} from './postsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

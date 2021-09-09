@@ -1,4 +1,4 @@
-import {Json} from '../../../../me/json';
+import {Json} from '../../../../me/activities/json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ImLog10Response implements Parsable {

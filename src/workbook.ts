@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {WorkbookApplication} from './workbookApplication';
 import {WorkbookComment} from './workbookComment';
 import {WorkbookFunctions} from './workbookFunctions';

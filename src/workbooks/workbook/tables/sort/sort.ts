@@ -1,5 +1,5 @@
-import {Entity} from '../../../../entity';
-import {WorkbookSortField} from '../../workbookSortField';
+import {Entity} from '../../../../me/insights/used/resource/entity';
+import {WorkbookSortField} from '../workbookSortField';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Sort extends Entity implements Parsable {

@@ -1,4 +1,4 @@
-import {AccessReviewInstance} from '../../../accessReviewInstance';
+import {AccessReviewInstance} from '../../accessReviewInstance';
 import {AcceptRecommendationsRequestBuilder} from '../acceptRecommendations/acceptRecommendationsRequestBuilder';
 import {ApplyDecisionsRequestBuilder} from '../applyDecisions/applyDecisionsRequestBuilder';
 import {BatchRecordDecisionsRequestBuilder} from '../batchRecordDecisions/batchRecordDecisionsRequestBuilder';

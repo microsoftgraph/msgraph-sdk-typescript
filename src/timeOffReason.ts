@@ -1,5 +1,5 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
-import {TimeOffReasonIconType} from './teams/schedule/timeOffReasonIconType';
+import {TimeOffReasonIconType} from './teams/schedule/timeOffReasons/timeOffReasonIconType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TimeOffReason extends ChangeTrackedEntity implements Parsable {

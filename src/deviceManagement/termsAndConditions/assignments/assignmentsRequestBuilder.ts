@@ -1,4 +1,4 @@
-import {TermsAndConditionsAssignment} from '../../termsAndConditionsAssignment';
+import {TermsAndConditionsAssignment} from '../termsAndConditionsAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

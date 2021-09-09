@@ -1,4 +1,4 @@
-import {MailTipsType} from '../../me/mailTipsType';
+import {MailTipsType} from '../../me/getMailTips/mailTipsType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GetMailTipsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {WorkbookTableRow} from '../../../../workbookTableRow';
+import {WorkbookTableRow} from '../../../../tables/workbookTableRow';
 import {AddResponse} from './addResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

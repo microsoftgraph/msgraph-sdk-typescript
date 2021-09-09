@@ -1,12 +1,12 @@
-import {Entity} from '../entity';
-import {Initiator} from './initiator';
+import {Entity} from '../applicationTemplates/entity';
 import {ModifiedProperty} from './modifiedProperty';
-import {ProvisionedIdentity} from './provisionedIdentity';
-import {ProvisioningAction} from './provisioningAction';
-import {ProvisioningServicePrincipal} from './provisioningServicePrincipal';
-import {ProvisioningStatusInfo} from './provisioningStatusInfo';
+import {Initiator} from './provisioning/initiator';
+import {ProvisionedIdentity} from './provisioning/provisionedIdentity';
+import {ProvisioningAction} from './provisioning/provisioningAction';
+import {ProvisioningServicePrincipal} from './provisioning/provisioningServicePrincipal';
+import {ProvisioningStatusInfo} from './provisioning/provisioningStatusInfo';
+import {ProvisioningSystem} from './provisioning/provisioningSystem';
 import {ProvisioningStep} from './provisioningStep';
-import {ProvisioningSystem} from './provisioningSystem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningObjectSummary extends Entity implements Parsable {

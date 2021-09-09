@@ -1,4 +1,3 @@
-import {Organization} from '../../organization';
 import {BrandingRequestBuilder} from '../branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from '../certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
@@ -7,6 +6,7 @@ import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
+import {Organization} from '../organization';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {SetMobileDeviceManagementAuthorityRequestBuilder} from '../setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

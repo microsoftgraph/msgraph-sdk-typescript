@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './applicationTemplates/entity';
 import {Notebook} from './notebook';
 import {OnenoteOperation} from './onenoteOperation';
 import {OnenotePage} from './onenotePage';

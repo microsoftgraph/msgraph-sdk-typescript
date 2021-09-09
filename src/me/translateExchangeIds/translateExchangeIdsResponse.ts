@@ -1,4 +1,4 @@
-import {ExchangeIdFormat} from '../exchangeIdFormat';
+import {ExchangeIdFormat} from './exchangeIdFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TranslateExchangeIdsResponse implements Parsable {

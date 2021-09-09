@@ -1,9 +1,9 @@
-import {Entity} from '../../../../entity';
+import {Entity} from '../../../../applicationTemplates/entity';
 import {IdentitySet} from '../../../../identitySet';
+import {EducationAssignmentGradeType} from '../../../me/rubrics/educationAssignmentGradeType';
+import {EducationItemBody} from '../../../me/rubrics/educationItemBody';
 import {RubricLevel} from '../../../rubricLevel';
 import {RubricQuality} from '../../../rubricQuality';
-import {EducationAssignmentGradeType} from '../../educationAssignmentGradeType';
-import {EducationItemBody} from '../../educationItemBody';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Rubric extends Entity implements Parsable {

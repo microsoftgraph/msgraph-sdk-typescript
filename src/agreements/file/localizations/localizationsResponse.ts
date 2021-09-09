@@ -1,4 +1,4 @@
-import {AgreementFileLocalization} from '../../../agreementFileLocalization';
+import {AgreementFileLocalization} from '../../agreementFileLocalization';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LocalizationsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {Entity} from '../../entity';
+import {Entity} from '../../applicationTemplates/entity';
 import {SharedInsight} from '../../sharedInsight';
 import {Trending} from '../../trending';
 import {UsedInsight} from '../../usedInsight';

@@ -1,4 +1,4 @@
-import {Entity} from '../../../../entity';
+import {Entity} from '../../../../me/insights/used/resource/entity';
 import {WorkbookNamedItem} from '../../../../workbookNamedItem';
 import {WorkbookTable} from '../../../../workbookTable';
 import {WorkbookChart} from '../../workbookChart';

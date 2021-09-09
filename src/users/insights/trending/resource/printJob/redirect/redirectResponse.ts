@@ -1,4 +1,4 @@
-import {PrintJobConfiguration} from '../../../../../../me/insights/shared/lastSharedMethod/printJob/printJobConfiguration';
+import {PrintJobConfiguration} from '../../../../../../me/insights/printJobConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RedirectResponse implements Parsable {

@@ -1,5 +1,5 @@
 import {WindowsInformationProtection} from './windowsInformationProtection';
-import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPinCharacterRequirements';
+import {WindowsInformationProtectionPinCharacterRequirements} from './windowsInformationProtectionPolicies/windowsInformationProtectionPinCharacterRequirements';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {

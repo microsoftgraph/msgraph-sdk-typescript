@@ -1,4 +1,4 @@
-import {AttachmentItem} from '../../../../../../groups/calendarView/attachments/attachmentItem';
+import {AttachmentItem} from '../../../../../attachmentItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateUploadSessionResponse implements Parsable {

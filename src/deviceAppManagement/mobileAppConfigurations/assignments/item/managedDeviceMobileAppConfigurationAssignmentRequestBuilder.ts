@@ -1,4 +1,4 @@
-import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../managedDeviceMobileAppConfigurationAssignment';
+import {ManagedDeviceMobileAppConfigurationAssignment} from '../../managedDeviceMobileAppConfigurationAssignment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration-id}/assignments/{managedDeviceMobileAppConfigurationAssignment-id}  */

@@ -1,4 +1,4 @@
-import {Domain} from '../domain';
+import {Domain} from './domain';
 import {DomainsResponse} from './domainsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

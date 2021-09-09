@@ -1,5 +1,5 @@
-import {RecentRequestBuilder} from '../../drives/recent/recentRequestBuilder';
 import {UserActivity} from '../../userActivity';
+import {RecentRequestBuilder} from '../../users/activities/recent/recentRequestBuilder';
 import {ActivitiesResponse} from './activitiesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

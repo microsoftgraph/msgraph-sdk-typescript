@@ -1,6 +1,6 @@
-import {WorkbookChartAxisFormat} from '../../../../../../worksheets/workbookChartAxisFormat';
+import {Format} from '../../../../../../worksheets/charts/axes/categoryAxis/format/format';
+import {WorkbookChartAxisFormat} from '../../../../../../worksheets/charts/workbookChartAxisFormat';
 import {FontRequestBuilder} from './font/fontRequestBuilder';
-import {Format} from './format';
 import {LineRequestBuilder} from './line/lineRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

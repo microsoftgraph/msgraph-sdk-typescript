@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
-import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
-import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
+import {Entity} from '../applicationTemplates/entity';
+import {TermsAndConditionsAcceptanceStatus} from './termsAndConditions/termsAndConditionsAcceptanceStatus';
+import {TermsAndConditionsAssignment} from './termsAndConditions/termsAndConditionsAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TermsAndConditions extends Entity implements Parsable {

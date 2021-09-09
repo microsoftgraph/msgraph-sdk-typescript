@@ -1,4 +1,4 @@
-import {PrintTask} from '../../../printTask';
+import {PrintTask} from '../../printTask';
 import {DefinitionRequestBuilder} from '../definition/definitionRequestBuilder';
 import {TriggerRequestBuilder} from '../trigger/triggerRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

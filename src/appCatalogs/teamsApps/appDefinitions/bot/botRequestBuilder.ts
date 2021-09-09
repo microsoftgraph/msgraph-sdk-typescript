@@ -1,4 +1,4 @@
-import {TeamworkBot} from '../../../../chats/teamworkBot';
+import {TeamworkBot} from '../../../../teamworkBot';
 import {Bot} from './bot';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

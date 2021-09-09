@@ -1,4 +1,4 @@
-import {ExtensionProperty} from '../../extensionProperty';
+import {ExtensionProperty} from '../extensionProperty';
 import {ExtensionPropertiesResponse} from './extensionPropertiesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

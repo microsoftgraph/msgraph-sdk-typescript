@@ -1,4 +1,4 @@
-import {Device} from '../device';
+import {Device} from './device';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DevicesResponse implements Parsable {

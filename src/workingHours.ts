@@ -1,4 +1,4 @@
-import {DayOfWeek} from './groups/dayOfWeek';
+import {DayOfWeek} from './me/dayOfWeek';
 import {TimeZoneBase} from './timeZoneBase';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

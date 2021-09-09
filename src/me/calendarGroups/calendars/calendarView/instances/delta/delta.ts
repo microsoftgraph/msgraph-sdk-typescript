@@ -1,23 +1,23 @@
 import {Attendee} from '../../../../../../attendee';
 import {Calendar} from '../../../../../../calendar';
-import {ItemBody} from '../../../../../../chats/itemBody';
 import {DateTimeTimeZone} from '../../../../../../dateTimeTimeZone';
 import {Event} from '../../../../../../event';
 import {Extension} from '../../../../../../extension';
-import {Attachment} from '../../../../../../groups/attachment';
-import {EventType} from '../../../../../../groups/eventType';
-import {FreeBusyStatus} from '../../../../../../groups/freeBusyStatus';
-import {Importance} from '../../../../../../groups/importance';
-import {Location} from '../../../../../../groups/location';
-import {OnlineMeetingInfo} from '../../../../../../groups/onlineMeetingInfo';
-import {PatternedRecurrence} from '../../../../../../groups/patternedRecurrence';
-import {ResponseStatus} from '../../../../../../groups/responseStatus';
-import {Sensitivity} from '../../../../../../groups/sensitivity';
+import {ItemBody} from '../../../../../../itemBody';
 import {MultiValueLegacyExtendedProperty} from '../../../../../../multiValueLegacyExtendedProperty';
 import {OnlineMeetingProviderType} from '../../../../../../onlineMeetingProviderType';
 import {OutlookItem} from '../../../../../../outlookItem';
 import {Recipient} from '../../../../../../recipient';
 import {SingleValueLegacyExtendedProperty} from '../../../../../../singleValueLegacyExtendedProperty';
+import {Attachment} from '../../../../../attachment';
+import {EventType} from '../../../../../eventType';
+import {FreeBusyStatus} from '../../../../../freeBusyStatus';
+import {Importance} from '../../../../../importance';
+import {Location} from '../../../../../location';
+import {OnlineMeetingInfo} from '../../../../../onlineMeetingInfo';
+import {PatternedRecurrence} from '../../../../../patternedRecurrence';
+import {ResponseStatus} from '../../../../../responseStatus';
+import {Sensitivity} from '../../../../../sensitivity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {

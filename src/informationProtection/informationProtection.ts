@@ -1,4 +1,4 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

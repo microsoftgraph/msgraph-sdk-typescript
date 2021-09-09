@@ -1,4 +1,4 @@
-import {TimeSlot} from '../../../../calendarView/timeSlot';
+import {TimeSlot} from '../../../../../me/timeSlot';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TentativelyAcceptResponse implements Parsable {

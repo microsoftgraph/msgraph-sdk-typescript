@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {DeviceAndAppManagementAssignmentTarget} from './managedEBooks/deviceAndAppManagementAssignmentTarget';
+import {Entity} from '../applicationTemplates/entity';
+import {DeviceAndAppManagementAssignmentTarget} from '../deviceAndAppManagementAssignmentTarget';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppPolicyAssignment extends Entity implements Parsable {

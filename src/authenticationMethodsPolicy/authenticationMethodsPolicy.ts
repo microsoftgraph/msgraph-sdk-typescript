@@ -1,5 +1,5 @@
+import {Entity} from '../applicationTemplates/entity';
 import {AuthenticationMethodConfiguration} from '../authenticationMethodConfiguration';
-import {Entity} from '../entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodsPolicy extends Entity implements Parsable {

@@ -1,4 +1,4 @@
-import {WorkbookRangeView} from '../../../../../../me/insights/shared/lastSharedMethod/workbookRange/workbookRangeView';
+import {WorkbookRangeView} from '../../../../../../me/insights/workbookRangeView';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/insights/shared/{sharedInsight-id}/resource/microsoft.graph.workbookRange/microsoft.graph.visibleView()  */

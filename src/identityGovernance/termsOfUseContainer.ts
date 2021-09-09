@@ -1,6 +1,6 @@
 import {Agreement} from '../agreement';
 import {AgreementAcceptance} from '../agreementAcceptance';
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TermsOfUseContainer extends Entity implements Parsable {

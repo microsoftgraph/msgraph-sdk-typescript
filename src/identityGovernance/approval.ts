@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {ApprovalStage} from './entitlementManagement/approvalStage';
+import {Entity} from '../applicationTemplates/entity';
+import {ApprovalStage} from './entitlementManagement/accessPackageAssignmentApprovals/approvalStage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Approval extends Entity implements Parsable {

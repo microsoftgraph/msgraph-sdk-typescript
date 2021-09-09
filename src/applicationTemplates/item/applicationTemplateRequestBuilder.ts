@@ -1,4 +1,4 @@
-import {ApplicationTemplate} from '../../applicationTemplate';
+import {ApplicationTemplate} from '../applicationTemplate';
 import {InstantiateRequestBuilder} from '../instantiate/instantiateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

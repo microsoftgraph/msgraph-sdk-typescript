@@ -1,9 +1,9 @@
-import {IdentityProvider} from '../identityProvider';
+import {IdentityProvider} from '../identityProviders/identityProvider';
+import {IdentityUserFlowAttributeAssignment} from './b2xUserFlows/identityUserFlowAttributeAssignment';
+import {UserFlowApiConnectorConfiguration} from './b2xUserFlows/userFlowApiConnectorConfiguration';
+import {UserFlowLanguageConfiguration} from './b2xUserFlows/userFlowLanguageConfiguration';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlow} from './identityUserFlow';
-import {IdentityUserFlowAttributeAssignment} from './identityUserFlowAttributeAssignment';
-import {UserFlowApiConnectorConfiguration} from './userFlowApiConnectorConfiguration';
-import {UserFlowLanguageConfiguration} from './userFlowLanguageConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class B2xIdentityUserFlow extends IdentityUserFlow implements Parsable {

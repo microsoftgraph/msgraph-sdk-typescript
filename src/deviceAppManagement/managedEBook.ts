@@ -1,9 +1,9 @@
+import {Entity} from '../applicationTemplates/entity';
 import {MimeContent} from '../deviceManagement/mimeContent';
-import {Entity} from '../entity';
-import {DeviceInstallState} from './deviceInstallState';
-import {EBookInstallSummary} from './eBookInstallSummary';
-import {ManagedEBookAssignment} from './managedEBookAssignment';
-import {UserInstallStateSummary} from './userInstallStateSummary';
+import {DeviceInstallState} from './managedEBooks/deviceInstallState';
+import {EBookInstallSummary} from './managedEBooks/eBookInstallSummary';
+import {ManagedEBookAssignment} from './managedEBooks/managedEBookAssignment';
+import {UserInstallStateSummary} from './managedEBooks/userInstallStateSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBook extends Entity implements Parsable {

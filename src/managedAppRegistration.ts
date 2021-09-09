@@ -1,7 +1,7 @@
-import {ManagedAppOperation} from './deviceAppManagement/managedAppOperation';
+import {Entity} from './applicationTemplates/entity';
 import {ManagedAppPolicy} from './deviceAppManagement/managedAppPolicy';
-import {MobileAppIdentifier} from './deviceAppManagement/mobileAppIdentifier';
-import {Entity} from './entity';
+import {ManagedAppOperation} from './deviceAppManagement/managedAppRegistrations/managedAppOperation';
+import {MobileAppIdentifier} from './deviceAppManagement/managedAppRegistrations/mobileAppIdentifier';
 import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

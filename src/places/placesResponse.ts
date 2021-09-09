@@ -1,4 +1,4 @@
-import {Place} from '../place';
+import {Place} from './place';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlacesResponse implements Parsable {

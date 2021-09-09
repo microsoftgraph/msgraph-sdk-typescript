@@ -1,4 +1,4 @@
-import {Segment} from '../../segment';
+import {Segment} from '../segment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SegmentsResponse implements Parsable {

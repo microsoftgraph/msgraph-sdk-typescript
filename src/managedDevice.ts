@@ -1,18 +1,18 @@
+import {Entity} from './applicationTemplates/entity';
+import {ComplianceState} from './complianceState';
+import {ConfigurationManagerClientEnabledFeatures} from './configurationManagerClientEnabledFeatures';
 import {DeviceActionResult} from './deviceActionResult';
-import {ComplianceState} from './deviceManagement/complianceState';
-import {ConfigurationManagerClientEnabledFeatures} from './deviceManagement/configurationManagerClientEnabledFeatures';
+import {DeviceCompliancePolicyState} from './deviceCompliancePolicyState';
+import {DeviceConfigurationState} from './deviceConfigurationState';
+import {DeviceEnrollmentType} from './deviceEnrollmentType';
+import {DeviceHealthAttestationState} from './deviceHealthAttestationState';
 import {DeviceCategory} from './deviceManagement/deviceCategory';
-import {DeviceCompliancePolicyState} from './deviceManagement/deviceCompliancePolicyState';
-import {DeviceConfigurationState} from './deviceManagement/deviceConfigurationState';
-import {DeviceEnrollmentType} from './deviceManagement/deviceEnrollmentType';
-import {DeviceHealthAttestationState} from './deviceManagement/deviceHealthAttestationState';
-import {DeviceManagementExchangeAccessState} from './deviceManagement/deviceManagementExchangeAccessState';
-import {DeviceManagementExchangeAccessStateReason} from './deviceManagement/deviceManagementExchangeAccessStateReason';
-import {DeviceRegistrationState} from './deviceManagement/deviceRegistrationState';
-import {ManagedDeviceOwnerType} from './deviceManagement/managedDeviceOwnerType';
-import {ManagedDevicePartnerReportedHealthState} from './deviceManagement/managedDevicePartnerReportedHealthState';
-import {ManagementAgentType} from './deviceManagement/managementAgentType';
-import {Entity} from './entity';
+import {DeviceManagementExchangeAccessState} from './deviceManagementExchangeAccessState';
+import {DeviceManagementExchangeAccessStateReason} from './deviceManagementExchangeAccessStateReason';
+import {DeviceRegistrationState} from './deviceRegistrationState';
+import {ManagedDeviceOwnerType} from './managedDeviceOwnerType';
+import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerReportedHealthState';
+import {ManagementAgentType} from './managementAgentType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedDevice extends Entity implements Parsable {

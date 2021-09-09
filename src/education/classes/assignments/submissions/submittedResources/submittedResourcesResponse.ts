@@ -1,4 +1,4 @@
-import {EducationSubmissionResource} from '../../educationSubmissionResource';
+import {EducationSubmissionResource} from '../educationSubmissionResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SubmittedResourcesResponse implements Parsable {

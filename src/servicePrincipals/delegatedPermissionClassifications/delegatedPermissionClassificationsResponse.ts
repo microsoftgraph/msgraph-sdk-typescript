@@ -1,4 +1,4 @@
-import {DelegatedPermissionClassification} from '../../delegatedPermissionClassification';
+import {DelegatedPermissionClassification} from '../delegatedPermissionClassification';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DelegatedPermissionClassificationsResponse implements Parsable {

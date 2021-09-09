@@ -1,4 +1,4 @@
-import {Post} from '../../../post';
+import {Post} from '../../../threads/post';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PostsResponse implements Parsable {

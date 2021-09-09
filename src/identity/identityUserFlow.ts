@@ -1,5 +1,5 @@
-import {Entity} from '../entity';
-import {UserFlowType} from './userFlowType';
+import {Entity} from '../applicationTemplates/entity';
+import {UserFlowType} from './b2xUserFlows/userFlowType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlow extends Entity implements Parsable {

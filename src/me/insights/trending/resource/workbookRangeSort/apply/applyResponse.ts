@@ -1,4 +1,4 @@
-import {WorkbookSortField} from '../../../../../../workbooks/workbook/workbookSortField';
+import {WorkbookSortField} from '../../../../../../workbooks/workbook/tables/workbookSortField';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApplyResponse implements Parsable {

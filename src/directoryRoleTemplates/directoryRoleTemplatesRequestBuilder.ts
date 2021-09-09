@@ -1,4 +1,4 @@
-import {DirectoryRoleTemplate} from '../directoryRoleTemplate';
+import {DirectoryRoleTemplate} from './directoryRoleTemplate';
 import {DirectoryRoleTemplatesResponse} from './directoryRoleTemplatesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

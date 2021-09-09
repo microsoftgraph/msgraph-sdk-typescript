@@ -1,6 +1,6 @@
-import {Entity} from '../entity';
-import {ComplianceStatus} from './complianceStatus';
-import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
+import {Entity} from '../applicationTemplates/entity';
+import {ComplianceStatus} from './iosUpdateStatuses/complianceStatus';
+import {IosUpdatesInstallStatus} from './iosUpdateStatuses/iosUpdatesInstallStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IosUpdateDeviceStatus extends Entity implements Parsable {

@@ -1,4 +1,4 @@
-import {SharedDriveItem} from '../sharedDriveItem';
+import {SharedDriveItem} from './sharedDriveItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SharesResponse implements Parsable {

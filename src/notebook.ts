@@ -1,5 +1,5 @@
-import {NotebookLinks} from './groups/onenote/notebookLinks';
-import {OnenoteUserRole} from './groups/onenote/onenoteUserRole';
+import {NotebookLinks} from './me/onenote/notebookLinks';
+import {OnenoteUserRole} from './me/onenote/onenoteUserRole';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';

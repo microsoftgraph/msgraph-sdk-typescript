@@ -1,7 +1,7 @@
-import {Entity} from '../entity';
+import {Entity} from '../applicationTemplates/entity';
 import {IdentitySet} from '../identitySet';
-import {EducationAssignmentGradeType} from './classes/educationAssignmentGradeType';
-import {EducationItemBody} from './classes/educationItemBody';
+import {EducationAssignmentGradeType} from './me/rubrics/educationAssignmentGradeType';
+import {EducationItemBody} from './me/rubrics/educationItemBody';
 import {RubricLevel} from './rubricLevel';
 import {RubricQuality} from './rubricQuality';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
