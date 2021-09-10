@@ -1,8 +1,8 @@
 import {WorkbookTableColumn} from '../../../../../../workbookTableColumn';
-import {CountRequestBuilder} from '../../../../worksheets/charts/count/countRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from '../../../../worksheets/charts/itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {ColumnsResponse} from './columnsResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/columns  */

@@ -1,4 +1,4 @@
-import {Entity} from './applications/entity';
+import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {ItemReference} from './itemReference';
 import {User} from './user';

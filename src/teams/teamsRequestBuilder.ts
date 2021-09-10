@@ -1,5 +1,5 @@
+import {GetAllMessagesRequestBuilder} from '../chats/getAllMessages/getAllMessagesRequestBuilder';
 import {Team} from '../team';
-import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {TeamsResponse} from './teamsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

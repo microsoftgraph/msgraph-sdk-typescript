@@ -1,5 +1,5 @@
-import {GetActivitiesByIntervalRequestBuilder} from '../../drive/list/items/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
-import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../../drive/list/items/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
+import {GetActivitiesByIntervalRequestBuilder} from '../../shares/listItem/getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
+import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../../shares/listItem/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {Site} from '../../site';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
 import {ColumnsRequestBuilder} from '../columns/columnsRequestBuilder';

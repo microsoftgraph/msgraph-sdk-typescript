@@ -1,5 +1,5 @@
 import {Calendar} from '../../../../calendar';
-import {AllowedCalendarSharingRolesWithUserRequestBuilder} from '../../../calendarView/calendar/allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
+import {AllowedCalendarSharingRolesWithUserRequestBuilder} from '../../../events/calendar/allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarPermissionsRequestBuilder} from '../calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionRequestBuilder} from '../calendarPermissions/item/calendarPermissionRequestBuilder';
 import {CalendarViewRequestBuilder} from '../calendarView/calendarViewRequestBuilder';

@@ -49,6 +49,6 @@ export class AvailableProviderTypesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.httpCore?.sendCollectionAsync<string>(requestInfo, string, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.httpCore?.sendCollectionOfPrimitiveAsync<string>(requestInfo, "string", responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,4 +1,4 @@
-import {DeltaRequestBuilder} from '../applications/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../me/messages/delta/deltaRequestBuilder';
 import {OAuth2PermissionGrant} from '../oAuth2PermissionGrant';
 import {Oauth2PermissionGrantsResponse} from './oauth2PermissionGrantsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

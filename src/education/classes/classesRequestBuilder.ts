@@ -1,4 +1,4 @@
-import {DeltaRequestBuilder} from '../../applications/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../../me/messages/delta/deltaRequestBuilder';
 import {EducationClass} from '../educationClass';
 import {ClassesResponse} from './classesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

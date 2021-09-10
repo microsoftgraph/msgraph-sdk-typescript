@@ -1,6 +1,6 @@
 import {AppConsentRequest} from '../../appConsentRequest';
-import {FilterByCurrentUserWithOnRequestBuilder} from '../../entitlementManagement/accessPackageAssignmentApprovals/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {AppConsentRequestsResponse} from './appConsentRequestsResponse';
+import {FilterByCurrentUserWithOnRequestBuilder} from './userConsentRequests/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/appConsent/appConsentRequests  */

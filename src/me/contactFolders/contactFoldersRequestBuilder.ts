@@ -1,5 +1,5 @@
-import {DeltaRequestBuilder} from '../../applications/delta/deltaRequestBuilder';
 import {ContactFolder} from '../../contactFolder';
+import {DeltaRequestBuilder} from '../messages/delta/deltaRequestBuilder';
 import {ContactFoldersResponse} from './contactFoldersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

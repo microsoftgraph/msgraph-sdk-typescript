@@ -1,4 +1,4 @@
-import {DeltaRequestBuilder} from '../applications/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from '../me/messages/delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ServicePrincipal} from './servicePrincipal';

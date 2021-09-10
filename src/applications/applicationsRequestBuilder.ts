@@ -1,6 +1,6 @@
+import {DeltaRequestBuilder} from '../me/messages/delta/deltaRequestBuilder';
 import {Application} from './application';
 import {ApplicationsResponse} from './applicationsResponse';
-import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';

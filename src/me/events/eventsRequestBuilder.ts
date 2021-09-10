@@ -1,5 +1,5 @@
-import {DeltaRequestBuilder} from '../../applications/delta/deltaRequestBuilder';
 import {Event} from '../../event';
+import {DeltaRequestBuilder} from '../messages/delta/deltaRequestBuilder';
 import {EventsResponse} from './eventsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
