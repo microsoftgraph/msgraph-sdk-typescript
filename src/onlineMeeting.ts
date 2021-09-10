@@ -1,6 +1,6 @@
-import {Entity} from './applicationTemplates/entity';
 import {AudioConferencing} from './audioConferencing';
 import {ChatInfo} from './chatInfo';
+import {Entity} from './entity';
 import {ItemBody} from './itemBody';
 import {LobbyBypassSettings} from './lobbyBypassSettings';
 import {MeetingChatMode} from './meetingChatMode';

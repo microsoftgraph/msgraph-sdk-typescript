@@ -1,5 +1,5 @@
-import {Font} from '../../../../../../worksheets/charts/axes/categoryAxis/format/font/font';
-import {WorkbookChartFont} from '../../../../../../worksheets/charts/workbookChartFont';
+import {WorkbookChartFont} from '../../../../../../../../workbookChartFont';
+import {Font} from '../../../../../../names/worksheet/charts/axes/categoryAxis/format/font/font';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/worksheet/charts/{workbookChart-id}/title/format/font  */

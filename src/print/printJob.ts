@@ -1,9 +1,9 @@
-import {Entity} from '../applicationTemplates/entity';
-import {UserIdentity} from '../auditLogs/directoryAudits/userIdentity';
-import {PrintDocument} from '../me/insights/printDocument';
-import {PrintJobConfiguration} from '../me/insights/printJobConfiguration';
-import {PrintJobStatus} from '../me/insights/printJobStatus';
-import {PrintTask} from './taskDefinitions/printTask';
+import {Entity} from '../entity';
+import {UserIdentity} from '../userIdentity';
+import {PrintDocument} from './printDocument';
+import {PrintJobConfiguration} from './printJobConfiguration';
+import {PrintJobStatus} from './printJobStatus';
+import {PrintTask} from './printTask';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintJob extends Entity implements Parsable {

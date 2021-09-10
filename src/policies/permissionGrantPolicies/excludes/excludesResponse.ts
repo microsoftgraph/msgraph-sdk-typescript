@@ -1,4 +1,4 @@
-import {PermissionGrantConditionSet} from '../permissionGrantConditionSet';
+import {PermissionGrantConditionSet} from '../../permissionGrantConditionSet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ExcludesResponse implements Parsable {

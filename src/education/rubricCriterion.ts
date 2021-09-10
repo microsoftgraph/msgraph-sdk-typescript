@@ -1,4 +1,4 @@
-import {EducationItemBody} from './me/rubrics/educationItemBody';
+import {EducationItemBody} from './educationItemBody';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RubricCriterion implements Parsable {

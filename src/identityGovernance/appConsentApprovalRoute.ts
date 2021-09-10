@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {AppConsentRequest} from './appConsentRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

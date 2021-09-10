@@ -1,4 +1,4 @@
-import {EducationOutcome} from '../educationOutcome';
+import {EducationOutcome} from '../../../../educationOutcome';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OutcomesResponse implements Parsable {

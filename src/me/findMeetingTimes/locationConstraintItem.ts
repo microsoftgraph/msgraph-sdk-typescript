@@ -1,4 +1,4 @@
-import {Location} from '../location';
+import {Location} from '../../location';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LocationConstraintItem extends Location implements Parsable {

@@ -1,6 +1,6 @@
 import {DirectoryObject} from '../directoryObject';
-import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
-import {Phone} from './phone';
+import {OnPremisesProvisioningError} from '../onPremisesProvisioningError';
+import {Phone} from '../phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

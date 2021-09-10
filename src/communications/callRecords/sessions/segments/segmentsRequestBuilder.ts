@@ -1,4 +1,4 @@
-import {Segment} from '../segment';
+import {Segment} from '../../../segment';
 import {SegmentsResponse} from './segmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {LocalizedNotificationMessage} from '../localizedNotificationMessage';
+import {LocalizedNotificationMessage} from '../../localizedNotificationMessage';
 import {LocalizedNotificationMessagesResponse} from './localizedNotificationMessagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

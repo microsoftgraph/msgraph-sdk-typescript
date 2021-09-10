@@ -1,5 +1,5 @@
+import {Entity} from '../../entity';
 import {ShiftPreferences} from '../../shiftPreferences';
-import {Entity} from '../insights/used/resource/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Settings extends Entity implements Parsable {

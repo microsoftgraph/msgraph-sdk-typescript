@@ -1,4 +1,4 @@
-import {ThreatAssessmentResult} from '../../threatAssessmentResult';
+import {ThreatAssessmentResult} from '../../../threatAssessmentResult';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /informationProtection/threatAssessmentRequests/{threatAssessmentRequest-id}/results/{threatAssessmentResult-id}  */

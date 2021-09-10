@@ -1,4 +1,4 @@
-import {WorkbookWorksheetProtection} from '../../../workbookWorksheetProtection';
+import {WorkbookWorksheetProtection} from '../../../../../workbookWorksheetProtection';
 import {ProtectRequestBuilder} from './protect/protectRequestBuilder';
 import {Protection} from './protection';
 import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';

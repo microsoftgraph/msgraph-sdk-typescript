@@ -1,4 +1,4 @@
-import {ManagedEBookAssignment} from '../managedEBookAssignment';
+import {ManagedEBookAssignment} from '../../managedEBookAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

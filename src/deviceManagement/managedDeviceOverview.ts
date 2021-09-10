@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
 import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

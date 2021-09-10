@@ -1,5 +1,5 @@
-import {Entity} from './applicationTemplates/entity';
-import {CategoryColor} from './me/outlook/masterCategories/categoryColor';
+import {CategoryColor} from './categoryColor';
+import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OutlookCategory extends Entity implements Parsable {

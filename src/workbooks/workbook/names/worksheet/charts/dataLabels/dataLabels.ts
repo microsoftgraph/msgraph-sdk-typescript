@@ -1,5 +1,5 @@
-import {Entity} from '../../../../../../me/insights/used/resource/entity';
-import {WorkbookChartDataLabelFormat} from '../../../../worksheets/charts/workbookChartDataLabelFormat';
+import {Entity} from '../../../../../../entity';
+import {WorkbookChartDataLabelFormat} from '../../../../../../workbookChartDataLabelFormat';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DataLabels extends Entity implements Parsable {

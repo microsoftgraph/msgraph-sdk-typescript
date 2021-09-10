@@ -1,6 +1,6 @@
-import {Entity} from './applicationTemplates/entity';
-import {MessageRule} from './me/mailFolders/messageRule';
+import {Entity} from './entity';
 import {Message} from './message';
+import {MessageRule} from './messageRule';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

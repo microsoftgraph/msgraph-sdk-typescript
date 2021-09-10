@@ -1,4 +1,4 @@
-import {DeviceComplianceScheduledActionForRule} from '../deviceComplianceScheduledActionForRule';
+import {DeviceComplianceScheduledActionForRule} from '../../deviceComplianceScheduledActionForRule';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ScheduleActionsForRulesResponse implements Parsable {

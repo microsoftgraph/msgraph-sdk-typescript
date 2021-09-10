@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {PrintServiceEndpoint} from './services/printServiceEndpoint';
+import {Entity} from '../entity';
+import {PrintServiceEndpoint} from './printServiceEndpoint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintService extends Entity implements Parsable {

@@ -1,4 +1,4 @@
-import {ChatMessageHostedContent} from '../../chatMessageHostedContent';
+import {ChatMessageHostedContent} from '../../../../chatMessageHostedContent';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /chats/{chat-id}/messages/{chatMessage-id}/hostedContents/{chatMessageHostedContent-id}  */

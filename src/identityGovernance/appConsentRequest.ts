@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
-import {UserConsentRequest} from './appConsent/appConsentRequests/userConsentRequest';
+import {Entity} from '../entity';
 import {AppConsentRequestScope} from './appConsentRequestScope';
+import {UserConsentRequest} from './userConsentRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AppConsentRequest extends Entity implements Parsable {

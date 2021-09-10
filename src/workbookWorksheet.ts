@@ -1,9 +1,9 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
+import {WorkbookChart} from './workbookChart';
 import {WorkbookNamedItem} from './workbookNamedItem';
-import {WorkbookChart} from './workbooks/workbook/workbookChart';
-import {WorkbookPivotTable} from './workbooks/workbook/workbookPivotTable';
-import {WorkbookWorksheetProtection} from './workbooks/workbook/workbookWorksheetProtection';
+import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookTable} from './workbookTable';
+import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookWorksheet extends Entity implements Parsable {

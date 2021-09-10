@@ -1,4 +1,4 @@
-import {WorkbookTableRow} from '../../../../../tables/workbookTableRow';
+import {WorkbookTableRow} from '../../../../../../../workbookTableRow';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/rows/microsoft.graph.itemAt(index={index})  */

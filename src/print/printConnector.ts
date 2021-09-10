@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {PrinterLocation} from './printerLocation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

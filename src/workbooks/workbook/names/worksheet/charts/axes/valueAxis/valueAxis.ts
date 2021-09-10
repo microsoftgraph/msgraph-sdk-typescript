@@ -1,8 +1,8 @@
-import {Json} from '../../../../../../../me/activities/json';
-import {Entity} from '../../../../../../../me/insights/used/resource/entity';
-import {WorkbookChartAxisFormat} from '../../../../../worksheets/charts/workbookChartAxisFormat';
-import {WorkbookChartAxisTitle} from '../../../../../worksheets/charts/workbookChartAxisTitle';
-import {WorkbookChartGridlines} from '../../../../../worksheets/charts/workbookChartGridlines';
+import {Entity} from '../../../../../../../entity';
+import {Json} from '../../../../../../../json';
+import {WorkbookChartAxisFormat} from '../../../../../../../workbookChartAxisFormat';
+import {WorkbookChartAxisTitle} from '../../../../../../../workbookChartAxisTitle';
+import {WorkbookChartGridlines} from '../../../../../../../workbookChartGridlines';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ValueAxis extends Entity implements Parsable {

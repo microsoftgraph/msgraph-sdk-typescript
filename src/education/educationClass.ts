@@ -1,14 +1,14 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {Group} from '../group';
 import {IdentitySet} from '../identitySet';
-import {EducationAssignment} from './classes/educationAssignment';
-import {EducationAssignmentDefaults} from './classes/educationAssignmentDefaults';
-import {EducationAssignmentSettings} from './classes/educationAssignmentSettings';
-import {EducationCategory} from './classes/educationCategory';
-import {EducationCourse} from './classes/educationCourse';
-import {EducationTerm} from './classes/educationTerm';
+import {EducationAssignment} from './educationAssignment';
+import {EducationAssignmentDefaults} from './educationAssignmentDefaults';
+import {EducationAssignmentSettings} from './educationAssignmentSettings';
+import {EducationCategory} from './educationCategory';
+import {EducationCourse} from './educationCourse';
 import {EducationExternalSource} from './educationExternalSource';
 import {EducationSchool} from './educationSchool';
+import {EducationTerm} from './educationTerm';
 import {EducationUser} from './educationUser';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {Segment} from '../../segment';
+import {Segment} from '../../../../segment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /communications/callRecords/{callRecord-id}/sessions/{session-id}/segments/{segment-id}  */

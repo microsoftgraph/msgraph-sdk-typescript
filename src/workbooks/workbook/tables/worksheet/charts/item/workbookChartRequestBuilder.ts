@@ -1,4 +1,4 @@
-import {WorkbookChart} from '../../../../workbookChart';
+import {WorkbookChart} from '../../../../../../workbookChart';
 import {ImageRequestBuilder} from '../../../../worksheets/charts/image/imageRequestBuilder';
 import {ImageWithWidthRequestBuilder} from '../../../../worksheets/charts/imageWithWidth/imageWithWidthRequestBuilder';
 import {ImageWithWidthWithHeightRequestBuilder} from '../../../../worksheets/charts/imageWithWidthWithHeight/imageWithWidthWithHeightRequestBuilder';

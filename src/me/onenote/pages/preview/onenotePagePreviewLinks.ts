@@ -1,4 +1,4 @@
-import {ExternalLink} from '../../externalLink';
+import {ExternalLink} from '../../../../externalLink';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OnenotePagePreviewLinks implements Parsable {

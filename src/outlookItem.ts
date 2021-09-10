@@ -1,4 +1,4 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OutlookItem extends Entity implements Parsable {

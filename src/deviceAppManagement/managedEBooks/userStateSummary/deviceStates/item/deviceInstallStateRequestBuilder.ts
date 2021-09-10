@@ -1,4 +1,4 @@
-import {DeviceInstallState} from '../../../deviceInstallState';
+import {DeviceInstallState} from '../../../../deviceInstallState';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedEBooks/{managedEBook-id}/userStateSummary/{userInstallStateSummary-id}/deviceStates/{deviceInstallState-id}  */

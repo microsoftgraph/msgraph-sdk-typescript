@@ -1,8 +1,8 @@
-import {Entity} from './applicationTemplates/entity';
-import {ActivityHistoryItem} from './me/activities/activityHistoryItem';
-import {Json} from './me/activities/json';
-import {Status} from './me/activities/status';
-import {VisualInfo} from './me/activities/visualInfo';
+import {ActivityHistoryItem} from './activityHistoryItem';
+import {Entity} from './entity';
+import {Json} from './json';
+import {Status} from './status';
+import {VisualInfo} from './visualInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UserActivity extends Entity implements Parsable {

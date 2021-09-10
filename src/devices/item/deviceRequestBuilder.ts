@@ -1,6 +1,6 @@
+import {Device} from '../../device';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {Device} from '../device';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';

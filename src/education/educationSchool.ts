@@ -1,4 +1,4 @@
-import {AdministrativeUnit} from '../directory/administrativeUnit';
+import {AdministrativeUnit} from '../administrativeUnit';
 import {IdentitySet} from '../identitySet';
 import {PhysicalAddress} from '../physicalAddress';
 import {EducationClass} from './educationClass';

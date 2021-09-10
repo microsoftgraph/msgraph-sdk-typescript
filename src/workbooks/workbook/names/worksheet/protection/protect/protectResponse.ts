@@ -1,4 +1,4 @@
-import {WorkbookWorksheetProtectionOptions} from '../../../../workbookWorksheetProtectionOptions';
+import {WorkbookWorksheetProtectionOptions} from '../../../../../../workbookWorksheetProtectionOptions';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ProtectResponse implements Parsable {

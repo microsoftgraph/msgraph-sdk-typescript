@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {PrintOperationStatus} from './operations/printOperationStatus';
+import {Entity} from '../entity';
+import {PrintOperationStatus} from './printOperationStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintOperation extends Entity implements Parsable {

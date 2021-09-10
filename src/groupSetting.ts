@@ -1,5 +1,5 @@
-import {Entity} from './applicationTemplates/entity';
-import {SettingValue} from './groupSettings/settingValue';
+import {Entity} from './entity';
+import {SettingValue} from './settingValue';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GroupSetting extends Entity implements Parsable {

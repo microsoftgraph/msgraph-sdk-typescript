@@ -1,4 +1,4 @@
-import {MessageRule} from '../../../../me/mailFolders/messageRule';
+import {MessageRule} from '../../../../messageRule';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/mailFolders/{mailFolder-id}/messageRules/{messageRule-id}  */

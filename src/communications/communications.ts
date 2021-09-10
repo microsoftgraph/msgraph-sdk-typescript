@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {OnlineMeeting} from '../onlineMeeting';
 import {Presence} from '../presence';
 import {Call} from './call';

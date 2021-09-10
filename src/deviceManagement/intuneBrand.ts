@@ -1,4 +1,4 @@
-import {MimeContent} from './mimeContent';
+import {MimeContent} from '../mimeContent';
 import {RgbColor} from './rgbColor';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

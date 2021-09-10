@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {ComplianceInformation} from './complianceInformation';
 import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {SecurityVendorInformation} from './securityVendorInformation';

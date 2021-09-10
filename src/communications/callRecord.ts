@@ -1,8 +1,8 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
-import {CallType} from './callRecords/callType';
-import {Session} from './callRecords/session';
+import {CallType} from './callType';
 import {Modality} from './modality';
+import {Session} from './session';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CallRecord extends Entity implements Parsable {

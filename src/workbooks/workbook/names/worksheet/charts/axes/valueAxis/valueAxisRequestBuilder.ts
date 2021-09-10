@@ -1,4 +1,4 @@
-import {WorkbookChartAxis} from '../../../../../worksheets/charts/workbookChartAxis';
+import {WorkbookChartAxis} from '../../../../../../../workbookChartAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';

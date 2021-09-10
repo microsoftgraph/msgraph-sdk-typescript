@@ -1,9 +1,9 @@
-import {Entity} from '../applicationTemplates/entity';
-import {UserIdentity} from '../auditLogs/directoryAudits/userIdentity';
-import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
-import {AccessReviewInstance} from './accessReviews/definitions/accessReviewInstance';
-import {AccessReviewScheduleSettings} from './accessReviews/definitions/accessReviewScheduleSettings';
-import {AccessReviewScope} from './accessReviews/definitions/accessReviewScope';
+import {AccessReviewReviewerScope} from '../accessReviewReviewerScope';
+import {Entity} from '../entity';
+import {UserIdentity} from '../userIdentity';
+import {AccessReviewInstance} from './accessReviewInstance';
+import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
+import {AccessReviewScope} from './accessReviewScope';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {

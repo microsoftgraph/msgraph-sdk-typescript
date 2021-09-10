@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
 import {AssignedLicense} from '../assignedLicense';
 import {AssignedPlan} from '../assignedPlan';
+import {Entity} from '../entity';
 import {IdentitySet} from '../identitySet';
 import {PasswordProfile} from '../passwordProfile';
 import {PhysicalAddress} from '../physicalAddress';

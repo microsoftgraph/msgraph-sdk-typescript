@@ -1,5 +1,5 @@
-import {Json} from '../activities/json';
-import {Entity} from './shared/lastSharedMethod/entity';
+import {Entity} from '../../entity';
+import {Json} from '../../json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRangeView extends Entity implements Parsable {

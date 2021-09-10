@@ -1,12 +1,12 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {PlannerAppliedCategories} from './planner/tasks/plannerAppliedCategories';
-import {PlannerAssignedToTaskBoardTaskFormat} from './planner/tasks/plannerAssignedToTaskBoardTaskFormat';
-import {PlannerAssignments} from './planner/tasks/plannerAssignments';
-import {PlannerBucketTaskBoardTaskFormat} from './planner/tasks/plannerBucketTaskBoardTaskFormat';
-import {PlannerPreviewType} from './planner/tasks/plannerPreviewType';
-import {PlannerProgressTaskBoardTaskFormat} from './planner/tasks/plannerProgressTaskBoardTaskFormat';
-import {PlannerTaskDetails} from './planner/tasks/plannerTaskDetails';
+import {PlannerAppliedCategories} from './plannerAppliedCategories';
+import {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoardTaskFormat';
+import {PlannerAssignments} from './plannerAssignments';
+import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
+import {PlannerPreviewType} from './plannerPreviewType';
+import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
+import {PlannerTaskDetails} from './plannerTaskDetails';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlannerTask extends Entity implements Parsable {

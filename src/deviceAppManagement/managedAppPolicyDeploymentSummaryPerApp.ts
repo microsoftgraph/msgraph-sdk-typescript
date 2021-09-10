@@ -1,4 +1,4 @@
-import {MobileAppIdentifier} from './managedAppRegistrations/mobileAppIdentifier';
+import {MobileAppIdentifier} from '../mobileAppIdentifier';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppPolicyDeploymentSummaryPerApp implements Parsable {

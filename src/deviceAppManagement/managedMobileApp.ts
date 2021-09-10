@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {MobileAppIdentifier} from './managedAppRegistrations/mobileAppIdentifier';
+import {Entity} from '../entity';
+import {MobileAppIdentifier} from '../mobileAppIdentifier';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedMobileApp extends Entity implements Parsable {

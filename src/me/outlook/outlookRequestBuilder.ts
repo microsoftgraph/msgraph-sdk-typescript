@@ -1,10 +1,10 @@
 import {OutlookUser} from '../../outlookUser';
-import {SupportedLanguagesRequestBuilder} from '../../users/outlook/supportedLanguages/supportedLanguagesRequestBuilder';
-import {SupportedTimeZonesRequestBuilder} from '../../users/outlook/supportedTimeZones/supportedTimeZonesRequestBuilder';
-import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from '../../users/outlook/supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
 import {Outlook} from './outlook';
+import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
+import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
+import {SupportedTimeZonesWithTimeZoneStandardRequestBuilder} from './supportedTimeZonesWithTimeZoneStandard/supportedTimeZonesWithTimeZoneStandardRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/outlook  */

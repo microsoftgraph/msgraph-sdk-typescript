@@ -1,4 +1,4 @@
-import {WorkbookCommentReply} from '../workbookCommentReply';
+import {WorkbookCommentReply} from '../../../../workbookCommentReply';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RepliesResponse implements Parsable {

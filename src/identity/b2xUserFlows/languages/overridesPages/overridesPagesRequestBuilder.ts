@@ -1,4 +1,4 @@
-import {UserFlowLanguagePage} from '../userFlowLanguagePage';
+import {UserFlowLanguagePage} from '../../../userFlowLanguagePage';
 import {OverridesPagesResponse} from './overridesPagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

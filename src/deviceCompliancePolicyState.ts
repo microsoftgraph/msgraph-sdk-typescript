@@ -1,7 +1,7 @@
-import {Entity} from './applicationTemplates/entity';
+import {ComplianceStatus} from './complianceStatus';
 import {DeviceCompliancePolicySettingState} from './deviceCompliancePolicySettingState';
-import {PolicyPlatformType} from './deviceManagement/deviceCompliancePolicySettingStateSummaries/policyPlatformType';
-import {ComplianceStatus} from './deviceManagement/iosUpdateStatuses/complianceStatus';
+import {Entity} from './entity';
+import {PolicyPlatformType} from './policyPlatformType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicyState extends Entity implements Parsable {

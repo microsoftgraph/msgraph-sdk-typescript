@@ -1,6 +1,6 @@
+import {Entity} from '../../../../entity';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {CalendarSharingMessageRequestBuilder} from './calendarSharingMessage/calendarSharingMessageRequestBuilder';
-import {Entity} from './entity';
 import {ManagedAppProtectionRequestBuilder} from './managedAppProtection/managedAppProtectionRequestBuilder';
 import {MobileAppContentFileRequestBuilder} from './mobileAppContentFile/mobileAppContentFileRequestBuilder';
 import {PrintDocumentRequestBuilder} from './printDocument/printDocumentRequestBuilder';

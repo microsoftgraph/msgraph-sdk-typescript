@@ -1,5 +1,5 @@
-import {EducationAssignmentGradeType} from './me/rubrics/educationAssignmentGradeType';
-import {EducationItemBody} from './me/rubrics/educationItemBody';
+import {EducationAssignmentGradeType} from './educationAssignmentGradeType';
+import {EducationItemBody} from './educationItemBody';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RubricLevel implements Parsable {

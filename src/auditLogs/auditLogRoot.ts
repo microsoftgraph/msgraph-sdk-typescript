@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {DirectoryAudit} from './directoryAudit';
 import {ProvisioningObjectSummary} from './provisioningObjectSummary';
 import {RestrictedSignIn} from './restrictedSignIn';

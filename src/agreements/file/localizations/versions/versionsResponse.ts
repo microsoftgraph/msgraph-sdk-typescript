@@ -1,4 +1,4 @@
-import {AgreementFileVersion} from '../../../files/agreementFileVersion';
+import {AgreementFileVersion} from '../../../../agreementFileVersion';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VersionsResponse implements Parsable {

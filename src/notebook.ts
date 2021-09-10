@@ -1,7 +1,7 @@
-import {NotebookLinks} from './me/onenote/notebookLinks';
-import {OnenoteUserRole} from './me/onenote/onenoteUserRole';
+import {NotebookLinks} from './notebookLinks';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
+import {OnenoteUserRole} from './onenoteUserRole';
 import {SectionGroup} from './sectionGroup';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

@@ -1,14 +1,14 @@
+import {Attachment} from '../../../../attachment';
 import {Extension} from '../../../../extension';
+import {FollowupFlag} from '../../../../followupFlag';
+import {Importance} from '../../../../importance';
+import {InferenceClassificationType} from '../../../../inferenceClassificationType';
 import {InternetMessageHeader} from '../../../../internetMessageHeader';
 import {ItemBody} from '../../../../itemBody';
 import {MultiValueLegacyExtendedProperty} from '../../../../multiValueLegacyExtendedProperty';
 import {OutlookItem} from '../../../../outlookItem';
 import {Recipient} from '../../../../recipient';
 import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
-import {Attachment} from '../../../attachment';
-import {FollowupFlag} from '../../../followupFlag';
-import {Importance} from '../../../importance';
-import {InferenceClassificationType} from '../../../inferenceClassificationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {

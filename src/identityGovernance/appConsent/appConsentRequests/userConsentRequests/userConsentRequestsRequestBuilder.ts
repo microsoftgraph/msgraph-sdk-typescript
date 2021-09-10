@@ -1,5 +1,5 @@
-import {FilterByCurrentUserWithOnRequestBuilder} from '../../../accessReviews/definitions/instances/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {UserConsentRequest} from '../userConsentRequest';
+import {FilterByCurrentUserWithOnRequestBuilder} from '../../../entitlementManagement/accessPackageAssignmentApprovals/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
+import {UserConsentRequest} from '../../../userConsentRequest';
 import {UserConsentRequestsResponse} from './userConsentRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

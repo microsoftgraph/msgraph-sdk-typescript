@@ -1,13 +1,13 @@
-import {Entity} from './applicationTemplates/entity';
+import {ChannelIdentity} from './channelIdentity';
 import {ChatMessageAttachment} from './chatMessageAttachment';
+import {ChatMessageFromIdentitySet} from './chatMessageFromIdentitySet';
+import {ChatMessageHostedContent} from './chatMessageHostedContent';
+import {ChatMessageImportance} from './chatMessageImportance';
 import {ChatMessageMention} from './chatMessageMention';
+import {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
 import {ChatMessageReaction} from './chatMessageReaction';
-import {ChannelIdentity} from './chats/messages/channelIdentity';
-import {ChatMessageFromIdentitySet} from './chats/messages/chatMessageFromIdentitySet';
-import {ChatMessageHostedContent} from './chats/messages/chatMessageHostedContent';
-import {ChatMessageImportance} from './chats/messages/chatMessageImportance';
-import {ChatMessagePolicyViolation} from './chats/messages/chatMessagePolicyViolation';
-import {ChatMessageType} from './chats/messages/chatMessageType';
+import {ChatMessageType} from './chatMessageType';
+import {Entity} from './entity';
 import {ItemBody} from './itemBody';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

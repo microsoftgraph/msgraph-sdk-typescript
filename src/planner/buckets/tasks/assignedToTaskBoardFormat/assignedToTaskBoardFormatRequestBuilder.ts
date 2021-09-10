@@ -1,4 +1,4 @@
-import {PlannerAssignedToTaskBoardTaskFormat} from '../../../tasks/plannerAssignedToTaskBoardTaskFormat';
+import {PlannerAssignedToTaskBoardTaskFormat} from '../../../../plannerAssignedToTaskBoardTaskFormat';
 import {AssignedToTaskBoardFormat} from './assignedToTaskBoardFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

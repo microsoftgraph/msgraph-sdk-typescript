@@ -1,4 +1,4 @@
-import {MessageRule} from '../messageRule';
+import {MessageRule} from '../../../messageRule';
 import {MessageRulesResponse} from './messageRulesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

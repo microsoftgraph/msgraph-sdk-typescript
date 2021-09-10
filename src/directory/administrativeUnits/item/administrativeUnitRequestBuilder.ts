@@ -1,4 +1,4 @@
-import {AdministrativeUnit} from '../../administrativeUnit';
+import {AdministrativeUnit} from '../../../administrativeUnit';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';

@@ -1,4 +1,4 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {IncompleteData} from './incompleteData';
 import {ItemActionStat} from './itemActionStat';
 import {ItemActivity} from './itemActivity';

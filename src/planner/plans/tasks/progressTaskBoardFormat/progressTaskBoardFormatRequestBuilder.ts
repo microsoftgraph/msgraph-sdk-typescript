@@ -1,5 +1,5 @@
+import {PlannerProgressTaskBoardTaskFormat} from '../../../../plannerProgressTaskBoardTaskFormat';
 import {ProgressTaskBoardFormat} from '../../../buckets/tasks/progressTaskBoardFormat/progressTaskBoardFormat';
-import {PlannerProgressTaskBoardTaskFormat} from '../../../tasks/plannerProgressTaskBoardTaskFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/plans/{plannerPlan-id}/tasks/{plannerTask-id}/progressTaskBoardFormat  */

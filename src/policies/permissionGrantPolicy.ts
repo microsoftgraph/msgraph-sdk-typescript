@@ -1,5 +1,5 @@
 import {PolicyBase} from '../policyBase';
-import {PermissionGrantConditionSet} from './permissionGrantPolicies/permissionGrantConditionSet';
+import {PermissionGrantConditionSet} from './permissionGrantConditionSet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PermissionGrantPolicy extends PolicyBase implements Parsable {

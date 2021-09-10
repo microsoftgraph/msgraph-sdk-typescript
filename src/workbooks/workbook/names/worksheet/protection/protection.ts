@@ -1,5 +1,5 @@
-import {Entity} from '../../../../../me/insights/used/resource/entity';
-import {WorkbookWorksheetProtectionOptions} from '../../../workbookWorksheetProtectionOptions';
+import {Entity} from '../../../../../entity';
+import {WorkbookWorksheetProtectionOptions} from '../../../../../workbookWorksheetProtectionOptions';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Protection extends Entity implements Parsable {

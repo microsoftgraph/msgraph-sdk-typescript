@@ -1,6 +1,6 @@
-import {Entity} from './applicationTemplates/entity';
+import {CalendarRoleType} from './calendarRoleType';
 import {EmailAddress} from './emailAddress';
-import {CalendarRoleType} from './me/calendar/calendarPermissions/calendarRoleType';
+import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CalendarPermission extends Entity implements Parsable {

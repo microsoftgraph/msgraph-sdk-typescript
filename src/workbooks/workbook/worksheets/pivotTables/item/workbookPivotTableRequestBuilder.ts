@@ -1,4 +1,4 @@
-import {WorkbookPivotTable} from '../../../workbookPivotTable';
+import {WorkbookPivotTable} from '../../../../../workbookPivotTable';
 import {RefreshRequestBuilder} from '../refresh/refreshRequestBuilder';
 import {WorksheetRequestBuilder} from '../worksheet/worksheetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

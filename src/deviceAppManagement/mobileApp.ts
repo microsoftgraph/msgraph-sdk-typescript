@@ -1,8 +1,8 @@
-import {Entity} from '../applicationTemplates/entity';
-import {MimeContent} from '../deviceManagement/mimeContent';
+import {Entity} from '../entity';
+import {MimeContent} from '../mimeContent';
+import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppCategory} from './mobileAppCategory';
-import {MobileAppAssignment} from './mobileApps/mobileAppAssignment';
-import {MobileAppPublishingState} from './mobileApps/mobileAppPublishingState';
+import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileApp extends Entity implements Parsable {

@@ -1,4 +1,4 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {PlannerPlan} from './plannerPlan';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

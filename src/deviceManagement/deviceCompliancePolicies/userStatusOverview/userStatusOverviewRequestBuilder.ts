@@ -1,4 +1,4 @@
-import {DeviceComplianceUserOverview} from '../deviceComplianceUserOverview';
+import {DeviceComplianceUserOverview} from '../../deviceComplianceUserOverview';
 import {UserStatusOverview} from './userStatusOverview';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

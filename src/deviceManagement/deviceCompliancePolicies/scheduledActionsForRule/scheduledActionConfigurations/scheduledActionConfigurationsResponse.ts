@@ -1,4 +1,4 @@
-import {DeviceComplianceActionItem} from '../deviceComplianceActionItem';
+import {DeviceComplianceActionItem} from '../../../deviceComplianceActionItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ScheduledActionConfigurationsResponse implements Parsable {

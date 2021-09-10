@@ -1,4 +1,4 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {OfferShiftRequest} from './offerShiftRequest';
 import {OpenShift} from './openShift';
 import {OpenShiftChangeRequest} from './openShiftChangeRequest';

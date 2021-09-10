@@ -1,8 +1,8 @@
+import {ManagedAppPolicy} from '../managedAppPolicy';
 import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
 import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
 import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
-import {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedBrowserType} from './managedBrowserType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

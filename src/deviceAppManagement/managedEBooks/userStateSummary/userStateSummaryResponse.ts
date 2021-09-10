@@ -1,4 +1,4 @@
-import {UserInstallStateSummary} from '../userInstallStateSummary';
+import {UserInstallStateSummary} from '../../userInstallStateSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UserStateSummaryResponse implements Parsable {

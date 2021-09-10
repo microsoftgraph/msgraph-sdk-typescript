@@ -1,4 +1,4 @@
-import {WorkbookTableColumn} from '../../../../../tables/workbookTableColumn';
+import {WorkbookTableColumn} from '../../../../../../../workbookTableColumn';
 import {AddResponse} from './addResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

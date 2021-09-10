@@ -1,7 +1,7 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
+import {PlannerBucket} from '../plannerBucket';
 import {PlannerPlan} from '../plannerPlan';
 import {PlannerTask} from '../plannerTask';
-import {PlannerBucket} from './plannerBucket';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Planner extends Entity implements Parsable {

@@ -1,9 +1,9 @@
-import {Entity} from '../../../../me/insights/used/resource/entity';
+import {Entity} from '../../../../entity';
+import {WorkbookChart} from '../../../../workbookChart';
 import {WorkbookNamedItem} from '../../../../workbookNamedItem';
+import {WorkbookPivotTable} from '../../../../workbookPivotTable';
 import {WorkbookTable} from '../../../../workbookTable';
-import {WorkbookChart} from '../../workbookChart';
-import {WorkbookPivotTable} from '../../workbookPivotTable';
-import {WorkbookWorksheetProtection} from '../../workbookWorksheetProtection';
+import {WorkbookWorksheetProtection} from '../../../../workbookWorksheetProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Worksheet extends Entity implements Parsable {

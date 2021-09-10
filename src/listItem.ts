@@ -1,5 +1,5 @@
-import {BaseItem} from './baseItem';
 import {ContentTypeInfo} from './contentTypeInfo';
+import {BaseItem} from './drive/baseItem';
 import {DriveItem} from './driveItem';
 import {FieldValueSet} from './fieldValueSet';
 import {ItemAnalytics} from './itemAnalytics';

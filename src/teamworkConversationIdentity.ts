@@ -1,4 +1,4 @@
-import {Identity} from './auditLogs/directoryAudits/identity';
+import {Identity} from './identity';
 import {TeamworkConversationIdentityType} from './teamworkConversationIdentityType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

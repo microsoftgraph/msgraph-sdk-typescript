@@ -1,4 +1,4 @@
-import {WorkbookCommentReply} from '../workbookCommentReply';
+import {WorkbookCommentReply} from '../../../../workbookCommentReply';
 import {RepliesResponse} from './repliesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

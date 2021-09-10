@@ -1,6 +1,6 @@
+import {WorkbookChartPoint} from '../../../../../../../workbookChartPoint';
 import {CountRequestBuilder} from '../../../../../worksheets/charts/count/countRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from '../../../../../worksheets/charts/series/itemAtWithIndex/itemAtWithIndexRequestBuilder';
-import {WorkbookChartPoint} from '../../../../../worksheets/charts/series/workbookChartPoint';
+import {ItemAtWithIndexRequestBuilder} from '../../../../../worksheets/charts/itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {PointsResponse} from './pointsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

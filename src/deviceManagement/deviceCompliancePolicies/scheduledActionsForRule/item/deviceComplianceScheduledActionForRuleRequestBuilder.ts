@@ -1,4 +1,4 @@
-import {DeviceComplianceScheduledActionForRule} from '../../deviceComplianceScheduledActionForRule';
+import {DeviceComplianceScheduledActionForRule} from '../../../deviceComplianceScheduledActionForRule';
 import {DeviceComplianceActionItemRequestBuilder} from '../scheduledActionConfigurations/item/deviceComplianceActionItemRequestBuilder';
 import {ScheduledActionConfigurationsRequestBuilder} from '../scheduledActionConfigurations/scheduledActionConfigurationsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

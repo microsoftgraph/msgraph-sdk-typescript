@@ -1,4 +1,4 @@
-import {Session} from '../session';
+import {Session} from '../../session';
 import {SessionsResponse} from './sessionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

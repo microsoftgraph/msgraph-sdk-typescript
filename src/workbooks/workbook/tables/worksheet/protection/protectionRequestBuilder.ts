@@ -1,5 +1,5 @@
+import {WorkbookWorksheetProtection} from '../../../../../workbookWorksheetProtection';
 import {Protection} from '../../../names/worksheet/protection/protection';
-import {WorkbookWorksheetProtection} from '../../../workbookWorksheetProtection';
 import {ProtectRequestBuilder} from './protect/protectRequestBuilder';
 import {UnprotectRequestBuilder} from './unprotect/unprotectRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,6 +1,6 @@
-import {FreeBusyStatus} from '../freeBusyStatus';
-import {Location} from '../location';
-import {TimeSlot} from '../timeSlot';
+import {FreeBusyStatus} from '../../freeBusyStatus';
+import {Location} from '../../location';
+import {TimeSlot} from '../../timeSlot';
 import {AttendeeAvailability} from './attendeeAvailability';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

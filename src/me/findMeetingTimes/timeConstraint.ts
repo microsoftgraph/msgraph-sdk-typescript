@@ -1,4 +1,4 @@
-import {TimeSlot} from '../timeSlot';
+import {TimeSlot} from '../../timeSlot';
 import {ActivityDomain} from './activityDomain';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

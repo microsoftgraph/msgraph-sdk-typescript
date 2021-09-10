@@ -1,4 +1,4 @@
-import {Device} from './device';
+import {Device} from '../device';
 import {DevicesResponse} from './devicesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

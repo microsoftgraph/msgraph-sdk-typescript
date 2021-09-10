@@ -1,4 +1,4 @@
-import {Post} from '../../../../threads/post';
+import {Post} from '../../../../../post';
 import {AttachmentsRequestBuilder} from '../attachments/attachmentsRequestBuilder';
 import {AttachmentRequestBuilder} from '../attachments/item/attachmentRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';

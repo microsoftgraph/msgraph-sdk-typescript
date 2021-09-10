@@ -1,5 +1,5 @@
 import {AuthenticationMethod} from './authenticationMethod';
-import {Device} from './devices/device';
+import {Device} from './device';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable {

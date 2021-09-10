@@ -1,4 +1,4 @@
-import {ConnectionOperation} from '../../connectionOperation';
+import {ConnectionOperation} from '../../../connectionOperation';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /connections/{externalConnection-id}/operations/{connectionOperation-id}  */

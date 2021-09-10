@@ -1,4 +1,4 @@
-import {PrintTask} from '../printTask';
+import {PrintTask} from '../../printTask';
 import {TasksResponse} from './tasksResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

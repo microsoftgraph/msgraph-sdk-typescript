@@ -1,4 +1,4 @@
-import {WorkbookPivotTable} from '../../../workbookPivotTable';
+import {WorkbookPivotTable} from '../../../../../workbookPivotTable';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PivotTablesResponse implements Parsable {

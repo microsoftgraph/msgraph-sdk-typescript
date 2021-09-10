@@ -1,4 +1,4 @@
-import {CommsOperation} from '../commsOperation';
+import {CommsOperation} from '../../commsOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlayPromptOperation extends CommsOperation implements Parsable {

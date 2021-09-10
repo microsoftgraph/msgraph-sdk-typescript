@@ -1,4 +1,4 @@
-import {PermissionGrantConditionSet} from '../permissionGrantConditionSet';
+import {PermissionGrantConditionSet} from '../../permissionGrantConditionSet';
 import {IncludesResponse} from './includesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

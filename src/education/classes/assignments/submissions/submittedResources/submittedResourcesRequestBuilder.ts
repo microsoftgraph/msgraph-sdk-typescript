@@ -1,4 +1,4 @@
-import {EducationSubmissionResource} from '../educationSubmissionResource';
+import {EducationSubmissionResource} from '../../../../educationSubmissionResource';
 import {SubmittedResourcesResponse} from './submittedResourcesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

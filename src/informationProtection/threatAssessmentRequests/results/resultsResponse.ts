@@ -1,4 +1,4 @@
-import {ThreatAssessmentResult} from '../threatAssessmentResult';
+import {ThreatAssessmentResult} from '../../threatAssessmentResult';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ResultsResponse implements Parsable {

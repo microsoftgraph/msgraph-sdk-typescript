@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {AccessReviewReviewerScope} from '../identityGovernance/accessReviewReviewerScope';
+import {AccessReviewReviewerScope} from '../accessReviewReviewerScope';
+import {Entity} from '../entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AdminConsentRequestPolicy extends Entity implements Parsable {

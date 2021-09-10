@@ -1,4 +1,4 @@
-import {DirectoryObject} from '../applications/directoryObject';
+import {DirectoryObject} from '../directoryObject';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Endpoint extends DirectoryObject implements Parsable {

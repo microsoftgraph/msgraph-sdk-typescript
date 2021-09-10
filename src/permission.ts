@@ -1,8 +1,8 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {ItemReference} from './itemReference';
-import {SharingInvitation} from './shares/sharingInvitation';
-import {SharingLink} from './shares/sharingLink';
+import {SharingInvitation} from './sharingInvitation';
+import {SharingLink} from './sharingLink';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Permission extends Entity implements Parsable {

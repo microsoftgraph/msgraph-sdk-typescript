@@ -1,4 +1,4 @@
-import {ManagedAppPolicy} from './managedAppPolicy';
+import {ManagedAppPolicy} from '../managedAppPolicy';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {WindowsInformationProtectionApp} from './windowsInformationProtectionApp';
 import {WindowsInformationProtectionAppLockerFile} from './windowsInformationProtectionAppLockerFile';

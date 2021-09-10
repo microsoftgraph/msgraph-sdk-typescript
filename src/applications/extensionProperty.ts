@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import {DirectoryObject} from '../directoryObject';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ExtensionProperty extends DirectoryObject implements Parsable {

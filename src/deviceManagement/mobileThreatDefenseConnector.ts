@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {MobileThreatPartnerTenantState} from './mobileThreatDefenseConnectors/mobileThreatPartnerTenantState';
+import {Entity} from '../entity';
+import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileThreatDefenseConnector extends Entity implements Parsable {

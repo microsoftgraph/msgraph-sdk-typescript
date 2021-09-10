@@ -1,4 +1,4 @@
-import {WorkbookChart} from '../../../../workbookChart';
+import {WorkbookChart} from '../../../../../../workbookChart';
 import {AddResponse} from './addResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

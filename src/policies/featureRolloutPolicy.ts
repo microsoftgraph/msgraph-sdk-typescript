@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
 import {DirectoryObject} from '../directoryObject';
-import {StagedFeatureName} from './featureRolloutPolicies/stagedFeatureName';
+import {Entity} from '../entity';
+import {StagedFeatureName} from './stagedFeatureName';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class FeatureRolloutPolicy extends Entity implements Parsable {

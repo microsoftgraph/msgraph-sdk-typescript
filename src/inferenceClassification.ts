@@ -1,4 +1,4 @@
-import {Entity} from './applicationTemplates/entity';
+import {Entity} from './entity';
 import {InferenceClassificationOverride} from './inferenceClassificationOverride';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

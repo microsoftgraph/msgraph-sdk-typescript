@@ -1,4 +1,4 @@
-import {AgreementFileVersion} from '../agreementFileVersion';
+import {AgreementFileVersion} from '../../../agreementFileVersion';
 import {VersionsResponse} from './versionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

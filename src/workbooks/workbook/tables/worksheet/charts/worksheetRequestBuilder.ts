@@ -1,10 +1,10 @@
+import {CellWithRowWithColumnRequestBuilder} from '../../../../../../me/insights/shared/lastSharedMethod/workbookRange/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
+import {UsedRangeRequestBuilder} from '../../../../../../me/insights/shared/lastSharedMethod/workbookRange/usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from '../../../../../../me/insights/shared/lastSharedMethod/workbookRange/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
+import {RangeRequestBuilder} from '../../../../../../me/insights/shared/lastSharedMethod/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookWorksheet} from '../../../../../../workbookWorksheet';
 import {Worksheet} from '../../../../names/worksheet/worksheet';
-import {CellWithRowWithColumnRequestBuilder} from '../../../../worksheets/charts/worksheet/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {RangeRequestBuilder} from '../../../../worksheets/charts/worksheet/range/rangeRequestBuilder';
-import {RangeWithAddressRequestBuilder} from '../../../../worksheets/charts/worksheet/rangeWithAddress/rangeWithAddressRequestBuilder';
-import {UsedRangeRequestBuilder} from '../../../../worksheets/charts/worksheet/usedRange/usedRangeRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from '../../../../worksheets/charts/worksheet/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
+import {RangeWithAddressRequestBuilder} from '../../../../worksheets/rangeWithAddress/rangeWithAddressRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/tables/{workbookTable-id}/worksheet/charts/{workbookChart-id}/worksheet  */

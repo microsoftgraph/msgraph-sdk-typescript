@@ -1,4 +1,4 @@
-import {Identity} from './auditLogs/directoryAudits/identity';
+import {Identity} from './identity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentitySet implements Parsable {

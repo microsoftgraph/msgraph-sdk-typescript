@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
-import {LocalizedNotificationMessage} from './notificationMessageTemplates/localizedNotificationMessage';
-import {NotificationTemplateBrandingOptions} from './notificationMessageTemplates/notificationTemplateBrandingOptions';
+import {Entity} from '../entity';
+import {LocalizedNotificationMessage} from './localizedNotificationMessage';
+import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class NotificationMessageTemplate extends Entity implements Parsable {

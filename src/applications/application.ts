@@ -1,5 +1,6 @@
 import {AddIn} from '../addIn';
 import {AppRole} from '../appRole';
+import {DirectoryObject} from '../directoryObject';
 import {HomeRealmDiscoveryPolicy} from '../homeRealmDiscoveryPolicy';
 import {InformationalUrl} from '../informationalUrl';
 import {KeyCredential} from '../keyCredential';
@@ -7,7 +8,6 @@ import {PasswordCredential} from '../passwordCredential';
 import {TokenIssuancePolicy} from '../tokenIssuancePolicy';
 import {TokenLifetimePolicy} from '../tokenLifetimePolicy';
 import {ApiApplication} from './apiApplication';
-import {DirectoryObject} from './directoryObject';
 import {ExtensionProperty} from './extensionProperty';
 import {OptionalClaims} from './optionalClaims';
 import {ParentalControlSettings} from './parentalControlSettings';

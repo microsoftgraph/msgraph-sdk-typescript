@@ -1,9 +1,9 @@
-import {Entity} from './applicationTemplates/entity';
-import {Configuration} from './connections/configuration';
-import {ConnectionOperation} from './connections/connectionOperation';
-import {ConnectionState} from './connections/connectionState';
-import {ExternalItem} from './connections/externalItem';
-import {Schema} from './connections/schema';
+import {Configuration} from './configuration';
+import {ConnectionOperation} from './connectionOperation';
+import {ConnectionState} from './connectionState';
+import {Entity} from './entity';
+import {ExternalItem} from './externalItem';
+import {Schema} from './schema';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ExternalConnection extends Entity implements Parsable {

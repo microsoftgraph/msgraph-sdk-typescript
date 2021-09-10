@@ -1,4 +1,4 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
 import {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
 import {ConditionalAccessRoot} from './conditionalAccessRoot';
 import {IdentityApiConnector} from './identityApiConnector';

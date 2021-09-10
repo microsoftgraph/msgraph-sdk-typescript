@@ -1,4 +1,4 @@
-import {UserFlowLanguagePage} from '../userFlowLanguagePage';
+import {UserFlowLanguagePage} from '../../../userFlowLanguagePage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DefaultPagesResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {WorkbookChartSeries} from '../../workbookChartSeries';
+import {WorkbookChartSeries} from '../../../../../../workbookChartSeries';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/charts/{workbookChart-id}/series/microsoft.graph.itemAt(index={index})  */

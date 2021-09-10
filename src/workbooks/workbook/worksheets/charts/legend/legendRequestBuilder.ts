@@ -1,5 +1,5 @@
+import {WorkbookChartLegend} from '../../../../../workbookChartLegend';
 import {Legend} from '../../../names/worksheet/charts/legend/legend';
-import {WorkbookChartLegend} from '../workbookChartLegend';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

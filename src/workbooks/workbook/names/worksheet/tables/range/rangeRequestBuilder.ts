@@ -1,7 +1,7 @@
-import {WorkbookRange} from '../../../../../workbookRange';
+import {WorkbookRange} from '../../../../workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/worksheet/microsoft.graph.range()  */
+/** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/tables/{workbookTable-id}/microsoft.graph.range()  */
 export class RangeRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;

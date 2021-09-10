@@ -1,4 +1,4 @@
-import {PatternedRecurrence} from './me/patternedRecurrence';
+import {PatternedRecurrence} from './patternedRecurrence';
 import {TimeRange} from './timeRange';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

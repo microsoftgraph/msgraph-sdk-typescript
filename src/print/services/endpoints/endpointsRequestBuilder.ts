@@ -1,4 +1,4 @@
-import {PrintServiceEndpoint} from '../printServiceEndpoint';
+import {PrintServiceEndpoint} from '../../printServiceEndpoint';
 import {EndpointsResponse} from './endpointsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {DeviceConfigurationAssignment} from '../deviceConfigurationAssignment';
+import {DeviceConfigurationAssignment} from '../../deviceConfigurationAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignResponse implements Parsable {

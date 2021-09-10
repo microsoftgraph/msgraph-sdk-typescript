@@ -1,4 +1,4 @@
-import {DeviceConfigurationAssignment} from '../../deviceConfigurationAssignment';
+import {DeviceConfigurationAssignment} from '../../../deviceConfigurationAssignment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceConfigurations/{deviceConfiguration-id}/assignments/{deviceConfigurationAssignment-id}  */

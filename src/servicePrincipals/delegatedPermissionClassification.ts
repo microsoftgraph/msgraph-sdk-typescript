@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {PermissionClassificationType} from './delegatedPermissionClassifications/permissionClassificationType';
+import {Entity} from '../entity';
+import {PermissionClassificationType} from './permissionClassificationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DelegatedPermissionClassification extends Entity implements Parsable {

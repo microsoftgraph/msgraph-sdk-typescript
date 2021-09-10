@@ -1,4 +1,4 @@
-import {ManagedAppOperation} from '../managedAppOperation';
+import {ManagedAppOperation} from '../../../managedAppOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OperationsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {LinkedResource} from '../linkedResource';
+import {LinkedResource} from '../../../../../linkedResource';
 import {LinkedResourcesResponse} from './linkedResourcesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

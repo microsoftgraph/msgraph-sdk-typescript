@@ -1,5 +1,5 @@
-import {Entity} from './applicationTemplates/entity';
-import {ServicePlanInfo} from './subscribedSkus/servicePlanInfo';
+import {Entity} from './entity';
+import {ServicePlanInfo} from './servicePlanInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LicenseDetails extends Entity implements Parsable {

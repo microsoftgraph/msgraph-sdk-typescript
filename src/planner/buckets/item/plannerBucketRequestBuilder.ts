@@ -1,4 +1,4 @@
-import {PlannerBucket} from '../../plannerBucket';
+import {PlannerBucket} from '../../../plannerBucket';
 import {PlannerTaskRequestBuilder} from '../tasks/item/plannerTaskRequestBuilder';
 import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

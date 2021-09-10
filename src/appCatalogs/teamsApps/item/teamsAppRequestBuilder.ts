@@ -1,4 +1,4 @@
-import {TeamsApp} from '../../teamsApp';
+import {TeamsApp} from '../../../teamsApp';
 import {AppDefinitionsRequestBuilder} from '../appDefinitions/appDefinitionsRequestBuilder';
 import {TeamsAppDefinitionRequestBuilder} from '../appDefinitions/item/teamsAppDefinitionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

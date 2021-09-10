@@ -1,4 +1,4 @@
-import {PrintServiceEndpoint} from '../../printServiceEndpoint';
+import {PrintServiceEndpoint} from '../../../printServiceEndpoint';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/services/{printService-id}/endpoints/{printServiceEndpoint-id}  */

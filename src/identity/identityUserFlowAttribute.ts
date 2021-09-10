@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
-import {IdentityUserFlowAttributeDataType} from './userFlowAttributes/identityUserFlowAttributeDataType';
-import {IdentityUserFlowAttributeType} from './userFlowAttributes/identityUserFlowAttributeType';
+import {Entity} from '../entity';
+import {IdentityUserFlowAttributeDataType} from './identityUserFlowAttributeDataType';
+import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttribute extends Entity implements Parsable {

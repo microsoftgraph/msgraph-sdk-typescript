@@ -1,4 +1,4 @@
-import {ManagedDeviceMobileAppConfigurationAssignment} from '../managedDeviceMobileAppConfigurationAssignment';
+import {ManagedDeviceMobileAppConfigurationAssignment} from '../../managedDeviceMobileAppConfigurationAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignResponse implements Parsable {

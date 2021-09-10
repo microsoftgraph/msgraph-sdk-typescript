@@ -1,4 +1,4 @@
-import {Attachment} from '../../../attachment';
+import {Attachment} from '../../../../attachment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AttachmentsResponse implements Parsable {

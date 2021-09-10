@@ -1,4 +1,4 @@
-import {DeviceCategory} from '../deviceCategory';
+import {DeviceCategory} from '../../deviceCategory';
 import {DeviceCategoriesResponse} from './deviceCategoriesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

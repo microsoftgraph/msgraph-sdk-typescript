@@ -1,4 +1,4 @@
-import {DeviceComplianceActionItem} from '../../deviceComplianceActionItem';
+import {DeviceComplianceActionItem} from '../../../../deviceComplianceActionItem';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy-id}/scheduledActionsForRule/{deviceComplianceScheduledActionForRule-id}/scheduledActionConfigurations/{deviceComplianceActionItem-id}  */

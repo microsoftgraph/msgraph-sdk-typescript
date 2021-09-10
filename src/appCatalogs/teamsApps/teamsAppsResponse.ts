@@ -1,4 +1,4 @@
-import {TeamsApp} from '../teamsApp';
+import {TeamsApp} from '../../teamsApp';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppsResponse implements Parsable {

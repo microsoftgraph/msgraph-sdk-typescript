@@ -1,4 +1,4 @@
-import {WorkbookChartPoint} from '../../../../../../worksheets/charts/series/workbookChartPoint';
+import {WorkbookChartPoint} from '../../../../../../../../workbookChartPoint';
 import {FormatRequestBuilder} from '../format/formatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

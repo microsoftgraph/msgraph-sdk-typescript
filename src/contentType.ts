@@ -1,6 +1,6 @@
-import {Entity} from './applicationTemplates/entity';
 import {ColumnLink} from './columnLink';
 import {ContentTypeOrder} from './contentTypeOrder';
+import {Entity} from './entity';
 import {ItemReference} from './itemReference';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

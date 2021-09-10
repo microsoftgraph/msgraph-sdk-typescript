@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
 import {DirectoryObject} from '../directoryObject';
 import {DomainDnsRecord} from '../domainDnsRecord';
+import {Entity} from '../entity';
 import {DomainState} from './domainState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

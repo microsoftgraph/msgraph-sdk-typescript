@@ -1,4 +1,4 @@
-import {PlannerBucket} from '../../plannerBucket';
+import {PlannerBucket} from '../../../plannerBucket';
 import {BucketsResponse} from './bucketsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

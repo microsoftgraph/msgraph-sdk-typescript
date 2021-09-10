@@ -1,23 +1,23 @@
+import {Attachment} from '../../../attachment';
 import {Attendee} from '../../../attendee';
 import {Calendar} from '../../../calendar';
 import {DateTimeTimeZone} from '../../../dateTimeTimeZone';
 import {Event} from '../../../event';
+import {EventType} from '../../../eventType';
 import {Extension} from '../../../extension';
+import {FreeBusyStatus} from '../../../freeBusyStatus';
+import {Importance} from '../../../importance';
 import {ItemBody} from '../../../itemBody';
+import {Location} from '../../../location';
 import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
+import {OnlineMeetingInfo} from '../../../onlineMeetingInfo';
 import {OnlineMeetingProviderType} from '../../../onlineMeetingProviderType';
 import {OutlookItem} from '../../../outlookItem';
+import {PatternedRecurrence} from '../../../patternedRecurrence';
 import {Recipient} from '../../../recipient';
+import {ResponseStatus} from '../../../responseStatus';
+import {Sensitivity} from '../../../sensitivity';
 import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
-import {Attachment} from '../../attachment';
-import {EventType} from '../../eventType';
-import {FreeBusyStatus} from '../../freeBusyStatus';
-import {Importance} from '../../importance';
-import {Location} from '../../location';
-import {OnlineMeetingInfo} from '../../onlineMeetingInfo';
-import {PatternedRecurrence} from '../../patternedRecurrence';
-import {ResponseStatus} from '../../responseStatus';
-import {Sensitivity} from '../../sensitivity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {

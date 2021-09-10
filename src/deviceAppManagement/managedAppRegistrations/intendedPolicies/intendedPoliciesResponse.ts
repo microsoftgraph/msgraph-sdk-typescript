@@ -1,4 +1,4 @@
-import {ManagedAppPolicy} from '../../managedAppPolicy';
+import {ManagedAppPolicy} from '../../../managedAppPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IntendedPoliciesResponse implements Parsable {

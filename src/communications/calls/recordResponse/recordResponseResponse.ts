@@ -1,4 +1,4 @@
-import {Prompt} from '../playPrompt/prompt';
+import {Prompt} from '../prompt';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RecordResponseResponse implements Parsable {

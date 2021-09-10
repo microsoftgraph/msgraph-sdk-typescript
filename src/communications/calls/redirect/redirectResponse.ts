@@ -1,4 +1,4 @@
-import {InvitationParticipantInfo} from '../invitationParticipantInfo';
+import {InvitationParticipantInfo} from '../../invitationParticipantInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RedirectResponse implements Parsable {

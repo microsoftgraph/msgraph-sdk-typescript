@@ -1,5 +1,5 @@
-import {Entity} from '../applicationTemplates/entity';
-import {EnrollmentState} from './windowsAutopilotDeviceIdentities/enrollmentState';
+import {Entity} from '../entity';
+import {EnrollmentState} from './enrollmentState';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {

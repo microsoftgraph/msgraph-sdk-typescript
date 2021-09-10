@@ -1,5 +1,5 @@
+import {ManagedAppPolicy} from '../managedAppPolicy';
 import {KeyValuePair} from './keyValuePair';
-import {ManagedAppPolicy} from './managedAppPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable {

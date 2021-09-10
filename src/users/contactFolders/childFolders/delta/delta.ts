@@ -1,6 +1,6 @@
 import {Contact} from '../../../../contact';
 import {ContactFolder} from '../../../../contactFolder';
-import {Entity} from '../../../../me/insights/used/resource/entity';
+import {Entity} from '../../../../entity';
 import {MultiValueLegacyExtendedProperty} from '../../../../multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

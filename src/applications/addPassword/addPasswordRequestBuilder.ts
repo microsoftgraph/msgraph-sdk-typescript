@@ -1,4 +1,4 @@
-import {PasswordCredential} from './passwordCredential';
+import {PasswordCredential} from '../../passwordCredential';
 import {PasswordCredentialResponse} from './passwordCredentialResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

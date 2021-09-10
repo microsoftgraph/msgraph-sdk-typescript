@@ -1,4 +1,4 @@
-import {Entity} from '../me/insights/shared/lastSharedMethod/entity';
+import {Entity} from '../entity';
 import {AverageComparativeScore} from './averageComparativeScore';
 import {ControlScore} from './controlScore';
 import {SecurityVendorInformation} from './securityVendorInformation';

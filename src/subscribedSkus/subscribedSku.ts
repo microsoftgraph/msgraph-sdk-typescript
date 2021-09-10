@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
+import {Entity} from '../entity';
+import {ServicePlanInfo} from '../servicePlanInfo';
 import {LicenseUnitsDetail} from './licenseUnitsDetail';
-import {ServicePlanInfo} from './servicePlanInfo';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SubscribedSku extends Entity implements Parsable {

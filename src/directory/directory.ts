@@ -1,6 +1,6 @@
-import {Entity} from '../applicationTemplates/entity';
+import {AdministrativeUnit} from '../administrativeUnit';
 import {DirectoryObject} from '../directoryObject';
-import {AdministrativeUnit} from './administrativeUnit';
+import {Entity} from '../entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Directory extends Entity implements Parsable {

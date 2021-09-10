@@ -1,10 +1,10 @@
-import {Entity} from '../applicationTemplates/entity';
-import {DeviceComplianceDeviceOverview} from './deviceCompliancePolicies/deviceComplianceDeviceOverview';
-import {DeviceComplianceDeviceStatus} from './deviceCompliancePolicies/deviceComplianceDeviceStatus';
-import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicies/deviceCompliancePolicyAssignment';
-import {DeviceComplianceScheduledActionForRule} from './deviceCompliancePolicies/deviceComplianceScheduledActionForRule';
-import {DeviceComplianceUserOverview} from './deviceCompliancePolicies/deviceComplianceUserOverview';
-import {DeviceComplianceUserStatus} from './deviceCompliancePolicies/deviceComplianceUserStatus';
+import {Entity} from '../entity';
+import {DeviceComplianceDeviceOverview} from './deviceComplianceDeviceOverview';
+import {DeviceComplianceDeviceStatus} from './deviceComplianceDeviceStatus';
+import {DeviceCompliancePolicyAssignment} from './deviceCompliancePolicyAssignment';
+import {DeviceComplianceScheduledActionForRule} from './deviceComplianceScheduledActionForRule';
+import {DeviceComplianceUserOverview} from './deviceComplianceUserOverview';
+import {DeviceComplianceUserStatus} from './deviceComplianceUserStatus';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

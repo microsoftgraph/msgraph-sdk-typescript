@@ -1,4 +1,4 @@
-import {ManagedAppOperation} from '../../managedAppOperation';
+import {ManagedAppOperation} from '../../../../managedAppOperation';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedAppRegistrations/{managedAppRegistration-id}/operations/{managedAppOperation-id}  */

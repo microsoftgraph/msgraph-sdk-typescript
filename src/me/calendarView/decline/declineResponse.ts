@@ -1,4 +1,4 @@
-import {TimeSlot} from '../../timeSlot';
+import {TimeSlot} from '../../../timeSlot';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeclineResponse implements Parsable {

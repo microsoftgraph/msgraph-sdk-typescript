@@ -1,4 +1,4 @@
-import {UserInstallStateSummary} from '../../userInstallStateSummary';
+import {UserInstallStateSummary} from '../../../userInstallStateSummary';
 import {DeviceStatesRequestBuilder} from '../deviceStates/deviceStatesRequestBuilder';
 import {DeviceInstallStateRequestBuilder} from '../deviceStates/item/deviceInstallStateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

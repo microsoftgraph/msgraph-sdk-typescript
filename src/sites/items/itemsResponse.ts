@@ -1,4 +1,4 @@
-import {BaseItem} from '../../baseItem';
+import {BaseItem} from '../../drive/baseItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ItemsResponse implements Parsable {

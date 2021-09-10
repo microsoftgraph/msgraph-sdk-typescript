@@ -1,5 +1,5 @@
+import {RangeRequestBuilder} from '../../../../../me/insights/shared/lastSharedMethod/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookNamedItem} from '../../../../../workbookNamedItem';
-import {RangeRequestBuilder} from '../../charts/worksheet/range/rangeRequestBuilder';
 import {WorksheetRequestBuilder} from '../worksheet/worksheetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

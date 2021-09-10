@@ -1,5 +1,5 @@
 import {Details} from '../../../../planner/buckets/tasks/details/details';
-import {PlannerPlanDetails} from '../../../../planner/plans/plannerPlanDetails';
+import {PlannerPlanDetails} from '../../../../plannerPlanDetails';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}/planner/plans/{plannerPlan-id}/details  */

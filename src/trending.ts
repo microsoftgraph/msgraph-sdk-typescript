@@ -1,6 +1,6 @@
-import {Entity} from './applicationTemplates/entity';
-import {ResourceReference} from './me/insights/resourceReference';
-import {ResourceVisualization} from './me/insights/resourceVisualization';
+import {Entity} from './entity';
+import {ResourceReference} from './resourceReference';
+import {ResourceVisualization} from './resourceVisualization';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Trending extends Entity implements Parsable {

@@ -1,7 +1,7 @@
-import {Entity} from './applicationTemplates/entity';
-import {Phone} from './contacts/phone';
-import {Location} from './me/location';
-import {PersonType} from './me/people/personType';
+import {Entity} from './entity';
+import {Location} from './location';
+import {PersonType} from './personType';
+import {Phone} from './phone';
 import {ScoredEmailAddress} from './scoredEmailAddress';
 import {Website} from './website';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';

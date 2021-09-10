@@ -1,6 +1,6 @@
-import {Entity} from './applicationTemplates/entity';
 import {EmailAddress} from './emailAddress';
-import {InferenceClassificationType} from './me/inferenceClassificationType';
+import {Entity} from './entity';
+import {InferenceClassificationType} from './inferenceClassificationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class InferenceClassificationOverride extends Entity implements Parsable {

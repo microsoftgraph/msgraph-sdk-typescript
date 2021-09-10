@@ -1,7 +1,4 @@
 import {User} from '../user';
-import {GetManagedAppDiagnosticStatusesRequestBuilder} from '../users/getManagedAppDiagnosticStatuses/getManagedAppDiagnosticStatusesRequestBuilder';
-import {GetManagedAppPoliciesRequestBuilder} from '../users/getManagedAppPolicies/getManagedAppPoliciesRequestBuilder';
-import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from '../users/reminderViewWithStartDateTimeWithEndDateTime/reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {UserActivityRequestBuilder} from './activities/item/userActivityRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
@@ -40,6 +37,8 @@ import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder
 import {FindMeetingTimesRequestBuilder} from './findMeetingTimes/findMeetingTimesRequestBuilder';
 import {FollowedSitesRequestBuilder} from './followedSites/followedSitesRequestBuilder';
 import {GetMailTipsRequestBuilder} from './getMailTips/getMailTipsRequestBuilder';
+import {GetManagedAppDiagnosticStatusesRequestBuilder} from './getManagedAppDiagnosticStatuses/getManagedAppDiagnosticStatusesRequestBuilder';
+import {GetManagedAppPoliciesRequestBuilder} from './getManagedAppPolicies/getManagedAppPoliciesRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
 import {InferenceClassificationRequestBuilder} from './inferenceClassification/inferenceClassificationRequestBuilder';
@@ -72,6 +71,7 @@ import {PhotosRequestBuilder} from './photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {PresenceRequestBuilder} from './presence/presenceRequestBuilder';
 import {RegisteredDevicesRequestBuilder} from './registeredDevices/registeredDevicesRequestBuilder';
+import {ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder} from './reminderViewWithStartDateTimeWithEndDateTime/reminderViewWithStartDateTimeWithEndDateTimeRequestBuilder';
 import {RemoveAllDevicesFromManagementRequestBuilder} from './removeAllDevicesFromManagement/removeAllDevicesFromManagementRequestBuilder';
 import {ReprocessLicenseAssignmentRequestBuilder} from './reprocessLicenseAssignment/reprocessLicenseAssignmentRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';

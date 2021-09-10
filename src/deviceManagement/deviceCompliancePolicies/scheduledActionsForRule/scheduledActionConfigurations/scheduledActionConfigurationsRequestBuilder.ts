@@ -1,4 +1,4 @@
-import {DeviceComplianceActionItem} from '../deviceComplianceActionItem';
+import {DeviceComplianceActionItem} from '../../../deviceComplianceActionItem';
 import {ScheduledActionConfigurationsResponse} from './scheduledActionConfigurationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

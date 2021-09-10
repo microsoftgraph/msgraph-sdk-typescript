@@ -1,4 +1,4 @@
-import {WorkbookChartLineFormat} from '../../../../../../../worksheets/charts/workbookChartLineFormat';
+import {WorkbookChartLineFormat} from '../../../../../../../../../workbookChartLineFormat';
 import {ClearRequestBuilder} from './clear/clearRequestBuilder';
 import {Line} from './line';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,7 +1,7 @@
-import {Entity} from '../../../../applicationTemplates/entity';
-import {PlannerChecklistItems} from '../../../tasks/plannerChecklistItems';
-import {PlannerExternalReferences} from '../../../tasks/plannerExternalReferences';
-import {PlannerPreviewType} from '../../../tasks/plannerPreviewType';
+import {Entity} from '../../../../entity';
+import {PlannerChecklistItems} from '../../../../plannerChecklistItems';
+import {PlannerExternalReferences} from '../../../../plannerExternalReferences';
+import {PlannerPreviewType} from '../../../../plannerPreviewType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Details extends Entity implements Parsable {

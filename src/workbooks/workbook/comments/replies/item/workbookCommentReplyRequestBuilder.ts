@@ -1,4 +1,4 @@
-import {WorkbookCommentReply} from '../../workbookCommentReply';
+import {WorkbookCommentReply} from '../../../../../workbookCommentReply';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/comments/{workbookComment-id}/replies/{workbookCommentReply-id}  */

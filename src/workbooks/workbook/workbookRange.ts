@@ -1,5 +1,5 @@
-import {Json} from '../../me/activities/json';
-import {Entity} from '../../me/insights/shared/lastSharedMethod/entity';
+import {Entity} from '../../entity';
+import {Json} from '../../json';
 import {WorkbookWorksheet} from '../../workbookWorksheet';
 import {WorkbookRangeFormat} from './workbookRangeFormat';
 import {WorkbookRangeSort} from './workbookRangeSort';

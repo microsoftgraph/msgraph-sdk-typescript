@@ -1,5 +1,5 @@
 import {AttendeeBase} from '../../attendeeBase';
-import {FreeBusyStatus} from '../freeBusyStatus';
+import {FreeBusyStatus} from '../../freeBusyStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AttendeeAvailability implements Parsable {

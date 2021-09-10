@@ -1,4 +1,4 @@
-import {IdentityUserFlowAttributeAssignment} from '../../identityUserFlowAttributeAssignment';
+import {IdentityUserFlowAttributeAssignment} from '../../../identityUserFlowAttributeAssignment';
 import {UserAttributeRequestBuilder} from '../userAttribute/userAttributeRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

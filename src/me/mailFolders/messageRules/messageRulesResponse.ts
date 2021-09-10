@@ -1,4 +1,4 @@
-import {MessageRule} from '../messageRule';
+import {MessageRule} from '../../../messageRule';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MessageRulesResponse implements Parsable {

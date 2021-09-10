@@ -1,7 +1,7 @@
-import {Entity} from './applicationTemplates/entity';
-import {OperationError} from './teams/operations/operationError';
-import {TeamsAsyncOperationStatus} from './teams/operations/teamsAsyncOperationStatus';
-import {TeamsAsyncOperationType} from './teams/operations/teamsAsyncOperationType';
+import {Entity} from './entity';
+import {OperationError} from './operationError';
+import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
+import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TeamsAsyncOperation extends Entity implements Parsable {

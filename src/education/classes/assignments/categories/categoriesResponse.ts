@@ -1,4 +1,4 @@
-import {EducationCategory} from '../../educationCategory';
+import {EducationCategory} from '../../../educationCategory';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CategoriesResponse implements Parsable {

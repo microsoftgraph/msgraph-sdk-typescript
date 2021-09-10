@@ -1,4 +1,4 @@
-import {Report} from './report';
+import {Report} from '../report';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /reports/microsoft.graph.getTeamsUserActivityUserCounts(period='{period}')  */

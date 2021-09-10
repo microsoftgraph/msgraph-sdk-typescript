@@ -1,4 +1,4 @@
-import {ComplianceStatus} from './deviceManagement/iosUpdateStatuses/complianceStatus';
+import {ComplianceStatus} from './complianceStatus';
 import {SettingSource} from './settingSource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 

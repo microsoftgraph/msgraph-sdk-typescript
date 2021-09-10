@@ -1,5 +1,5 @@
+import {DeltaRequestBuilder} from '../applications/delta/deltaRequestBuilder';
 import {Group} from '../group';
-import {DeltaRequestBuilder} from '../servicePrincipals/delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {GroupsResponse} from './groupsResponse';

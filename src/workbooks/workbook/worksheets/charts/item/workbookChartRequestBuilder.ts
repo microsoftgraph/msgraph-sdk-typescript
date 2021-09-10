@@ -1,4 +1,4 @@
-import {WorkbookChart} from '../../../workbookChart';
+import {WorkbookChart} from '../../../../../workbookChart';
 import {AxesRequestBuilder} from '../axes/axesRequestBuilder';
 import {DataLabelsRequestBuilder} from '../dataLabels/dataLabelsRequestBuilder';
 import {FormatRequestBuilder} from '../format/formatRequestBuilder';

@@ -1,4 +1,4 @@
-import {IdentityUserFlowAttributeAssignment} from '../identityUserFlowAttributeAssignment';
+import {IdentityUserFlowAttributeAssignment} from '../../identityUserFlowAttributeAssignment';
 import {GetOrderRequestBuilder} from './getOrder/getOrderRequestBuilder';
 import {SetOrderRequestBuilder} from './setOrder/setOrderRequestBuilder';
 import {UserAttributeAssignmentsResponse} from './userAttributeAssignmentsResponse';

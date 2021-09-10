@@ -1,8 +1,8 @@
-import {Entity} from './applicationTemplates/entity';
-import {ConditionalAccessConditionSet} from './policies/conditionalAccessPolicies/conditionalAccessConditionSet';
-import {ConditionalAccessGrantControls} from './policies/conditionalAccessPolicies/conditionalAccessGrantControls';
-import {ConditionalAccessPolicyState} from './policies/conditionalAccessPolicies/conditionalAccessPolicyState';
-import {ConditionalAccessSessionControls} from './policies/conditionalAccessPolicies/conditionalAccessSessionControls';
+import {ConditionalAccessConditionSet} from './conditionalAccessConditionSet';
+import {ConditionalAccessGrantControls} from './conditionalAccessGrantControls';
+import {ConditionalAccessPolicyState} from './conditionalAccessPolicyState';
+import {ConditionalAccessSessionControls} from './conditionalAccessSessionControls';
+import {Entity} from './entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessPolicy extends Entity implements Parsable {

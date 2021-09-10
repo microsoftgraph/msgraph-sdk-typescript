@@ -1,5 +1,5 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
-import {ShiftItem} from './teams/schedule/openShifts/shiftItem';
+import {ShiftItem} from './shiftItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Shift extends ChangeTrackedEntity implements Parsable {

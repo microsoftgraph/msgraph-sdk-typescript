@@ -1,4 +1,4 @@
-import {Json} from '../../../../me/activities/json';
+import {Json} from '../../../../json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class T_Dist_2TResponse implements Parsable {

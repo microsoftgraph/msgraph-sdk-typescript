@@ -1,4 +1,4 @@
-import {ManagedAppPolicy} from '../../managedAppPolicy';
+import {ManagedAppPolicy} from '../../../managedAppPolicy';
 import {ManagedAppProtectionRequestBuilder} from '../managedAppProtection/managedAppProtectionRequestBuilder';
 import {TargetAppsRequestBuilder} from '../targetApps/targetAppsRequestBuilder';
 import {TargetedManagedAppProtectionRequestBuilder} from '../targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';

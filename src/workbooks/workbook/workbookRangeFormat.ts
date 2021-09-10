@@ -1,4 +1,4 @@
-import {Entity} from '../../me/insights/shared/lastSharedMethod/entity';
+import {Entity} from '../../entity';
 import {WorkbookFormatProtection} from './workbookFormatProtection';
 import {WorkbookRangeBorder} from './workbookRangeBorder';
 import {WorkbookRangeFill} from './workbookRangeFill';

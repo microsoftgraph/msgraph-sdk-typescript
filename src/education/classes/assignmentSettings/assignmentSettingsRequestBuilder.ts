@@ -1,4 +1,4 @@
-import {EducationAssignmentSettings} from '../educationAssignmentSettings';
+import {EducationAssignmentSettings} from '../../educationAssignmentSettings';
 import {AssignmentSettings} from './assignmentSettings';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

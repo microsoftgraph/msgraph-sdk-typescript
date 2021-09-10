@@ -1,7 +1,7 @@
-import {Entity} from '../applicationTemplates/entity';
-import {VppTokenAccountType} from './vppTokens/vppTokenAccountType';
-import {VppTokenState} from './vppTokens/vppTokenState';
-import {VppTokenSyncStatus} from './vppTokens/vppTokenSyncStatus';
+import {Entity} from '../entity';
+import {VppTokenAccountType} from './vppTokenAccountType';
+import {VppTokenState} from './vppTokenState';
+import {VppTokenSyncStatus} from './vppTokenSyncStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VppToken extends Entity implements Parsable {

@@ -1,5 +1,5 @@
 import {OnenotePage} from '../../../../../../../onenotePage';
-import {PreviewRequestBuilder} from '../../../../../../../workbooks/preview/previewRequestBuilder';
+import {PreviewRequestBuilder} from '../../../../../sections/pages/preview/previewRequestBuilder';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyToSectionRequestBuilder} from '../copyToSection/copyToSectionRequestBuilder';
 import {OnenotePatchContentRequestBuilder} from '../onenotePatchContent/onenotePatchContentRequestBuilder';

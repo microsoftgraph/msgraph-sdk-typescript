@@ -1,4 +1,4 @@
-import {ActivityHistoryItem} from '../activityHistoryItem';
+import {ActivityHistoryItem} from '../../../activityHistoryItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class HistoryItemsResponse implements Parsable {

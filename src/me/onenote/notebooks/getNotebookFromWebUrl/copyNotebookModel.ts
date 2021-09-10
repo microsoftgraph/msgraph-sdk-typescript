@@ -1,6 +1,6 @@
 import {IdentitySet} from '../../../../identitySet';
-import {NotebookLinks} from '../../notebookLinks';
-import {OnenoteUserRole} from '../../onenoteUserRole';
+import {NotebookLinks} from '../../../../notebookLinks';
+import {OnenoteUserRole} from '../../../../onenoteUserRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CopyNotebookModel implements Parsable {

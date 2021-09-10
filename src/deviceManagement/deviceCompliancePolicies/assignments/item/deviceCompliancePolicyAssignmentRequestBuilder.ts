@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicyAssignment} from '../../deviceCompliancePolicyAssignment';
+import {DeviceCompliancePolicyAssignment} from '../../../deviceCompliancePolicyAssignment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy-id}/assignments/{deviceCompliancePolicyAssignment-id}  */

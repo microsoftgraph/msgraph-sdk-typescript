@@ -1,4 +1,4 @@
-import {Participant} from '../participant';
+import {Participant} from '../../participant';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ParticipantsResponse implements Parsable {

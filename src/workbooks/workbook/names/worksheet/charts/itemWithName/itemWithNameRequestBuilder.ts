@@ -1,4 +1,4 @@
-import {WorkbookChart} from '../../../../workbookChart';
+import {WorkbookChart} from '../../../../../../workbookChart';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/microsoft.graph.item(name='{name}')  */

@@ -1,4 +1,4 @@
-import {EnrollmentConfigurationAssignment} from '../enrollmentConfigurationAssignment';
+import {EnrollmentConfigurationAssignment} from '../../enrollmentConfigurationAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

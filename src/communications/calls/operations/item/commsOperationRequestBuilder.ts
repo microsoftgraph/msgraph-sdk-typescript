@@ -1,4 +1,4 @@
-import {CommsOperation} from '../../commsOperation';
+import {CommsOperation} from '../../../commsOperation';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /communications/calls/{call-id}/operations/{commsOperation-id}  */
