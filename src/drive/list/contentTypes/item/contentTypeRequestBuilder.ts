@@ -1,6 +1,6 @@
-import {ContentType} from '../../../../contentType';
+import {ContentType} from '../../../../../contentType';
 import {ColumnLinksRequestBuilder} from '../columnLinks/columnLinksRequestBuilder';
-import {ColumnLinkRequestBuilder} from '../columnLinks/item/columnLinkRequestBuilder';
+import {ColumnLinkRequestBuilder} from '../columnLinks/item/item/columnLinkRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive/list/contentTypes/{contentType-id}  */
@@ -17,7 +17,7 @@ export class ContentTypeRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.list.contentTypes.columnLinks collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.list.contentTypes.item.columnLinks.item collection
      * @param id Unique identifier of the item
      * @returns a columnLinkRequestBuilder
      */

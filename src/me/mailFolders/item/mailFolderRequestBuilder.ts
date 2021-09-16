@@ -1,14 +1,15 @@
-import {MailFolder} from '../../../mailFolder';
+import {MailFolder} from '../../../../mailFolder';
 import {ChildFoldersRequestBuilder} from '../childFolders/childFoldersRequestBuilder';
+import {MailFolderRequestBuilder} from '../childFolders/item/item/mailFolderRequestBuilder';
 import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
-import {MessageRuleRequestBuilder} from '../messageRules/item/messageRuleRequestBuilder';
+import {MessageRuleRequestBuilder} from '../messageRules/item/item/messageRuleRequestBuilder';
 import {MessageRulesRequestBuilder} from '../messageRules/messageRulesRequestBuilder';
-import {MessageRequestBuilder} from '../messages/item/messageRequestBuilder';
+import {MessageRequestBuilder} from '../messages/item/item/messageRequestBuilder';
 import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
 import {MoveRequestBuilder} from '../move/moveRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -44,7 +45,7 @@ export class MailFolderRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.childFolders collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.item.childFolders.item collection
      * @param id Unique identifier of the item
      * @returns a mailFolderRequestBuilder
      */
@@ -146,7 +147,7 @@ export class MailFolderRequestBuilder {
         return this.httpCore?.sendAsync<MailFolder>(requestInfo, MailFolder, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.messageRules collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.item.messageRules.item collection
      * @param id Unique identifier of the item
      * @returns a messageRuleRequestBuilder
      */
@@ -155,7 +156,7 @@ export class MailFolderRequestBuilder {
         return new MessageRuleRequestBuilder(this.currentPath + this.pathSegment + "/messageRules/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.messages collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.item.messages.item collection
      * @param id Unique identifier of the item
      * @returns a messageRequestBuilder
      */
@@ -164,7 +165,7 @@ export class MailFolderRequestBuilder {
         return new MessageRequestBuilder(this.currentPath + this.pathSegment + "/messages/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -187,7 +188,7 @@ export class MailFolderRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.mailFolders.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */

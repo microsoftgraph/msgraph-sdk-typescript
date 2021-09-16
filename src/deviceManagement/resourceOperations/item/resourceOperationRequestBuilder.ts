@@ -1,4 +1,4 @@
-import {ResourceOperation} from '../../resourceOperation';
+import {ResourceOperation} from '../../../resourceOperation';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/resourceOperations/{resourceOperation-id}  */

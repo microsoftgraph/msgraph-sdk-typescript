@@ -1,7 +1,7 @@
 import {ConditionalAccessRoot} from '../conditionalAccessRoot';
-import {NamedLocationRequestBuilder} from './namedLocations/item/namedLocationRequestBuilder';
+import {NamedLocationRequestBuilder} from './namedLocations/item/item/namedLocationRequestBuilder';
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
-import {ConditionalAccessPolicyRequestBuilder} from './policies/item/conditionalAccessPolicyRequestBuilder';
+import {ConditionalAccessPolicyRequestBuilder} from './policies/item/item/conditionalAccessPolicyRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -115,7 +115,7 @@ export class ConditionalAccessRequestBuilder {
         return this.httpCore?.sendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.conditionalAccess.namedLocations collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.conditionalAccess.namedLocations.item collection
      * @param id Unique identifier of the item
      * @returns a namedLocationRequestBuilder
      */
@@ -138,7 +138,7 @@ export class ConditionalAccessRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.conditionalAccess.policies collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.conditionalAccess.policies.item collection
      * @param id Unique identifier of the item
      * @returns a conditionalAccessPolicyRequestBuilder
      */

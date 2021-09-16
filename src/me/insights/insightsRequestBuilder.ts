@@ -1,8 +1,8 @@
 import {OfficeGraphInsights} from '../../officeGraphInsights';
-import {SharedInsightRequestBuilder} from './shared/item/sharedInsightRequestBuilder';
+import {SharedInsightRequestBuilder} from './shared/item/item/sharedInsightRequestBuilder';
 import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
-import {UsedInsightRequestBuilder} from './used/item/usedInsightRequestBuilder';
+import {UsedInsightRequestBuilder} from './used/item/item/usedInsightRequestBuilder';
 import {UsedRequestBuilder} from './used/usedRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -133,7 +133,7 @@ export class InsightsRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.insights.shared collection
+     * Gets an item from the graphtypescriptv4.utilities.me.insights.shared.item collection
      * @param id Unique identifier of the item
      * @returns a sharedInsightRequestBuilder
      */
@@ -142,7 +142,7 @@ export class InsightsRequestBuilder {
         return new SharedInsightRequestBuilder(this.currentPath + this.pathSegment + "/shared/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.insights.trending collection
+     * Gets an item from the graphtypescriptv4.utilities.me.insights.trending.item collection
      * @param id Unique identifier of the item
      * @returns a trendingRequestBuilder
      */
@@ -151,7 +151,7 @@ export class InsightsRequestBuilder {
         return new TrendingRequestBuilder(this.currentPath + this.pathSegment + "/trending/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.insights.used collection
+     * Gets an item from the graphtypescriptv4.utilities.me.insights.used.item collection
      * @param id Unique identifier of the item
      * @returns a usedInsightRequestBuilder
      */

@@ -1,4 +1,4 @@
-import {UsedInsight} from '../../../../usedInsight';
+import {UsedInsight} from '../../../../../usedInsight';
 import {ResourceRequestBuilder} from '../resource/resourceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

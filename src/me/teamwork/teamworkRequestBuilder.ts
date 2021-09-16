@@ -1,6 +1,6 @@
 import {UserTeamwork} from '../../userTeamwork';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
-import {UserScopeTeamsAppInstallationRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationRequestBuilder';
+import {UserScopeTeamsAppInstallationRequestBuilder} from './installedApps/item/item/userScopeTeamsAppInstallationRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -114,7 +114,7 @@ export class TeamworkRequestBuilder {
         return this.httpCore?.sendAsync<UserTeamwork>(requestInfo, UserTeamwork, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.teamwork.installedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.me.teamwork.installedApps.item collection
      * @param id Unique identifier of the item
      * @returns a userScopeTeamsAppInstallationRequestBuilder
      */

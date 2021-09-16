@@ -1,10 +1,10 @@
-import {ListItem} from '../../../../listItem';
+import {ListItem} from '../../../../../listItem';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
 import {DriveItemRequestBuilder} from '../driveItem/driveItemRequestBuilder';
 import {FieldsRequestBuilder} from '../fields/fieldsRequestBuilder';
 import {GetActivitiesByIntervalRequestBuilder} from '../getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
-import {ListItemVersionRequestBuilder} from '../versions/item/listItemVersionRequestBuilder';
+import {ListItemVersionRequestBuilder} from '../versions/item/item/listItemVersionRequestBuilder';
 import {VersionsRequestBuilder} from '../versions/versionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -158,7 +158,7 @@ export class ListItemRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.list.items.versions collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.list.items.item.versions.item collection
      * @param id Unique identifier of the item
      * @returns a listItemVersionRequestBuilder
      */

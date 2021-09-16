@@ -1,4 +1,4 @@
-import {TelecomExpenseManagementPartner} from '../../telecomExpenseManagementPartner';
+import {TelecomExpenseManagementPartner} from '../../../telecomExpenseManagementPartner';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/telecomExpenseManagementPartners/{telecomExpenseManagementPartner-id}  */

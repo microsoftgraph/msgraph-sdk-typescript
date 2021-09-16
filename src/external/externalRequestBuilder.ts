@@ -1,5 +1,5 @@
 import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder';
-import {ExternalConnectionRequestBuilder} from './connections/item/externalConnectionRequestBuilder';
+import {ExternalConnectionRequestBuilder} from './connections/item/item/externalConnectionRequestBuilder';
 import {External} from './external';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -17,7 +17,7 @@ export class ExternalRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.external.connections collection
+     * Gets an item from the graphtypescriptv4.utilities.external.connections.item collection
      * @param id Unique identifier of the item
      * @returns a externalConnectionRequestBuilder
      */

@@ -1,6 +1,6 @@
 import {AccessReviewSet} from '../accessReviewSet';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
-import {AccessReviewScheduleDefinitionRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionRequestBuilder';
+import {AccessReviewScheduleDefinitionRequestBuilder} from './definitions/item/item/accessReviewScheduleDefinitionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews  */
@@ -81,7 +81,7 @@ export class AccessReviewsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions.item collection
      * @param id Unique identifier of the item
      * @returns a accessReviewScheduleDefinitionRequestBuilder
      */

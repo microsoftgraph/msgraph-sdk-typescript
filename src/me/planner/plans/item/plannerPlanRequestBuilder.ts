@@ -1,8 +1,8 @@
-import {PlannerPlan} from '../../../../plannerPlan';
+import {PlannerPlan} from '../../../../../plannerPlan';
 import {BucketsRequestBuilder} from '../buckets/bucketsRequestBuilder';
-import {PlannerBucketRequestBuilder} from '../buckets/item/plannerBucketRequestBuilder';
+import {PlannerBucketRequestBuilder} from '../buckets/item/item/plannerBucketRequestBuilder';
 import {DetailsRequestBuilder} from '../details/detailsRequestBuilder';
-import {PlannerTaskRequestBuilder} from '../tasks/item/plannerTaskRequestBuilder';
+import {PlannerTaskRequestBuilder} from '../tasks/item/item/plannerTaskRequestBuilder';
 import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -26,7 +26,7 @@ export class PlannerPlanRequestBuilder {
         return new TasksRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.planner.plans.buckets collection
+     * Gets an item from the graphtypescriptv4.utilities.me.planner.plans.item.buckets.item collection
      * @param id Unique identifier of the item
      * @returns a plannerBucketRequestBuilder
      */
@@ -142,7 +142,7 @@ export class PlannerPlanRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.planner.plans.tasks collection
+     * Gets an item from the graphtypescriptv4.utilities.me.planner.plans.item.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a plannerTaskRequestBuilder
      */

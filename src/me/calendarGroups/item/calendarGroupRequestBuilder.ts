@@ -1,6 +1,6 @@
-import {CalendarGroup} from '../../../calendarGroup';
+import {CalendarGroup} from '../../../../calendarGroup';
 import {CalendarsRequestBuilder} from '../calendars/calendarsRequestBuilder';
-import {CalendarRequestBuilder} from '../calendars/item/calendarRequestBuilder';
+import {CalendarRequestBuilder} from '../calendars/item/item/calendarRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/calendarGroups/{calendarGroup-id}  */
@@ -17,7 +17,7 @@ export class CalendarGroupRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendarGroups.calendars collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendarGroups.item.calendars.item collection
      * @param id Unique identifier of the item
      * @returns a calendarRequestBuilder
      */

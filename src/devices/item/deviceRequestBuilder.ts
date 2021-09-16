@@ -1,8 +1,8 @@
-import {Device} from '../../device';
+import {Device} from '../../../device';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
@@ -129,7 +129,7 @@ export class DeviceRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.devices.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.devices.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */

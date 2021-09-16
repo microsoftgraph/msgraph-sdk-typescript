@@ -1,38 +1,38 @@
-import {Group} from '../../group';
+import {Group} from '../../../group';
 import {AcceptedSendersRequestBuilder} from '../acceptedSenders/acceptedSendersRequestBuilder';
 import {AddFavoriteRequestBuilder} from '../addFavorite/addFavoriteRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from '../appRoleAssignments/appRoleAssignmentsRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/appRoleAssignmentRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/item/appRoleAssignmentRequestBuilder';
 import {AssignLicenseRequestBuilder} from '../assignLicense/assignLicenseRequestBuilder';
 import {CalendarRequestBuilder} from '../calendar/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from '../calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder} from '../calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder} from '../calendarView/item/item/eventRequestBuilder';
 import {CheckGrantedPermissionsForAppRequestBuilder} from '../checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ConversationsRequestBuilder} from '../conversations/conversationsRequestBuilder';
-import {ConversationRequestBuilder} from '../conversations/item/conversationRequestBuilder';
+import {ConversationRequestBuilder} from '../conversations/item/item/conversationRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from '../createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
 import {DriveRequestBuilder} from '../drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from '../drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from '../drives/item/driveRequestBuilder';
+import {DriveRequestBuilder} from '../drives/item/item/driveRequestBuilder';
 import {EventsRequestBuilder} from '../events/eventsRequestBuilder';
-import {EventRequestBuilder} from '../events/item/eventRequestBuilder';
+import {EventRequestBuilder} from '../events/item/item/eventRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilder} from '../groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
-import {GroupLifecyclePolicyRequestBuilder} from '../groupLifecyclePolicies/item/groupLifecyclePolicyRequestBuilder';
+import {GroupLifecyclePolicyRequestBuilder} from '../groupLifecyclePolicies/item/item/groupLifecyclePolicyRequestBuilder';
 import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
 import {MembersWithLicenseErrorsRequestBuilder} from '../membersWithLicenseErrors/membersWithLicenseErrorsRequestBuilder';
 import {OnenoteRequestBuilder} from '../onenote/onenoteRequestBuilder';
 import {OwnersRequestBuilder} from '../owners/ownersRequestBuilder';
-import {ResourceSpecificPermissionGrantRequestBuilder} from '../permissionGrants/item/resourceSpecificPermissionGrantRequestBuilder';
+import {ResourceSpecificPermissionGrantRequestBuilder} from '../permissionGrants/item/item/resourceSpecificPermissionGrantRequestBuilder';
 import {PermissionGrantsRequestBuilder} from '../permissionGrants/permissionGrantsRequestBuilder';
 import {PhotoRequestBuilder} from '../photo/photoRequestBuilder';
-import {ProfilePhotoRequestBuilder} from '../photos/item/profilePhotoRequestBuilder';
+import {ProfilePhotoRequestBuilder} from '../photos/item/item/profilePhotoRequestBuilder';
 import {PhotosRequestBuilder} from '../photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from '../planner/plannerRequestBuilder';
 import {RejectedSendersRequestBuilder} from '../rejectedSenders/rejectedSendersRequestBuilder';
@@ -40,13 +40,13 @@ import {RemoveFavoriteRequestBuilder} from '../removeFavorite/removeFavoriteRequ
 import {RenewRequestBuilder} from '../renew/renewRequestBuilder';
 import {ResetUnseenCountRequestBuilder} from '../resetUnseenCount/resetUnseenCountRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
-import {GroupSettingRequestBuilder} from '../settings/item/groupSettingRequestBuilder';
+import {GroupSettingRequestBuilder} from '../settings/item/item/groupSettingRequestBuilder';
 import {SettingsRequestBuilder} from '../settings/settingsRequestBuilder';
-import {SiteRequestBuilder} from '../sites/item/siteRequestBuilder';
+import {SiteRequestBuilder} from '../sites/item/item/siteRequestBuilder';
 import {SitesRequestBuilder} from '../sites/sitesRequestBuilder';
 import {SubscribeByMailRequestBuilder} from '../subscribeByMail/subscribeByMailRequestBuilder';
 import {TeamRequestBuilder} from '../team/teamRequestBuilder';
-import {ConversationThreadRequestBuilder} from '../threads/item/conversationThreadRequestBuilder';
+import {ConversationThreadRequestBuilder} from '../threads/item/item/conversationThreadRequestBuilder';
 import {ThreadsRequestBuilder} from '../threads/threadsRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {TransitiveMembersRequestBuilder} from '../transitiveMembers/transitiveMembersRequestBuilder';
@@ -188,7 +188,7 @@ export class GroupRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.appRoleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
@@ -197,7 +197,7 @@ export class GroupRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignments/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.calendarView collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -220,7 +220,7 @@ export class GroupRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.conversations collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.conversations.item collection
      * @param id Unique identifier of the item
      * @returns a conversationRequestBuilder
      */
@@ -291,7 +291,7 @@ export class GroupRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.drives collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
@@ -300,7 +300,7 @@ export class GroupRequestBuilder {
         return new DriveRequestBuilder(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.events collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -309,7 +309,7 @@ export class GroupRequestBuilder {
         return new EventRequestBuilder(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -335,7 +335,7 @@ export class GroupRequestBuilder {
         return this.httpCore?.sendAsync<Group>(requestInfo, Group, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.groupLifecyclePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.groupLifecyclePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a groupLifecyclePolicyRequestBuilder
      */
@@ -358,7 +358,7 @@ export class GroupRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.permissionGrants collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.permissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a resourceSpecificPermissionGrantRequestBuilder
      */
@@ -367,7 +367,7 @@ export class GroupRequestBuilder {
         return new ResourceSpecificPermissionGrantRequestBuilder(this.currentPath + this.pathSegment + "/permissionGrants/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.photos collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.photos.item collection
      * @param id Unique identifier of the item
      * @returns a profilePhotoRequestBuilder
      */
@@ -376,7 +376,7 @@ export class GroupRequestBuilder {
         return new ProfilePhotoRequestBuilder(this.currentPath + this.pathSegment + "/photos/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.settings collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.settings.item collection
      * @param id Unique identifier of the item
      * @returns a groupSettingRequestBuilder
      */
@@ -385,7 +385,7 @@ export class GroupRequestBuilder {
         return new GroupSettingRequestBuilder(this.currentPath + this.pathSegment + "/settings/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.sites collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.sites.item collection
      * @param id Unique identifier of the item
      * @returns a siteRequestBuilder
      */
@@ -394,7 +394,7 @@ export class GroupRequestBuilder {
         return new SiteRequestBuilder(this.currentPath + this.pathSegment + "/sites/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.threads collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item.threads.item collection
      * @param id Unique identifier of the item
      * @returns a conversationThreadRequestBuilder
      */

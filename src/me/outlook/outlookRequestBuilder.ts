@@ -1,5 +1,5 @@
 import {OutlookUser} from '../../outlookUser';
-import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
+import {OutlookCategoryRequestBuilder} from './masterCategories/item/item/outlookCategoryRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
 import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
 import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
@@ -113,7 +113,7 @@ export class OutlookRequestBuilder {
         return this.httpCore?.sendAsync<OutlookUser>(requestInfo, OutlookUser, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.outlook.masterCategories collection
+     * Gets an item from the graphtypescriptv4.utilities.me.outlook.masterCategories.item collection
      * @param id Unique identifier of the item
      * @returns a outlookCategoryRequestBuilder
      */

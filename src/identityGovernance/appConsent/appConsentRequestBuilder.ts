@@ -1,6 +1,6 @@
 import {AppConsentApprovalRoute} from '../appConsentApprovalRoute';
 import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
-import {AppConsentRequestRequestBuilder} from './appConsentRequests/item/appConsentRequestRequestBuilder';
+import {AppConsentRequestRequestBuilder} from './appConsentRequests/item/item/appConsentRequestRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/appConsent  */
@@ -17,7 +17,7 @@ export class AppConsentRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.appConsent.appConsentRequests collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.appConsent.appConsentRequests.item collection
      * @param id Unique identifier of the item
      * @returns a appConsentRequestRequestBuilder
      */

@@ -1,4 +1,4 @@
-import {VppToken} from '../../vppToken';
+import {VppToken} from '../../../vppToken';
 import {SyncLicensesRequestBuilder} from '../syncLicenses/syncLicensesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

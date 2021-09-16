@@ -1,8 +1,8 @@
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
-import {AlertRequestBuilder} from './alerts/item/alertRequestBuilder';
-import {SecureScoreControlProfileRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileRequestBuilder';
+import {AlertRequestBuilder} from './alerts/item/item/alertRequestBuilder';
+import {SecureScoreControlProfileRequestBuilder} from './secureScoreControlProfiles/item/item/secureScoreControlProfileRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
-import {SecureScoreRequestBuilder} from './secureScores/item/secureScoreRequestBuilder';
+import {SecureScoreRequestBuilder} from './secureScores/item/item/secureScoreRequestBuilder';
 import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuilder';
 import {Security} from './security';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -27,7 +27,7 @@ export class SecurityRequestBuilder {
         return new SecureScoresRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.security.alerts collection
+     * Gets an item from the graphtypescriptv4.utilities.security.alerts.item collection
      * @param id Unique identifier of the item
      * @returns a alertRequestBuilder
      */
@@ -117,7 +117,7 @@ export class SecurityRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.security.secureScoreControlProfiles collection
+     * Gets an item from the graphtypescriptv4.utilities.security.secureScoreControlProfiles.item collection
      * @param id Unique identifier of the item
      * @returns a secureScoreControlProfileRequestBuilder
      */
@@ -126,7 +126,7 @@ export class SecurityRequestBuilder {
         return new SecureScoreControlProfileRequestBuilder(this.currentPath + this.pathSegment + "/secureScoreControlProfiles/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.security.secureScores collection
+     * Gets an item from the graphtypescriptv4.utilities.security.secureScores.item collection
      * @param id Unique identifier of the item
      * @returns a secureScoreRequestBuilder
      */

@@ -1,14 +1,15 @@
 import {Drive} from '../drive';
+import {Drive} from './drive';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemRequestBuilder} from './following/item/driveItemRequestBuilder';
-import {DriveItemRequestBuilder} from './items/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder} from './following/item/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder} from './items/item/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemRequestBuilder} from './special/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder} from './special/item/item/driveItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -88,7 +89,7 @@ export class DriveRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.following collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.following.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -114,7 +115,7 @@ export class DriveRequestBuilder {
         return this.httpCore?.sendAsync<Drive>(requestInfo, Drive, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.items collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.items.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -160,7 +161,7 @@ export class DriveRequestBuilder {
         return new SharedWithMeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.special collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.special.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */

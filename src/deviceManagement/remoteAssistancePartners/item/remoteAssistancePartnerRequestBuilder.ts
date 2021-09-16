@@ -1,4 +1,4 @@
-import {RemoteAssistancePartner} from '../../remoteAssistancePartner';
+import {RemoteAssistancePartner} from '../../../remoteAssistancePartner';
 import {BeginOnboardingRequestBuilder} from '../beginOnboarding/beginOnboardingRequestBuilder';
 import {DisconnectRequestBuilder} from '../disconnect/disconnectRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

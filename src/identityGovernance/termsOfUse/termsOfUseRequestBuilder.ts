@@ -1,8 +1,8 @@
 import {TermsOfUseContainer} from '../termsOfUseContainer';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
-import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceRequestBuilder';
+import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/item/agreementAcceptanceRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
-import {AgreementRequestBuilder} from './agreements/item/agreementRequestBuilder';
+import {AgreementRequestBuilder} from './agreements/item/item/agreementRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/termsOfUse  */
@@ -22,7 +22,7 @@ export class TermsOfUseRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.termsOfUse.agreementAcceptances collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.termsOfUse.agreementAcceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceRequestBuilder
      */
@@ -31,7 +31,7 @@ export class TermsOfUseRequestBuilder {
         return new AgreementAcceptanceRequestBuilder(this.currentPath + this.pathSegment + "/agreementAcceptances/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.termsOfUse.agreements collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.termsOfUse.agreements.item collection
      * @param id Unique identifier of the item
      * @returns a agreementRequestBuilder
      */

@@ -20,7 +20,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
      * @param startDateTime Usage: startDateTime={startDateTime}
      * @param userId Usage: userId={userId}
      */
-    public constructor(currentPath: string, httpCore: HttpCore, userId?: string | undefined, startDateTime?: DateTimeOffset | undefined, endDateTime?: DateTimeOffset | undefined, isRawUrl: boolean = true) {
+    public constructor(currentPath: string, httpCore: HttpCore, userId?: string | undefined, startDateTime?: Date | undefined, endDateTime?: Date | undefined, isRawUrl: boolean = true) {
         if(!currentPath) throw new Error("currentPath cannot be undefined");
         if(!httpCore) throw new Error("httpCore cannot be undefined");
         this.pathSegment = `/microsoft.graph.getUserArchivedPrintJobs(userId='${userId ?? ''}',startDateTime=${startDateTime ?? ''},endDateTime=${endDateTime ?? ''})`;

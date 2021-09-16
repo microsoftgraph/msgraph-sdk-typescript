@@ -1,5 +1,5 @@
 import {InferenceClassification} from '../../inferenceClassification';
-import {InferenceClassificationOverrideRequestBuilder} from './overrides/item/inferenceClassificationOverrideRequestBuilder';
+import {InferenceClassificationOverrideRequestBuilder} from './overrides/item/item/inferenceClassificationOverrideRequestBuilder';
 import {OverridesRequestBuilder} from './overrides/overridesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -110,7 +110,7 @@ export class InferenceClassificationRequestBuilder {
         return this.httpCore?.sendAsync<InferenceClassification>(requestInfo, InferenceClassification, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.inferenceClassification.overrides collection
+     * Gets an item from the graphtypescriptv4.utilities.me.inferenceClassification.overrides.item collection
      * @param id Unique identifier of the item
      * @returns a inferenceClassificationOverrideRequestBuilder
      */

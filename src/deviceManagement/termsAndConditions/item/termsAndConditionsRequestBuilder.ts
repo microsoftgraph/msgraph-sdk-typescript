@@ -1,8 +1,8 @@
-import {TermsAndConditions} from '../../termsAndConditions';
+import {TermsAndConditions} from '../../../termsAndConditions';
 import {AcceptanceStatusesRequestBuilder} from '../acceptanceStatuses/acceptanceStatusesRequestBuilder';
-import {TermsAndConditionsAcceptanceStatusRequestBuilder} from '../acceptanceStatuses/item/termsAndConditionsAcceptanceStatusRequestBuilder';
+import {TermsAndConditionsAcceptanceStatusRequestBuilder} from '../acceptanceStatuses/item/item/termsAndConditionsAcceptanceStatusRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {TermsAndConditionsAssignmentRequestBuilder} from '../assignments/item/termsAndConditionsAssignmentRequestBuilder';
+import {TermsAndConditionsAssignmentRequestBuilder} from '../assignments/item/item/termsAndConditionsAssignmentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/termsAndConditions/{termsAndConditions-id}  */
@@ -22,7 +22,7 @@ export class TermsAndConditionsRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.acceptanceStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.item.acceptanceStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a termsAndConditionsAcceptanceStatusRequestBuilder
      */
@@ -31,7 +31,7 @@ export class TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsAcceptanceStatusRequestBuilder(this.currentPath + this.pathSegment + "/acceptanceStatuses/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a termsAndConditionsAssignmentRequestBuilder
      */

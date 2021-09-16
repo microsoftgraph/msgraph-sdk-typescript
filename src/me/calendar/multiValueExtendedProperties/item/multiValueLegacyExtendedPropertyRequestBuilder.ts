@@ -1,4 +1,4 @@
-import {MultiValueLegacyExtendedProperty} from '../../../../multiValueLegacyExtendedProperty';
+import {MultiValueLegacyExtendedProperty} from '../../../../../multiValueLegacyExtendedProperty';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/calendar/multiValueExtendedProperties/{multiValueLegacyExtendedProperty-id}  */

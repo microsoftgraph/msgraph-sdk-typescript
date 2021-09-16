@@ -1,4 +1,4 @@
-import {DetectedApp} from '../../detectedApp';
+import {DetectedApp} from '../../../detectedApp';
 import {ManagedDevicesRequestBuilder} from '../managedDevices/managedDevicesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

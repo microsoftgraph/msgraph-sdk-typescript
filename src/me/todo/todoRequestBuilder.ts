@@ -1,5 +1,5 @@
 import {Todo} from '../../todo';
-import {TodoTaskListRequestBuilder} from './lists/item/todoTaskListRequestBuilder';
+import {TodoTaskListRequestBuilder} from './lists/item/item/todoTaskListRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -110,7 +110,7 @@ export class TodoRequestBuilder {
         return this.httpCore?.sendAsync<Todo>(requestInfo, Todo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.todo.lists collection
+     * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.item collection
      * @param id Unique identifier of the item
      * @returns a todoTaskListRequestBuilder
      */

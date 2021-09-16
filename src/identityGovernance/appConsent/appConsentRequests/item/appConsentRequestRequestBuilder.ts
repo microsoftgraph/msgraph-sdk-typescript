@@ -1,5 +1,5 @@
-import {AppConsentRequest} from '../../../appConsentRequest';
-import {UserConsentRequestRequestBuilder} from '../userConsentRequests/item/userConsentRequestRequestBuilder';
+import {AppConsentRequest} from '../../../../appConsentRequest';
+import {UserConsentRequestRequestBuilder} from '../userConsentRequests/item/item/userConsentRequestRequestBuilder';
 import {UserConsentRequestsRequestBuilder} from '../userConsentRequests/userConsentRequestsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class AppConsentRequestRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.appConsent.appConsentRequests.userConsentRequests collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.appConsent.appConsentRequests.item.userConsentRequests.item collection
      * @param id Unique identifier of the item
      * @returns a userConsentRequestRequestBuilder
      */

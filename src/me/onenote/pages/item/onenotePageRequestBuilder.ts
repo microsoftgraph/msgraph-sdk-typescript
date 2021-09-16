@@ -1,4 +1,4 @@
-import {OnenotePage} from '../../../../onenotePage';
+import {OnenotePage} from '../../../../../onenotePage';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyToSectionRequestBuilder} from '../copyToSection/copyToSectionRequestBuilder';
 import {OnenotePatchContentRequestBuilder} from '../onenotePatchContent/onenotePatchContentRequestBuilder';

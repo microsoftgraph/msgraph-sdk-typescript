@@ -1,4 +1,4 @@
-import {PlannerTask} from '../../../plannerTask';
+import {PlannerTask} from '../../../../plannerTask';
 import {AssignedToTaskBoardFormatRequestBuilder} from '../assignedToTaskBoardFormat/assignedToTaskBoardFormatRequestBuilder';
 import {BucketTaskBoardFormatRequestBuilder} from '../bucketTaskBoardFormat/bucketTaskBoardFormatRequestBuilder';
 import {DetailsRequestBuilder} from '../details/detailsRequestBuilder';

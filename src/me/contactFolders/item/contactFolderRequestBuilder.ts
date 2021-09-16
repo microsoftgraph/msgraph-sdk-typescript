@@ -1,10 +1,11 @@
-import {ContactFolder} from '../../../contactFolder';
+import {ContactFolder} from '../../../../contactFolder';
 import {ChildFoldersRequestBuilder} from '../childFolders/childFoldersRequestBuilder';
+import {ContactFolderRequestBuilder} from '../childFolders/item/item/contactFolderRequestBuilder';
 import {ContactsRequestBuilder} from '../contacts/contactsRequestBuilder';
-import {ContactRequestBuilder} from '../contacts/item/contactRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {ContactRequestBuilder} from '../contacts/item/item/contactRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -31,7 +32,7 @@ export class ContactFolderRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.childFolders collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.item.childFolders.item collection
      * @param id Unique identifier of the item
      * @returns a contactFolderRequestBuilder
      */
@@ -54,7 +55,7 @@ export class ContactFolderRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.contacts collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.item.contacts.item collection
      * @param id Unique identifier of the item
      * @returns a contactRequestBuilder
      */
@@ -142,7 +143,7 @@ export class ContactFolderRequestBuilder {
         return this.httpCore?.sendAsync<ContactFolder>(requestInfo, ContactFolder, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -165,7 +166,7 @@ export class ContactFolderRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contactFolders.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */

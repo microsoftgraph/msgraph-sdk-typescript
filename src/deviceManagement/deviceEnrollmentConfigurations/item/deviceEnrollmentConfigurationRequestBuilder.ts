@@ -1,7 +1,7 @@
-import {DeviceEnrollmentConfiguration} from '../../deviceEnrollmentConfiguration';
+import {DeviceEnrollmentConfiguration} from '../../../deviceEnrollmentConfiguration';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {EnrollmentConfigurationAssignmentRequestBuilder} from '../assignments/item/enrollmentConfigurationAssignmentRequestBuilder';
+import {EnrollmentConfigurationAssignmentRequestBuilder} from '../assignments/item/item/enrollmentConfigurationAssignmentRequestBuilder';
 import {SetPriorityRequestBuilder} from '../setPriority/setPriorityRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -25,7 +25,7 @@ export class DeviceEnrollmentConfigurationRequestBuilder {
         return new SetPriorityRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a enrollmentConfigurationAssignmentRequestBuilder
      */

@@ -1,39 +1,39 @@
-import {User} from '../../user';
+import {User} from '../../../user';
 import {ActivitiesRequestBuilder} from '../activities/activitiesRequestBuilder';
-import {UserActivityRequestBuilder} from '../activities/item/userActivityRequestBuilder';
+import {UserActivityRequestBuilder} from '../activities/item/item/userActivityRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from '../agreementAcceptances/agreementAcceptancesRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from '../appRoleAssignments/appRoleAssignmentsRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/appRoleAssignmentRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/item/appRoleAssignmentRequestBuilder';
 import {AssignLicenseRequestBuilder} from '../assignLicense/assignLicenseRequestBuilder';
 import {AuthenticationRequestBuilder} from '../authentication/authenticationRequestBuilder';
 import {CalendarRequestBuilder} from '../calendar/calendarRequestBuilder';
 import {CalendarGroupsRequestBuilder} from '../calendarGroups/calendarGroupsRequestBuilder';
-import {CalendarGroupRequestBuilder} from '../calendarGroups/item/calendarGroupRequestBuilder';
+import {CalendarGroupRequestBuilder} from '../calendarGroups/item/item/calendarGroupRequestBuilder';
 import {CalendarsRequestBuilder} from '../calendars/calendarsRequestBuilder';
-import {CalendarRequestBuilder} from '../calendars/item/calendarRequestBuilder';
+import {CalendarRequestBuilder} from '../calendars/item/item/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from '../calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder} from '../calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder} from '../calendarView/item/item/eventRequestBuilder';
 import {ChangePasswordRequestBuilder} from '../changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from '../chats/chatsRequestBuilder';
-import {ChatRequestBuilder} from '../chats/item/chatRequestBuilder';
+import {ChatRequestBuilder} from '../chats/item/item/chatRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ContactFoldersRequestBuilder} from '../contactFolders/contactFoldersRequestBuilder';
-import {ContactFolderRequestBuilder} from '../contactFolders/item/contactFolderRequestBuilder';
+import {ContactFolderRequestBuilder} from '../contactFolders/item/item/contactFolderRequestBuilder';
 import {ContactsRequestBuilder} from '../contacts/contactsRequestBuilder';
-import {ContactRequestBuilder} from '../contacts/item/contactRequestBuilder';
+import {ContactRequestBuilder} from '../contacts/item/item/contactRequestBuilder';
 import {CreatedObjectsRequestBuilder} from '../createdObjects/createdObjectsRequestBuilder';
 import {DeviceManagementTroubleshootingEventsRequestBuilder} from '../deviceManagementTroubleshootingEvents/deviceManagementTroubleshootingEventsRequestBuilder';
-import {DeviceManagementTroubleshootingEventRequestBuilder} from '../deviceManagementTroubleshootingEvents/item/deviceManagementTroubleshootingEventRequestBuilder';
+import {DeviceManagementTroubleshootingEventRequestBuilder} from '../deviceManagementTroubleshootingEvents/item/item/deviceManagementTroubleshootingEventRequestBuilder';
 import {DirectReportsRequestBuilder} from '../directReports/directReportsRequestBuilder';
 import {DriveRequestBuilder} from '../drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from '../drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from '../drives/item/driveRequestBuilder';
+import {DriveRequestBuilder} from '../drives/item/item/driveRequestBuilder';
 import {EventsRequestBuilder} from '../events/eventsRequestBuilder';
-import {EventRequestBuilder} from '../events/item/eventRequestBuilder';
+import {EventRequestBuilder} from '../events/item/item/eventRequestBuilder';
 import {ExportPersonalDataRequestBuilder} from '../exportPersonalData/exportPersonalDataRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {FindMeetingTimesRequestBuilder} from '../findMeetingTimes/findMeetingTimesRequestBuilder';
 import {FollowedSitesRequestBuilder} from '../followedSites/followedSitesRequestBuilder';
 import {GetMailTipsRequestBuilder} from '../getMailTips/getMailTipsRequestBuilder';
@@ -43,29 +43,29 @@ import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsR
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {InferenceClassificationRequestBuilder} from '../inferenceClassification/inferenceClassificationRequestBuilder';
 import {InsightsRequestBuilder} from '../insights/insightsRequestBuilder';
-import {TeamRequestBuilder} from '../joinedTeams/item/teamRequestBuilder';
+import {TeamRequestBuilder} from '../joinedTeams/item/item/teamRequestBuilder';
 import {JoinedTeamsRequestBuilder} from '../joinedTeams/joinedTeamsRequestBuilder';
 import {LicenseDetailsRequestBuilder} from '../licenseDetails/licenseDetailsRequestBuilder';
-import {MailFolderRequestBuilder} from '../mailFolders/item/mailFolderRequestBuilder';
+import {MailFolderRequestBuilder} from '../mailFolders/item/item/mailFolderRequestBuilder';
 import {MailFoldersRequestBuilder} from '../mailFolders/mailFoldersRequestBuilder';
 import {ManagedAppRegistrationsRequestBuilder} from '../managedAppRegistrations/managedAppRegistrationsRequestBuilder';
-import {ManagedDeviceRequestBuilder} from '../managedDevices/item/managedDeviceRequestBuilder';
+import {ManagedDeviceRequestBuilder} from '../managedDevices/item/item/managedDeviceRequestBuilder';
 import {ManagedDevicesRequestBuilder} from '../managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from '../manager/managerRequestBuilder';
 import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
-import {MessageRequestBuilder} from '../messages/item/messageRequestBuilder';
+import {MessageRequestBuilder} from '../messages/item/item/messageRequestBuilder';
 import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from '../oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {OnenoteRequestBuilder} from '../onenote/onenoteRequestBuilder';
-import {OnlineMeetingRequestBuilder} from '../onlineMeetings/item/onlineMeetingRequestBuilder';
+import {OnlineMeetingRequestBuilder} from '../onlineMeetings/item/item/onlineMeetingRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from '../onlineMeetings/onlineMeetingsRequestBuilder';
 import {OutlookRequestBuilder} from '../outlook/outlookRequestBuilder';
 import {OwnedDevicesRequestBuilder} from '../ownedDevices/ownedDevicesRequestBuilder';
 import {OwnedObjectsRequestBuilder} from '../ownedObjects/ownedObjectsRequestBuilder';
-import {PersonRequestBuilder} from '../people/item/personRequestBuilder';
+import {PersonRequestBuilder} from '../people/item/item/personRequestBuilder';
 import {PeopleRequestBuilder} from '../people/peopleRequestBuilder';
 import {PhotoRequestBuilder} from '../photo/photoRequestBuilder';
-import {ProfilePhotoRequestBuilder} from '../photos/item/profilePhotoRequestBuilder';
+import {ProfilePhotoRequestBuilder} from '../photos/item/item/profilePhotoRequestBuilder';
 import {PhotosRequestBuilder} from '../photos/photosRequestBuilder';
 import {PlannerRequestBuilder} from '../planner/plannerRequestBuilder';
 import {PresenceRequestBuilder} from '../presence/presenceRequestBuilder';
@@ -75,7 +75,7 @@ import {RemoveAllDevicesFromManagementRequestBuilder} from '../removeAllDevicesF
 import {ReprocessLicenseAssignmentRequestBuilder} from '../reprocessLicenseAssignment/reprocessLicenseAssignmentRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {RevokeSignInSessionsRequestBuilder} from '../revokeSignInSessions/revokeSignInSessionsRequestBuilder';
-import {ScopedRoleMembershipRequestBuilder} from '../scopedRoleMemberOf/item/scopedRoleMembershipRequestBuilder';
+import {ScopedRoleMembershipRequestBuilder} from '../scopedRoleMemberOf/item/item/scopedRoleMembershipRequestBuilder';
 import {ScopedRoleMemberOfRequestBuilder} from '../scopedRoleMemberOf/scopedRoleMemberOfRequestBuilder';
 import {SendMailRequestBuilder} from '../sendMail/sendMailRequestBuilder';
 import {SettingsRequestBuilder} from '../settings/settingsRequestBuilder';
@@ -283,7 +283,7 @@ export class UserRequestBuilder {
         return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.activities collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.activities.item collection
      * @param id Unique identifier of the item
      * @returns a userActivityRequestBuilder
      */
@@ -292,7 +292,7 @@ export class UserRequestBuilder {
         return new UserActivityRequestBuilder(this.currentPath + this.pathSegment + "/activities/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.appRoleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
@@ -301,7 +301,7 @@ export class UserRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignments/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.calendarGroups collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.calendarGroups.item collection
      * @param id Unique identifier of the item
      * @returns a calendarGroupRequestBuilder
      */
@@ -310,7 +310,7 @@ export class UserRequestBuilder {
         return new CalendarGroupRequestBuilder(this.currentPath + this.pathSegment + "/calendarGroups/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.calendars collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.calendars.item collection
      * @param id Unique identifier of the item
      * @returns a calendarRequestBuilder
      */
@@ -319,7 +319,7 @@ export class UserRequestBuilder {
         return new CalendarRequestBuilder(this.currentPath + this.pathSegment + "/calendars/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.calendarView collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -328,7 +328,7 @@ export class UserRequestBuilder {
         return new EventRequestBuilder(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.chats collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.chats.item collection
      * @param id Unique identifier of the item
      * @returns a chatRequestBuilder
      */
@@ -351,7 +351,7 @@ export class UserRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.contactFolders collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.contactFolders.item collection
      * @param id Unique identifier of the item
      * @returns a contactFolderRequestBuilder
      */
@@ -360,7 +360,7 @@ export class UserRequestBuilder {
         return new ContactFolderRequestBuilder(this.currentPath + this.pathSegment + "/contactFolders/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.contacts collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.contacts.item collection
      * @param id Unique identifier of the item
      * @returns a contactRequestBuilder
      */
@@ -431,7 +431,7 @@ export class UserRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.deviceManagementTroubleshootingEvents collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.deviceManagementTroubleshootingEvents.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementTroubleshootingEventRequestBuilder
      */
@@ -440,7 +440,7 @@ export class UserRequestBuilder {
         return new DeviceManagementTroubleshootingEventRequestBuilder(this.currentPath + this.pathSegment + "/deviceManagementTroubleshootingEvents/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.drives collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
@@ -449,7 +449,7 @@ export class UserRequestBuilder {
         return new DriveRequestBuilder(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.events collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -458,7 +458,7 @@ export class UserRequestBuilder {
         return new EventRequestBuilder(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -498,7 +498,7 @@ export class UserRequestBuilder {
         return new GetManagedAppPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.joinedTeams collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.joinedTeams.item collection
      * @param id Unique identifier of the item
      * @returns a teamRequestBuilder
      */
@@ -507,7 +507,7 @@ export class UserRequestBuilder {
         return new TeamRequestBuilder(this.currentPath + this.pathSegment + "/joinedTeams/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.licenseDetails collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.licenseDetails.item collection
      * @param id Unique identifier of the item
      * @returns a licenseDetailsRequestBuilder
      */
@@ -516,7 +516,7 @@ export class UserRequestBuilder {
         return new LicenseDetailsRequestBuilder(this.currentPath + this.pathSegment + "/licenseDetails/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.mailFolders collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.mailFolders.item collection
      * @param id Unique identifier of the item
      * @returns a mailFolderRequestBuilder
      */
@@ -525,7 +525,7 @@ export class UserRequestBuilder {
         return new MailFolderRequestBuilder(this.currentPath + this.pathSegment + "/mailFolders/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.managedDevices collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.managedDevices.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceRequestBuilder
      */
@@ -534,7 +534,7 @@ export class UserRequestBuilder {
         return new ManagedDeviceRequestBuilder(this.currentPath + this.pathSegment + "/managedDevices/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.messages collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.messages.item collection
      * @param id Unique identifier of the item
      * @returns a messageRequestBuilder
      */
@@ -543,7 +543,7 @@ export class UserRequestBuilder {
         return new MessageRequestBuilder(this.currentPath + this.pathSegment + "/messages/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.onlineMeetings collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.onlineMeetings.item collection
      * @param id Unique identifier of the item
      * @returns a onlineMeetingRequestBuilder
      */
@@ -566,7 +566,7 @@ export class UserRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.people collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.people.item collection
      * @param id Unique identifier of the item
      * @returns a personRequestBuilder
      */
@@ -575,7 +575,7 @@ export class UserRequestBuilder {
         return new PersonRequestBuilder(this.currentPath + this.pathSegment + "/people/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.photos collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.photos.item collection
      * @param id Unique identifier of the item
      * @returns a profilePhotoRequestBuilder
      */
@@ -595,7 +595,7 @@ export class UserRequestBuilder {
         return new ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, StartDateTime, EndDateTime, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users.scopedRoleMemberOf collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item.scopedRoleMemberOf.item collection
      * @param id Unique identifier of the item
      * @returns a scopedRoleMembershipRequestBuilder
      */

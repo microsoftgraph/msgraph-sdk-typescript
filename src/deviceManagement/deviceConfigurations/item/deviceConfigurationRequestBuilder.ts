@@ -1,13 +1,13 @@
-import {DeviceConfiguration} from '../../deviceConfiguration';
+import {DeviceConfiguration} from '../../../deviceConfiguration';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {DeviceConfigurationAssignmentRequestBuilder} from '../assignments/item/deviceConfigurationAssignmentRequestBuilder';
+import {DeviceConfigurationAssignmentRequestBuilder} from '../assignments/item/item/deviceConfigurationAssignmentRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilder} from '../deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSummaries/item/settingStateDeviceSummaryRequestBuilder';
+import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSummaries/item/item/settingStateDeviceSummaryRequestBuilder';
 import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
-import {DeviceConfigurationDeviceStatusRequestBuilder} from '../deviceStatuses/item/deviceConfigurationDeviceStatusRequestBuilder';
+import {DeviceConfigurationDeviceStatusRequestBuilder} from '../deviceStatuses/item/item/deviceConfigurationDeviceStatusRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from '../deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {DeviceConfigurationUserStatusRequestBuilder} from '../userStatuses/item/deviceConfigurationUserStatusRequestBuilder';
+import {DeviceConfigurationUserStatusRequestBuilder} from '../userStatuses/item/item/deviceConfigurationUserStatusRequestBuilder';
 import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from '../userStatusOverview/userStatusOverviewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -44,7 +44,7 @@ export class DeviceConfigurationRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationAssignmentRequestBuilder
      */
@@ -129,7 +129,7 @@ export class DeviceConfigurationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.deviceSettingStateSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.item.deviceSettingStateSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a settingStateDeviceSummaryRequestBuilder
      */
@@ -138,7 +138,7 @@ export class DeviceConfigurationRequestBuilder {
         return new SettingStateDeviceSummaryRequestBuilder(this.currentPath + this.pathSegment + "/deviceSettingStateSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.deviceStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationDeviceStatusRequestBuilder
      */
@@ -178,7 +178,7 @@ export class DeviceConfigurationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.userStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.item.userStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationUserStatusRequestBuilder
      */

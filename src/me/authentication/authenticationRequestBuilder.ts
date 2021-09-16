@@ -1,11 +1,11 @@
-import {Authentication} from './authentication';
+import {Authentication} from '../../authentication';
 import {Fido2MethodsRequestBuilder} from './fido2Methods/fido2MethodsRequestBuilder';
-import {Fido2AuthenticationMethodRequestBuilder} from './fido2Methods/item/fido2AuthenticationMethodRequestBuilder';
-import {AuthenticationMethodRequestBuilder} from './methods/item/authenticationMethodRequestBuilder';
+import {Fido2AuthenticationMethodRequestBuilder} from './fido2Methods/item/item/fido2AuthenticationMethodRequestBuilder';
+import {AuthenticationMethodRequestBuilder} from './methods/item/item/authenticationMethodRequestBuilder';
 import {MethodsRequestBuilder} from './methods/methodsRequestBuilder';
-import {MicrosoftAuthenticatorAuthenticationMethodRequestBuilder} from './microsoftAuthenticatorMethods/item/microsoftAuthenticatorAuthenticationMethodRequestBuilder';
+import {MicrosoftAuthenticatorAuthenticationMethodRequestBuilder} from './microsoftAuthenticatorMethods/item/item/microsoftAuthenticatorAuthenticationMethodRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
-import {WindowsHelloForBusinessAuthenticationMethodRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodRequestBuilder';
+import {WindowsHelloForBusinessAuthenticationMethodRequestBuilder} from './windowsHelloForBusinessMethods/item/item/windowsHelloForBusinessAuthenticationMethodRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -108,7 +108,7 @@ export class AuthenticationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.fido2Methods collection
+     * Gets an item from the graphtypescriptv4.utilities.me.authentication.fido2Methods.item collection
      * @param id Unique identifier of the item
      * @returns a fido2AuthenticationMethodRequestBuilder
      */
@@ -134,7 +134,7 @@ export class AuthenticationRequestBuilder {
         return this.httpCore?.sendAsync<Authentication>(requestInfo, Authentication, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.methods collection
+     * Gets an item from the graphtypescriptv4.utilities.me.authentication.methods.item collection
      * @param id Unique identifier of the item
      * @returns a authenticationMethodRequestBuilder
      */
@@ -143,7 +143,7 @@ export class AuthenticationRequestBuilder {
         return new AuthenticationMethodRequestBuilder(this.currentPath + this.pathSegment + "/methods/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.microsoftAuthenticatorMethods collection
+     * Gets an item from the graphtypescriptv4.utilities.me.authentication.microsoftAuthenticatorMethods.item collection
      * @param id Unique identifier of the item
      * @returns a microsoftAuthenticatorAuthenticationMethodRequestBuilder
      */
@@ -166,7 +166,7 @@ export class AuthenticationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.windowsHelloForBusinessMethods collection
+     * Gets an item from the graphtypescriptv4.utilities.me.authentication.windowsHelloForBusinessMethods.item collection
      * @param id Unique identifier of the item
      * @returns a windowsHelloForBusinessAuthenticationMethodRequestBuilder
      */

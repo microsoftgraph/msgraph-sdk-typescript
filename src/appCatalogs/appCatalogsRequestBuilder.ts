@@ -1,5 +1,5 @@
 import {AppCatalogs} from './appCatalogs';
-import {TeamsAppRequestBuilder} from './teamsApps/item/teamsAppRequestBuilder';
+import {TeamsAppRequestBuilder} from './teamsApps/item/item/teamsAppRequestBuilder';
 import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -98,7 +98,7 @@ export class AppCatalogsRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.appCatalogs.teamsApps collection
+     * Gets an item from the graphtypescriptv4.utilities.appCatalogs.teamsApps.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppRequestBuilder
      */

@@ -1,4 +1,4 @@
-import {PrinterShare} from '../../printerShare';
+import {PrinterShare} from '../../../printerShare';
 import {AllowedGroupsRequestBuilder} from '../allowedGroups/allowedGroupsRequestBuilder';
 import {AllowedUsersRequestBuilder} from '../allowedUsers/allowedUsersRequestBuilder';
 import {PrinterRequestBuilder} from '../printer/printerRequestBuilder';

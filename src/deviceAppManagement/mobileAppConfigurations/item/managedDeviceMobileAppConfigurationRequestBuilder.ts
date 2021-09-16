@@ -1,11 +1,11 @@
-import {ManagedDeviceMobileAppConfiguration} from '../../managedDeviceMobileAppConfiguration';
+import {ManagedDeviceMobileAppConfiguration} from '../../../managedDeviceMobileAppConfiguration';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder} from '../assignments/item/managedDeviceMobileAppConfigurationAssignmentRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder} from '../assignments/item/item/managedDeviceMobileAppConfigurationAssignmentRequestBuilder';
 import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder} from '../deviceStatuses/item/managedDeviceMobileAppConfigurationDeviceStatusRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder} from '../deviceStatuses/item/item/managedDeviceMobileAppConfigurationDeviceStatusRequestBuilder';
 import {DeviceStatusSummaryRequestBuilder} from '../deviceStatusSummary/deviceStatusSummaryRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder} from '../userStatuses/item/managedDeviceMobileAppConfigurationUserStatusRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder} from '../userStatuses/item/item/managedDeviceMobileAppConfigurationUserStatusRequestBuilder';
 import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
 import {UserStatusSummaryRequestBuilder} from '../userStatusSummary/userStatusSummaryRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -39,7 +39,7 @@ export class ManagedDeviceMobileAppConfigurationRequestBuilder {
         return new UserStatusSummaryRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceMobileAppConfigurationAssignmentRequestBuilder
      */
@@ -124,7 +124,7 @@ export class ManagedDeviceMobileAppConfigurationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.deviceStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceMobileAppConfigurationDeviceStatusRequestBuilder
      */
@@ -164,7 +164,7 @@ export class ManagedDeviceMobileAppConfigurationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.userStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileAppConfigurations.item.userStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceMobileAppConfigurationUserStatusRequestBuilder
      */

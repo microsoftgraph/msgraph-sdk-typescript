@@ -1,4 +1,4 @@
-import {EducationSchool} from '../../educationSchool';
+import {EducationSchool} from '../../../educationSchool';
 import {AdministrativeUnitRequestBuilder} from '../administrativeUnit/administrativeUnitRequestBuilder';
 import {ClassesRequestBuilder} from '../classes/classesRequestBuilder';
 import {UsersRequestBuilder} from '../users/usersRequestBuilder';

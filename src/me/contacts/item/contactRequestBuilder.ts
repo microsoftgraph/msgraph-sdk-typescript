@@ -1,10 +1,10 @@
-import {Contact} from '../../../contact';
+import {Contact} from '../../../../contact';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {PhotoRequestBuilder} from '../photo/photoRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -107,7 +107,7 @@ export class ContactRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contacts.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contacts.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -133,7 +133,7 @@ export class ContactRequestBuilder {
         return this.httpCore?.sendAsync<Contact>(requestInfo, Contact, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contacts.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contacts.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -156,7 +156,7 @@ export class ContactRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.contacts.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.contacts.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */

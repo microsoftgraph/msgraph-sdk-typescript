@@ -1,6 +1,6 @@
-import {UserActivity} from '../../../userActivity';
+import {UserActivity} from '../../../../userActivity';
 import {HistoryItemsRequestBuilder} from '../historyItems/historyItemsRequestBuilder';
-import {ActivityHistoryItemRequestBuilder} from '../historyItems/item/activityHistoryItemRequestBuilder';
+import {ActivityHistoryItemRequestBuilder} from '../historyItems/item/item/activityHistoryItemRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/activities/{userActivity-id}  */
@@ -110,7 +110,7 @@ export class UserActivityRequestBuilder {
         return this.httpCore?.sendAsync<UserActivity>(requestInfo, UserActivity, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.activities.historyItems collection
+     * Gets an item from the graphtypescriptv4.utilities.me.activities.item.historyItems.item collection
      * @param id Unique identifier of the item
      * @returns a activityHistoryItemRequestBuilder
      */

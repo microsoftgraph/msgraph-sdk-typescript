@@ -1,15 +1,15 @@
-import {Team} from '../../team';
+import {Team} from '../../../team';
 import {ArchiveRequestBuilder} from '../archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from '../channels/channelsRequestBuilder';
-import {ChannelRequestBuilder} from '../channels/item/channelRequestBuilder';
+import {ChannelRequestBuilder} from '../channels/item/item/channelRequestBuilder';
 import {CloneRequestBuilder} from '../clone/cloneRequestBuilder';
 import {CompleteMigrationRequestBuilder} from '../completeMigration/completeMigrationRequestBuilder';
 import {GroupRequestBuilder} from '../group/groupRequestBuilder';
 import {InstalledAppsRequestBuilder} from '../installedApps/installedAppsRequestBuilder';
-import {TeamsAppInstallationRequestBuilder} from '../installedApps/item/teamsAppInstallationRequestBuilder';
-import {ConversationMemberRequestBuilder} from '../members/item/conversationMemberRequestBuilder';
+import {TeamsAppInstallationRequestBuilder} from '../installedApps/item/item/teamsAppInstallationRequestBuilder';
+import {ConversationMemberRequestBuilder} from '../members/item/item/conversationMemberRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {TeamsAsyncOperationRequestBuilder} from '../operations/item/teamsAsyncOperationRequestBuilder';
+import {TeamsAsyncOperationRequestBuilder} from '../operations/item/item/teamsAsyncOperationRequestBuilder';
 import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
 import {PrimaryChannelRequestBuilder} from '../primaryChannel/primaryChannelRequestBuilder';
 import {ScheduleRequestBuilder} from '../schedule/scheduleRequestBuilder';
@@ -68,7 +68,7 @@ export class TeamRequestBuilder {
         return new UnarchiveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.teams.channels collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.item.channels.item collection
      * @param id Unique identifier of the item
      * @returns a channelRequestBuilder
      */
@@ -170,7 +170,7 @@ export class TeamRequestBuilder {
         return this.httpCore?.sendAsync<Team>(requestInfo, Team, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.teams.installedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.item.installedApps.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppInstallationRequestBuilder
      */
@@ -179,7 +179,7 @@ export class TeamRequestBuilder {
         return new TeamsAppInstallationRequestBuilder(this.currentPath + this.pathSegment + "/installedApps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.teams.members collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a conversationMemberRequestBuilder
      */
@@ -188,7 +188,7 @@ export class TeamRequestBuilder {
         return new ConversationMemberRequestBuilder(this.currentPath + this.pathSegment + "/members/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.teams.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAsyncOperationRequestBuilder
      */

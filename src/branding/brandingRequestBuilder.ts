@@ -1,4 +1,4 @@
-import {OrganizationalBrandingLocalizationRequestBuilder} from './localizations/item/organizationalBrandingLocalizationRequestBuilder';
+import {OrganizationalBrandingLocalizationRequestBuilder} from './localizations/item/item/organizationalBrandingLocalizationRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {OrganizationalBranding} from './organizationalBranding';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -84,7 +84,7 @@ export class BrandingRequestBuilder {
         return this.httpCore?.sendAsync<OrganizationalBranding>(requestInfo, OrganizationalBranding, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.branding.localizations collection
+     * Gets an item from the graphtypescriptv4.utilities.branding.localizations.item collection
      * @param id Unique identifier of the item
      * @returns a organizationalBrandingLocalizationRequestBuilder
      */

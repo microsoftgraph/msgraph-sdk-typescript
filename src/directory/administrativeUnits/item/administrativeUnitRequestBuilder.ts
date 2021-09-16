@@ -1,8 +1,8 @@
-import {AdministrativeUnit} from '../../../administrativeUnit';
+import {AdministrativeUnit} from '../../../../administrativeUnit';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {ScopedRoleMembershipRequestBuilder} from '../scopedRoleMembers/item/scopedRoleMembershipRequestBuilder';
+import {ScopedRoleMembershipRequestBuilder} from '../scopedRoleMembers/item/item/scopedRoleMembershipRequestBuilder';
 import {ScopedRoleMembersRequestBuilder} from '../scopedRoleMembers/scopedRoleMembersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -102,7 +102,7 @@ export class AdministrativeUnitRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -142,7 +142,7 @@ export class AdministrativeUnitRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.scopedRoleMembers collection
+     * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.item.scopedRoleMembers.item collection
      * @param id Unique identifier of the item
      * @returns a scopedRoleMembershipRequestBuilder
      */

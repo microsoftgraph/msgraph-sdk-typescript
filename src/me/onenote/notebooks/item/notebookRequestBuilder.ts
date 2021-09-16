@@ -1,8 +1,8 @@
-import {Notebook} from '../../../../notebook';
+import {Notebook} from '../../../../../notebook';
 import {CopyNotebookRequestBuilder} from '../copyNotebook/copyNotebookRequestBuilder';
-import {SectionGroupRequestBuilder} from '../sectionGroups/item/sectionGroupRequestBuilder';
+import {SectionGroupRequestBuilder} from '../sectionGroups/item/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from '../sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from '../sections/item/onenoteSectionRequestBuilder';
+import {OnenoteSectionRequestBuilder} from '../sections/item/item/onenoteSectionRequestBuilder';
 import {SectionsRequestBuilder} from '../sections/sectionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -133,7 +133,7 @@ export class NotebookRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.sectionGroups collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.item.sectionGroups.item collection
      * @param id Unique identifier of the item
      * @returns a sectionGroupRequestBuilder
      */
@@ -142,7 +142,7 @@ export class NotebookRequestBuilder {
         return new SectionGroupRequestBuilder(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.sections collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.item.sections.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteSectionRequestBuilder
      */

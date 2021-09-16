@@ -1,5 +1,5 @@
-import {Approval} from '../../../approval';
-import {ApprovalStageRequestBuilder} from '../stages/item/approvalStageRequestBuilder';
+import {Approval} from '../../../../approval';
+import {ApprovalStageRequestBuilder} from '../stages/item/item/approvalStageRequestBuilder';
 import {StagesRequestBuilder} from '../stages/stagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class ApprovalRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.stages collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item.stages.item collection
      * @param id Unique identifier of the item
      * @returns a approvalStageRequestBuilder
      */

@@ -1,12 +1,12 @@
 import {List} from '../../list';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionRequestBuilder} from './columns/item/columnDefinitionRequestBuilder';
+import {ColumnDefinitionRequestBuilder} from './columns/item/item/columnDefinitionRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
-import {ContentTypeRequestBuilder} from './contentTypes/item/contentTypeRequestBuilder';
+import {ContentTypeRequestBuilder} from './contentTypes/item/item/contentTypeRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
-import {ListItemRequestBuilder} from './items/item/listItemRequestBuilder';
+import {ListItemRequestBuilder} from './items/item/item/listItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
-import {SubscriptionRequestBuilder} from './subscriptions/item/subscriptionRequestBuilder';
+import {SubscriptionRequestBuilder} from './subscriptions/item/item/subscriptionRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -36,7 +36,7 @@ export class ListRequestBuilder {
         return new SubscriptionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.list.columns collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.list.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionRequestBuilder
      */
@@ -59,7 +59,7 @@ export class ListRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.list.contentTypes collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.list.contentTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeRequestBuilder
      */
@@ -147,7 +147,7 @@ export class ListRequestBuilder {
         return this.httpCore?.sendAsync<List>(requestInfo, List, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.list.items collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.list.items.item collection
      * @param id Unique identifier of the item
      * @returns a listItemRequestBuilder
      */
@@ -170,7 +170,7 @@ export class ListRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.list.subscriptions collection
+     * Gets an item from the graphtypescriptv4.utilities.drive.list.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionRequestBuilder
      */

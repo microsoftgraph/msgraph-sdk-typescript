@@ -1,5 +1,5 @@
-import {PlannerBucket} from '../../../plannerBucket';
-import {PlannerTaskRequestBuilder} from '../tasks/item/plannerTaskRequestBuilder';
+import {PlannerBucket} from '../../../../plannerBucket';
+import {PlannerTaskRequestBuilder} from '../tasks/item/item/plannerTaskRequestBuilder';
 import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class PlannerBucketRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.planner.buckets.tasks collection
+     * Gets an item from the graphtypescriptv4.utilities.planner.buckets.item.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a plannerTaskRequestBuilder
      */

@@ -1,7 +1,7 @@
-import {MobileApp} from '../../mobileApp';
+import {MobileApp} from '../../../mobileApp';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {MobileAppAssignmentRequestBuilder} from '../assignments/item/mobileAppAssignmentRequestBuilder';
+import {MobileAppAssignmentRequestBuilder} from '../assignments/item/item/mobileAppAssignmentRequestBuilder';
 import {CategoriesRequestBuilder} from '../categories/categoriesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -25,7 +25,7 @@ export class MobileAppRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileApps.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.mobileApps.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a mobileAppAssignmentRequestBuilder
      */

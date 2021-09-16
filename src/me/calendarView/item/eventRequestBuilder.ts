@@ -1,18 +1,19 @@
-import {Event} from '../../../event';
+import {Event} from '../../../../event';
 import {AcceptRequestBuilder} from '../accept/acceptRequestBuilder';
 import {AttachmentsRequestBuilder} from '../attachments/attachmentsRequestBuilder';
-import {AttachmentRequestBuilder} from '../attachments/item/attachmentRequestBuilder';
+import {AttachmentRequestBuilder} from '../attachments/item/item/attachmentRequestBuilder';
 import {CalendarRequestBuilder} from '../calendar/calendarRequestBuilder';
 import {CancelRequestBuilder} from '../cancel/cancelRequestBuilder';
 import {DeclineRequestBuilder} from '../decline/declineRequestBuilder';
 import {DismissReminderRequestBuilder} from '../dismissReminder/dismissReminderRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {ForwardRequestBuilder} from '../forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from '../instances/instancesRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {EventRequestBuilder} from '../instances/item/item/eventRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {SnoozeReminderRequestBuilder} from '../snoozeReminder/snoozeReminderRequestBuilder';
 import {TentativelyAcceptRequestBuilder} from '../tentativelyAccept/tentativelyAcceptRequestBuilder';
@@ -68,7 +69,7 @@ export class EventRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.attachments collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.item.attachments.item collection
      * @param id Unique identifier of the item
      * @returns a attachmentRequestBuilder
      */
@@ -155,7 +156,7 @@ export class EventRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -183,7 +184,7 @@ export class EventRequestBuilder {
         return this.httpCore?.sendAsync<Event>(requestInfo, Event, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.instances collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.item.instances.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -192,7 +193,7 @@ export class EventRequestBuilder {
         return new EventRequestBuilder(this.currentPath + this.pathSegment + "/instances/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -215,7 +216,7 @@ export class EventRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendarView.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */

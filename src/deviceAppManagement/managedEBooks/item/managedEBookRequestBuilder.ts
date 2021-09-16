@@ -1,11 +1,11 @@
-import {ManagedEBook} from '../../managedEBook';
+import {ManagedEBook} from '../../../managedEBook';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {ManagedEBookAssignmentRequestBuilder} from '../assignments/item/managedEBookAssignmentRequestBuilder';
+import {ManagedEBookAssignmentRequestBuilder} from '../assignments/item/item/managedEBookAssignmentRequestBuilder';
 import {DeviceStatesRequestBuilder} from '../deviceStates/deviceStatesRequestBuilder';
-import {DeviceInstallStateRequestBuilder} from '../deviceStates/item/deviceInstallStateRequestBuilder';
+import {DeviceInstallStateRequestBuilder} from '../deviceStates/item/item/deviceInstallStateRequestBuilder';
 import {InstallSummaryRequestBuilder} from '../installSummary/installSummaryRequestBuilder';
-import {UserInstallStateSummaryRequestBuilder} from '../userStateSummary/item/userInstallStateSummaryRequestBuilder';
+import {UserInstallStateSummaryRequestBuilder} from '../userStateSummary/item/item/userInstallStateSummaryRequestBuilder';
 import {UserStateSummaryRequestBuilder} from '../userStateSummary/userStateSummaryRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -35,7 +35,7 @@ export class ManagedEBookRequestBuilder {
         return new UserStateSummaryRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a managedEBookAssignmentRequestBuilder
      */
@@ -120,7 +120,7 @@ export class ManagedEBookRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.deviceStates collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.item.deviceStates.item collection
      * @param id Unique identifier of the item
      * @returns a deviceInstallStateRequestBuilder
      */
@@ -160,7 +160,7 @@ export class ManagedEBookRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.userStateSummary collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedEBooks.item.userStateSummary.item collection
      * @param id Unique identifier of the item
      * @returns a userInstallStateSummaryRequestBuilder
      */

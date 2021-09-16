@@ -1,9 +1,9 @@
-import {Domain} from '../domain';
+import {Domain} from '../../domain';
 import {DomainNameReferencesRequestBuilder} from '../domainNameReferences/domainNameReferencesRequestBuilder';
 import {ForceDeleteRequestBuilder} from '../forceDelete/forceDeleteRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from '../serviceConfigurationRecords/item/domainDnsRecordRequestBuilder';
+import {DomainDnsRecordRequestBuilder} from '../serviceConfigurationRecords/item/item/domainDnsRecordRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from '../serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from '../verificationDnsRecords/item/domainDnsRecordRequestBuilder';
+import {DomainDnsRecordRequestBuilder} from '../verificationDnsRecords/item/item/domainDnsRecordRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from '../verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from '../verify/verifyRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -141,7 +141,7 @@ export class DomainRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.domains.serviceConfigurationRecords collection
+     * Gets an item from the graphtypescriptv4.utilities.domains.item.serviceConfigurationRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordRequestBuilder
      */
@@ -150,7 +150,7 @@ export class DomainRequestBuilder {
         return new DomainDnsRecordRequestBuilder(this.currentPath + this.pathSegment + "/serviceConfigurationRecords/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.domains.verificationDnsRecords collection
+     * Gets an item from the graphtypescriptv4.utilities.domains.item.verificationDnsRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordRequestBuilder
      */

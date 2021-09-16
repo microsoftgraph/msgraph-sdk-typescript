@@ -1,6 +1,6 @@
-import {TeamsApp} from '../../../teamsApp';
+import {TeamsApp} from '../../../../teamsApp';
 import {AppDefinitionsRequestBuilder} from '../appDefinitions/appDefinitionsRequestBuilder';
-import {TeamsAppDefinitionRequestBuilder} from '../appDefinitions/item/teamsAppDefinitionRequestBuilder';
+import {TeamsAppDefinitionRequestBuilder} from '../appDefinitions/item/item/teamsAppDefinitionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /appCatalogs/teamsApps/{teamsApp-id}  */
@@ -17,7 +17,7 @@ export class TeamsAppRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.appCatalogs.teamsApps.appDefinitions collection
+     * Gets an item from the graphtypescriptv4.utilities.appCatalogs.teamsApps.item.appDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppDefinitionRequestBuilder
      */

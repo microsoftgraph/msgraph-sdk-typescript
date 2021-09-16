@@ -1,12 +1,12 @@
+import {Organization} from '../../organization';
 import {BrandingRequestBuilder} from '../branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from '../certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
-import {Organization} from '../organization';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {SetMobileDeviceManagementAuthorityRequestBuilder} from '../setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -125,7 +125,7 @@ export class OrganizationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.organization.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.organization.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */

@@ -1,6 +1,6 @@
-import {AndroidManagedAppProtection} from '../../androidManagedAppProtection';
+import {AndroidManagedAppProtection} from '../../../androidManagedAppProtection';
 import {AppsRequestBuilder} from '../apps/appsRequestBuilder';
-import {ManagedMobileAppRequestBuilder} from '../apps/item/managedMobileAppRequestBuilder';
+import {ManagedMobileAppRequestBuilder} from '../apps/item/item/managedMobileAppRequestBuilder';
 import {DeploymentSummaryRequestBuilder} from '../deploymentSummary/deploymentSummaryRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -21,7 +21,7 @@ export class AndroidManagedAppProtectionRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.androidManagedAppProtections.apps collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.androidManagedAppProtections.item.apps.item collection
      * @param id Unique identifier of the item
      * @returns a managedMobileAppRequestBuilder
      */

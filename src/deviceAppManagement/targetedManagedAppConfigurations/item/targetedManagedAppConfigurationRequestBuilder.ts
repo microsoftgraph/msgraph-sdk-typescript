@@ -1,9 +1,9 @@
-import {TargetedManagedAppConfiguration} from '../../targetedManagedAppConfiguration';
+import {TargetedManagedAppConfiguration} from '../../../targetedManagedAppConfiguration';
 import {AppsRequestBuilder} from '../apps/appsRequestBuilder';
-import {ManagedMobileAppRequestBuilder} from '../apps/item/managedMobileAppRequestBuilder';
+import {ManagedMobileAppRequestBuilder} from '../apps/item/item/managedMobileAppRequestBuilder';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {TargetedManagedAppPolicyAssignmentRequestBuilder} from '../assignments/item/targetedManagedAppPolicyAssignmentRequestBuilder';
+import {TargetedManagedAppPolicyAssignmentRequestBuilder} from '../assignments/item/item/targetedManagedAppPolicyAssignmentRequestBuilder';
 import {DeploymentSummaryRequestBuilder} from '../deploymentSummary/deploymentSummaryRequestBuilder';
 import {TargetAppsRequestBuilder} from '../targetApps/targetAppsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -34,7 +34,7 @@ export class TargetedManagedAppConfigurationRequestBuilder {
         return new TargetAppsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations.apps collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations.item.apps.item collection
      * @param id Unique identifier of the item
      * @returns a managedMobileAppRequestBuilder
      */
@@ -43,7 +43,7 @@ export class TargetedManagedAppConfigurationRequestBuilder {
         return new ManagedMobileAppRequestBuilder(this.currentPath + this.pathSegment + "/apps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.targetedManagedAppConfigurations.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a targetedManagedAppPolicyAssignmentRequestBuilder
      */

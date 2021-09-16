@@ -1,9 +1,9 @@
-import {ManagedAppRegistration} from '../../../managedAppRegistration';
+import {ManagedAppRegistration} from '../../../../managedAppRegistration';
 import {AppliedPoliciesRequestBuilder} from '../appliedPolicies/appliedPoliciesRequestBuilder';
-import {ManagedAppPolicyRequestBuilder} from '../appliedPolicies/item/managedAppPolicyRequestBuilder';
+import {ManagedAppPolicyRequestBuilder} from '../appliedPolicies/item/item/managedAppPolicyRequestBuilder';
 import {IntendedPoliciesRequestBuilder} from '../intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppPolicyRequestBuilder} from '../intendedPolicies/item/managedAppPolicyRequestBuilder';
-import {ManagedAppOperationRequestBuilder} from '../operations/item/managedAppOperationRequestBuilder';
+import {ManagedAppPolicyRequestBuilder} from '../intendedPolicies/item/item/managedAppPolicyRequestBuilder';
+import {ManagedAppOperationRequestBuilder} from '../operations/item/item/managedAppOperationRequestBuilder';
 import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -27,7 +27,7 @@ export class ManagedAppRegistrationRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.appliedPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.item.appliedPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyRequestBuilder
      */
@@ -129,7 +129,7 @@ export class ManagedAppRegistrationRequestBuilder {
         return this.httpCore?.sendAsync<ManagedAppRegistration>(requestInfo, ManagedAppRegistration, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.intendedPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.item.intendedPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyRequestBuilder
      */
@@ -138,7 +138,7 @@ export class ManagedAppRegistrationRequestBuilder {
         return new ManagedAppPolicyRequestBuilder(this.currentPath + this.pathSegment + "/intendedPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppOperationRequestBuilder
      */

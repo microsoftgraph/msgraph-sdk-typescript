@@ -1,4 +1,4 @@
-import {DeviceManagementPartner} from '../../deviceManagementPartner';
+import {DeviceManagementPartner} from '../../../deviceManagementPartner';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceManagementPartners/{deviceManagementPartner-id}  */

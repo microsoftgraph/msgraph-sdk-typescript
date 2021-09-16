@@ -1,11 +1,11 @@
+import {Application} from '../../application';
 import {AddKeyRequestBuilder} from '../addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from '../addPassword/addPasswordRequestBuilder';
-import {Application} from '../application';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from '../createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
 import {ExtensionPropertiesRequestBuilder} from '../extensionProperties/extensionPropertiesRequestBuilder';
-import {ExtensionPropertyRequestBuilder} from '../extensionProperties/item/extensionPropertyRequestBuilder';
+import {ExtensionPropertyRequestBuilder} from '../extensionProperties/item/item/extensionPropertyRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from '../homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
@@ -153,7 +153,7 @@ export class ApplicationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.applications.extensionProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.applications.item.extensionProperties.item collection
      * @param id Unique identifier of the item
      * @returns a extensionPropertyRequestBuilder
      */

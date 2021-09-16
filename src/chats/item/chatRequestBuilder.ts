@@ -1,12 +1,12 @@
-import {Chat} from '../../chat';
+import {Chat} from '../../../chat';
 import {InstalledAppsRequestBuilder} from '../installedApps/installedAppsRequestBuilder';
-import {TeamsAppInstallationRequestBuilder} from '../installedApps/item/teamsAppInstallationRequestBuilder';
-import {ConversationMemberRequestBuilder} from '../members/item/conversationMemberRequestBuilder';
+import {TeamsAppInstallationRequestBuilder} from '../installedApps/item/item/teamsAppInstallationRequestBuilder';
+import {ConversationMemberRequestBuilder} from '../members/item/item/conversationMemberRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {ChatMessageRequestBuilder} from '../messages/item/chatMessageRequestBuilder';
+import {ChatMessageRequestBuilder} from '../messages/item/item/chatMessageRequestBuilder';
 import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from '../sendActivityNotification/sendActivityNotificationRequestBuilder';
-import {TeamsTabRequestBuilder} from '../tabs/item/teamsTabRequestBuilder';
+import {TeamsTabRequestBuilder} from '../tabs/item/item/teamsTabRequestBuilder';
 import {TabsRequestBuilder} from '../tabs/tabsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -129,7 +129,7 @@ export class ChatRequestBuilder {
         return this.httpCore?.sendAsync<Chat>(requestInfo, Chat, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.chats.installedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.item.installedApps.item collection
      * @param id Unique identifier of the item
      * @returns a teamsAppInstallationRequestBuilder
      */
@@ -138,7 +138,7 @@ export class ChatRequestBuilder {
         return new TeamsAppInstallationRequestBuilder(this.currentPath + this.pathSegment + "/installedApps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.chats.members collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.item.members.item collection
      * @param id Unique identifier of the item
      * @returns a conversationMemberRequestBuilder
      */
@@ -147,7 +147,7 @@ export class ChatRequestBuilder {
         return new ConversationMemberRequestBuilder(this.currentPath + this.pathSegment + "/members/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.chats.messages collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.item.messages.item collection
      * @param id Unique identifier of the item
      * @returns a chatMessageRequestBuilder
      */
@@ -170,7 +170,7 @@ export class ChatRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.chats.tabs collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.item.tabs.item collection
      * @param id Unique identifier of the item
      * @returns a teamsTabRequestBuilder
      */

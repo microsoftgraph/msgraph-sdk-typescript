@@ -1,7 +1,7 @@
-import {OnenoteSection} from '../../../../onenoteSection';
+import {OnenoteSection} from '../../../../../onenoteSection';
 import {CopyToNotebookRequestBuilder} from '../copyToNotebook/copyToNotebookRequestBuilder';
 import {CopyToSectionGroupRequestBuilder} from '../copyToSectionGroup/copyToSectionGroupRequestBuilder';
-import {OnenotePageRequestBuilder} from '../pages/item/onenotePageRequestBuilder';
+import {OnenotePageRequestBuilder} from '../pages/item/item/onenotePageRequestBuilder';
 import {PagesRequestBuilder} from '../pages/pagesRequestBuilder';
 import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionGroupRequestBuilder} from '../parentSectionGroup/parentSectionGroupRequestBuilder';
@@ -126,7 +126,7 @@ export class OnenoteSectionRequestBuilder {
         return this.httpCore?.sendAsync<OnenoteSection>(requestInfo, OnenoteSection, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.sections.pages collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.sections.item.pages.item collection
      * @param id Unique identifier of the item
      * @returns a onenotePageRequestBuilder
      */

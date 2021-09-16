@@ -1,4 +1,4 @@
-import {EducationRubric} from '../../../educationRubric';
+import {EducationRubric} from '../../../../educationRubric';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/me/rubrics/{educationRubric-id}  */

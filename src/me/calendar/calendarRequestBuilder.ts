@@ -1,15 +1,15 @@
 import {Calendar} from '../../calendar';
 import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
-import {CalendarPermissionRequestBuilder} from './calendarPermissions/item/calendarPermissionRequestBuilder';
+import {CalendarPermissionRequestBuilder} from './calendarPermissions/item/item/calendarPermissionRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder} from './calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder} from './calendarView/item/item/eventRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventRequestBuilder} from './events/item/eventRequestBuilder';
+import {EventRequestBuilder} from './events/item/item/eventRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -51,7 +51,7 @@ export class CalendarRequestBuilder {
         return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, User, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarPermissions collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarPermissions.item collection
      * @param id Unique identifier of the item
      * @returns a calendarPermissionRequestBuilder
      */
@@ -60,7 +60,7 @@ export class CalendarRequestBuilder {
         return new CalendarPermissionRequestBuilder(this.currentPath + this.pathSegment + "/calendarPermissions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarView collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -145,7 +145,7 @@ export class CalendarRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.events collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendar.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
@@ -171,7 +171,7 @@ export class CalendarRequestBuilder {
         return this.httpCore?.sendAsync<Calendar>(requestInfo, Calendar, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendar.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -194,7 +194,7 @@ export class CalendarRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.calendar.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */

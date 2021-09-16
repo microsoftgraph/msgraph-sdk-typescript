@@ -1,5 +1,5 @@
-import {ThreatAssessmentRequest} from '../../threatAssessmentRequest';
-import {ThreatAssessmentResultRequestBuilder} from '../results/item/threatAssessmentResultRequestBuilder';
+import {ThreatAssessmentRequest} from '../../../threatAssessmentRequest';
+import {ThreatAssessmentResultRequestBuilder} from '../results/item/item/threatAssessmentResultRequestBuilder';
 import {ResultsRequestBuilder} from '../results/resultsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class ThreatAssessmentRequestRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.informationProtection.threatAssessmentRequests.results collection
+     * Gets an item from the graphtypescriptv4.utilities.informationProtection.threatAssessmentRequests.item.results.item collection
      * @param id Unique identifier of the item
      * @returns a threatAssessmentResultRequestBuilder
      */

@@ -1,15 +1,15 @@
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {PrintConnectorRequestBuilder} from './connectors/item/printConnectorRequestBuilder';
-import {PrintOperationRequestBuilder} from './operations/item/printOperationRequestBuilder';
+import {PrintConnectorRequestBuilder} from './connectors/item/item/printConnectorRequestBuilder';
+import {PrintOperationRequestBuilder} from './operations/item/item/printOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {Print} from './print';
-import {PrinterRequestBuilder} from './printers/item/printerRequestBuilder';
+import {PrinterRequestBuilder} from './printers/item/item/printerRequestBuilder';
 import {PrintersRequestBuilder} from './printers/printersRequestBuilder';
-import {PrintServiceRequestBuilder} from './services/item/printServiceRequestBuilder';
+import {PrintServiceRequestBuilder} from './services/item/item/printServiceRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
-import {PrinterShareRequestBuilder} from './shares/item/printerShareRequestBuilder';
+import {PrinterShareRequestBuilder} from './shares/item/item/printerShareRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {PrintTaskDefinitionRequestBuilder} from './taskDefinitions/item/printTaskDefinitionRequestBuilder';
+import {PrintTaskDefinitionRequestBuilder} from './taskDefinitions/item/item/printTaskDefinitionRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -42,7 +42,7 @@ export class PrintRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.connectors collection
+     * Gets an item from the graphtypescriptv4.utilities.print.connectors.item collection
      * @param id Unique identifier of the item
      * @returns a printConnectorRequestBuilder
      */
@@ -118,7 +118,7 @@ export class PrintRequestBuilder {
         return this.httpCore?.sendAsync<Print>(requestInfo, Print, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.print.operations.item collection
      * @param id Unique identifier of the item
      * @returns a printOperationRequestBuilder
      */
@@ -141,7 +141,7 @@ export class PrintRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.printers collection
+     * Gets an item from the graphtypescriptv4.utilities.print.printers.item collection
      * @param id Unique identifier of the item
      * @returns a printerRequestBuilder
      */
@@ -150,7 +150,7 @@ export class PrintRequestBuilder {
         return new PrinterRequestBuilder(this.currentPath + this.pathSegment + "/printers/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.services collection
+     * Gets an item from the graphtypescriptv4.utilities.print.services.item collection
      * @param id Unique identifier of the item
      * @returns a printServiceRequestBuilder
      */
@@ -159,7 +159,7 @@ export class PrintRequestBuilder {
         return new PrintServiceRequestBuilder(this.currentPath + this.pathSegment + "/services/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.shares collection
+     * Gets an item from the graphtypescriptv4.utilities.print.shares.item collection
      * @param id Unique identifier of the item
      * @returns a printerShareRequestBuilder
      */
@@ -168,7 +168,7 @@ export class PrintRequestBuilder {
         return new PrinterShareRequestBuilder(this.currentPath + this.pathSegment + "/shares/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions collection
+     * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a printTaskDefinitionRequestBuilder
      */

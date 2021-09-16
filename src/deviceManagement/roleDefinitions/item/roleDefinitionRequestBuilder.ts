@@ -1,5 +1,5 @@
-import {RoleDefinition} from '../../roleDefinition';
-import {RoleAssignmentRequestBuilder} from '../roleAssignments/item/roleAssignmentRequestBuilder';
+import {RoleDefinition} from '../../../roleDefinition';
+import {RoleAssignmentRequestBuilder} from '../roleAssignments/item/item/roleAssignmentRequestBuilder';
 import {RoleAssignmentsRequestBuilder} from '../roleAssignments/roleAssignmentsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class RoleDefinitionRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions.roleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions.item.roleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a roleAssignmentRequestBuilder
      */

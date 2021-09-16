@@ -1,16 +1,16 @@
-import {DeviceCompliancePolicy} from '../../deviceCompliancePolicy';
+import {DeviceCompliancePolicy} from '../../../deviceCompliancePolicy';
 import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {DeviceCompliancePolicyAssignmentRequestBuilder} from '../assignments/item/deviceCompliancePolicyAssignmentRequestBuilder';
+import {DeviceCompliancePolicyAssignmentRequestBuilder} from '../assignments/item/item/deviceCompliancePolicyAssignmentRequestBuilder';
 import {DeviceSettingStateSummariesRequestBuilder} from '../deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSummaries/item/settingStateDeviceSummaryRequestBuilder';
+import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSummaries/item/item/settingStateDeviceSummaryRequestBuilder';
 import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
-import {DeviceComplianceDeviceStatusRequestBuilder} from '../deviceStatuses/item/deviceComplianceDeviceStatusRequestBuilder';
+import {DeviceComplianceDeviceStatusRequestBuilder} from '../deviceStatuses/item/item/deviceComplianceDeviceStatusRequestBuilder';
 import {DeviceStatusOverviewRequestBuilder} from '../deviceStatusOverview/deviceStatusOverviewRequestBuilder';
 import {ScheduleActionsForRulesRequestBuilder} from '../scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
-import {DeviceComplianceScheduledActionForRuleRequestBuilder} from '../scheduledActionsForRule/item/deviceComplianceScheduledActionForRuleRequestBuilder';
+import {DeviceComplianceScheduledActionForRuleRequestBuilder} from '../scheduledActionsForRule/item/item/deviceComplianceScheduledActionForRuleRequestBuilder';
 import {ScheduledActionsForRuleRequestBuilder} from '../scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
-import {DeviceComplianceUserStatusRequestBuilder} from '../userStatuses/item/deviceComplianceUserStatusRequestBuilder';
+import {DeviceComplianceUserStatusRequestBuilder} from '../userStatuses/item/item/deviceComplianceUserStatusRequestBuilder';
 import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
 import {UserStatusOverviewRequestBuilder} from '../userStatusOverview/userStatusOverviewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -53,7 +53,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new UserStatusOverviewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicyAssignmentRequestBuilder
      */
@@ -138,7 +138,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.deviceSettingStateSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.item.deviceSettingStateSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a settingStateDeviceSummaryRequestBuilder
      */
@@ -147,7 +147,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new SettingStateDeviceSummaryRequestBuilder(this.currentPath + this.pathSegment + "/deviceSettingStateSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.deviceStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.item.deviceStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceDeviceStatusRequestBuilder
      */
@@ -187,7 +187,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.scheduledActionsForRule collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.item.scheduledActionsForRule.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceScheduledActionForRuleRequestBuilder
      */
@@ -196,7 +196,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new DeviceComplianceScheduledActionForRuleRequestBuilder(this.currentPath + this.pathSegment + "/scheduledActionsForRule/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.userStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.item.userStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceUserStatusRequestBuilder
      */

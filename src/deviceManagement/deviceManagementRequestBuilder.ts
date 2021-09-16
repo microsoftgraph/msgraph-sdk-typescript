@@ -1,58 +1,58 @@
 import {ApplePushNotificationCertificateRequestBuilder} from './applePushNotificationCertificate/applePushNotificationCertificateRequestBuilder';
 import {ComplianceManagementPartnersRequestBuilder} from './complianceManagementPartners/complianceManagementPartnersRequestBuilder';
-import {ComplianceManagementPartnerRequestBuilder} from './complianceManagementPartners/item/complianceManagementPartnerRequestBuilder';
+import {ComplianceManagementPartnerRequestBuilder} from './complianceManagementPartners/item/item/complianceManagementPartnerRequestBuilder';
 import {ConditionalAccessSettingsRequestBuilder} from './conditionalAccessSettings/conditionalAccessSettingsRequestBuilder';
 import {DetectedAppsRequestBuilder} from './detectedApps/detectedAppsRequestBuilder';
-import {DetectedAppRequestBuilder} from './detectedApps/item/detectedAppRequestBuilder';
+import {DetectedAppRequestBuilder} from './detectedApps/item/item/detectedAppRequestBuilder';
 import {DeviceCategoriesRequestBuilder} from './deviceCategories/deviceCategoriesRequestBuilder';
-import {DeviceCategoryRequestBuilder} from './deviceCategories/item/deviceCategoryRequestBuilder';
+import {DeviceCategoryRequestBuilder} from './deviceCategories/item/item/deviceCategoryRequestBuilder';
 import {DeviceCompliancePoliciesRequestBuilder} from './deviceCompliancePolicies/deviceCompliancePoliciesRequestBuilder';
-import {DeviceCompliancePolicyRequestBuilder} from './deviceCompliancePolicies/item/deviceCompliancePolicyRequestBuilder';
+import {DeviceCompliancePolicyRequestBuilder} from './deviceCompliancePolicies/item/item/deviceCompliancePolicyRequestBuilder';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilder} from './deviceCompliancePolicyDeviceStateSummary/deviceCompliancePolicyDeviceStateSummaryRequestBuilder';
 import {DeviceCompliancePolicySettingStateSummariesRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/deviceCompliancePolicySettingStateSummariesRequestBuilder';
-import {DeviceCompliancePolicySettingStateSummaryRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/item/deviceCompliancePolicySettingStateSummaryRequestBuilder';
+import {DeviceCompliancePolicySettingStateSummaryRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/item/item/deviceCompliancePolicySettingStateSummaryRequestBuilder';
 import {DeviceConfigurationDeviceStateSummariesRequestBuilder} from './deviceConfigurationDeviceStateSummaries/deviceConfigurationDeviceStateSummariesRequestBuilder';
 import {DeviceConfigurationsRequestBuilder} from './deviceConfigurations/deviceConfigurationsRequestBuilder';
-import {DeviceConfigurationRequestBuilder} from './deviceConfigurations/item/deviceConfigurationRequestBuilder';
+import {DeviceConfigurationRequestBuilder} from './deviceConfigurations/item/item/deviceConfigurationRequestBuilder';
 import {DeviceEnrollmentConfigurationsRequestBuilder} from './deviceEnrollmentConfigurations/deviceEnrollmentConfigurationsRequestBuilder';
-import {DeviceEnrollmentConfigurationRequestBuilder} from './deviceEnrollmentConfigurations/item/deviceEnrollmentConfigurationRequestBuilder';
+import {DeviceEnrollmentConfigurationRequestBuilder} from './deviceEnrollmentConfigurations/item/item/deviceEnrollmentConfigurationRequestBuilder';
 import {DeviceManagement} from './deviceManagement';
 import {DeviceManagementPartnersRequestBuilder} from './deviceManagementPartners/deviceManagementPartnersRequestBuilder';
-import {DeviceManagementPartnerRequestBuilder} from './deviceManagementPartners/item/deviceManagementPartnerRequestBuilder';
+import {DeviceManagementPartnerRequestBuilder} from './deviceManagementPartners/item/item/deviceManagementPartnerRequestBuilder';
 import {ExchangeConnectorsRequestBuilder} from './exchangeConnectors/exchangeConnectorsRequestBuilder';
-import {DeviceManagementExchangeConnectorRequestBuilder} from './exchangeConnectors/item/deviceManagementExchangeConnectorRequestBuilder';
+import {DeviceManagementExchangeConnectorRequestBuilder} from './exchangeConnectors/item/item/deviceManagementExchangeConnectorRequestBuilder';
 import {GetEffectivePermissionsWithScopeRequestBuilder} from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/importedWindowsAutopilotDeviceIdentitiesRequestBuilder';
-import {ImportedWindowsAutopilotDeviceIdentityRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/item/importedWindowsAutopilotDeviceIdentityRequestBuilder';
+import {ImportedWindowsAutopilotDeviceIdentityRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/item/item/importedWindowsAutopilotDeviceIdentityRequestBuilder';
 import {IosUpdateStatusesRequestBuilder} from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
-import {IosUpdateDeviceStatusRequestBuilder} from './iosUpdateStatuses/item/iosUpdateDeviceStatusRequestBuilder';
+import {IosUpdateDeviceStatusRequestBuilder} from './iosUpdateStatuses/item/item/iosUpdateDeviceStatusRequestBuilder';
 import {ManagedDeviceOverviewRequestBuilder} from './managedDeviceOverview/managedDeviceOverviewRequestBuilder';
-import {ManagedDeviceRequestBuilder} from './managedDevices/item/managedDeviceRequestBuilder';
+import {ManagedDeviceRequestBuilder} from './managedDevices/item/item/managedDeviceRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
-import {MobileThreatDefenseConnectorRequestBuilder} from './mobileThreatDefenseConnectors/item/mobileThreatDefenseConnectorRequestBuilder';
+import {MobileThreatDefenseConnectorRequestBuilder} from './mobileThreatDefenseConnectors/item/item/mobileThreatDefenseConnectorRequestBuilder';
 import {MobileThreatDefenseConnectorsRequestBuilder} from './mobileThreatDefenseConnectors/mobileThreatDefenseConnectorsRequestBuilder';
-import {NotificationMessageTemplateRequestBuilder} from './notificationMessageTemplates/item/notificationMessageTemplateRequestBuilder';
+import {NotificationMessageTemplateRequestBuilder} from './notificationMessageTemplates/item/item/notificationMessageTemplateRequestBuilder';
 import {NotificationMessageTemplatesRequestBuilder} from './notificationMessageTemplates/notificationMessageTemplatesRequestBuilder';
-import {RemoteAssistancePartnerRequestBuilder} from './remoteAssistancePartners/item/remoteAssistancePartnerRequestBuilder';
+import {RemoteAssistancePartnerRequestBuilder} from './remoteAssistancePartners/item/item/remoteAssistancePartnerRequestBuilder';
 import {RemoteAssistancePartnersRequestBuilder} from './remoteAssistancePartners/remoteAssistancePartnersRequestBuilder';
-import {ResourceOperationRequestBuilder} from './resourceOperations/item/resourceOperationRequestBuilder';
+import {ResourceOperationRequestBuilder} from './resourceOperations/item/item/resourceOperationRequestBuilder';
 import {ResourceOperationsRequestBuilder} from './resourceOperations/resourceOperationsRequestBuilder';
-import {DeviceAndAppManagementRoleAssignmentRequestBuilder} from './roleAssignments/item/deviceAndAppManagementRoleAssignmentRequestBuilder';
+import {DeviceAndAppManagementRoleAssignmentRequestBuilder} from './roleAssignments/item/item/deviceAndAppManagementRoleAssignmentRequestBuilder';
 import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
-import {RoleDefinitionRequestBuilder} from './roleDefinitions/item/roleDefinitionRequestBuilder';
+import {RoleDefinitionRequestBuilder} from './roleDefinitions/item/item/roleDefinitionRequestBuilder';
 import {RoleDefinitionsRequestBuilder} from './roleDefinitions/roleDefinitionsRequestBuilder';
 import {SoftwareUpdateStatusSummaryRequestBuilder} from './softwareUpdateStatusSummary/softwareUpdateStatusSummaryRequestBuilder';
-import {TelecomExpenseManagementPartnerRequestBuilder} from './telecomExpenseManagementPartners/item/telecomExpenseManagementPartnerRequestBuilder';
+import {TelecomExpenseManagementPartnerRequestBuilder} from './telecomExpenseManagementPartners/item/item/telecomExpenseManagementPartnerRequestBuilder';
 import {TelecomExpenseManagementPartnersRequestBuilder} from './telecomExpenseManagementPartners/telecomExpenseManagementPartnersRequestBuilder';
 import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
-import {DeviceManagementTroubleshootingEventRequestBuilder} from './troubleshootingEvents/item/deviceManagementTroubleshootingEventRequestBuilder';
+import {DeviceManagementTroubleshootingEventRequestBuilder} from './troubleshootingEvents/item/item/deviceManagementTroubleshootingEventRequestBuilder';
 import {TroubleshootingEventsRequestBuilder} from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
 import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
-import {WindowsAutopilotDeviceIdentityRequestBuilder} from './windowsAutopilotDeviceIdentities/item/windowsAutopilotDeviceIdentityRequestBuilder';
+import {WindowsAutopilotDeviceIdentityRequestBuilder} from './windowsAutopilotDeviceIdentities/item/item/windowsAutopilotDeviceIdentityRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
-import {WindowsInformationProtectionAppLearningSummaryRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/item/windowsInformationProtectionAppLearningSummaryRequestBuilder';
+import {WindowsInformationProtectionAppLearningSummaryRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/item/item/windowsInformationProtectionAppLearningSummaryRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
-import {WindowsInformationProtectionNetworkLearningSummaryRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/item/windowsInformationProtectionNetworkLearningSummaryRequestBuilder';
+import {WindowsInformationProtectionNetworkLearningSummaryRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/item/item/windowsInformationProtectionNetworkLearningSummaryRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -157,7 +157,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.complianceManagementPartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.complianceManagementPartners.item collection
      * @param id Unique identifier of the item
      * @returns a complianceManagementPartnerRequestBuilder
      */
@@ -216,7 +216,7 @@ export class DeviceManagementRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.detectedApps collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.detectedApps.item collection
      * @param id Unique identifier of the item
      * @returns a detectedAppRequestBuilder
      */
@@ -225,7 +225,7 @@ export class DeviceManagementRequestBuilder {
         return new DetectedAppRequestBuilder(this.currentPath + this.pathSegment + "/detectedApps/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCategories collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCategories.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCategoryRequestBuilder
      */
@@ -234,7 +234,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCategoryRequestBuilder(this.currentPath + this.pathSegment + "/deviceCategories/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicyRequestBuilder
      */
@@ -243,7 +243,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCompliancePolicyRequestBuilder(this.currentPath + this.pathSegment + "/deviceCompliancePolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicySettingStateSummaryRequestBuilder
      */
@@ -252,7 +252,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummaryRequestBuilder(this.currentPath + this.pathSegment + "/deviceCompliancePolicySettingStateSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationRequestBuilder
      */
@@ -261,7 +261,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceConfigurationRequestBuilder(this.currentPath + this.pathSegment + "/deviceConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceEnrollmentConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a deviceEnrollmentConfigurationRequestBuilder
      */
@@ -270,7 +270,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceEnrollmentConfigurationRequestBuilder(this.currentPath + this.pathSegment + "/deviceEnrollmentConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceManagementPartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceManagementPartners.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementPartnerRequestBuilder
      */
@@ -279,7 +279,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceManagementPartnerRequestBuilder(this.currentPath + this.pathSegment + "/deviceManagementPartners/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.exchangeConnectors collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.exchangeConnectors.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementExchangeConnectorRequestBuilder
      */
@@ -314,7 +314,7 @@ export class DeviceManagementRequestBuilder {
         return new GetEffectivePermissionsWithScopeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, scope, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.importedWindowsAutopilotDeviceIdentities collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
      * @returns a importedWindowsAutopilotDeviceIdentityRequestBuilder
      */
@@ -323,7 +323,7 @@ export class DeviceManagementRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentityRequestBuilder(this.currentPath + this.pathSegment + "/importedWindowsAutopilotDeviceIdentities/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.iosUpdateStatuses collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.iosUpdateStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a iosUpdateDeviceStatusRequestBuilder
      */
@@ -332,7 +332,7 @@ export class DeviceManagementRequestBuilder {
         return new IosUpdateDeviceStatusRequestBuilder(this.currentPath + this.pathSegment + "/iosUpdateStatuses/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.managedDevices collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.managedDevices.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceRequestBuilder
      */
@@ -341,7 +341,7 @@ export class DeviceManagementRequestBuilder {
         return new ManagedDeviceRequestBuilder(this.currentPath + this.pathSegment + "/managedDevices/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.mobileThreatDefenseConnectors collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.mobileThreatDefenseConnectors.item collection
      * @param id Unique identifier of the item
      * @returns a mobileThreatDefenseConnectorRequestBuilder
      */
@@ -350,7 +350,7 @@ export class DeviceManagementRequestBuilder {
         return new MobileThreatDefenseConnectorRequestBuilder(this.currentPath + this.pathSegment + "/mobileThreatDefenseConnectors/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a notificationMessageTemplateRequestBuilder
      */
@@ -373,7 +373,7 @@ export class DeviceManagementRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.remoteAssistancePartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.remoteAssistancePartners.item collection
      * @param id Unique identifier of the item
      * @returns a remoteAssistancePartnerRequestBuilder
      */
@@ -382,7 +382,7 @@ export class DeviceManagementRequestBuilder {
         return new RemoteAssistancePartnerRequestBuilder(this.currentPath + this.pathSegment + "/remoteAssistancePartners/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.resourceOperations collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.resourceOperations.item collection
      * @param id Unique identifier of the item
      * @returns a resourceOperationRequestBuilder
      */
@@ -391,7 +391,7 @@ export class DeviceManagementRequestBuilder {
         return new ResourceOperationRequestBuilder(this.currentPath + this.pathSegment + "/resourceOperations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a deviceAndAppManagementRoleAssignmentRequestBuilder
      */
@@ -400,7 +400,7 @@ export class DeviceManagementRequestBuilder {
         return new DeviceAndAppManagementRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/roleAssignments/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
      * @returns a roleDefinitionRequestBuilder
      */
@@ -409,7 +409,7 @@ export class DeviceManagementRequestBuilder {
         return new RoleDefinitionRequestBuilder(this.currentPath + this.pathSegment + "/roleDefinitions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.telecomExpenseManagementPartners collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.telecomExpenseManagementPartners.item collection
      * @param id Unique identifier of the item
      * @returns a telecomExpenseManagementPartnerRequestBuilder
      */
@@ -418,7 +418,7 @@ export class DeviceManagementRequestBuilder {
         return new TelecomExpenseManagementPartnerRequestBuilder(this.currentPath + this.pathSegment + "/telecomExpenseManagementPartners/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.termsAndConditions.item collection
      * @param id Unique identifier of the item
      * @returns a termsAndConditionsRequestBuilder
      */
@@ -427,7 +427,7 @@ export class DeviceManagementRequestBuilder {
         return new TermsAndConditionsRequestBuilder(this.currentPath + this.pathSegment + "/termsAndConditions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.troubleshootingEvents collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.troubleshootingEvents.item collection
      * @param id Unique identifier of the item
      * @returns a deviceManagementTroubleshootingEventRequestBuilder
      */
@@ -445,7 +445,7 @@ export class DeviceManagementRequestBuilder {
         return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, domainName, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsAutopilotDeviceIdentities collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
      * @returns a windowsAutopilotDeviceIdentityRequestBuilder
      */
@@ -454,7 +454,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsAutopilotDeviceIdentityRequestBuilder(this.currentPath + this.pathSegment + "/windowsAutopilotDeviceIdentities/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionAppLearningSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionAppLearningSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a windowsInformationProtectionAppLearningSummaryRequestBuilder
      */
@@ -463,7 +463,7 @@ export class DeviceManagementRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummaryRequestBuilder(this.currentPath + this.pathSegment + "/windowsInformationProtectionAppLearningSummaries/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionNetworkLearningSummaries collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection
      * @param id Unique identifier of the item
      * @returns a windowsInformationProtectionNetworkLearningSummaryRequestBuilder
      */

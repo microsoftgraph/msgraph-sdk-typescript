@@ -1,4 +1,4 @@
-import {Subscription} from '../../subscription';
+import {Subscription} from '../../../subscription';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /subscriptions/{subscription-id}  */

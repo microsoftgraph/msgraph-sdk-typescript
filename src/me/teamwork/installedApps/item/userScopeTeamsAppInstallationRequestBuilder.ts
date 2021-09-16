@@ -1,4 +1,4 @@
-import {UserScopeTeamsAppInstallation} from '../../../../userScopeTeamsAppInstallation';
+import {UserScopeTeamsAppInstallation} from '../../../../../userScopeTeamsAppInstallation';
 import {ChatRequestBuilder} from '../chat/chatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

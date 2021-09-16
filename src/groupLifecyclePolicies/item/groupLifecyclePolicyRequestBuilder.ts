@@ -1,4 +1,4 @@
-import {GroupLifecyclePolicy} from '../../groupLifecyclePolicy';
+import {GroupLifecyclePolicy} from '../../../groupLifecyclePolicy';
 import {AddGroupRequestBuilder} from '../addGroup/addGroupRequestBuilder';
 import {RemoveGroupRequestBuilder} from '../removeGroup/removeGroupRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

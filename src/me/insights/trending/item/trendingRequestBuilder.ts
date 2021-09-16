@@ -1,4 +1,4 @@
-import {Trending} from '../../../../trending';
+import {Trending} from '../../../../../trending';
 import {ResourceRequestBuilder} from '../resource/resourceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

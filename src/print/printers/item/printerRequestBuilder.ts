@@ -1,8 +1,8 @@
-import {Printer} from '../../printer';
+import {Printer} from '../../../printer';
 import {ConnectorsRequestBuilder} from '../connectors/connectorsRequestBuilder';
 import {RestoreFactoryDefaultsRequestBuilder} from '../restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
 import {SharesRequestBuilder} from '../shares/sharesRequestBuilder';
-import {PrintTaskTriggerRequestBuilder} from '../taskTriggers/item/printTaskTriggerRequestBuilder';
+import {PrintTaskTriggerRequestBuilder} from '../taskTriggers/item/item/printTaskTriggerRequestBuilder';
 import {TaskTriggersRequestBuilder} from '../taskTriggers/taskTriggersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -136,7 +136,7 @@ export class PrinterRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.printers.taskTriggers collection
+     * Gets an item from the graphtypescriptv4.utilities.print.printers.item.taskTriggers.item collection
      * @param id Unique identifier of the item
      * @returns a printTaskTriggerRequestBuilder
      */

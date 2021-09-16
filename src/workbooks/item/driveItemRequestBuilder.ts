@@ -1,8 +1,9 @@
-import {DriveItem} from '../../driveItem';
+import {DriveItem} from '../../../driveItem';
 import {AnalyticsRequestBuilder} from '../analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from '../checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from '../checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from '../children/childrenRequestBuilder';
+import {DriveItemRequestBuilder} from '../children/item/item/driveItemRequestBuilder';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
 import {CreateLinkRequestBuilder} from '../createLink/createLinkRequestBuilder';
@@ -14,18 +15,18 @@ import {GetActivitiesByIntervalRequestBuilder} from '../getActivitiesByInterval/
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from '../getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {InviteRequestBuilder} from '../invite/inviteRequestBuilder';
 import {ListItemRequestBuilder} from '../listItem/listItemRequestBuilder';
-import {PermissionRequestBuilder} from '../permissions/item/permissionRequestBuilder';
+import {PermissionRequestBuilder} from '../permissions/item/item/permissionRequestBuilder';
 import {PermissionsRequestBuilder} from '../permissions/permissionsRequestBuilder';
 import {PreviewRequestBuilder} from '../preview/previewRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {SearchWithQRequestBuilder} from '../searchWithQ/searchWithQRequestBuilder';
-import {SubscriptionRequestBuilder} from '../subscriptions/item/subscriptionRequestBuilder';
+import {SubscriptionRequestBuilder} from '../subscriptions/item/item/subscriptionRequestBuilder';
 import {SubscriptionsRequestBuilder} from '../subscriptions/subscriptionsRequestBuilder';
-import {ThumbnailSetRequestBuilder} from '../thumbnails/item/thumbnailSetRequestBuilder';
+import {ThumbnailSetRequestBuilder} from '../thumbnails/item/item/thumbnailSetRequestBuilder';
 import {ThumbnailsRequestBuilder} from '../thumbnails/thumbnailsRequestBuilder';
 import {UnfollowRequestBuilder} from '../unfollow/unfollowRequestBuilder';
 import {ValidatePermissionRequestBuilder} from '../validatePermission/validatePermissionRequestBuilder';
-import {DriveItemVersionRequestBuilder} from '../versions/item/driveItemVersionRequestBuilder';
+import {DriveItemVersionRequestBuilder} from '../versions/item/item/driveItemVersionRequestBuilder';
 import {VersionsRequestBuilder} from '../versions/versionsRequestBuilder';
 import {WorkbookRequestBuilder} from '../workbook/workbookRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -101,7 +102,7 @@ export class DriveItemRequestBuilder {
         return new WorkbookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.children collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.children.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -253,7 +254,7 @@ export class DriveItemRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.permissions collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.permissions.item collection
      * @param id Unique identifier of the item
      * @returns a permissionRequestBuilder
      */
@@ -271,7 +272,7 @@ export class DriveItemRequestBuilder {
         return new SearchWithQRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, q, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.subscriptions collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionRequestBuilder
      */
@@ -280,7 +281,7 @@ export class DriveItemRequestBuilder {
         return new SubscriptionRequestBuilder(this.currentPath + this.pathSegment + "/subscriptions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.thumbnails collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.thumbnails.item collection
      * @param id Unique identifier of the item
      * @returns a thumbnailSetRequestBuilder
      */
@@ -289,7 +290,7 @@ export class DriveItemRequestBuilder {
         return new ThumbnailSetRequestBuilder(this.currentPath + this.pathSegment + "/thumbnails/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.versions collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.versions.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemVersionRequestBuilder
      */

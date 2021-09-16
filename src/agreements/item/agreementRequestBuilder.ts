@@ -1,9 +1,9 @@
-import {Agreement} from '../../agreement';
+import {Agreement} from '../../../agreement';
 import {AcceptancesRequestBuilder} from '../acceptances/acceptancesRequestBuilder';
-import {AgreementAcceptanceRequestBuilder} from '../acceptances/item/agreementAcceptanceRequestBuilder';
+import {AgreementAcceptanceRequestBuilder} from '../acceptances/item/item/agreementAcceptanceRequestBuilder';
 import {FileRequestBuilder} from '../file/fileRequestBuilder';
 import {FilesRequestBuilder} from '../files/filesRequestBuilder';
-import {AgreementFileLocalizationRequestBuilder} from '../files/item/agreementFileLocalizationRequestBuilder';
+import {AgreementFileLocalizationRequestBuilder} from '../files/item/item/agreementFileLocalizationRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /agreements/{agreement-id}  */
@@ -26,7 +26,7 @@ export class AgreementRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.agreements.acceptances collection
+     * Gets an item from the graphtypescriptv4.utilities.agreements.item.acceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceRequestBuilder
      */
@@ -111,7 +111,7 @@ export class AgreementRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.agreements.files collection
+     * Gets an item from the graphtypescriptv4.utilities.agreements.item.files.item collection
      * @param id Unique identifier of the item
      * @returns a agreementFileLocalizationRequestBuilder
      */

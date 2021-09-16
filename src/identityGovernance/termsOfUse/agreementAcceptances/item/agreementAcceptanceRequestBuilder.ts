@@ -1,4 +1,4 @@
-import {AgreementAcceptance} from '../../../../agreementAcceptance';
+import {AgreementAcceptance} from '../../../../../agreementAcceptance';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/termsOfUse/agreementAcceptances/{agreementAcceptance-id}  */

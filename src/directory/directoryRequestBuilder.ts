@@ -1,7 +1,7 @@
 import {AdministrativeUnitsRequestBuilder} from './administrativeUnits/administrativeUnitsRequestBuilder';
-import {AdministrativeUnitRequestBuilder} from './administrativeUnits/item/administrativeUnitRequestBuilder';
+import {AdministrativeUnitRequestBuilder} from './administrativeUnits/item/item/administrativeUnitRequestBuilder';
 import {DeletedItemsRequestBuilder} from './deletedItems/deletedItemsRequestBuilder';
-import {DirectoryObjectRequestBuilder} from './deletedItems/item/directoryObjectRequestBuilder';
+import {DirectoryObjectRequestBuilder} from './deletedItems/item/item/directoryObjectRequestBuilder';
 import {Directory} from './directory';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -22,7 +22,7 @@ export class DirectoryRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits collection
+     * Gets an item from the graphtypescriptv4.utilities.directory.administrativeUnits.item collection
      * @param id Unique identifier of the item
      * @returns a administrativeUnitRequestBuilder
      */
@@ -81,7 +81,7 @@ export class DirectoryRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directory.deletedItems collection
+     * Gets an item from the graphtypescriptv4.utilities.directory.deletedItems.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectRequestBuilder
      */

@@ -1,5 +1,5 @@
 import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
-import {AuthenticationMethodConfigurationRequestBuilder} from './authenticationMethodConfigurations/item/authenticationMethodConfigurationRequestBuilder';
+import {AuthenticationMethodConfigurationRequestBuilder} from './authenticationMethodConfigurations/item/item/authenticationMethodConfigurationRequestBuilder';
 import {AuthenticationMethodsPolicy} from './authenticationMethodsPolicy';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -17,7 +17,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.authenticationMethodsPolicy.authenticationMethodConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.authenticationMethodsPolicy.authenticationMethodConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a authenticationMethodConfigurationRequestBuilder
      */

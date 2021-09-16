@@ -1,5 +1,5 @@
-import {NotificationMessageTemplate} from '../../notificationMessageTemplate';
-import {LocalizedNotificationMessageRequestBuilder} from '../localizedNotificationMessages/item/localizedNotificationMessageRequestBuilder';
+import {NotificationMessageTemplate} from '../../../notificationMessageTemplate';
+import {LocalizedNotificationMessageRequestBuilder} from '../localizedNotificationMessages/item/item/localizedNotificationMessageRequestBuilder';
 import {LocalizedNotificationMessagesRequestBuilder} from '../localizedNotificationMessages/localizedNotificationMessagesRequestBuilder';
 import {SendTestMessageRequestBuilder} from '../sendTestMessage/sendTestMessageRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -114,7 +114,7 @@ export class NotificationMessageTemplateRequestBuilder {
         return this.httpCore?.sendAsync<NotificationMessageTemplate>(requestInfo, NotificationMessageTemplate, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates.localizedNotificationMessages collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.notificationMessageTemplates.item.localizedNotificationMessages.item collection
      * @param id Unique identifier of the item
      * @returns a localizedNotificationMessageRequestBuilder
      */

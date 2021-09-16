@@ -1,9 +1,9 @@
-import {EducationClass} from '../../educationClass';
+import {EducationClass} from '../../../educationClass';
 import {AssignmentCategoriesRequestBuilder} from '../assignmentCategories/assignmentCategoriesRequestBuilder';
-import {EducationCategoryRequestBuilder} from '../assignmentCategories/item/educationCategoryRequestBuilder';
+import {EducationCategoryRequestBuilder} from '../assignmentCategories/item/item/educationCategoryRequestBuilder';
 import {AssignmentDefaultsRequestBuilder} from '../assignmentDefaults/assignmentDefaultsRequestBuilder';
 import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {EducationAssignmentRequestBuilder} from '../assignments/item/educationAssignmentRequestBuilder';
+import {EducationAssignmentRequestBuilder} from '../assignments/item/item/educationAssignmentRequestBuilder';
 import {AssignmentSettingsRequestBuilder} from '../assignmentSettings/assignmentSettingsRequestBuilder';
 import {GroupRequestBuilder} from '../group/groupRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
@@ -46,7 +46,7 @@ export class EducationClassRequestBuilder {
         return new TeachersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes.assignmentCategories collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes.item.assignmentCategories.item collection
      * @param id Unique identifier of the item
      * @returns a educationCategoryRequestBuilder
      */
@@ -55,7 +55,7 @@ export class EducationClassRequestBuilder {
         return new EducationCategoryRequestBuilder(this.currentPath + this.pathSegment + "/assignmentCategories/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes.assignments collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a educationAssignmentRequestBuilder
      */

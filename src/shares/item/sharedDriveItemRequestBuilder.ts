@@ -1,11 +1,11 @@
+import {SharedDriveItem} from '../../sharedDriveItem';
 import {DriveItemRequestBuilder} from '../driveItem/driveItemRequestBuilder';
-import {DriveItemRequestBuilder} from '../items/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder} from '../items/item/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from '../items/itemsRequestBuilder';
 import {ListRequestBuilder} from '../list/listRequestBuilder';
 import {ListItemRequestBuilder} from '../listItem/listItemRequestBuilder';
 import {PermissionRequestBuilder} from '../permission/permissionRequestBuilder';
 import {RootRequestBuilder} from '../root/rootRequestBuilder';
-import {SharedDriveItem} from '../sharedDriveItem';
 import {SiteRequestBuilder} from '../site/siteRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -134,7 +134,7 @@ export class SharedDriveItemRequestBuilder {
         return this.httpCore?.sendAsync<SharedDriveItem>(requestInfo, SharedDriveItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.shares.items collection
+     * Gets an item from the graphtypescriptv4.utilities.shares.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */

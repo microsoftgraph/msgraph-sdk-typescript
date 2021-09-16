@@ -1,6 +1,6 @@
 import {Audio} from './audio';
+import {BaseItem} from './baseItem';
 import {Deleted} from './deleted';
-import {BaseItem} from './drive/baseItem';
 import {DriveItemVersion} from './driveItemVersion';
 import {File} from './file';
 import {FileSystemInfo} from './fileSystemInfo';

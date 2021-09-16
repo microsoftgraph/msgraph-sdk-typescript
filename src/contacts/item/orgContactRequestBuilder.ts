@@ -1,3 +1,4 @@
+import {OrgContact} from '../../orgContact';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {DirectReportsRequestBuilder} from '../directReports/directReportsRequestBuilder';
@@ -5,7 +6,6 @@ import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsR
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {ManagerRequestBuilder} from '../manager/managerRequestBuilder';
 import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
-import {OrgContact} from '../orgContact';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

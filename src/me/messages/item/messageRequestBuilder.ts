@@ -1,6 +1,6 @@
-import {Message} from '../../../message';
+import {Message} from '../../../../message';
 import {AttachmentsRequestBuilder} from '../attachments/attachmentsRequestBuilder';
-import {AttachmentRequestBuilder} from '../attachments/item/attachmentRequestBuilder';
+import {AttachmentRequestBuilder} from '../attachments/item/item/attachmentRequestBuilder';
 import {CalendarSharingMessageRequestBuilder} from '../calendarSharingMessage/calendarSharingMessageRequestBuilder';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
@@ -8,15 +8,15 @@ import {CreateForwardRequestBuilder} from '../createForward/createForwardRequest
 import {CreateReplyRequestBuilder} from '../createReply/createReplyRequestBuilder';
 import {CreateReplyAllRequestBuilder} from '../createReplyAll/createReplyAllRequestBuilder';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
 import {ForwardRequestBuilder} from '../forward/forwardRequestBuilder';
 import {MoveRequestBuilder} from '../move/moveRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {ReplyRequestBuilder} from '../reply/replyRequestBuilder';
 import {ReplyAllRequestBuilder} from '../replyAll/replyAllRequestBuilder';
 import {SendRequestBuilder} from '../send/sendRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -76,7 +76,7 @@ export class MessageRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.messages.attachments collection
+     * Gets an item from the graphtypescriptv4.utilities.me.messages.item.attachments.item collection
      * @param id Unique identifier of the item
      * @returns a attachmentRequestBuilder
      */
@@ -161,7 +161,7 @@ export class MessageRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.messages.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.me.messages.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -187,7 +187,7 @@ export class MessageRequestBuilder {
         return this.httpCore?.sendAsync<Message>(requestInfo, Message, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.messages.multiValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.messages.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
@@ -210,7 +210,7 @@ export class MessageRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.messages.singleValueExtendedProperties collection
+     * Gets an item from the graphtypescriptv4.utilities.me.messages.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */

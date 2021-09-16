@@ -1,5 +1,5 @@
-import {CallRecord} from '../../callRecord';
-import {SessionRequestBuilder} from '../sessions/item/sessionRequestBuilder';
+import {CallRecord} from '../../../callRecord';
+import {SessionRequestBuilder} from '../sessions/item/item/sessionRequestBuilder';
 import {SessionsRequestBuilder} from '../sessions/sessionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class CallRecordRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.callRecords.sessions collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.callRecords.item.sessions.item collection
      * @param id Unique identifier of the item
      * @returns a sessionRequestBuilder
      */

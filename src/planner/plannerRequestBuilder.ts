@@ -1,9 +1,9 @@
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
-import {PlannerBucketRequestBuilder} from './buckets/item/plannerBucketRequestBuilder';
+import {PlannerBucketRequestBuilder} from './buckets/item/item/plannerBucketRequestBuilder';
 import {Planner} from './planner';
-import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
+import {PlannerPlanRequestBuilder} from './plans/item/item/plannerPlanRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';
+import {PlannerTaskRequestBuilder} from './tasks/item/item/plannerTaskRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -27,7 +27,7 @@ export class PlannerRequestBuilder {
         return new TasksRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.planner.buckets collection
+     * Gets an item from the graphtypescriptv4.utilities.planner.buckets.item collection
      * @param id Unique identifier of the item
      * @returns a plannerBucketRequestBuilder
      */
@@ -117,7 +117,7 @@ export class PlannerRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.planner.plans collection
+     * Gets an item from the graphtypescriptv4.utilities.planner.plans.item collection
      * @param id Unique identifier of the item
      * @returns a plannerPlanRequestBuilder
      */
@@ -126,7 +126,7 @@ export class PlannerRequestBuilder {
         return new PlannerPlanRequestBuilder(this.currentPath + this.pathSegment + "/plans/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.planner.tasks collection
+     * Gets an item from the graphtypescriptv4.utilities.planner.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a plannerTaskRequestBuilder
      */

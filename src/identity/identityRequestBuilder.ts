@@ -1,12 +1,12 @@
 import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
-import {IdentityApiConnectorRequestBuilder} from './apiConnectors/item/identityApiConnectorRequestBuilder';
+import {IdentityApiConnectorRequestBuilder} from './apiConnectors/item/item/identityApiConnectorRequestBuilder';
 import {B2xUserFlowsRequestBuilder} from './b2xUserFlows/b2xUserFlowsRequestBuilder';
-import {B2xIdentityUserFlowRequestBuilder} from './b2xUserFlows/item/b2xIdentityUserFlowRequestBuilder';
+import {B2xIdentityUserFlowRequestBuilder} from './b2xUserFlows/item/item/b2xIdentityUserFlowRequestBuilder';
 import {ConditionalAccessRequestBuilder} from './conditionalAccess/conditionalAccessRequestBuilder';
 import {IdentityContainer} from './identityContainer';
 import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {IdentityProviderBaseRequestBuilder} from './identityProviders/item/identityProviderBaseRequestBuilder';
-import {IdentityUserFlowAttributeRequestBuilder} from './userFlowAttributes/item/identityUserFlowAttributeRequestBuilder';
+import {IdentityProviderBaseRequestBuilder} from './identityProviders/item/item/identityProviderBaseRequestBuilder';
+import {IdentityUserFlowAttributeRequestBuilder} from './userFlowAttributes/item/item/identityUserFlowAttributeRequestBuilder';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -36,7 +36,7 @@ export class IdentityRequestBuilder {
         return new UserFlowAttributesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.apiConnectors collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.apiConnectors.item collection
      * @param id Unique identifier of the item
      * @returns a identityApiConnectorRequestBuilder
      */
@@ -45,7 +45,7 @@ export class IdentityRequestBuilder {
         return new IdentityApiConnectorRequestBuilder(this.currentPath + this.pathSegment + "/apiConnectors/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.item collection
      * @param id Unique identifier of the item
      * @returns a b2xIdentityUserFlowRequestBuilder
      */
@@ -121,7 +121,7 @@ export class IdentityRequestBuilder {
         return this.httpCore?.sendAsync<IdentityContainer>(requestInfo, IdentityContainer, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.identityProviders collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.identityProviders.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderBaseRequestBuilder
      */
@@ -144,7 +144,7 @@ export class IdentityRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.userFlowAttributes collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.userFlowAttributes.item collection
      * @param id Unique identifier of the item
      * @returns a identityUserFlowAttributeRequestBuilder
      */

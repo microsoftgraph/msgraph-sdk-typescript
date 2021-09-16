@@ -1,6 +1,6 @@
 import {EntitlementManagement} from '../entitlementManagement';
 import {AccessPackageAssignmentApprovalsRequestBuilder} from './accessPackageAssignmentApprovals/accessPackageAssignmentApprovalsRequestBuilder';
-import {ApprovalRequestBuilder} from './accessPackageAssignmentApprovals/item/approvalRequestBuilder';
+import {ApprovalRequestBuilder} from './accessPackageAssignmentApprovals/item/item/approvalRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/entitlementManagement  */
@@ -17,7 +17,7 @@ export class EntitlementManagementRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.entitlementManagement.accessPackageAssignmentApprovals.item collection
      * @param id Unique identifier of the item
      * @returns a approvalRequestBuilder
      */

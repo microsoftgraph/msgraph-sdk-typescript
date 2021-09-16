@@ -1,6 +1,6 @@
-import {DeviceCompliancePolicySettingStateSummary} from '../../deviceCompliancePolicySettingStateSummary';
+import {DeviceCompliancePolicySettingStateSummary} from '../../../deviceCompliancePolicySettingStateSummary';
 import {DeviceComplianceSettingStatesRequestBuilder} from '../deviceComplianceSettingStates/deviceComplianceSettingStatesRequestBuilder';
-import {DeviceComplianceSettingStateRequestBuilder} from '../deviceComplianceSettingStates/item/deviceComplianceSettingStateRequestBuilder';
+import {DeviceComplianceSettingStateRequestBuilder} from '../deviceComplianceSettingStates/item/item/deviceComplianceSettingStateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary-id}  */
@@ -93,7 +93,7 @@ export class DeviceCompliancePolicySettingStateSummaryRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries.deviceComplianceSettingStates collection
+     * Gets an item from the graphtypescriptv4.utilities.deviceManagement.deviceCompliancePolicySettingStateSummaries.item.deviceComplianceSettingStates.item collection
      * @param id Unique identifier of the item
      * @returns a deviceComplianceSettingStateRequestBuilder
      */

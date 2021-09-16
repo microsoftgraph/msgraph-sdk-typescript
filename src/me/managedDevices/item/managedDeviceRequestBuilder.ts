@@ -1,12 +1,12 @@
-import {ManagedDevice} from '../../../managedDevice';
+import {ManagedDevice} from '../../../../managedDevice';
 import {BypassActivationLockRequestBuilder} from '../bypassActivationLock/bypassActivationLockRequestBuilder';
 import {CleanWindowsDeviceRequestBuilder} from '../cleanWindowsDevice/cleanWindowsDeviceRequestBuilder';
 import {DeleteUserFromSharedAppleDeviceRequestBuilder} from '../deleteUserFromSharedAppleDevice/deleteUserFromSharedAppleDeviceRequestBuilder';
 import {DeviceCategoryRequestBuilder} from '../deviceCategory/deviceCategoryRequestBuilder';
 import {DeviceCompliancePolicyStatesRequestBuilder} from '../deviceCompliancePolicyStates/deviceCompliancePolicyStatesRequestBuilder';
-import {DeviceCompliancePolicyStateRequestBuilder} from '../deviceCompliancePolicyStates/item/deviceCompliancePolicyStateRequestBuilder';
+import {DeviceCompliancePolicyStateRequestBuilder} from '../deviceCompliancePolicyStates/item/item/deviceCompliancePolicyStateRequestBuilder';
 import {DeviceConfigurationStatesRequestBuilder} from '../deviceConfigurationStates/deviceConfigurationStatesRequestBuilder';
-import {DeviceConfigurationStateRequestBuilder} from '../deviceConfigurationStates/item/deviceConfigurationStateRequestBuilder';
+import {DeviceConfigurationStateRequestBuilder} from '../deviceConfigurationStates/item/item/deviceConfigurationStateRequestBuilder';
 import {DisableLostModeRequestBuilder} from '../disableLostMode/disableLostModeRequestBuilder';
 import {LocateDeviceRequestBuilder} from '../locateDevice/locateDeviceRequestBuilder';
 import {LogoutSharedAppleDeviceActiveUserRequestBuilder} from '../logoutSharedAppleDeviceActiveUser/logoutSharedAppleDeviceActiveUserRequestBuilder';
@@ -174,7 +174,7 @@ export class ManagedDeviceRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.managedDevices.deviceCompliancePolicyStates collection
+     * Gets an item from the graphtypescriptv4.utilities.me.managedDevices.item.deviceCompliancePolicyStates.item collection
      * @param id Unique identifier of the item
      * @returns a deviceCompliancePolicyStateRequestBuilder
      */
@@ -183,7 +183,7 @@ export class ManagedDeviceRequestBuilder {
         return new DeviceCompliancePolicyStateRequestBuilder(this.currentPath + this.pathSegment + "/deviceCompliancePolicyStates/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.managedDevices.deviceConfigurationStates collection
+     * Gets an item from the graphtypescriptv4.utilities.me.managedDevices.item.deviceConfigurationStates.item collection
      * @param id Unique identifier of the item
      * @returns a deviceConfigurationStateRequestBuilder
      */

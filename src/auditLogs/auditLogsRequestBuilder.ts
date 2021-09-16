@@ -1,11 +1,11 @@
 import {AuditLogRoot} from './auditLogRoot';
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
-import {DirectoryAuditRequestBuilder} from './directoryAudits/item/directoryAuditRequestBuilder';
-import {ProvisioningObjectSummaryRequestBuilder} from './provisioning/item/provisioningObjectSummaryRequestBuilder';
+import {DirectoryAuditRequestBuilder} from './directoryAudits/item/item/directoryAuditRequestBuilder';
+import {ProvisioningObjectSummaryRequestBuilder} from './provisioning/item/item/provisioningObjectSummaryRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
-import {RestrictedSignInRequestBuilder} from './restrictedSignIns/item/restrictedSignInRequestBuilder';
+import {RestrictedSignInRequestBuilder} from './restrictedSignIns/item/item/restrictedSignInRequestBuilder';
 import {RestrictedSignInsRequestBuilder} from './restrictedSignIns/restrictedSignInsRequestBuilder';
-import {SignInRequestBuilder} from './signIns/item/signInRequestBuilder';
+import {SignInRequestBuilder} from './signIns/item/item/signInRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -82,7 +82,7 @@ export class AuditLogsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.directoryAudits collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.directoryAudits.item collection
      * @param id Unique identifier of the item
      * @returns a directoryAuditRequestBuilder
      */
@@ -122,7 +122,7 @@ export class AuditLogsRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.provisioning collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.provisioning.item collection
      * @param id Unique identifier of the item
      * @returns a provisioningObjectSummaryRequestBuilder
      */
@@ -131,7 +131,7 @@ export class AuditLogsRequestBuilder {
         return new ProvisioningObjectSummaryRequestBuilder(this.currentPath + this.pathSegment + "/provisioning/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.restrictedSignIns collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.restrictedSignIns.item collection
      * @param id Unique identifier of the item
      * @returns a restrictedSignInRequestBuilder
      */
@@ -140,7 +140,7 @@ export class AuditLogsRequestBuilder {
         return new RestrictedSignInRequestBuilder(this.currentPath + this.pathSegment + "/restrictedSignIns/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.signIns collection
+     * Gets an item from the graphtypescriptv4.utilities.auditLogs.signIns.item collection
      * @param id Unique identifier of the item
      * @returns a signInRequestBuilder
      */

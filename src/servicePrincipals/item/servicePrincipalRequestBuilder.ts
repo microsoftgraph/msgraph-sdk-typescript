@@ -1,17 +1,18 @@
+import {ServicePrincipal} from '../../servicePrincipal';
 import {AddKeyRequestBuilder} from '../addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from '../addPassword/addPasswordRequestBuilder';
 import {AppRoleAssignedToRequestBuilder} from '../appRoleAssignedTo/appRoleAssignedToRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignedTo/item/appRoleAssignmentRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignedTo/item/item/appRoleAssignmentRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from '../appRoleAssignments/appRoleAssignmentsRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/appRoleAssignmentRequestBuilder';
+import {AppRoleAssignmentRequestBuilder} from '../appRoleAssignments/item/item/appRoleAssignmentRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from '../claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
 import {CreatedObjectsRequestBuilder} from '../createdObjects/createdObjectsRequestBuilder';
 import {DelegatedPermissionClassificationsRequestBuilder} from '../delegatedPermissionClassifications/delegatedPermissionClassificationsRequestBuilder';
-import {DelegatedPermissionClassificationRequestBuilder} from '../delegatedPermissionClassifications/item/delegatedPermissionClassificationRequestBuilder';
+import {DelegatedPermissionClassificationRequestBuilder} from '../delegatedPermissionClassifications/item/item/delegatedPermissionClassificationRequestBuilder';
 import {EndpointsRequestBuilder} from '../endpoints/endpointsRequestBuilder';
-import {EndpointRequestBuilder} from '../endpoints/item/endpointRequestBuilder';
+import {EndpointRequestBuilder} from '../endpoints/item/item/endpointRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from '../homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
@@ -22,7 +23,6 @@ import {OwnersRequestBuilder} from '../owners/ownersRequestBuilder';
 import {RemoveKeyRequestBuilder} from '../removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from '../removePassword/removePasswordRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
-import {ServicePrincipal} from '../servicePrincipal';
 import {TokenIssuancePoliciesRequestBuilder} from '../tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from '../tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';
@@ -108,7 +108,7 @@ export class ServicePrincipalRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.appRoleAssignedTo collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.item.appRoleAssignedTo.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
@@ -117,7 +117,7 @@ export class ServicePrincipalRequestBuilder {
         return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignedTo/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.appRoleAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
@@ -190,7 +190,7 @@ export class ServicePrincipalRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.delegatedPermissionClassifications collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.item.delegatedPermissionClassifications.item collection
      * @param id Unique identifier of the item
      * @returns a delegatedPermissionClassificationRequestBuilder
      */
@@ -211,7 +211,7 @@ export class ServicePrincipalRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.endpoints collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.item.endpoints.item collection
      * @param id Unique identifier of the item
      * @returns a endpointRequestBuilder
      */

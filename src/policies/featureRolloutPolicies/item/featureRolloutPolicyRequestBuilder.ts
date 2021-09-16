@@ -1,6 +1,6 @@
-import {FeatureRolloutPolicy} from '../../featureRolloutPolicy';
+import {FeatureRolloutPolicy} from '../../../featureRolloutPolicy';
 import {AppliesToRequestBuilder} from '../appliesTo/appliesToRequestBuilder';
-import {DirectoryObjectRequestBuilder} from '../appliesTo/item/directoryObjectRequestBuilder';
+import {DirectoryObjectRequestBuilder} from '../appliesTo/item/item/directoryObjectRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/featureRolloutPolicies/{featureRolloutPolicy-id}  */
@@ -17,7 +17,7 @@ export class FeatureRolloutPolicyRequestBuilder {
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies.appliesTo collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies.item.appliesTo.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectRequestBuilder
      */

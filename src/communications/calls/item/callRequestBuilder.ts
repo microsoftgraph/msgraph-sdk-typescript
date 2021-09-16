@@ -1,12 +1,12 @@
-import {Call} from '../../call';
+import {Call} from '../../../call';
 import {AnswerRequestBuilder} from '../answer/answerRequestBuilder';
 import {CancelMediaProcessingRequestBuilder} from '../cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
 import {ChangeScreenSharingRoleRequestBuilder} from '../changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
 import {KeepAliveRequestBuilder} from '../keepAlive/keepAliveRequestBuilder';
 import {MuteRequestBuilder} from '../mute/muteRequestBuilder';
-import {CommsOperationRequestBuilder} from '../operations/item/commsOperationRequestBuilder';
+import {CommsOperationRequestBuilder} from '../operations/item/item/commsOperationRequestBuilder';
 import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
-import {ParticipantRequestBuilder} from '../participants/item/participantRequestBuilder';
+import {ParticipantRequestBuilder} from '../participants/item/item/participantRequestBuilder';
 import {ParticipantsRequestBuilder} from '../participants/participantsRequestBuilder';
 import {PlayPromptRequestBuilder} from '../playPrompt/playPromptRequestBuilder';
 import {RecordResponseRequestBuilder} from '../recordResponse/recordResponseRequestBuilder';
@@ -167,7 +167,7 @@ export class CallRequestBuilder {
         return this.httpCore?.sendAsync<Call>(requestInfo, Call, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.calls.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.calls.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a commsOperationRequestBuilder
      */
@@ -176,7 +176,7 @@ export class CallRequestBuilder {
         return new CommsOperationRequestBuilder(this.currentPath + this.pathSegment + "/operations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.calls.participants collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.calls.item.participants.item collection
      * @param id Unique identifier of the item
      * @returns a participantRequestBuilder
      */

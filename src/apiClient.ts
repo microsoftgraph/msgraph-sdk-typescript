@@ -1,103 +1,103 @@
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
-import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceRequestBuilder';
+import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/item/agreementAcceptanceRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
-import {AgreementRequestBuilder} from './agreements/item/agreementRequestBuilder';
+import {AgreementRequestBuilder} from './agreements/item/item/agreementRequestBuilder';
 import {AppCatalogsRequestBuilder} from './appCatalogs/appCatalogsRequestBuilder';
 import {ApplicationsRequestBuilder} from './applications/applicationsRequestBuilder';
-import {ApplicationRequestBuilder} from './applications/item/applicationRequestBuilder';
+import {ApplicationRequestBuilder} from './applications/item/item/applicationRequestBuilder';
 import {ApplicationTemplatesRequestBuilder} from './applicationTemplates/applicationTemplatesRequestBuilder';
-import {ApplicationTemplateRequestBuilder} from './applicationTemplates/item/applicationTemplateRequestBuilder';
+import {ApplicationTemplateRequestBuilder} from './applicationTemplates/item/item/applicationTemplateRequestBuilder';
 import {AuditLogsRequestBuilder} from './auditLogs/auditLogsRequestBuilder';
 import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
-import {AuthenticationMethodConfigurationRequestBuilder} from './authenticationMethodConfigurations/item/authenticationMethodConfigurationRequestBuilder';
+import {AuthenticationMethodConfigurationRequestBuilder} from './authenticationMethodConfigurations/item/item/authenticationMethodConfigurationRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilder} from './authenticationMethodsPolicy/authenticationMethodsPolicyRequestBuilder';
 import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
 import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
-import {ChatRequestBuilder} from './chats/item/chatRequestBuilder';
+import {ChatRequestBuilder} from './chats/item/item/chatRequestBuilder';
 import {CommunicationsRequestBuilder} from './communications/communicationsRequestBuilder';
 import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder';
-import {ExternalConnectionRequestBuilder} from './connections/item/externalConnectionRequestBuilder';
+import {ExternalConnectionRequestBuilder} from './connections/item/item/externalConnectionRequestBuilder';
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
-import {OrgContactRequestBuilder} from './contacts/item/orgContactRequestBuilder';
+import {OrgContactRequestBuilder} from './contacts/item/item/orgContactRequestBuilder';
 import {ContractsRequestBuilder} from './contracts/contractsRequestBuilder';
-import {ContractRequestBuilder} from './contracts/item/contractRequestBuilder';
+import {ContractRequestBuilder} from './contracts/item/item/contractRequestBuilder';
 import {DataPolicyOperationsRequestBuilder} from './dataPolicyOperations/dataPolicyOperationsRequestBuilder';
-import {DataPolicyOperationRequestBuilder} from './dataPolicyOperations/item/dataPolicyOperationRequestBuilder';
+import {DataPolicyOperationRequestBuilder} from './dataPolicyOperations/item/item/dataPolicyOperationRequestBuilder';
 import {DeviceAppManagementRequestBuilder} from './deviceAppManagement/deviceAppManagementRequestBuilder';
 import {DeviceManagementRequestBuilder} from './deviceManagement/deviceManagementRequestBuilder';
 import {DevicesRequestBuilder} from './devices/devicesRequestBuilder';
-import {DeviceRequestBuilder} from './devices/item/deviceRequestBuilder';
+import {DeviceRequestBuilder} from './devices/item/item/deviceRequestBuilder';
 import {DirectoryRequestBuilder} from './directory/directoryRequestBuilder';
 import {DirectoryObjectsRequestBuilder} from './directoryObjects/directoryObjectsRequestBuilder';
-import {DirectoryObjectRequestBuilder} from './directoryObjects/item/directoryObjectRequestBuilder';
+import {DirectoryObjectRequestBuilder} from './directoryObjects/item/item/directoryObjectRequestBuilder';
 import {DirectoryRolesRequestBuilder} from './directoryRoles/directoryRolesRequestBuilder';
-import {DirectoryRoleRequestBuilder} from './directoryRoles/item/directoryRoleRequestBuilder';
+import {DirectoryRoleRequestBuilder} from './directoryRoles/item/item/directoryRoleRequestBuilder';
 import {DirectoryRoleTemplatesRequestBuilder} from './directoryRoleTemplates/directoryRoleTemplatesRequestBuilder';
-import {DirectoryRoleTemplateRequestBuilder} from './directoryRoleTemplates/item/directoryRoleTemplateRequestBuilder';
+import {DirectoryRoleTemplateRequestBuilder} from './directoryRoleTemplates/item/item/directoryRoleTemplateRequestBuilder';
 import {DomainDnsRecordsRequestBuilder} from './domainDnsRecords/domainDnsRecordsRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from './domainDnsRecords/item/domainDnsRecordRequestBuilder';
+import {DomainDnsRecordRequestBuilder} from './domainDnsRecords/item/item/domainDnsRecordRequestBuilder';
 import {DomainsRequestBuilder} from './domains/domainsRequestBuilder';
-import {DomainRequestBuilder} from './domains/item/domainRequestBuilder';
+import {DomainRequestBuilder} from './domains/item/item/domainRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from './drives/item/driveRequestBuilder';
+import {DriveRequestBuilder} from './drives/item/item/driveRequestBuilder';
 import {EducationRequestBuilder} from './education/educationRequestBuilder';
 import {ExternalRequestBuilder} from './external/externalRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
-import {GroupLifecyclePolicyRequestBuilder} from './groupLifecyclePolicies/item/groupLifecyclePolicyRequestBuilder';
+import {GroupLifecyclePolicyRequestBuilder} from './groupLifecyclePolicies/item/item/groupLifecyclePolicyRequestBuilder';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
-import {GroupRequestBuilder} from './groups/item/groupRequestBuilder';
+import {GroupRequestBuilder} from './groups/item/item/groupRequestBuilder';
 import {GroupSettingsRequestBuilder} from './groupSettings/groupSettingsRequestBuilder';
-import {GroupSettingRequestBuilder} from './groupSettings/item/groupSettingRequestBuilder';
+import {GroupSettingRequestBuilder} from './groupSettings/item/item/groupSettingRequestBuilder';
 import {GroupSettingTemplatesRequestBuilder} from './groupSettingTemplates/groupSettingTemplatesRequestBuilder';
-import {GroupSettingTemplateRequestBuilder} from './groupSettingTemplates/item/groupSettingTemplateRequestBuilder';
+import {GroupSettingTemplateRequestBuilder} from './groupSettingTemplates/item/item/groupSettingTemplateRequestBuilder';
 import {IdentityRequestBuilder} from './identity/identityRequestBuilder';
 import {IdentityGovernanceRequestBuilder} from './identityGovernance/identityGovernanceRequestBuilder';
 import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {IdentityProviderRequestBuilder} from './identityProviders/item/identityProviderRequestBuilder';
+import {IdentityProviderRequestBuilder} from './identityProviders/item/item/identityProviderRequestBuilder';
 import {InformationProtectionRequestBuilder} from './informationProtection/informationProtectionRequestBuilder';
 import {InvitationsRequestBuilder} from './invitations/invitationsRequestBuilder';
-import {InvitationRequestBuilder} from './invitations/item/invitationRequestBuilder';
-import {OrganizationalBrandingLocalizationRequestBuilder} from './localizations/item/organizationalBrandingLocalizationRequestBuilder';
+import {InvitationRequestBuilder} from './invitations/item/item/invitationRequestBuilder';
+import {OrganizationalBrandingLocalizationRequestBuilder} from './localizations/item/item/organizationalBrandingLocalizationRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {MeRequestBuilder} from './me/meRequestBuilder';
-import {OAuth2PermissionGrantRequestBuilder} from './oauth2PermissionGrants/item/oAuth2PermissionGrantRequestBuilder';
+import {OAuth2PermissionGrantRequestBuilder} from './oauth2PermissionGrants/item/item/oAuth2PermissionGrantRequestBuilder';
 import {Oauth2PermissionGrantsRequestBuilder} from './oauth2PermissionGrants/oauth2PermissionGrantsRequestBuilder';
 import {OrganizationRequestBuilder} from './organization/organizationRequestBuilder';
-import {ResourceSpecificPermissionGrantRequestBuilder} from './permissionGrants/item/resourceSpecificPermissionGrantRequestBuilder';
+import {ResourceSpecificPermissionGrantRequestBuilder} from './permissionGrants/item/item/resourceSpecificPermissionGrantRequestBuilder';
 import {PermissionGrantsRequestBuilder} from './permissionGrants/permissionGrantsRequestBuilder';
-import {PlaceRequestBuilder} from './places/item/placeRequestBuilder';
+import {PlaceRequestBuilder} from './places/item/item/placeRequestBuilder';
 import {PlacesRequestBuilder} from './places/placesRequestBuilder';
 import {PlannerRequestBuilder} from './planner/plannerRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {PrintRequestBuilder} from './print/printRequestBuilder';
 import {ReportsRequestBuilder} from './reports/reportsRequestBuilder';
 import {RoleManagementRequestBuilder} from './roleManagement/roleManagementRequestBuilder';
-import {SchemaExtensionRequestBuilder} from './schemaExtensions/item/schemaExtensionRequestBuilder';
+import {SchemaExtensionRequestBuilder} from './schemaExtensions/item/item/schemaExtensionRequestBuilder';
 import {SchemaExtensionsRequestBuilder} from './schemaExtensions/schemaExtensionsRequestBuilder';
-import {ScopedRoleMembershipRequestBuilder} from './scopedRoleMemberships/item/scopedRoleMembershipRequestBuilder';
+import {ScopedRoleMembershipRequestBuilder} from './scopedRoleMemberships/item/item/scopedRoleMembershipRequestBuilder';
 import {ScopedRoleMembershipsRequestBuilder} from './scopedRoleMemberships/scopedRoleMembershipsRequestBuilder';
 import {SearchRequestBuilder} from './search/searchRequestBuilder';
 import {SecurityRequestBuilder} from './security/securityRequestBuilder';
-import {ServicePrincipalRequestBuilder} from './servicePrincipals/item/servicePrincipalRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './servicePrincipals/item/item/servicePrincipalRequestBuilder';
 import {ServicePrincipalsRequestBuilder} from './servicePrincipals/servicePrincipalsRequestBuilder';
-import {SharedDriveItemRequestBuilder} from './shares/item/sharedDriveItemRequestBuilder';
+import {SharedDriveItemRequestBuilder} from './shares/item/item/sharedDriveItemRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {SiteRequestBuilder} from './sites/item/siteRequestBuilder';
+import {SiteRequestBuilder} from './sites/item/item/siteRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
-import {SubscribedSkuRequestBuilder} from './subscribedSkus/item/subscribedSkuRequestBuilder';
+import {SubscribedSkuRequestBuilder} from './subscribedSkus/item/item/subscribedSkuRequestBuilder';
 import {SubscribedSkusRequestBuilder} from './subscribedSkus/subscribedSkusRequestBuilder';
-import {SubscriptionRequestBuilder} from './subscriptions/item/subscriptionRequestBuilder';
+import {SubscriptionRequestBuilder} from './subscriptions/item/item/subscriptionRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
-import {TeamRequestBuilder} from './teams/item/teamRequestBuilder';
+import {TeamRequestBuilder} from './teams/item/item/teamRequestBuilder';
 import {TeamsRequestBuilder} from './teams/teamsRequestBuilder';
-import {TeamsTemplateRequestBuilder} from './teamsTemplates/item/teamsTemplateRequestBuilder';
+import {TeamsTemplateRequestBuilder} from './teamsTemplates/item/item/teamsTemplateRequestBuilder';
 import {TeamsTemplatesRequestBuilder} from './teamsTemplates/teamsTemplatesRequestBuilder';
 import {TeamworkRequestBuilder} from './teamwork/teamworkRequestBuilder';
-import {UserRequestBuilder} from './users/item/userRequestBuilder';
+import {UserRequestBuilder} from './users/item/item/userRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {DriveItemRequestBuilder} from './workbooks/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder} from './workbooks/item/item/driveItemRequestBuilder';
 import {WorkbooksRequestBuilder} from './workbooks/workbooksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption, registerDefaultSerializer, enableBackingStoreForSerializationWriterFactory, SerializationWriterFactoryRegistry, registerDefaultDeserializer, ParseNodeFactoryRegistry} from '@microsoft/kiota-abstractions';
 import {JsonParseNodeFactory, JsonSerializationWriterFactory} from '@microsoft/kiota-serialization-json';
@@ -298,7 +298,7 @@ export class ApiClient {
         return new WorkbooksRequestBuilder(this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.agreementAcceptances collection
+     * Gets an item from the graphtypescriptv4.utilities.agreementAcceptances.item collection
      * @param id Unique identifier of the item
      * @returns a agreementAcceptanceRequestBuilder
      */
@@ -307,7 +307,7 @@ export class ApiClient {
         return new AgreementAcceptanceRequestBuilder(this.pathSegment + "/agreementAcceptances/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.agreements collection
+     * Gets an item from the graphtypescriptv4.utilities.agreements.item collection
      * @param id Unique identifier of the item
      * @returns a agreementRequestBuilder
      */
@@ -316,7 +316,7 @@ export class ApiClient {
         return new AgreementRequestBuilder(this.pathSegment + "/agreements/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.applications collection
+     * Gets an item from the graphtypescriptv4.utilities.applications.item collection
      * @param id Unique identifier of the item
      * @returns a applicationRequestBuilder
      */
@@ -325,7 +325,7 @@ export class ApiClient {
         return new ApplicationRequestBuilder(this.pathSegment + "/applications/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.applicationTemplates collection
+     * Gets an item from the graphtypescriptv4.utilities.applicationTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a applicationTemplateRequestBuilder
      */
@@ -334,7 +334,7 @@ export class ApiClient {
         return new ApplicationTemplateRequestBuilder(this.pathSegment + "/applicationTemplates/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.authenticationMethodConfigurations collection
+     * Gets an item from the graphtypescriptv4.utilities.authenticationMethodConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a authenticationMethodConfigurationRequestBuilder
      */
@@ -343,7 +343,7 @@ export class ApiClient {
         return new AuthenticationMethodConfigurationRequestBuilder(this.pathSegment + "/authenticationMethodConfigurations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.certificateBasedAuthConfiguration collection
+     * Gets an item from the graphtypescriptv4.utilities.certificateBasedAuthConfiguration.item collection
      * @param id Unique identifier of the item
      * @returns a certificateBasedAuthConfigurationRequestBuilder
      */
@@ -352,7 +352,7 @@ export class ApiClient {
         return new CertificateBasedAuthConfigurationRequestBuilder(this.pathSegment + "/certificateBasedAuthConfiguration/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.chats collection
+     * Gets an item from the graphtypescriptv4.utilities.chats.item collection
      * @param id Unique identifier of the item
      * @returns a chatRequestBuilder
      */
@@ -361,7 +361,7 @@ export class ApiClient {
         return new ChatRequestBuilder(this.pathSegment + "/chats/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.connections collection
+     * Gets an item from the graphtypescriptv4.utilities.connections.item collection
      * @param id Unique identifier of the item
      * @returns a externalConnectionRequestBuilder
      */
@@ -381,7 +381,7 @@ export class ApiClient {
         registerDefaultDeserializer(JsonParseNodeFactory);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.contacts collection
+     * Gets an item from the graphtypescriptv4.utilities.contacts.item collection
      * @param id Unique identifier of the item
      * @returns a orgContactRequestBuilder
      */
@@ -390,7 +390,7 @@ export class ApiClient {
         return new OrgContactRequestBuilder(this.pathSegment + "/contacts/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.contracts collection
+     * Gets an item from the graphtypescriptv4.utilities.contracts.item collection
      * @param id Unique identifier of the item
      * @returns a contractRequestBuilder
      */
@@ -407,7 +407,7 @@ export class ApiClient {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.dataPolicyOperations collection
+     * Gets an item from the graphtypescriptv4.utilities.dataPolicyOperations.item collection
      * @param id Unique identifier of the item
      * @returns a dataPolicyOperationRequestBuilder
      */
@@ -416,7 +416,7 @@ export class ApiClient {
         return new DataPolicyOperationRequestBuilder(this.pathSegment + "/dataPolicyOperations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.devices collection
+     * Gets an item from the graphtypescriptv4.utilities.devices.item collection
      * @param id Unique identifier of the item
      * @returns a deviceRequestBuilder
      */
@@ -425,7 +425,7 @@ export class ApiClient {
         return new DeviceRequestBuilder(this.pathSegment + "/devices/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directoryObjects collection
+     * Gets an item from the graphtypescriptv4.utilities.directoryObjects.item collection
      * @param id Unique identifier of the item
      * @returns a directoryObjectRequestBuilder
      */
@@ -434,7 +434,7 @@ export class ApiClient {
         return new DirectoryObjectRequestBuilder(this.pathSegment + "/directoryObjects/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directoryRoles collection
+     * Gets an item from the graphtypescriptv4.utilities.directoryRoles.item collection
      * @param id Unique identifier of the item
      * @returns a directoryRoleRequestBuilder
      */
@@ -443,7 +443,7 @@ export class ApiClient {
         return new DirectoryRoleRequestBuilder(this.pathSegment + "/directoryRoles/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directoryRoleTemplates collection
+     * Gets an item from the graphtypescriptv4.utilities.directoryRoleTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a directoryRoleTemplateRequestBuilder
      */
@@ -452,7 +452,7 @@ export class ApiClient {
         return new DirectoryRoleTemplateRequestBuilder(this.pathSegment + "/directoryRoleTemplates/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.domainDnsRecords collection
+     * Gets an item from the graphtypescriptv4.utilities.domainDnsRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordRequestBuilder
      */
@@ -461,7 +461,7 @@ export class ApiClient {
         return new DomainDnsRecordRequestBuilder(this.pathSegment + "/domainDnsRecords/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.domains collection
+     * Gets an item from the graphtypescriptv4.utilities.domains.item collection
      * @param id Unique identifier of the item
      * @returns a domainRequestBuilder
      */
@@ -470,7 +470,7 @@ export class ApiClient {
         return new DomainRequestBuilder(this.pathSegment + "/domains/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drives collection
+     * Gets an item from the graphtypescriptv4.utilities.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
@@ -485,7 +485,7 @@ export class ApiClient {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groupLifecyclePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.groupLifecyclePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a groupLifecyclePolicyRequestBuilder
      */
@@ -494,7 +494,7 @@ export class ApiClient {
         return new GroupLifecyclePolicyRequestBuilder(this.pathSegment + "/groupLifecyclePolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups collection
+     * Gets an item from the graphtypescriptv4.utilities.groups.item collection
      * @param id Unique identifier of the item
      * @returns a groupRequestBuilder
      */
@@ -503,7 +503,7 @@ export class ApiClient {
         return new GroupRequestBuilder(this.pathSegment + "/groups/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groupSettings collection
+     * Gets an item from the graphtypescriptv4.utilities.groupSettings.item collection
      * @param id Unique identifier of the item
      * @returns a groupSettingRequestBuilder
      */
@@ -512,7 +512,7 @@ export class ApiClient {
         return new GroupSettingRequestBuilder(this.pathSegment + "/groupSettings/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groupSettingTemplates collection
+     * Gets an item from the graphtypescriptv4.utilities.groupSettingTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a groupSettingTemplateRequestBuilder
      */
@@ -521,7 +521,7 @@ export class ApiClient {
         return new GroupSettingTemplateRequestBuilder(this.pathSegment + "/groupSettingTemplates/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityProviders collection
+     * Gets an item from the graphtypescriptv4.utilities.identityProviders.item collection
      * @param id Unique identifier of the item
      * @returns a identityProviderRequestBuilder
      */
@@ -530,7 +530,7 @@ export class ApiClient {
         return new IdentityProviderRequestBuilder(this.pathSegment + "/identityProviders/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.invitations collection
+     * Gets an item from the graphtypescriptv4.utilities.invitations.item collection
      * @param id Unique identifier of the item
      * @returns a invitationRequestBuilder
      */
@@ -539,7 +539,7 @@ export class ApiClient {
         return new InvitationRequestBuilder(this.pathSegment + "/invitations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.localizations collection
+     * Gets an item from the graphtypescriptv4.utilities.localizations.item collection
      * @param id Unique identifier of the item
      * @returns a organizationalBrandingLocalizationRequestBuilder
      */
@@ -548,7 +548,7 @@ export class ApiClient {
         return new OrganizationalBrandingLocalizationRequestBuilder(this.pathSegment + "/localizations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.oauth2PermissionGrants collection
+     * Gets an item from the graphtypescriptv4.utilities.oauth2PermissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a oAuth2PermissionGrantRequestBuilder
      */
@@ -557,7 +557,7 @@ export class ApiClient {
         return new OAuth2PermissionGrantRequestBuilder(this.pathSegment + "/oauth2PermissionGrants/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.organization collection
+     * Gets an item from the graphtypescriptv4.utilities.organization.item collection
      * @param id Unique identifier of the item
      * @returns a organizationRequestBuilder
      */
@@ -566,7 +566,7 @@ export class ApiClient {
         return new OrganizationRequestBuilder(this.pathSegment + "/organization/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.permissionGrants collection
+     * Gets an item from the graphtypescriptv4.utilities.permissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a resourceSpecificPermissionGrantRequestBuilder
      */
@@ -575,7 +575,7 @@ export class ApiClient {
         return new ResourceSpecificPermissionGrantRequestBuilder(this.pathSegment + "/permissionGrants/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.places collection
+     * Gets an item from the graphtypescriptv4.utilities.places.item collection
      * @param id Unique identifier of the item
      * @returns a placeRequestBuilder
      */
@@ -584,7 +584,7 @@ export class ApiClient {
         return new PlaceRequestBuilder(this.pathSegment + "/places/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.schemaExtensions collection
+     * Gets an item from the graphtypescriptv4.utilities.schemaExtensions.item collection
      * @param id Unique identifier of the item
      * @returns a schemaExtensionRequestBuilder
      */
@@ -593,7 +593,7 @@ export class ApiClient {
         return new SchemaExtensionRequestBuilder(this.pathSegment + "/schemaExtensions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.scopedRoleMemberships collection
+     * Gets an item from the graphtypescriptv4.utilities.scopedRoleMemberships.item collection
      * @param id Unique identifier of the item
      * @returns a scopedRoleMembershipRequestBuilder
      */
@@ -602,7 +602,7 @@ export class ApiClient {
         return new ScopedRoleMembershipRequestBuilder(this.pathSegment + "/scopedRoleMemberships/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals collection
+     * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.item collection
      * @param id Unique identifier of the item
      * @returns a servicePrincipalRequestBuilder
      */
@@ -611,7 +611,7 @@ export class ApiClient {
         return new ServicePrincipalRequestBuilder(this.pathSegment + "/servicePrincipals/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.shares collection
+     * Gets an item from the graphtypescriptv4.utilities.shares.item collection
      * @param id Unique identifier of the item
      * @returns a sharedDriveItemRequestBuilder
      */
@@ -620,7 +620,7 @@ export class ApiClient {
         return new SharedDriveItemRequestBuilder(this.pathSegment + "/shares/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.sites collection
+     * Gets an item from the graphtypescriptv4.utilities.sites.item collection
      * @param id Unique identifier of the item
      * @returns a siteRequestBuilder
      */
@@ -629,7 +629,7 @@ export class ApiClient {
         return new SiteRequestBuilder(this.pathSegment + "/sites/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.subscribedSkus collection
+     * Gets an item from the graphtypescriptv4.utilities.subscribedSkus.item collection
      * @param id Unique identifier of the item
      * @returns a subscribedSkuRequestBuilder
      */
@@ -638,7 +638,7 @@ export class ApiClient {
         return new SubscribedSkuRequestBuilder(this.pathSegment + "/subscribedSkus/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.subscriptions collection
+     * Gets an item from the graphtypescriptv4.utilities.subscriptions.item collection
      * @param id Unique identifier of the item
      * @returns a subscriptionRequestBuilder
      */
@@ -647,7 +647,7 @@ export class ApiClient {
         return new SubscriptionRequestBuilder(this.pathSegment + "/subscriptions/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.teams collection
+     * Gets an item from the graphtypescriptv4.utilities.teams.item collection
      * @param id Unique identifier of the item
      * @returns a teamRequestBuilder
      */
@@ -656,7 +656,7 @@ export class ApiClient {
         return new TeamRequestBuilder(this.pathSegment + "/teams/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.teamsTemplates collection
+     * Gets an item from the graphtypescriptv4.utilities.teamsTemplates.item collection
      * @param id Unique identifier of the item
      * @returns a teamsTemplateRequestBuilder
      */
@@ -665,7 +665,7 @@ export class ApiClient {
         return new TeamsTemplateRequestBuilder(this.pathSegment + "/teamsTemplates/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.users collection
+     * Gets an item from the graphtypescriptv4.utilities.users.item collection
      * @param id Unique identifier of the item
      * @returns a userRequestBuilder
      */
@@ -674,7 +674,7 @@ export class ApiClient {
         return new UserRequestBuilder(this.pathSegment + "/users/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks collection
+     * Gets an item from the graphtypescriptv4.utilities.workbooks.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */

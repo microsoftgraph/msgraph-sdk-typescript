@@ -1,8 +1,8 @@
-import {PermissionGrantPolicy} from '../../permissionGrantPolicy';
+import {PermissionGrantPolicy} from '../../../permissionGrantPolicy';
 import {ExcludesRequestBuilder} from '../excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder} from '../excludes/item/permissionGrantConditionSetRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder} from '../excludes/item/item/permissionGrantConditionSetRequestBuilder';
 import {IncludesRequestBuilder} from '../includes/includesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder} from '../includes/item/permissionGrantConditionSetRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder} from '../includes/item/item/permissionGrantConditionSetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/permissionGrantPolicies/{permissionGrantPolicy-id}  */
@@ -98,7 +98,7 @@ export class PermissionGrantPolicyRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.excludes collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.item.excludes.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetRequestBuilder
      */
@@ -124,7 +124,7 @@ export class PermissionGrantPolicyRequestBuilder {
         return this.httpCore?.sendAsync<PermissionGrantPolicy>(requestInfo, PermissionGrantPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.includes collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.item.includes.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetRequestBuilder
      */

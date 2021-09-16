@@ -1,6 +1,6 @@
-import {EducationUser} from '../../educationUser';
+import {EducationUser} from '../../../educationUser';
 import {ClassesRequestBuilder} from '../classes/classesRequestBuilder';
-import {EducationRubricRequestBuilder} from '../rubrics/item/educationRubricRequestBuilder';
+import {EducationRubricRequestBuilder} from '../rubrics/item/item/educationRubricRequestBuilder';
 import {RubricsRequestBuilder} from '../rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from '../schools/schoolsRequestBuilder';
 import {TaughtClassesRequestBuilder} from '../taughtClasses/taughtClassesRequestBuilder';
@@ -140,7 +140,7 @@ export class EducationUserRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.users.rubrics collection
+     * Gets an item from the graphtypescriptv4.utilities.education.users.item.rubrics.item collection
      * @param id Unique identifier of the item
      * @returns a educationRubricRequestBuilder
      */

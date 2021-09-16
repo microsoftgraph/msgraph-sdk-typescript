@@ -1,4 +1,4 @@
-import {Presence} from '../../../presence';
+import {Presence} from '../../../../presence';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /communications/presences/{presence-id}  */

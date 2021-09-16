@@ -1,24 +1,24 @@
 import {ActivityBasedTimeoutPoliciesRequestBuilder} from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
-import {ActivityBasedTimeoutPolicyRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyRequestBuilder';
+import {ActivityBasedTimeoutPolicyRequestBuilder} from './activityBasedTimeoutPolicies/item/item/activityBasedTimeoutPolicyRequestBuilder';
 import {AdminConsentRequestPolicyRequestBuilder} from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
 import {AuthenticationFlowsPolicyRequestBuilder} from './authenticationFlowsPolicy/authenticationFlowsPolicyRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilder} from './authenticationMethodsPolicy/authenticationMethodsPolicyRequestBuilder';
 import {AuthorizationPolicyRequestBuilder} from './authorizationPolicy/authorizationPolicyRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
-import {ClaimsMappingPolicyRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyRequestBuilder';
+import {ClaimsMappingPolicyRequestBuilder} from './claimsMappingPolicies/item/item/claimsMappingPolicyRequestBuilder';
 import {ConditionalAccessPoliciesRequestBuilder} from './conditionalAccessPolicies/conditionalAccessPoliciesRequestBuilder';
-import {ConditionalAccessPolicyRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyRequestBuilder';
+import {ConditionalAccessPolicyRequestBuilder} from './conditionalAccessPolicies/item/item/conditionalAccessPolicyRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilder} from './featureRolloutPolicies/featureRolloutPoliciesRequestBuilder';
-import {FeatureRolloutPolicyRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyRequestBuilder';
+import {FeatureRolloutPolicyRequestBuilder} from './featureRolloutPolicies/item/item/featureRolloutPolicyRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
-import {HomeRealmDiscoveryPolicyRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyRequestBuilder';
+import {HomeRealmDiscoveryPolicyRequestBuilder} from './homeRealmDiscoveryPolicies/item/item/homeRealmDiscoveryPolicyRequestBuilder';
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilder} from './identitySecurityDefaultsEnforcementPolicy/identitySecurityDefaultsEnforcementPolicyRequestBuilder';
-import {PermissionGrantPolicyRequestBuilder} from './permissionGrantPolicies/item/permissionGrantPolicyRequestBuilder';
+import {PermissionGrantPolicyRequestBuilder} from './permissionGrantPolicies/item/item/permissionGrantPolicyRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilder} from './permissionGrantPolicies/permissionGrantPoliciesRequestBuilder';
 import {PolicyRoot} from './policyRoot';
-import {TokenIssuancePolicyRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyRequestBuilder';
+import {TokenIssuancePolicyRequestBuilder} from './tokenIssuancePolicies/item/item/tokenIssuancePolicyRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
-import {TokenLifetimePolicyRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyRequestBuilder';
+import {TokenLifetimePolicyRequestBuilder} from './tokenLifetimePolicies/item/item/tokenLifetimePolicyRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -72,7 +72,7 @@ export class PoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.activityBasedTimeoutPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.activityBasedTimeoutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a activityBasedTimeoutPolicyRequestBuilder
      */
@@ -81,7 +81,7 @@ export class PoliciesRequestBuilder {
         return new ActivityBasedTimeoutPolicyRequestBuilder(this.currentPath + this.pathSegment + "/activityBasedTimeoutPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.claimsMappingPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.claimsMappingPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a claimsMappingPolicyRequestBuilder
      */
@@ -90,7 +90,7 @@ export class PoliciesRequestBuilder {
         return new ClaimsMappingPolicyRequestBuilder(this.currentPath + this.pathSegment + "/claimsMappingPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.conditionalAccessPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.conditionalAccessPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a conditionalAccessPolicyRequestBuilder
      */
@@ -149,7 +149,7 @@ export class PoliciesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a featureRolloutPolicyRequestBuilder
      */
@@ -175,7 +175,7 @@ export class PoliciesRequestBuilder {
         return this.httpCore?.sendAsync<PolicyRoot>(requestInfo, PolicyRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.homeRealmDiscoveryPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a homeRealmDiscoveryPolicyRequestBuilder
      */
@@ -198,7 +198,7 @@ export class PoliciesRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantPolicyRequestBuilder
      */
@@ -207,7 +207,7 @@ export class PoliciesRequestBuilder {
         return new PermissionGrantPolicyRequestBuilder(this.currentPath + this.pathSegment + "/permissionGrantPolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.tokenIssuancePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenIssuancePolicyRequestBuilder
      */
@@ -216,7 +216,7 @@ export class PoliciesRequestBuilder {
         return new TokenIssuancePolicyRequestBuilder(this.currentPath + this.pathSegment + "/tokenIssuancePolicies/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.tokenLifetimePolicies collection
+     * Gets an item from the graphtypescriptv4.utilities.policies.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenLifetimePolicyRequestBuilder
      */

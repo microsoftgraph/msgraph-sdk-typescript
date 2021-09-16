@@ -1,15 +1,15 @@
 import {Onenote} from '../../onenote';
-import {NotebookRequestBuilder} from './notebooks/item/notebookRequestBuilder';
+import {NotebookRequestBuilder} from './notebooks/item/item/notebookRequestBuilder';
 import {NotebooksRequestBuilder} from './notebooks/notebooksRequestBuilder';
-import {OnenoteOperationRequestBuilder} from './operations/item/onenoteOperationRequestBuilder';
+import {OnenoteOperationRequestBuilder} from './operations/item/item/onenoteOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {OnenotePageRequestBuilder} from './pages/item/onenotePageRequestBuilder';
+import {OnenotePageRequestBuilder} from './pages/item/item/onenotePageRequestBuilder';
 import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
-import {OnenoteResourceRequestBuilder} from './resources/item/onenoteResourceRequestBuilder';
+import {OnenoteResourceRequestBuilder} from './resources/item/item/onenoteResourceRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
+import {SectionGroupRequestBuilder} from './sectionGroups/item/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
+import {OnenoteSectionRequestBuilder} from './sections/item/item/onenoteSectionRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -135,7 +135,7 @@ export class OnenoteRequestBuilder {
         return this.httpCore?.sendAsync<Onenote>(requestInfo, Onenote, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.notebooks.item collection
      * @param id Unique identifier of the item
      * @returns a notebookRequestBuilder
      */
@@ -144,7 +144,7 @@ export class OnenoteRequestBuilder {
         return new NotebookRequestBuilder(this.currentPath + this.pathSegment + "/notebooks/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.operations.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteOperationRequestBuilder
      */
@@ -153,7 +153,7 @@ export class OnenoteRequestBuilder {
         return new OnenoteOperationRequestBuilder(this.currentPath + this.pathSegment + "/operations/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.pages collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.pages.item collection
      * @param id Unique identifier of the item
      * @returns a onenotePageRequestBuilder
      */
@@ -176,7 +176,7 @@ export class OnenoteRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.resources collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.resources.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteResourceRequestBuilder
      */
@@ -185,7 +185,7 @@ export class OnenoteRequestBuilder {
         return new OnenoteResourceRequestBuilder(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.sectionGroups collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.sectionGroups.item collection
      * @param id Unique identifier of the item
      * @returns a sectionGroupRequestBuilder
      */
@@ -194,7 +194,7 @@ export class OnenoteRequestBuilder {
         return new SectionGroupRequestBuilder(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.onenote.sections collection
+     * Gets an item from the graphtypescriptv4.utilities.me.onenote.sections.item collection
      * @param id Unique identifier of the item
      * @returns a onenoteSectionRequestBuilder
      */

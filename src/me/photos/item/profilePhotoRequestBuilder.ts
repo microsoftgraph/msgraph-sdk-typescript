@@ -1,4 +1,4 @@
-import {ProfilePhoto} from '../../../profilePhoto';
+import {ProfilePhoto} from '../../../../profilePhoto';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

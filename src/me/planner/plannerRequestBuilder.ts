@@ -1,7 +1,7 @@
 import {PlannerUser} from '../../plannerUser';
-import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
+import {PlannerPlanRequestBuilder} from './plans/item/item/plannerPlanRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';
+import {PlannerTaskRequestBuilder} from './tasks/item/item/plannerTaskRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -129,7 +129,7 @@ export class PlannerRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.planner.plans collection
+     * Gets an item from the graphtypescriptv4.utilities.me.planner.plans.item collection
      * @param id Unique identifier of the item
      * @returns a plannerPlanRequestBuilder
      */
@@ -138,7 +138,7 @@ export class PlannerRequestBuilder {
         return new PlannerPlanRequestBuilder(this.currentPath + this.pathSegment + "/plans/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.planner.tasks collection
+     * Gets an item from the graphtypescriptv4.utilities.me.planner.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a plannerTaskRequestBuilder
      */

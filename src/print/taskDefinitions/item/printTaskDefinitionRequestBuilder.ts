@@ -1,5 +1,5 @@
-import {PrintTaskDefinition} from '../../printTaskDefinition';
-import {PrintTaskRequestBuilder} from '../tasks/item/printTaskRequestBuilder';
+import {PrintTaskDefinition} from '../../../printTaskDefinition';
+import {PrintTaskRequestBuilder} from '../tasks/item/item/printTaskRequestBuilder';
 import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -124,7 +124,7 @@ export class PrintTaskDefinitionRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions.tasks collection
+     * Gets an item from the graphtypescriptv4.utilities.print.taskDefinitions.item.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a printTaskRequestBuilder
      */

@@ -1,8 +1,8 @@
-import {B2xIdentityUserFlow} from '../../b2xIdentityUserFlow';
+import {B2xIdentityUserFlow} from '../../../b2xIdentityUserFlow';
 import {IdentityProvidersRequestBuilder} from '../identityProviders/identityProvidersRequestBuilder';
-import {UserFlowLanguageConfigurationRequestBuilder} from '../languages/item/userFlowLanguageConfigurationRequestBuilder';
+import {UserFlowLanguageConfigurationRequestBuilder} from '../languages/item/item/userFlowLanguageConfigurationRequestBuilder';
 import {LanguagesRequestBuilder} from '../languages/languagesRequestBuilder';
-import {IdentityUserFlowAttributeAssignmentRequestBuilder} from '../userAttributeAssignments/item/identityUserFlowAttributeAssignmentRequestBuilder';
+import {IdentityUserFlowAttributeAssignmentRequestBuilder} from '../userAttributeAssignments/item/item/identityUserFlowAttributeAssignmentRequestBuilder';
 import {UserAttributeAssignmentsRequestBuilder} from '../userAttributeAssignments/userAttributeAssignmentsRequestBuilder';
 import {UserFlowIdentityProvidersRequestBuilder} from '../userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -123,7 +123,7 @@ export class B2xIdentityUserFlowRequestBuilder {
         return this.httpCore?.sendAsync<B2xIdentityUserFlow>(requestInfo, B2xIdentityUserFlow, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.languages collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.item.languages.item collection
      * @param id Unique identifier of the item
      * @returns a userFlowLanguageConfigurationRequestBuilder
      */
@@ -146,7 +146,7 @@ export class B2xIdentityUserFlowRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.userAttributeAssignments collection
+     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.item.userAttributeAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a identityUserFlowAttributeAssignmentRequestBuilder
      */

@@ -1,4 +1,4 @@
-import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../../microsoftAuthenticatorAuthenticationMethod';
+import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../../../microsoftAuthenticatorAuthenticationMethod';
 import {DeviceRequestBuilder} from '../device/deviceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

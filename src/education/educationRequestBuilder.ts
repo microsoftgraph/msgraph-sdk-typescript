@@ -1,11 +1,11 @@
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassRequestBuilder} from './classes/item/educationClassRequestBuilder';
+import {EducationClassRequestBuilder} from './classes/item/item/educationClassRequestBuilder';
 import {Education} from './education';
 import {EducationRoot} from './educationRoot';
 import {MeRequestBuilder} from './me/meRequestBuilder';
-import {EducationSchoolRequestBuilder} from './schools/item/educationSchoolRequestBuilder';
+import {EducationSchoolRequestBuilder} from './schools/item/item/educationSchoolRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationUserRequestBuilder} from './users/item/educationUserRequestBuilder';
+import {EducationUserRequestBuilder} from './users/item/item/educationUserRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -32,7 +32,7 @@ export class EducationRequestBuilder {
         return new UsersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes collection
+     * Gets an item from the graphtypescriptv4.utilities.education.classes.item collection
      * @param id Unique identifier of the item
      * @returns a educationClassRequestBuilder
      */
@@ -122,7 +122,7 @@ export class EducationRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.schools collection
+     * Gets an item from the graphtypescriptv4.utilities.education.schools.item collection
      * @param id Unique identifier of the item
      * @returns a educationSchoolRequestBuilder
      */
@@ -131,7 +131,7 @@ export class EducationRequestBuilder {
         return new EducationSchoolRequestBuilder(this.currentPath + this.pathSegment + "/schools/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.users collection
+     * Gets an item from the graphtypescriptv4.utilities.education.users.item collection
      * @param id Unique identifier of the item
      * @returns a educationUserRequestBuilder
      */

@@ -1,11 +1,11 @@
+import {DirectoryRole} from '../../directoryRole';
 import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {DirectoryRole} from '../directoryRole';
 import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
 import {MembersRequestBuilder} from '../members/membersRequestBuilder';
 import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
-import {ScopedRoleMembershipRequestBuilder} from '../scopedMembers/item/scopedRoleMembershipRequestBuilder';
+import {ScopedRoleMembershipRequestBuilder} from '../scopedMembers/item/item/scopedRoleMembershipRequestBuilder';
 import {ScopedMembersRequestBuilder} from '../scopedMembers/scopedMembersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -148,7 +148,7 @@ export class DirectoryRoleRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.directoryRoles.scopedMembers collection
+     * Gets an item from the graphtypescriptv4.utilities.directoryRoles.item.scopedMembers.item collection
      * @param id Unique identifier of the item
      * @returns a scopedRoleMembershipRequestBuilder
      */

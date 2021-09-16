@@ -1,6 +1,6 @@
-import {AccessReviewScheduleDefinition} from '../../../accessReviewScheduleDefinition';
+import {AccessReviewScheduleDefinition} from '../../../../accessReviewScheduleDefinition';
 import {InstancesRequestBuilder} from '../instances/instancesRequestBuilder';
-import {AccessReviewInstanceRequestBuilder} from '../instances/item/accessReviewInstanceRequestBuilder';
+import {AccessReviewInstanceRequestBuilder} from '../instances/item/item/accessReviewInstanceRequestBuilder';
 import {StopRequestBuilder} from '../stop/stopRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -114,7 +114,7 @@ export class AccessReviewScheduleDefinitionRequestBuilder {
         return this.httpCore?.sendAsync<AccessReviewScheduleDefinition>(requestInfo, AccessReviewScheduleDefinition, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions.instances collection
+     * Gets an item from the graphtypescriptv4.utilities.identityGovernance.accessReviews.definitions.item.instances.item collection
      * @param id Unique identifier of the item
      * @returns a accessReviewInstanceRequestBuilder
      */

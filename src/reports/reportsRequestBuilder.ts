@@ -1,7 +1,7 @@
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/item/item/printUsageByPrinterRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
-import {PrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/item/item/printUsageByUserRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
 import {DeviceConfigurationUserActivityRequestBuilder} from './deviceConfigurationUserActivity/deviceConfigurationUserActivityRequestBuilder';
 import {GetEmailActivityCountsWithPeriodRequestBuilder} from './getEmailActivityCountsWithPeriod/getEmailActivityCountsWithPeriodRequestBuilder';
@@ -94,9 +94,9 @@ import {ManagedDeviceEnrollmentFailureDetailsRequestBuilder} from './managedDevi
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilder} from './managedDeviceEnrollmentTopFailures/managedDeviceEnrollmentTopFailuresRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder} from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/item/item/printUsageByPrinterRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/item/item/printUsageByUserRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {ReportRoot} from './reportRoot';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -174,7 +174,7 @@ export class ReportsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByPrinter collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByPrinterRequestBuilder
      */
@@ -183,7 +183,7 @@ export class ReportsRequestBuilder {
         return new PrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment + "/dailyPrintUsageByPrinter/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByUser collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByUserRequestBuilder
      */
@@ -310,7 +310,7 @@ export class ReportsRequestBuilder {
      * @param startDateTime Usage: startDateTime={startDateTime}
      * @returns a getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder
      */
-    public getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime(groupId: string | undefined, startDateTime: DateTimeOffset | undefined, endDateTime: DateTimeOffset | undefined) : GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+    public getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTime(groupId: string | undefined, startDateTime: Date | undefined, endDateTime: Date | undefined) : GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!groupId) throw new Error("groupId cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
@@ -551,7 +551,7 @@ export class ReportsRequestBuilder {
      * @param startDateTime Usage: startDateTime={startDateTime}
      * @returns a getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder
      */
-    public getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(printerId: string | undefined, startDateTime: DateTimeOffset | undefined, endDateTime: DateTimeOffset | undefined) : GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+    public getPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTime(printerId: string | undefined, startDateTime: Date | undefined, endDateTime: Date | undefined) : GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!printerId) throw new Error("printerId cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
@@ -888,7 +888,7 @@ export class ReportsRequestBuilder {
      * @param userId Usage: userId={userId}
      * @returns a getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder
      */
-    public getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime(userId: string | undefined, startDateTime: DateTimeOffset | undefined, endDateTime: DateTimeOffset | undefined) : GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder {
+    public getUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime(userId: string | undefined, startDateTime: Date | undefined, endDateTime: Date | undefined) : GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
         if(!userId) throw new Error("userId cannot be undefined");
@@ -1041,7 +1041,7 @@ export class ReportsRequestBuilder {
         return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByPrinter collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByPrinterRequestBuilder
      */
@@ -1050,7 +1050,7 @@ export class ReportsRequestBuilder {
         return new PrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment + "/monthlyPrintUsageByPrinter/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByUser collection
+     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByUserRequestBuilder
      */

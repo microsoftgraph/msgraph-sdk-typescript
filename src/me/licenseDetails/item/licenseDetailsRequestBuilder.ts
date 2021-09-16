@@ -1,4 +1,4 @@
-import {LicenseDetails} from '../../../licenseDetails';
+import {LicenseDetails} from '../../../../licenseDetails';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/licenseDetails/{licenseDetails-id}  */

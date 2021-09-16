@@ -1,7 +1,7 @@
-import {ExternalConnection} from '../../externalConnection';
-import {ExternalItemRequestBuilder} from '../items/item/externalItemRequestBuilder';
+import {ExternalConnection} from '../../../externalConnection';
+import {ExternalItemRequestBuilder} from '../items/item/item/externalItemRequestBuilder';
 import {ItemsRequestBuilder} from '../items/itemsRequestBuilder';
-import {ConnectionOperationRequestBuilder} from '../operations/item/connectionOperationRequestBuilder';
+import {ConnectionOperationRequestBuilder} from '../operations/item/item/connectionOperationRequestBuilder';
 import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
 import {SchemaRequestBuilder} from '../schema/schemaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -119,7 +119,7 @@ export class ExternalConnectionRequestBuilder {
         return this.httpCore?.sendAsync<ExternalConnection>(requestInfo, ExternalConnection, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.connections.items collection
+     * Gets an item from the graphtypescriptv4.utilities.connections.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a externalItemRequestBuilder
      */
@@ -128,7 +128,7 @@ export class ExternalConnectionRequestBuilder {
         return new ExternalItemRequestBuilder(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.connections.operations collection
+     * Gets an item from the graphtypescriptv4.utilities.connections.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a connectionOperationRequestBuilder
      */

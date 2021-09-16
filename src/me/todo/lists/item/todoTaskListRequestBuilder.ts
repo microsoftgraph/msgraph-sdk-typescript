@@ -1,7 +1,7 @@
-import {TodoTaskList} from '../../../../todoTaskList';
+import {TodoTaskList} from '../../../../../todoTaskList';
 import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/extensionRequestBuilder';
-import {TodoTaskRequestBuilder} from '../tasks/item/todoTaskRequestBuilder';
+import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
+import {TodoTaskRequestBuilder} from '../tasks/item/item/todoTaskRequestBuilder';
 import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -98,7 +98,7 @@ export class TodoTaskListRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.extensions collection
+     * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
@@ -138,7 +138,7 @@ export class TodoTaskListRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.tasks collection
+     * Gets an item from the graphtypescriptv4.utilities.me.todo.lists.item.tasks.item collection
      * @param id Unique identifier of the item
      * @returns a todoTaskRequestBuilder
      */

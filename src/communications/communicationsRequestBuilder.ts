@@ -1,12 +1,12 @@
 import {CallRecordsRequestBuilder} from './callRecords/callRecordsRequestBuilder';
-import {CallRecordRequestBuilder} from './callRecords/item/callRecordRequestBuilder';
+import {CallRecordRequestBuilder} from './callRecords/item/item/callRecordRequestBuilder';
 import {CallsRequestBuilder} from './calls/callsRequestBuilder';
-import {CallRequestBuilder} from './calls/item/callRequestBuilder';
+import {CallRequestBuilder} from './calls/item/item/callRequestBuilder';
 import {CloudCommunications} from './cloudCommunications';
 import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
-import {OnlineMeetingRequestBuilder} from './onlineMeetings/item/onlineMeetingRequestBuilder';
+import {OnlineMeetingRequestBuilder} from './onlineMeetings/item/item/onlineMeetingRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
-import {PresenceRequestBuilder} from './presences/item/presenceRequestBuilder';
+import {PresenceRequestBuilder} from './presences/item/item/presenceRequestBuilder';
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -36,7 +36,7 @@ export class CommunicationsRequestBuilder {
         return new PresencesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.callRecords collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.callRecords.item collection
      * @param id Unique identifier of the item
      * @returns a callRecordRequestBuilder
      */
@@ -45,7 +45,7 @@ export class CommunicationsRequestBuilder {
         return new CallRecordRequestBuilder(this.currentPath + this.pathSegment + "/callRecords/" + id, this.httpCore, false);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.calls collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.calls.item collection
      * @param id Unique identifier of the item
      * @returns a callRequestBuilder
      */
@@ -121,7 +121,7 @@ export class CommunicationsRequestBuilder {
         return this.httpCore?.sendAsync<CloudCommunications>(requestInfo, CloudCommunications, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.onlineMeetings collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.onlineMeetings.item collection
      * @param id Unique identifier of the item
      * @returns a onlineMeetingRequestBuilder
      */
@@ -144,7 +144,7 @@ export class CommunicationsRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.communications.presences collection
+     * Gets an item from the graphtypescriptv4.utilities.communications.presences.item collection
      * @param id Unique identifier of the item
      * @returns a presenceRequestBuilder
      */

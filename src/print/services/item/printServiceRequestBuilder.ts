@@ -1,6 +1,6 @@
-import {PrintService} from '../../printService';
+import {PrintService} from '../../../printService';
 import {EndpointsRequestBuilder} from '../endpoints/endpointsRequestBuilder';
-import {PrintServiceEndpointRequestBuilder} from '../endpoints/item/printServiceEndpointRequestBuilder';
+import {PrintServiceEndpointRequestBuilder} from '../endpoints/item/item/printServiceEndpointRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/services/{printService-id}  */
@@ -93,7 +93,7 @@ export class PrintServiceRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.print.services.endpoints collection
+     * Gets an item from the graphtypescriptv4.utilities.print.services.item.endpoints.item collection
      * @param id Unique identifier of the item
      * @returns a printServiceEndpointRequestBuilder
      */

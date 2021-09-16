@@ -1,4 +1,4 @@
-import {IdentityApiConnector} from '../../identityApiConnector';
+import {IdentityApiConnector} from '../../../identityApiConnector';
 import {UploadClientCertificateRequestBuilder} from '../uploadClientCertificate/uploadClientCertificateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

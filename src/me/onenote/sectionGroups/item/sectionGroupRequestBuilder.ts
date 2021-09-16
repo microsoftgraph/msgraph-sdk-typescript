@@ -1,4 +1,4 @@
-import {SectionGroup} from '../../../../../sectionGroup';
+import {SectionGroup} from '../../../../../../../sectionGroup';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/sectionGroups/{sectionGroup-id}/sectionGroups/{sectionGroup-id1}  */

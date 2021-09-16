@@ -1,4 +1,4 @@
-import {DeviceManagementExchangeConnector} from '../../deviceManagementExchangeConnector';
+import {DeviceManagementExchangeConnector} from '../../../deviceManagementExchangeConnector';
 import {SyncRequestBuilder} from '../sync/syncRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

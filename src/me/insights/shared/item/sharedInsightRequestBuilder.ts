@@ -1,4 +1,4 @@
-import {SharedInsight} from '../../../../sharedInsight';
+import {SharedInsight} from '../../../../../sharedInsight';
 import {LastSharedMethodRequestBuilder} from '../lastSharedMethod/lastSharedMethodRequestBuilder';
 import {ResourceRequestBuilder} from '../resource/resourceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

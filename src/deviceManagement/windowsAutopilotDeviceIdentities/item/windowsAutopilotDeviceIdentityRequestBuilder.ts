@@ -1,4 +1,4 @@
-import {WindowsAutopilotDeviceIdentity} from '../../windowsAutopilotDeviceIdentity';
+import {WindowsAutopilotDeviceIdentity} from '../../../windowsAutopilotDeviceIdentity';
 import {AssignUserToDeviceRequestBuilder} from '../assignUserToDevice/assignUserToDeviceRequestBuilder';
 import {UnassignUserFromDeviceRequestBuilder} from '../unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
 import {UpdateDevicePropertiesRequestBuilder} from '../updateDeviceProperties/updateDevicePropertiesRequestBuilder';
