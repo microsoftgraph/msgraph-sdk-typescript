@@ -1,5 +1,5 @@
 import {Calendar} from '../../../../calendar';
-import {AllowedCalendarSharingRolesWithUserRequestBuilder} from '../../../../me/events/calendar/allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
+import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

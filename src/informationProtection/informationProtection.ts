@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class InformationProtection extends Entity implements Parsable {
     private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
-     * Instantiates a new InformationProtection and sets the default values.
+     * Instantiates a new informationProtection and sets the default values.
      */
     public constructor() {
         super();

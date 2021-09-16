@@ -1,5 +1,4 @@
 import {PlannerProgressTaskBoardTaskFormat} from '../../../plannerProgressTaskBoardTaskFormat';
-import {ProgressTaskBoardFormat} from '../../buckets/tasks/progressTaskBoardFormat/progressTaskBoardFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/tasks/{plannerTask-id}/progressTaskBoardFormat  */
@@ -66,7 +65,7 @@ export class ProgressTaskBoardFormatRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ProgressTaskBoardFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: PlannerProgressTaskBoardTaskFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -112,7 +111,7 @@ export class ProgressTaskBoardFormatRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ProgressTaskBoardFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PlannerProgressTaskBoardTaskFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

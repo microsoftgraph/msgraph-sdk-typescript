@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class AppCatalogs extends Entity implements Parsable {
     private _teamsApps?: TeamsApp[] | undefined;
     /**
-     * Instantiates a new AppCatalogs and sets the default values.
+     * Instantiates a new appCatalogs and sets the default values.
      */
     public constructor() {
         super();

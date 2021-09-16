@@ -1,6 +1,5 @@
 import {WorkbookChartGridlines} from '../../../../../../../../workbookChartGridlines';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
-import {MajorGridlines} from './majorGridlines';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet/charts/{workbookChart-id}/axes/categoryAxis/majorGridlines  */
@@ -70,7 +69,7 @@ export class MajorGridlinesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: MajorGridlines | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WorkbookChartGridlines | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -116,7 +115,7 @@ export class MajorGridlinesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: MajorGridlines | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WorkbookChartGridlines | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

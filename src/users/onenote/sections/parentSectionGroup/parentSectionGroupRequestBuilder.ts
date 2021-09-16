@@ -1,13 +1,7 @@
-import {ParentSectionGroup} from '../../../../groups/onenote/notebooks/sectionGroups/parentSectionGroup/parentSectionGroup';
-import {SectionGroup} from '../../../../sectionGroup';
-import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
-import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
-import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
-import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
+import {SectionGroup} from '../../../../../sectionGroup';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/onenote/sections/{onenoteSection-id}/parentSectionGroup  */
+/** Builds and executes requests for operations under /users/{user-id}/onenote/sections/{onenoteSection-id}/parentSectionGroup/parentSectionGroup  */
 export class ParentSectionGroupRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
@@ -15,20 +9,8 @@ export class ParentSectionGroupRequestBuilder {
     private readonly httpCore: HttpCore;
     /** Whether the current path is a raw URL  */
     private readonly isRawUrl: boolean;
-    public get parentNotebook(): ParentNotebookRequestBuilder {
-        return new ParentNotebookRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
-        return new ParentSectionGroupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /** Path segment to use to build the URL for the current request builder  */
     private readonly pathSegment: string;
-    public get sectionGroups(): SectionGroupsRequestBuilder {
-        return new SectionGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
-    public get sections(): SectionsRequestBuilder {
-        return new SectionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     /**
      * Instantiates a new ParentSectionGroupRequestBuilder and sets the default values.
      * @param currentPath Current path for the request
@@ -44,7 +26,7 @@ export class ParentSectionGroupRequestBuilder {
         this.isRawUrl = isRawUrl;
     };
     /**
-     * The section group that contains the section.  Read-only.
+     * The section group that contains the section group. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
@@ -58,7 +40,7 @@ export class ParentSectionGroupRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section group that contains the section.  Read-only.
+     * The section group that contains the section group. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -77,13 +59,13 @@ export class ParentSectionGroupRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section group that contains the section.  Read-only.
+     * The section group that contains the section group. Read-only.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ParentSectionGroup | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: SectionGroup | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -94,7 +76,7 @@ export class ParentSectionGroupRequestBuilder {
         return requestInfo;
     };
     /**
-     * The section group that contains the section.  Read-only.
+     * The section group that contains the section group. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -106,7 +88,7 @@ export class ParentSectionGroupRequestBuilder {
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The section group that contains the section.  Read-only.
+     * The section group that contains the section group. Read-only.
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param q Request query parameters
@@ -123,35 +105,17 @@ export class ParentSectionGroupRequestBuilder {
         return this.httpCore?.sendAsync<SectionGroup>(requestInfo, SectionGroup, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The section group that contains the section.  Read-only.
+     * The section group that contains the section group. Read-only.
      * @param body 
      * @param h Request headers
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ParentSectionGroup | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SectionGroup | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
         return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the graphtypescriptv4.utilities.users.onenote.sections.parentSectionGroup.sectionGroups collection
-     * @param id Unique identifier of the item
-     * @returns a sectionGroupRequestBuilder
-     */
-    public sectionGroupsById(id: String) : SectionGroupRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        return new SectionGroupRequestBuilder(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
-    };
-    /**
-     * Gets an item from the graphtypescriptv4.utilities.users.onenote.sections.parentSectionGroup.sections collection
-     * @param id Unique identifier of the item
-     * @returns a onenoteSectionRequestBuilder
-     */
-    public sectionsById(id: String) : OnenoteSectionRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        return new OnenoteSectionRequestBuilder(this.currentPath + this.pathSegment + "/sections/" + id, this.httpCore, false);
     };
 }

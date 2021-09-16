@@ -1,5 +1,5 @@
-import {DeltaRequestBuilder} from '../me/messages/delta/deltaRequestBuilder';
 import {User} from '../user';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {UsersResponse} from './usersResponse';

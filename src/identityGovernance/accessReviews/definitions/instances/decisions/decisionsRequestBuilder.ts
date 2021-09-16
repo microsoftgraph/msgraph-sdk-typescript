@@ -1,6 +1,6 @@
 import {AccessReviewInstanceDecisionItem} from '../../../../accessReviewInstanceDecisionItem';
-import {FilterByCurrentUserWithOnRequestBuilder} from '../../../../appConsent/appConsentRequests/userConsentRequests/filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {DecisionsResponse} from './decisionsResponse';
+import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition-id}/instances/{accessReviewInstance-id}/decisions  */

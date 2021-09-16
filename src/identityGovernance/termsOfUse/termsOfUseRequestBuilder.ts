@@ -3,7 +3,6 @@ import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreeme
 import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
 import {AgreementRequestBuilder} from './agreements/item/agreementRequestBuilder';
-import {TermsOfUse} from './termsOfUse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/termsOfUse  */
@@ -94,7 +93,7 @@ export class TermsOfUseRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: TermsOfUse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: TermsOfUseContainer | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -140,7 +139,7 @@ export class TermsOfUseRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: TermsOfUse | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: TermsOfUseContainer | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

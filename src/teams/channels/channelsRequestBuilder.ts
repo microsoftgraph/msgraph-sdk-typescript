@@ -1,6 +1,6 @@
 import {Channel} from '../../channel';
-import {GetAllMessagesRequestBuilder} from '../../chats/getAllMessages/getAllMessagesRequestBuilder';
 import {ChannelsResponse} from './channelsResponse';
+import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /teams/{team-id}/channels  */

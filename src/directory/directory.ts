@@ -8,7 +8,7 @@ export class Directory extends Entity implements Parsable {
     /** Recently deleted items. Read-only. Nullable.  */
     private _deletedItems?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new Directory and sets the default values.
+     * Instantiates a new directory and sets the default values.
      */
     public constructor() {
         super();

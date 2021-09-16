@@ -1,7 +1,7 @@
 import {WorkbookTableRow} from '../../../../../workbookTableRow';
-import {CountRequestBuilder} from '../../../names/worksheet/tables/columns/count/countRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from '../../../names/worksheet/tables/columns/itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {AddRequestBuilder} from './add/addRequestBuilder';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {RowsResponse} from './rowsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

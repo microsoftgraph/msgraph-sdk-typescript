@@ -1,16 +1,16 @@
-import {RangeRequestBuilder} from '../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookTable} from '../../../../workbookTable';
-import {DataBodyRangeRequestBuilder} from '../../names/worksheet/tables/columns/dataBodyRange/dataBodyRangeRequestBuilder';
-import {HeaderRowRangeRequestBuilder} from '../../names/worksheet/tables/columns/headerRowRange/headerRowRangeRequestBuilder';
-import {TotalRowRangeRequestBuilder} from '../../names/worksheet/tables/columns/totalRowRange/totalRowRangeRequestBuilder';
 import {ClearFiltersRequestBuilder} from '../clearFilters/clearFiltersRequestBuilder';
 import {ColumnsRequestBuilder} from '../columns/columnsRequestBuilder';
 import {WorkbookTableColumnRequestBuilder} from '../columns/item/workbookTableColumnRequestBuilder';
 import {ConvertToRangeRequestBuilder} from '../convertToRange/convertToRangeRequestBuilder';
+import {DataBodyRangeRequestBuilder} from '../dataBodyRange/dataBodyRangeRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from '../headerRowRange/headerRowRangeRequestBuilder';
+import {RangeRequestBuilder} from '../range/rangeRequestBuilder';
 import {ReapplyFiltersRequestBuilder} from '../reapplyFilters/reapplyFiltersRequestBuilder';
 import {WorkbookTableRowRequestBuilder} from '../rows/item/workbookTableRowRequestBuilder';
 import {RowsRequestBuilder} from '../rows/rowsRequestBuilder';
 import {SortRequestBuilder} from '../sort/sortRequestBuilder';
+import {TotalRowRangeRequestBuilder} from '../totalRowRange/totalRowRangeRequestBuilder';
 import {WorksheetRequestBuilder} from '../worksheet/worksheetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,3 @@
-import {Photo} from '../../../../photo';
 import {ProfilePhoto} from '../../../../profilePhoto';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -70,7 +69,7 @@ export class PhotoRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Photo | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ProfilePhoto | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -116,7 +115,7 @@ export class PhotoRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Photo | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ProfilePhoto | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

@@ -1,4 +1,3 @@
-import {BucketTaskBoardFormat} from '../../../../../planner/buckets/tasks/bucketTaskBoardFormat/bucketTaskBoardFormat';
 import {PlannerBucketTaskBoardTaskFormat} from '../../../../../plannerBucketTaskBoardTaskFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -66,7 +65,7 @@ export class BucketTaskBoardFormatRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: BucketTaskBoardFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: PlannerBucketTaskBoardTaskFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -112,7 +111,7 @@ export class BucketTaskBoardFormatRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: BucketTaskBoardFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PlannerBucketTaskBoardTaskFormat | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

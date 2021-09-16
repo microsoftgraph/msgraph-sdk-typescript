@@ -104,7 +104,7 @@ export class DeviceManagement extends Entity implements Parsable {
     /** The windows information protection network learning summaries.  */
     private _windowsInformationProtectionNetworkLearningSummaries?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;
     /**
-     * Instantiates a new DeviceManagement and sets the default values.
+     * Instantiates a new deviceManagement and sets the default values.
      */
     public constructor() {
         super();

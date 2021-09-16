@@ -10,7 +10,7 @@ export class Security extends Entity implements Parsable {
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     private _secureScores?: SecureScore[] | undefined;
     /**
-     * Instantiates a new Security and sets the default values.
+     * Instantiates a new security and sets the default values.
      */
     public constructor() {
         super();

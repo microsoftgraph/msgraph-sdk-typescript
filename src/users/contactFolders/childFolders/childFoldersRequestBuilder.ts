@@ -1,6 +1,6 @@
 import {ContactFolder} from '../../../contactFolder';
-import {DeltaRequestBuilder} from '../../../me/messages/delta/deltaRequestBuilder';
 import {ChildFoldersResponse} from './childFoldersResponse';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/contactFolders/{contactFolder-id}/childFolders  */

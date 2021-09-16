@@ -1,6 +1,6 @@
 import {AdministrativeUnit} from '../../administrativeUnit';
-import {DeltaRequestBuilder} from '../../me/messages/delta/deltaRequestBuilder';
 import {AdministrativeUnitsResponse} from './administrativeUnitsResponse';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /directory/administrativeUnits  */

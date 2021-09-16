@@ -1,6 +1,6 @@
 import {Event} from '../../../../event';
-import {DeltaRequestBuilder} from '../../../../me/messages/delta/deltaRequestBuilder';
 import {CalendarViewResponse} from './calendarViewResponse';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/calendarView/{event-id}/calendar/calendarView  */

@@ -1,5 +1,4 @@
 import {AuditLogRoot} from './auditLogRoot';
-import {AuditLogs} from './auditLogs';
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
 import {DirectoryAuditRequestBuilder} from './directoryAudits/item/directoryAuditRequestBuilder';
 import {ProvisioningObjectSummaryRequestBuilder} from './provisioning/item/provisioningObjectSummaryRequestBuilder';
@@ -72,7 +71,7 @@ export class AuditLogsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: AuditLogs | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: AuditLogRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -115,7 +114,7 @@ export class AuditLogsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AuditLogs | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AuditLogRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

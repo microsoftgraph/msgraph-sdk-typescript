@@ -1,4 +1,4 @@
-import {DeltaRequestBuilder} from '../me/messages/delta/deltaRequestBuilder';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {DirectoryRole} from './directoryRole';
 import {DirectoryRolesResponse} from './directoryRolesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';

@@ -53,7 +53,7 @@ export class DeviceAppManagement extends Entity implements Parsable {
     /** Windows information protection for apps running on devices which are not MDM enrolled.  */
     private _windowsInformationProtectionPolicies?: WindowsInformationProtectionPolicy[] | undefined;
     /**
-     * Instantiates a new DeviceAppManagement and sets the default values.
+     * Instantiates a new deviceAppManagement and sets the default values.
      */
     public constructor() {
         super();

@@ -1,5 +1,4 @@
 import {WorkbookChartAxes} from '../../../../../../workbookChartAxes';
-import {Axes} from './axes';
 import {CategoryAxisRequestBuilder} from './categoryAxis/categoryAxisRequestBuilder';
 import {SeriesAxisRequestBuilder} from './seriesAxis/seriesAxisRequestBuilder';
 import {ValueAxisRequestBuilder} from './valueAxis/valueAxisRequestBuilder';
@@ -78,7 +77,7 @@ export class AxesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Axes | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WorkbookChartAxes | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -124,7 +123,7 @@ export class AxesRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Axes | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WorkbookChartAxes | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

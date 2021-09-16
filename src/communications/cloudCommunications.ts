@@ -11,7 +11,7 @@ export class CloudCommunications extends Entity implements Parsable {
     private _onlineMeetings?: OnlineMeeting[] | undefined;
     private _presences?: Presence[] | undefined;
     /**
-     * Instantiates a new CloudCommunications and sets the default values.
+     * Instantiates a new cloudCommunications and sets the default values.
      */
     public constructor() {
         super();

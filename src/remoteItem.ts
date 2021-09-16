@@ -1,4 +1,4 @@
-import {File} from './agreements/file/file';
+import {File} from './file';
 import {FileSystemInfo} from './fileSystemInfo';
 import {Folder} from './folder';
 import {IdentitySet} from './identitySet';

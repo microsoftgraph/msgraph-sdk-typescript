@@ -15,7 +15,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     private _policyVersion?: string | undefined;
     private _reconfirmationInDays?: number | undefined;
     /**
-     * Instantiates a new AuthenticationMethodsPolicy and sets the default values.
+     * Instantiates a new authenticationMethodsPolicy and sets the default values.
      */
     public constructor() {
         super();

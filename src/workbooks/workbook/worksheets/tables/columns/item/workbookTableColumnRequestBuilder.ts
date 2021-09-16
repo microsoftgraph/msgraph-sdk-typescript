@@ -1,9 +1,9 @@
-import {RangeRequestBuilder} from '../../../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookTableColumn} from '../../../../../../workbookTableColumn';
-import {DataBodyRangeRequestBuilder} from '../../../../names/worksheet/tables/columns/dataBodyRange/dataBodyRangeRequestBuilder';
-import {HeaderRowRangeRequestBuilder} from '../../../../names/worksheet/tables/columns/headerRowRange/headerRowRangeRequestBuilder';
-import {TotalRowRangeRequestBuilder} from '../../../../names/worksheet/tables/columns/totalRowRange/totalRowRangeRequestBuilder';
+import {DataBodyRangeRequestBuilder} from '../dataBodyRange/dataBodyRangeRequestBuilder';
 import {FilterRequestBuilder} from '../filter/filterRequestBuilder';
+import {HeaderRowRangeRequestBuilder} from '../headerRowRange/headerRowRangeRequestBuilder';
+import {RangeRequestBuilder} from '../range/rangeRequestBuilder';
+import {TotalRowRangeRequestBuilder} from '../totalRowRange/totalRowRangeRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/worksheets/{workbookWorksheet-id}/tables/{workbookTable-id}/columns/{workbookTableColumn-id}  */

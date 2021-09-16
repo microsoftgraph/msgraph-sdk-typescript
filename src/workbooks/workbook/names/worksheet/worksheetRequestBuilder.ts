@@ -1,8 +1,5 @@
-import {CellWithRowWithColumnRequestBuilder} from '../../../../me/insights/trending/resource/workbookRange/cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
-import {UsedRangeRequestBuilder} from '../../../../me/insights/trending/resource/workbookRange/usedRange/usedRangeRequestBuilder';
-import {UsedRangeWithValuesOnlyRequestBuilder} from '../../../../me/insights/trending/resource/workbookRange/usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
-import {RangeRequestBuilder} from '../../../../me/insights/trending/resource/workbookRangeView/range/rangeRequestBuilder';
 import {WorkbookWorksheet} from '../../../../workbookWorksheet';
+import {CellWithRowWithColumnRequestBuilder} from './cellWithRowWithColumn/cellWithRowWithColumnRequestBuilder';
 import {ChartsRequestBuilder} from './charts/chartsRequestBuilder';
 import {WorkbookChartRequestBuilder} from './charts/item/workbookChartRequestBuilder';
 import {WorkbookNamedItemRequestBuilder} from './names/item/workbookNamedItemRequestBuilder';
@@ -10,10 +7,12 @@ import {NamesRequestBuilder} from './names/namesRequestBuilder';
 import {WorkbookPivotTableRequestBuilder} from './pivotTables/item/workbookPivotTableRequestBuilder';
 import {PivotTablesRequestBuilder} from './pivotTables/pivotTablesRequestBuilder';
 import {ProtectionRequestBuilder} from './protection/protectionRequestBuilder';
+import {RangeRequestBuilder} from './range/rangeRequestBuilder';
 import {RangeWithAddressRequestBuilder} from './rangeWithAddress/rangeWithAddressRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
-import {Worksheet} from './worksheet';
+import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
+import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/names/{workbookNamedItem-id}/worksheet  */
@@ -115,7 +114,7 @@ export class WorksheetRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Worksheet | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WorkbookWorksheet | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -170,7 +169,7 @@ export class WorksheetRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Worksheet | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WorkbookWorksheet | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

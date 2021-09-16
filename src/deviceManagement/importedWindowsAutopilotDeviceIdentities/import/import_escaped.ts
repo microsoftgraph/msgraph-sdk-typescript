@@ -1,5 +1,6 @@
+import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
-export class Import_escaped {
+export class Import_escaped implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /**

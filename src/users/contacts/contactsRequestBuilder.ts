@@ -1,6 +1,6 @@
 import {Contact} from '../../contact';
-import {DeltaRequestBuilder} from '../../me/messages/delta/deltaRequestBuilder';
 import {ContactsResponse} from './contactsResponse';
+import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/contacts  */

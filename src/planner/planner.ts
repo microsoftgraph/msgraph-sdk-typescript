@@ -12,7 +12,7 @@ export class Planner extends Entity implements Parsable {
     /** Read-only. Nullable. Returns a collection of the specified tasks  */
     private _tasks?: PlannerTask[] | undefined;
     /**
-     * Instantiates a new Planner and sets the default values.
+     * Instantiates a new planner and sets the default values.
      */
     public constructor() {
         super();

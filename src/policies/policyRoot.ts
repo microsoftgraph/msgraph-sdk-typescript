@@ -29,7 +29,7 @@ export class PolicyRoot extends Entity implements Parsable {
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /**
-     * Instantiates a new PolicyRoot and sets the default values.
+     * Instantiates a new policyRoot and sets the default values.
      */
     public constructor() {
         super();

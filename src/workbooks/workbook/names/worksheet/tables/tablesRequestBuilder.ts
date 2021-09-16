@@ -1,7 +1,7 @@
 import {WorkbookTable} from '../../../../../workbookTable';
 import {AddRequestBuilder} from './add/addRequestBuilder';
-import {CountRequestBuilder} from './columns/count/countRequestBuilder';
-import {ItemAtWithIndexRequestBuilder} from './columns/itemAtWithIndex/itemAtWithIndexRequestBuilder';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';
 import {TablesResponse} from './tablesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

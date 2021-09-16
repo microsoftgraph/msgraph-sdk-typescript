@@ -1,5 +1,5 @@
-import {AvailableProviderTypesRequestBuilder} from '../../../identityProviders/availableProviderTypes/availableProviderTypesRequestBuilder';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
 import {UserFlowIdentityProvidersResponse} from './userFlowIdentityProvidersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

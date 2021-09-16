@@ -5,7 +5,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 export class Teamwork extends Entity implements Parsable {
     private _workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
-     * Instantiates a new Teamwork and sets the default values.
+     * Instantiates a new teamwork and sets the default values.
      */
     public constructor() {
         super();

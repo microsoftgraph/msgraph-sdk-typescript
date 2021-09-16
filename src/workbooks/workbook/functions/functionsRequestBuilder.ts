@@ -137,7 +137,6 @@ import {FisherInvRequestBuilder} from './fisherInv/fisherInvRequestBuilder';
 import {FixedRequestBuilder} from './fixed/fixedRequestBuilder';
 import {Floor_MathRequestBuilder} from './floor_Math/floor_MathRequestBuilder';
 import {Floor_PreciseRequestBuilder} from './floor_Precise/floor_PreciseRequestBuilder';
-import {Functions} from './functions';
 import {FvRequestBuilder} from './fv/fvRequestBuilder';
 import {FvscheduleRequestBuilder} from './fvschedule/fvscheduleRequestBuilder';
 import {Gamma_DistRequestBuilder} from './gamma_Dist/gamma_DistRequestBuilder';
@@ -1530,7 +1529,7 @@ export class FunctionsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Functions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WorkbookFunctions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -1576,7 +1575,7 @@ export class FunctionsRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Functions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WorkbookFunctions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

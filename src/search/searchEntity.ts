@@ -3,7 +3,7 @@ import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstrac
 
 export class SearchEntity extends Entity implements Parsable {
     /**
-     * Instantiates a new SearchEntity and sets the default values.
+     * Instantiates a new searchEntity and sets the default values.
      */
     public constructor() {
         super();

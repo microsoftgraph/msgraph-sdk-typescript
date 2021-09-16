@@ -1,10 +1,10 @@
-import {PreviewRequestBuilder} from '../../../../../../../me/onenote/sectionGroups/parentNotebook/sections/pages/preview/previewRequestBuilder';
 import {OnenotePage} from '../../../../../../../onenotePage';
 import {ContentRequestBuilder} from '../content/contentRequestBuilder';
 import {CopyToSectionRequestBuilder} from '../copyToSection/copyToSectionRequestBuilder';
 import {OnenotePatchContentRequestBuilder} from '../onenotePatchContent/onenotePatchContentRequestBuilder';
 import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionRequestBuilder} from '../parentSection/parentSectionRequestBuilder';
+import {PreviewRequestBuilder} from '../preview/previewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/onenote/notebooks/{notebook-id}/sectionGroups/{sectionGroup-id}/sections/{onenoteSection-id}/pages/{onenotePage-id}  */

@@ -52,7 +52,6 @@ import {ManagedAppRegistrationsRequestBuilder} from './managedAppRegistrations/m
 import {ManagedDeviceRequestBuilder} from './managedDevices/item/managedDeviceRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {ManagerRequestBuilder} from './manager/managerRequestBuilder';
-import {Me} from './me';
 import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
 import {MessageRequestBuilder} from './messages/item/messageRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
@@ -395,7 +394,7 @@ export class MeRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Me | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: User | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -533,7 +532,7 @@ export class MeRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Me | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: User | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

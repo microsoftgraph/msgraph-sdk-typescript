@@ -1,5 +1,4 @@
 import {WorkbookChartAxis} from '../../../../../../../workbookChartAxis';
-import {CategoryAxis} from './categoryAxis';
 import {FormatRequestBuilder} from './format/formatRequestBuilder';
 import {MajorGridlinesRequestBuilder} from './majorGridlines/majorGridlinesRequestBuilder';
 import {MinorGridlinesRequestBuilder} from './minorGridlines/minorGridlinesRequestBuilder';
@@ -82,7 +81,7 @@ export class CategoryAxisRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: CategoryAxis | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WorkbookChartAxis | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
@@ -128,7 +127,7 @@ export class CategoryAxisRequestBuilder {
      * @param o Request options for HTTP middlewares
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: CategoryAxis | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WorkbookChartAxis | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

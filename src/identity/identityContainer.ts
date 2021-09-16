@@ -13,7 +13,7 @@ export class IdentityContainer extends Entity implements Parsable {
     private _identityProviders?: IdentityProviderBase[] | undefined;
     private _userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
     /**
-     * Instantiates a new IdentityContainer and sets the default values.
+     * Instantiates a new identityContainer and sets the default values.
      */
     public constructor() {
         super();
