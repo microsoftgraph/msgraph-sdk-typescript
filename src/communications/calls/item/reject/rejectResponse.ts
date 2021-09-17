@@ -1,4 +1,4 @@
-import {RejectReason} from './rejectReason';
+import {RejectReason} from '../../../../models/microsoft/graph/rejectReason';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RejectResponse implements Parsable {

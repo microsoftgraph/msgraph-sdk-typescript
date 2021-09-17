@@ -1,4 +1,4 @@
-import {ExternalItem} from '../../../externalItem';
+import {ExternalItem} from '../../../models/microsoft/graph/externalConnectors/externalItem';
 import {ItemsResponse} from './itemsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

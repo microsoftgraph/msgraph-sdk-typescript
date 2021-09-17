@@ -1,4 +1,4 @@
-import {SignIn} from '../signIn';
+import {SignIn} from '../../models/microsoft/graph/signIn';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SignInsResponse implements Parsable {

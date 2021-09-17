@@ -1,8 +1,8 @@
-import {PlannerTask} from '../../../../plannerTask';
-import {AssignedToTaskBoardFormatRequestBuilder} from '../assignedToTaskBoardFormat/assignedToTaskBoardFormatRequestBuilder';
-import {BucketTaskBoardFormatRequestBuilder} from '../bucketTaskBoardFormat/bucketTaskBoardFormatRequestBuilder';
-import {DetailsRequestBuilder} from '../details/detailsRequestBuilder';
-import {ProgressTaskBoardFormatRequestBuilder} from '../progressTaskBoardFormat/progressTaskBoardFormatRequestBuilder';
+import {PlannerTask} from '../../../models/microsoft/graph/plannerTask';
+import {AssignedToTaskBoardFormatRequestBuilder} from './assignedToTaskBoardFormat/assignedToTaskBoardFormatRequestBuilder';
+import {BucketTaskBoardFormatRequestBuilder} from './bucketTaskBoardFormat/bucketTaskBoardFormatRequestBuilder';
+import {DetailsRequestBuilder} from './details/detailsRequestBuilder';
+import {ProgressTaskBoardFormatRequestBuilder} from './progressTaskBoardFormat/progressTaskBoardFormatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/tasks/{plannerTask-id}  */

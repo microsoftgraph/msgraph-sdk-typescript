@@ -1,4 +1,4 @@
-import {TeamsTab} from '../../../../teamsTab';
+import {TeamsTab} from '../../../../models/microsoft/graph/teamsTab';
 import {TabsResponse} from './tabsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

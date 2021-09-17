@@ -1,5 +1,5 @@
-import {TeamVisibilityType} from '../../../teamVisibilityType';
-import {ClonableTeamParts} from './clonableTeamParts';
+import {ClonableTeamParts} from '../../../models/microsoft/graph/clonableTeamParts';
+import {TeamVisibilityType} from '../../../models/microsoft/graph/teamVisibilityType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CloneResponse implements Parsable {

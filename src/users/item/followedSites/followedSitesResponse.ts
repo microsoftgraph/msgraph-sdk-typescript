@@ -1,4 +1,4 @@
-import {Site} from '../../../site';
+import {Site} from '../../../models/microsoft/graph/site';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class FollowedSitesResponse implements Parsable {

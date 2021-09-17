@@ -1,4 +1,4 @@
-import {ManagedMobileApp} from '../../../../../../../deviceAppManagement/managedMobileApp';
+import {ManagedMobileApp} from '../../../../../../../models/microsoft/graph/managedMobileApp';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TargetAppsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {LocalizedNotificationMessage} from '../../../localizedNotificationMessage';
+import {LocalizedNotificationMessage} from '../../../../models/microsoft/graph/localizedNotificationMessage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LocalizedNotificationMessagesResponse implements Parsable {

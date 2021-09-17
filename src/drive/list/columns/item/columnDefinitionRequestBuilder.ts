@@ -1,4 +1,4 @@
-import {ColumnDefinition} from '../../../../../columnDefinition';
+import {ColumnDefinition} from '../../../../models/microsoft/graph/columnDefinition';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive/list/columns/{columnDefinition-id}  */

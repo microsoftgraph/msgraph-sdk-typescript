@@ -1,7 +1,7 @@
-import {KeyValuePair} from '../../../deviceAppManagement/keyValuePair';
-import {ItemBody} from '../../../itemBody';
-import {TeamworkActivityTopic} from '../../../teamworkActivityTopic';
-import {TeamworkNotificationRecipient} from '../../../teamworkNotificationRecipient';
+import {ItemBody} from '../../../models/microsoft/graph/itemBody';
+import {KeyValuePair} from '../../../models/microsoft/graph/keyValuePair';
+import {TeamworkActivityTopic} from '../../../models/microsoft/graph/teamworkActivityTopic';
+import {TeamworkNotificationRecipient} from '../../../models/microsoft/graph/teamworkNotificationRecipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SendActivityNotificationResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {MobileAppAssignment} from '../../../mobileAppAssignment';
+import {MobileAppAssignment} from '../../../../models/microsoft/graph/mobileAppAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

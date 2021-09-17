@@ -1,4 +1,4 @@
-import {WindowsHelloForBusinessAuthenticationMethod} from '../../../windowsHelloForBusinessAuthenticationMethod';
+import {WindowsHelloForBusinessAuthenticationMethod} from '../../../models/microsoft/graph/windowsHelloForBusinessAuthenticationMethod';
 import {WindowsHelloForBusinessMethodsResponse} from './windowsHelloForBusinessMethodsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

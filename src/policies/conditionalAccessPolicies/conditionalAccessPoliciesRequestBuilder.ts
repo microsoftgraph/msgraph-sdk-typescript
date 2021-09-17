@@ -1,4 +1,4 @@
-import {ConditionalAccessPolicy} from '../../conditionalAccessPolicy';
+import {ConditionalAccessPolicy} from '../../models/microsoft/graph/conditionalAccessPolicy';
 import {ConditionalAccessPoliciesResponse} from './conditionalAccessPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {UsedInsight} from '../../../../usedInsight';
+import {UsedInsight} from '../../../../models/microsoft/graph/usedInsight';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UsedResponse implements Parsable {

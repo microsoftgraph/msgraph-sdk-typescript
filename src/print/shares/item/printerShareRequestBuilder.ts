@@ -1,7 +1,7 @@
-import {PrinterShare} from '../../../printerShare';
-import {AllowedGroupsRequestBuilder} from '../allowedGroups/allowedGroupsRequestBuilder';
-import {AllowedUsersRequestBuilder} from '../allowedUsers/allowedUsersRequestBuilder';
-import {PrinterRequestBuilder} from '../printer/printerRequestBuilder';
+import {PrinterShare} from '../../../models/microsoft/graph/printerShare';
+import {AllowedGroupsRequestBuilder} from './allowedGroups/allowedGroupsRequestBuilder';
+import {AllowedUsersRequestBuilder} from './allowedUsers/allowedUsersRequestBuilder';
+import {PrinterRequestBuilder} from './printer/printerRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/shares/{printerShare-id}  */

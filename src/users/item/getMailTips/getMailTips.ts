@@ -1,8 +1,8 @@
-import {EmailAddress} from '../../../emailAddress';
-import {AutomaticRepliesMailTips} from '../../../me/getMailTips/automaticRepliesMailTips';
-import {MailTipsError} from '../../../me/getMailTips/mailTipsError';
-import {RecipientScopeType} from '../../../me/getMailTips/recipientScopeType';
-import {Recipient} from '../../../recipient';
+import {AutomaticRepliesMailTips} from '../../../models/microsoft/graph/automaticRepliesMailTips';
+import {EmailAddress} from '../../../models/microsoft/graph/emailAddress';
+import {MailTipsError} from '../../../models/microsoft/graph/mailTipsError';
+import {Recipient} from '../../../models/microsoft/graph/recipient';
+import {RecipientScopeType} from '../../../models/microsoft/graph/recipientScopeType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GetMailTips implements Parsable {

@@ -1,4 +1,4 @@
-import {VppToken} from '../../../vppToken';
+import {VppToken} from '../../../../models/microsoft/graph/vppToken';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/vppTokens/{vppToken-id}/microsoft.graph.syncLicenses  */

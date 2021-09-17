@@ -1,18 +1,18 @@
-import {DeviceCompliancePolicy} from '../../../deviceCompliancePolicy';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {DeviceCompliancePolicyAssignmentRequestBuilder} from '../assignments/item/item/deviceCompliancePolicyAssignmentRequestBuilder';
-import {DeviceSettingStateSummariesRequestBuilder} from '../deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSummaries/item/item/settingStateDeviceSummaryRequestBuilder';
-import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
-import {DeviceComplianceDeviceStatusRequestBuilder} from '../deviceStatuses/item/item/deviceComplianceDeviceStatusRequestBuilder';
-import {DeviceStatusOverviewRequestBuilder} from '../deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {ScheduleActionsForRulesRequestBuilder} from '../scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
-import {DeviceComplianceScheduledActionForRuleRequestBuilder} from '../scheduledActionsForRule/item/item/deviceComplianceScheduledActionForRuleRequestBuilder';
-import {ScheduledActionsForRuleRequestBuilder} from '../scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
-import {DeviceComplianceUserStatusRequestBuilder} from '../userStatuses/item/item/deviceComplianceUserStatusRequestBuilder';
-import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
-import {UserStatusOverviewRequestBuilder} from '../userStatusOverview/userStatusOverviewRequestBuilder';
+import {DeviceCompliancePolicy} from '../../../models/microsoft/graph/deviceCompliancePolicy';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {DeviceCompliancePolicyAssignmentRequestBuilder} from './assignments/item/deviceCompliancePolicyAssignmentRequestBuilder';
+import {DeviceSettingStateSummariesRequestBuilder} from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
+import {SettingStateDeviceSummaryRequestBuilder} from './deviceSettingStateSummaries/item/settingStateDeviceSummaryRequestBuilder';
+import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
+import {DeviceComplianceDeviceStatusRequestBuilder} from './deviceStatuses/item/deviceComplianceDeviceStatusRequestBuilder';
+import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
+import {ScheduleActionsForRulesRequestBuilder} from './scheduleActionsForRules/scheduleActionsForRulesRequestBuilder';
+import {DeviceComplianceScheduledActionForRuleRequestBuilder} from './scheduledActionsForRule/item/deviceComplianceScheduledActionForRuleRequestBuilder';
+import {ScheduledActionsForRuleRequestBuilder} from './scheduledActionsForRule/scheduledActionsForRuleRequestBuilder';
+import {DeviceComplianceUserStatusRequestBuilder} from './userStatuses/item/deviceComplianceUserStatusRequestBuilder';
+import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
+import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy-id}  */

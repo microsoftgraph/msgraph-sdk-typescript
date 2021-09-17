@@ -1,4 +1,4 @@
-import {RestrictedSignIn} from '../restrictedSignIn';
+import {RestrictedSignIn} from '../../models/microsoft/graph/restrictedSignIn';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RestrictedSignInsResponse implements Parsable {

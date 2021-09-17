@@ -1,4 +1,4 @@
-import {DeviceCategory} from '../../deviceCategory';
+import {DeviceCategory} from '../../models/microsoft/graph/deviceCategory';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceCategoriesResponse implements Parsable {

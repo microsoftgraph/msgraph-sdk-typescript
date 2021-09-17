@@ -1,4 +1,4 @@
-import {DeviceManagementTroubleshootingEvent} from '../../deviceManagementTroubleshootingEvent';
+import {DeviceManagementTroubleshootingEvent} from '../../models/microsoft/graph/deviceManagementTroubleshootingEvent';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementTroubleshootingEventsResponse implements Parsable {

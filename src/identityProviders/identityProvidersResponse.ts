@@ -1,4 +1,4 @@
-import {IdentityProvider} from '../identity/identityProvider';
+import {IdentityProvider} from '../models/microsoft/graph/identityProvider';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IdentityProvidersResponse implements Parsable {

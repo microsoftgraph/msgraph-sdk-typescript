@@ -1,4 +1,4 @@
-import {Person} from '../../person';
+import {Person} from '../../models/microsoft/graph/person';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PeopleResponse implements Parsable {

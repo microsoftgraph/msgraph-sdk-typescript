@@ -1,4 +1,4 @@
-import {WorkforceIntegration} from '../workforceIntegration';
+import {WorkforceIntegration} from '../../models/microsoft/graph/workforceIntegration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorkforceIntegrationsResponse implements Parsable {

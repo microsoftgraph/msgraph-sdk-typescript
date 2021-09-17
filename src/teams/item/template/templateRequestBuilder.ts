@@ -1,4 +1,4 @@
-import {TeamsTemplate} from '../../../teamsTemplate';
+import {TeamsTemplate} from '../../../models/microsoft/graph/teamsTemplate';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

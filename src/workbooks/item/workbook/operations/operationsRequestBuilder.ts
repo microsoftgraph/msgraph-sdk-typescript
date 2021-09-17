@@ -1,4 +1,4 @@
-import {WorkbookOperation} from '../../../../workbookOperation';
+import {WorkbookOperation} from '../../../../models/microsoft/graph/workbookOperation';
 import {OperationsResponse} from './operationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,19 +1,19 @@
-import {Workbook} from '../../../workbook';
+import {Workbook} from '../../../models/microsoft/graph/workbook';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';
-import {WorkbookCommentRequestBuilder} from './comments/item/item/workbookCommentRequestBuilder';
+import {WorkbookCommentRequestBuilder} from './comments/item/workbookCommentRequestBuilder';
 import {CreateSessionRequestBuilder} from './createSession/createSessionRequestBuilder';
 import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';
-import {WorkbookNamedItemRequestBuilder} from './names/item/item/workbookNamedItemRequestBuilder';
+import {WorkbookNamedItemRequestBuilder} from './names/item/workbookNamedItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
-import {WorkbookOperationRequestBuilder} from './operations/item/item/workbookOperationRequestBuilder';
+import {WorkbookOperationRequestBuilder} from './operations/item/workbookOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
 import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
-import {WorkbookTableRequestBuilder} from './tables/item/item/workbookTableRequestBuilder';
+import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
-import {WorkbookWorksheetRequestBuilder} from './worksheets/item/item/workbookWorksheetRequestBuilder';
+import {WorkbookWorksheetRequestBuilder} from './worksheets/item/workbookWorksheetRequestBuilder';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

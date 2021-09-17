@@ -1,4 +1,4 @@
-import {PlayPromptOperation} from './playPromptOperation';
+import {PlayPromptOperation} from '../../../../models/microsoft/graph/playPromptOperation';
 import {PlayPromptResponse} from './playPromptResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

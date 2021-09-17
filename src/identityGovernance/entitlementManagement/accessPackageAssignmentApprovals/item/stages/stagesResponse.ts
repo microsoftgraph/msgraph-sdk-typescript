@@ -1,4 +1,4 @@
-import {ApprovalStage} from '../../../../approvalStage';
+import {ApprovalStage} from '../../../../../models/microsoft/graph/approvalStage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class StagesResponse implements Parsable {

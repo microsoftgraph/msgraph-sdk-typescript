@@ -1,4 +1,4 @@
-import {ScreenSharingRole} from './screenSharingRole';
+import {ScreenSharingRole} from '../../../../models/microsoft/graph/screenSharingRole';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ChangeScreenSharingRoleResponse implements Parsable {

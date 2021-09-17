@@ -1,4 +1,4 @@
-import {SchedulingGroup} from '../../../../schedulingGroup';
+import {SchedulingGroup} from '../../../../models/microsoft/graph/schedulingGroup';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SchedulingGroupsResponse implements Parsable {

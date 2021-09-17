@@ -1,4 +1,4 @@
-import {WorkbookFunctionResult} from '../workbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../models/microsoft/graph/workbookFunctionResult';
 import {Ceiling_MathResponse} from './ceiling_MathResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

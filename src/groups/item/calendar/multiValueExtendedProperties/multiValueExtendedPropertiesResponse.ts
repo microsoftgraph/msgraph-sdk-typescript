@@ -1,4 +1,4 @@
-import {MultiValueLegacyExtendedProperty} from '../../../../multiValueLegacyExtendedProperty';
+import {MultiValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MultiValueExtendedPropertiesResponse implements Parsable {

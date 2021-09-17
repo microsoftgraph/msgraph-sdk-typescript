@@ -1,8 +1,8 @@
-import {TermsOfUseContainer} from '../termsOfUseContainer';
+import {TermsOfUseContainer} from '../../models/microsoft/graph/termsOfUseContainer';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
-import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/item/agreementAcceptanceRequestBuilder';
+import {AgreementAcceptanceRequestBuilder} from './agreementAcceptances/item/agreementAcceptanceRequestBuilder';
 import {AgreementsRequestBuilder} from './agreements/agreementsRequestBuilder';
-import {AgreementRequestBuilder} from './agreements/item/item/agreementRequestBuilder';
+import {AgreementRequestBuilder} from './agreements/item/agreementRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/termsOfUse  */

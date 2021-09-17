@@ -1,4 +1,4 @@
-import {ConditionalAccessPolicy} from '../../../../conditionalAccessPolicy';
+import {ConditionalAccessPolicy} from '../../../models/microsoft/graph/conditionalAccessPolicy';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/conditionalAccessPolicies/{conditionalAccessPolicy-id}  */

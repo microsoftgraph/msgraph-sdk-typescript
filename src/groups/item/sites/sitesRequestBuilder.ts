@@ -1,4 +1,4 @@
-import {Site} from '../../../site';
+import {Site} from '../../../models/microsoft/graph/site';
 import {SitesResponse} from './sitesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

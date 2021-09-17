@@ -1,9 +1,9 @@
-import {ExternalConnection} from '../../../externalConnection';
-import {ExternalItemRequestBuilder} from '../items/item/item/externalItemRequestBuilder';
-import {ItemsRequestBuilder} from '../items/itemsRequestBuilder';
-import {ConnectionOperationRequestBuilder} from '../operations/item/item/connectionOperationRequestBuilder';
-import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
-import {SchemaRequestBuilder} from '../schema/schemaRequestBuilder';
+import {ExternalConnection} from '../../models/microsoft/graph/externalConnectors/externalConnection';
+import {ExternalItemRequestBuilder} from './items/item/externalItemRequestBuilder';
+import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
+import {ConnectionOperationRequestBuilder} from './operations/item/connectionOperationRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
+import {SchemaRequestBuilder} from './schema/schemaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /connections/{externalConnection-id}  */

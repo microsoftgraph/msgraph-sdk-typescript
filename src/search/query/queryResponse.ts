@@ -1,4 +1,4 @@
-import {SearchRequest} from './searchRequest';
+import {SearchRequest} from '../../models/microsoft/graph/searchRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class QueryResponse implements Parsable {

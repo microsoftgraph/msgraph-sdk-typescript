@@ -1,5 +1,5 @@
-import {WindowsHelloForBusinessAuthenticationMethod} from '../../../../../windowsHelloForBusinessAuthenticationMethod';
-import {DeviceRequestBuilder} from '../device/deviceRequestBuilder';
+import {WindowsHelloForBusinessAuthenticationMethod} from '../../../../models/microsoft/graph/windowsHelloForBusinessAuthenticationMethod';
+import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/authentication/windowsHelloForBusinessMethods/{windowsHelloForBusinessAuthenticationMethod-id}  */

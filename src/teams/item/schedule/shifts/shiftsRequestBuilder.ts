@@ -1,4 +1,4 @@
-import {Shift} from '../../../../shift';
+import {Shift} from '../../../../models/microsoft/graph/shift';
 import {ShiftsResponse} from './shiftsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

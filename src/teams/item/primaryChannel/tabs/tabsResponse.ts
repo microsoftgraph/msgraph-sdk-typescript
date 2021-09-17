@@ -1,4 +1,4 @@
-import {TeamsTab} from '../../../../teamsTab';
+import {TeamsTab} from '../../../../models/microsoft/graph/teamsTab';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TabsResponse implements Parsable {

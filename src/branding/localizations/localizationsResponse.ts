@@ -1,4 +1,4 @@
-import {OrganizationalBrandingLocalization} from '../../organizationalBrandingLocalization';
+import {OrganizationalBrandingLocalization} from '../../models/microsoft/graph/organizationalBrandingLocalization';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LocalizationsResponse implements Parsable {

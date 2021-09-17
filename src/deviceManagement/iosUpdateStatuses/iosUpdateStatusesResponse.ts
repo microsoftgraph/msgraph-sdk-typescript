@@ -1,4 +1,4 @@
-import {IosUpdateDeviceStatus} from '../iosUpdateDeviceStatus';
+import {IosUpdateDeviceStatus} from '../../models/microsoft/graph/iosUpdateDeviceStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IosUpdateStatusesResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {ManagedDeviceMobileAppConfigurationUserSummary} from '../../../managedDeviceMobileAppConfigurationUserSummary';
+import {ManagedDeviceMobileAppConfigurationUserSummary} from '../../../../models/microsoft/graph/managedDeviceMobileAppConfigurationUserSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration-id}/userStatusSummary  */

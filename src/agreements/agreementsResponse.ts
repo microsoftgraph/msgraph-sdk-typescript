@@ -1,4 +1,4 @@
-import {Agreement} from '../agreement';
+import {Agreement} from '../models/microsoft/graph/agreement';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AgreementsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {LicenseDetails} from '../../licenseDetails';
+import {LicenseDetails} from '../../models/microsoft/graph/licenseDetails';
 import {LicenseDetailsResponse} from './licenseDetailsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {DirectoryAudit} from '../../../directoryAudit';
+import {DirectoryAudit} from '../../../models/microsoft/graph/directoryAudit';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /auditLogs/directoryAudits/{directoryAudit-id}  */

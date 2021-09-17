@@ -1,5 +1,5 @@
-import {Message} from '../../../../message';
-import {Recipient} from '../../../../recipient';
+import {Message} from '../../../../models/microsoft/graph/message';
+import {Recipient} from '../../../../models/microsoft/graph/recipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateForwardResponse implements Parsable {

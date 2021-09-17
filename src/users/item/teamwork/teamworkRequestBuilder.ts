@@ -1,6 +1,6 @@
-import {UserTeamwork} from '../../../userTeamwork';
+import {UserTeamwork} from '../../../models/microsoft/graph/userTeamwork';
 import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
-import {UserScopeTeamsAppInstallationRequestBuilder} from './installedApps/item/item/userScopeTeamsAppInstallationRequestBuilder';
+import {UserScopeTeamsAppInstallationRequestBuilder} from './installedApps/item/userScopeTeamsAppInstallationRequestBuilder';
 import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {EducationUser} from '../educationUser';
+import {EducationUser} from '../../models/microsoft/graph/educationUser';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {UsersResponse} from './usersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

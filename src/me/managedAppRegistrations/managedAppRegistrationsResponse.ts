@@ -1,4 +1,4 @@
-import {ManagedAppRegistration} from '../../managedAppRegistration';
+import {ManagedAppRegistration} from '../../models/microsoft/graph/managedAppRegistration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppRegistrationsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {DeviceEnrollmentConfiguration} from '../deviceEnrollmentConfiguration';
+import {DeviceEnrollmentConfiguration} from '../../models/microsoft/graph/deviceEnrollmentConfiguration';
 import {DeviceEnrollmentConfigurationsResponse} from './deviceEnrollmentConfigurationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {WorkbookRange} from '../../../../../../../workbooks/item/workbook/workbookRange';
+import {WorkbookRange} from '../../../../../../../models/microsoft/graph/workbookRange';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.usedRange(valuesOnly={valuesOnly})  */

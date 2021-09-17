@@ -1,4 +1,4 @@
-import {WorkbookFunctionResult} from '../workbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../models/microsoft/graph/workbookFunctionResult';
 import {T_Inv_2TResponse} from './t_Inv_2TResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {WorkbookFunctionResult} from '../workbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../models/microsoft/graph/workbookFunctionResult';
 import {HyperlinkResponse} from './hyperlinkResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

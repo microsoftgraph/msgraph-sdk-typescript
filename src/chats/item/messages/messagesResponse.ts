@@ -1,4 +1,4 @@
-import {ChatMessage} from '../../../chatMessage';
+import {ChatMessage} from '../../../models/microsoft/graph/chatMessage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MessagesResponse implements Parsable {

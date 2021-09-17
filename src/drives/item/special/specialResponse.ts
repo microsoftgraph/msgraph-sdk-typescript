@@ -1,4 +1,4 @@
-import {DriveItem} from '../../../driveItem';
+import {DriveItem} from '../../../models/microsoft/graph/driveItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SpecialResponse implements Parsable {

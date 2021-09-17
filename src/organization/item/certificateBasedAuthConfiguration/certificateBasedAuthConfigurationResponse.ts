@@ -1,4 +1,4 @@
-import {CertificateBasedAuthConfiguration} from '../../../certificateBasedAuthConfiguration';
+import {CertificateBasedAuthConfiguration} from '../../../models/microsoft/graph/certificateBasedAuthConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CertificateBasedAuthConfigurationResponse implements Parsable {

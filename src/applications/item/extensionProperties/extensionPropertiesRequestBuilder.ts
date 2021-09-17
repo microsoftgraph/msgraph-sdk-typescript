@@ -1,4 +1,4 @@
-import {ExtensionProperty} from '../../extensionProperty';
+import {ExtensionProperty} from '../../../models/microsoft/graph/extensionProperty';
 import {ExtensionPropertiesResponse} from './extensionPropertiesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

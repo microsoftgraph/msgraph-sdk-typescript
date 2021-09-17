@@ -1,4 +1,4 @@
-import {EducationCategory} from '../../../educationCategory';
+import {EducationCategory} from '../../../../models/microsoft/graph/educationCategory';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignmentCategoriesResponse implements Parsable {

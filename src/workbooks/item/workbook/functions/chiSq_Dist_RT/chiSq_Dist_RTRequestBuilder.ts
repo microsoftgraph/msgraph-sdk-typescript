@@ -1,4 +1,4 @@
-import {WorkbookFunctionResult} from '../workbookFunctionResult';
+import {WorkbookFunctionResult} from '../../../../../models/microsoft/graph/workbookFunctionResult';
 import {ChiSq_Dist_RTResponse} from './chiSq_Dist_RTResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

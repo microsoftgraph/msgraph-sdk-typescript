@@ -1,4 +1,4 @@
-import {Message} from '../../../../message';
+import {Message} from '../../../../models/microsoft/graph/message';
 import {CopyResponse} from './copyResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

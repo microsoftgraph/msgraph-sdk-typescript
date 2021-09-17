@@ -1,6 +1,6 @@
-import {OrganizationalBrandingLocalizationRequestBuilder} from './localizations/item/item/organizationalBrandingLocalizationRequestBuilder';
+import {OrganizationalBranding} from '../models/microsoft/graph/organizationalBranding';
+import {OrganizationalBrandingLocalizationRequestBuilder} from './localizations/item/organizationalBrandingLocalizationRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
-import {OrganizationalBranding} from './organizationalBranding';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /branding  */

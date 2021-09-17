@@ -1,7 +1,7 @@
-import {AndroidManagedAppProtection} from '../../../androidManagedAppProtection';
-import {AppsRequestBuilder} from '../apps/appsRequestBuilder';
-import {ManagedMobileAppRequestBuilder} from '../apps/item/item/managedMobileAppRequestBuilder';
-import {DeploymentSummaryRequestBuilder} from '../deploymentSummary/deploymentSummaryRequestBuilder';
+import {AndroidManagedAppProtection} from '../../../models/microsoft/graph/androidManagedAppProtection';
+import {AppsRequestBuilder} from './apps/appsRequestBuilder';
+import {ManagedMobileAppRequestBuilder} from './apps/item/managedMobileAppRequestBuilder';
+import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/androidManagedAppProtections/{androidManagedAppProtection-id}  */

@@ -1,16 +1,16 @@
-import {MailFolder} from '../../../../mailFolder';
-import {ChildFoldersRequestBuilder} from '../childFolders/childFoldersRequestBuilder';
-import {MailFolderRequestBuilder} from '../childFolders/item/item/mailFolderRequestBuilder';
-import {CopyRequestBuilder} from '../copy/copyRequestBuilder';
-import {MessageRuleRequestBuilder} from '../messageRules/item/item/messageRuleRequestBuilder';
-import {MessageRulesRequestBuilder} from '../messageRules/messageRulesRequestBuilder';
-import {MessageRequestBuilder} from '../messages/item/item/messageRequestBuilder';
-import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
-import {MoveRequestBuilder} from '../move/moveRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
-import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
-import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
+import {MailFolder} from '../../../models/microsoft/graph/mailFolder';
+import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
+import {MailFolderRequestBuilder} from './childFolders/item/mailFolderRequestBuilder';
+import {CopyRequestBuilder} from './copy/copyRequestBuilder';
+import {MessageRuleRequestBuilder} from './messageRules/item/messageRuleRequestBuilder';
+import {MessageRulesRequestBuilder} from './messageRules/messageRulesRequestBuilder';
+import {MessageRequestBuilder} from './messages/item/messageRequestBuilder';
+import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
+import {MoveRequestBuilder} from './move/moveRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/mailFolders/{mailFolder-id}  */

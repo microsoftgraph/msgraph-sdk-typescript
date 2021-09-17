@@ -1,4 +1,4 @@
-import {WindowsAutopilotDeviceIdentity} from '../windowsAutopilotDeviceIdentity';
+import {WindowsAutopilotDeviceIdentity} from '../../models/microsoft/graph/windowsAutopilotDeviceIdentity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsAutopilotDeviceIdentitiesResponse implements Parsable {

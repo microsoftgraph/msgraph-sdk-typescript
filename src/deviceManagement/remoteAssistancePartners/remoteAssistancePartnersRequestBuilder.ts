@@ -1,4 +1,4 @@
-import {RemoteAssistancePartner} from '../remoteAssistancePartner';
+import {RemoteAssistancePartner} from '../../models/microsoft/graph/remoteAssistancePartner';
 import {RemoteAssistancePartnersResponse} from './remoteAssistancePartnersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

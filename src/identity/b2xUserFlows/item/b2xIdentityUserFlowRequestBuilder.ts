@@ -1,10 +1,10 @@
-import {B2xIdentityUserFlow} from '../../../b2xIdentityUserFlow';
-import {IdentityProvidersRequestBuilder} from '../identityProviders/identityProvidersRequestBuilder';
-import {UserFlowLanguageConfigurationRequestBuilder} from '../languages/item/item/userFlowLanguageConfigurationRequestBuilder';
-import {LanguagesRequestBuilder} from '../languages/languagesRequestBuilder';
-import {IdentityUserFlowAttributeAssignmentRequestBuilder} from '../userAttributeAssignments/item/item/identityUserFlowAttributeAssignmentRequestBuilder';
-import {UserAttributeAssignmentsRequestBuilder} from '../userAttributeAssignments/userAttributeAssignmentsRequestBuilder';
-import {UserFlowIdentityProvidersRequestBuilder} from '../userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
+import {B2xIdentityUserFlow} from '../../../models/microsoft/graph/b2xIdentityUserFlow';
+import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
+import {UserFlowLanguageConfigurationRequestBuilder} from './languages/item/userFlowLanguageConfigurationRequestBuilder';
+import {LanguagesRequestBuilder} from './languages/languagesRequestBuilder';
+import {IdentityUserFlowAttributeAssignmentRequestBuilder} from './userAttributeAssignments/item/identityUserFlowAttributeAssignmentRequestBuilder';
+import {UserAttributeAssignmentsRequestBuilder} from './userAttributeAssignments/userAttributeAssignmentsRequestBuilder';
+import {UserFlowIdentityProvidersRequestBuilder} from './userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}  */

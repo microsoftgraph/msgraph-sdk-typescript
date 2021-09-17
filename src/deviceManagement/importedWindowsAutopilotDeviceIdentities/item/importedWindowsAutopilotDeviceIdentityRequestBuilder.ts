@@ -1,4 +1,4 @@
-import {ImportedWindowsAutopilotDeviceIdentity} from '../../../importedWindowsAutopilotDeviceIdentity';
+import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/microsoft/graph/importedWindowsAutopilotDeviceIdentity';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/importedWindowsAutopilotDeviceIdentities/{importedWindowsAutopilotDeviceIdentity-id}  */

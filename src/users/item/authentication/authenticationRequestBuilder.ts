@@ -1,11 +1,11 @@
-import {Authentication} from '../../../authentication';
+import {Authentication} from '../../../models/microsoft/graph/authentication';
 import {Fido2MethodsRequestBuilder} from './fido2Methods/fido2MethodsRequestBuilder';
-import {Fido2AuthenticationMethodRequestBuilder} from './fido2Methods/item/item/fido2AuthenticationMethodRequestBuilder';
-import {AuthenticationMethodRequestBuilder} from './methods/item/item/authenticationMethodRequestBuilder';
+import {Fido2AuthenticationMethodRequestBuilder} from './fido2Methods/item/fido2AuthenticationMethodRequestBuilder';
+import {AuthenticationMethodRequestBuilder} from './methods/item/authenticationMethodRequestBuilder';
 import {MethodsRequestBuilder} from './methods/methodsRequestBuilder';
-import {MicrosoftAuthenticatorAuthenticationMethodRequestBuilder} from './microsoftAuthenticatorMethods/item/item/microsoftAuthenticatorAuthenticationMethodRequestBuilder';
+import {MicrosoftAuthenticatorAuthenticationMethodRequestBuilder} from './microsoftAuthenticatorMethods/item/microsoftAuthenticatorAuthenticationMethodRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
-import {WindowsHelloForBusinessAuthenticationMethodRequestBuilder} from './windowsHelloForBusinessMethods/item/item/windowsHelloForBusinessAuthenticationMethodRequestBuilder';
+import {WindowsHelloForBusinessAuthenticationMethodRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {WindowsInformationProtectionNetworkLearningSummary} from '../../../windowsInformationProtectionNetworkLearningSummary';
+import {WindowsInformationProtectionNetworkLearningSummary} from '../../../models/microsoft/graph/windowsInformationProtectionNetworkLearningSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/windowsInformationProtectionNetworkLearningSummaries/{windowsInformationProtectionNetworkLearningSummary-id}  */

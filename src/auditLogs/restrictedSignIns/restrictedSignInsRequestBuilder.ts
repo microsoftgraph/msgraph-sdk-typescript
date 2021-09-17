@@ -1,4 +1,4 @@
-import {RestrictedSignIn} from '../restrictedSignIn';
+import {RestrictedSignIn} from '../../models/microsoft/graph/restrictedSignIn';
 import {RestrictedSignInsResponse} from './restrictedSignInsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

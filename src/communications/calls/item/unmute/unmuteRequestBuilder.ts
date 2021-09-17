@@ -1,4 +1,4 @@
-import {UnmuteParticipantOperation} from './unmuteParticipantOperation';
+import {UnmuteParticipantOperation} from '../../../../models/microsoft/graph/unmuteParticipantOperation';
 import {UnmuteResponse} from './unmuteResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

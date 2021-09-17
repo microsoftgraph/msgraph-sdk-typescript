@@ -1,4 +1,4 @@
-import {OnenoteSection} from '../../../../../../onenoteSection';
+import {OnenoteSection} from '../../../../../../models/microsoft/graph/onenoteSection';
 import {SectionsResponse} from './sectionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

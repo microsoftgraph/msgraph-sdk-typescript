@@ -1,4 +1,4 @@
-import {WorkbookSessionInfo} from '../workbookSessionInfo';
+import {WorkbookSessionInfo} from '../../../../models/microsoft/graph/workbookSessionInfo';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/microsoft.graph.sessionInfoResource(key='{key}')  */

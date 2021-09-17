@@ -1,4 +1,4 @@
-import {OpenShiftChangeRequest} from '../../../../openShiftChangeRequest';
+import {OpenShiftChangeRequest} from '../../../../models/microsoft/graph/openShiftChangeRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequestsResponse implements Parsable {

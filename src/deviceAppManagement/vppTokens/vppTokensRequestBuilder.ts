@@ -1,4 +1,4 @@
-import {VppToken} from '../vppToken';
+import {VppToken} from '../../models/microsoft/graph/vppToken';
 import {VppTokensResponse} from './vppTokensResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {TermsAndConditionsAssignment} from '../../../termsAndConditionsAssignment';
+import {TermsAndConditionsAssignment} from '../../../../models/microsoft/graph/termsAndConditionsAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignmentsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {PrintUsageByPrinter} from '../printUsageByPrinter';
+import {PrintUsageByPrinter} from '../../models/microsoft/graph/printUsageByPrinter';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DailyPrintUsageByPrinterResponse implements Parsable {

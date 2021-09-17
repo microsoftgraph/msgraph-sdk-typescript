@@ -1,4 +1,4 @@
-import {PlannerPlan} from '../../../plannerPlan';
+import {PlannerPlan} from '../../../models/microsoft/graph/plannerPlan';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlansResponse implements Parsable {

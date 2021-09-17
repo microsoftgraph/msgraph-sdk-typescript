@@ -1,4 +1,4 @@
-import {WorkbookTable} from '../../../../workbookTable';
+import {WorkbookTable} from '../../../../models/microsoft/graph/workbookTable';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {ItemAtWithIndexRequestBuilder} from './itemAtWithIndex/itemAtWithIndexRequestBuilder';

@@ -1,4 +1,4 @@
-import {Notebook} from '../../../notebook';
+import {Notebook} from '../../../models/microsoft/graph/notebook';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class NotebooksResponse implements Parsable {

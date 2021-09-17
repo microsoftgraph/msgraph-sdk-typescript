@@ -1,4 +1,4 @@
-import {AdminConsentRequestPolicy} from '../adminConsentRequestPolicy';
+import {AdminConsentRequestPolicy} from '../../models/microsoft/graph/adminConsentRequestPolicy';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/adminConsentRequestPolicy  */

@@ -1,4 +1,4 @@
-import {DeviceManagementExchangeConnector} from '../deviceManagementExchangeConnector';
+import {DeviceManagementExchangeConnector} from '../../models/microsoft/graph/deviceManagementExchangeConnector';
 import {ExchangeConnectorsResponse} from './exchangeConnectorsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

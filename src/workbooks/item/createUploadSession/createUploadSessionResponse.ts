@@ -1,4 +1,4 @@
-import {DriveItemUploadableProperties} from './driveItemUploadableProperties';
+import {DriveItemUploadableProperties} from '../../../models/microsoft/graph/driveItemUploadableProperties';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateUploadSessionResponse implements Parsable {

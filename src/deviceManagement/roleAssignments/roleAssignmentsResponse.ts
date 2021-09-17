@@ -1,4 +1,4 @@
-import {DeviceAndAppManagementRoleAssignment} from '../deviceAndAppManagementRoleAssignment';
+import {DeviceAndAppManagementRoleAssignment} from '../../models/microsoft/graph/deviceAndAppManagementRoleAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RoleAssignmentsResponse implements Parsable {

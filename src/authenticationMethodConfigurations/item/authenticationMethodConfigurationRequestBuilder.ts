@@ -1,4 +1,4 @@
-import {AuthenticationMethodConfiguration} from '../../../authenticationMethodConfiguration';
+import {AuthenticationMethodConfiguration} from '../../models/microsoft/graph/authenticationMethodConfiguration';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /authenticationMethodConfigurations/{authenticationMethodConfiguration-id}  */

@@ -1,4 +1,4 @@
-import {OnenotePage} from '../../../../onenotePage';
+import {OnenotePage} from '../../../../models/microsoft/graph/onenotePage';
 import {PagesResponse} from './pagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

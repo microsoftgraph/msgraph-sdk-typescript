@@ -1,4 +1,4 @@
-import {EducationRubric} from '../../../educationRubric';
+import {EducationRubric} from '../../../../models/microsoft/graph/educationRubric';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RubricsResponse implements Parsable {

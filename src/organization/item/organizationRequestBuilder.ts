@@ -1,14 +1,14 @@
-import {Organization} from '../../organization';
-import {BrandingRequestBuilder} from '../branding/brandingRequestBuilder';
-import {CertificateBasedAuthConfigurationRequestBuilder} from '../certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
-import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
-import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
-import {SetMobileDeviceManagementAuthorityRequestBuilder} from '../setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
+import {Organization} from '../../models/microsoft/graph/organization';
+import {BrandingRequestBuilder} from './branding/brandingRequestBuilder';
+import {CertificateBasedAuthConfigurationRequestBuilder} from './certificateBasedAuthConfiguration/certificateBasedAuthConfigurationRequestBuilder';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
+import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {SetMobileDeviceManagementAuthorityRequestBuilder} from './setMobileDeviceManagementAuthority/setMobileDeviceManagementAuthorityRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /organization/{organization-id}  */

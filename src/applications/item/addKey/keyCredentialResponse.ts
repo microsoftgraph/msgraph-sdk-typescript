@@ -1,5 +1,5 @@
-import {KeyCredential} from '../../../keyCredential';
-import {PasswordCredential} from '../../../passwordCredential';
+import {KeyCredential} from '../../../models/microsoft/graph/keyCredential';
+import {PasswordCredential} from '../../../models/microsoft/graph/passwordCredential';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class KeyCredentialResponse implements Parsable {

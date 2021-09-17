@@ -1,4 +1,4 @@
-import {DirectoryObject} from '../directoryObject';
+import {DirectoryObject} from '../models/microsoft/graph/directoryObject';
 import {DirectoryObjectsResponse} from './directoryObjectsResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

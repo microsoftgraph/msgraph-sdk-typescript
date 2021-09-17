@@ -1,4 +1,4 @@
-import {HomeRealmDiscoveryPolicy} from '../../homeRealmDiscoveryPolicy';
+import {HomeRealmDiscoveryPolicy} from '../../models/microsoft/graph/homeRealmDiscoveryPolicy';
 import {HomeRealmDiscoveryPoliciesResponse} from './homeRealmDiscoveryPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

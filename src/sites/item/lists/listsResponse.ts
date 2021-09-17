@@ -1,4 +1,4 @@
-import {List} from '../../../list';
+import {List} from '../../../models/microsoft/graph/list';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ListsResponse implements Parsable {

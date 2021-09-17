@@ -1,4 +1,4 @@
-import {Trending} from '../../../trending';
+import {Trending} from '../../../models/microsoft/graph/trending';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TrendingResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {DriveItemVersion} from '../../../driveItemVersion';
+import {DriveItemVersion} from '../../../models/microsoft/graph/driveItemVersion';
 import {VersionsResponse} from './versionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {NotificationMessageTemplate} from '../notificationMessageTemplate';
+import {NotificationMessageTemplate} from '../../models/microsoft/graph/notificationMessageTemplate';
 import {NotificationMessageTemplatesResponse} from './notificationMessageTemplatesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

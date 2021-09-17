@@ -1,4 +1,4 @@
-import {UserSettings} from '../../../userSettings';
+import {UserSettings} from '../../../models/microsoft/graph/userSettings';
 import {ShiftPreferencesRequestBuilder} from './shiftPreferences/shiftPreferencesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {SwapShiftsChangeRequest} from '../../../../swapShiftsChangeRequest';
+import {SwapShiftsChangeRequest} from '../../../../models/microsoft/graph/swapShiftsChangeRequest';
 import {SwapShiftsChangeRequestsResponse} from './swapShiftsChangeRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

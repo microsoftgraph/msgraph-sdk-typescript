@@ -1,4 +1,4 @@
-import {Application} from './application';
+import {Application} from '../models/microsoft/graph/application';
 import {ApplicationsResponse} from './applicationsResponse';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';

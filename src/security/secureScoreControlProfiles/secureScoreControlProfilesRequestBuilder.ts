@@ -1,4 +1,4 @@
-import {SecureScoreControlProfile} from '../secureScoreControlProfile';
+import {SecureScoreControlProfile} from '../../models/microsoft/graph/secureScoreControlProfile';
 import {SecureScoreControlProfilesResponse} from './secureScoreControlProfilesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

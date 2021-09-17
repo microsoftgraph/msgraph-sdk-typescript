@@ -1,6 +1,6 @@
+import {External} from '../models/microsoft/graph/externalConnectors/external';
 import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder';
-import {ExternalConnectionRequestBuilder} from './connections/item/item/externalConnectionRequestBuilder';
-import {External} from './external';
+import {ExternalConnectionRequestBuilder} from './connections/item/externalConnectionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /external  */

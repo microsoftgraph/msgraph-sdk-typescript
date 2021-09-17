@@ -1,13 +1,13 @@
-import {ManagedDeviceMobileAppConfiguration} from '../../../managedDeviceMobileAppConfiguration';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder} from '../assignments/item/item/managedDeviceMobileAppConfigurationAssignmentRequestBuilder';
-import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder} from '../deviceStatuses/item/item/managedDeviceMobileAppConfigurationDeviceStatusRequestBuilder';
-import {DeviceStatusSummaryRequestBuilder} from '../deviceStatusSummary/deviceStatusSummaryRequestBuilder';
-import {ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder} from '../userStatuses/item/item/managedDeviceMobileAppConfigurationUserStatusRequestBuilder';
-import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
-import {UserStatusSummaryRequestBuilder} from '../userStatusSummary/userStatusSummaryRequestBuilder';
+import {ManagedDeviceMobileAppConfiguration} from '../../../models/microsoft/graph/managedDeviceMobileAppConfiguration';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationAssignmentRequestBuilder} from './assignments/item/managedDeviceMobileAppConfigurationAssignmentRequestBuilder';
+import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationDeviceStatusRequestBuilder} from './deviceStatuses/item/managedDeviceMobileAppConfigurationDeviceStatusRequestBuilder';
+import {DeviceStatusSummaryRequestBuilder} from './deviceStatusSummary/deviceStatusSummaryRequestBuilder';
+import {ManagedDeviceMobileAppConfigurationUserStatusRequestBuilder} from './userStatuses/item/managedDeviceMobileAppConfigurationUserStatusRequestBuilder';
+import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
+import {UserStatusSummaryRequestBuilder} from './userStatusSummary/userStatusSummaryRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration-id}  */

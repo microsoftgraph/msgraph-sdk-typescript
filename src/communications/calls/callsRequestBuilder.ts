@@ -1,4 +1,4 @@
-import {Call} from '../call';
+import {Call} from '../../models/microsoft/graph/call';
 import {CallsResponse} from './callsResponse';
 import {LogTeleconferenceDeviceQualityRequestBuilder} from './logTeleconferenceDeviceQuality/logTeleconferenceDeviceQualityRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

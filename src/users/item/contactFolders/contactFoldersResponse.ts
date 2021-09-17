@@ -1,4 +1,4 @@
-import {ContactFolder} from '../../../contactFolder';
+import {ContactFolder} from '../../../models/microsoft/graph/contactFolder';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ContactFoldersResponse implements Parsable {

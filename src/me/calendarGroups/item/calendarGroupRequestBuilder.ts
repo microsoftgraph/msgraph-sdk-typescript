@@ -1,6 +1,6 @@
-import {CalendarGroup} from '../../../../calendarGroup';
-import {CalendarsRequestBuilder} from '../calendars/calendarsRequestBuilder';
-import {CalendarRequestBuilder} from '../calendars/item/item/calendarRequestBuilder';
+import {CalendarGroup} from '../../../models/microsoft/graph/calendarGroup';
+import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
+import {CalendarRequestBuilder} from './calendars/item/calendarRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/calendarGroups/{calendarGroup-id}  */

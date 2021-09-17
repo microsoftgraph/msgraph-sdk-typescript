@@ -1,4 +1,4 @@
-import {UserFlowLanguageConfiguration} from '../../../userFlowLanguageConfiguration';
+import {UserFlowLanguageConfiguration} from '../../../../models/microsoft/graph/userFlowLanguageConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LanguagesResponse implements Parsable {

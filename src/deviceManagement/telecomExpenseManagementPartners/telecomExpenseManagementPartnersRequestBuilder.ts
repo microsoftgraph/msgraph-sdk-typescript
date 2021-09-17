@@ -1,4 +1,4 @@
-import {TelecomExpenseManagementPartner} from '../telecomExpenseManagementPartner';
+import {TelecomExpenseManagementPartner} from '../../models/microsoft/graph/telecomExpenseManagementPartner';
 import {TelecomExpenseManagementPartnersResponse} from './telecomExpenseManagementPartnersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {PermissionGrantPolicy} from '../permissionGrantPolicy';
+import {PermissionGrantPolicy} from '../../models/microsoft/graph/permissionGrantPolicy';
 import {PermissionGrantPoliciesResponse} from './permissionGrantPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

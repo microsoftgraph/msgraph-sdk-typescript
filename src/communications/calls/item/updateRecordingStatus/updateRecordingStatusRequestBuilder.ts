@@ -1,4 +1,4 @@
-import {UpdateRecordingStatusOperation} from './updateRecordingStatusOperation';
+import {UpdateRecordingStatusOperation} from '../../../../models/microsoft/graph/updateRecordingStatusOperation';
 import {UpdateRecordingStatusResponse} from './updateRecordingStatusResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

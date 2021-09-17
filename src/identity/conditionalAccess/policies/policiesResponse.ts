@@ -1,4 +1,4 @@
-import {ConditionalAccessPolicy} from '../../../conditionalAccessPolicy';
+import {ConditionalAccessPolicy} from '../../../models/microsoft/graph/conditionalAccessPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PoliciesResponse implements Parsable {

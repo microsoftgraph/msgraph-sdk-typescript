@@ -1,4 +1,4 @@
-import {Channel} from '../../../channel';
+import {Channel} from '../../../models/microsoft/graph/channel';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ChannelsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {GroupSettingTemplate} from './groupSettingTemplate';
+import {GroupSettingTemplate} from '../models/microsoft/graph/groupSettingTemplate';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GroupSettingTemplatesResponse implements Parsable {

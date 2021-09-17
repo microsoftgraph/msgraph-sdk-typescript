@@ -1,5 +1,5 @@
-import {UsedInsight} from '../../../../../usedInsight';
-import {ResourceRequestBuilder} from '../resource/resourceRequestBuilder';
+import {UsedInsight} from '../../../../models/microsoft/graph/usedInsight';
+import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/used/{usedInsight-id}  */

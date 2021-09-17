@@ -1,4 +1,4 @@
-import {AssignmentOrder} from '../assignmentOrder';
+import {AssignmentOrder} from '../../../../../models/microsoft/graph/assignmentOrder';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SetOrderResponse implements Parsable {

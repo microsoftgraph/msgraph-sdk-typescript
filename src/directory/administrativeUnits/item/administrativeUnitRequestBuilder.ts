@@ -1,9 +1,9 @@
-import {AdministrativeUnit} from '../../../../administrativeUnit';
-import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
-import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {ScopedRoleMembershipRequestBuilder} from '../scopedRoleMembers/item/item/scopedRoleMembershipRequestBuilder';
-import {ScopedRoleMembersRequestBuilder} from '../scopedRoleMembers/scopedRoleMembersRequestBuilder';
+import {AdministrativeUnit} from '../../../models/microsoft/graph/administrativeUnit';
+import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
+import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
+import {MembersRequestBuilder} from './members/membersRequestBuilder';
+import {ScopedRoleMembershipRequestBuilder} from './scopedRoleMembers/item/scopedRoleMembershipRequestBuilder';
+import {ScopedRoleMembersRequestBuilder} from './scopedRoleMembers/scopedRoleMembersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /directory/administrativeUnits/{administrativeUnit-id}  */

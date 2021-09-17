@@ -1,4 +1,4 @@
-import {ListItemVersion} from '../../../../listItemVersion';
+import {ListItemVersion} from '../../../../models/microsoft/graph/listItemVersion';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VersionsResponse implements Parsable {

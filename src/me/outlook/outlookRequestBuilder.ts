@@ -1,5 +1,5 @@
-import {OutlookUser} from '../../outlookUser';
-import {OutlookCategoryRequestBuilder} from './masterCategories/item/item/outlookCategoryRequestBuilder';
+import {OutlookUser} from '../../models/microsoft/graph/outlookUser';
+import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
 import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
 import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';

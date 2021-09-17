@@ -1,4 +1,4 @@
-import {ProvisioningObjectSummary} from '../provisioningObjectSummary';
+import {ProvisioningObjectSummary} from '../../models/microsoft/graph/provisioningObjectSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningResponse implements Parsable {

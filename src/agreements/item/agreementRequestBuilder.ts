@@ -1,9 +1,9 @@
-import {Agreement} from '../../../agreement';
-import {AcceptancesRequestBuilder} from '../acceptances/acceptancesRequestBuilder';
-import {AgreementAcceptanceRequestBuilder} from '../acceptances/item/item/agreementAcceptanceRequestBuilder';
-import {FileRequestBuilder} from '../file/fileRequestBuilder';
-import {FilesRequestBuilder} from '../files/filesRequestBuilder';
-import {AgreementFileLocalizationRequestBuilder} from '../files/item/item/agreementFileLocalizationRequestBuilder';
+import {Agreement} from '../../models/microsoft/graph/agreement';
+import {AcceptancesRequestBuilder} from './acceptances/acceptancesRequestBuilder';
+import {AgreementAcceptanceRequestBuilder} from './acceptances/item/agreementAcceptanceRequestBuilder';
+import {FileRequestBuilder} from './file/fileRequestBuilder';
+import {FilesRequestBuilder} from './files/filesRequestBuilder';
+import {AgreementFileLocalizationRequestBuilder} from './files/item/agreementFileLocalizationRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /agreements/{agreement-id}  */

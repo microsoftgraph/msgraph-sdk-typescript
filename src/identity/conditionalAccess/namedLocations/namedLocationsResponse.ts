@@ -1,4 +1,4 @@
-import {NamedLocation} from '../../namedLocation';
+import {NamedLocation} from '../../../models/microsoft/graph/namedLocation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class NamedLocationsResponse implements Parsable {

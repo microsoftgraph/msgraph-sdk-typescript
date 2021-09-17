@@ -1,4 +1,4 @@
-import {ResourceSpecificPermissionGrant} from '../../../resourceSpecificPermissionGrant';
+import {ResourceSpecificPermissionGrant} from '../../../models/microsoft/graph/resourceSpecificPermissionGrant';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PermissionGrantsResponse implements Parsable {

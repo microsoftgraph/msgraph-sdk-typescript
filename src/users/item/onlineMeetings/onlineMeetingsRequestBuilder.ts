@@ -1,4 +1,4 @@
-import {OnlineMeeting} from '../../../onlineMeeting';
+import {OnlineMeeting} from '../../../models/microsoft/graph/onlineMeeting';
 import {CreateOrGetRequestBuilder} from './createOrGet/createOrGetRequestBuilder';
 import {OnlineMeetingsResponse} from './onlineMeetingsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

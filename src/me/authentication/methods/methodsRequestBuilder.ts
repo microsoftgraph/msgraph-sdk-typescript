@@ -1,4 +1,4 @@
-import {AuthenticationMethod} from '../../../authenticationMethod';
+import {AuthenticationMethod} from '../../../models/microsoft/graph/authenticationMethod';
 import {MethodsResponse} from './methodsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

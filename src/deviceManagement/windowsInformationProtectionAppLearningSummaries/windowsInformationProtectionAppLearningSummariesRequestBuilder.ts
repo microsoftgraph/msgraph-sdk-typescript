@@ -1,4 +1,4 @@
-import {WindowsInformationProtectionAppLearningSummary} from '../windowsInformationProtectionAppLearningSummary';
+import {WindowsInformationProtectionAppLearningSummary} from '../../models/microsoft/graph/windowsInformationProtectionAppLearningSummary';
 import {WindowsInformationProtectionAppLearningSummariesResponse} from './windowsInformationProtectionAppLearningSummariesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

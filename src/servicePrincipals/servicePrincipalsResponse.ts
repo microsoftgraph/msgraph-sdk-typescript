@@ -1,4 +1,4 @@
-import {ServicePrincipal} from './servicePrincipal';
+import {ServicePrincipal} from '../models/microsoft/graph/servicePrincipal';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ServicePrincipalsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {TeamsAsyncOperation} from '../../../teamsAsyncOperation';
+import {TeamsAsyncOperation} from '../../../models/microsoft/graph/teamsAsyncOperation';
 import {OperationsResponse} from './operationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

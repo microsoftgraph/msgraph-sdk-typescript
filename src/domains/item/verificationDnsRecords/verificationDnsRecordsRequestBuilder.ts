@@ -1,4 +1,4 @@
-import {DomainDnsRecord} from '../../../domainDnsRecord';
+import {DomainDnsRecord} from '../../../models/microsoft/graph/domainDnsRecord';
 import {VerificationDnsRecordsResponse} from './verificationDnsRecordsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

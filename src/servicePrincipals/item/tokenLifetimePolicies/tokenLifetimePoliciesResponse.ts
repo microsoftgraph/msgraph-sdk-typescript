@@ -1,4 +1,4 @@
-import {TokenLifetimePolicy} from '../../../tokenLifetimePolicy';
+import {TokenLifetimePolicy} from '../../../models/microsoft/graph/tokenLifetimePolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TokenLifetimePoliciesResponse implements Parsable {

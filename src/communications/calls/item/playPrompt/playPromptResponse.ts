@@ -1,4 +1,4 @@
-import {Prompt} from '../prompt';
+import {Prompt} from '../../../../models/microsoft/graph/prompt';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PlayPromptResponse implements Parsable {

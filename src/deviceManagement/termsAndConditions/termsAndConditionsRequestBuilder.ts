@@ -1,4 +1,4 @@
-import {TermsAndConditions} from '../termsAndConditions';
+import {TermsAndConditions} from '../../models/microsoft/graph/termsAndConditions';
 import {TermsAndConditionsResponse} from './termsAndConditionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

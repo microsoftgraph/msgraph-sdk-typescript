@@ -1,4 +1,4 @@
-import {CalendarGroup} from '../../calendarGroup';
+import {CalendarGroup} from '../../models/microsoft/graph/calendarGroup';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CalendarGroupsResponse implements Parsable {

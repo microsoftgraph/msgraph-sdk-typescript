@@ -1,4 +1,4 @@
-import {UploadSession} from '../../../../../../workbooks/item/createUploadSession/uploadSession';
+import {UploadSession} from '../../../../../../models/microsoft/graph/uploadSession';
 import {CreateUploadSessionResponse} from './createUploadSessionResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

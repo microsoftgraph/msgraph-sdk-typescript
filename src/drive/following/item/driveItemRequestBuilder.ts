@@ -1,5 +1,5 @@
-import {DriveItem} from '../../../../driveItem';
-import {ContentRequestBuilder} from '../content/contentRequestBuilder';
+import {DriveItem} from '../../../models/microsoft/graph/driveItem';
+import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive/following/{driveItem-id}  */

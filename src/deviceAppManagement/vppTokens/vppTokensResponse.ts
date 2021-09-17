@@ -1,4 +1,4 @@
-import {VppToken} from '../vppToken';
+import {VppToken} from '../../models/microsoft/graph/vppToken';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VppTokensResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {Subscription} from '../../../subscription';
+import {Subscription} from '../../../models/microsoft/graph/subscription';
 import {SubscriptionsResponse} from './subscriptionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

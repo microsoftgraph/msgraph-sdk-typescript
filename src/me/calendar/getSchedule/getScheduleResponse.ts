@@ -1,4 +1,4 @@
-import {DateTimeTimeZone} from '../../../dateTimeTimeZone';
+import {DateTimeTimeZone} from '../../../models/microsoft/graph/dateTimeTimeZone';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GetScheduleResponse implements Parsable {

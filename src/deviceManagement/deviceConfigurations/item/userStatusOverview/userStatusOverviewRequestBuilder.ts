@@ -1,4 +1,4 @@
-import {DeviceConfigurationUserOverview} from '../../../deviceConfigurationUserOverview';
+import {DeviceConfigurationUserOverview} from '../../../../models/microsoft/graph/deviceConfigurationUserOverview';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceConfigurations/{deviceConfiguration-id}/userStatusOverview  */

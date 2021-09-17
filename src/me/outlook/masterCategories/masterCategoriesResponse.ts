@@ -1,4 +1,4 @@
-import {OutlookCategory} from '../../../outlookCategory';
+import {OutlookCategory} from '../../../models/microsoft/graph/outlookCategory';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MasterCategoriesResponse implements Parsable {

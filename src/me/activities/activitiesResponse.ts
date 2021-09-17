@@ -1,4 +1,4 @@
-import {UserActivity} from '../../userActivity';
+import {UserActivity} from '../../models/microsoft/graph/userActivity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ActivitiesResponse implements Parsable {

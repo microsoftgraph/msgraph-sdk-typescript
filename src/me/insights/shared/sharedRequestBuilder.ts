@@ -1,4 +1,4 @@
-import {SharedInsight} from '../../../sharedInsight';
+import {SharedInsight} from '../../../models/microsoft/graph/sharedInsight';
 import {SharedResponse} from './sharedResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

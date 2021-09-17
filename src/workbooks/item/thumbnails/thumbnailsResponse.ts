@@ -1,4 +1,4 @@
-import {ThumbnailSet} from '../../../thumbnailSet';
+import {ThumbnailSet} from '../../../models/microsoft/graph/thumbnailSet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ThumbnailsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {RecordingStatus} from '../../../recordingStatus';
+import {RecordingStatus} from '../../../../models/microsoft/graph/recordingStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UpdateRecordingStatusResponse implements Parsable {

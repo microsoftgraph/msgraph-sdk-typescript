@@ -1,4 +1,4 @@
-import {TelecomExpenseManagementPartner} from '../telecomExpenseManagementPartner';
+import {TelecomExpenseManagementPartner} from '../../models/microsoft/graph/telecomExpenseManagementPartner';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TelecomExpenseManagementPartnersResponse implements Parsable {

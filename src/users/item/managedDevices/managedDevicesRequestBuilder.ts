@@ -1,4 +1,4 @@
-import {ManagedDevice} from '../../../managedDevice';
+import {ManagedDevice} from '../../../models/microsoft/graph/managedDevice';
 import {ManagedDevicesResponse} from './managedDevicesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

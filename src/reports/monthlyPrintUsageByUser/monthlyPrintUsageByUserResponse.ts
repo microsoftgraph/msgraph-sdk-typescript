@@ -1,4 +1,4 @@
-import {PrintUsageByUser} from '../printUsageByUser';
+import {PrintUsageByUser} from '../../models/microsoft/graph/printUsageByUser';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MonthlyPrintUsageByUserResponse implements Parsable {

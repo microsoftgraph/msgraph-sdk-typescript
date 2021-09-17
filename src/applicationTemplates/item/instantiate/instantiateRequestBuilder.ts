@@ -1,4 +1,4 @@
-import {ApplicationServicePrincipal} from './applicationServicePrincipal';
+import {ApplicationServicePrincipal} from '../../../models/microsoft/graph/applicationServicePrincipal';
 import {InstantiateResponse} from './instantiateResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

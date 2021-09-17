@@ -1,4 +1,4 @@
-import {User} from '../../../user';
+import {User} from '../../../models/microsoft/graph/user';
 import {AssignLicenseResponse} from './assignLicenseResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

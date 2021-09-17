@@ -1,4 +1,4 @@
-import {Person} from '../../../person';
+import {Person} from '../../../models/microsoft/graph/person';
 import {PeopleResponse} from './peopleResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

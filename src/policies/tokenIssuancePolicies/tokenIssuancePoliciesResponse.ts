@@ -1,4 +1,4 @@
-import {TokenIssuancePolicy} from '../../tokenIssuancePolicy';
+import {TokenIssuancePolicy} from '../../models/microsoft/graph/tokenIssuancePolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TokenIssuancePoliciesResponse implements Parsable {

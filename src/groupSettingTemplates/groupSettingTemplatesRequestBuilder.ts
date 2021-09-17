@@ -1,6 +1,6 @@
+import {GroupSettingTemplate} from '../models/microsoft/graph/groupSettingTemplate';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
-import {GroupSettingTemplate} from './groupSettingTemplate';
 import {GroupSettingTemplatesResponse} from './groupSettingTemplatesResponse';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

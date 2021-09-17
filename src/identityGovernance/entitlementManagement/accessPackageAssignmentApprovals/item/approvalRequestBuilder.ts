@@ -1,6 +1,6 @@
-import {Approval} from '../../../../approval';
-import {ApprovalStageRequestBuilder} from '../stages/item/item/approvalStageRequestBuilder';
-import {StagesRequestBuilder} from '../stages/stagesRequestBuilder';
+import {Approval} from '../../../../models/microsoft/graph/approval';
+import {ApprovalStageRequestBuilder} from './stages/item/approvalStageRequestBuilder';
+import {StagesRequestBuilder} from './stages/stagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackageAssignmentApprovals/{approval-id}  */

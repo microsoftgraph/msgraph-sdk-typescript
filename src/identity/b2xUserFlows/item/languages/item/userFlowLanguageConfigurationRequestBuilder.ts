@@ -1,0 +1,149 @@
+import {UserFlowLanguageConfiguration} from '../../../../../models/microsoft/graph/userFlowLanguageConfiguration';
+import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
+import {UserFlowLanguagePageRequestBuilder} from './defaultPages/item/userFlowLanguagePageRequestBuilder';
+import {UserFlowLanguagePageRequestBuilder} from './overridesPages/item/userFlowLanguagePageRequestBuilder';
+import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
+import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+
+/** Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/languages/{userFlowLanguageConfiguration-id}  */
+export class UserFlowLanguageConfigurationRequestBuilder {
+    /** Current path for the request  */
+    private readonly currentPath: string;
+    public get defaultPages(): DefaultPagesRequestBuilder {
+        return new DefaultPagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    /** The http core service to use to execute the requests.  */
+    private readonly httpCore: HttpCore;
+    /** Whether the current path is a raw URL  */
+    private readonly isRawUrl: boolean;
+    public get overridesPages(): OverridesPagesRequestBuilder {
+        return new OverridesPagesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    }
+    /** Path segment to use to build the URL for the current request builder  */
+    private readonly pathSegment: string;
+    /**
+     * Instantiates a new UserFlowLanguageConfigurationRequestBuilder and sets the default values.
+     * @param currentPath Current path for the request
+     * @param httpCore The http core service to use to execute the requests.
+     * @param isRawUrl Whether the current path is a raw URL
+     */
+    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
+        if(!currentPath) throw new Error("currentPath cannot be undefined");
+        if(!httpCore) throw new Error("httpCore cannot be undefined");
+        this.pathSegment = "";
+        this.httpCore = httpCore;
+        this.currentPath = currentPath;
+        this.isRawUrl = isRawUrl;
+    };
+    /**
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @returns a RequestInformation
+     */
+    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.httpMethod = HttpMethod.DELETE;
+        h && requestInfo.setHeadersFromRawObject(h);
+        o && requestInfo.addMiddlewareOptions(...o);
+        return requestInfo;
+    };
+    /**
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param q Request query parameters
+     * @returns a RequestInformation
+     */
+    public createGetRequestInformation(q?: {
+                    expand?: string[],
+                    select?: string[]
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        const requestInfo = new RequestInformation();
+        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.httpMethod = HttpMethod.GET;
+        h && requestInfo.setHeadersFromRawObject(h);
+        q && requestInfo.setQueryStringParametersFromRawObject(q);
+        o && requestInfo.addMiddlewareOptions(...o);
+        return requestInfo;
+    };
+    /**
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param body 
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @returns a RequestInformation
+     */
+    public createPatchRequestInformation(body: UserFlowLanguageConfiguration | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = new RequestInformation();
+        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.httpMethod = HttpMethod.PATCH;
+        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
+        o && requestInfo.addMiddlewareOptions(...o);
+        return requestInfo;
+    };
+    /**
+     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.item.languages.item.defaultPages.item collection
+     * @param id Unique identifier of the item
+     * @returns a userFlowLanguagePageRequestBuilder
+     */
+    public defaultPagesById(id: String) : UserFlowLanguagePageRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        return new UserFlowLanguagePageRequestBuilder(this.currentPath + this.pathSegment + "/defaultPages/" + id, this.httpCore, false);
+    };
+    /**
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     */
+    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        const requestInfo = this.createDeleteRequestInformation(
+            h, o
+        );
+        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param q Request query parameters
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     * @returns a Promise of UserFlowLanguageConfiguration
+     */
+    public get(q?: {
+                    expand?: string[],
+                    select?: string[]
+                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserFlowLanguageConfiguration | undefined> {
+        const requestInfo = this.createGetRequestInformation(
+            q, h, o
+        );
+        return this.httpCore?.sendAsync<UserFlowLanguageConfiguration>(requestInfo, UserFlowLanguageConfiguration, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the graphtypescriptv4.utilities.identity.b2xUserFlows.item.languages.item.overridesPages.item collection
+     * @param id Unique identifier of the item
+     * @returns a userFlowLanguagePageRequestBuilder
+     */
+    public overridesPagesById(id: String) : UserFlowLanguagePageRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        return new UserFlowLanguagePageRequestBuilder(this.currentPath + this.pathSegment + "/overridesPages/" + id, this.httpCore, false);
+    };
+    /**
+     * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
+     * @param body 
+     * @param h Request headers
+     * @param o Request options for HTTP middlewares
+     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
+     */
+    public patch(body: UserFlowLanguageConfiguration | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+        if(!body) throw new Error("body cannot be undefined");
+        const requestInfo = this.createPatchRequestInformation(
+            body, h, o
+        );
+        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+    };
+}

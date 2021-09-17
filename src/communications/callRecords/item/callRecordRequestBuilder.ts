@@ -1,6 +1,6 @@
-import {CallRecord} from '../../../callRecord';
-import {SessionRequestBuilder} from '../sessions/item/item/sessionRequestBuilder';
-import {SessionsRequestBuilder} from '../sessions/sessionsRequestBuilder';
+import {CallRecord} from '../../../models/microsoft/graph/callRecords/callRecord';
+import {SessionRequestBuilder} from './sessions/item/sessionRequestBuilder';
+import {SessionsRequestBuilder} from './sessions/sessionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /communications/callRecords/{callRecord-id}  */

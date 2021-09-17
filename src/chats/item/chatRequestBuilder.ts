@@ -1,13 +1,13 @@
-import {Chat} from '../../../chat';
-import {InstalledAppsRequestBuilder} from '../installedApps/installedAppsRequestBuilder';
-import {TeamsAppInstallationRequestBuilder} from '../installedApps/item/item/teamsAppInstallationRequestBuilder';
-import {ConversationMemberRequestBuilder} from '../members/item/item/conversationMemberRequestBuilder';
-import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {ChatMessageRequestBuilder} from '../messages/item/item/chatMessageRequestBuilder';
-import {MessagesRequestBuilder} from '../messages/messagesRequestBuilder';
-import {SendActivityNotificationRequestBuilder} from '../sendActivityNotification/sendActivityNotificationRequestBuilder';
-import {TeamsTabRequestBuilder} from '../tabs/item/item/teamsTabRequestBuilder';
-import {TabsRequestBuilder} from '../tabs/tabsRequestBuilder';
+import {Chat} from '../../models/microsoft/graph/chat';
+import {InstalledAppsRequestBuilder} from './installedApps/installedAppsRequestBuilder';
+import {TeamsAppInstallationRequestBuilder} from './installedApps/item/teamsAppInstallationRequestBuilder';
+import {ConversationMemberRequestBuilder} from './members/item/conversationMemberRequestBuilder';
+import {MembersRequestBuilder} from './members/membersRequestBuilder';
+import {ChatMessageRequestBuilder} from './messages/item/chatMessageRequestBuilder';
+import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
+import {SendActivityNotificationRequestBuilder} from './sendActivityNotification/sendActivityNotificationRequestBuilder';
+import {TeamsTabRequestBuilder} from './tabs/item/teamsTabRequestBuilder';
+import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /chats/{chat-id}  */

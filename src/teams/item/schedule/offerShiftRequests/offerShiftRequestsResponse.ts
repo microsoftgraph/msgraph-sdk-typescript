@@ -1,4 +1,4 @@
-import {OfferShiftRequest} from '../../../../offerShiftRequest';
+import {OfferShiftRequest} from '../../../../models/microsoft/graph/offerShiftRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OfferShiftRequestsResponse implements Parsable {

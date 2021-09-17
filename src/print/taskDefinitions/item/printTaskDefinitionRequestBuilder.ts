@@ -1,6 +1,6 @@
-import {PrintTaskDefinition} from '../../../printTaskDefinition';
-import {PrintTaskRequestBuilder} from '../tasks/item/item/printTaskRequestBuilder';
-import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
+import {PrintTaskDefinition} from '../../../models/microsoft/graph/printTaskDefinition';
+import {PrintTaskRequestBuilder} from './tasks/item/printTaskRequestBuilder';
+import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/taskDefinitions/{printTaskDefinition-id}  */

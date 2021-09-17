@@ -1,4 +1,4 @@
-import {Group} from '../../../group';
+import {Group} from '../../../models/microsoft/graph/group';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

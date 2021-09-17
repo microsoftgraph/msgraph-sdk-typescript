@@ -1,4 +1,4 @@
-import {Notebook} from '../../../../notebook';
+import {Notebook} from '../../../../models/microsoft/graph/notebook';
 import {GetNotebookFromWebUrlRequestBuilder} from './getNotebookFromWebUrl/getNotebookFromWebUrlRequestBuilder';
 import {GetRecentNotebooksWithIncludePersonalNotebooksRequestBuilder} from './getRecentNotebooksWithIncludePersonalNotebooks/getRecentNotebooksWithIncludePersonalNotebooksRequestBuilder';
 import {NotebooksResponse} from './notebooksResponse';

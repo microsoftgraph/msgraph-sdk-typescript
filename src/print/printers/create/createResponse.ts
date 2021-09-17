@@ -1,4 +1,4 @@
-import {PrintCertificateSigningRequest} from './printCertificateSigningRequest';
+import {PrintCertificateSigningRequest} from '../../../models/microsoft/graph/printCertificateSigningRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {MailFolder} from '../../mailFolder';
+import {MailFolder} from '../../models/microsoft/graph/mailFolder';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MailFoldersResponse implements Parsable {

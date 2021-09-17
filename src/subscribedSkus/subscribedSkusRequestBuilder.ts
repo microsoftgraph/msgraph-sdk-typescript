@@ -1,4 +1,4 @@
-import {SubscribedSku} from './subscribedSku';
+import {SubscribedSku} from '../models/microsoft/graph/subscribedSku';
 import {SubscribedSkusResponse} from './subscribedSkusResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

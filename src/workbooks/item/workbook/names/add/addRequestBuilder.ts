@@ -1,4 +1,4 @@
-import {WorkbookNamedItem} from '../../../../../workbookNamedItem';
+import {WorkbookNamedItem} from '../../../../../models/microsoft/graph/workbookNamedItem';
 import {AddResponse} from './addResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

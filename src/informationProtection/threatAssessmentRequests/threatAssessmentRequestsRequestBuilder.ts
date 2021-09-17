@@ -1,4 +1,4 @@
-import {ThreatAssessmentRequest} from '../threatAssessmentRequest';
+import {ThreatAssessmentRequest} from '../../models/microsoft/graph/threatAssessmentRequest';
 import {ThreatAssessmentRequestsResponse} from './threatAssessmentRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

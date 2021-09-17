@@ -1,4 +1,4 @@
-import {DataPolicyOperation} from './dataPolicyOperation';
+import {DataPolicyOperation} from '../models/microsoft/graph/dataPolicyOperation';
 import {DataPolicyOperationsResponse} from './dataPolicyOperationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

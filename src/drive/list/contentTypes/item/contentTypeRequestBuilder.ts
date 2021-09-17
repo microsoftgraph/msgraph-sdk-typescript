@@ -1,6 +1,6 @@
-import {ContentType} from '../../../../../contentType';
-import {ColumnLinksRequestBuilder} from '../columnLinks/columnLinksRequestBuilder';
-import {ColumnLinkRequestBuilder} from '../columnLinks/item/item/columnLinkRequestBuilder';
+import {ContentType} from '../../../../models/microsoft/graph/contentType';
+import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
+import {ColumnLinkRequestBuilder} from './columnLinks/item/columnLinkRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive/list/contentTypes/{contentType-id}  */

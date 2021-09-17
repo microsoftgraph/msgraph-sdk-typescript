@@ -1,5 +1,5 @@
-import {AppCatalogs} from './appCatalogs';
-import {TeamsAppRequestBuilder} from './teamsApps/item/item/teamsAppRequestBuilder';
+import {AppCatalogs} from '../models/microsoft/graph/appCatalogs';
+import {TeamsAppRequestBuilder} from './teamsApps/item/teamsAppRequestBuilder';
 import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

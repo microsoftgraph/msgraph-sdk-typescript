@@ -1,4 +1,4 @@
-import {PrintService} from '../printService';
+import {PrintService} from '../../models/microsoft/graph/printService';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ServicesResponse implements Parsable {

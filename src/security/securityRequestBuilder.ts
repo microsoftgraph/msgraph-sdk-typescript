@@ -1,10 +1,10 @@
+import {Security} from '../models/microsoft/graph/security';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
-import {AlertRequestBuilder} from './alerts/item/item/alertRequestBuilder';
-import {SecureScoreControlProfileRequestBuilder} from './secureScoreControlProfiles/item/item/secureScoreControlProfileRequestBuilder';
+import {AlertRequestBuilder} from './alerts/item/alertRequestBuilder';
+import {SecureScoreControlProfileRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
-import {SecureScoreRequestBuilder} from './secureScores/item/item/secureScoreRequestBuilder';
+import {SecureScoreRequestBuilder} from './secureScores/item/secureScoreRequestBuilder';
 import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuilder';
-import {Security} from './security';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /security  */

@@ -1,8 +1,8 @@
-import {PermissionGrantPolicy} from '../../../permissionGrantPolicy';
-import {ExcludesRequestBuilder} from '../excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder} from '../excludes/item/item/permissionGrantConditionSetRequestBuilder';
-import {IncludesRequestBuilder} from '../includes/includesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder} from '../includes/item/item/permissionGrantConditionSetRequestBuilder';
+import {PermissionGrantPolicy} from '../../../models/microsoft/graph/permissionGrantPolicy';
+import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder} from './excludes/item/permissionGrantConditionSetRequestBuilder';
+import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder} from './includes/item/permissionGrantConditionSetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/permissionGrantPolicies/{permissionGrantPolicy-id}  */

@@ -1,4 +1,4 @@
-import {OnenoteResource} from '../../../onenoteResource';
+import {OnenoteResource} from '../../../models/microsoft/graph/onenoteResource';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ResourcesResponse implements Parsable {

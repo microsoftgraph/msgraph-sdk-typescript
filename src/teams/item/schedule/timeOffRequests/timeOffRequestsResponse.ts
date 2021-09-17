@@ -1,4 +1,4 @@
-import {TimeOffRequest} from '../../../../timeOffRequest';
+import {TimeOffRequest} from '../../../../models/microsoft/graph/timeOffRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TimeOffRequestsResponse implements Parsable {

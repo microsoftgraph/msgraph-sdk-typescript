@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicySettingStateSummary} from '../deviceCompliancePolicySettingStateSummary';
+import {DeviceCompliancePolicySettingStateSummary} from '../../models/microsoft/graph/deviceCompliancePolicySettingStateSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicySettingStateSummariesResponse implements Parsable {

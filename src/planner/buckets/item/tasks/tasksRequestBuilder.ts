@@ -1,4 +1,4 @@
-import {PlannerTask} from '../../../../plannerTask';
+import {PlannerTask} from '../../../../models/microsoft/graph/plannerTask';
 import {TasksResponse} from './tasksResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

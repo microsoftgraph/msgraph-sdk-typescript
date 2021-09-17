@@ -1,4 +1,4 @@
-import {TimeSlot} from '../../../../../timeSlot';
+import {TimeSlot} from '../../../../../models/microsoft/graph/timeSlot';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TentativelyAcceptResponse implements Parsable {

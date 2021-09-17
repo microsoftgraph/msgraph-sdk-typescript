@@ -1,5 +1,5 @@
+import {SearchEntity} from '../models/microsoft/graph/searchEntity';
 import {QueryRequestBuilder} from './query/queryRequestBuilder';
-import {SearchEntity} from './searchEntity';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /search  */

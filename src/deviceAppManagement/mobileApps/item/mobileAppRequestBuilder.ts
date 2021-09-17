@@ -1,8 +1,8 @@
-import {MobileApp} from '../../../mobileApp';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {MobileAppAssignmentRequestBuilder} from '../assignments/item/item/mobileAppAssignmentRequestBuilder';
-import {CategoriesRequestBuilder} from '../categories/categoriesRequestBuilder';
+import {MobileApp} from '../../../models/microsoft/graph/mobileApp';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {MobileAppAssignmentRequestBuilder} from './assignments/item/mobileAppAssignmentRequestBuilder';
+import {CategoriesRequestBuilder} from './categories/categoriesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/mobileApps/{mobileApp-id}  */

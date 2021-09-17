@@ -1,4 +1,4 @@
-import {AssignmentOrder} from '../assignmentOrder';
+import {AssignmentOrder} from '../../../../../models/microsoft/graph/assignmentOrder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/userAttributeAssignments/microsoft.graph.getOrder()  */

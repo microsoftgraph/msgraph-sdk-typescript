@@ -1,4 +1,4 @@
-import {WorkbookRange} from '../../../../../../../workbooks/item/workbook/workbookRange';
+import {WorkbookRange} from '../../../../../../../models/microsoft/graph/workbookRange';
 import {InsertResponse} from './insertResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

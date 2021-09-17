@@ -1,9 +1,9 @@
-import {PlannerPlan} from '../../../../plannerPlan';
-import {BucketsRequestBuilder} from '../buckets/bucketsRequestBuilder';
-import {PlannerBucketRequestBuilder} from '../buckets/item/item/plannerBucketRequestBuilder';
-import {DetailsRequestBuilder} from '../details/detailsRequestBuilder';
-import {PlannerTaskRequestBuilder} from '../tasks/item/item/plannerTaskRequestBuilder';
-import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
+import {PlannerPlan} from '../../../models/microsoft/graph/plannerPlan';
+import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
+import {PlannerBucketRequestBuilder} from './buckets/item/plannerBucketRequestBuilder';
+import {DetailsRequestBuilder} from './details/detailsRequestBuilder';
+import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';
+import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/plans/{plannerPlan-id}  */

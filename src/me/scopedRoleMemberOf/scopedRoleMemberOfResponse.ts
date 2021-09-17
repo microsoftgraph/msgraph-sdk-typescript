@@ -1,4 +1,4 @@
-import {ScopedRoleMembership} from '../../scopedRoleMembership';
+import {ScopedRoleMembership} from '../../models/microsoft/graph/scopedRoleMembership';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ScopedRoleMemberOfResponse implements Parsable {

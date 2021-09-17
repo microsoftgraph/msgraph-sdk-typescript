@@ -1,4 +1,4 @@
-import {Site} from '../site';
+import {Site} from '../models/microsoft/graph/site';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesResponse} from './sitesResponse';

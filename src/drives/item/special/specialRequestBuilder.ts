@@ -1,4 +1,4 @@
-import {DriveItem} from '../../../driveItem';
+import {DriveItem} from '../../../models/microsoft/graph/driveItem';
 import {SpecialResponse} from './specialResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {ApplicationTemplate} from '../../applicationTemplate';
-import {InstantiateRequestBuilder} from '../instantiate/instantiateRequestBuilder';
+import {ApplicationTemplate} from '../../models/microsoft/graph/applicationTemplate';
+import {InstantiateRequestBuilder} from './instantiate/instantiateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /applicationTemplates/{applicationTemplate-id}  */

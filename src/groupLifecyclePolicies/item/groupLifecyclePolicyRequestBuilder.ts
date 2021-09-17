@@ -1,6 +1,6 @@
-import {GroupLifecyclePolicy} from '../../../groupLifecyclePolicy';
-import {AddGroupRequestBuilder} from '../addGroup/addGroupRequestBuilder';
-import {RemoveGroupRequestBuilder} from '../removeGroup/removeGroupRequestBuilder';
+import {GroupLifecyclePolicy} from '../../models/microsoft/graph/groupLifecyclePolicy';
+import {AddGroupRequestBuilder} from './addGroup/addGroupRequestBuilder';
+import {RemoveGroupRequestBuilder} from './removeGroup/removeGroupRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groupLifecyclePolicies/{groupLifecyclePolicy-id}  */

@@ -1,4 +1,4 @@
-import {TimeOffReason} from '../../../../timeOffReason';
+import {TimeOffReason} from '../../../../models/microsoft/graph/timeOffReason';
 import {TimeOffReasonsResponse} from './timeOffReasonsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

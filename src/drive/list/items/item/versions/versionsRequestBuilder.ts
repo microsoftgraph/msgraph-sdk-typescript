@@ -1,4 +1,4 @@
-import {ListItemVersion} from '../../../../../listItemVersion';
+import {ListItemVersion} from '../../../../../models/microsoft/graph/listItemVersion';
 import {VersionsResponse} from './versionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

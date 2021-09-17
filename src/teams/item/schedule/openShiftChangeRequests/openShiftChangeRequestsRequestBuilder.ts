@@ -1,4 +1,4 @@
-import {OpenShiftChangeRequest} from '../../../../openShiftChangeRequest';
+import {OpenShiftChangeRequest} from '../../../../models/microsoft/graph/openShiftChangeRequest';
 import {OpenShiftChangeRequestsResponse} from './openShiftChangeRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

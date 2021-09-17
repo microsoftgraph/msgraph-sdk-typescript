@@ -1,4 +1,4 @@
-import {KeyCredential} from '../../../keyCredential';
+import {KeyCredential} from '../../../models/microsoft/graph/keyCredential';
 import {KeyCredentialResponse} from './keyCredentialResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

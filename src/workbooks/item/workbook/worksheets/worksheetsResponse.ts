@@ -1,4 +1,4 @@
-import {WorkbookWorksheet} from '../../../../workbookWorksheet';
+import {WorkbookWorksheet} from '../../../../models/microsoft/graph/workbookWorksheet';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WorksheetsResponse implements Parsable {

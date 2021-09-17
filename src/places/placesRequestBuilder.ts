@@ -1,4 +1,4 @@
-import {Place} from './place';
+import {Place} from '../models/microsoft/graph/place';
 import {PlacesResponse} from './placesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

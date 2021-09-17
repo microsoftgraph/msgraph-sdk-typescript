@@ -1,9 +1,9 @@
-import {Notebook} from '../../../../../notebook';
-import {CopyNotebookRequestBuilder} from '../copyNotebook/copyNotebookRequestBuilder';
-import {SectionGroupRequestBuilder} from '../sectionGroups/item/item/sectionGroupRequestBuilder';
-import {SectionGroupsRequestBuilder} from '../sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from '../sections/item/item/onenoteSectionRequestBuilder';
-import {SectionsRequestBuilder} from '../sections/sectionsRequestBuilder';
+import {Notebook} from '../../../../models/microsoft/graph/notebook';
+import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuilder';
+import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
+import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
+import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
+import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/notebooks/{notebook-id}  */

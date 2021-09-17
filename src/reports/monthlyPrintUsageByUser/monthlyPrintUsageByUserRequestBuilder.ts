@@ -1,4 +1,4 @@
-import {PrintUsageByUser} from '../printUsageByUser';
+import {PrintUsageByUser} from '../../models/microsoft/graph/printUsageByUser';
 import {MonthlyPrintUsageByUserResponse} from './monthlyPrintUsageByUserResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

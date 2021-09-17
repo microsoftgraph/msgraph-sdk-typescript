@@ -1,6 +1,6 @@
-import {RemoteAssistancePartner} from '../../../remoteAssistancePartner';
-import {BeginOnboardingRequestBuilder} from '../beginOnboarding/beginOnboardingRequestBuilder';
-import {DisconnectRequestBuilder} from '../disconnect/disconnectRequestBuilder';
+import {RemoteAssistancePartner} from '../../../models/microsoft/graph/remoteAssistancePartner';
+import {BeginOnboardingRequestBuilder} from './beginOnboarding/beginOnboardingRequestBuilder';
+import {DisconnectRequestBuilder} from './disconnect/disconnectRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/remoteAssistancePartners/{remoteAssistancePartner-id}  */

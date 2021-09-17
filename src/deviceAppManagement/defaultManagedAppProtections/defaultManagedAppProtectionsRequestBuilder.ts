@@ -1,4 +1,4 @@
-import {DefaultManagedAppProtection} from '../defaultManagedAppProtection';
+import {DefaultManagedAppProtection} from '../../models/microsoft/graph/defaultManagedAppProtection';
 import {DefaultManagedAppProtectionsResponse} from './defaultManagedAppProtectionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

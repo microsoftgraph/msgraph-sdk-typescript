@@ -1,4 +1,4 @@
-import {Shift} from '../../../../shift';
+import {Shift} from '../../../../models/microsoft/graph/shift';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ShiftsResponse implements Parsable {

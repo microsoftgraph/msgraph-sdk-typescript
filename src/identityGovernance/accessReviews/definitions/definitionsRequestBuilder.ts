@@ -1,4 +1,4 @@
-import {AccessReviewScheduleDefinition} from '../../accessReviewScheduleDefinition';
+import {AccessReviewScheduleDefinition} from '../../../models/microsoft/graph/accessReviewScheduleDefinition';
 import {DefinitionsResponse} from './definitionsResponse';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

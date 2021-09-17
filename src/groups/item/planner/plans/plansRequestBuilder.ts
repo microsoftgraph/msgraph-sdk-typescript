@@ -1,4 +1,4 @@
-import {PlannerPlan} from '../../../../plannerPlan';
+import {PlannerPlan} from '../../../../models/microsoft/graph/plannerPlan';
 import {PlansResponse} from './plansResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,6 +1,6 @@
-import {ThreatAssessmentRequest} from '../../../threatAssessmentRequest';
-import {ThreatAssessmentResultRequestBuilder} from '../results/item/item/threatAssessmentResultRequestBuilder';
-import {ResultsRequestBuilder} from '../results/resultsRequestBuilder';
+import {ThreatAssessmentRequest} from '../../../models/microsoft/graph/threatAssessmentRequest';
+import {ThreatAssessmentResultRequestBuilder} from './results/item/threatAssessmentResultRequestBuilder';
+import {ResultsRequestBuilder} from './results/resultsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /informationProtection/threatAssessmentRequests/{threatAssessmentRequest-id}  */

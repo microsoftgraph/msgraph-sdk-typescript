@@ -1,4 +1,4 @@
-import {IdentityApiConnector} from '../identityApiConnector';
+import {IdentityApiConnector} from '../../models/microsoft/graph/identityApiConnector';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ApiConnectorsResponse implements Parsable {

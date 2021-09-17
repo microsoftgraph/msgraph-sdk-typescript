@@ -1,4 +1,4 @@
-import {TeamsAppInstallation} from '../../../teamsAppInstallation';
+import {TeamsAppInstallation} from '../../../models/microsoft/graph/teamsAppInstallation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class InstalledAppsResponse implements Parsable {

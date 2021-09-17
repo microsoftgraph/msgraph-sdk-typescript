@@ -1,15 +1,15 @@
-import {Onenote} from '../../../onenote';
-import {NotebookRequestBuilder} from './notebooks/item/item/notebookRequestBuilder';
+import {Onenote} from '../../../models/microsoft/graph/onenote';
+import {NotebookRequestBuilder} from './notebooks/item/notebookRequestBuilder';
 import {NotebooksRequestBuilder} from './notebooks/notebooksRequestBuilder';
-import {OnenoteOperationRequestBuilder} from './operations/item/item/onenoteOperationRequestBuilder';
+import {OnenoteOperationRequestBuilder} from './operations/item/onenoteOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {OnenotePageRequestBuilder} from './pages/item/item/onenotePageRequestBuilder';
+import {OnenotePageRequestBuilder} from './pages/item/onenotePageRequestBuilder';
 import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
-import {OnenoteResourceRequestBuilder} from './resources/item/item/onenoteResourceRequestBuilder';
+import {OnenoteResourceRequestBuilder} from './resources/item/onenoteResourceRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {SectionGroupRequestBuilder} from './sectionGroups/item/item/sectionGroupRequestBuilder';
+import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from './sections/item/item/onenoteSectionRequestBuilder';
+import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

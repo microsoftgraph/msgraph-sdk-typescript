@@ -1,4 +1,4 @@
-import {OrganizationalBrandingLocalization} from '../organizationalBrandingLocalization';
+import {OrganizationalBrandingLocalization} from '../models/microsoft/graph/organizationalBrandingLocalization';
 import {LocalizationsResponse} from './localizationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

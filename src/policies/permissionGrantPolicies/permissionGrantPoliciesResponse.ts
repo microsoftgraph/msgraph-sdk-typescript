@@ -1,4 +1,4 @@
-import {PermissionGrantPolicy} from '../permissionGrantPolicy';
+import {PermissionGrantPolicy} from '../../models/microsoft/graph/permissionGrantPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PermissionGrantPoliciesResponse implements Parsable {

@@ -1,5 +1,5 @@
+import {DirectoryRole} from '../models/microsoft/graph/directoryRole';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {DirectoryRole} from './directoryRole';
 import {DirectoryRolesResponse} from './directoryRolesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

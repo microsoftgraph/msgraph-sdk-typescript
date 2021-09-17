@@ -1,4 +1,4 @@
-import {ContentType} from '../../../contentType';
+import {ContentType} from '../../../models/microsoft/graph/contentType';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ContentTypesResponse implements Parsable {

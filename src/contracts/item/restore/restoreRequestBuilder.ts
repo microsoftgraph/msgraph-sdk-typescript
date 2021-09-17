@@ -1,4 +1,4 @@
-import {DirectoryObject} from '../../../directoryObject';
+import {DirectoryObject} from '../../../models/microsoft/graph/directoryObject';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /contracts/{contract-id}/microsoft.graph.restore  */

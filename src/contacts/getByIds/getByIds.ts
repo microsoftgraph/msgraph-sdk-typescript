@@ -1,4 +1,4 @@
-import {Entity} from '../../entity';
+import {Entity} from '../../models/microsoft/graph/entity';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GetByIds extends Entity implements Parsable {

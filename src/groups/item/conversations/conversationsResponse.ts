@@ -1,4 +1,4 @@
-import {Conversation} from '../../../conversation';
+import {Conversation} from '../../../models/microsoft/graph/conversation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConversationsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {WorkbookFunctions} from '../../../../workbookFunctions';
+import {WorkbookFunctions} from '../../../../models/microsoft/graph/workbookFunctions';
 import {AbsRequestBuilder} from './abs/absRequestBuilder';
 import {AccrIntRequestBuilder} from './accrInt/accrIntRequestBuilder';
 import {AccrIntMRequestBuilder} from './accrIntM/accrIntMRequestBuilder';

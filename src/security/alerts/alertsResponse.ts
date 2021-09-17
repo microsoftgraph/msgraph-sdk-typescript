@@ -1,4 +1,4 @@
-import {Alert} from '../alert';
+import {Alert} from '../../models/microsoft/graph/alert';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AlertsResponse implements Parsable {

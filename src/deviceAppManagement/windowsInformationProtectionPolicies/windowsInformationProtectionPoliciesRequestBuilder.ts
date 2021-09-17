@@ -1,4 +1,4 @@
-import {WindowsInformationProtectionPolicy} from '../windowsInformationProtectionPolicy';
+import {WindowsInformationProtectionPolicy} from '../../models/microsoft/graph/windowsInformationProtectionPolicy';
 import {WindowsInformationProtectionPoliciesResponse} from './windowsInformationProtectionPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

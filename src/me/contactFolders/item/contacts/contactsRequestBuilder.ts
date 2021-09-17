@@ -1,4 +1,4 @@
-import {Contact} from '../../../../contact';
+import {Contact} from '../../../../models/microsoft/graph/contact';
 import {ContactsResponse} from './contactsResponse';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {WindowsInformationProtectionNetworkLearningSummary} from '../windowsInformationProtectionNetworkLearningSummary';
+import {WindowsInformationProtectionNetworkLearningSummary} from '../../models/microsoft/graph/windowsInformationProtectionNetworkLearningSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionNetworkLearningSummariesResponse implements Parsable {

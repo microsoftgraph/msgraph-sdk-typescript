@@ -1,4 +1,4 @@
-import {OnenoteOperation} from '../../../../../../../onenoteOperation';
+import {OnenoteOperation} from '../../../../../../../models/microsoft/graph/onenoteOperation';
 import {CopyNotebookResponse} from './copyNotebookResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,10 +1,10 @@
-import {EducationUser} from '../../../educationUser';
-import {ClassesRequestBuilder} from '../classes/classesRequestBuilder';
-import {EducationRubricRequestBuilder} from '../rubrics/item/item/educationRubricRequestBuilder';
-import {RubricsRequestBuilder} from '../rubrics/rubricsRequestBuilder';
-import {SchoolsRequestBuilder} from '../schools/schoolsRequestBuilder';
-import {TaughtClassesRequestBuilder} from '../taughtClasses/taughtClassesRequestBuilder';
-import {UserRequestBuilder} from '../user/userRequestBuilder';
+import {EducationUser} from '../../../models/microsoft/graph/educationUser';
+import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
+import {EducationRubricRequestBuilder} from './rubrics/item/educationRubricRequestBuilder';
+import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
+import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
+import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
+import {UserRequestBuilder} from './user/userRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/users/{educationUser-id}  */

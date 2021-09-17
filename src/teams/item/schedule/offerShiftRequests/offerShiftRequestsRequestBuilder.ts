@@ -1,4 +1,4 @@
-import {OfferShiftRequest} from '../../../../offerShiftRequest';
+import {OfferShiftRequest} from '../../../../models/microsoft/graph/offerShiftRequest';
 import {OfferShiftRequestsResponse} from './offerShiftRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

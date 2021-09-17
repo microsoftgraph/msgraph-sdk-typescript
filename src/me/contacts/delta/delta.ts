@@ -1,10 +1,10 @@
-import {EmailAddress} from '../../../emailAddress';
-import {Extension} from '../../../extension';
-import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
-import {OutlookItem} from '../../../outlookItem';
-import {PhysicalAddress} from '../../../physicalAddress';
-import {ProfilePhoto} from '../../../profilePhoto';
-import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
+import {EmailAddress} from '../../../models/microsoft/graph/emailAddress';
+import {Extension} from '../../../models/microsoft/graph/extension';
+import {MultiValueLegacyExtendedProperty} from '../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
+import {OutlookItem} from '../../../models/microsoft/graph/outlookItem';
+import {PhysicalAddress} from '../../../models/microsoft/graph/physicalAddress';
+import {ProfilePhoto} from '../../../models/microsoft/graph/profilePhoto';
+import {SingleValueLegacyExtendedProperty} from '../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {

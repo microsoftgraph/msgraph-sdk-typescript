@@ -1,10 +1,10 @@
-import {ManagedAppRegistration} from '../../../../managedAppRegistration';
-import {AppliedPoliciesRequestBuilder} from '../appliedPolicies/appliedPoliciesRequestBuilder';
-import {ManagedAppPolicyRequestBuilder} from '../appliedPolicies/item/item/managedAppPolicyRequestBuilder';
-import {IntendedPoliciesRequestBuilder} from '../intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppPolicyRequestBuilder} from '../intendedPolicies/item/item/managedAppPolicyRequestBuilder';
-import {ManagedAppOperationRequestBuilder} from '../operations/item/item/managedAppOperationRequestBuilder';
-import {OperationsRequestBuilder} from '../operations/operationsRequestBuilder';
+import {ManagedAppRegistration} from '../../../models/microsoft/graph/managedAppRegistration';
+import {AppliedPoliciesRequestBuilder} from './appliedPolicies/appliedPoliciesRequestBuilder';
+import {ManagedAppPolicyRequestBuilder} from './appliedPolicies/item/managedAppPolicyRequestBuilder';
+import {IntendedPoliciesRequestBuilder} from './intendedPolicies/intendedPoliciesRequestBuilder';
+import {ManagedAppPolicyRequestBuilder} from './intendedPolicies/item/managedAppPolicyRequestBuilder';
+import {ManagedAppOperationRequestBuilder} from './operations/item/managedAppOperationRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedAppRegistrations/{managedAppRegistration-id}  */

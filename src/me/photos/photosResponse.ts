@@ -1,4 +1,4 @@
-import {ProfilePhoto} from '../../profilePhoto';
+import {ProfilePhoto} from '../../models/microsoft/graph/profilePhoto';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PhotosResponse implements Parsable {

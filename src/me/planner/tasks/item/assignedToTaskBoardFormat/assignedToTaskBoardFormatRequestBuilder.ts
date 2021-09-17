@@ -1,4 +1,4 @@
-import {PlannerAssignedToTaskBoardTaskFormat} from '../../../../../plannerAssignedToTaskBoardTaskFormat';
+import {PlannerAssignedToTaskBoardTaskFormat} from '../../../../../models/microsoft/graph/plannerAssignedToTaskBoardTaskFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/planner/tasks/{plannerTask-id}/assignedToTaskBoardFormat  */

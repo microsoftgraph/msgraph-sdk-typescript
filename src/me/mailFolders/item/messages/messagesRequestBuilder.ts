@@ -1,4 +1,4 @@
-import {Message} from '../../../../message';
+import {Message} from '../../../../models/microsoft/graph/message';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {MessagesResponse} from './messagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

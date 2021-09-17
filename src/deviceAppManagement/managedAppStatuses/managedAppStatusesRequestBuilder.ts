@@ -1,4 +1,4 @@
-import {ManagedAppStatus} from '../managedAppStatus';
+import {ManagedAppStatus} from '../../models/microsoft/graph/managedAppStatus';
 import {ManagedAppStatusesResponse} from './managedAppStatusesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

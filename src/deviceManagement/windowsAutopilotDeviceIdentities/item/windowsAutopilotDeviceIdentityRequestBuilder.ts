@@ -1,7 +1,7 @@
-import {WindowsAutopilotDeviceIdentity} from '../../../windowsAutopilotDeviceIdentity';
-import {AssignUserToDeviceRequestBuilder} from '../assignUserToDevice/assignUserToDeviceRequestBuilder';
-import {UnassignUserFromDeviceRequestBuilder} from '../unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
-import {UpdateDevicePropertiesRequestBuilder} from '../updateDeviceProperties/updateDevicePropertiesRequestBuilder';
+import {WindowsAutopilotDeviceIdentity} from '../../../models/microsoft/graph/windowsAutopilotDeviceIdentity';
+import {AssignUserToDeviceRequestBuilder} from './assignUserToDevice/assignUserToDeviceRequestBuilder';
+import {UnassignUserFromDeviceRequestBuilder} from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
+import {UpdateDevicePropertiesRequestBuilder} from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/windowsAutopilotDeviceIdentities/{windowsAutopilotDeviceIdentity-id}  */

@@ -1,4 +1,4 @@
-import {ResourceSpecificPermissionGrant} from '../resourceSpecificPermissionGrant';
+import {ResourceSpecificPermissionGrant} from '../models/microsoft/graph/resourceSpecificPermissionGrant';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {PermissionGrantsResponse} from './permissionGrantsResponse';

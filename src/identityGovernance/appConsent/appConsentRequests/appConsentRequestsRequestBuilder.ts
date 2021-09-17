@@ -1,4 +1,4 @@
-import {AppConsentRequest} from '../../appConsentRequest';
+import {AppConsentRequest} from '../../../models/microsoft/graph/appConsentRequest';
 import {AppConsentRequestsResponse} from './appConsentRequestsResponse';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

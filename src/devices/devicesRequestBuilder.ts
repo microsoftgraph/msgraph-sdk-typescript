@@ -1,4 +1,4 @@
-import {Device} from '../device';
+import {Device} from '../models/microsoft/graph/device';
 import {DevicesResponse} from './devicesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

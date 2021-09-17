@@ -1,4 +1,4 @@
-import {ManagedAppStatus} from '../managedAppStatus';
+import {ManagedAppStatus} from '../../models/microsoft/graph/managedAppStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppStatusesResponse implements Parsable {

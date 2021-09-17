@@ -1,6 +1,6 @@
-import {AppConsentApprovalRoute} from '../appConsentApprovalRoute';
+import {AppConsentApprovalRoute} from '../../models/microsoft/graph/appConsentApprovalRoute';
 import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
-import {AppConsentRequestRequestBuilder} from './appConsentRequests/item/item/appConsentRequestRequestBuilder';
+import {AppConsentRequestRequestBuilder} from './appConsentRequests/item/appConsentRequestRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/appConsent  */

@@ -1,4 +1,4 @@
-import {CalendarPermission} from '../../../calendarPermission';
+import {CalendarPermission} from '../../../models/microsoft/graph/calendarPermission';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CalendarPermissionsResponse implements Parsable {

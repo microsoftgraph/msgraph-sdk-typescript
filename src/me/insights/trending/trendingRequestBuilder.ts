@@ -1,4 +1,4 @@
-import {Trending} from '../../../trending';
+import {Trending} from '../../../models/microsoft/graph/trending';
 import {TrendingResponse} from './trendingResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

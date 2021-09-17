@@ -1,4 +1,4 @@
-import {NotificationMessageTemplate} from '../notificationMessageTemplate';
+import {NotificationMessageTemplate} from '../../models/microsoft/graph/notificationMessageTemplate';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class NotificationMessageTemplatesResponse implements Parsable {

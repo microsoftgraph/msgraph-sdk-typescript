@@ -1,4 +1,4 @@
-import {CertificateBasedAuthConfiguration} from '../certificateBasedAuthConfiguration';
+import {CertificateBasedAuthConfiguration} from '../models/microsoft/graph/certificateBasedAuthConfiguration';
 import {CertificateBasedAuthConfigurationResponse} from './certificateBasedAuthConfigurationResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

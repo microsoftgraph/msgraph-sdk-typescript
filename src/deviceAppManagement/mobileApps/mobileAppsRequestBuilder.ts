@@ -1,4 +1,4 @@
-import {MobileApp} from '../mobileApp';
+import {MobileApp} from '../../models/microsoft/graph/mobileApp';
 import {MobileAppsResponse} from './mobileAppsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

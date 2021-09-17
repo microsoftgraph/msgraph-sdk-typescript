@@ -1,4 +1,4 @@
-import {ProvisioningObjectSummary} from '../../../provisioningObjectSummary';
+import {ProvisioningObjectSummary} from '../../../models/microsoft/graph/provisioningObjectSummary';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /auditLogs/provisioning/{provisioningObjectSummary-id}  */

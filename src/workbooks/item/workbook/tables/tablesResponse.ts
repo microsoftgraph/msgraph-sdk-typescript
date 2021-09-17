@@ -1,4 +1,4 @@
-import {WorkbookTable} from '../../../../workbookTable';
+import {WorkbookTable} from '../../../../models/microsoft/graph/workbookTable';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TablesResponse implements Parsable {

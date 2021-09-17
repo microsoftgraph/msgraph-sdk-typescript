@@ -1,4 +1,4 @@
-import {WindowsInformationProtectionAppLearningSummary} from '../windowsInformationProtectionAppLearningSummary';
+import {WindowsInformationProtectionAppLearningSummary} from '../../models/microsoft/graph/windowsInformationProtectionAppLearningSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionAppLearningSummariesResponse implements Parsable {

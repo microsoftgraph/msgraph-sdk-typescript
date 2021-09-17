@@ -1,9 +1,9 @@
-import {Printer} from '../../../printer';
-import {ConnectorsRequestBuilder} from '../connectors/connectorsRequestBuilder';
-import {RestoreFactoryDefaultsRequestBuilder} from '../restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
-import {SharesRequestBuilder} from '../shares/sharesRequestBuilder';
-import {PrintTaskTriggerRequestBuilder} from '../taskTriggers/item/item/printTaskTriggerRequestBuilder';
-import {TaskTriggersRequestBuilder} from '../taskTriggers/taskTriggersRequestBuilder';
+import {Printer} from '../../../models/microsoft/graph/printer';
+import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
+import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
+import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
+import {PrintTaskTriggerRequestBuilder} from './taskTriggers/item/printTaskTriggerRequestBuilder';
+import {TaskTriggersRequestBuilder} from './taskTriggers/taskTriggersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/printers/{printer-id}  */

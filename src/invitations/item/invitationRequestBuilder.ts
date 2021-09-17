@@ -1,5 +1,5 @@
-import {Invitation} from '../../invitation';
-import {InvitedUserRequestBuilder} from '../invitedUser/invitedUserRequestBuilder';
+import {Invitation} from '../../models/microsoft/graph/invitation';
+import {InvitedUserRequestBuilder} from './invitedUser/invitedUserRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /invitations/{invitation-id}  */

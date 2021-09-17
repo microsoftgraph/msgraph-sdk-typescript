@@ -1,4 +1,4 @@
-import {FeatureRolloutPolicy} from '../featureRolloutPolicy';
+import {FeatureRolloutPolicy} from '../../models/microsoft/graph/featureRolloutPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class FeatureRolloutPoliciesResponse implements Parsable {

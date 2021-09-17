@@ -1,4 +1,4 @@
-import {ManagedEBook} from '../managedEBook';
+import {ManagedEBook} from '../../models/microsoft/graph/managedEBook';
 import {ManagedEBooksResponse} from './managedEBooksResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

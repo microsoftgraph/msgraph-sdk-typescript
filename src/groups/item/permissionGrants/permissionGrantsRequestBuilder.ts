@@ -1,4 +1,4 @@
-import {ResourceSpecificPermissionGrant} from '../../../resourceSpecificPermissionGrant';
+import {ResourceSpecificPermissionGrant} from '../../../models/microsoft/graph/resourceSpecificPermissionGrant';
 import {PermissionGrantsResponse} from './permissionGrantsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

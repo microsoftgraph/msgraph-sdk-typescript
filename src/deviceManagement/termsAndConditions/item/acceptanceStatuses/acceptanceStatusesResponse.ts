@@ -1,4 +1,4 @@
-import {TermsAndConditionsAcceptanceStatus} from '../../../termsAndConditionsAcceptanceStatus';
+import {TermsAndConditionsAcceptanceStatus} from '../../../../models/microsoft/graph/termsAndConditionsAcceptanceStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AcceptanceStatusesResponse implements Parsable {

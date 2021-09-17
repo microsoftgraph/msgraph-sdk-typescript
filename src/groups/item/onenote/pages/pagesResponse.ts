@@ -1,4 +1,4 @@
-import {OnenotePage} from '../../../../onenotePage';
+import {OnenotePage} from '../../../../models/microsoft/graph/onenotePage';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PagesResponse implements Parsable {

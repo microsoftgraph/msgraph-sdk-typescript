@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicy} from '../deviceCompliancePolicy';
+import {DeviceCompliancePolicy} from '../../models/microsoft/graph/deviceCompliancePolicy';
 import {DeviceCompliancePoliciesResponse} from './deviceCompliancePoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

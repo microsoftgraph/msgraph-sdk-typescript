@@ -1,12 +1,12 @@
+import {CloudCommunications} from '../models/microsoft/graph/cloudCommunications';
 import {CallRecordsRequestBuilder} from './callRecords/callRecordsRequestBuilder';
-import {CallRecordRequestBuilder} from './callRecords/item/item/callRecordRequestBuilder';
+import {CallRecordRequestBuilder} from './callRecords/item/callRecordRequestBuilder';
 import {CallsRequestBuilder} from './calls/callsRequestBuilder';
-import {CallRequestBuilder} from './calls/item/item/callRequestBuilder';
-import {CloudCommunications} from './cloudCommunications';
+import {CallRequestBuilder} from './calls/item/callRequestBuilder';
 import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
-import {OnlineMeetingRequestBuilder} from './onlineMeetings/item/item/onlineMeetingRequestBuilder';
+import {OnlineMeetingRequestBuilder} from './onlineMeetings/item/onlineMeetingRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
-import {PresenceRequestBuilder} from './presences/item/item/presenceRequestBuilder';
+import {PresenceRequestBuilder} from './presences/item/presenceRequestBuilder';
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

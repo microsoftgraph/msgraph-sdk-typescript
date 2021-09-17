@@ -1,4 +1,4 @@
-import {ManagedDeviceMobileAppConfiguration} from '../managedDeviceMobileAppConfiguration';
+import {ManagedDeviceMobileAppConfiguration} from '../../models/microsoft/graph/managedDeviceMobileAppConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileAppConfigurationsResponse implements Parsable {

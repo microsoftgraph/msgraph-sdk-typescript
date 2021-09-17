@@ -1,4 +1,4 @@
-import {DefaultManagedAppProtection} from '../defaultManagedAppProtection';
+import {DefaultManagedAppProtection} from '../../models/microsoft/graph/defaultManagedAppProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DefaultManagedAppProtectionsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {SettingStateDeviceSummary} from '../../../settingStateDeviceSummary';
+import {SettingStateDeviceSummary} from '../../../../models/microsoft/graph/settingStateDeviceSummary';
 import {DeviceSettingStateSummariesResponse} from './deviceSettingStateSummariesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

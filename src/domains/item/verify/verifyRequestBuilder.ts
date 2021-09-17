@@ -1,4 +1,4 @@
-import {Domain} from '../../domain';
+import {Domain} from '../../../models/microsoft/graph/domain';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /domains/{domain-id}/microsoft.graph.verify  */

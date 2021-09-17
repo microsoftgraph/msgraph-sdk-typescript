@@ -1,4 +1,4 @@
-import {DetectedApp} from '../detectedApp';
+import {DetectedApp} from '../../models/microsoft/graph/detectedApp';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DetectedAppsResponse implements Parsable {

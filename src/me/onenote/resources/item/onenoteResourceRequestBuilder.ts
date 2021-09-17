@@ -1,5 +1,5 @@
-import {OnenoteResource} from '../../../../../onenoteResource';
-import {ContentRequestBuilder} from '../content/contentRequestBuilder';
+import {OnenoteResource} from '../../../../models/microsoft/graph/onenoteResource';
+import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/resources/{onenoteResource-id}  */

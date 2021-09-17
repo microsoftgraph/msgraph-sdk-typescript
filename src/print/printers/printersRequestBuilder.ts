@@ -1,4 +1,4 @@
-import {Printer} from '../printer';
+import {Printer} from '../../models/microsoft/graph/printer';
 import {CreateRequestBuilder} from './create/createRequestBuilder';
 import {PrintersResponse} from './printersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

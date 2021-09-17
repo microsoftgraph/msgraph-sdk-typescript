@@ -1,4 +1,4 @@
-import {Permission} from '../../../permission';
+import {Permission} from '../../../models/microsoft/graph/permission';
 import {GrantRequestBuilder} from './grant/grantRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {IosUpdateDeviceStatus} from '../iosUpdateDeviceStatus';
+import {IosUpdateDeviceStatus} from '../../models/microsoft/graph/iosUpdateDeviceStatus';
 import {IosUpdateStatusesResponse} from './iosUpdateStatusesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

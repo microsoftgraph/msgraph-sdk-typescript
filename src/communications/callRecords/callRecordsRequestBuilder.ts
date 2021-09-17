@@ -1,4 +1,4 @@
-import {CallRecord} from '../callRecord';
+import {CallRecord} from '../../models/microsoft/graph/callRecords/callRecord';
 import {CallRecordsResponse} from './callRecordsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

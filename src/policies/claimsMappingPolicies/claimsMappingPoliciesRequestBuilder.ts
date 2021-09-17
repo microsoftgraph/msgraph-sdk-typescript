@@ -1,4 +1,4 @@
-import {ClaimsMappingPolicy} from '../../claimsMappingPolicy';
+import {ClaimsMappingPolicy} from '../../models/microsoft/graph/claimsMappingPolicy';
 import {ClaimsMappingPoliciesResponse} from './claimsMappingPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

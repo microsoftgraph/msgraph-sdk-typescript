@@ -1,5 +1,5 @@
-import {MediaConfig} from '../../../mediaConfig';
-import {Modality} from '../../../modality';
+import {MediaConfig} from '../../../../models/microsoft/graph/mediaConfig';
+import {Modality} from '../../../../models/microsoft/graph/modality';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AnswerResponse implements Parsable {

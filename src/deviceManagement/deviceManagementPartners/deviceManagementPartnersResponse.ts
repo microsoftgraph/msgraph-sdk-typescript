@@ -1,4 +1,4 @@
-import {DeviceManagementPartner} from '../deviceManagementPartner';
+import {DeviceManagementPartner} from '../../models/microsoft/graph/deviceManagementPartner';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementPartnersResponse implements Parsable {

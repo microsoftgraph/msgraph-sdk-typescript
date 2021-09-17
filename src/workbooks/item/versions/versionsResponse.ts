@@ -1,4 +1,4 @@
-import {DriveItemVersion} from '../../../driveItemVersion';
+import {DriveItemVersion} from '../../../models/microsoft/graph/driveItemVersion';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class VersionsResponse implements Parsable {

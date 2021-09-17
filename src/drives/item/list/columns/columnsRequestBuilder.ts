@@ -1,4 +1,4 @@
-import {ColumnDefinition} from '../../../../columnDefinition';
+import {ColumnDefinition} from '../../../../models/microsoft/graph/columnDefinition';
 import {ColumnsResponse} from './columnsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

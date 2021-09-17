@@ -1,5 +1,5 @@
-import {Trending} from '../../../../../trending';
-import {ResourceRequestBuilder} from '../resource/resourceRequestBuilder';
+import {Trending} from '../../../../models/microsoft/graph/trending';
+import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/trending/{trending-id}  */

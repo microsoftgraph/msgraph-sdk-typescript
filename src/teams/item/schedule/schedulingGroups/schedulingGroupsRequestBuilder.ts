@@ -1,4 +1,4 @@
-import {SchedulingGroup} from '../../../../schedulingGroup';
+import {SchedulingGroup} from '../../../../models/microsoft/graph/schedulingGroup';
 import {SchedulingGroupsResponse} from './schedulingGroupsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

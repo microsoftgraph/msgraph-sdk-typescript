@@ -1,9 +1,9 @@
-import {Entity} from '../../../entity';
-import {MailFolder} from '../../../mailFolder';
-import {Message} from '../../../message';
-import {MessageRule} from '../../../messageRule';
-import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from '../../../singleValueLegacyExtendedProperty';
+import {Entity} from '../../../models/microsoft/graph/entity';
+import {MailFolder} from '../../../models/microsoft/graph/mailFolder';
+import {Message} from '../../../models/microsoft/graph/message';
+import {MessageRule} from '../../../models/microsoft/graph/messageRule';
+import {MultiValueLegacyExtendedProperty} from '../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
+import {SingleValueLegacyExtendedProperty} from '../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends Entity implements Parsable {

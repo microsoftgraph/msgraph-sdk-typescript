@@ -1,4 +1,4 @@
-import {B2xIdentityUserFlow} from '../b2xIdentityUserFlow';
+import {B2xIdentityUserFlow} from '../../models/microsoft/graph/b2xIdentityUserFlow';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class B2xUserFlowsResponse implements Parsable {

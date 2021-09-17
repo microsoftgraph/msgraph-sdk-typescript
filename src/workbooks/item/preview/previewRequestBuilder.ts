@@ -1,4 +1,4 @@
-import {ItemPreviewInfo} from './itemPreviewInfo';
+import {ItemPreviewInfo} from '../../../models/microsoft/graph/itemPreviewInfo';
 import {PreviewResponse} from './previewResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

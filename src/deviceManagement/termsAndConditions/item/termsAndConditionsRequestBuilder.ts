@@ -1,8 +1,8 @@
-import {TermsAndConditions} from '../../../termsAndConditions';
-import {AcceptanceStatusesRequestBuilder} from '../acceptanceStatuses/acceptanceStatusesRequestBuilder';
-import {TermsAndConditionsAcceptanceStatusRequestBuilder} from '../acceptanceStatuses/item/item/termsAndConditionsAcceptanceStatusRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {TermsAndConditionsAssignmentRequestBuilder} from '../assignments/item/item/termsAndConditionsAssignmentRequestBuilder';
+import {TermsAndConditions} from '../../../models/microsoft/graph/termsAndConditions';
+import {AcceptanceStatusesRequestBuilder} from './acceptanceStatuses/acceptanceStatusesRequestBuilder';
+import {TermsAndConditionsAcceptanceStatusRequestBuilder} from './acceptanceStatuses/item/termsAndConditionsAcceptanceStatusRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {TermsAndConditionsAssignmentRequestBuilder} from './assignments/item/termsAndConditionsAssignmentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/termsAndConditions/{termsAndConditions-id}  */

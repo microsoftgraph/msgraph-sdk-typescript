@@ -1,4 +1,4 @@
-import {Subscription} from '../../../../subscription';
+import {Subscription} from '../../../../models/microsoft/graph/subscription';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SubscriptionsResponse implements Parsable {

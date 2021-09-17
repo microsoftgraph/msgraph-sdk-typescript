@@ -1,14 +1,14 @@
-import {Attachment} from '../../../../../attachment';
-import {Extension} from '../../../../../extension';
-import {FollowupFlag} from '../../../../../followupFlag';
-import {Importance} from '../../../../../importance';
-import {InferenceClassificationType} from '../../../../../inferenceClassificationType';
-import {InternetMessageHeader} from '../../../../../internetMessageHeader';
-import {ItemBody} from '../../../../../itemBody';
-import {MultiValueLegacyExtendedProperty} from '../../../../../multiValueLegacyExtendedProperty';
-import {OutlookItem} from '../../../../../outlookItem';
-import {Recipient} from '../../../../../recipient';
-import {SingleValueLegacyExtendedProperty} from '../../../../../singleValueLegacyExtendedProperty';
+import {Attachment} from '../../../../../models/microsoft/graph/attachment';
+import {Extension} from '../../../../../models/microsoft/graph/extension';
+import {FollowupFlag} from '../../../../../models/microsoft/graph/followupFlag';
+import {Importance} from '../../../../../models/microsoft/graph/importance';
+import {InferenceClassificationType} from '../../../../../models/microsoft/graph/inferenceClassificationType';
+import {InternetMessageHeader} from '../../../../../models/microsoft/graph/internetMessageHeader';
+import {ItemBody} from '../../../../../models/microsoft/graph/itemBody';
+import {MultiValueLegacyExtendedProperty} from '../../../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
+import {OutlookItem} from '../../../../../models/microsoft/graph/outlookItem';
+import {Recipient} from '../../../../../models/microsoft/graph/recipient';
+import {SingleValueLegacyExtendedProperty} from '../../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {

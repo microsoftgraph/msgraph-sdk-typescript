@@ -1,4 +1,4 @@
-import {DeviceComplianceDeviceStatus} from '../../../deviceComplianceDeviceStatus';
+import {DeviceComplianceDeviceStatus} from '../../../../models/microsoft/graph/deviceComplianceDeviceStatus';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceStatusesResponse implements Parsable {

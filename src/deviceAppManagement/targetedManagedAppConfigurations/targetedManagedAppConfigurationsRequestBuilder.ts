@@ -1,4 +1,4 @@
-import {TargetedManagedAppConfiguration} from '../targetedManagedAppConfiguration';
+import {TargetedManagedAppConfiguration} from '../../models/microsoft/graph/targetedManagedAppConfiguration';
 import {TargetedManagedAppConfigurationsResponse} from './targetedManagedAppConfigurationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

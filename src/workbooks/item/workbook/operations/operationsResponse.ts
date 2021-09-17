@@ -1,4 +1,4 @@
-import {WorkbookOperation} from '../../../../workbookOperation';
+import {WorkbookOperation} from '../../../../models/microsoft/graph/workbookOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OperationsResponse implements Parsable {

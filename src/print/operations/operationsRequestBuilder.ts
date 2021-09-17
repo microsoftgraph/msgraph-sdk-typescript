@@ -1,4 +1,4 @@
-import {PrintOperation} from '../printOperation';
+import {PrintOperation} from '../../models/microsoft/graph/printOperation';
 import {OperationsResponse} from './operationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

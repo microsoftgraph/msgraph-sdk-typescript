@@ -1,4 +1,4 @@
-import {AndroidManagedAppProtection} from '../androidManagedAppProtection';
+import {AndroidManagedAppProtection} from '../../models/microsoft/graph/androidManagedAppProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AndroidManagedAppProtectionsResponse implements Parsable {

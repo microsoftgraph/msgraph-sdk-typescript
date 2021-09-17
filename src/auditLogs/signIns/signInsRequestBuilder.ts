@@ -1,4 +1,4 @@
-import {SignIn} from '../signIn';
+import {SignIn} from '../../models/microsoft/graph/signIn';
 import {SignInsResponse} from './signInsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

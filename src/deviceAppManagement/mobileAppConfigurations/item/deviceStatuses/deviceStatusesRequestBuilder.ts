@@ -1,4 +1,4 @@
-import {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../managedDeviceMobileAppConfigurationDeviceStatus';
+import {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../models/microsoft/graph/managedDeviceMobileAppConfigurationDeviceStatus';
 import {DeviceStatusesResponse} from './deviceStatusesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

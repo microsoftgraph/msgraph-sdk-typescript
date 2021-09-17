@@ -1,4 +1,4 @@
-import {HomeRealmDiscoveryPolicy} from '../../../homeRealmDiscoveryPolicy';
+import {HomeRealmDiscoveryPolicy} from '../../../models/microsoft/graph/homeRealmDiscoveryPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class HomeRealmDiscoveryPoliciesResponse implements Parsable {

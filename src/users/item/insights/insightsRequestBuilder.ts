@@ -1,8 +1,8 @@
-import {OfficeGraphInsights} from '../../../officeGraphInsights';
-import {SharedInsightRequestBuilder} from './shared/item/item/sharedInsightRequestBuilder';
+import {OfficeGraphInsights} from '../../../models/microsoft/graph/officeGraphInsights';
+import {SharedInsightRequestBuilder} from './shared/item/sharedInsightRequestBuilder';
 import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
-import {UsedInsightRequestBuilder} from './used/item/item/usedInsightRequestBuilder';
+import {UsedInsightRequestBuilder} from './used/item/usedInsightRequestBuilder';
 import {UsedRequestBuilder} from './used/usedRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

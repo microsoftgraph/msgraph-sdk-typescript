@@ -1,4 +1,4 @@
-import {ComplianceManagementPartner} from '../complianceManagementPartner';
+import {ComplianceManagementPartner} from '../../models/microsoft/graph/complianceManagementPartner';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ComplianceManagementPartnersResponse implements Parsable {

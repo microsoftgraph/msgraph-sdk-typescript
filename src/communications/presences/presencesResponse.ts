@@ -1,4 +1,4 @@
-import {Presence} from '../../presence';
+import {Presence} from '../../models/microsoft/graph/presence';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PresencesResponse implements Parsable {

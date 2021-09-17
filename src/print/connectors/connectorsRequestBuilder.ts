@@ -1,4 +1,4 @@
-import {PrintConnector} from '../printConnector';
+import {PrintConnector} from '../../models/microsoft/graph/printConnector';
 import {ConnectorsResponse} from './connectorsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {WorkbookNamedItem} from '../../../../workbookNamedItem';
+import {WorkbookNamedItem} from '../../../../models/microsoft/graph/workbookNamedItem';
 import {AddRequestBuilder} from './add/addRequestBuilder';
 import {AddFormulaLocalRequestBuilder} from './addFormulaLocal/addFormulaLocalRequestBuilder';
 import {NamesResponse} from './namesResponse';

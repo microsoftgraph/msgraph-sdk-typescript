@@ -1,4 +1,4 @@
-import {ResourceOperation} from '../resourceOperation';
+import {ResourceOperation} from '../../models/microsoft/graph/resourceOperation';
 import {ResourceOperationsResponse} from './resourceOperationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

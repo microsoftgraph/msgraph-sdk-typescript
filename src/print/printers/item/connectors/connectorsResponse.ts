@@ -1,4 +1,4 @@
-import {PrintConnector} from '../../../printConnector';
+import {PrintConnector} from '../../../../models/microsoft/graph/printConnector';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConnectorsResponse implements Parsable {

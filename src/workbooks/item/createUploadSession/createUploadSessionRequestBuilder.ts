@@ -1,5 +1,5 @@
+import {UploadSession} from '../../../models/microsoft/graph/uploadSession';
 import {CreateUploadSessionResponse} from './createUploadSessionResponse';
-import {UploadSession} from './uploadSession';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.createUploadSession  */

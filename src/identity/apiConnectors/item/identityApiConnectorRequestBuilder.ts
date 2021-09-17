@@ -1,5 +1,5 @@
-import {IdentityApiConnector} from '../../../identityApiConnector';
-import {UploadClientCertificateRequestBuilder} from '../uploadClientCertificate/uploadClientCertificateRequestBuilder';
+import {IdentityApiConnector} from '../../../models/microsoft/graph/identityApiConnector';
+import {UploadClientCertificateRequestBuilder} from './uploadClientCertificate/uploadClientCertificateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identity/apiConnectors/{identityApiConnector-id}  */

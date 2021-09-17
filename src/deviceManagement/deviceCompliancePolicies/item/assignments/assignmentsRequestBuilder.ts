@@ -1,4 +1,4 @@
-import {DeviceCompliancePolicyAssignment} from '../../../deviceCompliancePolicyAssignment';
+import {DeviceCompliancePolicyAssignment} from '../../../../models/microsoft/graph/deviceCompliancePolicyAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

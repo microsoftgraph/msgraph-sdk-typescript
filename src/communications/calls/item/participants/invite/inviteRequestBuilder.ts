@@ -1,4 +1,4 @@
-import {InviteParticipantsOperation} from './inviteParticipantsOperation';
+import {InviteParticipantsOperation} from '../../../../../models/microsoft/graph/inviteParticipantsOperation';
 import {InviteResponse} from './inviteResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

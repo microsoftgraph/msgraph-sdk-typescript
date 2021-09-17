@@ -1,4 +1,4 @@
-import {Presence} from '../../presence';
+import {Presence} from '../../models/microsoft/graph/presence';
 import {PresencesResponse} from './presencesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

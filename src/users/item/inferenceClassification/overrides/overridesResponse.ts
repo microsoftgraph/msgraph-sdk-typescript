@@ -1,4 +1,4 @@
-import {InferenceClassificationOverride} from '../../../../inferenceClassificationOverride';
+import {InferenceClassificationOverride} from '../../../../models/microsoft/graph/inferenceClassificationOverride';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OverridesResponse implements Parsable {

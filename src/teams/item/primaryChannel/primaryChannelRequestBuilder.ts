@@ -1,11 +1,11 @@
-import {Channel} from '../../../channel';
+import {Channel} from '../../../models/microsoft/graph/channel';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
-import {ConversationMemberRequestBuilder} from './members/item/item/conversationMemberRequestBuilder';
+import {ConversationMemberRequestBuilder} from './members/item/conversationMemberRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {ChatMessageRequestBuilder} from './messages/item/item/chatMessageRequestBuilder';
+import {ChatMessageRequestBuilder} from './messages/item/chatMessageRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {TeamsTabRequestBuilder} from './tabs/item/item/teamsTabRequestBuilder';
+import {TeamsTabRequestBuilder} from './tabs/item/teamsTabRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

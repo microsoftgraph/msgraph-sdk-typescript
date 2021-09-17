@@ -1,4 +1,4 @@
-import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
+import {SingleValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {SingleValueExtendedPropertiesResponse} from './singleValueExtendedPropertiesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

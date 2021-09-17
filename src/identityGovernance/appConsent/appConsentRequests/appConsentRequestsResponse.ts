@@ -1,4 +1,4 @@
-import {AppConsentRequest} from '../../appConsentRequest';
+import {AppConsentRequest} from '../../../models/microsoft/graph/appConsentRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AppConsentRequestsResponse implements Parsable {

@@ -1,7 +1,7 @@
+import {IdentityGovernance} from '../models/microsoft/graph/identityGovernance';
 import {AccessReviewsRequestBuilder} from './accessReviews/accessReviewsRequestBuilder';
 import {AppConsentRequestBuilder} from './appConsent/appConsentRequestBuilder';
 import {EntitlementManagementRequestBuilder} from './entitlementManagement/entitlementManagementRequestBuilder';
-import {IdentityGovernance} from './identityGovernance';
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

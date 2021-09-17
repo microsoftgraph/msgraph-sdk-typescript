@@ -1,4 +1,4 @@
-import {NamedLocation} from '../../../../namedLocation';
+import {NamedLocation} from '../../../../models/microsoft/graph/namedLocation';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identity/conditionalAccess/namedLocations/{namedLocation-id}  */

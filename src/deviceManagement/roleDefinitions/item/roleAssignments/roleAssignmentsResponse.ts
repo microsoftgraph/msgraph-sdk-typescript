@@ -1,4 +1,4 @@
-import {RoleAssignment} from '../../../roleAssignment';
+import {RoleAssignment} from '../../../../models/microsoft/graph/roleAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RoleAssignmentsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {PrintTaskTrigger} from '../../../printTaskTrigger';
+import {PrintTaskTrigger} from '../../../../models/microsoft/graph/printTaskTrigger';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TaskTriggersResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {PrintOperation} from '../printOperation';
+import {PrintOperation} from '../../models/microsoft/graph/printOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OperationsResponse implements Parsable {

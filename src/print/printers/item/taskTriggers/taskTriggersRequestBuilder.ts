@@ -1,4 +1,4 @@
-import {PrintTaskTrigger} from '../../../printTaskTrigger';
+import {PrintTaskTrigger} from '../../../../models/microsoft/graph/printTaskTrigger';
 import {TaskTriggersResponse} from './taskTriggersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

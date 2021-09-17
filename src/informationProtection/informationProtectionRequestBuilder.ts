@@ -1,5 +1,5 @@
-import {InformationProtection} from './informationProtection';
-import {ThreatAssessmentRequestRequestBuilder} from './threatAssessmentRequests/item/item/threatAssessmentRequestRequestBuilder';
+import {InformationProtection} from '../models/microsoft/graph/informationProtection';
+import {ThreatAssessmentRequestRequestBuilder} from './threatAssessmentRequests/item/threatAssessmentRequestRequestBuilder';
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

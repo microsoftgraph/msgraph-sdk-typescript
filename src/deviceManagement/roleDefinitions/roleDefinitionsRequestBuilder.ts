@@ -1,4 +1,4 @@
-import {RoleDefinition} from '../roleDefinition';
+import {RoleDefinition} from '../../models/microsoft/graph/roleDefinition';
 import {RoleDefinitionsResponse} from './roleDefinitionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

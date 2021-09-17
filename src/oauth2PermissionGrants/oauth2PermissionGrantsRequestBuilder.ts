@@ -1,4 +1,4 @@
-import {OAuth2PermissionGrant} from '../oAuth2PermissionGrant';
+import {OAuth2PermissionGrant} from '../models/microsoft/graph/oAuth2PermissionGrant';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {Oauth2PermissionGrantsResponse} from './oauth2PermissionGrantsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

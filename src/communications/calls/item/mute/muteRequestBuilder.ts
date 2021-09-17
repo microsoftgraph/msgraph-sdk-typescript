@@ -1,4 +1,4 @@
-import {MuteParticipantOperation} from './muteParticipantOperation';
+import {MuteParticipantOperation} from '../../../../models/microsoft/graph/muteParticipantOperation';
 import {MuteResponse} from './muteResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

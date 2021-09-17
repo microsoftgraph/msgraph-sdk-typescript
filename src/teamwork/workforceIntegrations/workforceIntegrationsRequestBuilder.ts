@@ -1,4 +1,4 @@
-import {WorkforceIntegration} from '../workforceIntegration';
+import {WorkforceIntegration} from '../../models/microsoft/graph/workforceIntegration';
 import {WorkforceIntegrationsResponse} from './workforceIntegrationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

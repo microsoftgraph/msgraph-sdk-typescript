@@ -1,15 +1,15 @@
+import {Print} from '../models/microsoft/graph/print';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {PrintConnectorRequestBuilder} from './connectors/item/item/printConnectorRequestBuilder';
-import {PrintOperationRequestBuilder} from './operations/item/item/printOperationRequestBuilder';
+import {PrintConnectorRequestBuilder} from './connectors/item/printConnectorRequestBuilder';
+import {PrintOperationRequestBuilder} from './operations/item/printOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {Print} from './print';
-import {PrinterRequestBuilder} from './printers/item/item/printerRequestBuilder';
+import {PrinterRequestBuilder} from './printers/item/printerRequestBuilder';
 import {PrintersRequestBuilder} from './printers/printersRequestBuilder';
-import {PrintServiceRequestBuilder} from './services/item/item/printServiceRequestBuilder';
+import {PrintServiceRequestBuilder} from './services/item/printServiceRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
-import {PrinterShareRequestBuilder} from './shares/item/item/printerShareRequestBuilder';
+import {PrinterShareRequestBuilder} from './shares/item/printerShareRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {PrintTaskDefinitionRequestBuilder} from './taskDefinitions/item/item/printTaskDefinitionRequestBuilder';
+import {PrintTaskDefinitionRequestBuilder} from './taskDefinitions/item/printTaskDefinitionRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

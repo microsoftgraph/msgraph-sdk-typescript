@@ -1,4 +1,4 @@
-import {Contact} from '../../../../contact';
+import {Contact} from '../../../../models/microsoft/graph/contact';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ContactsResponse implements Parsable {

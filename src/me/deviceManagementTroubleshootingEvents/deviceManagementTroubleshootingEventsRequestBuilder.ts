@@ -1,4 +1,4 @@
-import {DeviceManagementTroubleshootingEvent} from '../../deviceManagementTroubleshootingEvent';
+import {DeviceManagementTroubleshootingEvent} from '../../models/microsoft/graph/deviceManagementTroubleshootingEvent';
 import {DeviceManagementTroubleshootingEventsResponse} from './deviceManagementTroubleshootingEventsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

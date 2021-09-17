@@ -1,4 +1,4 @@
-import {WindowsHelloForBusinessAuthenticationMethod} from '../../../../windowsHelloForBusinessAuthenticationMethod';
+import {WindowsHelloForBusinessAuthenticationMethod} from '../../../../models/microsoft/graph/windowsHelloForBusinessAuthenticationMethod';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class WindowsHelloForBusinessMethodsResponse implements Parsable {

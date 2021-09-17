@@ -1,4 +1,4 @@
-import {ApprovalStage} from '../../../../approvalStage';
+import {ApprovalStage} from '../../../../../models/microsoft/graph/approvalStage';
 import {StagesResponse} from './stagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

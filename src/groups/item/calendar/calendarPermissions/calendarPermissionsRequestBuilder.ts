@@ -1,4 +1,4 @@
-import {CalendarPermission} from '../../../../calendarPermission';
+import {CalendarPermission} from '../../../../models/microsoft/graph/calendarPermission';
 import {CalendarPermissionsResponse} from './calendarPermissionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

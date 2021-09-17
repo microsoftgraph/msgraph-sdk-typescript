@@ -1,4 +1,4 @@
-import {ExternalConnection} from '../../externalConnection';
+import {ExternalConnection} from '../../models/microsoft/graph/externalConnectors/externalConnection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConnectionsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {WorkbookNamedItem} from '../../../../../workbookNamedItem';
+import {WorkbookNamedItem} from '../../../../../models/microsoft/graph/workbookNamedItem';
 import {AddFormulaLocalResponse} from './addFormulaLocalResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

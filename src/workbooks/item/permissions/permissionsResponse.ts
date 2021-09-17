@@ -1,4 +1,4 @@
-import {Permission} from '../../../permission';
+import {Permission} from '../../../models/microsoft/graph/permission';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PermissionsResponse implements Parsable {

@@ -1,6 +1,6 @@
-import {PrintService} from '../../../printService';
-import {EndpointsRequestBuilder} from '../endpoints/endpointsRequestBuilder';
-import {PrintServiceEndpointRequestBuilder} from '../endpoints/item/item/printServiceEndpointRequestBuilder';
+import {PrintService} from '../../../models/microsoft/graph/printService';
+import {EndpointsRequestBuilder} from './endpoints/endpointsRequestBuilder';
+import {PrintServiceEndpointRequestBuilder} from './endpoints/item/printServiceEndpointRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/services/{printService-id}  */

@@ -1,11 +1,11 @@
+import {Education} from '../models/microsoft/graph/education';
+import {EducationRoot} from '../models/microsoft/graph/educationRoot';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassRequestBuilder} from './classes/item/item/educationClassRequestBuilder';
-import {Education} from './education';
-import {EducationRoot} from './educationRoot';
+import {EducationClassRequestBuilder} from './classes/item/educationClassRequestBuilder';
 import {MeRequestBuilder} from './me/meRequestBuilder';
-import {EducationSchoolRequestBuilder} from './schools/item/item/educationSchoolRequestBuilder';
+import {EducationSchoolRequestBuilder} from './schools/item/educationSchoolRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationUserRequestBuilder} from './users/item/item/educationUserRequestBuilder';
+import {EducationUserRequestBuilder} from './users/item/educationUserRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

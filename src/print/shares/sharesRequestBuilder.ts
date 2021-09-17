@@ -1,4 +1,4 @@
-import {PrinterShare} from '../printerShare';
+import {PrinterShare} from '../../models/microsoft/graph/printerShare';
 import {SharesResponse} from './sharesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

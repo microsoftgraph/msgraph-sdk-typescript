@@ -1,4 +1,4 @@
-import {GroupLifecyclePolicy} from '../groupLifecyclePolicy';
+import {GroupLifecyclePolicy} from '../models/microsoft/graph/groupLifecyclePolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class GroupLifecyclePoliciesResponse implements Parsable {

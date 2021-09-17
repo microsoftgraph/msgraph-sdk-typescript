@@ -1,6 +1,6 @@
-import {AccessReviewSet} from '../accessReviewSet';
+import {AccessReviewSet} from '../../models/microsoft/graph/accessReviewSet';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
-import {AccessReviewScheduleDefinitionRequestBuilder} from './definitions/item/item/accessReviewScheduleDefinitionRequestBuilder';
+import {AccessReviewScheduleDefinitionRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews  */

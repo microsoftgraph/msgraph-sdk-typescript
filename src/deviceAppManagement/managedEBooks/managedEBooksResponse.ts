@@ -1,4 +1,4 @@
-import {ManagedEBook} from '../managedEBook';
+import {ManagedEBook} from '../../models/microsoft/graph/managedEBook';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBooksResponse implements Parsable {

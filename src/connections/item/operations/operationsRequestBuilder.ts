@@ -1,4 +1,4 @@
-import {ConnectionOperation} from '../../../connectionOperation';
+import {ConnectionOperation} from '../../../models/microsoft/graph/externalConnectors/connectionOperation';
 import {OperationsResponse} from './operationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {SubscribeToToneOperation} from './subscribeToToneOperation';
+import {SubscribeToToneOperation} from '../../../../models/microsoft/graph/subscribeToToneOperation';
 import {SubscribeToToneResponse} from './subscribeToToneResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

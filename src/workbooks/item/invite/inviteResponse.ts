@@ -1,4 +1,4 @@
-import {DriveRecipient} from './driveRecipient';
+import {DriveRecipient} from '../../../models/microsoft/graph/driveRecipient';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class InviteResponse implements Parsable {

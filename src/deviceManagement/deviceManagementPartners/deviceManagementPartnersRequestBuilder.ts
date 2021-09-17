@@ -1,4 +1,4 @@
-import {DeviceManagementPartner} from '../deviceManagementPartner';
+import {DeviceManagementPartner} from '../../models/microsoft/graph/deviceManagementPartner';
 import {DeviceManagementPartnersResponse} from './deviceManagementPartnersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

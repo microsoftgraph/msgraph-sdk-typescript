@@ -1,4 +1,4 @@
-import {PrintTaskDefinition} from '../printTaskDefinition';
+import {PrintTaskDefinition} from '../../models/microsoft/graph/printTaskDefinition';
 import {TaskDefinitionsResponse} from './taskDefinitionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

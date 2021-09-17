@@ -1,8 +1,8 @@
-import {Contact} from '../../../../contact';
-import {ContactFolder} from '../../../../contactFolder';
-import {Entity} from '../../../../entity';
-import {MultiValueLegacyExtendedProperty} from '../../../../multiValueLegacyExtendedProperty';
-import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
+import {Contact} from '../../../../models/microsoft/graph/contact';
+import {ContactFolder} from '../../../../models/microsoft/graph/contactFolder';
+import {Entity} from '../../../../models/microsoft/graph/entity';
+import {MultiValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
+import {SingleValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Delta extends Entity implements Parsable {

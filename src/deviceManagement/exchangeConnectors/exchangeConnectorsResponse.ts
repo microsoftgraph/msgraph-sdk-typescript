@@ -1,4 +1,4 @@
-import {DeviceManagementExchangeConnector} from '../deviceManagementExchangeConnector';
+import {DeviceManagementExchangeConnector} from '../../models/microsoft/graph/deviceManagementExchangeConnector';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ExchangeConnectorsResponse implements Parsable {

@@ -1,7 +1,7 @@
-import {NotificationMessageTemplate} from '../../../notificationMessageTemplate';
-import {LocalizedNotificationMessageRequestBuilder} from '../localizedNotificationMessages/item/item/localizedNotificationMessageRequestBuilder';
-import {LocalizedNotificationMessagesRequestBuilder} from '../localizedNotificationMessages/localizedNotificationMessagesRequestBuilder';
-import {SendTestMessageRequestBuilder} from '../sendTestMessage/sendTestMessageRequestBuilder';
+import {NotificationMessageTemplate} from '../../../models/microsoft/graph/notificationMessageTemplate';
+import {LocalizedNotificationMessageRequestBuilder} from './localizedNotificationMessages/item/localizedNotificationMessageRequestBuilder';
+import {LocalizedNotificationMessagesRequestBuilder} from './localizedNotificationMessages/localizedNotificationMessagesRequestBuilder';
+import {SendTestMessageRequestBuilder} from './sendTestMessage/sendTestMessageRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/notificationMessageTemplates/{notificationMessageTemplate-id}  */

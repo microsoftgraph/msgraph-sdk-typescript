@@ -1,4 +1,4 @@
-import {SecureScore} from '../secureScore';
+import {SecureScore} from '../../models/microsoft/graph/secureScore';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SecureScoresResponse implements Parsable {

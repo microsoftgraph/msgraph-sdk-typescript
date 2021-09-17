@@ -1,15 +1,15 @@
-import {Device} from '../../../device';
-import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
-import {MemberOfRequestBuilder} from '../memberOf/memberOfRequestBuilder';
-import {RegisteredOwnersRequestBuilder} from '../registeredOwners/registeredOwnersRequestBuilder';
-import {RegisteredUsersRequestBuilder} from '../registeredUsers/registeredUsersRequestBuilder';
-import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
-import {TransitiveMemberOfRequestBuilder} from '../transitiveMemberOf/transitiveMemberOfRequestBuilder';
+import {Device} from '../../models/microsoft/graph/device';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
+import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
+import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
+import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /devices/{device-id}  */

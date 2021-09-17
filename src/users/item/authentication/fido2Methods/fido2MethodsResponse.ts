@@ -1,4 +1,4 @@
-import {Fido2AuthenticationMethod} from '../../../../fido2AuthenticationMethod';
+import {Fido2AuthenticationMethod} from '../../../../models/microsoft/graph/fido2AuthenticationMethod';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Fido2MethodsResponse implements Parsable {

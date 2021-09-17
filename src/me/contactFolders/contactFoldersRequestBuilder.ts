@@ -1,4 +1,4 @@
-import {ContactFolder} from '../../contactFolder';
+import {ContactFolder} from '../../models/microsoft/graph/contactFolder';
 import {ContactFoldersResponse} from './contactFoldersResponse';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

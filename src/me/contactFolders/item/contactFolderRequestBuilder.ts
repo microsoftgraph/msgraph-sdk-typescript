@@ -1,12 +1,12 @@
-import {ContactFolder} from '../../../../contactFolder';
-import {ChildFoldersRequestBuilder} from '../childFolders/childFoldersRequestBuilder';
-import {ContactFolderRequestBuilder} from '../childFolders/item/item/contactFolderRequestBuilder';
-import {ContactsRequestBuilder} from '../contacts/contactsRequestBuilder';
-import {ContactRequestBuilder} from '../contacts/item/item/contactRequestBuilder';
-import {MultiValueLegacyExtendedPropertyRequestBuilder} from '../multiValueExtendedProperties/item/item/multiValueLegacyExtendedPropertyRequestBuilder';
-import {MultiValueExtendedPropertiesRequestBuilder} from '../multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
-import {SingleValueLegacyExtendedPropertyRequestBuilder} from '../singleValueExtendedProperties/item/item/singleValueLegacyExtendedPropertyRequestBuilder';
-import {SingleValueExtendedPropertiesRequestBuilder} from '../singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
+import {ContactFolder} from '../../../models/microsoft/graph/contactFolder';
+import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
+import {ContactFolderRequestBuilder} from './childFolders/item/contactFolderRequestBuilder';
+import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
+import {ContactRequestBuilder} from './contacts/item/contactRequestBuilder';
+import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
+import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
+import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
+import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/contactFolders/{contactFolder-id}  */

@@ -1,6 +1,6 @@
-import {PlannerBucket} from '../../../../plannerBucket';
-import {PlannerTaskRequestBuilder} from '../tasks/item/item/plannerTaskRequestBuilder';
-import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
+import {PlannerBucket} from '../../../models/microsoft/graph/plannerBucket';
+import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';
+import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/buckets/{plannerBucket-id}  */

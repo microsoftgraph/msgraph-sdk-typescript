@@ -1,8 +1,8 @@
-import {ManagedAppPolicy} from '../../../../managedAppPolicy';
-import {ManagedAppProtectionRequestBuilder} from '../managedAppProtection/managedAppProtectionRequestBuilder';
-import {TargetAppsRequestBuilder} from '../targetApps/targetAppsRequestBuilder';
-import {TargetedManagedAppProtectionRequestBuilder} from '../targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';
-import {WindowsInformationProtectionRequestBuilder} from '../windowsInformationProtection/windowsInformationProtectionRequestBuilder';
+import {ManagedAppPolicy} from '../../../models/microsoft/graph/managedAppPolicy';
+import {ManagedAppProtectionRequestBuilder} from './managedAppProtection/managedAppProtectionRequestBuilder';
+import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
+import {TargetedManagedAppProtectionRequestBuilder} from './targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';
+import {WindowsInformationProtectionRequestBuilder} from './windowsInformationProtection/windowsInformationProtectionRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedAppPolicies/{managedAppPolicy-id}  */

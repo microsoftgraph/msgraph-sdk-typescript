@@ -1,4 +1,4 @@
-import {ManagedDevice} from '../../managedDevice';
+import {ManagedDevice} from '../../models/microsoft/graph/managedDevice';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ManagedDevicesResponse implements Parsable {

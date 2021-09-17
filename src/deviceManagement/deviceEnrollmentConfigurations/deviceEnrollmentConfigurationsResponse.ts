@@ -1,4 +1,4 @@
-import {DeviceEnrollmentConfiguration} from '../deviceEnrollmentConfiguration';
+import {DeviceEnrollmentConfiguration} from '../../models/microsoft/graph/deviceEnrollmentConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentConfigurationsResponse implements Parsable {

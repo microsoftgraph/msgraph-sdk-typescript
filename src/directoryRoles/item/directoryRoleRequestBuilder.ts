@@ -1,12 +1,12 @@
-import {DirectoryRole} from '../../directoryRole';
-import {CheckMemberGroupsRequestBuilder} from '../checkMemberGroups/checkMemberGroupsRequestBuilder';
-import {CheckMemberObjectsRequestBuilder} from '../checkMemberObjects/checkMemberObjectsRequestBuilder';
-import {GetMemberGroupsRequestBuilder} from '../getMemberGroups/getMemberGroupsRequestBuilder';
-import {GetMemberObjectsRequestBuilder} from '../getMemberObjects/getMemberObjectsRequestBuilder';
-import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {RestoreRequestBuilder} from '../restore/restoreRequestBuilder';
-import {ScopedRoleMembershipRequestBuilder} from '../scopedMembers/item/item/scopedRoleMembershipRequestBuilder';
-import {ScopedMembersRequestBuilder} from '../scopedMembers/scopedMembersRequestBuilder';
+import {DirectoryRole} from '../../models/microsoft/graph/directoryRole';
+import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
+import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
+import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
+import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {MembersRequestBuilder} from './members/membersRequestBuilder';
+import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {ScopedRoleMembershipRequestBuilder} from './scopedMembers/item/scopedRoleMembershipRequestBuilder';
+import {ScopedMembersRequestBuilder} from './scopedMembers/scopedMembersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /directoryRoles/{directoryRole-id}  */

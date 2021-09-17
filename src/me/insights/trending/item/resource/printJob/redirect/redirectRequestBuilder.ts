@@ -1,4 +1,4 @@
-import {PrintJob} from '../../../../../../../print/printJob';
+import {PrintJob} from '../../../../../../../models/microsoft/graph/printJob';
 import {RedirectResponse} from './redirectResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

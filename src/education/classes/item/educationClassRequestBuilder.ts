@@ -1,14 +1,14 @@
-import {EducationClass} from '../../../educationClass';
-import {AssignmentCategoriesRequestBuilder} from '../assignmentCategories/assignmentCategoriesRequestBuilder';
-import {EducationCategoryRequestBuilder} from '../assignmentCategories/item/item/educationCategoryRequestBuilder';
-import {AssignmentDefaultsRequestBuilder} from '../assignmentDefaults/assignmentDefaultsRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {EducationAssignmentRequestBuilder} from '../assignments/item/item/educationAssignmentRequestBuilder';
-import {AssignmentSettingsRequestBuilder} from '../assignmentSettings/assignmentSettingsRequestBuilder';
-import {GroupRequestBuilder} from '../group/groupRequestBuilder';
-import {MembersRequestBuilder} from '../members/membersRequestBuilder';
-import {SchoolsRequestBuilder} from '../schools/schoolsRequestBuilder';
-import {TeachersRequestBuilder} from '../teachers/teachersRequestBuilder';
+import {EducationClass} from '../../../models/microsoft/graph/educationClass';
+import {AssignmentCategoriesRequestBuilder} from './assignmentCategories/assignmentCategoriesRequestBuilder';
+import {EducationCategoryRequestBuilder} from './assignmentCategories/item/educationCategoryRequestBuilder';
+import {AssignmentDefaultsRequestBuilder} from './assignmentDefaults/assignmentDefaultsRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {EducationAssignmentRequestBuilder} from './assignments/item/educationAssignmentRequestBuilder';
+import {AssignmentSettingsRequestBuilder} from './assignmentSettings/assignmentSettingsRequestBuilder';
+import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {MembersRequestBuilder} from './members/membersRequestBuilder';
+import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
+import {TeachersRequestBuilder} from './teachers/teachersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/classes/{educationClass-id}  */

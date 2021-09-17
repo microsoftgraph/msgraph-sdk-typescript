@@ -1,6 +1,6 @@
-import {RoleDefinition} from '../../../roleDefinition';
-import {RoleAssignmentRequestBuilder} from '../roleAssignments/item/item/roleAssignmentRequestBuilder';
-import {RoleAssignmentsRequestBuilder} from '../roleAssignments/roleAssignmentsRequestBuilder';
+import {RoleDefinition} from '../../../models/microsoft/graph/roleDefinition';
+import {RoleAssignmentRequestBuilder} from './roleAssignments/item/roleAssignmentRequestBuilder';
+import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/roleDefinitions/{roleDefinition-id}  */

@@ -1,4 +1,4 @@
-import {ColumnLink} from '../../../../../columnLink';
+import {ColumnLink} from '../../../../../models/microsoft/graph/columnLink';
 import {ColumnLinksResponse} from './columnLinksResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

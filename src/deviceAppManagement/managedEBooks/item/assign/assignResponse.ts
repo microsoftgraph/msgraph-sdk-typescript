@@ -1,4 +1,4 @@
-import {ManagedEBookAssignment} from '../../../managedEBookAssignment';
+import {ManagedEBookAssignment} from '../../../../models/microsoft/graph/managedEBookAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignResponse implements Parsable {

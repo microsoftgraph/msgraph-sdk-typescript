@@ -1,4 +1,4 @@
-import {MobileAppCategory} from '../mobileAppCategory';
+import {MobileAppCategory} from '../../models/microsoft/graph/mobileAppCategory';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileAppCategoriesResponse implements Parsable {

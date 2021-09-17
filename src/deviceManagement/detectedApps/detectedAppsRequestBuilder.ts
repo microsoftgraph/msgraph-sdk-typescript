@@ -1,4 +1,4 @@
-import {DetectedApp} from '../detectedApp';
+import {DetectedApp} from '../../models/microsoft/graph/detectedApp';
 import {DetectedAppsResponse} from './detectedAppsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

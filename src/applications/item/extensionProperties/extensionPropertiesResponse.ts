@@ -1,4 +1,4 @@
-import {ExtensionProperty} from '../../extensionProperty';
+import {ExtensionProperty} from '../../../models/microsoft/graph/extensionProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ExtensionPropertiesResponse implements Parsable {

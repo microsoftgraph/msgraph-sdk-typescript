@@ -1,4 +1,4 @@
-import {PrintServiceEndpoint} from '../../../printServiceEndpoint';
+import {PrintServiceEndpoint} from '../../../../models/microsoft/graph/printServiceEndpoint';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class EndpointsResponse implements Parsable {

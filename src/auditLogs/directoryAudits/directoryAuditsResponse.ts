@@ -1,4 +1,4 @@
-import {DirectoryAudit} from '../directoryAudit';
+import {DirectoryAudit} from '../../models/microsoft/graph/directoryAudit';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DirectoryAuditsResponse implements Parsable {

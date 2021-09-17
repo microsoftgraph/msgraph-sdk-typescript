@@ -1,4 +1,4 @@
-import {GroupSetting} from '../../../groupSetting';
+import {GroupSetting} from '../../../models/microsoft/graph/groupSetting';
 import {SettingsResponse} from './settingsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

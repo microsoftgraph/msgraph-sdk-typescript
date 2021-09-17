@@ -1,4 +1,4 @@
-import {IdentityApiConnector} from '../identityApiConnector';
+import {IdentityApiConnector} from '../../models/microsoft/graph/identityApiConnector';
 import {ApiConnectorsResponse} from './apiConnectorsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

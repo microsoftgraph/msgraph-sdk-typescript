@@ -1,4 +1,4 @@
-import {TodoTaskList} from '../../../todoTaskList';
+import {TodoTaskList} from '../../../models/microsoft/graph/todoTaskList';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ListsResponse implements Parsable {

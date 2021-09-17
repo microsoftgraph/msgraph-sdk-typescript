@@ -1,4 +1,4 @@
-import {Alert} from '../alert';
+import {Alert} from '../../models/microsoft/graph/alert';
 import {AlertsResponse} from './alertsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {Printer} from '../printer';
+import {Printer} from '../../models/microsoft/graph/printer';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class PrintersResponse implements Parsable {

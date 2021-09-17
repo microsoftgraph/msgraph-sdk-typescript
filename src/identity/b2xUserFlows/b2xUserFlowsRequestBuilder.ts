@@ -1,4 +1,4 @@
-import {B2xIdentityUserFlow} from '../b2xIdentityUserFlow';
+import {B2xIdentityUserFlow} from '../../models/microsoft/graph/b2xIdentityUserFlow';
 import {B2xUserFlowsResponse} from './b2xUserFlowsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,5 +1,5 @@
-import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../../../microsoftAuthenticatorAuthenticationMethod';
-import {DeviceRequestBuilder} from '../device/deviceRequestBuilder';
+import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../../models/microsoft/graph/microsoftAuthenticatorAuthenticationMethod';
+import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod-id}  */

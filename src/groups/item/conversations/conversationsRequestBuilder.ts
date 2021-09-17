@@ -1,4 +1,4 @@
-import {Conversation} from '../../../conversation';
+import {Conversation} from '../../../models/microsoft/graph/conversation';
 import {ConversationsResponse} from './conversationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

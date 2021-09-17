@@ -1,4 +1,4 @@
-import {CopyNotebookModel} from './copyNotebookModel';
+import {CopyNotebookModel} from '../../../../models/microsoft/graph/copyNotebookModel';
 import {GetNotebookFromWebUrlResponse} from './getNotebookFromWebUrlResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

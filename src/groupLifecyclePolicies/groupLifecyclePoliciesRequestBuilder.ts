@@ -1,4 +1,4 @@
-import {GroupLifecyclePolicy} from '../groupLifecyclePolicy';
+import {GroupLifecyclePolicy} from '../models/microsoft/graph/groupLifecyclePolicy';
 import {GroupLifecyclePoliciesResponse} from './groupLifecyclePoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

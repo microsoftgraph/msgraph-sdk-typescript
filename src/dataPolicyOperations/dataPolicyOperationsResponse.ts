@@ -1,4 +1,4 @@
-import {DataPolicyOperation} from './dataPolicyOperation';
+import {DataPolicyOperation} from '../models/microsoft/graph/dataPolicyOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DataPolicyOperationsResponse implements Parsable {

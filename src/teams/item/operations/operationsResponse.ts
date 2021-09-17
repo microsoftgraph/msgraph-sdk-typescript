@@ -1,4 +1,4 @@
-import {TeamsAsyncOperation} from '../../../teamsAsyncOperation';
+import {TeamsAsyncOperation} from '../../../models/microsoft/graph/teamsAsyncOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OperationsResponse implements Parsable {

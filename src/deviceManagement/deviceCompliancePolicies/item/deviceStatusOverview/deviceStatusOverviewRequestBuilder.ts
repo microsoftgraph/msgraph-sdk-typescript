@@ -1,4 +1,4 @@
-import {DeviceComplianceDeviceOverview} from '../../../deviceComplianceDeviceOverview';
+import {DeviceComplianceDeviceOverview} from '../../../../models/microsoft/graph/deviceComplianceDeviceOverview';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy-id}/deviceStatusOverview  */

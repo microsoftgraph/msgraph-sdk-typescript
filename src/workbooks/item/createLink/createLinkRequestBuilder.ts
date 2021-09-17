@@ -1,4 +1,4 @@
-import {Permission} from '../../../permission';
+import {Permission} from '../../../models/microsoft/graph/permission';
 import {CreateLinkResponse} from './createLinkResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

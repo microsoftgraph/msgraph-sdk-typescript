@@ -1,4 +1,4 @@
-import {SoftwareUpdateStatusSummary} from '../softwareUpdateStatusSummary';
+import {SoftwareUpdateStatusSummary} from '../../models/microsoft/graph/softwareUpdateStatusSummary';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

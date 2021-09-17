@@ -1,4 +1,4 @@
-import {ResourceOperation} from '../resourceOperation';
+import {ResourceOperation} from '../../models/microsoft/graph/resourceOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ResourceOperationsResponse implements Parsable {

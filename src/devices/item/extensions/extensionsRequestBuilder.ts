@@ -1,4 +1,4 @@
-import {Extension} from '../../../extension';
+import {Extension} from '../../../models/microsoft/graph/extension';
 import {ExtensionsResponse} from './extensionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

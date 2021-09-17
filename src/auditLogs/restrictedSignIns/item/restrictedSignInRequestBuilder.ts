@@ -1,4 +1,4 @@
-import {RestrictedSignIn} from '../../../restrictedSignIn';
+import {RestrictedSignIn} from '../../../models/microsoft/graph/restrictedSignIn';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /auditLogs/restrictedSignIns/{restrictedSignIn-id}  */

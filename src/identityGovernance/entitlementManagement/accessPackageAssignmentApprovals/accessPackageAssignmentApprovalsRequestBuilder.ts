@@ -1,4 +1,4 @@
-import {Approval} from '../../approval';
+import {Approval} from '../../../models/microsoft/graph/approval';
 import {AccessPackageAssignmentApprovalsResponse} from './accessPackageAssignmentApprovalsResponse';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

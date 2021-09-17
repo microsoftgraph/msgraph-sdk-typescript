@@ -1,4 +1,4 @@
-import {TodoTask} from '../../../../../todoTask';
+import {TodoTask} from '../../../../../models/microsoft/graph/todoTask';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {TasksResponse} from './tasksResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

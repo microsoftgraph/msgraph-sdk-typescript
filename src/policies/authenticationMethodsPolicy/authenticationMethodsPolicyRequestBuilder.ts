@@ -1,4 +1,4 @@
-import {AuthenticationMethodsPolicy} from '../../authenticationMethodsPolicy/authenticationMethodsPolicy';
+import {AuthenticationMethodsPolicy} from '../../models/microsoft/graph/authenticationMethodsPolicy';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/authenticationMethodsPolicy  */

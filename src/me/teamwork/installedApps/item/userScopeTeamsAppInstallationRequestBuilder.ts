@@ -1,5 +1,5 @@
-import {UserScopeTeamsAppInstallation} from '../../../../../userScopeTeamsAppInstallation';
-import {ChatRequestBuilder} from '../chat/chatRequestBuilder';
+import {UserScopeTeamsAppInstallation} from '../../../../models/microsoft/graph/userScopeTeamsAppInstallation';
+import {ChatRequestBuilder} from './chat/chatRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/teamwork/installedApps/{userScopeTeamsAppInstallation-id}  */

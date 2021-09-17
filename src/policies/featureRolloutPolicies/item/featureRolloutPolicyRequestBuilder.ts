@@ -1,6 +1,6 @@
-import {FeatureRolloutPolicy} from '../../../featureRolloutPolicy';
-import {AppliesToRequestBuilder} from '../appliesTo/appliesToRequestBuilder';
-import {DirectoryObjectRequestBuilder} from '../appliesTo/item/item/directoryObjectRequestBuilder';
+import {FeatureRolloutPolicy} from '../../../models/microsoft/graph/featureRolloutPolicy';
+import {AppliesToRequestBuilder} from './appliesTo/appliesToRequestBuilder';
+import {DirectoryObjectRequestBuilder} from './appliesTo/item/directoryObjectRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/featureRolloutPolicies/{featureRolloutPolicy-id}  */

@@ -1,8 +1,8 @@
-import {SectionGroup} from '../../../../../sectionGroup';
+import {SectionGroup} from '../../../../../models/microsoft/graph/sectionGroup';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
-import {SectionGroupRequestBuilder} from './sectionGroups/item/item/sectionGroupRequestBuilder';
+import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from './sections/item/item/onenoteSectionRequestBuilder';
+import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

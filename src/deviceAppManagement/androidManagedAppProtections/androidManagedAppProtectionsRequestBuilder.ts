@@ -1,4 +1,4 @@
-import {AndroidManagedAppProtection} from '../androidManagedAppProtection';
+import {AndroidManagedAppProtection} from '../../models/microsoft/graph/androidManagedAppProtection';
 import {AndroidManagedAppProtectionsResponse} from './androidManagedAppProtectionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

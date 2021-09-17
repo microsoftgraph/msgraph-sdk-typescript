@@ -1,4 +1,4 @@
-import {ThreatAssessmentRequest} from '../threatAssessmentRequest';
+import {ThreatAssessmentRequest} from '../../models/microsoft/graph/threatAssessmentRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentRequestsResponse implements Parsable {

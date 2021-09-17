@@ -1,11 +1,11 @@
-import {Domain} from '../../domain';
-import {DomainNameReferencesRequestBuilder} from '../domainNameReferences/domainNameReferencesRequestBuilder';
-import {ForceDeleteRequestBuilder} from '../forceDelete/forceDeleteRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from '../serviceConfigurationRecords/item/item/domainDnsRecordRequestBuilder';
-import {ServiceConfigurationRecordsRequestBuilder} from '../serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from '../verificationDnsRecords/item/item/domainDnsRecordRequestBuilder';
-import {VerificationDnsRecordsRequestBuilder} from '../verificationDnsRecords/verificationDnsRecordsRequestBuilder';
-import {VerifyRequestBuilder} from '../verify/verifyRequestBuilder';
+import {Domain} from '../../models/microsoft/graph/domain';
+import {DomainNameReferencesRequestBuilder} from './domainNameReferences/domainNameReferencesRequestBuilder';
+import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
+import {DomainDnsRecordRequestBuilder} from './serviceConfigurationRecords/item/domainDnsRecordRequestBuilder';
+import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
+import {DomainDnsRecordRequestBuilder} from './verificationDnsRecords/item/domainDnsRecordRequestBuilder';
+import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
+import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /domains/{domain-id}  */

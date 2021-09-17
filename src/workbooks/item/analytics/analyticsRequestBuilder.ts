@@ -1,4 +1,4 @@
-import {ItemAnalytics} from '../../../itemAnalytics';
+import {ItemAnalytics} from '../../../models/microsoft/graph/itemAnalytics';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

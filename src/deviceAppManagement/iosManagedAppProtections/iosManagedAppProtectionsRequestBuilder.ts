@@ -1,4 +1,4 @@
-import {IosManagedAppProtection} from '../iosManagedAppProtection';
+import {IosManagedAppProtection} from '../../models/microsoft/graph/iosManagedAppProtection';
 import {IosManagedAppProtectionsResponse} from './iosManagedAppProtectionsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

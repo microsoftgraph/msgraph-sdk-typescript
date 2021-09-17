@@ -1,4 +1,4 @@
-import {ChatMessage} from '../../../chatMessage';
+import {ChatMessage} from '../../../models/microsoft/graph/chatMessage';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {MessagesResponse} from './messagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

@@ -1,4 +1,4 @@
-import {ManagedAppPolicy} from '../../managedAppPolicy';
+import {ManagedAppPolicy} from '../../models/microsoft/graph/managedAppPolicy';
 import {ManagedAppPoliciesResponse} from './managedAppPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

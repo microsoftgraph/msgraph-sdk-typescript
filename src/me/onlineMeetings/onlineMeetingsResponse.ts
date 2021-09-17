@@ -1,4 +1,4 @@
-import {OnlineMeeting} from '../../onlineMeeting';
+import {OnlineMeeting} from '../../models/microsoft/graph/onlineMeeting';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OnlineMeetingsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {TokenIssuancePolicy} from '../../tokenIssuancePolicy';
+import {TokenIssuancePolicy} from '../../models/microsoft/graph/tokenIssuancePolicy';
 import {TokenIssuancePoliciesResponse} from './tokenIssuancePoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

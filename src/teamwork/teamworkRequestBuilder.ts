@@ -1,5 +1,5 @@
-import {Teamwork} from './teamwork';
-import {WorkforceIntegrationRequestBuilder} from './workforceIntegrations/item/item/workforceIntegrationRequestBuilder';
+import {Teamwork} from '../models/microsoft/graph/teamwork';
+import {WorkforceIntegrationRequestBuilder} from './workforceIntegrations/item/workforceIntegrationRequestBuilder';
 import {WorkforceIntegrationsRequestBuilder} from './workforceIntegrations/workforceIntegrationsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

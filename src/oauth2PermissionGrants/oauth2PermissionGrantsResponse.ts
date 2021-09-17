@@ -1,4 +1,4 @@
-import {OAuth2PermissionGrant} from '../oAuth2PermissionGrant';
+import {OAuth2PermissionGrant} from '../models/microsoft/graph/oAuth2PermissionGrant';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Oauth2PermissionGrantsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {Site} from '../../../site';
+import {Site} from '../../../models/microsoft/graph/site';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /sites/{site-id}/microsoft.graph.getByPath(path='{path}')  */

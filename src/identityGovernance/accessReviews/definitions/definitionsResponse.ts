@@ -1,4 +1,4 @@
-import {AccessReviewScheduleDefinition} from '../../accessReviewScheduleDefinition';
+import {AccessReviewScheduleDefinition} from '../../../models/microsoft/graph/accessReviewScheduleDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DefinitionsResponse implements Parsable {

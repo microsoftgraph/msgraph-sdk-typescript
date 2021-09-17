@@ -1,4 +1,4 @@
-import {RoleDefinition} from '../roleDefinition';
+import {RoleDefinition} from '../../models/microsoft/graph/roleDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RoleDefinitionsResponse implements Parsable {

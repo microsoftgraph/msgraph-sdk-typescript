@@ -1,4 +1,4 @@
-import {EducationClass} from '../educationClass';
+import {EducationClass} from '../../models/microsoft/graph/educationClass';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ClassesResponse implements Parsable {

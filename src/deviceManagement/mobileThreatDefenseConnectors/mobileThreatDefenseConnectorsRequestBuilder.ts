@@ -1,4 +1,4 @@
-import {MobileThreatDefenseConnector} from '../mobileThreatDefenseConnector';
+import {MobileThreatDefenseConnector} from '../../models/microsoft/graph/mobileThreatDefenseConnector';
 import {MobileThreatDefenseConnectorsResponse} from './mobileThreatDefenseConnectorsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

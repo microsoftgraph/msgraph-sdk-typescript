@@ -1,4 +1,4 @@
-import {DirectoryObject} from '../directoryObject';
+import {DirectoryObject} from '../models/microsoft/graph/directoryObject';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DirectoryObjectsResponse implements Parsable {

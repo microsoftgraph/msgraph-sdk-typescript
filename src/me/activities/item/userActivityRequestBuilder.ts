@@ -1,6 +1,6 @@
-import {UserActivity} from '../../../../userActivity';
-import {HistoryItemsRequestBuilder} from '../historyItems/historyItemsRequestBuilder';
-import {ActivityHistoryItemRequestBuilder} from '../historyItems/item/item/activityHistoryItemRequestBuilder';
+import {UserActivity} from '../../../models/microsoft/graph/userActivity';
+import {HistoryItemsRequestBuilder} from './historyItems/historyItemsRequestBuilder';
+import {ActivityHistoryItemRequestBuilder} from './historyItems/item/activityHistoryItemRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/activities/{userActivity-id}  */

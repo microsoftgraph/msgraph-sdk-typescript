@@ -1,12 +1,12 @@
-import {ManagedEBook} from '../../../managedEBook';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {ManagedEBookAssignmentRequestBuilder} from '../assignments/item/item/managedEBookAssignmentRequestBuilder';
-import {DeviceStatesRequestBuilder} from '../deviceStates/deviceStatesRequestBuilder';
-import {DeviceInstallStateRequestBuilder} from '../deviceStates/item/item/deviceInstallStateRequestBuilder';
-import {InstallSummaryRequestBuilder} from '../installSummary/installSummaryRequestBuilder';
-import {UserInstallStateSummaryRequestBuilder} from '../userStateSummary/item/item/userInstallStateSummaryRequestBuilder';
-import {UserStateSummaryRequestBuilder} from '../userStateSummary/userStateSummaryRequestBuilder';
+import {ManagedEBook} from '../../../models/microsoft/graph/managedEBook';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {ManagedEBookAssignmentRequestBuilder} from './assignments/item/managedEBookAssignmentRequestBuilder';
+import {DeviceStatesRequestBuilder} from './deviceStates/deviceStatesRequestBuilder';
+import {DeviceInstallStateRequestBuilder} from './deviceStates/item/deviceInstallStateRequestBuilder';
+import {InstallSummaryRequestBuilder} from './installSummary/installSummaryRequestBuilder';
+import {UserInstallStateSummaryRequestBuilder} from './userStateSummary/item/userInstallStateSummaryRequestBuilder';
+import {UserStateSummaryRequestBuilder} from './userStateSummary/userStateSummaryRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedEBooks/{managedEBook-id}  */

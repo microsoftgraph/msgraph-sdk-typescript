@@ -1,4 +1,4 @@
-import {TargetedManagedAppConfiguration} from '../targetedManagedAppConfiguration';
+import {TargetedManagedAppConfiguration} from '../../models/microsoft/graph/targetedManagedAppConfiguration';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppConfigurationsResponse implements Parsable {

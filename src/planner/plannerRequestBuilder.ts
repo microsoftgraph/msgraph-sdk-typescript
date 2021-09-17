@@ -1,9 +1,9 @@
+import {Planner} from '../models/microsoft/graph/planner';
 import {BucketsRequestBuilder} from './buckets/bucketsRequestBuilder';
-import {PlannerBucketRequestBuilder} from './buckets/item/item/plannerBucketRequestBuilder';
-import {Planner} from './planner';
-import {PlannerPlanRequestBuilder} from './plans/item/item/plannerPlanRequestBuilder';
+import {PlannerBucketRequestBuilder} from './buckets/item/plannerBucketRequestBuilder';
+import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
-import {PlannerTaskRequestBuilder} from './tasks/item/item/plannerTaskRequestBuilder';
+import {PlannerTaskRequestBuilder} from './tasks/item/plannerTaskRequestBuilder';
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

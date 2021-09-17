@@ -1,4 +1,4 @@
-import {FieldValueSet} from '../../../../fieldValueSet';
+import {FieldValueSet} from '../../../../models/microsoft/graph/fieldValueSet';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/listItem/fields  */

@@ -1,4 +1,4 @@
-import {ThumbnailSet} from '../../../thumbnailSet';
+import {ThumbnailSet} from '../../../models/microsoft/graph/thumbnailSet';
 import {ThumbnailsResponse} from './thumbnailsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

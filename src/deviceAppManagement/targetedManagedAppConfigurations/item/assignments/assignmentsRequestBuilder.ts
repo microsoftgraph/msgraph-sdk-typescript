@@ -1,4 +1,4 @@
-import {TargetedManagedAppPolicyAssignment} from '../../../targetedManagedAppPolicyAssignment';
+import {TargetedManagedAppPolicyAssignment} from '../../../../models/microsoft/graph/targetedManagedAppPolicyAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

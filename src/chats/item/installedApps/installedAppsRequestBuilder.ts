@@ -1,4 +1,4 @@
-import {TeamsAppInstallation} from '../../../teamsAppInstallation';
+import {TeamsAppInstallation} from '../../../models/microsoft/graph/teamsAppInstallation';
 import {InstalledAppsResponse} from './installedAppsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {AccessReviewInstance} from '../../../../accessReviewInstance';
+import {AccessReviewInstance} from '../../../../../models/microsoft/graph/accessReviewInstance';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class InstancesResponse implements Parsable {

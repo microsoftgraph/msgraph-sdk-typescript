@@ -1,4 +1,4 @@
-import {PlannerBucket} from '../../../../../plannerBucket';
+import {PlannerBucket} from '../../../../../models/microsoft/graph/plannerBucket';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class BucketsResponse implements Parsable {

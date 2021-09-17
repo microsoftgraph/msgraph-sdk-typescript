@@ -1,4 +1,4 @@
-import {UsedInsight} from '../../../usedInsight';
+import {UsedInsight} from '../../../models/microsoft/graph/usedInsight';
 import {UsedResponse} from './usedResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {RecordOperation} from './recordOperation';
+import {RecordOperation} from '../../../../models/microsoft/graph/recordOperation';
 import {RecordResponseResponse} from './recordResponseResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

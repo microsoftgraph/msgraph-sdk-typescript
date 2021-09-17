@@ -1,8 +1,8 @@
+import {Directory} from '../models/microsoft/graph/directory';
 import {AdministrativeUnitsRequestBuilder} from './administrativeUnits/administrativeUnitsRequestBuilder';
-import {AdministrativeUnitRequestBuilder} from './administrativeUnits/item/item/administrativeUnitRequestBuilder';
+import {AdministrativeUnitRequestBuilder} from './administrativeUnits/item/administrativeUnitRequestBuilder';
 import {DeletedItemsRequestBuilder} from './deletedItems/deletedItemsRequestBuilder';
-import {DirectoryObjectRequestBuilder} from './deletedItems/item/item/directoryObjectRequestBuilder';
-import {Directory} from './directory';
+import {DirectoryObjectRequestBuilder} from './deletedItems/item/directoryObjectRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /directory  */

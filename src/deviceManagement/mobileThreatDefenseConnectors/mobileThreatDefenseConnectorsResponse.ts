@@ -1,4 +1,4 @@
-import {MobileThreatDefenseConnector} from '../mobileThreatDefenseConnector';
+import {MobileThreatDefenseConnector} from '../../models/microsoft/graph/mobileThreatDefenseConnector';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MobileThreatDefenseConnectorsResponse implements Parsable {

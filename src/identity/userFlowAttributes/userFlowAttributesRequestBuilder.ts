@@ -1,4 +1,4 @@
-import {IdentityUserFlowAttribute} from '../identityUserFlowAttribute';
+import {IdentityUserFlowAttribute} from '../../models/microsoft/graph/identityUserFlowAttribute';
 import {UserFlowAttributesResponse} from './userFlowAttributesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

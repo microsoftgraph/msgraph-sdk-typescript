@@ -1,4 +1,4 @@
-import {TargetedManagedAppPolicyAssignment} from '../../../../targetedManagedAppPolicyAssignment';
+import {TargetedManagedAppPolicyAssignment} from '../../../../../models/microsoft/graph/targetedManagedAppPolicyAssignment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignResponse implements Parsable {

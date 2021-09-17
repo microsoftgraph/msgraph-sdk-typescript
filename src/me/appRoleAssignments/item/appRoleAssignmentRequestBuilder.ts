@@ -1,4 +1,4 @@
-import {AppRoleAssignment} from '../../../../appRoleAssignment';
+import {AppRoleAssignment} from '../../../models/microsoft/graph/appRoleAssignment';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/appRoleAssignments/{appRoleAssignment-id}  */

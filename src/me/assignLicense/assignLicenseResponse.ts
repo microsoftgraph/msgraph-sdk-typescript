@@ -1,4 +1,4 @@
-import {AssignedLicense} from '../../assignedLicense';
+import {AssignedLicense} from '../../models/microsoft/graph/assignedLicense';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AssignLicenseResponse implements Parsable {

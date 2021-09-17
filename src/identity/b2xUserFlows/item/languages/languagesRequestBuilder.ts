@@ -1,4 +1,4 @@
-import {UserFlowLanguageConfiguration} from '../../../userFlowLanguageConfiguration';
+import {UserFlowLanguageConfiguration} from '../../../../models/microsoft/graph/userFlowLanguageConfiguration';
 import {LanguagesResponse} from './languagesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

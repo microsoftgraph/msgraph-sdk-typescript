@@ -1,12 +1,12 @@
-import {SharedDriveItem} from '../../sharedDriveItem';
-import {DriveItemRequestBuilder} from '../driveItem/driveItemRequestBuilder';
-import {DriveItemRequestBuilder} from '../items/item/item/driveItemRequestBuilder';
-import {ItemsRequestBuilder} from '../items/itemsRequestBuilder';
-import {ListRequestBuilder} from '../list/listRequestBuilder';
-import {ListItemRequestBuilder} from '../listItem/listItemRequestBuilder';
-import {PermissionRequestBuilder} from '../permission/permissionRequestBuilder';
-import {RootRequestBuilder} from '../root/rootRequestBuilder';
-import {SiteRequestBuilder} from '../site/siteRequestBuilder';
+import {SharedDriveItem} from '../../models/microsoft/graph/sharedDriveItem';
+import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
+import {DriveItemRequestBuilder} from './items/item/driveItemRequestBuilder';
+import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
+import {ListRequestBuilder} from './list/listRequestBuilder';
+import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
+import {PermissionRequestBuilder} from './permission/permissionRequestBuilder';
+import {RootRequestBuilder} from './root/rootRequestBuilder';
+import {SiteRequestBuilder} from './site/siteRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /shares/{sharedDriveItem-id}  */

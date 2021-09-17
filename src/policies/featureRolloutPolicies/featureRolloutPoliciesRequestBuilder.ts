@@ -1,4 +1,4 @@
-import {FeatureRolloutPolicy} from '../featureRolloutPolicy';
+import {FeatureRolloutPolicy} from '../../models/microsoft/graph/featureRolloutPolicy';
 import {FeatureRolloutPoliciesResponse} from './featureRolloutPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

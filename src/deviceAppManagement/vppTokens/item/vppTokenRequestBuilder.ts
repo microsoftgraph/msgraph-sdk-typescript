@@ -1,5 +1,5 @@
-import {VppToken} from '../../../vppToken';
-import {SyncLicensesRequestBuilder} from '../syncLicenses/syncLicensesRequestBuilder';
+import {VppToken} from '../../../models/microsoft/graph/vppToken';
+import {SyncLicensesRequestBuilder} from './syncLicenses/syncLicensesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/vppTokens/{vppToken-id}  */

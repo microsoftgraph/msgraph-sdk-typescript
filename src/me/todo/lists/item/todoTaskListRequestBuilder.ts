@@ -1,8 +1,8 @@
-import {TodoTaskList} from '../../../../../todoTaskList';
-import {ExtensionsRequestBuilder} from '../extensions/extensionsRequestBuilder';
-import {ExtensionRequestBuilder} from '../extensions/item/item/extensionRequestBuilder';
-import {TodoTaskRequestBuilder} from '../tasks/item/item/todoTaskRequestBuilder';
-import {TasksRequestBuilder} from '../tasks/tasksRequestBuilder';
+import {TodoTaskList} from '../../../../models/microsoft/graph/todoTaskList';
+import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
+import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
+import {TodoTaskRequestBuilder} from './tasks/item/todoTaskRequestBuilder';
+import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/todo/lists/{todoTaskList-id}  */

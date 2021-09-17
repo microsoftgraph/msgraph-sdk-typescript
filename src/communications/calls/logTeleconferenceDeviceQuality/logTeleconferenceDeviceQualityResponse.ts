@@ -1,4 +1,4 @@
-import {TeleconferenceDeviceQuality} from './teleconferenceDeviceQuality';
+import {TeleconferenceDeviceQuality} from '../../../models/microsoft/graph/teleconferenceDeviceQuality';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LogTeleconferenceDeviceQualityResponse implements Parsable {

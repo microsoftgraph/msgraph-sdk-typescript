@@ -1,4 +1,4 @@
-import {OutlookCategory} from '../../../../outlookCategory';
+import {OutlookCategory} from '../../../../models/microsoft/graph/outlookCategory';
 import {MasterCategoriesResponse} from './masterCategoriesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

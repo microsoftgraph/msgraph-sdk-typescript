@@ -1,4 +1,4 @@
-import {Team} from '../../../team';
+import {Team} from '../../../models/microsoft/graph/team';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class JoinedTeamsResponse implements Parsable {

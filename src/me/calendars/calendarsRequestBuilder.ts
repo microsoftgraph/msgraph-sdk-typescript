@@ -1,4 +1,4 @@
-import {Calendar} from '../../calendar';
+import {Calendar} from '../../models/microsoft/graph/calendar';
 import {CalendarsResponse} from './calendarsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

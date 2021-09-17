@@ -1,4 +1,4 @@
-import {AdministrativeUnit} from '../../administrativeUnit';
+import {AdministrativeUnit} from '../../models/microsoft/graph/administrativeUnit';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AdministrativeUnitsResponse implements Parsable {

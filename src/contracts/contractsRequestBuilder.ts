@@ -1,4 +1,4 @@
-import {Contract} from './contract';
+import {Contract} from '../models/microsoft/graph/contract';
 import {ContractsResponse} from './contractsResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';

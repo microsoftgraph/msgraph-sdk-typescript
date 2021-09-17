@@ -1,4 +1,4 @@
-import {ColumnDefinition} from '../../../../columnDefinition';
+import {ColumnDefinition} from '../../../../models/microsoft/graph/columnDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ColumnsResponse implements Parsable {

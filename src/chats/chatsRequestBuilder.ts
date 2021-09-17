@@ -1,4 +1,4 @@
-import {Chat} from '../chat';
+import {Chat} from '../models/microsoft/graph/chat';
 import {ChatsResponse} from './chatsResponse';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

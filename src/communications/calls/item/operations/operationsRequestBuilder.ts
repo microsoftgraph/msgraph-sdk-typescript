@@ -1,4 +1,4 @@
-import {CommsOperation} from '../../../commsOperation';
+import {CommsOperation} from '../../../../models/microsoft/graph/commsOperation';
 import {OperationsResponse} from './operationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

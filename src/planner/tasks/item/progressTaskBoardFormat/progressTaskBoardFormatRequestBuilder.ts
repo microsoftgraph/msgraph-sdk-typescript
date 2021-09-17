@@ -1,4 +1,4 @@
-import {PlannerProgressTaskBoardTaskFormat} from '../../../../plannerProgressTaskBoardTaskFormat';
+import {PlannerProgressTaskBoardTaskFormat} from '../../../../models/microsoft/graph/plannerProgressTaskBoardTaskFormat';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /planner/tasks/{plannerTask-id}/progressTaskBoardFormat  */

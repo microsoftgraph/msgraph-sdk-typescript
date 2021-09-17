@@ -1,4 +1,4 @@
-import {ContentType} from '../../../../contentType';
+import {ContentType} from '../../../../models/microsoft/graph/contentType';
 import {ContentTypesResponse} from './contentTypesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

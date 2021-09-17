@@ -1,4 +1,4 @@
-import {IosManagedAppProtection} from '../iosManagedAppProtection';
+import {IosManagedAppProtection} from '../../models/microsoft/graph/iosManagedAppProtection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class IosManagedAppProtectionsResponse implements Parsable {

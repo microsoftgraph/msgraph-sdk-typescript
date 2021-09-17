@@ -1,4 +1,4 @@
-import {Fido2AuthenticationMethod} from '../../../fido2AuthenticationMethod';
+import {Fido2AuthenticationMethod} from '../../../models/microsoft/graph/fido2AuthenticationMethod';
 import {Fido2MethodsResponse} from './fido2MethodsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

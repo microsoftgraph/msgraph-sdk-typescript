@@ -1,4 +1,4 @@
-import {SettingStateDeviceSummary} from '../../../settingStateDeviceSummary';
+import {SettingStateDeviceSummary} from '../../../../models/microsoft/graph/settingStateDeviceSummary';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DeviceSettingStateSummariesResponse implements Parsable {

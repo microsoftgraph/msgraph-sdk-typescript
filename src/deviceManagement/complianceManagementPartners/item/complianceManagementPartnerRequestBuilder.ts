@@ -1,4 +1,4 @@
-import {ComplianceManagementPartner} from '../../../complianceManagementPartner';
+import {ComplianceManagementPartner} from '../../../models/microsoft/graph/complianceManagementPartner';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/complianceManagementPartners/{complianceManagementPartner-id}  */

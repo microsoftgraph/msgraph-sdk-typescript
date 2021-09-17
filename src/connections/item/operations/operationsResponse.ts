@@ -1,4 +1,4 @@
-import {ConnectionOperation} from '../../../connectionOperation';
+import {ConnectionOperation} from '../../../models/microsoft/graph/externalConnectors/connectionOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OperationsResponse implements Parsable {

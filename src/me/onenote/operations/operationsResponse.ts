@@ -1,4 +1,4 @@
-import {OnenoteOperation} from '../../../onenoteOperation';
+import {OnenoteOperation} from '../../../models/microsoft/graph/onenoteOperation';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OperationsResponse implements Parsable {

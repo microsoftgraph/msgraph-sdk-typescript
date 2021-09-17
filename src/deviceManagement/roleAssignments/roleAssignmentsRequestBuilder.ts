@@ -1,4 +1,4 @@
-import {DeviceAndAppManagementRoleAssignment} from '../deviceAndAppManagementRoleAssignment';
+import {DeviceAndAppManagementRoleAssignment} from '../../models/microsoft/graph/deviceAndAppManagementRoleAssignment';
 import {RoleAssignmentsResponse} from './roleAssignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

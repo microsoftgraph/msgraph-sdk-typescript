@@ -1,4 +1,4 @@
-import {SharedInsight} from '../../../../sharedInsight';
+import {SharedInsight} from '../../../../models/microsoft/graph/sharedInsight';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SharedResponse implements Parsable {

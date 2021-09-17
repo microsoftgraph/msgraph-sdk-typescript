@@ -1,4 +1,4 @@
-import {WorkbookComment} from '../../../../workbookComment';
+import {WorkbookComment} from '../../../../models/microsoft/graph/workbookComment';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CommentsResponse implements Parsable {

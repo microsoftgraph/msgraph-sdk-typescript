@@ -1,4 +1,4 @@
-import {OnenotePatchContentCommand} from './onenotePatchContentCommand';
+import {OnenotePatchContentCommand} from '../../../../../models/microsoft/graph/onenotePatchContentCommand';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OnenotePatchContentResponse implements Parsable {

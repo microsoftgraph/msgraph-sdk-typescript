@@ -1,4 +1,4 @@
-import {DeviceCategory} from '../../../../deviceCategory';
+import {DeviceCategory} from '../../../../models/microsoft/graph/deviceCategory';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/managedDevices/{managedDevice-id}/deviceCategory  */

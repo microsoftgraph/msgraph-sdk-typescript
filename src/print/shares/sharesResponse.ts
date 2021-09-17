@@ -1,4 +1,4 @@
-import {PrinterShare} from '../printerShare';
+import {PrinterShare} from '../../models/microsoft/graph/printerShare';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SharesResponse implements Parsable {

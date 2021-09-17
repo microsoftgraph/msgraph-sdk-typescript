@@ -1,4 +1,4 @@
-import {Json} from '../../../../../json';
+import {Json} from '../../../../../models/microsoft/graph/json';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ConcatenateResponse implements Parsable {

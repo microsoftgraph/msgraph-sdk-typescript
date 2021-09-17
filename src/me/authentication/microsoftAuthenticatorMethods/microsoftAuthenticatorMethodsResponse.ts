@@ -1,4 +1,4 @@
-import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../microsoftAuthenticatorAuthenticationMethod';
+import {MicrosoftAuthenticatorAuthenticationMethod} from '../../../models/microsoft/graph/microsoftAuthenticatorAuthenticationMethod';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorMethodsResponse implements Parsable {

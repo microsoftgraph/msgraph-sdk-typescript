@@ -1,4 +1,4 @@
-import {Channel} from '../../../channel';
+import {Channel} from '../../../models/microsoft/graph/channel';
 import {ChannelsResponse} from './channelsResponse';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

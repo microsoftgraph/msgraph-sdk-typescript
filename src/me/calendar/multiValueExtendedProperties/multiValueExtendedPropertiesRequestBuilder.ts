@@ -1,4 +1,4 @@
-import {MultiValueLegacyExtendedProperty} from '../../../multiValueLegacyExtendedProperty';
+import {MultiValueLegacyExtendedProperty} from '../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
 import {MultiValueExtendedPropertiesResponse} from './multiValueExtendedPropertiesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {OrganizationalBranding} from '../../../branding/organizationalBranding';
+import {OrganizationalBranding} from '../../../models/microsoft/graph/organizationalBranding';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /organization/{organization-id}/branding  */

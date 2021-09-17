@@ -1,4 +1,4 @@
-import {PrintService} from '../printService';
+import {PrintService} from '../../models/microsoft/graph/printService';
 import {ServicesResponse} from './servicesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

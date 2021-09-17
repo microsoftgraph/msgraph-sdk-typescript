@@ -1,4 +1,4 @@
-import {EducationClass} from '../educationClass';
+import {EducationClass} from '../../models/microsoft/graph/educationClass';
 import {ClassesResponse} from './classesResponse';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

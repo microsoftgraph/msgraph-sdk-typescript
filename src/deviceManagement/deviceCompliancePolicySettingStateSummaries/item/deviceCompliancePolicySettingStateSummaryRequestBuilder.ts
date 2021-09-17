@@ -1,6 +1,6 @@
-import {DeviceCompliancePolicySettingStateSummary} from '../../../deviceCompliancePolicySettingStateSummary';
-import {DeviceComplianceSettingStatesRequestBuilder} from '../deviceComplianceSettingStates/deviceComplianceSettingStatesRequestBuilder';
-import {DeviceComplianceSettingStateRequestBuilder} from '../deviceComplianceSettingStates/item/item/deviceComplianceSettingStateRequestBuilder';
+import {DeviceCompliancePolicySettingStateSummary} from '../../../models/microsoft/graph/deviceCompliancePolicySettingStateSummary';
+import {DeviceComplianceSettingStatesRequestBuilder} from './deviceComplianceSettingStates/deviceComplianceSettingStatesRequestBuilder';
+import {DeviceComplianceSettingStateRequestBuilder} from './deviceComplianceSettingStates/item/deviceComplianceSettingStateRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicySettingStateSummaries/{deviceCompliancePolicySettingStateSummary-id}  */

@@ -1,4 +1,4 @@
-import {ItemReference} from '../../../itemReference';
+import {ItemReference} from '../../../models/microsoft/graph/itemReference';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RestoreResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {Approval} from '../../approval';
+import {Approval} from '../../../models/microsoft/graph/approval';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentApprovalsResponse implements Parsable {

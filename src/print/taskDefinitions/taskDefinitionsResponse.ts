@@ -1,4 +1,4 @@
-import {PrintTaskDefinition} from '../printTaskDefinition';
+import {PrintTaskDefinition} from '../../models/microsoft/graph/printTaskDefinition';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TaskDefinitionsResponse implements Parsable {

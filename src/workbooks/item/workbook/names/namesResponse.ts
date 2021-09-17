@@ -1,4 +1,4 @@
-import {WorkbookNamedItem} from '../../../../workbookNamedItem';
+import {WorkbookNamedItem} from '../../../../models/microsoft/graph/workbookNamedItem';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class NamesResponse implements Parsable {

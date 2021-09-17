@@ -1,4 +1,4 @@
-import {SwapShiftsChangeRequest} from '../../../../swapShiftsChangeRequest';
+import {SwapShiftsChangeRequest} from '../../../../models/microsoft/graph/swapShiftsChangeRequest';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SwapShiftsChangeRequestsResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {SearchHitsContainer} from './searchHitsContainer';
+import {SearchHitsContainer} from '../../models/microsoft/graph/searchHitsContainer';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class Query implements Parsable {

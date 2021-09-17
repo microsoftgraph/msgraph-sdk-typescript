@@ -1,4 +1,4 @@
-import {IdentityProvider} from '../../../identity/identityProvider';
+import {IdentityProvider} from '../../models/microsoft/graph/identityProvider';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityProviders/{identityProvider-id}  */

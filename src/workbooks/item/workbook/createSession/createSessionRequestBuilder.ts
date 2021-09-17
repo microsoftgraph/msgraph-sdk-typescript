@@ -1,4 +1,4 @@
-import {WorkbookSessionInfo} from '../workbookSessionInfo';
+import {WorkbookSessionInfo} from '../../../../models/microsoft/graph/workbookSessionInfo';
 import {CreateSessionResponse} from './createSessionResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

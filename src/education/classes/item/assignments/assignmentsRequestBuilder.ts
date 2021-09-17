@@ -1,4 +1,4 @@
-import {EducationAssignment} from '../../../educationAssignment';
+import {EducationAssignment} from '../../../../models/microsoft/graph/educationAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

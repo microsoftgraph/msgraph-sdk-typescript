@@ -1,4 +1,4 @@
-import {UserConsentRequest} from '../../../../userConsentRequest';
+import {UserConsentRequest} from '../../../../../models/microsoft/graph/userConsentRequest';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {UserConsentRequestsResponse} from './userConsentRequestsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

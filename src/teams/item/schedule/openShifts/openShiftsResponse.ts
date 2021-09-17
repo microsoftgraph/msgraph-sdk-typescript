@@ -1,4 +1,4 @@
-import {OpenShift} from '../../../../openShift';
+import {OpenShift} from '../../../../models/microsoft/graph/openShift';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftsResponse implements Parsable {

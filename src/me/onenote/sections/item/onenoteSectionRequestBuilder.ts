@@ -1,10 +1,10 @@
-import {OnenoteSection} from '../../../../../onenoteSection';
-import {CopyToNotebookRequestBuilder} from '../copyToNotebook/copyToNotebookRequestBuilder';
-import {CopyToSectionGroupRequestBuilder} from '../copyToSectionGroup/copyToSectionGroupRequestBuilder';
-import {OnenotePageRequestBuilder} from '../pages/item/item/onenotePageRequestBuilder';
-import {PagesRequestBuilder} from '../pages/pagesRequestBuilder';
-import {ParentNotebookRequestBuilder} from '../parentNotebook/parentNotebookRequestBuilder';
-import {ParentSectionGroupRequestBuilder} from '../parentSectionGroup/parentSectionGroupRequestBuilder';
+import {OnenoteSection} from '../../../../models/microsoft/graph/onenoteSection';
+import {CopyToNotebookRequestBuilder} from './copyToNotebook/copyToNotebookRequestBuilder';
+import {CopyToSectionGroupRequestBuilder} from './copyToSectionGroup/copyToSectionGroupRequestBuilder';
+import {OnenotePageRequestBuilder} from './pages/item/onenotePageRequestBuilder';
+import {PagesRequestBuilder} from './pages/pagesRequestBuilder';
+import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
+import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/onenote/sections/{onenoteSection-id}  */

@@ -1,4 +1,4 @@
-import {AdministrativeUnit} from '../../administrativeUnit';
+import {AdministrativeUnit} from '../../models/microsoft/graph/administrativeUnit';
 import {AdministrativeUnitsResponse} from './administrativeUnitsResponse';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

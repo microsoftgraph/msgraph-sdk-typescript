@@ -1,4 +1,4 @@
-import {EducationRubric} from '../../../educationRubric';
+import {EducationRubric} from '../../../../models/microsoft/graph/educationRubric';
 import {RubricsResponse} from './rubricsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

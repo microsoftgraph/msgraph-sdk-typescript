@@ -1,4 +1,4 @@
-import {LicenseDetails} from '../../../licenseDetails';
+import {LicenseDetails} from '../../../models/microsoft/graph/licenseDetails';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class LicenseDetailsResponse implements Parsable {

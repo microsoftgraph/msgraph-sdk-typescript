@@ -1,4 +1,4 @@
-import {DeviceConfigurationState} from '../../../../deviceConfigurationState';
+import {DeviceConfigurationState} from '../../../../models/microsoft/graph/deviceConfigurationState';
 import {DeviceConfigurationStatesResponse} from './deviceConfigurationStatesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {RemoteAssistancePartner} from '../remoteAssistancePartner';
+import {RemoteAssistancePartner} from '../../models/microsoft/graph/remoteAssistancePartner';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class RemoteAssistancePartnersResponse implements Parsable {

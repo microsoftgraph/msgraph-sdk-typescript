@@ -1,4 +1,4 @@
-import {SingleValueLegacyExtendedProperty} from '../../../../../singleValueLegacyExtendedProperty';
+import {SingleValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/calendar/singleValueExtendedProperties/{singleValueLegacyExtendedProperty-id}  */

@@ -1,4 +1,4 @@
-import {Event} from '../../../../event';
+import {Event} from '../../../../models/microsoft/graph/event';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {InstancesResponse} from './instancesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';

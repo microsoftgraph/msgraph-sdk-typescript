@@ -1,4 +1,4 @@
-import {Entity} from '../../../../../entity';
+import {Entity} from '../../../../../models/microsoft/graph/entity';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {CalendarSharingMessageRequestBuilder} from './calendarSharingMessage/calendarSharingMessageRequestBuilder';
 import {ManagedAppProtectionRequestBuilder} from './managedAppProtection/managedAppProtectionRequestBuilder';

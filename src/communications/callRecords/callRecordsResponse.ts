@@ -1,4 +1,4 @@
-import {CallRecord} from '../callRecord';
+import {CallRecord} from '../../models/microsoft/graph/callRecords/callRecord';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CallRecordsResponse implements Parsable {

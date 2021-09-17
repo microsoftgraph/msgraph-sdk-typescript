@@ -1,4 +1,4 @@
-import {DeviceConfigurationAssignment} from '../../../deviceConfigurationAssignment';
+import {DeviceConfigurationAssignment} from '../../../../models/microsoft/graph/deviceConfigurationAssignment';
 import {AssignmentsResponse} from './assignmentsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

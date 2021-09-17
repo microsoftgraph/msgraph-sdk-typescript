@@ -1,4 +1,4 @@
-import {MailFolder} from '../../../../mailFolder';
+import {MailFolder} from '../../../../models/microsoft/graph/mailFolder';
 import {MoveResponse} from './moveResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

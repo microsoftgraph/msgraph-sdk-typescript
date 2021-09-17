@@ -1,4 +1,4 @@
-import {User} from '../../../../user';
+import {User} from '../../../../models/microsoft/graph/user';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class AllowedUsersResponse implements Parsable {

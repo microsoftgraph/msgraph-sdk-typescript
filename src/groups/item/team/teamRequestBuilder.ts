@@ -1,4 +1,4 @@
-import {Team} from '../../../team';
+import {Team} from '../../../models/microsoft/graph/team';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}/team  */

@@ -1,4 +1,4 @@
-import {Message} from '../../../../message';
+import {Message} from '../../../../models/microsoft/graph/message';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class CreateReplyResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {SharedDriveItem} from './sharedDriveItem';
+import {SharedDriveItem} from '../models/microsoft/graph/sharedDriveItem';
 import {SharesResponse} from './sharesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

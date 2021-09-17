@@ -1,7 +1,7 @@
-import {ConditionalAccessRoot} from '../conditionalAccessRoot';
-import {NamedLocationRequestBuilder} from './namedLocations/item/item/namedLocationRequestBuilder';
+import {ConditionalAccessRoot} from '../../models/microsoft/graph/conditionalAccessRoot';
+import {NamedLocationRequestBuilder} from './namedLocations/item/namedLocationRequestBuilder';
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
-import {ConditionalAccessPolicyRequestBuilder} from './policies/item/item/conditionalAccessPolicyRequestBuilder';
+import {ConditionalAccessPolicyRequestBuilder} from './policies/item/conditionalAccessPolicyRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

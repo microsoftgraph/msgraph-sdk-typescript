@@ -1,4 +1,4 @@
-import {CancelMediaProcessingOperation} from './cancelMediaProcessingOperation';
+import {CancelMediaProcessingOperation} from '../../../../models/microsoft/graph/cancelMediaProcessingOperation';
 import {CancelMediaProcessingResponse} from './cancelMediaProcessingResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

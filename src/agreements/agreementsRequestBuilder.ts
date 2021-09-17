@@ -1,4 +1,4 @@
-import {Agreement} from '../agreement';
+import {Agreement} from '../models/microsoft/graph/agreement';
 import {AgreementsResponse} from './agreementsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

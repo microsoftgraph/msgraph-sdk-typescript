@@ -1,15 +1,15 @@
-import {DeviceConfiguration} from '../../../deviceConfiguration';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {DeviceConfigurationAssignmentRequestBuilder} from '../assignments/item/item/deviceConfigurationAssignmentRequestBuilder';
-import {DeviceSettingStateSummariesRequestBuilder} from '../deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
-import {SettingStateDeviceSummaryRequestBuilder} from '../deviceSettingStateSummaries/item/item/settingStateDeviceSummaryRequestBuilder';
-import {DeviceStatusesRequestBuilder} from '../deviceStatuses/deviceStatusesRequestBuilder';
-import {DeviceConfigurationDeviceStatusRequestBuilder} from '../deviceStatuses/item/item/deviceConfigurationDeviceStatusRequestBuilder';
-import {DeviceStatusOverviewRequestBuilder} from '../deviceStatusOverview/deviceStatusOverviewRequestBuilder';
-import {DeviceConfigurationUserStatusRequestBuilder} from '../userStatuses/item/item/deviceConfigurationUserStatusRequestBuilder';
-import {UserStatusesRequestBuilder} from '../userStatuses/userStatusesRequestBuilder';
-import {UserStatusOverviewRequestBuilder} from '../userStatusOverview/userStatusOverviewRequestBuilder';
+import {DeviceConfiguration} from '../../../models/microsoft/graph/deviceConfiguration';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {DeviceConfigurationAssignmentRequestBuilder} from './assignments/item/deviceConfigurationAssignmentRequestBuilder';
+import {DeviceSettingStateSummariesRequestBuilder} from './deviceSettingStateSummaries/deviceSettingStateSummariesRequestBuilder';
+import {SettingStateDeviceSummaryRequestBuilder} from './deviceSettingStateSummaries/item/settingStateDeviceSummaryRequestBuilder';
+import {DeviceStatusesRequestBuilder} from './deviceStatuses/deviceStatusesRequestBuilder';
+import {DeviceConfigurationDeviceStatusRequestBuilder} from './deviceStatuses/item/deviceConfigurationDeviceStatusRequestBuilder';
+import {DeviceStatusOverviewRequestBuilder} from './deviceStatusOverview/deviceStatusOverviewRequestBuilder';
+import {DeviceConfigurationUserStatusRequestBuilder} from './userStatuses/item/deviceConfigurationUserStatusRequestBuilder';
+import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuilder';
+import {UserStatusOverviewRequestBuilder} from './userStatusOverview/userStatusOverviewRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceConfigurations/{deviceConfiguration-id}  */

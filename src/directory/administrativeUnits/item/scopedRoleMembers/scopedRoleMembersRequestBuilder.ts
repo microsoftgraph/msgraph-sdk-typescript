@@ -1,4 +1,4 @@
-import {ScopedRoleMembership} from '../../../../scopedRoleMembership';
+import {ScopedRoleMembership} from '../../../../models/microsoft/graph/scopedRoleMembership';
 import {ScopedRoleMembersResponse} from './scopedRoleMembersResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

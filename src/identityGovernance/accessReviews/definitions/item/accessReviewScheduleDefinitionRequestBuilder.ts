@@ -1,7 +1,7 @@
-import {AccessReviewScheduleDefinition} from '../../../../accessReviewScheduleDefinition';
-import {InstancesRequestBuilder} from '../instances/instancesRequestBuilder';
-import {AccessReviewInstanceRequestBuilder} from '../instances/item/item/accessReviewInstanceRequestBuilder';
-import {StopRequestBuilder} from '../stop/stopRequestBuilder';
+import {AccessReviewScheduleDefinition} from '../../../../models/microsoft/graph/accessReviewScheduleDefinition';
+import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
+import {AccessReviewInstanceRequestBuilder} from './instances/item/accessReviewInstanceRequestBuilder';
+import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews/definitions/{accessReviewScheduleDefinition-id}  */

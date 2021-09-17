@@ -1,11 +1,11 @@
-import {AuditLogRoot} from './auditLogRoot';
+import {AuditLogRoot} from '../models/microsoft/graph/auditLogRoot';
 import {DirectoryAuditsRequestBuilder} from './directoryAudits/directoryAuditsRequestBuilder';
-import {DirectoryAuditRequestBuilder} from './directoryAudits/item/item/directoryAuditRequestBuilder';
-import {ProvisioningObjectSummaryRequestBuilder} from './provisioning/item/item/provisioningObjectSummaryRequestBuilder';
+import {DirectoryAuditRequestBuilder} from './directoryAudits/item/directoryAuditRequestBuilder';
+import {ProvisioningObjectSummaryRequestBuilder} from './provisioning/item/provisioningObjectSummaryRequestBuilder';
 import {ProvisioningRequestBuilder} from './provisioning/provisioningRequestBuilder';
-import {RestrictedSignInRequestBuilder} from './restrictedSignIns/item/item/restrictedSignInRequestBuilder';
+import {RestrictedSignInRequestBuilder} from './restrictedSignIns/item/restrictedSignInRequestBuilder';
 import {RestrictedSignInsRequestBuilder} from './restrictedSignIns/restrictedSignInsRequestBuilder';
-import {SignInRequestBuilder} from './signIns/item/item/signInRequestBuilder';
+import {SignInRequestBuilder} from './signIns/item/signInRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

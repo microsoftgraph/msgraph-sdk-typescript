@@ -1,4 +1,4 @@
-import {ClaimsMappingPolicy} from '../../claimsMappingPolicy';
+import {ClaimsMappingPolicy} from '../../models/microsoft/graph/claimsMappingPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ClaimsMappingPoliciesResponse implements Parsable {

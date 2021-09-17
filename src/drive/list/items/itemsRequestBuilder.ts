@@ -1,4 +1,4 @@
-import {ListItem} from '../../../listItem';
+import {ListItem} from '../../../models/microsoft/graph/listItem';
 import {ItemsResponse} from './itemsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {IdentityUserFlowAttribute} from '../identityUserFlowAttribute';
+import {IdentityUserFlowAttribute} from '../../models/microsoft/graph/identityUserFlowAttribute';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class UserFlowAttributesResponse implements Parsable {

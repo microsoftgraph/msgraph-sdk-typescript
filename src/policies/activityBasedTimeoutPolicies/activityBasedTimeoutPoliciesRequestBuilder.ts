@@ -1,4 +1,4 @@
-import {ActivityBasedTimeoutPolicy} from '../activityBasedTimeoutPolicy';
+import {ActivityBasedTimeoutPolicy} from '../../models/microsoft/graph/activityBasedTimeoutPolicy';
 import {ActivityBasedTimeoutPoliciesResponse} from './activityBasedTimeoutPoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

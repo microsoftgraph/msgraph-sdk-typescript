@@ -1,4 +1,4 @@
-import {User} from '../../../user';
+import {User} from '../../../models/microsoft/graph/user';
 import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {DirectoryObject} from '../../directoryObject';
+import {DirectoryObject} from '../../models/microsoft/graph/directoryObject';
 import {DeletedItemsResponse} from './deletedItemsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

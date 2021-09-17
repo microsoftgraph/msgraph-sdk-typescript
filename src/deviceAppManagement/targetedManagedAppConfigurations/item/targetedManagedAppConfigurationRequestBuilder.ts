@@ -1,11 +1,11 @@
-import {TargetedManagedAppConfiguration} from '../../../targetedManagedAppConfiguration';
-import {AppsRequestBuilder} from '../apps/appsRequestBuilder';
-import {ManagedMobileAppRequestBuilder} from '../apps/item/item/managedMobileAppRequestBuilder';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {TargetedManagedAppPolicyAssignmentRequestBuilder} from '../assignments/item/item/targetedManagedAppPolicyAssignmentRequestBuilder';
-import {DeploymentSummaryRequestBuilder} from '../deploymentSummary/deploymentSummaryRequestBuilder';
-import {TargetAppsRequestBuilder} from '../targetApps/targetAppsRequestBuilder';
+import {TargetedManagedAppConfiguration} from '../../../models/microsoft/graph/targetedManagedAppConfiguration';
+import {AppsRequestBuilder} from './apps/appsRequestBuilder';
+import {ManagedMobileAppRequestBuilder} from './apps/item/managedMobileAppRequestBuilder';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {TargetedManagedAppPolicyAssignmentRequestBuilder} from './assignments/item/targetedManagedAppPolicyAssignmentRequestBuilder';
+import {DeploymentSummaryRequestBuilder} from './deploymentSummary/deploymentSummaryRequestBuilder';
+import {TargetAppsRequestBuilder} from './targetApps/targetAppsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration-id}  */

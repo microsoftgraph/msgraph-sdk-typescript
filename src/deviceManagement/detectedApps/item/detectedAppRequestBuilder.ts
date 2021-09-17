@@ -1,5 +1,5 @@
-import {DetectedApp} from '../../../detectedApp';
-import {ManagedDevicesRequestBuilder} from '../managedDevices/managedDevicesRequestBuilder';
+import {DetectedApp} from '../../../models/microsoft/graph/detectedApp';
+import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/detectedApps/{detectedApp-id}  */

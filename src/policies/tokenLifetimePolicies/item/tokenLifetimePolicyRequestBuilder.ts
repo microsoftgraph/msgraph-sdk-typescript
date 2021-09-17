@@ -1,4 +1,4 @@
-import {TokenLifetimePolicy} from '../../../../tokenLifetimePolicy';
+import {TokenLifetimePolicy} from '../../../models/microsoft/graph/tokenLifetimePolicy';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/tokenLifetimePolicies/{tokenLifetimePolicy-id}  */

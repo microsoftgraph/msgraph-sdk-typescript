@@ -1,5 +1,5 @@
-import {AgreementFile} from '../../../agreementFile';
-import {AgreementFileLocalizationRequestBuilder} from './localizations/item/item/agreementFileLocalizationRequestBuilder';
+import {AgreementFile} from '../../../models/microsoft/graph/agreementFile';
+import {AgreementFileLocalizationRequestBuilder} from './localizations/item/agreementFileLocalizationRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

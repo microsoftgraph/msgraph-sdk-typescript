@@ -1,12 +1,12 @@
+import {IdentityContainer} from '../models/microsoft/graph/identityContainer';
 import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
-import {IdentityApiConnectorRequestBuilder} from './apiConnectors/item/item/identityApiConnectorRequestBuilder';
+import {IdentityApiConnectorRequestBuilder} from './apiConnectors/item/identityApiConnectorRequestBuilder';
 import {B2xUserFlowsRequestBuilder} from './b2xUserFlows/b2xUserFlowsRequestBuilder';
-import {B2xIdentityUserFlowRequestBuilder} from './b2xUserFlows/item/item/b2xIdentityUserFlowRequestBuilder';
+import {B2xIdentityUserFlowRequestBuilder} from './b2xUserFlows/item/b2xIdentityUserFlowRequestBuilder';
 import {ConditionalAccessRequestBuilder} from './conditionalAccess/conditionalAccessRequestBuilder';
-import {IdentityContainer} from './identityContainer';
 import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {IdentityProviderBaseRequestBuilder} from './identityProviders/item/item/identityProviderBaseRequestBuilder';
-import {IdentityUserFlowAttributeRequestBuilder} from './userFlowAttributes/item/item/identityUserFlowAttributeRequestBuilder';
+import {IdentityProviderBaseRequestBuilder} from './identityProviders/item/identityProviderBaseRequestBuilder';
+import {IdentityUserFlowAttributeRequestBuilder} from './userFlowAttributes/item/identityUserFlowAttributeRequestBuilder';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

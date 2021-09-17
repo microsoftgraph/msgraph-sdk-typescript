@@ -1,4 +1,4 @@
-import {SingleValueLegacyExtendedProperty} from '../../../../singleValueLegacyExtendedProperty';
+import {SingleValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SingleValueExtendedPropertiesResponse implements Parsable {

@@ -1,4 +1,4 @@
-import {ActivityBasedTimeoutPolicy} from '../activityBasedTimeoutPolicy';
+import {ActivityBasedTimeoutPolicy} from '../../models/microsoft/graph/activityBasedTimeoutPolicy';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class ActivityBasedTimeoutPoliciesResponse implements Parsable {

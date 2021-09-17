@@ -1,4 +1,4 @@
-import {PlannerTask} from '../../../../plannerTask';
+import {PlannerTask} from '../../../../models/microsoft/graph/plannerTask';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class TasksResponse implements Parsable {

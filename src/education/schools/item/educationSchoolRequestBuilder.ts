@@ -1,7 +1,7 @@
-import {EducationSchool} from '../../../educationSchool';
-import {AdministrativeUnitRequestBuilder} from '../administrativeUnit/administrativeUnitRequestBuilder';
-import {ClassesRequestBuilder} from '../classes/classesRequestBuilder';
-import {UsersRequestBuilder} from '../users/usersRequestBuilder';
+import {EducationSchool} from '../../../models/microsoft/graph/educationSchool';
+import {AdministrativeUnitRequestBuilder} from './administrativeUnit/administrativeUnitRequestBuilder';
+import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
+import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/schools/{educationSchool-id}  */

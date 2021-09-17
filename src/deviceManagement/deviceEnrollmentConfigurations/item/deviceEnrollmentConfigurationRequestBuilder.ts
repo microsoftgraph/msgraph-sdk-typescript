@@ -1,8 +1,8 @@
-import {DeviceEnrollmentConfiguration} from '../../../deviceEnrollmentConfiguration';
-import {AssignRequestBuilder} from '../assign/assignRequestBuilder';
-import {AssignmentsRequestBuilder} from '../assignments/assignmentsRequestBuilder';
-import {EnrollmentConfigurationAssignmentRequestBuilder} from '../assignments/item/item/enrollmentConfigurationAssignmentRequestBuilder';
-import {SetPriorityRequestBuilder} from '../setPriority/setPriorityRequestBuilder';
+import {DeviceEnrollmentConfiguration} from '../../../models/microsoft/graph/deviceEnrollmentConfiguration';
+import {AssignRequestBuilder} from './assign/assignRequestBuilder';
+import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
+import {EnrollmentConfigurationAssignmentRequestBuilder} from './assignments/item/enrollmentConfigurationAssignmentRequestBuilder';
+import {SetPriorityRequestBuilder} from './setPriority/setPriorityRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/deviceEnrollmentConfigurations/{deviceEnrollmentConfiguration-id}  */

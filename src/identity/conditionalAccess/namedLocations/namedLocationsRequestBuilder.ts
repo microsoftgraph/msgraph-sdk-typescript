@@ -1,4 +1,4 @@
-import {NamedLocation} from '../../namedLocation';
+import {NamedLocation} from '../../../models/microsoft/graph/namedLocation';
 import {NamedLocationsResponse} from './namedLocationsResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

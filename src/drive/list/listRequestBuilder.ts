@@ -1,12 +1,12 @@
-import {List} from '../../list';
+import {List} from '../../models/microsoft/graph/list';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionRequestBuilder} from './columns/item/item/columnDefinitionRequestBuilder';
+import {ColumnDefinitionRequestBuilder} from './columns/item/columnDefinitionRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
-import {ContentTypeRequestBuilder} from './contentTypes/item/item/contentTypeRequestBuilder';
+import {ContentTypeRequestBuilder} from './contentTypes/item/contentTypeRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
-import {ListItemRequestBuilder} from './items/item/item/listItemRequestBuilder';
+import {ListItemRequestBuilder} from './items/item/listItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
-import {SubscriptionRequestBuilder} from './subscriptions/item/item/subscriptionRequestBuilder';
+import {SubscriptionRequestBuilder} from './subscriptions/item/subscriptionRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

@@ -1,4 +1,4 @@
-import {DomainDnsRecord} from '../domainDnsRecord';
+import {DomainDnsRecord} from '../models/microsoft/graph/domainDnsRecord';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsRecordsResponse implements Parsable {

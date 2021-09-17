@@ -1,4 +1,4 @@
-import {OnenoteSection} from '../../../../../../../onenoteSection';
+import {OnenoteSection} from '../../../../../../../models/microsoft/graph/onenoteSection';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class SectionsResponse implements Parsable {

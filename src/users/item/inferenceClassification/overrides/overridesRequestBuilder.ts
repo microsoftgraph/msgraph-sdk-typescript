@@ -1,4 +1,4 @@
-import {InferenceClassificationOverride} from '../../../../inferenceClassificationOverride';
+import {InferenceClassificationOverride} from '../../../../models/microsoft/graph/inferenceClassificationOverride';
 import {OverridesResponse} from './overridesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

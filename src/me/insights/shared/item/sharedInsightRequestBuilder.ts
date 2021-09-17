@@ -1,6 +1,6 @@
-import {SharedInsight} from '../../../../../sharedInsight';
-import {LastSharedMethodRequestBuilder} from '../lastSharedMethod/lastSharedMethodRequestBuilder';
-import {ResourceRequestBuilder} from '../resource/resourceRequestBuilder';
+import {SharedInsight} from '../../../../models/microsoft/graph/sharedInsight';
+import {LastSharedMethodRequestBuilder} from './lastSharedMethod/lastSharedMethodRequestBuilder';
+import {ResourceRequestBuilder} from './resource/resourceRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/insights/shared/{sharedInsight-id}  */
