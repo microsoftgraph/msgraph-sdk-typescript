@@ -1,8 +1,8 @@
 import {ManagedAppRegistration} from '../../../models/microsoft/graph/managedAppRegistration';
 import {AppliedPoliciesRequestBuilder} from './appliedPolicies/appliedPoliciesRequestBuilder';
-import {ManagedAppPolicyRequestBuilder} from './appliedPolicies/item/managedAppPolicyRequestBuilder';
+import {ManagedAppPolicyRequestBuilder as i115efd6e643da762eb51163c8467127b11107bdcf561b1b6f822c7948bb34ac6} from './appliedPolicies/item/managedAppPolicyRequestBuilder';
 import {IntendedPoliciesRequestBuilder} from './intendedPolicies/intendedPoliciesRequestBuilder';
-import {ManagedAppPolicyRequestBuilder} from './intendedPolicies/item/managedAppPolicyRequestBuilder';
+import {ManagedAppPolicyRequestBuilder as i412529d547ebb1308817d72b88c1bc45543c3d352ce2125b72948e1904584209} from './intendedPolicies/item/managedAppPolicyRequestBuilder';
 import {ManagedAppOperationRequestBuilder} from './operations/item/managedAppOperationRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -31,9 +31,9 @@ export class ManagedAppRegistrationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyRequestBuilder
      */
-    public appliedPoliciesById(id: String) : ManagedAppPolicyRequestBuilder {
+    public appliedPoliciesById(id: String) : i115efd6e643da762eb51163c8467127b11107bdcf561b1b6f822c7948bb34ac6 {
         if(!id) throw new Error("id cannot be undefined");
-        return new ManagedAppPolicyRequestBuilder(this.currentPath + this.pathSegment + "/appliedPolicies/" + id, this.httpCore, false);
+        return new i115efd6e643da762eb51163c8467127b11107bdcf561b1b6f822c7948bb34ac6(this.currentPath + this.pathSegment + "/appliedPolicies/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new ManagedAppRegistrationRequestBuilder and sets the default values.
@@ -133,9 +133,9 @@ export class ManagedAppRegistrationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyRequestBuilder
      */
-    public intendedPoliciesById(id: String) : ManagedAppPolicyRequestBuilder {
+    public intendedPoliciesById(id: String) : i412529d547ebb1308817d72b88c1bc45543c3d352ce2125b72948e1904584209 {
         if(!id) throw new Error("id cannot be undefined");
-        return new ManagedAppPolicyRequestBuilder(this.currentPath + this.pathSegment + "/intendedPolicies/" + id, this.httpCore, false);
+        return new i412529d547ebb1308817d72b88c1bc45543c3d352ce2125b72948e1904584209(this.currentPath + this.pathSegment + "/intendedPolicies/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.deviceAppManagement.managedAppRegistrations.item.operations.item collection

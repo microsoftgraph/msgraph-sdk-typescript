@@ -6,13 +6,13 @@ import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssi
 import {AppRoleAssignmentRequestBuilder} from './appRoleAssignments/item/appRoleAssignmentRequestBuilder';
 import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
 import {AuthenticationRequestBuilder} from './authentication/authenticationRequestBuilder';
-import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
+import {CalendarRequestBuilder as i2096e564c8d8a9f92efb5790e0cb0b736db64356c165772329436db0292dbdb4} from './calendar/calendarRequestBuilder';
 import {CalendarGroupsRequestBuilder} from './calendarGroups/calendarGroupsRequestBuilder';
 import {CalendarGroupRequestBuilder} from './calendarGroups/item/calendarGroupRequestBuilder';
 import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
-import {CalendarRequestBuilder} from './calendars/item/calendarRequestBuilder';
+import {CalendarRequestBuilder as ife00194a57e1870453a17745edd29fdac624c9f3a1366fec89d31906740e2630} from './calendars/item/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder} from './calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder as i93394b62b23afb85311b1dd17163de3764aefb844e42513252b68d53b467eb9f} from './calendarView/item/eventRequestBuilder';
 import {ChangePasswordRequestBuilder} from './changePassword/changePasswordRequestBuilder';
 import {ChatsRequestBuilder} from './chats/chatsRequestBuilder';
 import {ChatRequestBuilder} from './chats/item/chatRequestBuilder';
@@ -26,11 +26,11 @@ import {CreatedObjectsRequestBuilder} from './createdObjects/createdObjectsReque
 import {DeviceManagementTroubleshootingEventsRequestBuilder} from './deviceManagementTroubleshootingEvents/deviceManagementTroubleshootingEventsRequestBuilder';
 import {DeviceManagementTroubleshootingEventRequestBuilder} from './deviceManagementTroubleshootingEvents/item/deviceManagementTroubleshootingEventRequestBuilder';
 import {DirectReportsRequestBuilder} from './directReports/directReportsRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
+import {DriveRequestBuilder as i8d02f943b6ac9b8f335f5306c4863f658a406e52ce64f48e3ba4f9313dab4073} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from './drives/item/driveRequestBuilder';
+import {DriveRequestBuilder as if2a2efe6cd04f49dc7182b661531713512ca6f0d4a13f4cdb1ca456cf0cab49b} from './drives/item/driveRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventRequestBuilder} from './events/item/eventRequestBuilder';
+import {EventRequestBuilder as i705cc87f5220cb13a88288f66a2b278666bb14c40b8a41bbd1c0da10223c9daf} from './events/item/eventRequestBuilder';
 import {ExportPersonalDataRequestBuilder} from './exportPersonalData/exportPersonalDataRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
@@ -103,8 +103,8 @@ export class MeRequestBuilder {
     public get authentication(): AuthenticationRequestBuilder {
         return new AuthenticationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get calendar(): CalendarRequestBuilder {
-        return new CalendarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get calendar(): i2096e564c8d8a9f92efb5790e0cb0b736db64356c165772329436db0292dbdb4 {
+        return new i2096e564c8d8a9f92efb5790e0cb0b736db64356c165772329436db0292dbdb4(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get calendarGroups(): CalendarGroupsRequestBuilder {
         return new CalendarGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -144,8 +144,8 @@ export class MeRequestBuilder {
     public get directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
     }
-    public get drive(): DriveRequestBuilder {
-        return new DriveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get drive(): i8d02f943b6ac9b8f335f5306c4863f658a406e52ce64f48e3ba4f9313dab4073 {
+        return new i8d02f943b6ac9b8f335f5306c4863f658a406e52ce64f48e3ba4f9313dab4073(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -314,18 +314,18 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a calendarRequestBuilder
      */
-    public calendarsById(id: String) : CalendarRequestBuilder {
+    public calendarsById(id: String) : ife00194a57e1870453a17745edd29fdac624c9f3a1366fec89d31906740e2630 {
         if(!id) throw new Error("id cannot be undefined");
-        return new CalendarRequestBuilder(this.currentPath + this.pathSegment + "/calendars/" + id, this.httpCore, false);
+        return new ife00194a57e1870453a17745edd29fdac624c9f3a1366fec89d31906740e2630(this.currentPath + this.pathSegment + "/calendars/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public calendarViewById(id: String) : EventRequestBuilder {
+    public calendarViewById(id: String) : i93394b62b23afb85311b1dd17163de3764aefb844e42513252b68d53b467eb9f {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
+        return new i93394b62b23afb85311b1dd17163de3764aefb844e42513252b68d53b467eb9f(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.chats.item collection
@@ -418,18 +418,18 @@ export class MeRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
-    public drivesById(id: String) : DriveRequestBuilder {
+    public drivesById(id: String) : if2a2efe6cd04f49dc7182b661531713512ca6f0d4a13f4cdb1ca456cf0cab49b {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveRequestBuilder(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
+        return new if2a2efe6cd04f49dc7182b661531713512ca6f0d4a13f4cdb1ca456cf0cab49b(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public eventsById(id: String) : EventRequestBuilder {
+    public eventsById(id: String) : i705cc87f5220cb13a88288f66a2b278666bb14c40b8a41bbd1c0da10223c9daf {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
+        return new i705cc87f5220cb13a88288f66a2b278666bb14c40b8a41bbd1c0da10223c9daf(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.me.extensions.item collection

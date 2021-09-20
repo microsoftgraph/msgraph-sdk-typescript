@@ -2,9 +2,9 @@ import {ServicePrincipal} from '../../models/microsoft/graph/servicePrincipal';
 import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
 import {AppRoleAssignedToRequestBuilder} from './appRoleAssignedTo/appRoleAssignedToRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from './appRoleAssignedTo/item/appRoleAssignmentRequestBuilder';
+import {AppRoleAssignmentRequestBuilder as i0487607368d78204831074f45486ea9c2990ab918d9c5412922dbf3c929783dd} from './appRoleAssignedTo/item/appRoleAssignmentRequestBuilder';
 import {AppRoleAssignmentsRequestBuilder} from './appRoleAssignments/appRoleAssignmentsRequestBuilder';
-import {AppRoleAssignmentRequestBuilder} from './appRoleAssignments/item/appRoleAssignmentRequestBuilder';
+import {AppRoleAssignmentRequestBuilder as i2a53245acaa8ee8d438b903aa670810569cad80cc12794b12463cd278664b399} from './appRoleAssignments/item/appRoleAssignmentRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
@@ -112,18 +112,18 @@ export class ServicePrincipalRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
-    public appRoleAssignedToById(id: String) : AppRoleAssignmentRequestBuilder {
+    public appRoleAssignedToById(id: String) : i0487607368d78204831074f45486ea9c2990ab918d9c5412922dbf3c929783dd {
         if(!id) throw new Error("id cannot be undefined");
-        return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignedTo/" + id, this.httpCore, false);
+        return new i0487607368d78204831074f45486ea9c2990ab918d9c5412922dbf3c929783dd(this.currentPath + this.pathSegment + "/appRoleAssignedTo/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.servicePrincipals.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
-    public appRoleAssignmentsById(id: String) : AppRoleAssignmentRequestBuilder {
+    public appRoleAssignmentsById(id: String) : i2a53245acaa8ee8d438b903aa670810569cad80cc12794b12463cd278664b399 {
         if(!id) throw new Error("id cannot be undefined");
-        return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignments/" + id, this.httpCore, false);
+        return new i2a53245acaa8ee8d438b903aa670810569cad80cc12794b12463cd278664b399(this.currentPath + this.pathSegment + "/appRoleAssignments/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new ServicePrincipalRequestBuilder and sets the default values.

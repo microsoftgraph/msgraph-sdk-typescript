@@ -3,9 +3,9 @@ import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalend
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionRequestBuilder} from './calendarPermissions/item/calendarPermissionRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder} from './calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder as i1ef6fd7c0613b90a74f1dfb637af6a2c11024cf4515ab45a336c5ca38b6797d5} from './calendarView/item/eventRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventRequestBuilder} from './events/item/eventRequestBuilder';
+import {EventRequestBuilder as i512d1c7090d4b5acb433e661b187633f404573c5dac1c10cd0eb016310affa1e} from './events/item/eventRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
@@ -64,9 +64,9 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public calendarViewById(id: String) : EventRequestBuilder {
+    public calendarViewById(id: String) : i1ef6fd7c0613b90a74f1dfb637af6a2c11024cf4515ab45a336c5ca38b6797d5 {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
+        return new i1ef6fd7c0613b90a74f1dfb637af6a2c11024cf4515ab45a336c5ca38b6797d5(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
@@ -149,9 +149,9 @@ export class CalendarRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public eventsById(id: String) : EventRequestBuilder {
+    public eventsById(id: String) : i512d1c7090d4b5acb433e661b187633f404573c5dac1c10cd0eb016310affa1e {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
+        return new i512d1c7090d4b5acb433e661b187633f404573c5dac1c10cd0eb016310affa1e(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
     };
     /**
      * The calendar that contains the event. Navigation property. Read-only.

@@ -1,6 +1,6 @@
 import {MailFolder} from '../../../../models/microsoft/graph/mailFolder';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {MailFolderRequestBuilder} from './childFolders/item/mailFolderRequestBuilder';
+import {MailFolderRequestBuilder as i875c8b38b2223dfa60b331a74c956886fff55439eff296aff4c44c12143b38a8} from './childFolders/item/mailFolderRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {MessageRuleRequestBuilder} from './messageRules/item/messageRuleRequestBuilder';
 import {MessageRulesRequestBuilder} from './messageRules/messageRulesRequestBuilder';
@@ -49,9 +49,9 @@ export class MailFolderRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a mailFolderRequestBuilder
      */
-    public childFoldersById(id: String) : MailFolderRequestBuilder {
+    public childFoldersById(id: String) : i875c8b38b2223dfa60b331a74c956886fff55439eff296aff4c44c12143b38a8 {
         if(!id) throw new Error("id cannot be undefined");
-        return new MailFolderRequestBuilder(this.currentPath + this.pathSegment + "/childFolders/" + id, this.httpCore, false);
+        return new i875c8b38b2223dfa60b331a74c956886fff55439eff296aff4c44c12143b38a8(this.currentPath + this.pathSegment + "/childFolders/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new MailFolderRequestBuilder and sets the default values.

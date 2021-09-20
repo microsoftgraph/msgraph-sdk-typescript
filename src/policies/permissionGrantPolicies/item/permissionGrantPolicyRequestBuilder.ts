@@ -1,8 +1,8 @@
 import {PermissionGrantPolicy} from '../../../models/microsoft/graph/permissionGrantPolicy';
 import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder} from './excludes/item/permissionGrantConditionSetRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder as ib140c5e9ef5e7908974c303e0d15149180b6f3570f54adeebd9dd3d4feaecc1c} from './excludes/item/permissionGrantConditionSetRequestBuilder';
 import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder} from './includes/item/permissionGrantConditionSetRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder as id16dd73877654945a22f39c1bb68c51c3d724678b4f377e2e19f6935d69e68e3} from './includes/item/permissionGrantConditionSetRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/permissionGrantPolicies/{permissionGrantPolicy-id}  */
@@ -102,9 +102,9 @@ export class PermissionGrantPolicyRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetRequestBuilder
      */
-    public excludesById(id: String) : PermissionGrantConditionSetRequestBuilder {
+    public excludesById(id: String) : ib140c5e9ef5e7908974c303e0d15149180b6f3570f54adeebd9dd3d4feaecc1c {
         if(!id) throw new Error("id cannot be undefined");
-        return new PermissionGrantConditionSetRequestBuilder(this.currentPath + this.pathSegment + "/excludes/" + id, this.httpCore, false);
+        return new ib140c5e9ef5e7908974c303e0d15149180b6f3570f54adeebd9dd3d4feaecc1c(this.currentPath + this.pathSegment + "/excludes/" + id, this.httpCore, false);
     };
     /**
      * Get permissionGrantPolicies from policies
@@ -128,9 +128,9 @@ export class PermissionGrantPolicyRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetRequestBuilder
      */
-    public includesById(id: String) : PermissionGrantConditionSetRequestBuilder {
+    public includesById(id: String) : id16dd73877654945a22f39c1bb68c51c3d724678b4f377e2e19f6935d69e68e3 {
         if(!id) throw new Error("id cannot be undefined");
-        return new PermissionGrantConditionSetRequestBuilder(this.currentPath + this.pathSegment + "/includes/" + id, this.httpCore, false);
+        return new id16dd73877654945a22f39c1bb68c51c3d724678b4f377e2e19f6935d69e68e3(this.currentPath + this.pathSegment + "/includes/" + id, this.httpCore, false);
     };
     /**
      * Update the navigation property permissionGrantPolicies in policies

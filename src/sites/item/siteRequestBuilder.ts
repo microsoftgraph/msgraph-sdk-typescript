@@ -4,9 +4,9 @@ import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ColumnDefinitionRequestBuilder} from './columns/item/columnDefinitionRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
 import {ContentTypeRequestBuilder} from './contentTypes/item/contentTypeRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
+import {DriveRequestBuilder as i065e8017e808d1f96f51906d60d9fd55c80171c7edcd7567093e226c0b501bbd} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from './drives/item/driveRequestBuilder';
+import {DriveRequestBuilder as i30a6318f7fcf849daf41443f2a39a122c4d9dffd96a5073f8cbb941fcb1961d5} from './drives/item/driveRequestBuilder';
 import {GetActivitiesByIntervalRequestBuilder} from './getActivitiesByInterval/getActivitiesByIntervalRequestBuilder';
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithInterval/getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilder';
 import {GetByPathWithPathRequestBuilder} from './getByPathWithPath/getByPathWithPathRequestBuilder';
@@ -17,7 +17,7 @@ import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
 import {PermissionRequestBuilder} from './permissions/item/permissionRequestBuilder';
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
-import {SiteRequestBuilder} from './sites/item/siteRequestBuilder';
+import {SiteRequestBuilder as i36a952ae5ce71271230ee2ae885642c86944ca35f2a0ed92805a786626c64f7c} from './sites/item/siteRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -34,8 +34,8 @@ export class SiteRequestBuilder {
     }
     /** Current path for the request  */
     private readonly currentPath: string;
-    public get drive(): DriveRequestBuilder {
-        return new DriveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get drive(): i065e8017e808d1f96f51906d60d9fd55c80171c7edcd7567093e226c0b501bbd {
+        return new i065e8017e808d1f96f51906d60d9fd55c80171c7edcd7567093e226c0b501bbd(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -160,9 +160,9 @@ export class SiteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
-    public drivesById(id: String) : DriveRequestBuilder {
+    public drivesById(id: String) : i30a6318f7fcf849daf41443f2a39a122c4d9dffd96a5073f8cbb941fcb1961d5 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveRequestBuilder(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
+        return new i30a6318f7fcf849daf41443f2a39a122c4d9dffd96a5073f8cbb941fcb1961d5(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     /**
      * Get entity from sites by key
@@ -256,8 +256,8 @@ export class SiteRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a siteRequestBuilder
      */
-    public sitesById(id: String) : SiteRequestBuilder {
+    public sitesById(id: String) : i36a952ae5ce71271230ee2ae885642c86944ca35f2a0ed92805a786626c64f7c {
         if(!id) throw new Error("id cannot be undefined");
-        return new SiteRequestBuilder(this.currentPath + this.pathSegment + "/sites/" + id, this.httpCore, false);
+        return new i36a952ae5ce71271230ee2ae885642c86944ca35f2a0ed92805a786626c64f7c(this.currentPath + this.pathSegment + "/sites/" + id, this.httpCore, false);
     };
 }

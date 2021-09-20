@@ -1,6 +1,6 @@
 import {SharedDriveItem} from '../../models/microsoft/graph/sharedDriveItem';
-import {DriveItemRequestBuilder} from './driveItem/driveItemRequestBuilder';
-import {DriveItemRequestBuilder} from './items/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as id2470b9eeb2833d66a6b8d3ea9bee2dde9514842d753ec2eed455e037d0f1655} from './driveItem/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i4fba342279fc1c2668482717497edd77ab27425d9e9c00719b4d7fcae0535403} from './items/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
@@ -13,8 +13,8 @@ import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOpt
 export class SharedDriveItemRequestBuilder {
     /** Current path for the request  */
     private readonly currentPath: string;
-    public get driveItem(): DriveItemRequestBuilder {
-        return new DriveItemRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get driveItem(): id2470b9eeb2833d66a6b8d3ea9bee2dde9514842d753ec2eed455e037d0f1655 {
+        return new id2470b9eeb2833d66a6b8d3ea9bee2dde9514842d753ec2eed455e037d0f1655(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     /** The http core service to use to execute the requests.  */
     private readonly httpCore: HttpCore;
@@ -138,9 +138,9 @@ export class SharedDriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public itemsById(id: String) : DriveItemRequestBuilder {
+    public itemsById(id: String) : i4fba342279fc1c2668482717497edd77ab27425d9e9c00719b4d7fcae0535403 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveItemRequestBuilder(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
+        return new i4fba342279fc1c2668482717497edd77ab27425d9e9c00719b4d7fcae0535403(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
     };
     /**
      * Update entity in shares

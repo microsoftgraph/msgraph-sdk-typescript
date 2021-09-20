@@ -1,8 +1,8 @@
 import {ReportRoot} from '../models/microsoft/graph/reportRoot';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterRequestBuilder as i2abc3eebdebb13e66c08e2b6c8a769e57aabaa908a9e5d5a892b340592fd0ad0} from './dailyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
-import {PrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserRequestBuilder as ic52edce2a92310149d30d15406fffd65818645f486b8eaff79fb8987a21bfdaa} from './dailyPrintUsageByUser/item/printUsageByUserRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
 import {DeviceConfigurationUserActivityRequestBuilder} from './deviceConfigurationUserActivity/deviceConfigurationUserActivityRequestBuilder';
 import {GetEmailActivityCountsWithPeriodRequestBuilder} from './getEmailActivityCountsWithPeriod/getEmailActivityCountsWithPeriodRequestBuilder';
@@ -95,9 +95,9 @@ import {ManagedDeviceEnrollmentFailureDetailsRequestBuilder} from './managedDevi
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilder} from './managedDeviceEnrollmentTopFailures/managedDeviceEnrollmentTopFailuresRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder} from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterRequestBuilder as ib9899557722b381a7699dd538a724094f336d189e17eb2d2561874f0e59697e2} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserRequestBuilder as ia76da27ec5e04aaff38a214ca72f61eb909d0fc63c80595a54e6488b7adf78f9} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -178,18 +178,18 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a printUsageByPrinterRequestBuilder
      */
-    public dailyPrintUsageByPrinterById(id: String) : PrintUsageByPrinterRequestBuilder {
+    public dailyPrintUsageByPrinterById(id: String) : i2abc3eebdebb13e66c08e2b6c8a769e57aabaa908a9e5d5a892b340592fd0ad0 {
         if(!id) throw new Error("id cannot be undefined");
-        return new PrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment + "/dailyPrintUsageByPrinter/" + id, this.httpCore, false);
+        return new i2abc3eebdebb13e66c08e2b6c8a769e57aabaa908a9e5d5a892b340592fd0ad0(this.currentPath + this.pathSegment + "/dailyPrintUsageByPrinter/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByUserRequestBuilder
      */
-    public dailyPrintUsageByUserById(id: String) : PrintUsageByUserRequestBuilder {
+    public dailyPrintUsageByUserById(id: String) : ic52edce2a92310149d30d15406fffd65818645f486b8eaff79fb8987a21bfdaa {
         if(!id) throw new Error("id cannot be undefined");
-        return new PrintUsageByUserRequestBuilder(this.currentPath + this.pathSegment + "/dailyPrintUsageByUser/" + id, this.httpCore, false);
+        return new ic52edce2a92310149d30d15406fffd65818645f486b8eaff79fb8987a21bfdaa(this.currentPath + this.pathSegment + "/dailyPrintUsageByUser/" + id, this.httpCore, false);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.deviceConfigurationDeviceActivity()
@@ -1045,18 +1045,18 @@ export class ReportsRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a printUsageByPrinterRequestBuilder
      */
-    public monthlyPrintUsageByPrinterById(id: String) : PrintUsageByPrinterRequestBuilder {
+    public monthlyPrintUsageByPrinterById(id: String) : ib9899557722b381a7699dd538a724094f336d189e17eb2d2561874f0e59697e2 {
         if(!id) throw new Error("id cannot be undefined");
-        return new PrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment + "/monthlyPrintUsageByPrinter/" + id, this.httpCore, false);
+        return new ib9899557722b381a7699dd538a724094f336d189e17eb2d2561874f0e59697e2(this.currentPath + this.pathSegment + "/monthlyPrintUsageByPrinter/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByUserRequestBuilder
      */
-    public monthlyPrintUsageByUserById(id: String) : PrintUsageByUserRequestBuilder {
+    public monthlyPrintUsageByUserById(id: String) : ia76da27ec5e04aaff38a214ca72f61eb909d0fc63c80595a54e6488b7adf78f9 {
         if(!id) throw new Error("id cannot be undefined");
-        return new PrintUsageByUserRequestBuilder(this.currentPath + this.pathSegment + "/monthlyPrintUsageByUser/" + id, this.httpCore, false);
+        return new ia76da27ec5e04aaff38a214ca72f61eb909d0fc63c80595a54e6488b7adf78f9(this.currentPath + this.pathSegment + "/monthlyPrintUsageByUser/" + id, this.httpCore, false);
     };
     /**
      * Update reports

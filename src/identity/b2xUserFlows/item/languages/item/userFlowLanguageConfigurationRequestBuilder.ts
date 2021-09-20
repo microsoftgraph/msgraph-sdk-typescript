@@ -1,7 +1,7 @@
 import {UserFlowLanguageConfiguration} from '../../../../../models/microsoft/graph/userFlowLanguageConfiguration';
 import {DefaultPagesRequestBuilder} from './defaultPages/defaultPagesRequestBuilder';
-import {UserFlowLanguagePageRequestBuilder} from './defaultPages/item/userFlowLanguagePageRequestBuilder';
-import {UserFlowLanguagePageRequestBuilder} from './overridesPages/item/userFlowLanguagePageRequestBuilder';
+import {UserFlowLanguagePageRequestBuilder as i7daeffe0316dac9b0277ef4123fff891deeff4df506eb6da4af11e574efead0f} from './defaultPages/item/userFlowLanguagePageRequestBuilder';
+import {UserFlowLanguagePageRequestBuilder as i6cfc7442a6842b943912fdcc7b82b6ff9e9485e3ce80d88108fe5d3149c09aec} from './overridesPages/item/userFlowLanguagePageRequestBuilder';
 import {OverridesPagesRequestBuilder} from './overridesPages/overridesPagesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -90,9 +90,9 @@ export class UserFlowLanguageConfigurationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a userFlowLanguagePageRequestBuilder
      */
-    public defaultPagesById(id: String) : UserFlowLanguagePageRequestBuilder {
+    public defaultPagesById(id: String) : i7daeffe0316dac9b0277ef4123fff891deeff4df506eb6da4af11e574efead0f {
         if(!id) throw new Error("id cannot be undefined");
-        return new UserFlowLanguagePageRequestBuilder(this.currentPath + this.pathSegment + "/defaultPages/" + id, this.httpCore, false);
+        return new i7daeffe0316dac9b0277ef4123fff891deeff4df506eb6da4af11e574efead0f(this.currentPath + this.pathSegment + "/defaultPages/" + id, this.httpCore, false);
     };
     /**
      * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.
@@ -128,9 +128,9 @@ export class UserFlowLanguageConfigurationRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a userFlowLanguagePageRequestBuilder
      */
-    public overridesPagesById(id: String) : UserFlowLanguagePageRequestBuilder {
+    public overridesPagesById(id: String) : i6cfc7442a6842b943912fdcc7b82b6ff9e9485e3ce80d88108fe5d3149c09aec {
         if(!id) throw new Error("id cannot be undefined");
-        return new UserFlowLanguagePageRequestBuilder(this.currentPath + this.pathSegment + "/overridesPages/" + id, this.httpCore, false);
+        return new i6cfc7442a6842b943912fdcc7b82b6ff9e9485e3ce80d88108fe5d3149c09aec(this.currentPath + this.pathSegment + "/overridesPages/" + id, this.httpCore, false);
     };
     /**
      * The languages supported for customization within the user flow. Language customization is enabled by default in self-service sign up user flow. You cannot create custom languages in self-service sign up user flows.

@@ -1,7 +1,7 @@
 import {ChatMessage} from '../../../../../models/microsoft/graph/chatMessage';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentRequestBuilder} from './hostedContents/item/chatMessageHostedContentRequestBuilder';
-import {ChatMessageRequestBuilder} from './replies/item/chatMessageRequestBuilder';
+import {ChatMessageRequestBuilder as i59b4fe26406482de4937807f116d7576a42d9ef47b7d383c9a351f31bb08476d} from './replies/item/chatMessageRequestBuilder';
 import {RepliesRequestBuilder} from './replies/repliesRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -142,8 +142,8 @@ export class ChatMessageRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a chatMessageRequestBuilder
      */
-    public repliesById(id: String) : ChatMessageRequestBuilder {
+    public repliesById(id: String) : i59b4fe26406482de4937807f116d7576a42d9ef47b7d383c9a351f31bb08476d {
         if(!id) throw new Error("id cannot be undefined");
-        return new ChatMessageRequestBuilder(this.currentPath + this.pathSegment + "/replies/" + id, this.httpCore, false);
+        return new i59b4fe26406482de4937807f116d7576a42d9ef47b7d383c9a351f31bb08476d(this.currentPath + this.pathSegment + "/replies/" + id, this.httpCore, false);
     };
 }

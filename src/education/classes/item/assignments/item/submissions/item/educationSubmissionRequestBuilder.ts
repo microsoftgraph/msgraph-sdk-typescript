@@ -1,12 +1,12 @@
 import {EducationSubmission} from '../../../../../../../models/microsoft/graph/educationSubmission';
 import {EducationOutcomeRequestBuilder} from './outcomes/item/educationOutcomeRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
-import {EducationSubmissionResourceRequestBuilder} from './resources/item/educationSubmissionResourceRequestBuilder';
+import {EducationSubmissionResourceRequestBuilder as i5310aa956f9f1bebdc8aed9bcbdb0d9d0f319f845ba84d89e213edf7a9518cf5} from './resources/item/educationSubmissionResourceRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
 import {ReturnRequestBuilder} from './return/returnRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
-import {EducationSubmissionResourceRequestBuilder} from './submittedResources/item/educationSubmissionResourceRequestBuilder';
+import {EducationSubmissionResourceRequestBuilder as i9c47a34144607b89c1a65d7d0dbdef8160dc52198a1f82a330ec911592df81ef} from './submittedResources/item/educationSubmissionResourceRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
 import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -160,9 +160,9 @@ export class EducationSubmissionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a educationSubmissionResourceRequestBuilder
      */
-    public resourcesById(id: String) : EducationSubmissionResourceRequestBuilder {
+    public resourcesById(id: String) : i5310aa956f9f1bebdc8aed9bcbdb0d9d0f319f845ba84d89e213edf7a9518cf5 {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationSubmissionResourceRequestBuilder(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
+        return new i5310aa956f9f1bebdc8aed9bcbdb0d9d0f319f845ba84d89e213edf7a9518cf5(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
     };
     /**
      * Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/submissions/{educationSubmission-id}/microsoft.graph.setUpResourcesFolder()
@@ -176,8 +176,8 @@ export class EducationSubmissionRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a educationSubmissionResourceRequestBuilder
      */
-    public submittedResourcesById(id: String) : EducationSubmissionResourceRequestBuilder {
+    public submittedResourcesById(id: String) : i9c47a34144607b89c1a65d7d0dbdef8160dc52198a1f82a330ec911592df81ef {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationSubmissionResourceRequestBuilder(this.currentPath + this.pathSegment + "/submittedResources/" + id, this.httpCore, false);
+        return new i9c47a34144607b89c1a65d7d0dbdef8160dc52198a1f82a330ec911592df81ef(this.currentPath + this.pathSegment + "/submittedResources/" + id, this.httpCore, false);
     };
 }

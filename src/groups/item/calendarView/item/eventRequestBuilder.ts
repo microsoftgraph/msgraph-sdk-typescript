@@ -10,7 +10,7 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {EventRequestBuilder} from './instances/item/eventRequestBuilder';
+import {EventRequestBuilder as ic41120a5a6c5fc2fa49f78f9a01ce7bc69852a8c28e77309c1a48970fb8172b5} from './instances/item/eventRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
@@ -188,9 +188,9 @@ export class EventRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public instancesById(id: String) : EventRequestBuilder {
+    public instancesById(id: String) : ic41120a5a6c5fc2fa49f78f9a01ce7bc69852a8c28e77309c1a48970fb8172b5 {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/instances/" + id, this.httpCore, false);
+        return new ic41120a5a6c5fc2fa49f78f9a01ce7bc69852a8c28e77309c1a48970fb8172b5(this.currentPath + this.pathSegment + "/instances/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.item.calendarView.item.multiValueExtendedProperties.item collection

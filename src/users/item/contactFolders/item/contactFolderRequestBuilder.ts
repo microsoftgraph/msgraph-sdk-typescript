@@ -1,6 +1,6 @@
 import {ContactFolder} from '../../../../models/microsoft/graph/contactFolder';
 import {ChildFoldersRequestBuilder} from './childFolders/childFoldersRequestBuilder';
-import {ContactFolderRequestBuilder} from './childFolders/item/contactFolderRequestBuilder';
+import {ContactFolderRequestBuilder as i9d28a8e203715c85a724e96943385a59bab526ddcc5fe5bb80ceca1ac8aa9c6b} from './childFolders/item/contactFolderRequestBuilder';
 import {ContactsRequestBuilder} from './contacts/contactsRequestBuilder';
 import {ContactRequestBuilder} from './contacts/item/contactRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
@@ -36,9 +36,9 @@ export class ContactFolderRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a contactFolderRequestBuilder
      */
-    public childFoldersById(id: String) : ContactFolderRequestBuilder {
+    public childFoldersById(id: String) : i9d28a8e203715c85a724e96943385a59bab526ddcc5fe5bb80ceca1ac8aa9c6b {
         if(!id) throw new Error("id cannot be undefined");
-        return new ContactFolderRequestBuilder(this.currentPath + this.pathSegment + "/childFolders/" + id, this.httpCore, false);
+        return new i9d28a8e203715c85a724e96943385a59bab526ddcc5fe5bb80ceca1ac8aa9c6b(this.currentPath + this.pathSegment + "/childFolders/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new ContactFolderRequestBuilder and sets the default values.

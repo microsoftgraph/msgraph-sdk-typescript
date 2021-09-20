@@ -1,7 +1,7 @@
 import {SectionGroup} from '../../../../../../../../../models/microsoft/graph/sectionGroup';
 import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookRequestBuilder';
 import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
-import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
+import {SectionGroupRequestBuilder as i5b2241761357509c170d056c800d2bdb8045749639bb6e4e3a02540abaac6c87} from './sectionGroups/item/sectionGroupRequestBuilder';
 import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
 import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
@@ -141,9 +141,9 @@ export class SectionGroupRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a sectionGroupRequestBuilder
      */
-    public sectionGroupsById(id: String) : SectionGroupRequestBuilder {
+    public sectionGroupsById(id: String) : i5b2241761357509c170d056c800d2bdb8045749639bb6e4e3a02540abaac6c87 {
         if(!id) throw new Error("id cannot be undefined");
-        return new SectionGroupRequestBuilder(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
+        return new i5b2241761357509c170d056c800d2bdb8045749639bb6e4e3a02540abaac6c87(this.currentPath + this.pathSegment + "/sectionGroups/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.sites.item.onenote.pages.item.parentSection.parentNotebook.sectionGroups.item.sections.item collection

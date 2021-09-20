@@ -39,9 +39,9 @@ import {DomainDnsRecordsRequestBuilder} from './domainDnsRecords/domainDnsRecord
 import {DomainDnsRecordRequestBuilder} from './domainDnsRecords/item/domainDnsRecordRequestBuilder';
 import {DomainsRequestBuilder} from './domains/domainsRequestBuilder';
 import {DomainRequestBuilder} from './domains/item/domainRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
+import {DriveRequestBuilder as icbb5ef41e7b355663c7331e7422002ee2973f10408b110fbf820b0d849e121e5} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from './drives/item/driveRequestBuilder';
+import {DriveRequestBuilder as i514bf51b7c4c33d2a25d47190f2e30470e04c5f737f18bcd446cd3feac5a6911} from './drives/item/driveRequestBuilder';
 import {EducationRequestBuilder} from './education/educationRequestBuilder';
 import {ExternalRequestBuilder} from './external/externalRequestBuilder';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
@@ -179,8 +179,8 @@ export class ApiClient {
     public get domains(): DomainsRequestBuilder {
         return new DomainsRequestBuilder(this.pathSegment, this.httpCore, false);
     }
-    public get drive(): DriveRequestBuilder {
-        return new DriveRequestBuilder(this.pathSegment, this.httpCore, false);
+    public get drive(): icbb5ef41e7b355663c7331e7422002ee2973f10408b110fbf820b0d849e121e5 {
+        return new icbb5ef41e7b355663c7331e7422002ee2973f10408b110fbf820b0d849e121e5(this.pathSegment, this.httpCore, false);
     }
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathSegment, this.httpCore, false);
@@ -474,9 +474,9 @@ export class ApiClient {
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
-    public drivesById(id: String) : DriveRequestBuilder {
+    public drivesById(id: String) : i514bf51b7c4c33d2a25d47190f2e30470e04c5f737f18bcd446cd3feac5a6911 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveRequestBuilder(this.pathSegment + "/drives/" + id, this.httpCore, false);
+        return new i514bf51b7c4c33d2a25d47190f2e30470e04c5f737f18bcd446cd3feac5a6911(this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     public get(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createGetRequestInformation(

@@ -1,9 +1,9 @@
 import {Domain} from '../../models/microsoft/graph/domain';
 import {DomainNameReferencesRequestBuilder} from './domainNameReferences/domainNameReferencesRequestBuilder';
 import {ForceDeleteRequestBuilder} from './forceDelete/forceDeleteRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from './serviceConfigurationRecords/item/domainDnsRecordRequestBuilder';
+import {DomainDnsRecordRequestBuilder as i51645ad28df07bc12495f3bb0709dd2f39602c6d5ad14b625ac8ba480127e9a3} from './serviceConfigurationRecords/item/domainDnsRecordRequestBuilder';
 import {ServiceConfigurationRecordsRequestBuilder} from './serviceConfigurationRecords/serviceConfigurationRecordsRequestBuilder';
-import {DomainDnsRecordRequestBuilder} from './verificationDnsRecords/item/domainDnsRecordRequestBuilder';
+import {DomainDnsRecordRequestBuilder as ide6f5aee047065a6537811b127ab85aa2ebf86b2fe4261c7beef65fbec0b5042} from './verificationDnsRecords/item/domainDnsRecordRequestBuilder';
 import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/verificationDnsRecordsRequestBuilder';
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
@@ -145,17 +145,17 @@ export class DomainRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordRequestBuilder
      */
-    public serviceConfigurationRecordsById(id: String) : DomainDnsRecordRequestBuilder {
+    public serviceConfigurationRecordsById(id: String) : i51645ad28df07bc12495f3bb0709dd2f39602c6d5ad14b625ac8ba480127e9a3 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DomainDnsRecordRequestBuilder(this.currentPath + this.pathSegment + "/serviceConfigurationRecords/" + id, this.httpCore, false);
+        return new i51645ad28df07bc12495f3bb0709dd2f39602c6d5ad14b625ac8ba480127e9a3(this.currentPath + this.pathSegment + "/serviceConfigurationRecords/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.domains.item.verificationDnsRecords.item collection
      * @param id Unique identifier of the item
      * @returns a domainDnsRecordRequestBuilder
      */
-    public verificationDnsRecordsById(id: String) : DomainDnsRecordRequestBuilder {
+    public verificationDnsRecordsById(id: String) : ide6f5aee047065a6537811b127ab85aa2ebf86b2fe4261c7beef65fbec0b5042 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DomainDnsRecordRequestBuilder(this.currentPath + this.pathSegment + "/verificationDnsRecords/" + id, this.httpCore, false);
+        return new ide6f5aee047065a6537811b127ab85aa2ebf86b2fe4261c7beef65fbec0b5042(this.currentPath + this.pathSegment + "/verificationDnsRecords/" + id, this.httpCore, false);
     };
 }

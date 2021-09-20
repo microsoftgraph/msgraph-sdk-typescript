@@ -6,18 +6,18 @@ import {AppRoleAssignmentRequestBuilder} from './appRoleAssignments/item/appRole
 import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder} from './calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder as id5f4132d491be6ec6415105ddcf4d2bd3db68e99ef81e7280593fa21d1d55eba} from './calendarView/item/eventRequestBuilder';
 import {CheckGrantedPermissionsForAppRequestBuilder} from './checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ConversationsRequestBuilder} from './conversations/conversationsRequestBuilder';
 import {ConversationRequestBuilder} from './conversations/item/conversationRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
-import {DriveRequestBuilder} from './drive/driveRequestBuilder';
+import {DriveRequestBuilder as iec58096e7f23b3db1d8cba846f6e223b70e73f39662ccfa8d78f852242c431c0} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {DriveRequestBuilder} from './drives/item/driveRequestBuilder';
+import {DriveRequestBuilder as id234198a7feedd0c4783ce7a23ee14421a3c83a17e7fa50bbede8c2a4d2ad464} from './drives/item/driveRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventRequestBuilder} from './events/item/eventRequestBuilder';
+import {EventRequestBuilder as ib0276888e1ff4a495dc789b1c740fe1439011f1aaf13f6c6d2b67a2040ca7074} from './events/item/eventRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
@@ -91,8 +91,8 @@ export class GroupRequestBuilder {
     }
     /** Current path for the request  */
     private readonly currentPath: string;
-    public get drive(): DriveRequestBuilder {
-        return new DriveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get drive(): iec58096e7f23b3db1d8cba846f6e223b70e73f39662ccfa8d78f852242c431c0 {
+        return new iec58096e7f23b3db1d8cba846f6e223b70e73f39662ccfa8d78f852242c431c0(this.currentPath + this.pathSegment, this.httpCore, false);
     }
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
@@ -201,9 +201,9 @@ export class GroupRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public calendarViewById(id: String) : EventRequestBuilder {
+    public calendarViewById(id: String) : id5f4132d491be6ec6415105ddcf4d2bd3db68e99ef81e7280593fa21d1d55eba {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
+        return new id5f4132d491be6ec6415105ddcf4d2bd3db68e99ef81e7280593fa21d1d55eba(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new GroupRequestBuilder and sets the default values.
@@ -295,18 +295,18 @@ export class GroupRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
-    public drivesById(id: String) : DriveRequestBuilder {
+    public drivesById(id: String) : id234198a7feedd0c4783ce7a23ee14421a3c83a17e7fa50bbede8c2a4d2ad464 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveRequestBuilder(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
+        return new id234198a7feedd0c4783ce7a23ee14421a3c83a17e7fa50bbede8c2a4d2ad464(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.item.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public eventsById(id: String) : EventRequestBuilder {
+    public eventsById(id: String) : ib0276888e1ff4a495dc789b1c740fe1439011f1aaf13f6c6d2b67a2040ca7074 {
         if(!id) throw new Error("id cannot be undefined");
-        return new EventRequestBuilder(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
+        return new ib0276888e1ff4a495dc789b1c740fe1439011f1aaf13f6c6d2b67a2040ca7074(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
     };
     /**
      * Gets an item from the graphtypescriptv4.utilities.groups.item.extensions.item collection

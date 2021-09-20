@@ -3,7 +3,7 @@ import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
-import {DriveItemRequestBuilder} from './children/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i63f5d263719c75dd1e3362a04fee6d8be2790a5b1ab4dd94d1e0dc2ee1abed9d} from './children/item/driveItemRequestBuilder';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {CreateLinkRequestBuilder} from './createLink/createLinkRequestBuilder';
@@ -106,9 +106,9 @@ export class DriveItemRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public childrenById(id: String) : DriveItemRequestBuilder {
+    public childrenById(id: String) : i63f5d263719c75dd1e3362a04fee6d8be2790a5b1ab4dd94d1e0dc2ee1abed9d {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveItemRequestBuilder(this.currentPath + this.pathSegment + "/children/" + id, this.httpCore, false);
+        return new i63f5d263719c75dd1e3362a04fee6d8be2790a5b1ab4dd94d1e0dc2ee1abed9d(this.currentPath + this.pathSegment + "/children/" + id, this.httpCore, false);
     };
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.

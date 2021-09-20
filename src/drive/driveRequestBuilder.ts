@@ -1,14 +1,14 @@
 import {Drive} from '../models/microsoft/graph/drive';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemRequestBuilder} from './following/item/driveItemRequestBuilder';
-import {DriveItemRequestBuilder} from './items/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i417f01b2fce527fdb71e560b246e89b09ea6229a43565eedec1677673d810282} from './following/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i82754964648f9f41beb73660969e85b541138f52ac60687c4b545aa8e082f4fa} from './items/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemRequestBuilder} from './special/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i9a31140587c11f0827c80ad357d3b8d912cd864d1c1b0bddfba08a23093804f5} from './special/item/driveItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
@@ -92,9 +92,9 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public followingById(id: String) : DriveItemRequestBuilder {
+    public followingById(id: String) : i417f01b2fce527fdb71e560b246e89b09ea6229a43565eedec1677673d810282 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveItemRequestBuilder(this.currentPath + this.pathSegment + "/following/" + id, this.httpCore, false);
+        return new i417f01b2fce527fdb71e560b246e89b09ea6229a43565eedec1677673d810282(this.currentPath + this.pathSegment + "/following/" + id, this.httpCore, false);
     };
     /**
      * Get drive
@@ -118,9 +118,9 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public itemsById(id: String) : DriveItemRequestBuilder {
+    public itemsById(id: String) : i82754964648f9f41beb73660969e85b541138f52ac60687c4b545aa8e082f4fa {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveItemRequestBuilder(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
+        return new i82754964648f9f41beb73660969e85b541138f52ac60687c4b545aa8e082f4fa(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
     };
     /**
      * Update drive
@@ -164,8 +164,8 @@ export class DriveRequestBuilder {
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public specialById(id: String) : DriveItemRequestBuilder {
+    public specialById(id: String) : i9a31140587c11f0827c80ad357d3b8d912cd864d1c1b0bddfba08a23093804f5 {
         if(!id) throw new Error("id cannot be undefined");
-        return new DriveItemRequestBuilder(this.currentPath + this.pathSegment + "/special/" + id, this.httpCore, false);
+        return new i9a31140587c11f0827c80ad357d3b8d912cd864d1c1b0bddfba08a23093804f5(this.currentPath + this.pathSegment + "/special/" + id, this.httpCore, false);
     };
 }
