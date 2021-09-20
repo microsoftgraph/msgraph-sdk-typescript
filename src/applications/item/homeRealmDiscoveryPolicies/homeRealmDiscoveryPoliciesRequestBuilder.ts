@@ -1,5 +1,5 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {HomeRealmDiscoveryPoliciesResponse} from './homeRealmDiscoveryPoliciesResponse';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /applications/{application-id}/homeRealmDiscoveryPolicies  */

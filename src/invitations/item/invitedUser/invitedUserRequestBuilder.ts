@@ -1,5 +1,5 @@
 import {User} from '../../../models/microsoft/graph/user';
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /invitations/{invitation-id}/invitedUser  */

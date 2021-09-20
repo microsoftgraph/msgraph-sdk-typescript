@@ -1,5 +1,5 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {DirectReportsResponse} from './directReportsResponse';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/directReports  */

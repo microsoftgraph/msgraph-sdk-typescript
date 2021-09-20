@@ -1,4 +1,4 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {TokenLifetimePoliciesResponse} from './tokenLifetimePoliciesResponse';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 

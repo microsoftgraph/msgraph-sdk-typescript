@@ -1,5 +1,5 @@
 import {PrintTaskTrigger} from '../../../../../../models/microsoft/graph/printTaskTrigger';
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /print/taskDefinitions/{printTaskDefinition-id}/tasks/{printTask-id}/trigger  */

@@ -1,5 +1,5 @@
 import {ItemAnalytics} from '../../../models/microsoft/graph/itemAnalytics';
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/analytics  */

@@ -1,5 +1,5 @@
 import {AdministrativeUnit} from '../../../../models/microsoft/graph/administrativeUnit';
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/schools/{educationSchool-id}/administrativeUnit  */

@@ -1,5 +1,5 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {ManagedDevicesResponse} from './managedDevicesResponse';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceManagement/detectedApps/{detectedApp-id}/managedDevices  */

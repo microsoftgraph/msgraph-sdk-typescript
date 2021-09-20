@@ -1,4 +1,4 @@
-import {BaseItem} from '../../../drive/baseItem';
+import {BaseItem} from './baseItem';
 import {ColumnDefinition} from './columnDefinition';
 import {ContentType} from './contentType';
 import {Drive} from './drive';

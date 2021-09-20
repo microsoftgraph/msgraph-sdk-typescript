@@ -2,7 +2,6 @@ import {Message} from '../../../models/microsoft/graph/message';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentRequestBuilder} from './attachments/item/attachmentRequestBuilder';
 import {CalendarSharingMessageRequestBuilder} from './calendarSharingMessage/calendarSharingMessageRequestBuilder';
-import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {CopyRequestBuilder} from './copy/copyRequestBuilder';
 import {CreateForwardRequestBuilder} from './createForward/createForwardRequestBuilder';
 import {CreateReplyRequestBuilder} from './createReply/createReplyRequestBuilder';
@@ -18,6 +17,7 @@ import {ReplyAllRequestBuilder} from './replyAll/replyAllRequestBuilder';
 import {SendRequestBuilder} from './send/sendRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
+import {ContentRequestBuilder} from './value/contentRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/messages/{message-id}  */

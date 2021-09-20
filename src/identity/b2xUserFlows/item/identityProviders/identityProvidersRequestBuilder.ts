@@ -1,5 +1,5 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {IdentityProvidersResponse} from './identityProvidersResponse';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identity/b2xUserFlows/{b2xIdentityUserFlow-id}/identityProviders  */

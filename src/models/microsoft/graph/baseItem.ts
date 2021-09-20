@@ -1,7 +1,7 @@
-import {Entity} from '../models/microsoft/graph/entity';
-import {IdentitySet} from '../models/microsoft/graph/identitySet';
-import {ItemReference} from '../models/microsoft/graph/itemReference';
-import {User} from '../models/microsoft/graph/user';
+import {Entity} from './entity';
+import {IdentitySet} from './identitySet';
+import {ItemReference} from './itemReference';
+import {User} from './user';
 import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
 
 export class BaseItem extends Entity implements Parsable {

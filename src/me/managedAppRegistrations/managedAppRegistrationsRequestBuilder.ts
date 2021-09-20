@@ -1,6 +1,6 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
 import {ManagedAppRegistrationsResponse} from './managedAppRegistrationsResponse';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/managedAppRegistrations  */

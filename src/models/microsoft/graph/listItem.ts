@@ -1,4 +1,4 @@
-import {BaseItem} from '../../../drive/baseItem';
+import {BaseItem} from './baseItem';
 import {ContentTypeInfo} from './contentTypeInfo';
 import {DriveItem} from './driveItem';
 import {FieldValueSet} from './fieldValueSet';

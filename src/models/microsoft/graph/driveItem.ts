@@ -1,5 +1,5 @@
-import {BaseItem} from '../../../drive/baseItem';
 import {Audio} from './audio';
+import {BaseItem} from './baseItem';
 import {Deleted} from './deleted';
 import {DriveItemVersion} from './driveItemVersion';
 import {File} from './file';

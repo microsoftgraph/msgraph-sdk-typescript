@@ -1,5 +1,5 @@
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
 import {AcceptedSendersResponse} from './acceptedSendersResponse';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}/acceptedSenders  */

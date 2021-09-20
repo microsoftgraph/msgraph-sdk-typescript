@@ -1,5 +1,5 @@
 import {UserActivity} from '../../../../../../../models/microsoft/graph/userActivity';
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/activities/{userActivity-id}/historyItems/{activityHistoryItem-id}/activity  */

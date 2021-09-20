@@ -1,5 +1,5 @@
 import {Chat} from '../../../../../../models/microsoft/graph/chat';
-import {$refRequestBuilder} from './$ref/$refRequestBuilder';
+import {$refRequestBuilder} from './ref/$refRequestBuilder';
 import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/teamwork/installedApps/{userScopeTeamsAppInstallation-id}/chat  */
