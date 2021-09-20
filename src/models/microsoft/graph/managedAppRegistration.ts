@@ -160,7 +160,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
             ["deviceName", (o, n) => { (o as unknown as ManagedAppRegistration).deviceName = n.getStringValue(); }],
             ["deviceTag", (o, n) => { (o as unknown as ManagedAppRegistration).deviceTag = n.getStringValue(); }],
             ["deviceType", (o, n) => { (o as unknown as ManagedAppRegistration).deviceType = n.getStringValue(); }],
-            ["flaggedReasons", (o, n) => { (o as unknown as ManagedAppRegistration).flaggedReasons = n.getCollectionOfObjectValues<ManagedAppFlaggedReason>(ManagedAppFlaggedReason); }],
+            ["flaggedReasons", (o, n) => { (o as unknown as ManagedAppRegistration).flaggedReasons = n.getEnumValues<ManagedAppFlaggedReason>(ManagedAppFlaggedReason); }],
             ["intendedPolicies", (o, n) => { (o as unknown as ManagedAppRegistration).intendedPolicies = n.getCollectionOfObjectValues<ManagedAppPolicy>(ManagedAppPolicy); }],
             ["lastSyncDateTime", (o, n) => { (o as unknown as ManagedAppRegistration).lastSyncDateTime = n.getDateValue(); }],
             ["managementSdkVersion", (o, n) => { (o as unknown as ManagedAppRegistration).managementSdkVersion = n.getStringValue(); }],
@@ -184,7 +184,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
         writer.writeStringValue("deviceName", this.deviceName);
         writer.writeStringValue("deviceTag", this.deviceTag);
         writer.writeStringValue("deviceType", this.deviceType);
-        writer.writeCollectionOfObjectValues<ManagedAppFlaggedReason>("flaggedReasons", this.flaggedReasons);
+        writer.writeEnumValue<ManagedAppFlaggedReason>("flaggedReasons", ...this.flaggedReasons);
         writer.writeCollectionOfObjectValues<ManagedAppPolicy>("intendedPolicies", this.intendedPolicies);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);

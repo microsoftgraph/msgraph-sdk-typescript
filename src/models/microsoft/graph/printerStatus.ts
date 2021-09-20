@@ -52,7 +52,7 @@ export class PrinterStatus implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["description", (o, n) => { (o as unknown as PrinterStatus).description = n.getStringValue(); }],
-            ["details", (o, n) => { (o as unknown as PrinterStatus).details = n.getCollectionOfObjectValues<PrinterProcessingStateDetail>(PrinterProcessingStateDetail); }],
+            ["details", (o, n) => { (o as unknown as PrinterStatus).details = n.getEnumValues<PrinterProcessingStateDetail>(PrinterProcessingStateDetail); }],
             ["state", (o, n) => { (o as unknown as PrinterStatus).state = n.getEnumValue<PrinterProcessingState>(PrinterProcessingState); }],
         ]);
     };
@@ -63,7 +63,7 @@ export class PrinterStatus implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        writer.writeCollectionOfObjectValues<PrinterProcessingStateDetail>("details", this.details);
+        writer.writeEnumValue<PrinterProcessingStateDetail>("details", ...this.details);
         writer.writeEnumValue<PrinterProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };

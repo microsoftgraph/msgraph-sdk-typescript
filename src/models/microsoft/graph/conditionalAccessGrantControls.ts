@@ -59,7 +59,7 @@ export class ConditionalAccessGrantControls implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["builtInControls", (o, n) => { (o as unknown as ConditionalAccessGrantControls).builtInControls = n.getCollectionOfObjectValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); }],
+            ["builtInControls", (o, n) => { (o as unknown as ConditionalAccessGrantControls).builtInControls = n.getEnumValues<ConditionalAccessGrantControl>(ConditionalAccessGrantControl); }],
             ["customAuthenticationFactors", (o, n) => { (o as unknown as ConditionalAccessGrantControls).customAuthenticationFactors = n.getCollectionOfPrimitiveValues<string>(); }],
             ["operator", (o, n) => { (o as unknown as ConditionalAccessGrantControls).operator = n.getStringValue(); }],
             ["termsOfUse", (o, n) => { (o as unknown as ConditionalAccessGrantControls).termsOfUse = n.getCollectionOfPrimitiveValues<string>(); }],
@@ -71,7 +71,7 @@ export class ConditionalAccessGrantControls implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ConditionalAccessGrantControl>("builtInControls", this.builtInControls);
+        writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...this.builtInControls);
         writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
         writer.writeStringValue("operator", this.operator);
         writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);

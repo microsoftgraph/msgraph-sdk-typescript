@@ -187,7 +187,7 @@ export class PrinterDefaults implements Parsable {
             ["copiesPerJob", (o, n) => { (o as unknown as PrinterDefaults).copiesPerJob = n.getNumberValue(); }],
             ["dpi", (o, n) => { (o as unknown as PrinterDefaults).dpi = n.getNumberValue(); }],
             ["duplexMode", (o, n) => { (o as unknown as PrinterDefaults).duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); }],
-            ["finishings", (o, n) => { (o as unknown as PrinterDefaults).finishings = n.getCollectionOfObjectValues<PrintFinishing>(PrintFinishing); }],
+            ["finishings", (o, n) => { (o as unknown as PrinterDefaults).finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); }],
             ["fitPdfToPage", (o, n) => { (o as unknown as PrinterDefaults).fitPdfToPage = n.getBooleanValue(); }],
             ["inputBin", (o, n) => { (o as unknown as PrinterDefaults).inputBin = n.getStringValue(); }],
             ["mediaColor", (o, n) => { (o as unknown as PrinterDefaults).mediaColor = n.getStringValue(); }],
@@ -212,7 +212,7 @@ export class PrinterDefaults implements Parsable {
         writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
         writer.writeNumberValue("dpi", this.dpi);
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
-        writer.writeCollectionOfObjectValues<PrintFinishing>("finishings", this.finishings);
+        writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         writer.writeStringValue("inputBin", this.inputBin);
         writer.writeStringValue("mediaColor", this.mediaColor);

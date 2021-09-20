@@ -89,7 +89,7 @@ export class RecurrencePattern implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["dayOfMonth", (o, n) => { (o as unknown as RecurrencePattern).dayOfMonth = n.getNumberValue(); }],
-            ["daysOfWeek", (o, n) => { (o as unknown as RecurrencePattern).daysOfWeek = n.getCollectionOfObjectValues<DayOfWeek>(DayOfWeek); }],
+            ["daysOfWeek", (o, n) => { (o as unknown as RecurrencePattern).daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); }],
             ["firstDayOfWeek", (o, n) => { (o as unknown as RecurrencePattern).firstDayOfWeek = n.getEnumValue<DayOfWeek>(DayOfWeek); }],
             ["index", (o, n) => { (o as unknown as RecurrencePattern).index = n.getEnumValue<WeekIndex>(WeekIndex); }],
             ["interval", (o, n) => { (o as unknown as RecurrencePattern).interval = n.getNumberValue(); }],
@@ -104,7 +104,7 @@ export class RecurrencePattern implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("dayOfMonth", this.dayOfMonth);
-        writer.writeCollectionOfObjectValues<DayOfWeek>("daysOfWeek", this.daysOfWeek);
+        writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
         writer.writeEnumValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
         writer.writeEnumValue<WeekIndex>("index", this.index);
         writer.writeNumberValue("interval", this.interval);

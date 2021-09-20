@@ -88,7 +88,7 @@ export class SearchRequest implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["contentSources", (o, n) => { (o as unknown as SearchRequest).contentSources = n.getCollectionOfPrimitiveValues<string>(); }],
             ["enableTopResults", (o, n) => { (o as unknown as SearchRequest).enableTopResults = n.getBooleanValue(); }],
-            ["entityTypes", (o, n) => { (o as unknown as SearchRequest).entityTypes = n.getCollectionOfObjectValues<EntityType>(EntityType); }],
+            ["entityTypes", (o, n) => { (o as unknown as SearchRequest).entityTypes = n.getEnumValues<EntityType>(EntityType); }],
             ["fields", (o, n) => { (o as unknown as SearchRequest).fields = n.getCollectionOfPrimitiveValues<string>(); }],
             ["from", (o, n) => { (o as unknown as SearchRequest).from = n.getNumberValue(); }],
             ["query", (o, n) => { (o as unknown as SearchRequest).query = n.getObjectValue<SearchQuery>(SearchQuery); }],
@@ -103,7 +103,7 @@ export class SearchRequest implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<string>("contentSources", this.contentSources);
         writer.writeBooleanValue("enableTopResults", this.enableTopResults);
-        writer.writeCollectionOfObjectValues<EntityType>("entityTypes", this.entityTypes);
+        writer.writeEnumValue<EntityType>("entityTypes", ...this.entityTypes);
         writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
         writer.writeNumberValue("from", this.from);
         writer.writeObjectValue<SearchQuery>("query", this.query);

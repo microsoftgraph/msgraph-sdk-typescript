@@ -244,7 +244,7 @@ export class SignIn extends Entity implements Parsable {
             ["resourceDisplayName", (o, n) => { (o as unknown as SignIn).resourceDisplayName = n.getStringValue(); }],
             ["resourceId", (o, n) => { (o as unknown as SignIn).resourceId = n.getStringValue(); }],
             ["riskDetail", (o, n) => { (o as unknown as SignIn).riskDetail = n.getEnumValue<RiskDetail>(RiskDetail); }],
-            ["riskEventTypes", (o, n) => { (o as unknown as SignIn).riskEventTypes = n.getCollectionOfObjectValues<RiskEventType>(RiskEventType); }],
+            ["riskEventTypes", (o, n) => { (o as unknown as SignIn).riskEventTypes = n.getEnumValues<RiskEventType>(RiskEventType); }],
             ["riskEventTypes_v2", (o, n) => { (o as unknown as SignIn).riskEventTypes_v2 = n.getCollectionOfPrimitiveValues<string>(); }],
             ["riskLevelAggregated", (o, n) => { (o as unknown as SignIn).riskLevelAggregated = n.getEnumValue<RiskLevel>(RiskLevel); }],
             ["riskLevelDuringSignIn", (o, n) => { (o as unknown as SignIn).riskLevelDuringSignIn = n.getEnumValue<RiskLevel>(RiskLevel); }],
@@ -276,7 +276,7 @@ export class SignIn extends Entity implements Parsable {
         writer.writeStringValue("resourceDisplayName", this.resourceDisplayName);
         writer.writeStringValue("resourceId", this.resourceId);
         writer.writeEnumValue<RiskDetail>("riskDetail", this.riskDetail);
-        writer.writeCollectionOfObjectValues<RiskEventType>("riskEventTypes", this.riskEventTypes);
+        writer.writeEnumValue<RiskEventType>("riskEventTypes", ...this.riskEventTypes);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes_v2", this.riskEventTypes_v2);
         writer.writeEnumValue<RiskLevel>("riskLevelAggregated", this.riskLevelAggregated);
         writer.writeEnumValue<RiskLevel>("riskLevelDuringSignIn", this.riskLevelDuringSignIn);

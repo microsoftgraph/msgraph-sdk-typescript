@@ -232,7 +232,7 @@ export class Call extends Entity implements Parsable {
             ["myParticipantId", (o, n) => { (o as unknown as Call).myParticipantId = n.getStringValue(); }],
             ["operations", (o, n) => { (o as unknown as Call).operations = n.getCollectionOfObjectValues<CommsOperation>(CommsOperation); }],
             ["participants", (o, n) => { (o as unknown as Call).participants = n.getCollectionOfObjectValues<Participant>(Participant); }],
-            ["requestedModalities", (o, n) => { (o as unknown as Call).requestedModalities = n.getCollectionOfObjectValues<Modality>(Modality); }],
+            ["requestedModalities", (o, n) => { (o as unknown as Call).requestedModalities = n.getEnumValues<Modality>(Modality); }],
             ["resultInfo", (o, n) => { (o as unknown as Call).resultInfo = n.getObjectValue<ResultInfo>(ResultInfo); }],
             ["source", (o, n) => { (o as unknown as Call).source = n.getObjectValue<ParticipantInfo>(ParticipantInfo); }],
             ["state", (o, n) => { (o as unknown as Call).state = n.getEnumValue<CallState>(CallState); }],
@@ -263,7 +263,7 @@ export class Call extends Entity implements Parsable {
         writer.writeStringValue("myParticipantId", this.myParticipantId);
         writer.writeCollectionOfObjectValues<CommsOperation>("operations", this.operations);
         writer.writeCollectionOfObjectValues<Participant>("participants", this.participants);
-        writer.writeCollectionOfObjectValues<Modality>("requestedModalities", this.requestedModalities);
+        writer.writeEnumValue<Modality>("requestedModalities", ...this.requestedModalities);
         writer.writeObjectValue<ResultInfo>("resultInfo", this.resultInfo);
         writer.writeObjectValue<ParticipantInfo>("source", this.source);
         writer.writeEnumValue<CallState>("state", this.state);

@@ -91,11 +91,11 @@ export class ConditionalAccessConditionSet implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["applications", (o, n) => { (o as unknown as ConditionalAccessConditionSet).applications = n.getObjectValue<ConditionalAccessApplications>(ConditionalAccessApplications); }],
-            ["clientAppTypes", (o, n) => { (o as unknown as ConditionalAccessConditionSet).clientAppTypes = n.getCollectionOfObjectValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); }],
+            ["clientAppTypes", (o, n) => { (o as unknown as ConditionalAccessConditionSet).clientAppTypes = n.getEnumValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); }],
             ["locations", (o, n) => { (o as unknown as ConditionalAccessConditionSet).locations = n.getObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations); }],
             ["platforms", (o, n) => { (o as unknown as ConditionalAccessConditionSet).platforms = n.getObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms); }],
-            ["signInRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).signInRiskLevels = n.getCollectionOfObjectValues<RiskLevel>(RiskLevel); }],
-            ["userRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).userRiskLevels = n.getCollectionOfObjectValues<RiskLevel>(RiskLevel); }],
+            ["signInRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).signInRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); }],
+            ["userRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).userRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); }],
             ["users", (o, n) => { (o as unknown as ConditionalAccessConditionSet).users = n.getObjectValue<ConditionalAccessUsers>(ConditionalAccessUsers); }],
         ]);
     };
@@ -106,11 +106,11 @@ export class ConditionalAccessConditionSet implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ConditionalAccessApplications>("applications", this.applications);
-        writer.writeCollectionOfObjectValues<ConditionalAccessClientApp>("clientAppTypes", this.clientAppTypes);
+        writer.writeEnumValue<ConditionalAccessClientApp>("clientAppTypes", ...this.clientAppTypes);
         writer.writeObjectValue<ConditionalAccessLocations>("locations", this.locations);
         writer.writeObjectValue<ConditionalAccessPlatforms>("platforms", this.platforms);
-        writer.writeCollectionOfObjectValues<RiskLevel>("signInRiskLevels", this.signInRiskLevels);
-        writer.writeCollectionOfObjectValues<RiskLevel>("userRiskLevels", this.userRiskLevels);
+        writer.writeEnumValue<RiskLevel>("signInRiskLevels", ...this.signInRiskLevels);
+        writer.writeEnumValue<RiskLevel>("userRiskLevels", ...this.userRiskLevels);
         writer.writeObjectValue<ConditionalAccessUsers>("users", this.users);
         writer.writeAdditionalData(this.additionalData);
     };

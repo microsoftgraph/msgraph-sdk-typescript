@@ -258,13 +258,13 @@ export class PrinterCapabilities implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["bottomMargins", (o, n) => { (o as unknown as PrinterCapabilities).bottomMargins = n.getCollectionOfPrimitiveValues<number>(); }],
             ["collation", (o, n) => { (o as unknown as PrinterCapabilities).collation = n.getBooleanValue(); }],
-            ["colorModes", (o, n) => { (o as unknown as PrinterCapabilities).colorModes = n.getCollectionOfObjectValues<PrintColorMode>(PrintColorMode); }],
+            ["colorModes", (o, n) => { (o as unknown as PrinterCapabilities).colorModes = n.getEnumValues<PrintColorMode>(PrintColorMode); }],
             ["contentTypes", (o, n) => { (o as unknown as PrinterCapabilities).contentTypes = n.getCollectionOfPrimitiveValues<string>(); }],
             ["copiesPerJob", (o, n) => { (o as unknown as PrinterCapabilities).copiesPerJob = n.getObjectValue<IntegerRange>(IntegerRange); }],
             ["dpis", (o, n) => { (o as unknown as PrinterCapabilities).dpis = n.getCollectionOfPrimitiveValues<number>(); }],
-            ["duplexModes", (o, n) => { (o as unknown as PrinterCapabilities).duplexModes = n.getCollectionOfObjectValues<PrintDuplexMode>(PrintDuplexMode); }],
-            ["feedOrientations", (o, n) => { (o as unknown as PrinterCapabilities).feedOrientations = n.getCollectionOfObjectValues<PrinterFeedOrientation>(PrinterFeedOrientation); }],
-            ["finishings", (o, n) => { (o as unknown as PrinterCapabilities).finishings = n.getCollectionOfObjectValues<PrintFinishing>(PrintFinishing); }],
+            ["duplexModes", (o, n) => { (o as unknown as PrinterCapabilities).duplexModes = n.getEnumValues<PrintDuplexMode>(PrintDuplexMode); }],
+            ["feedOrientations", (o, n) => { (o as unknown as PrinterCapabilities).feedOrientations = n.getEnumValues<PrinterFeedOrientation>(PrinterFeedOrientation); }],
+            ["finishings", (o, n) => { (o as unknown as PrinterCapabilities).finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); }],
             ["inputBins", (o, n) => { (o as unknown as PrinterCapabilities).inputBins = n.getCollectionOfPrimitiveValues<string>(); }],
             ["isColorPrintingSupported", (o, n) => { (o as unknown as PrinterCapabilities).isColorPrintingSupported = n.getBooleanValue(); }],
             ["isPageRangeSupported", (o, n) => { (o as unknown as PrinterCapabilities).isPageRangeSupported = n.getBooleanValue(); }],
@@ -272,13 +272,13 @@ export class PrinterCapabilities implements Parsable {
             ["mediaColors", (o, n) => { (o as unknown as PrinterCapabilities).mediaColors = n.getCollectionOfPrimitiveValues<string>(); }],
             ["mediaSizes", (o, n) => { (o as unknown as PrinterCapabilities).mediaSizes = n.getCollectionOfPrimitiveValues<string>(); }],
             ["mediaTypes", (o, n) => { (o as unknown as PrinterCapabilities).mediaTypes = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["multipageLayouts", (o, n) => { (o as unknown as PrinterCapabilities).multipageLayouts = n.getCollectionOfObjectValues<PrintMultipageLayout>(PrintMultipageLayout); }],
-            ["orientations", (o, n) => { (o as unknown as PrinterCapabilities).orientations = n.getCollectionOfObjectValues<PrintOrientation>(PrintOrientation); }],
+            ["multipageLayouts", (o, n) => { (o as unknown as PrinterCapabilities).multipageLayouts = n.getEnumValues<PrintMultipageLayout>(PrintMultipageLayout); }],
+            ["orientations", (o, n) => { (o as unknown as PrinterCapabilities).orientations = n.getEnumValues<PrintOrientation>(PrintOrientation); }],
             ["outputBins", (o, n) => { (o as unknown as PrinterCapabilities).outputBins = n.getCollectionOfPrimitiveValues<string>(); }],
             ["pagesPerSheet", (o, n) => { (o as unknown as PrinterCapabilities).pagesPerSheet = n.getCollectionOfPrimitiveValues<number>(); }],
-            ["qualities", (o, n) => { (o as unknown as PrinterCapabilities).qualities = n.getCollectionOfObjectValues<PrintQuality>(PrintQuality); }],
+            ["qualities", (o, n) => { (o as unknown as PrinterCapabilities).qualities = n.getEnumValues<PrintQuality>(PrintQuality); }],
             ["rightMargins", (o, n) => { (o as unknown as PrinterCapabilities).rightMargins = n.getCollectionOfPrimitiveValues<number>(); }],
-            ["scalings", (o, n) => { (o as unknown as PrinterCapabilities).scalings = n.getCollectionOfObjectValues<PrintScaling>(PrintScaling); }],
+            ["scalings", (o, n) => { (o as unknown as PrinterCapabilities).scalings = n.getEnumValues<PrintScaling>(PrintScaling); }],
             ["supportsFitPdfToPage", (o, n) => { (o as unknown as PrinterCapabilities).supportsFitPdfToPage = n.getBooleanValue(); }],
             ["topMargins", (o, n) => { (o as unknown as PrinterCapabilities).topMargins = n.getCollectionOfPrimitiveValues<number>(); }],
         ]);
@@ -291,13 +291,13 @@ export class PrinterCapabilities implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<number>("bottomMargins", this.bottomMargins);
         writer.writeBooleanValue("collation", this.collation);
-        writer.writeCollectionOfObjectValues<PrintColorMode>("colorModes", this.colorModes);
+        writer.writeEnumValue<PrintColorMode>("colorModes", ...this.colorModes);
         writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
         writer.writeObjectValue<IntegerRange>("copiesPerJob", this.copiesPerJob);
         writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);
-        writer.writeCollectionOfObjectValues<PrintDuplexMode>("duplexModes", this.duplexModes);
-        writer.writeCollectionOfObjectValues<PrinterFeedOrientation>("feedOrientations", this.feedOrientations);
-        writer.writeCollectionOfObjectValues<PrintFinishing>("finishings", this.finishings);
+        writer.writeEnumValue<PrintDuplexMode>("duplexModes", ...this.duplexModes);
+        writer.writeEnumValue<PrinterFeedOrientation>("feedOrientations", ...this.feedOrientations);
+        writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeCollectionOfPrimitiveValues<string>("inputBins", this.inputBins);
         writer.writeBooleanValue("isColorPrintingSupported", this.isColorPrintingSupported);
         writer.writeBooleanValue("isPageRangeSupported", this.isPageRangeSupported);
@@ -305,13 +305,13 @@ export class PrinterCapabilities implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("mediaColors", this.mediaColors);
         writer.writeCollectionOfPrimitiveValues<string>("mediaSizes", this.mediaSizes);
         writer.writeCollectionOfPrimitiveValues<string>("mediaTypes", this.mediaTypes);
-        writer.writeCollectionOfObjectValues<PrintMultipageLayout>("multipageLayouts", this.multipageLayouts);
-        writer.writeCollectionOfObjectValues<PrintOrientation>("orientations", this.orientations);
+        writer.writeEnumValue<PrintMultipageLayout>("multipageLayouts", ...this.multipageLayouts);
+        writer.writeEnumValue<PrintOrientation>("orientations", ...this.orientations);
         writer.writeCollectionOfPrimitiveValues<string>("outputBins", this.outputBins);
         writer.writeCollectionOfPrimitiveValues<number>("pagesPerSheet", this.pagesPerSheet);
-        writer.writeCollectionOfObjectValues<PrintQuality>("qualities", this.qualities);
+        writer.writeEnumValue<PrintQuality>("qualities", ...this.qualities);
         writer.writeCollectionOfPrimitiveValues<number>("rightMargins", this.rightMargins);
-        writer.writeCollectionOfObjectValues<PrintScaling>("scalings", this.scalings);
+        writer.writeEnumValue<PrintScaling>("scalings", ...this.scalings);
         writer.writeBooleanValue("supportsFitPdfToPage", this.supportsFitPdfToPage);
         writer.writeCollectionOfPrimitiveValues<number>("topMargins", this.topMargins);
         writer.writeAdditionalData(this.additionalData);

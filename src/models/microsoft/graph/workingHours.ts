@@ -60,7 +60,7 @@ export class WorkingHours implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["daysOfWeek", (o, n) => { (o as unknown as WorkingHours).daysOfWeek = n.getCollectionOfObjectValues<DayOfWeek>(DayOfWeek); }],
+            ["daysOfWeek", (o, n) => { (o as unknown as WorkingHours).daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); }],
             ["endTime", (o, n) => { (o as unknown as WorkingHours).endTime = n.getStringValue(); }],
             ["startTime", (o, n) => { (o as unknown as WorkingHours).startTime = n.getStringValue(); }],
             ["timeZone", (o, n) => { (o as unknown as WorkingHours).timeZone = n.getObjectValue<TimeZoneBase>(TimeZoneBase); }],
@@ -72,7 +72,7 @@ export class WorkingHours implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<DayOfWeek>("daysOfWeek", this.daysOfWeek);
+        writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
         writer.writeStringValue("endTime", this.endTime);
         writer.writeStringValue("startTime", this.startTime);
         writer.writeObjectValue<TimeZoneBase>("timeZone", this.timeZone);

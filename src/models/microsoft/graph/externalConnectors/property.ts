@@ -93,7 +93,7 @@ export class Property implements Parsable {
             ["isRefinable", (o, n) => { (o as unknown as Property).isRefinable = n.getBooleanValue(); }],
             ["isRetrievable", (o, n) => { (o as unknown as Property).isRetrievable = n.getBooleanValue(); }],
             ["isSearchable", (o, n) => { (o as unknown as Property).isSearchable = n.getBooleanValue(); }],
-            ["labels", (o, n) => { (o as unknown as Property).labels = n.getCollectionOfObjectValues<Label>(Label); }],
+            ["labels", (o, n) => { (o as unknown as Property).labels = n.getEnumValues<Label>(Label); }],
             ["name", (o, n) => { (o as unknown as Property).name = n.getStringValue(); }],
             ["type", (o, n) => { (o as unknown as Property).type = n.getEnumValue<PropertyType>(PropertyType); }],
         ]);
@@ -109,7 +109,7 @@ export class Property implements Parsable {
         writer.writeBooleanValue("isRefinable", this.isRefinable);
         writer.writeBooleanValue("isRetrievable", this.isRetrievable);
         writer.writeBooleanValue("isSearchable", this.isSearchable);
-        writer.writeCollectionOfObjectValues<Label>("labels", this.labels);
+        writer.writeEnumValue<Label>("labels", ...this.labels);
         writer.writeStringValue("name", this.name);
         writer.writeEnumValue<PropertyType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);

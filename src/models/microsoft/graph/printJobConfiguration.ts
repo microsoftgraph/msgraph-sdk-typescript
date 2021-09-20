@@ -208,7 +208,7 @@ export class PrintJobConfiguration implements Parsable {
             ["dpi", (o, n) => { (o as unknown as PrintJobConfiguration).dpi = n.getNumberValue(); }],
             ["duplexMode", (o, n) => { (o as unknown as PrintJobConfiguration).duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); }],
             ["feedOrientation", (o, n) => { (o as unknown as PrintJobConfiguration).feedOrientation = n.getEnumValue<PrinterFeedOrientation>(PrinterFeedOrientation); }],
-            ["finishings", (o, n) => { (o as unknown as PrintJobConfiguration).finishings = n.getCollectionOfObjectValues<PrintFinishing>(PrintFinishing); }],
+            ["finishings", (o, n) => { (o as unknown as PrintJobConfiguration).finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); }],
             ["fitPdfToPage", (o, n) => { (o as unknown as PrintJobConfiguration).fitPdfToPage = n.getBooleanValue(); }],
             ["inputBin", (o, n) => { (o as unknown as PrintJobConfiguration).inputBin = n.getStringValue(); }],
             ["margin", (o, n) => { (o as unknown as PrintJobConfiguration).margin = n.getObjectValue<PrintMargin>(PrintMargin); }],
@@ -235,7 +235,7 @@ export class PrintJobConfiguration implements Parsable {
         writer.writeNumberValue("dpi", this.dpi);
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
         writer.writeEnumValue<PrinterFeedOrientation>("feedOrientation", this.feedOrientation);
-        writer.writeCollectionOfObjectValues<PrintFinishing>("finishings", this.finishings);
+        writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         writer.writeStringValue("inputBin", this.inputBin);
         writer.writeObjectValue<PrintMargin>("margin", this.margin);

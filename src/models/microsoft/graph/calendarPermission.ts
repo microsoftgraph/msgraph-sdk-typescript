@@ -61,7 +61,7 @@ export class CalendarPermission extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allowedRoles", (o, n) => { (o as unknown as CalendarPermission).allowedRoles = n.getCollectionOfObjectValues<CalendarRoleType>(CalendarRoleType); }],
+            ["allowedRoles", (o, n) => { (o as unknown as CalendarPermission).allowedRoles = n.getEnumValues<CalendarRoleType>(CalendarRoleType); }],
             ["emailAddress", (o, n) => { (o as unknown as CalendarPermission).emailAddress = n.getObjectValue<EmailAddress>(EmailAddress); }],
             ["isInsideOrganization", (o, n) => { (o as unknown as CalendarPermission).isInsideOrganization = n.getBooleanValue(); }],
             ["isRemovable", (o, n) => { (o as unknown as CalendarPermission).isRemovable = n.getBooleanValue(); }],
@@ -75,7 +75,7 @@ export class CalendarPermission extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<CalendarRoleType>("allowedRoles", this.allowedRoles);
+        writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...this.allowedRoles);
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
         writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         writer.writeBooleanValue("isRemovable", this.isRemovable);

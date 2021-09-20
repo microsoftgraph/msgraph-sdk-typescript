@@ -41,8 +41,8 @@ export class ConditionalAccessPlatforms implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["excludePlatforms", (o, n) => { (o as unknown as ConditionalAccessPlatforms).excludePlatforms = n.getCollectionOfObjectValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); }],
-            ["includePlatforms", (o, n) => { (o as unknown as ConditionalAccessPlatforms).includePlatforms = n.getCollectionOfObjectValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); }],
+            ["excludePlatforms", (o, n) => { (o as unknown as ConditionalAccessPlatforms).excludePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); }],
+            ["includePlatforms", (o, n) => { (o as unknown as ConditionalAccessPlatforms).includePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); }],
         ]);
     };
     /**
@@ -51,8 +51,8 @@ export class ConditionalAccessPlatforms implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<ConditionalAccessDevicePlatform>("excludePlatforms", this.excludePlatforms);
-        writer.writeCollectionOfObjectValues<ConditionalAccessDevicePlatform>("includePlatforms", this.includePlatforms);
+        writer.writeEnumValue<ConditionalAccessDevicePlatform>("excludePlatforms", ...this.excludePlatforms);
+        writer.writeEnumValue<ConditionalAccessDevicePlatform>("includePlatforms", ...this.includePlatforms);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

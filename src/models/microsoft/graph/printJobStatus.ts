@@ -61,7 +61,7 @@ export class PrintJobStatus implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["description", (o, n) => { (o as unknown as PrintJobStatus).description = n.getStringValue(); }],
-            ["details", (o, n) => { (o as unknown as PrintJobStatus).details = n.getCollectionOfObjectValues<PrintJobStateDetail>(PrintJobStateDetail); }],
+            ["details", (o, n) => { (o as unknown as PrintJobStatus).details = n.getEnumValues<PrintJobStateDetail>(PrintJobStateDetail); }],
             ["isAcquiredByPrinter", (o, n) => { (o as unknown as PrintJobStatus).isAcquiredByPrinter = n.getBooleanValue(); }],
             ["state", (o, n) => { (o as unknown as PrintJobStatus).state = n.getEnumValue<PrintJobProcessingState>(PrintJobProcessingState); }],
         ]);
@@ -73,7 +73,7 @@ export class PrintJobStatus implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        writer.writeCollectionOfObjectValues<PrintJobStateDetail>("details", this.details);
+        writer.writeEnumValue<PrintJobStateDetail>("details", ...this.details);
         writer.writeBooleanValue("isAcquiredByPrinter", this.isAcquiredByPrinter);
         writer.writeEnumValue<PrintJobProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);

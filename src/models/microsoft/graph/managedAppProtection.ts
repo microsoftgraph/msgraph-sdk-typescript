@@ -262,7 +262,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allowedDataStorageLocations", (o, n) => { (o as unknown as ManagedAppProtection).allowedDataStorageLocations = n.getCollectionOfObjectValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); }],
+            ["allowedDataStorageLocations", (o, n) => { (o as unknown as ManagedAppProtection).allowedDataStorageLocations = n.getEnumValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); }],
             ["allowedInboundDataTransferSources", (o, n) => { (o as unknown as ManagedAppProtection).allowedInboundDataTransferSources = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); }],
             ["allowedOutboundClipboardSharingLevel", (o, n) => { (o as unknown as ManagedAppProtection).allowedOutboundClipboardSharingLevel = n.getEnumValue<ManagedAppClipboardSharingLevel>(ManagedAppClipboardSharingLevel); }],
             ["allowedOutboundDataTransferDestinations", (o, n) => { (o as unknown as ManagedAppProtection).allowedOutboundDataTransferDestinations = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); }],
@@ -298,7 +298,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<ManagedAppDataStorageLocation>("allowedDataStorageLocations", this.allowedDataStorageLocations);
+        writer.writeEnumValue<ManagedAppDataStorageLocation>("allowedDataStorageLocations", ...this.allowedDataStorageLocations);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
         writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);

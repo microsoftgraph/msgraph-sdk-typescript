@@ -56,7 +56,7 @@ export class AnswerResponse implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["acceptedModalities", (o, n) => { (o as unknown as AnswerResponse).acceptedModalities = n.getCollectionOfObjectValues<Modality>(Modality); }],
+            ["acceptedModalities", (o, n) => { (o as unknown as AnswerResponse).acceptedModalities = n.getEnumValues<Modality>(Modality); }],
             ["callbackUri", (o, n) => { (o as unknown as AnswerResponse).callbackUri = n.getStringValue(); }],
             ["mediaConfig", (o, n) => { (o as unknown as AnswerResponse).mediaConfig = n.getObjectValue<MediaConfig>(MediaConfig); }],
             ["participantCapacity", (o, n) => { (o as unknown as AnswerResponse).participantCapacity = n.getNumberValue(); }],
@@ -68,7 +68,7 @@ export class AnswerResponse implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeCollectionOfObjectValues<Modality>("acceptedModalities", this.acceptedModalities);
+        writer.writeEnumValue<Modality>("acceptedModalities", ...this.acceptedModalities);
         writer.writeStringValue("callbackUri", this.callbackUri);
         writer.writeObjectValue<MediaConfig>("mediaConfig", this.mediaConfig);
         writer.writeNumberValue("participantCapacity", this.participantCapacity);

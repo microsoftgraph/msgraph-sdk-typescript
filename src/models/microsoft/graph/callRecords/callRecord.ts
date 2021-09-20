@@ -111,7 +111,7 @@ export class CallRecord extends Entity implements Parsable {
             ["endDateTime", (o, n) => { (o as unknown as CallRecord).endDateTime = n.getDateValue(); }],
             ["joinWebUrl", (o, n) => { (o as unknown as CallRecord).joinWebUrl = n.getStringValue(); }],
             ["lastModifiedDateTime", (o, n) => { (o as unknown as CallRecord).lastModifiedDateTime = n.getDateValue(); }],
-            ["modalities", (o, n) => { (o as unknown as CallRecord).modalities = n.getCollectionOfObjectValues<Modality>(Modality); }],
+            ["modalities", (o, n) => { (o as unknown as CallRecord).modalities = n.getEnumValues<Modality>(Modality); }],
             ["organizer", (o, n) => { (o as unknown as CallRecord).organizer = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["participants", (o, n) => { (o as unknown as CallRecord).participants = n.getCollectionOfObjectValues<IdentitySet>(IdentitySet); }],
             ["sessions", (o, n) => { (o as unknown as CallRecord).sessions = n.getCollectionOfObjectValues<Session>(Session); }],
@@ -130,7 +130,7 @@ export class CallRecord extends Entity implements Parsable {
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-        writer.writeCollectionOfObjectValues<Modality>("modalities", this.modalities);
+        writer.writeEnumValue<Modality>("modalities", ...this.modalities);
         writer.writeObjectValue<IdentitySet>("organizer", this.organizer);
         writer.writeCollectionOfObjectValues<IdentitySet>("participants", this.participants);
         writer.writeCollectionOfObjectValues<Session>("sessions", this.sessions);

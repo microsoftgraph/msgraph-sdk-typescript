@@ -183,7 +183,7 @@ export class Calendar extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allowedOnlineMeetingProviders", (o, n) => { (o as unknown as Calendar).allowedOnlineMeetingProviders = n.getCollectionOfObjectValues<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
+            ["allowedOnlineMeetingProviders", (o, n) => { (o as unknown as Calendar).allowedOnlineMeetingProviders = n.getEnumValues<OnlineMeetingProviderType>(OnlineMeetingProviderType); }],
             ["calendarPermissions", (o, n) => { (o as unknown as Calendar).calendarPermissions = n.getCollectionOfObjectValues<CalendarPermission>(CalendarPermission); }],
             ["calendarView", (o, n) => { (o as unknown as Calendar).calendarView = n.getCollectionOfObjectValues<Event>(Event); }],
             ["canEdit", (o, n) => { (o as unknown as Calendar).canEdit = n.getBooleanValue(); }],
@@ -210,7 +210,7 @@ export class Calendar extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeCollectionOfObjectValues<OnlineMeetingProviderType>("allowedOnlineMeetingProviders", this.allowedOnlineMeetingProviders);
+        writer.writeEnumValue<OnlineMeetingProviderType>("allowedOnlineMeetingProviders", ...this.allowedOnlineMeetingProviders);
         writer.writeCollectionOfObjectValues<CalendarPermission>("calendarPermissions", this.calendarPermissions);
         writer.writeCollectionOfObjectValues<Event>("calendarView", this.calendarView);
         writer.writeBooleanValue("canEdit", this.canEdit);
