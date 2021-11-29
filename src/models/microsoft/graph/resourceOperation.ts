@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceOperation extends Entity implements Parsable {
     /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.  */

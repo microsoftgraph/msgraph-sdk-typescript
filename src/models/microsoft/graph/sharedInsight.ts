@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {SharingDetail} from './sharingDetail';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharedInsight extends Entity implements Parsable {
     /** Details about the shared item. Read only.  */

@@ -1,31 +1,31 @@
 import {AgreementAcceptanceState} from './agreementAcceptanceState';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementAcceptance extends Entity implements Parsable {
-    /** ID of the agreement file accepted by the user.  */
+    /** The identifier of the agreement file accepted by the user.  */
     private _agreementFileId?: string | undefined;
-    /** ID of the agreement.  */
+    /** The identifier of the agreement.  */
     private _agreementId?: string | undefined;
     /** The display name of the device used for accepting the agreement.  */
     private _deviceDisplayName?: string | undefined;
     /** The unique identifier of the device used for accepting the agreement.  */
     private _deviceId?: string | undefined;
-    /** The operating system used for accepting the agreement.  */
+    /** The operating system used to accept the agreement.  */
     private _deviceOSType?: string | undefined;
-    /** The operating system version of the device used for accepting the agreement.  */
+    /** The operating system version of the device used to accept the agreement.  */
     private _deviceOSVersion?: string | undefined;
-    /** The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _expirationDateTime?: Date | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _recordedDateTime?: Date | undefined;
-    /** Possible values are: accepted, declined.  */
+    /** The state of the agreement acceptance. Possible values are: accepted, declined.  */
     private _state?: AgreementAcceptanceState | undefined;
     /** Display name of the user when the acceptance was recorded.  */
     private _userDisplayName?: string | undefined;
     /** Email of the user when the acceptance was recorded.  */
     private _userEmail?: string | undefined;
-    /** ID of the user who accepted the agreement.  */
+    /** The identifier of the user who accepted the agreement.  */
     private _userId?: string | undefined;
     /** UPN of the user when the acceptance was recorded.  */
     private _userPrincipalName?: string | undefined;
@@ -36,14 +36,14 @@ export class AgreementAcceptance extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the agreementFileId property value. ID of the agreement file accepted by the user.
+     * Gets the agreementFileId property value. The identifier of the agreement file accepted by the user.
      * @returns a string
      */
     public get agreementFileId() {
         return this._agreementFileId;
     };
     /**
-     * Gets the agreementId property value. ID of the agreement.
+     * Gets the agreementId property value. The identifier of the agreement.
      * @returns a string
      */
     public get agreementId() {
@@ -64,35 +64,35 @@ export class AgreementAcceptance extends Entity implements Parsable {
         return this._deviceId;
     };
     /**
-     * Gets the deviceOSType property value. The operating system used for accepting the agreement.
+     * Gets the deviceOSType property value. The operating system used to accept the agreement.
      * @returns a string
      */
     public get deviceOSType() {
         return this._deviceOSType;
     };
     /**
-     * Gets the deviceOSVersion property value. The operating system version of the device used for accepting the agreement.
+     * Gets the deviceOSVersion property value. The operating system version of the device used to accept the agreement.
      * @returns a string
      */
     public get deviceOSVersion() {
         return this._deviceOSVersion;
     };
     /**
-     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get expirationDateTime() {
         return this._expirationDateTime;
     };
     /**
-     * Gets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get recordedDateTime() {
         return this._recordedDateTime;
     };
     /**
-     * Gets the state property value. Possible values are: accepted, declined.
+     * Gets the state property value. The state of the agreement acceptance. Possible values are: accepted, declined.
      * @returns a agreementAcceptanceState
      */
     public get state() {
@@ -113,7 +113,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
         return this._userEmail;
     };
     /**
-     * Gets the userId property value. ID of the user who accepted the agreement.
+     * Gets the userId property value. The identifier of the user who accepted the agreement.
      * @returns a string
      */
     public get userId() {
@@ -169,14 +169,14 @@ export class AgreementAcceptance extends Entity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Sets the agreementFileId property value. ID of the agreement file accepted by the user.
+     * Sets the agreementFileId property value. The identifier of the agreement file accepted by the user.
      * @param value Value to set for the agreementFileId property.
      */
     public set agreementFileId(value: string | undefined) {
         this._agreementFileId = value;
     };
     /**
-     * Sets the agreementId property value. ID of the agreement.
+     * Sets the agreementId property value. The identifier of the agreement.
      * @param value Value to set for the agreementId property.
      */
     public set agreementId(value: string | undefined) {
@@ -197,35 +197,35 @@ export class AgreementAcceptance extends Entity implements Parsable {
         this._deviceId = value;
     };
     /**
-     * Sets the deviceOSType property value. The operating system used for accepting the agreement.
+     * Sets the deviceOSType property value. The operating system used to accept the agreement.
      * @param value Value to set for the deviceOSType property.
      */
     public set deviceOSType(value: string | undefined) {
         this._deviceOSType = value;
     };
     /**
-     * Sets the deviceOSVersion property value. The operating system version of the device used for accepting the agreement.
+     * Sets the deviceOSVersion property value. The operating system version of the device used to accept the agreement.
      * @param value Value to set for the deviceOSVersion property.
      */
     public set deviceOSVersion(value: string | undefined) {
         this._deviceOSVersion = value;
     };
     /**
-     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the expirationDateTime property value. The expiration date time of the acceptance. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the expirationDateTime property.
      */
     public set expirationDateTime(value: Date | undefined) {
         this._expirationDateTime = value;
     };
     /**
-     * Sets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the recordedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the recordedDateTime property.
      */
     public set recordedDateTime(value: Date | undefined) {
         this._recordedDateTime = value;
     };
     /**
-     * Sets the state property value. Possible values are: accepted, declined.
+     * Sets the state property value. The state of the agreement acceptance. Possible values are: accepted, declined.
      * @param value Value to set for the state property.
      */
     public set state(value: AgreementAcceptanceState | undefined) {
@@ -246,7 +246,7 @@ export class AgreementAcceptance extends Entity implements Parsable {
         this._userEmail = value;
     };
     /**
-     * Sets the userId property value. ID of the user who accepted the agreement.
+     * Sets the userId property value. The identifier of the user who accepted the agreement.
      * @param value Value to set for the userId property.
      */
     public set userId(value: string | undefined) {

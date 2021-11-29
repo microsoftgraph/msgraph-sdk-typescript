@@ -3,7 +3,7 @@ import {Entity} from './entity';
 import {Fido2AuthenticationMethod} from './fido2AuthenticationMethod';
 import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticatorAuthenticationMethod';
 import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusinessAuthenticationMethod';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Authentication extends Entity implements Parsable {
     private _fido2Methods?: Fido2AuthenticationMethod[] | undefined;

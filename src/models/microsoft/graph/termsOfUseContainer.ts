@@ -1,7 +1,7 @@
 import {Agreement} from './agreement';
 import {AgreementAcceptance} from './agreementAcceptance';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsOfUseContainer extends Entity implements Parsable {
     private _agreementAcceptances?: AgreementAcceptance[] | undefined;

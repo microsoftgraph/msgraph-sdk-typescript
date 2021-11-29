@@ -1,5 +1,5 @@
 import {DirectoryObject} from './directoryObject';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExtensionProperty extends DirectoryObject implements Parsable {
     /** Display name of the application object on which this extension property is defined. Read-only.  */

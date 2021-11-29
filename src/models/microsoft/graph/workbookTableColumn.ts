@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {Json} from './json';
 import {WorkbookFilter} from './workbookFilter';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookTableColumn extends Entity implements Parsable {
     /** Retrieve the filter applied to the column. Read-only.  */

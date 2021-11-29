@@ -1,6 +1,6 @@
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentDefaults extends Entity implements Parsable {
     /** Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.  */

@@ -1,6 +1,6 @@
 import {ManagedAppProtection} from './managedAppProtection';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed.  */

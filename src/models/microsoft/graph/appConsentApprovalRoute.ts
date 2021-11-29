@@ -1,6 +1,6 @@
 import {AppConsentRequest} from './appConsentRequest';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppConsentApprovalRoute extends Entity implements Parsable {
     private _appConsentRequests?: AppConsentRequest[] | undefined;

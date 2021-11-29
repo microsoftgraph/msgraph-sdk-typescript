@@ -1,9 +1,9 @@
 import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionControlType';
 import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable {
-    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. Learn more about these values here: https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad#step-1-create-an-azure-ad-conditional-access-test-policy-  */
+    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.  */
     private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
     /**
      * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
@@ -12,7 +12,7 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
         super();
     };
     /**
-     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. Learn more about these values here: https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad#step-1-create-an-azure-ad-conditional-access-test-policy-
+     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      * @returns a cloudAppSecuritySessionControlType
      */
     public get cloudAppSecurityType() {
@@ -37,7 +37,7 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
         writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
     };
     /**
-     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. Learn more about these values here: https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad#step-1-create-an-azure-ad-conditional-access-test-policy-
+     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      * @param value Value to set for the cloudAppSecurityType property.
      */
     public set cloudAppSecurityType(value: CloudAppSecuritySessionControlType | undefined) {

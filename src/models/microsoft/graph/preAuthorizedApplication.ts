@@ -1,11 +1,10 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PreAuthorizedApplication implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The unique identifier for the application.  */
     private _appId?: string | undefined;
-    /** The unique identifier for the oauth2PermissionScopes the application requires.  */
     private _delegatedPermissionIds?: string[] | undefined;
     /**
      * Instantiates a new preAuthorizedApplication and sets the default values.
@@ -28,7 +27,7 @@ export class PreAuthorizedApplication implements Parsable {
         return this._appId;
     };
     /**
-     * Gets the delegatedPermissionIds property value. The unique identifier for the oauth2PermissionScopes the application requires.
+     * Gets the delegatedPermissionIds property value. 
      * @returns a string
      */
     public get delegatedPermissionIds() {
@@ -69,7 +68,7 @@ export class PreAuthorizedApplication implements Parsable {
         this._appId = value;
     };
     /**
-     * Sets the delegatedPermissionIds property value. The unique identifier for the oauth2PermissionScopes the application requires.
+     * Sets the delegatedPermissionIds property value. 
      * @param value Value to set for the delegatedPermissionIds property.
      */
     public set delegatedPermissionIds(value: string[] | undefined) {

@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {Extension} from './extension';
 import {TodoTask} from './todoTask';
 import {WellknownListName} from './wellknownListName';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoTaskList extends Entity implements Parsable {
     /** The name of the task list.  */

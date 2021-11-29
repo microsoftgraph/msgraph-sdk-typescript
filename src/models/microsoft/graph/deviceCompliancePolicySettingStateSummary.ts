@@ -1,7 +1,7 @@
 import {DeviceComplianceSettingState} from './deviceComplianceSettingState';
 import {Entity} from './entity';
 import {PolicyPlatformType} from './policyPlatformType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable {
     /** Number of compliant devices  */
@@ -16,7 +16,7 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
     private _nonCompliantDeviceCount?: number | undefined;
     /** Number of not applicable devices  */
     private _notApplicableDeviceCount?: number | undefined;
-    /** Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.  */
+    /** Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.  */
     private _platformType?: PolicyPlatformType | undefined;
     /** Number of remediated devices  */
     private _remediatedDeviceCount?: number | undefined;
@@ -75,7 +75,7 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
         return this._notApplicableDeviceCount;
     };
     /**
-     * Gets the platformType property value. Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     * Gets the platformType property value. Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
      * @returns a policyPlatformType
      */
     public get platformType() {
@@ -190,7 +190,7 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
         this._notApplicableDeviceCount = value;
     };
     /**
-     * Sets the platformType property value. Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
+     * Sets the platformType property value. Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
      * @param value Value to set for the platformType property.
      */
     public set platformType(value: PolicyPlatformType | undefined) {

@@ -1,9 +1,9 @@
 import {Entity} from './entity';
 import {WorkbookCommentReply} from './workbookCommentReply';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookComment extends Entity implements Parsable {
-    /** The content of the comment.  */
+    /** The content of comment.  */
     private _content?: string | undefined;
     /** Indicates the type for the comment.  */
     private _contentType?: string | undefined;
@@ -16,7 +16,7 @@ export class WorkbookComment extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. The content of the comment.
+     * Gets the content property value. The content of comment.
      * @returns a string
      */
     public get content() {
@@ -59,7 +59,7 @@ export class WorkbookComment extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<WorkbookCommentReply>("replies", this.replies);
     };
     /**
-     * Sets the content property value. The content of the comment.
+     * Sets the content property value. The content of comment.
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {

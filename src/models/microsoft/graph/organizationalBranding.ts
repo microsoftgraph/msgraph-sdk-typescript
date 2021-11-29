@@ -1,8 +1,9 @@
-import {OrganizationalBrandingProperties} from '../../../branding/organizationalBrandingProperties';
 import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrganizationalBranding extends OrganizationalBrandingProperties implements Parsable {
+    /** Add different branding based on a locale.  */
     private _localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
      * Instantiates a new organizationalBranding and sets the default values.
@@ -11,7 +12,7 @@ export class OrganizationalBranding extends OrganizationalBrandingProperties imp
         super();
     };
     /**
-     * Gets the localizations property value. 
+     * Gets the localizations property value. Add different branding based on a locale.
      * @returns a organizationalBrandingLocalization
      */
     public get localizations() {
@@ -36,7 +37,7 @@ export class OrganizationalBranding extends OrganizationalBrandingProperties imp
         writer.writeCollectionOfObjectValues<OrganizationalBrandingLocalization>("localizations", this.localizations);
     };
     /**
-     * Sets the localizations property value. 
+     * Sets the localizations property value. Add different branding based on a locale.
      * @param value Value to set for the localizations property.
      */
     public set localizations(value: OrganizationalBrandingLocalization[] | undefined) {

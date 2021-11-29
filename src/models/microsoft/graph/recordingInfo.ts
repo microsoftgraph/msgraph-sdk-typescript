@@ -1,11 +1,11 @@
 import {IdentitySet} from './identitySet';
 import {RecordingStatus} from './recordingStatus';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecordingInfo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The identities of recording initiator.  */
+    /** The identities of the recording initiator.  */
     private _initiator?: IdentitySet | undefined;
     /** Possible values are: unknown, notRecording, recording, or failed.  */
     private _recordingStatus?: RecordingStatus | undefined;
@@ -23,7 +23,7 @@ export class RecordingInfo implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the initiator property value. The identities of recording initiator.
+     * Gets the initiator property value. The identities of the recording initiator.
      * @returns a identitySet
      */
     public get initiator() {
@@ -64,7 +64,7 @@ export class RecordingInfo implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the initiator property value. The identities of recording initiator.
+     * Sets the initiator property value. The identities of the recording initiator.
      * @param value Value to set for the initiator property.
      */
     public set initiator(value: IdentitySet | undefined) {

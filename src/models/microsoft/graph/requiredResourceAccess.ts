@@ -1,12 +1,12 @@
 import {ResourceAccess} from './resourceAccess';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RequiredResourceAccess implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The list of OAuth2.0 permission scopes and app roles that the application requires from the specified resource.  */
     private _resourceAccess?: ResourceAccess[] | undefined;
-    /** The unique identifier for the resource that the application requires access to.  This should be equal to the appId declared on the target resource application.  */
+    /** The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.  */
     private _resourceAppId?: string | undefined;
     /**
      * Instantiates a new requiredResourceAccess and sets the default values.
@@ -29,7 +29,7 @@ export class RequiredResourceAccess implements Parsable {
         return this._resourceAccess;
     };
     /**
-     * Gets the resourceAppId property value. The unique identifier for the resource that the application requires access to.  This should be equal to the appId declared on the target resource application.
+     * Gets the resourceAppId property value. The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
      * @returns a string
      */
     public get resourceAppId() {
@@ -70,7 +70,7 @@ export class RequiredResourceAccess implements Parsable {
         this._resourceAccess = value;
     };
     /**
-     * Sets the resourceAppId property value. The unique identifier for the resource that the application requires access to.  This should be equal to the appId declared on the target resource application.
+     * Sets the resourceAppId property value. The unique identifier for the resource that the application requires access to. This should be equal to the appId declared on the target resource application.
      * @param value Value to set for the resourceAppId property.
      */
     public set resourceAppId(value: string | undefined) {

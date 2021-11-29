@@ -1,14 +1,14 @@
 import {Entity} from './entity';
 import {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookOperation extends Entity implements Parsable {
     /** The error returned by the operation.  */
     private _error?: WorkbookOperationError | undefined;
     /** The resource URI for the result.  */
     private _resourceLocation?: string | undefined;
-    /** The current status of the operation. Possible values are: notStarted, running, succeeded, failed.  */
+    /** The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.  */
     private _status?: WorkbookOperationStatus | undefined;
     /**
      * Instantiates a new workbookOperation and sets the default values.
@@ -31,7 +31,7 @@ export class WorkbookOperation extends Entity implements Parsable {
         return this._resourceLocation;
     };
     /**
-     * Gets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     * Gets the status property value. The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
      * @returns a workbookOperationStatus
      */
     public get status() {
@@ -74,7 +74,7 @@ export class WorkbookOperation extends Entity implements Parsable {
         this._resourceLocation = value;
     };
     /**
-     * Sets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
+     * Sets the status property value. The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
      * @param value Value to set for the status property.
      */
     public set status(value: WorkbookOperationStatus | undefined) {

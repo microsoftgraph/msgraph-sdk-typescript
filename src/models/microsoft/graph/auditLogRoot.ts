@@ -3,7 +3,7 @@ import {Entity} from './entity';
 import {ProvisioningObjectSummary} from './provisioningObjectSummary';
 import {RestrictedSignIn} from './restrictedSignIn';
 import {SignIn} from './signIn';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuditLogRoot extends Entity implements Parsable {
     /** Read-only. Nullable.  */

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {PlannerPlan} from './plannerPlan';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerGroup extends Entity implements Parsable {
     /** Read-only. Nullable. Returns the plannerPlans owned by the group.  */

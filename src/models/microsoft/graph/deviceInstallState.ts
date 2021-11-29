@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {InstallState} from './installState';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceInstallState extends Entity implements Parsable {
     /** Device Id.  */

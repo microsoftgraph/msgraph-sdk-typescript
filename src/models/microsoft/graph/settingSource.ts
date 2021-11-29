@@ -1,4 +1,5 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {SettingSourceType} from './settingSourceType';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingSource implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -7,6 +8,8 @@ export class SettingSource implements Parsable {
     private _displayName?: string | undefined;
     /** Not yet documented  */
     private _id?: string | undefined;
+    /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent.  */
+    private _sourceType?: SettingSourceType | undefined;
     /**
      * Instantiates a new settingSource and sets the default values.
      */
@@ -35,6 +38,13 @@ export class SettingSource implements Parsable {
         return this._id;
     };
     /**
+     * Gets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * @returns a settingSourceType
+     */
+    public get sourceType() {
+        return this._sourceType;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
@@ -42,6 +52,7 @@ export class SettingSource implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["displayName", (o, n) => { (o as unknown as SettingSource).displayName = n.getStringValue(); }],
             ["id", (o, n) => { (o as unknown as SettingSource).id = n.getStringValue(); }],
+            ["sourceType", (o, n) => { (o as unknown as SettingSource).sourceType = n.getEnumValue<SettingSourceType>(SettingSourceType); }],
         ]);
     };
     /**
@@ -52,6 +63,7 @@ export class SettingSource implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("id", this.id);
+        writer.writeEnumValue<SettingSourceType>("sourceType", this.sourceType);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -74,5 +86,12 @@ export class SettingSource implements Parsable {
      */
     public set id(value: string | undefined) {
         this._id = value;
+    };
+    /**
+     * Sets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * @param value Value to set for the sourceType property.
+     */
+    public set sourceType(value: SettingSourceType | undefined) {
+        this._sourceType = value;
     };
 }

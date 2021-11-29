@@ -4,7 +4,7 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {RubricLevel} from './rubricLevel';
 import {RubricQuality} from './rubricQuality';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRubric extends Entity implements Parsable {
     /** The user who created this resource.  */

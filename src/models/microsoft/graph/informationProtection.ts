@@ -1,14 +1,23 @@
+import {Bitlocker} from './bitlocker';
 import {Entity} from './entity';
 import {ThreatAssessmentRequest} from './threatAssessmentRequest';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InformationProtection extends Entity implements Parsable {
+    private _bitlocker?: Bitlocker | undefined;
     private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
      * Instantiates a new informationProtection and sets the default values.
      */
     public constructor() {
         super();
+    };
+    /**
+     * Gets the bitlocker property value. 
+     * @returns a bitlocker
+     */
+    public get bitlocker() {
+        return this._bitlocker;
     };
     /**
      * Gets the threatAssessmentRequests property value. 
@@ -23,6 +32,7 @@ export class InformationProtection extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["bitlocker", (o, n) => { (o as unknown as InformationProtection).bitlocker = n.getObjectValue<Bitlocker>(Bitlocker); }],
             ["threatAssessmentRequests", (o, n) => { (o as unknown as InformationProtection).threatAssessmentRequests = n.getCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest); }],
         ]);
     };
@@ -33,7 +43,15 @@ export class InformationProtection extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeObjectValue<Bitlocker>("bitlocker", this.bitlocker);
         writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", this.threatAssessmentRequests);
+    };
+    /**
+     * Sets the bitlocker property value. 
+     * @param value Value to set for the bitlocker property.
+     */
+    public set bitlocker(value: Bitlocker | undefined) {
+        this._bitlocker = value;
     };
     /**
      * Sets the threatAssessmentRequests property value. 

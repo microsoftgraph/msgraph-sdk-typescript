@@ -7,93 +7,94 @@ import {EducationSchoolRequestBuilder} from './schools/item/educationSchoolReque
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {EducationUserRequestBuilder} from './users/item/educationUserRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education  */
 export class EducationRequestBuilder {
     public get classes(): ClassesRequestBuilder {
-        return new ClassesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get me(): MeRequestBuilder {
-        return new MeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get schools(): SchoolsRequestBuilder {
-        return new SchoolsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get users(): UsersRequestBuilder {
-        return new UsersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item collection
      * @param id Unique identifier of the item
      * @returns a educationClassRequestBuilder
      */
-    public classesById(id: String) : EducationClassRequestBuilder {
+    public classesById(id: string) : EducationClassRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationClassRequestBuilder(this.currentPath + this.pathSegment + "/classes/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationClass_id", id);
+        return new EducationClassRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EducationRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/education";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/education{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Get education
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update education
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Education | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Education | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Get education
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationRoot
@@ -101,42 +102,46 @@ export class EducationRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<EducationRoot>(requestInfo, EducationRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, EducationRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update education
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Education | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Education | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.schools.item collection
+     * Gets an item from the MicrosoftGraph.education.schools.item collection
      * @param id Unique identifier of the item
      * @returns a educationSchoolRequestBuilder
      */
-    public schoolsById(id: String) : EducationSchoolRequestBuilder {
+    public schoolsById(id: string) : EducationSchoolRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationSchoolRequestBuilder(this.currentPath + this.pathSegment + "/schools/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationSchool_id", id);
+        return new EducationSchoolRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.users.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item collection
      * @param id Unique identifier of the item
      * @returns a educationUserRequestBuilder
      */
-    public usersById(id: String) : EducationUserRequestBuilder {
+    public usersById(id: string) : EducationUserRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationUserRequestBuilder(this.currentPath + this.pathSegment + "/users/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationUser_id", id);
+        return new EducationUserRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

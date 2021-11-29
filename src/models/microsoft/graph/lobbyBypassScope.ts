@@ -4,4 +4,6 @@ export enum LobbyBypassScope {
     OrganizationAndFederated = "organizationAndFederated",
     Everyone = "everyone",
     UnknownFutureValue = "unknownFutureValue",
+    Invited = "invited",
+    OrganizationExcludingGuests = "organizationExcludingGuests",
 }

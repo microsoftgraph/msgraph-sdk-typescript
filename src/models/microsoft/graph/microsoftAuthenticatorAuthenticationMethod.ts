@@ -1,6 +1,6 @@
 import {AuthenticationMethod} from './authenticationMethod';
 import {Device} from './device';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.  */

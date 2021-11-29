@@ -1,10 +1,10 @@
 import {ResponseType} from './responseType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResponseStatus implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The response type. Possible values are: None, Organizer, TentativelyAccepted, Accepted, Declined, NotResponded.  */
+    /** The response type. Possible values are: none, organizer, tentativelyAccepted, accepted, declined, notResponded.To differentiate between none and notResponded: as an example, if attendee Alex hasn't responded to a meeting request, getting Alex' response status for that event in Alex' calendar returns notResponded. Getting Alex' response from the calendar of any other attendee or the organizer's returns none. Getting the organizer's response for the event in anybody's calendar also returns none.  */
     private _response?: ResponseType | undefined;
     /** The date and time that the response was returned. It uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _time?: Date | undefined;
@@ -22,7 +22,7 @@ export class ResponseStatus implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the response property value. The response type. Possible values are: None, Organizer, TentativelyAccepted, Accepted, Declined, NotResponded.
+     * Gets the response property value. The response type. Possible values are: none, organizer, tentativelyAccepted, accepted, declined, notResponded.To differentiate between none and notResponded: as an example, if attendee Alex hasn't responded to a meeting request, getting Alex' response status for that event in Alex' calendar returns notResponded. Getting Alex' response from the calendar of any other attendee or the organizer's returns none. Getting the organizer's response for the event in anybody's calendar also returns none.
      * @returns a responseType
      */
     public get response() {
@@ -63,7 +63,7 @@ export class ResponseStatus implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the response property value. The response type. Possible values are: None, Organizer, TentativelyAccepted, Accepted, Declined, NotResponded.
+     * Sets the response property value. The response type. Possible values are: none, organizer, tentativelyAccepted, accepted, declined, notResponded.To differentiate between none and notResponded: as an example, if attendee Alex hasn't responded to a meeting request, getting Alex' response status for that event in Alex' calendar returns notResponded. Getting Alex' response from the calendar of any other attendee or the organizer's returns none. Getting the organizer's response for the event in anybody's calendar also returns none.
      * @param value Value to set for the response property.
      */
     public set response(value: ResponseType | undefined) {

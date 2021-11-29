@@ -1,7 +1,7 @@
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
 import {StagedFeatureName} from './stagedFeatureName';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FeatureRolloutPolicy extends Entity implements Parsable {
     /** Nullable. Specifies a list of directoryObjects that feature is enabled for.  */

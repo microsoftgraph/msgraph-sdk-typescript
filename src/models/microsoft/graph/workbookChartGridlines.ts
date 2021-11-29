@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartGridlines extends Entity implements Parsable {
     /** Represents the formatting of chart gridlines. Read-only.  */

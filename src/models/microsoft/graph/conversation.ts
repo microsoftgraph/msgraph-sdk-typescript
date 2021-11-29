@@ -1,13 +1,13 @@
 import {ConversationThread} from './conversationThread';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Conversation extends Entity implements Parsable {
-    /** Indicates whether any of the posts within this Conversation has at least one attachment.  */
+    /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.  */
     private _hasAttachments?: boolean | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _lastDeliveredDateTime?: Date | undefined;
-    /** A short summary from the body of the latest post in this converstaion.  */
+    /** A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).  */
     private _preview?: string | undefined;
     /** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.  */
     private _threads?: ConversationThread[] | undefined;
@@ -22,7 +22,7 @@ export class Conversation extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the hasAttachments property value. Indicates whether any of the posts within this Conversation has at least one attachment.
+     * Gets the hasAttachments property value. Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
      * @returns a boolean
      */
     public get hasAttachments() {
@@ -36,7 +36,7 @@ export class Conversation extends Entity implements Parsable {
         return this._lastDeliveredDateTime;
     };
     /**
-     * Gets the preview property value. A short summary from the body of the latest post in this converstaion.
+     * Gets the preview property value. A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
      * @returns a string
      */
     public get preview() {
@@ -92,7 +92,7 @@ export class Conversation extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("uniqueSenders", this.uniqueSenders);
     };
     /**
-     * Sets the hasAttachments property value. Indicates whether any of the posts within this Conversation has at least one attachment.
+     * Sets the hasAttachments property value. Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.
      * @param value Value to set for the hasAttachments property.
      */
     public set hasAttachments(value: boolean | undefined) {
@@ -106,7 +106,7 @@ export class Conversation extends Entity implements Parsable {
         this._lastDeliveredDateTime = value;
     };
     /**
-     * Sets the preview property value. A short summary from the body of the latest post in this converstaion.
+     * Sets the preview property value. A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
      * @param value Value to set for the preview property.
      */
     public set preview(value: string | undefined) {

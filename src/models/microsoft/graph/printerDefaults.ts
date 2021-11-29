@@ -5,7 +5,7 @@ import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterDefaults implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -212,7 +212,7 @@ export class PrinterDefaults implements Parsable {
         writer.writeNumberValue("copiesPerJob", this.copiesPerJob);
         writer.writeNumberValue("dpi", this.dpi);
         writer.writeEnumValue<PrintDuplexMode>("duplexMode", this.duplexMode);
-        writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
+        this.finishings && writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeBooleanValue("fitPdfToPage", this.fitPdfToPage);
         writer.writeStringValue("inputBin", this.inputBin);
         writer.writeStringValue("mediaColor", this.mediaColor);

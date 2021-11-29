@@ -1,6 +1,6 @@
 import {DeviceInstallState} from './deviceInstallState';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserInstallStateSummary extends Entity implements Parsable {
     /** The install state of the eBook.  */

@@ -20,147 +20,154 @@ import {TokenIssuancePolicyRequestBuilder} from './tokenIssuancePolicies/item/to
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePolicyRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies  */
 export class PoliciesRequestBuilder {
     public get activityBasedTimeoutPolicies(): ActivityBasedTimeoutPoliciesRequestBuilder {
-        return new ActivityBasedTimeoutPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ActivityBasedTimeoutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get adminConsentRequestPolicy(): AdminConsentRequestPolicyRequestBuilder {
-        return new AdminConsentRequestPolicyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AdminConsentRequestPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get authenticationFlowsPolicy(): AuthenticationFlowsPolicyRequestBuilder {
-        return new AuthenticationFlowsPolicyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AuthenticationFlowsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
-        return new AuthenticationMethodsPolicyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get authorizationPolicy(): AuthorizationPolicyRequestBuilder {
-        return new AuthorizationPolicyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AuthorizationPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
-        return new ClaimsMappingPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get conditionalAccessPolicies(): ConditionalAccessPoliciesRequestBuilder {
-        return new ConditionalAccessPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ConditionalAccessPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get featureRolloutPolicies(): FeatureRolloutPoliciesRequestBuilder {
-        return new FeatureRolloutPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FeatureRolloutPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
-        return new HomeRealmDiscoveryPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
     public get identitySecurityDefaultsEnforcementPolicy(): IdentitySecurityDefaultsEnforcementPolicyRequestBuilder {
-        return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
-        return new PermissionGrantPoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PermissionGrantPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
-        return new TokenIssuancePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
-        return new TokenLifetimePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.activityBasedTimeoutPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.activityBasedTimeoutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a activityBasedTimeoutPolicyRequestBuilder
      */
-    public activityBasedTimeoutPoliciesById(id: String) : ActivityBasedTimeoutPolicyRequestBuilder {
+    public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ActivityBasedTimeoutPolicyRequestBuilder(this.currentPath + this.pathSegment + "/activityBasedTimeoutPolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("activityBasedTimeoutPolicy_id", id);
+        return new ActivityBasedTimeoutPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.claimsMappingPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.claimsMappingPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a claimsMappingPolicyRequestBuilder
      */
-    public claimsMappingPoliciesById(id: String) : ClaimsMappingPolicyRequestBuilder {
+    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ClaimsMappingPolicyRequestBuilder(this.currentPath + this.pathSegment + "/claimsMappingPolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("claimsMappingPolicy_id", id);
+        return new ClaimsMappingPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.conditionalAccessPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.conditionalAccessPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a conditionalAccessPolicyRequestBuilder
      */
-    public conditionalAccessPoliciesById(id: String) : ConditionalAccessPolicyRequestBuilder {
+    public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ConditionalAccessPolicyRequestBuilder(this.currentPath + this.pathSegment + "/conditionalAccessPolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("conditionalAccessPolicy_id", id);
+        return new ConditionalAccessPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/policies";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/policies{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Get policies
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update policies
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: PolicyRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: PolicyRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.featureRolloutPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.featureRolloutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a featureRolloutPolicyRequestBuilder
      */
-    public featureRolloutPoliciesById(id: String) : FeatureRolloutPolicyRequestBuilder {
+    public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new FeatureRolloutPolicyRequestBuilder(this.currentPath + this.pathSegment + "/featureRolloutPolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("featureRolloutPolicy_id", id);
+        return new FeatureRolloutPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get policies
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PolicyRoot
@@ -168,60 +175,68 @@ export class PoliciesRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<PolicyRoot>(requestInfo, PolicyRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, PolicyRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.homeRealmDiscoveryPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a homeRealmDiscoveryPolicyRequestBuilder
      */
-    public homeRealmDiscoveryPoliciesById(id: String) : HomeRealmDiscoveryPolicyRequestBuilder {
+    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new HomeRealmDiscoveryPolicyRequestBuilder(this.currentPath + this.pathSegment + "/homeRealmDiscoveryPolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("homeRealmDiscoveryPolicy_id", id);
+        return new HomeRealmDiscoveryPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update policies
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PolicyRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PolicyRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantPolicyRequestBuilder
      */
-    public permissionGrantPoliciesById(id: String) : PermissionGrantPolicyRequestBuilder {
+    public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new PermissionGrantPolicyRequestBuilder(this.currentPath + this.pathSegment + "/permissionGrantPolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("permissionGrantPolicy_id", id);
+        return new PermissionGrantPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.tokenIssuancePolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenIssuancePolicyRequestBuilder
      */
-    public tokenIssuancePoliciesById(id: String) : TokenIssuancePolicyRequestBuilder {
+    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new TokenIssuancePolicyRequestBuilder(this.currentPath + this.pathSegment + "/tokenIssuancePolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("tokenIssuancePolicy_id", id);
+        return new TokenIssuancePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.tokenLifetimePolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenLifetimePolicyRequestBuilder
      */
-    public tokenLifetimePoliciesById(id: String) : TokenLifetimePolicyRequestBuilder {
+    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new TokenLifetimePolicyRequestBuilder(this.currentPath + this.pathSegment + "/tokenLifetimePolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("tokenLifetimePolicy_id", id);
+        return new TokenLifetimePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

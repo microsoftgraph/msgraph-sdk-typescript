@@ -1,9 +1,10 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {ItemReference} from './itemReference';
+import {SharePointIdentitySet} from './sharePointIdentitySet';
 import {SharingInvitation} from './sharingInvitation';
 import {SharingLink} from './sharingLink';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Permission extends Entity implements Parsable {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional.  */
@@ -12,6 +13,8 @@ export class Permission extends Entity implements Parsable {
     private _grantedTo?: IdentitySet | undefined;
     /** For link type permissions, the details of the users to whom permission was granted. Read-only.  */
     private _grantedToIdentities?: IdentitySet[] | undefined;
+    private _grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
+    private _grantedToV2?: SharePointIdentitySet | undefined;
     /** This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.  */
     private _hasPassword?: boolean | undefined;
     /** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.  */
@@ -22,7 +25,7 @@ export class Permission extends Entity implements Parsable {
     private _link?: SharingLink | undefined;
     /** The type of permission, e.g. read. See below for the full list of roles. Read-only.  */
     private _roles?: string[] | undefined;
-    /** A unique token that can be used to access this shared item via the [shares API][]. Read-only.  */
+    /** A unique token that can be used to access this shared item via the **shares** API. Read-only.  */
     private _shareId?: string | undefined;
     /**
      * Instantiates a new permission and sets the default values.
@@ -50,6 +53,20 @@ export class Permission extends Entity implements Parsable {
      */
     public get grantedToIdentities() {
         return this._grantedToIdentities;
+    };
+    /**
+     * Gets the grantedToIdentitiesV2 property value. 
+     * @returns a sharePointIdentitySet
+     */
+    public get grantedToIdentitiesV2() {
+        return this._grantedToIdentitiesV2;
+    };
+    /**
+     * Gets the grantedToV2 property value. 
+     * @returns a sharePointIdentitySet
+     */
+    public get grantedToV2() {
+        return this._grantedToV2;
     };
     /**
      * Gets the hasPassword property value. This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.
@@ -87,7 +104,7 @@ export class Permission extends Entity implements Parsable {
         return this._roles;
     };
     /**
-     * Gets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * Gets the shareId property value. A unique token that can be used to access this shared item via the **shares** API. Read-only.
      * @returns a string
      */
     public get shareId() {
@@ -102,6 +119,8 @@ export class Permission extends Entity implements Parsable {
             ["expirationDateTime", (o, n) => { (o as unknown as Permission).expirationDateTime = n.getDateValue(); }],
             ["grantedTo", (o, n) => { (o as unknown as Permission).grantedTo = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["grantedToIdentities", (o, n) => { (o as unknown as Permission).grantedToIdentities = n.getCollectionOfObjectValues<IdentitySet>(IdentitySet); }],
+            ["grantedToIdentitiesV2", (o, n) => { (o as unknown as Permission).grantedToIdentitiesV2 = n.getCollectionOfObjectValues<SharePointIdentitySet>(SharePointIdentitySet); }],
+            ["grantedToV2", (o, n) => { (o as unknown as Permission).grantedToV2 = n.getObjectValue<SharePointIdentitySet>(SharePointIdentitySet); }],
             ["hasPassword", (o, n) => { (o as unknown as Permission).hasPassword = n.getBooleanValue(); }],
             ["inheritedFrom", (o, n) => { (o as unknown as Permission).inheritedFrom = n.getObjectValue<ItemReference>(ItemReference); }],
             ["invitation", (o, n) => { (o as unknown as Permission).invitation = n.getObjectValue<SharingInvitation>(SharingInvitation); }],
@@ -120,6 +139,8 @@ export class Permission extends Entity implements Parsable {
         writer.writeDateValue("expirationDateTime", this.expirationDateTime);
         writer.writeObjectValue<IdentitySet>("grantedTo", this.grantedTo);
         writer.writeCollectionOfObjectValues<IdentitySet>("grantedToIdentities", this.grantedToIdentities);
+        writer.writeCollectionOfObjectValues<SharePointIdentitySet>("grantedToIdentitiesV2", this.grantedToIdentitiesV2);
+        writer.writeObjectValue<SharePointIdentitySet>("grantedToV2", this.grantedToV2);
         writer.writeBooleanValue("hasPassword", this.hasPassword);
         writer.writeObjectValue<ItemReference>("inheritedFrom", this.inheritedFrom);
         writer.writeObjectValue<SharingInvitation>("invitation", this.invitation);
@@ -147,6 +168,20 @@ export class Permission extends Entity implements Parsable {
      */
     public set grantedToIdentities(value: IdentitySet[] | undefined) {
         this._grantedToIdentities = value;
+    };
+    /**
+     * Sets the grantedToIdentitiesV2 property value. 
+     * @param value Value to set for the grantedToIdentitiesV2 property.
+     */
+    public set grantedToIdentitiesV2(value: SharePointIdentitySet[] | undefined) {
+        this._grantedToIdentitiesV2 = value;
+    };
+    /**
+     * Sets the grantedToV2 property value. 
+     * @param value Value to set for the grantedToV2 property.
+     */
+    public set grantedToV2(value: SharePointIdentitySet | undefined) {
+        this._grantedToV2 = value;
     };
     /**
      * Sets the hasPassword property value. This indicates whether password is set for this permission, it's only showing in response. Optional and Read-only and for OneDrive Personal only.
@@ -184,7 +219,7 @@ export class Permission extends Entity implements Parsable {
         this._roles = value;
     };
     /**
-     * Sets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * Sets the shareId property value. A unique token that can be used to access this shared item via the **shares** API. Read-only.
      * @param value Value to set for the shareId property.
      */
     public set shareId(value: string | undefined) {

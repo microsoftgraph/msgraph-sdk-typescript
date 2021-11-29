@@ -10,7 +10,8 @@ import {PublicError} from './publicError';
 import {Root} from './root';
 import {SharepointIds} from './sharepointIds';
 import {SiteCollection} from './siteCollection';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Store} from './termStore/store';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Site extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place in this site.  */
@@ -26,7 +27,9 @@ export class Site extends BaseItem implements Parsable {
     /** The collection of drives (document libraries) under this site.  */
     private _drives?: Drive[] | undefined;
     private _error?: PublicError | undefined;
-    /** Used to address any item contained in this site. This collection cannot be enumerated.  */
+    /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.  */
+    private _externalColumns?: ColumnDefinition[] | undefined;
+    /** Used to address any item contained in this site. This collection can't be enumerated.  */
     private _items?: BaseItem[] | undefined;
     /** The collection of lists under this site.  */
     private _lists?: List[] | undefined;
@@ -42,6 +45,10 @@ export class Site extends BaseItem implements Parsable {
     private _siteCollection?: SiteCollection | undefined;
     /** The collection of the sub-sites under this site.  */
     private _sites?: Site[] | undefined;
+    /** The default termStore under this site.  */
+    private _termStore?: Store | undefined;
+    /** The collection of termStores under this site.  */
+    private _termStores?: Store[] | undefined;
     /**
      * Instantiates a new site and sets the default values.
      */
@@ -98,7 +105,14 @@ export class Site extends BaseItem implements Parsable {
         return this._error;
     };
     /**
-     * Gets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
+     * Gets the externalColumns property value. The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * @returns a columnDefinition
+     */
+    public get externalColumns() {
+        return this._externalColumns;
+    };
+    /**
+     * Gets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
      * @returns a baseItem
      */
     public get items() {
@@ -154,6 +168,20 @@ export class Site extends BaseItem implements Parsable {
         return this._sites;
     };
     /**
+     * Gets the termStore property value. The default termStore under this site.
+     * @returns a store
+     */
+    public get termStore() {
+        return this._termStore;
+    };
+    /**
+     * Gets the termStores property value. The collection of termStores under this site.
+     * @returns a store
+     */
+    public get termStores() {
+        return this._termStores;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
@@ -166,6 +194,7 @@ export class Site extends BaseItem implements Parsable {
             ["drive", (o, n) => { (o as unknown as Site).drive = n.getObjectValue<Drive>(Drive); }],
             ["drives", (o, n) => { (o as unknown as Site).drives = n.getCollectionOfObjectValues<Drive>(Drive); }],
             ["error", (o, n) => { (o as unknown as Site).error = n.getObjectValue<PublicError>(PublicError); }],
+            ["externalColumns", (o, n) => { (o as unknown as Site).externalColumns = n.getCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition); }],
             ["items", (o, n) => { (o as unknown as Site).items = n.getCollectionOfObjectValues<BaseItem>(BaseItem); }],
             ["lists", (o, n) => { (o as unknown as Site).lists = n.getCollectionOfObjectValues<List>(List); }],
             ["onenote", (o, n) => { (o as unknown as Site).onenote = n.getObjectValue<Onenote>(Onenote); }],
@@ -174,6 +203,8 @@ export class Site extends BaseItem implements Parsable {
             ["sharepointIds", (o, n) => { (o as unknown as Site).sharepointIds = n.getObjectValue<SharepointIds>(SharepointIds); }],
             ["siteCollection", (o, n) => { (o as unknown as Site).siteCollection = n.getObjectValue<SiteCollection>(SiteCollection); }],
             ["sites", (o, n) => { (o as unknown as Site).sites = n.getCollectionOfObjectValues<Site>(Site); }],
+            ["termStore", (o, n) => { (o as unknown as Site).termStore = n.getObjectValue<Store>(Store); }],
+            ["termStores", (o, n) => { (o as unknown as Site).termStores = n.getCollectionOfObjectValues<Store>(Store); }],
         ]);
     };
     /**
@@ -190,6 +221,7 @@ export class Site extends BaseItem implements Parsable {
         writer.writeObjectValue<Drive>("drive", this.drive);
         writer.writeCollectionOfObjectValues<Drive>("drives", this.drives);
         writer.writeObjectValue<PublicError>("error", this.error);
+        writer.writeCollectionOfObjectValues<ColumnDefinition>("externalColumns", this.externalColumns);
         writer.writeCollectionOfObjectValues<BaseItem>("items", this.items);
         writer.writeCollectionOfObjectValues<List>("lists", this.lists);
         writer.writeObjectValue<Onenote>("onenote", this.onenote);
@@ -198,6 +230,8 @@ export class Site extends BaseItem implements Parsable {
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);
         writer.writeObjectValue<SiteCollection>("siteCollection", this.siteCollection);
         writer.writeCollectionOfObjectValues<Site>("sites", this.sites);
+        writer.writeObjectValue<Store>("termStore", this.termStore);
+        writer.writeCollectionOfObjectValues<Store>("termStores", this.termStores);
     };
     /**
      * Sets the analytics property value. Analytics about the view activities that took place in this site.
@@ -249,7 +283,14 @@ export class Site extends BaseItem implements Parsable {
         this._error = value;
     };
     /**
-     * Sets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
+     * Sets the externalColumns property value. The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.
+     * @param value Value to set for the externalColumns property.
+     */
+    public set externalColumns(value: ColumnDefinition[] | undefined) {
+        this._externalColumns = value;
+    };
+    /**
+     * Sets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
      * @param value Value to set for the items property.
      */
     public set items(value: BaseItem[] | undefined) {
@@ -303,5 +344,19 @@ export class Site extends BaseItem implements Parsable {
      */
     public set sites(value: Site[] | undefined) {
         this._sites = value;
+    };
+    /**
+     * Sets the termStore property value. The default termStore under this site.
+     * @param value Value to set for the termStore property.
+     */
+    public set termStore(value: Store | undefined) {
+        this._termStore = value;
+    };
+    /**
+     * Sets the termStores property value. The collection of termStores under this site.
+     * @param value Value to set for the termStores property.
+     */
+    public set termStores(value: Store[] | undefined) {
+        this._termStores = value;
     };
 }

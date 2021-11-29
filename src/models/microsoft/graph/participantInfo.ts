@@ -1,6 +1,6 @@
 import {EndpointType} from './endpointType';
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ParticipantInfo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -12,7 +12,9 @@ export class ParticipantInfo implements Parsable {
     private _identity?: IdentitySet | undefined;
     /** The language culture string. Read-only.  */
     private _languageId?: string | undefined;
-    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.  */
+    /** The participant ID of the participant. Read-only.  */
+    private _participantId?: string | undefined;
+    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.  */
     private _region?: string | undefined;
     /**
      * Instantiates a new participantInfo and sets the default values.
@@ -56,7 +58,14 @@ export class ParticipantInfo implements Parsable {
         return this._languageId;
     };
     /**
-     * Gets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
+     * Gets the participantId property value. The participant ID of the participant. Read-only.
+     * @returns a string
+     */
+    public get participantId() {
+        return this._participantId;
+    };
+    /**
+     * Gets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.
      * @returns a string
      */
     public get region() {
@@ -72,6 +81,7 @@ export class ParticipantInfo implements Parsable {
             ["endpointType", (o, n) => { (o as unknown as ParticipantInfo).endpointType = n.getEnumValue<EndpointType>(EndpointType); }],
             ["identity", (o, n) => { (o as unknown as ParticipantInfo).identity = n.getObjectValue<IdentitySet>(IdentitySet); }],
             ["languageId", (o, n) => { (o as unknown as ParticipantInfo).languageId = n.getStringValue(); }],
+            ["participantId", (o, n) => { (o as unknown as ParticipantInfo).participantId = n.getStringValue(); }],
             ["region", (o, n) => { (o as unknown as ParticipantInfo).region = n.getStringValue(); }],
         ]);
     };
@@ -85,6 +95,7 @@ export class ParticipantInfo implements Parsable {
         writer.writeEnumValue<EndpointType>("endpointType", this.endpointType);
         writer.writeObjectValue<IdentitySet>("identity", this.identity);
         writer.writeStringValue("languageId", this.languageId);
+        writer.writeStringValue("participantId", this.participantId);
         writer.writeStringValue("region", this.region);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -124,7 +135,14 @@ export class ParticipantInfo implements Parsable {
         this._languageId = value;
     };
     /**
-     * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
+     * Sets the participantId property value. The participant ID of the participant. Read-only.
+     * @param value Value to set for the participantId property.
+     */
+    public set participantId(value: string | undefined) {
+        this._participantId = value;
+    };
+    /**
+     * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.
      * @param value Value to set for the region property.
      */
     public set region(value: string | undefined) {

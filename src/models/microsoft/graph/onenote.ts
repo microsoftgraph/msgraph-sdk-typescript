@@ -5,7 +5,7 @@ import {OnenotePage} from './onenotePage';
 import {OnenoteResource} from './onenoteResource';
 import {OnenoteSection} from './onenoteSection';
 import {SectionGroup} from './sectionGroup';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Onenote extends Entity implements Parsable {
     /** The collection of OneNote notebooks that are owned by the user or group. Read-only. Nullable.  */

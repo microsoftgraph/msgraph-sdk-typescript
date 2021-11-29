@@ -1,6 +1,6 @@
 import {DirectoryObject} from './directoryObject';
 import {ScopedRoleMembership} from './scopedRoleMembership';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryRole extends DirectoryObject implements Parsable {
     /** The description for the directory role. Read-only.  */

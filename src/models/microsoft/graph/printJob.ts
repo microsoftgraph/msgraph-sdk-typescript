@@ -4,7 +4,7 @@ import {PrintJobConfiguration} from './printJobConfiguration';
 import {PrintJobStatus} from './printJobStatus';
 import {PrintTask} from './printTask';
 import {UserIdentity} from './userIdentity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintJob extends Entity implements Parsable {
     private _configuration?: PrintJobConfiguration | undefined;

@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {PrintEvent} from './printEvent';
 import {PrintTaskDefinition} from './printTaskDefinition';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskTrigger extends Entity implements Parsable {
     private _definition?: PrintTaskDefinition | undefined;

@@ -1,115 +1,117 @@
 import {PermissionGrantPolicy} from '../../../models/microsoft/graph/permissionGrantPolicy';
 import {ExcludesRequestBuilder} from './excludes/excludesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder as ib140c5e9ef5e7908974c303e0d15149180b6f3570f54adeebd9dd3d4feaecc1c} from './excludes/item/permissionGrantConditionSetRequestBuilder';
+import {PermissionGrantConditionSetRequestBuilder as i1f0d122c86c6a366301a7a1f8acdf8a5879068868b89385bdd599b13eea127e7} from './excludes/item/permissionGrantConditionSetRequestBuilder';
 import {IncludesRequestBuilder} from './includes/includesRequestBuilder';
-import {PermissionGrantConditionSetRequestBuilder as id16dd73877654945a22f39c1bb68c51c3d724678b4f377e2e19f6935d69e68e3} from './includes/item/permissionGrantConditionSetRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {PermissionGrantConditionSetRequestBuilder as i4280f13d3407b036727718d1949a7b7bd954a50589d9733ebb0fd70da149f81c} from './includes/item/permissionGrantConditionSetRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /policies/permissionGrantPolicies/{permissionGrantPolicy-id}  */
 export class PermissionGrantPolicyRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get excludes(): ExcludesRequestBuilder {
-        return new ExcludesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ExcludesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
     public get includes(): IncludesRequestBuilder {
-        return new IncludesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IncludesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Instantiates a new PermissionGrantPolicyRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/policies/permissionGrantPolicies/{permissionGrantPolicy_id}{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete navigation property permissionGrantPolicies for policies
+     * The policy that specifies the conditions under which consent can be granted.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Get permissionGrantPolicies from policies
+     * The policy that specifies the conditions under which consent can be granted.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Update the navigation property permissionGrantPolicies in policies
+     * The policy that specifies the conditions under which consent can be granted.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: PermissionGrantPolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: PermissionGrantPolicy | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Delete navigation property permissionGrantPolicies for policies
+     * The policy that specifies the conditions under which consent can be granted.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.item.excludes.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item.excludes.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetRequestBuilder
      */
-    public excludesById(id: String) : ib140c5e9ef5e7908974c303e0d15149180b6f3570f54adeebd9dd3d4feaecc1c {
+    public excludesById(id: string) : i1f0d122c86c6a366301a7a1f8acdf8a5879068868b89385bdd599b13eea127e7 {
         if(!id) throw new Error("id cannot be undefined");
-        return new ib140c5e9ef5e7908974c303e0d15149180b6f3570f54adeebd9dd3d4feaecc1c(this.currentPath + this.pathSegment + "/excludes/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("permissionGrantConditionSet_id", id);
+        return new i1f0d122c86c6a366301a7a1f8acdf8a5879068868b89385bdd599b13eea127e7(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get permissionGrantPolicies from policies
+     * The policy that specifies the conditions under which consent can be granted.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PermissionGrantPolicy
@@ -117,33 +119,35 @@ export class PermissionGrantPolicyRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantPolicy | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantPolicy | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<PermissionGrantPolicy>(requestInfo, PermissionGrantPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PermissionGrantPolicy>(requestInfo, PermissionGrantPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.policies.permissionGrantPolicies.item.includes.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item.includes.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantConditionSetRequestBuilder
      */
-    public includesById(id: String) : id16dd73877654945a22f39c1bb68c51c3d724678b4f377e2e19f6935d69e68e3 {
+    public includesById(id: string) : i4280f13d3407b036727718d1949a7b7bd954a50589d9733ebb0fd70da149f81c {
         if(!id) throw new Error("id cannot be undefined");
-        return new id16dd73877654945a22f39c1bb68c51c3d724678b4f377e2e19f6935d69e68e3(this.currentPath + this.pathSegment + "/includes/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("permissionGrantConditionSet_id", id);
+        return new i4280f13d3407b036727718d1949a7b7bd954a50589d9733ebb0fd70da149f81c(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update the navigation property permissionGrantPolicies in policies
+     * The policy that specifies the conditions under which consent can be granted.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PermissionGrantPolicy | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PermissionGrantPolicy | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
 }

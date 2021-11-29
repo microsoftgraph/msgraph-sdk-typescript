@@ -5,113 +5,113 @@ import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/users/{educationUser-id}  */
 export class EducationUserRequestBuilder {
     public get classes(): ClassesRequestBuilder {
-        return new ClassesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get rubrics(): RubricsRequestBuilder {
-        return new RubricsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RubricsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get schools(): SchoolsRequestBuilder {
-        return new SchoolsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SchoolsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get taughtClasses(): TaughtClassesRequestBuilder {
-        return new TaughtClassesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TaughtClassesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get user(): UserRequestBuilder {
-        return new UserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new EducationUserRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/education/users/{educationUser_id}{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Delete navigation property users for education
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Get users from education
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update the navigation property users in education
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: EducationUser | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: EducationUser | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Delete navigation property users for education
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get users from education
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUser
@@ -119,33 +119,35 @@ export class EducationUserRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<EducationUser>(requestInfo, EducationUser, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, EducationUser, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property users in education
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EducationUser | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationUser | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.users.item.rubrics.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item.rubrics.item collection
      * @param id Unique identifier of the item
      * @returns a educationRubricRequestBuilder
      */
-    public rubricsById(id: String) : EducationRubricRequestBuilder {
+    public rubricsById(id: string) : EducationRubricRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationRubricRequestBuilder(this.currentPath + this.pathSegment + "/rubrics/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationRubric_id", id);
+        return new EducationRubricRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

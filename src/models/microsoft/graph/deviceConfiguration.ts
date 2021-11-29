@@ -5,7 +5,7 @@ import {DeviceConfigurationUserOverview} from './deviceConfigurationUserOverview
 import {DeviceConfigurationUserStatus} from './deviceConfigurationUserStatus';
 import {Entity} from './entity';
 import {SettingStateDeviceSummary} from './settingStateDeviceSummary';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfiguration extends Entity implements Parsable {
     /** The list of assignments for the device configuration profile.  */

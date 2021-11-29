@@ -1,5 +1,5 @@
 import {ConditionalAccessDevicePlatform} from './conditionalAccessDevicePlatform';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessPlatforms implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -51,8 +51,8 @@ export class ConditionalAccessPlatforms implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<ConditionalAccessDevicePlatform>("excludePlatforms", ...this.excludePlatforms);
-        writer.writeEnumValue<ConditionalAccessDevicePlatform>("includePlatforms", ...this.includePlatforms);
+        this.excludePlatforms && writer.writeEnumValue<ConditionalAccessDevicePlatform>("excludePlatforms", ...this.excludePlatforms);
+        this.includePlatforms && writer.writeEnumValue<ConditionalAccessDevicePlatform>("includePlatforms", ...this.includePlatforms);
         writer.writeAdditionalData(this.additionalData);
     };
     /**

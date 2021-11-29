@@ -1,20 +1,20 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Subscription extends Entity implements Parsable {
     /** Identifier of the application used to create the subscription. Read-only.  */
     private _applicationId?: string | undefined;
-    /** Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Required. Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.  */
+    /** Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.  */
     private _changeType?: string | undefined;
-    /** Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification. Optional.  */
+    /** Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.  */
     private _clientState?: string | undefined;
-    /** Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.  */
+    /** Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.  */
     private _creatorId?: string | undefined;
     /** A base64-encoded representation of a certificate with a public key used to encrypt resource data in change notifications. Optional. Required when includeResourceData is true.  */
     private _encryptionCertificate?: string | undefined;
-    /** A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional. Required when includeResourceData is true.  */
+    /** A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.  */
     private _encryptionCertificateId?: string | undefined;
-    /** Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time. Required.  */
+    /** Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.  */
     private _expirationDateTime?: Date | undefined;
     /** When set to true, change notifications include resource data (such as content of a chat message). Optional.  */
     private _includeResourceData?: boolean | undefined;
@@ -24,9 +24,10 @@ export class Subscription extends Entity implements Parsable {
     private _lifecycleNotificationUrl?: string | undefined;
     /** OData Query Options for specifying value for the targeting resource. Clients receive notifications when resource reaches the state matching the query options provided here. With this new property in the subscription creation payload along with all existing properties, Webhooks will deliver notifications whenever a resource reaches the desired state mentioned in the notificationQueryOptions property eg  when the print job is completed, when a print job resource isFetchable property value becomes true etc.  */
     private _notificationQueryOptions?: string | undefined;
-    /** The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol. Required.  */
+    /** Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.  */
     private _notificationUrl?: string | undefined;
-    /** Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource. Required.  */
+    private _notificationUrlAppId?: string | undefined;
+    /** Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.  */
     private _resource?: string | undefined;
     /**
      * Instantiates a new subscription and sets the default values.
@@ -42,21 +43,21 @@ export class Subscription extends Entity implements Parsable {
         return this._applicationId;
     };
     /**
-     * Gets the changeType property value. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Required. Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
+     * Gets the changeType property value. Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
      * @returns a string
      */
     public get changeType() {
         return this._changeType;
     };
     /**
-     * Gets the clientState property value. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification. Optional.
+     * Gets the clientState property value. Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.
      * @returns a string
      */
     public get clientState() {
         return this._clientState;
     };
     /**
-     * Gets the creatorId property value. Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.
+     * Gets the creatorId property value. Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.
      * @returns a string
      */
     public get creatorId() {
@@ -70,14 +71,14 @@ export class Subscription extends Entity implements Parsable {
         return this._encryptionCertificate;
     };
     /**
-     * Gets the encryptionCertificateId property value. A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional. Required when includeResourceData is true.
+     * Gets the encryptionCertificateId property value. A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.
      * @returns a string
      */
     public get encryptionCertificateId() {
         return this._encryptionCertificateId;
     };
     /**
-     * Gets the expirationDateTime property value. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time. Required.
+     * Gets the expirationDateTime property value. Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.
      * @returns a Date
      */
     public get expirationDateTime() {
@@ -112,14 +113,21 @@ export class Subscription extends Entity implements Parsable {
         return this._notificationQueryOptions;
     };
     /**
-     * Gets the notificationUrl property value. The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol. Required.
+     * Gets the notificationUrl property value. Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.
      * @returns a string
      */
     public get notificationUrl() {
         return this._notificationUrl;
     };
     /**
-     * Gets the resource property value. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource. Required.
+     * Gets the notificationUrlAppId property value. 
+     * @returns a string
+     */
+    public get notificationUrlAppId() {
+        return this._notificationUrlAppId;
+    };
+    /**
+     * Gets the resource property value. Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
      * @returns a string
      */
     public get resource() {
@@ -143,6 +151,7 @@ export class Subscription extends Entity implements Parsable {
             ["lifecycleNotificationUrl", (o, n) => { (o as unknown as Subscription).lifecycleNotificationUrl = n.getStringValue(); }],
             ["notificationQueryOptions", (o, n) => { (o as unknown as Subscription).notificationQueryOptions = n.getStringValue(); }],
             ["notificationUrl", (o, n) => { (o as unknown as Subscription).notificationUrl = n.getStringValue(); }],
+            ["notificationUrlAppId", (o, n) => { (o as unknown as Subscription).notificationUrlAppId = n.getStringValue(); }],
             ["resource", (o, n) => { (o as unknown as Subscription).resource = n.getStringValue(); }],
         ]);
     };
@@ -165,6 +174,7 @@ export class Subscription extends Entity implements Parsable {
         writer.writeStringValue("lifecycleNotificationUrl", this.lifecycleNotificationUrl);
         writer.writeStringValue("notificationQueryOptions", this.notificationQueryOptions);
         writer.writeStringValue("notificationUrl", this.notificationUrl);
+        writer.writeStringValue("notificationUrlAppId", this.notificationUrlAppId);
         writer.writeStringValue("resource", this.resource);
     };
     /**
@@ -175,21 +185,21 @@ export class Subscription extends Entity implements Parsable {
         this._applicationId = value;
     };
     /**
-     * Sets the changeType property value. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list. Required. Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
+     * Sets the changeType property value. Required. Indicates the type of change in the subscribed resource that will raise a change notification. The supported values are: created, updated, deleted. Multiple values can be combined using a comma-separated list.Note: Drive root item and list change notifications support only the updated changeType. User and group change notifications support updated and deleted changeType.
      * @param value Value to set for the changeType property.
      */
     public set changeType(value: string | undefined) {
         this._changeType = value;
     };
     /**
-     * Sets the clientState property value. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 255 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification. Optional.
+     * Sets the clientState property value. Optional. Specifies the value of the clientState property sent by the service in each change notification. The maximum length is 128 characters. The client can check that the change notification came from the service by comparing the value of the clientState property sent with the subscription with the value of the clientState property received with each change notification.
      * @param value Value to set for the clientState property.
      */
     public set clientState(value: string | undefined) {
         this._clientState = value;
     };
     /**
-     * Sets the creatorId property value. Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the ID of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the ID of the service principal corresponding to the app. Read-only.
+     * Sets the creatorId property value. Identifier of the user or service principal that created the subscription. If the app used delegated permissions to create the subscription, this field contains the id of the signed-in user the app called on behalf of. If the app used application permissions, this field contains the id of the service principal corresponding to the app. Read-only.
      * @param value Value to set for the creatorId property.
      */
     public set creatorId(value: string | undefined) {
@@ -203,14 +213,14 @@ export class Subscription extends Entity implements Parsable {
         this._encryptionCertificate = value;
     };
     /**
-     * Sets the encryptionCertificateId property value. A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional. Required when includeResourceData is true.
+     * Sets the encryptionCertificateId property value. A custom app-provided identifier to help identify the certificate needed to decrypt resource data. Optional.
      * @param value Value to set for the encryptionCertificateId property.
      */
     public set encryptionCertificateId(value: string | undefined) {
         this._encryptionCertificateId = value;
     };
     /**
-     * Sets the expirationDateTime property value. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time. Required.
+     * Sets the expirationDateTime property value. Required. Specifies the date and time when the webhook subscription expires. The time is in UTC, and can be an amount of time from subscription creation that varies for the resource subscribed to.  See the table below for maximum supported subscription length of time.
      * @param value Value to set for the expirationDateTime property.
      */
     public set expirationDateTime(value: Date | undefined) {
@@ -245,14 +255,21 @@ export class Subscription extends Entity implements Parsable {
         this._notificationQueryOptions = value;
     };
     /**
-     * Sets the notificationUrl property value. The URL of the endpoint that receives the change notifications. This URL must make use of the HTTPS protocol. Required.
+     * Sets the notificationUrl property value. Required. The URL of the endpoint that will receive the change notifications. This URL must make use of the HTTPS protocol.
      * @param value Value to set for the notificationUrl property.
      */
     public set notificationUrl(value: string | undefined) {
         this._notificationUrl = value;
     };
     /**
-     * Sets the resource property value. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/beta/). See the possible resource path values for each supported resource. Required.
+     * Sets the notificationUrlAppId property value. 
+     * @param value Value to set for the notificationUrlAppId property.
+     */
+    public set notificationUrlAppId(value: string | undefined) {
+        this._notificationUrlAppId = value;
+    };
+    /**
+     * Sets the resource property value. Required. Specifies the resource that will be monitored for changes. Do not include the base URL (https://graph.microsoft.com/v1.0/). See the possible resource path values for each supported resource.
      * @param value Value to set for the resource property.
      */
     public set resource(value: string | undefined) {

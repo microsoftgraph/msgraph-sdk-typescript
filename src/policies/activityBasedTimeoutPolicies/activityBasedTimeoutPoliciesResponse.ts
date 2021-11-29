@@ -1,5 +1,5 @@
 import {ActivityBasedTimeoutPolicy} from '../../models/microsoft/graph/activityBasedTimeoutPolicy';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityBasedTimeoutPoliciesResponse implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */

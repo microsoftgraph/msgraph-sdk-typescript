@@ -2,7 +2,7 @@ import {AccessReviewSet} from './accessReviewSet';
 import {AppConsentApprovalRoute} from './appConsentApprovalRoute';
 import {EntitlementManagement} from './entitlementManagement';
 import {TermsOfUseContainer} from './termsOfUseContainer';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityGovernance implements Parsable {
     private _accessReviews?: AccessReviewSet | undefined;

@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {TermsAndConditionsAcceptanceStatus} from './termsAndConditionsAcceptanceStatus';
 import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsAndConditions extends Entity implements Parsable {
     /** Administrator-supplied explanation of the terms and conditions, typically describing what it means to accept the terms and conditions set out in the T&C policy. This is shown to the user on prompts to accept the T&C policy.  */

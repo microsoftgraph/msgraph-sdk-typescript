@@ -11,6 +11,7 @@ import {DeviceConfigurationDeviceStateSummary} from './deviceConfigurationDevice
 import {DeviceEnrollmentConfiguration} from './deviceEnrollmentConfiguration';
 import {DeviceManagementExchangeConnector} from './deviceManagementExchangeConnector';
 import {DeviceManagementPartner} from './deviceManagementPartner';
+import {DeviceManagementReports} from './deviceManagementReports';
 import {DeviceManagementSettings} from './deviceManagementSettings';
 import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionState';
 import {DeviceManagementTroubleshootingEvent} from './deviceManagementTroubleshootingEvent';
@@ -32,7 +33,7 @@ import {TermsAndConditions} from './termsAndConditions';
 import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
 import {WindowsInformationProtectionAppLearningSummary} from './windowsInformationProtectionAppLearningSummary';
 import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInformationProtectionNetworkLearningSummary';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagement extends Entity implements Parsable {
     /** Apple push notification certificate.  */
@@ -63,7 +64,7 @@ export class DeviceManagement extends Entity implements Parsable {
     private _exchangeConnectors?: DeviceManagementExchangeConnector[] | undefined;
     /** Collection of imported Windows autopilot devices.  */
     private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
-    /** Intune Account ID for given tenant  */
+    /** Intune Account Id for given tenant  */
     private _intuneAccountId?: string | undefined;
     /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.  */
     private _intuneBrand?: IntuneBrand | undefined;
@@ -79,6 +80,8 @@ export class DeviceManagement extends Entity implements Parsable {
     private _notificationMessageTemplates?: NotificationMessageTemplate[] | undefined;
     /** The remote assist partners.  */
     private _remoteAssistancePartners?: RemoteAssistancePartner[] | undefined;
+    /** Reports singleton  */
+    private _reports?: DeviceManagementReports | undefined;
     /** The Resource Operations.  */
     private _resourceOperations?: ResourceOperation[] | undefined;
     /** The Role Assignments.  */
@@ -208,7 +211,7 @@ export class DeviceManagement extends Entity implements Parsable {
         return this._importedWindowsAutopilotDeviceIdentities;
     };
     /**
-     * Gets the intuneAccountId property value. Intune Account ID for given tenant
+     * Gets the intuneAccountId property value. Intune Account Id for given tenant
      * @returns a string
      */
     public get intuneAccountId() {
@@ -262,6 +265,13 @@ export class DeviceManagement extends Entity implements Parsable {
      */
     public get remoteAssistancePartners() {
         return this._remoteAssistancePartners;
+    };
+    /**
+     * Gets the reports property value. Reports singleton
+     * @returns a deviceManagementReports
+     */
+    public get reports() {
+        return this._reports;
     };
     /**
      * Gets the resourceOperations property value. The Resource Operations.
@@ -375,6 +385,7 @@ export class DeviceManagement extends Entity implements Parsable {
             ["mobileThreatDefenseConnectors", (o, n) => { (o as unknown as DeviceManagement).mobileThreatDefenseConnectors = n.getCollectionOfObjectValues<MobileThreatDefenseConnector>(MobileThreatDefenseConnector); }],
             ["notificationMessageTemplates", (o, n) => { (o as unknown as DeviceManagement).notificationMessageTemplates = n.getCollectionOfObjectValues<NotificationMessageTemplate>(NotificationMessageTemplate); }],
             ["remoteAssistancePartners", (o, n) => { (o as unknown as DeviceManagement).remoteAssistancePartners = n.getCollectionOfObjectValues<RemoteAssistancePartner>(RemoteAssistancePartner); }],
+            ["reports", (o, n) => { (o as unknown as DeviceManagement).reports = n.getObjectValue<DeviceManagementReports>(DeviceManagementReports); }],
             ["resourceOperations", (o, n) => { (o as unknown as DeviceManagement).resourceOperations = n.getCollectionOfObjectValues<ResourceOperation>(ResourceOperation); }],
             ["roleAssignments", (o, n) => { (o as unknown as DeviceManagement).roleAssignments = n.getCollectionOfObjectValues<DeviceAndAppManagementRoleAssignment>(DeviceAndAppManagementRoleAssignment); }],
             ["roleDefinitions", (o, n) => { (o as unknown as DeviceManagement).roleDefinitions = n.getCollectionOfObjectValues<RoleDefinition>(RoleDefinition); }],
@@ -418,6 +429,7 @@ export class DeviceManagement extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<MobileThreatDefenseConnector>("mobileThreatDefenseConnectors", this.mobileThreatDefenseConnectors);
         writer.writeCollectionOfObjectValues<NotificationMessageTemplate>("notificationMessageTemplates", this.notificationMessageTemplates);
         writer.writeCollectionOfObjectValues<RemoteAssistancePartner>("remoteAssistancePartners", this.remoteAssistancePartners);
+        writer.writeObjectValue<DeviceManagementReports>("reports", this.reports);
         writer.writeCollectionOfObjectValues<ResourceOperation>("resourceOperations", this.resourceOperations);
         writer.writeCollectionOfObjectValues<DeviceAndAppManagementRoleAssignment>("roleAssignments", this.roleAssignments);
         writer.writeCollectionOfObjectValues<RoleDefinition>("roleDefinitions", this.roleDefinitions);
@@ -530,7 +542,7 @@ export class DeviceManagement extends Entity implements Parsable {
         this._importedWindowsAutopilotDeviceIdentities = value;
     };
     /**
-     * Sets the intuneAccountId property value. Intune Account ID for given tenant
+     * Sets the intuneAccountId property value. Intune Account Id for given tenant
      * @param value Value to set for the intuneAccountId property.
      */
     public set intuneAccountId(value: string | undefined) {
@@ -584,6 +596,13 @@ export class DeviceManagement extends Entity implements Parsable {
      */
     public set remoteAssistancePartners(value: RemoteAssistancePartner[] | undefined) {
         this._remoteAssistancePartners = value;
+    };
+    /**
+     * Sets the reports property value. Reports singleton
+     * @param value Value to set for the reports property.
+     */
+    public set reports(value: DeviceManagementReports | undefined) {
+        this._reports = value;
     };
     /**
      * Sets the resourceOperations property value. The Resource Operations.

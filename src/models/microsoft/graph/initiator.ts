@@ -1,6 +1,6 @@
 import {Identity} from './identity';
 import {InitiatorType} from './initiatorType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Initiator extends Identity implements Parsable {
     /** Type of initiator. Possible values are: user, application, system, unknownFutureValue.  */

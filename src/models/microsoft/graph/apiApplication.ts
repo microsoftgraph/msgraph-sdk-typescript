@@ -1,6 +1,6 @@
 import {PermissionScope} from './permissionScope';
 import {PreAuthorizedApplication} from './preAuthorizedApplication';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApiApplication implements Parsable {
     /** When true, allows an application to use claims mapping without specifying a custom signing key.  */

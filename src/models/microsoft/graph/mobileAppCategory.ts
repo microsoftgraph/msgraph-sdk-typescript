@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileAppCategory extends Entity implements Parsable {
     /** The name of the app category.  */

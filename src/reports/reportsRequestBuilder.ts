@@ -1,8 +1,8 @@
 import {ReportRoot} from '../models/microsoft/graph/reportRoot';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder as i2abc3eebdebb13e66c08e2b6c8a769e57aabaa908a9e5d5a892b340592fd0ad0} from './dailyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterRequestBuilder as iff79304268ae25b56206316ae4b6f7f4a7ec7f08d2be1ef5b609f3979ac4b4ef} from './dailyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
-import {PrintUsageByUserRequestBuilder as ic52edce2a92310149d30d15406fffd65818645f486b8eaff79fb8987a21bfdaa} from './dailyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserRequestBuilder as i3533150e74057c14dd653c49c935a31ec632e54ffd70c3884bcdd0fff327695c} from './dailyPrintUsageByUser/item/printUsageByUserRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
 import {DeviceConfigurationUserActivityRequestBuilder} from './deviceConfigurationUserActivity/deviceConfigurationUserActivityRequestBuilder';
 import {GetEmailActivityCountsWithPeriodRequestBuilder} from './getEmailActivityCountsWithPeriod/getEmailActivityCountsWithPeriodRequestBuilder';
@@ -95,120 +95,123 @@ import {ManagedDeviceEnrollmentFailureDetailsRequestBuilder} from './managedDevi
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilder} from './managedDeviceEnrollmentTopFailures/managedDeviceEnrollmentTopFailuresRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder} from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder as ib9899557722b381a7699dd538a724094f336d189e17eb2d2561874f0e59697e2} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterRequestBuilder as i2811fd2d057a6dfed54fa969fb51cea4aa6eb8017e9a59f0d70fc2c383a8f4a8} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByUserRequestBuilder as ia76da27ec5e04aaff38a214ca72f61eb909d0fc63c80595a54e6488b7adf78f9} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserRequestBuilder as ia79d2dce40236fafa7231c9c1b1c82c9ae6f9481127446b01ef78fd01944a7d2} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /reports  */
 export class ReportsRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
-        return new DailyPrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DailyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
-        return new DailyPrintUsageByUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DailyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
-        return new MonthlyPrintUsageByPrinterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MonthlyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
-        return new MonthlyPrintUsageByUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/reports";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/reports{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Get reports
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update reports
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ReportRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ReportRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByPrinter.item collection
+     * Gets an item from the MicrosoftGraph.reports.dailyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByPrinterRequestBuilder
      */
-    public dailyPrintUsageByPrinterById(id: String) : i2abc3eebdebb13e66c08e2b6c8a769e57aabaa908a9e5d5a892b340592fd0ad0 {
+    public dailyPrintUsageByPrinterById(id: string) : iff79304268ae25b56206316ae4b6f7f4a7ec7f08d2be1ef5b609f3979ac4b4ef {
         if(!id) throw new Error("id cannot be undefined");
-        return new i2abc3eebdebb13e66c08e2b6c8a769e57aabaa908a9e5d5a892b340592fd0ad0(this.currentPath + this.pathSegment + "/dailyPrintUsageByPrinter/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("printUsageByPrinter_id", id);
+        return new iff79304268ae25b56206316ae4b6f7f4a7ec7f08d2be1ef5b609f3979ac4b4ef(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.dailyPrintUsageByUser.item collection
+     * Gets an item from the MicrosoftGraph.reports.dailyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByUserRequestBuilder
      */
-    public dailyPrintUsageByUserById(id: String) : ic52edce2a92310149d30d15406fffd65818645f486b8eaff79fb8987a21bfdaa {
+    public dailyPrintUsageByUserById(id: string) : i3533150e74057c14dd653c49c935a31ec632e54ffd70c3884bcdd0fff327695c {
         if(!id) throw new Error("id cannot be undefined");
-        return new ic52edce2a92310149d30d15406fffd65818645f486b8eaff79fb8987a21bfdaa(this.currentPath + this.pathSegment + "/dailyPrintUsageByUser/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("printUsageByUser_id", id);
+        return new i3533150e74057c14dd653c49c935a31ec632e54ffd70c3884bcdd0fff327695c(urlTplParams, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.deviceConfigurationDeviceActivity()
      * @returns a deviceConfigurationDeviceActivityRequestBuilder
      */
     public deviceConfigurationDeviceActivity() : DeviceConfigurationDeviceActivityRequestBuilder {
-        return new DeviceConfigurationDeviceActivityRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DeviceConfigurationDeviceActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.deviceConfigurationUserActivity()
      * @returns a deviceConfigurationUserActivityRequestBuilder
      */
     public deviceConfigurationUserActivity() : DeviceConfigurationUserActivityRequestBuilder {
-        return new DeviceConfigurationUserActivityRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DeviceConfigurationUserActivityRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Get reports
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot
@@ -216,11 +219,11 @@ export class ReportsRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<ReportRoot>(requestInfo, ReportRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, ReportRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailActivityCounts(period='{period}')
@@ -229,7 +232,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailActivityCountsWithPeriod(period: string | undefined) : GetEmailActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailActivityUserCounts(period='{period}')
@@ -238,7 +241,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailActivityUserCountsWithPeriod(period: string | undefined) : GetEmailActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailActivityUserDetail(date={date})
@@ -247,7 +250,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailActivityUserDetailWithDate(date: string | undefined) : GetEmailActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetEmailActivityUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetEmailActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailActivityUserDetail(period='{period}')
@@ -256,7 +259,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailActivityUserDetailWithPeriod(period: string | undefined) : GetEmailActivityUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailActivityUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailActivityUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailAppUsageAppsUserCounts(period='{period}')
@@ -265,7 +268,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailAppUsageAppsUserCountsWithPeriod(period: string | undefined) : GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailAppUsageAppsUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailAppUsageUserCounts(period='{period}')
@@ -274,7 +277,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailAppUsageUserCountsWithPeriod(period: string | undefined) : GetEmailAppUsageUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailAppUsageUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailAppUsageUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailAppUsageUserDetail(date={date})
@@ -283,7 +286,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailAppUsageUserDetailWithDate(date: string | undefined) : GetEmailAppUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetEmailAppUsageUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetEmailAppUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailAppUsageUserDetail(period='{period}')
@@ -292,7 +295,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailAppUsageUserDetailWithPeriod(period: string | undefined) : GetEmailAppUsageUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailAppUsageUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailAppUsageUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailAppUsageVersionsUserCounts(period='{period}')
@@ -301,7 +304,7 @@ export class ReportsRequestBuilder {
      */
     public getEmailAppUsageVersionsUserCountsWithPeriod(period: string | undefined) : GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetEmailAppUsageVersionsUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getGroupArchivedPrintJobs(groupId='{groupId}',startDateTime={startDateTime},endDateTime={endDateTime})
@@ -314,7 +317,7 @@ export class ReportsRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!groupId) throw new Error("groupId cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
-        return new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, groupId, startDateTime, endDateTime, false);
+        return new GetGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, groupId, startDateTime, endDateTime);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getMailboxUsageDetail(period='{period}')
@@ -323,7 +326,7 @@ export class ReportsRequestBuilder {
      */
     public getMailboxUsageDetailWithPeriod(period: string | undefined) : GetMailboxUsageDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetMailboxUsageDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetMailboxUsageDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getMailboxUsageMailboxCounts(period='{period}')
@@ -332,7 +335,7 @@ export class ReportsRequestBuilder {
      */
     public getMailboxUsageMailboxCountsWithPeriod(period: string | undefined) : GetMailboxUsageMailboxCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetMailboxUsageMailboxCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getMailboxUsageQuotaStatusMailboxCounts(period='{period}')
@@ -341,7 +344,7 @@ export class ReportsRequestBuilder {
      */
     public getMailboxUsageQuotaStatusMailboxCountsWithPeriod(period: string | undefined) : GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getMailboxUsageStorage(period='{period}')
@@ -350,28 +353,28 @@ export class ReportsRequestBuilder {
      */
     public getMailboxUsageStorageWithPeriod(period: string | undefined) : GetMailboxUsageStorageWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetMailboxUsageStorageWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetMailboxUsageStorageWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActivationCounts()
      * @returns a getOffice365ActivationCountsRequestBuilder
      */
     public getOffice365ActivationCounts() : GetOffice365ActivationCountsRequestBuilder {
-        return new GetOffice365ActivationCountsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GetOffice365ActivationCountsRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActivationsUserCounts()
      * @returns a getOffice365ActivationsUserCountsRequestBuilder
      */
     public getOffice365ActivationsUserCounts() : GetOffice365ActivationsUserCountsRequestBuilder {
-        return new GetOffice365ActivationsUserCountsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GetOffice365ActivationsUserCountsRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActivationsUserDetail()
      * @returns a getOffice365ActivationsUserDetailRequestBuilder
      */
     public getOffice365ActivationsUserDetail() : GetOffice365ActivationsUserDetailRequestBuilder {
-        return new GetOffice365ActivationsUserDetailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GetOffice365ActivationsUserDetailRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActiveUserCounts(period='{period}')
@@ -380,7 +383,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365ActiveUserCountsWithPeriod(period: string | undefined) : GetOffice365ActiveUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365ActiveUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365ActiveUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActiveUserDetail(date={date})
@@ -389,7 +392,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365ActiveUserDetailWithDate(date: string | undefined) : GetOffice365ActiveUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetOffice365ActiveUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetOffice365ActiveUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActiveUserDetail(period='{period}')
@@ -398,7 +401,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365ActiveUserDetailWithPeriod(period: string | undefined) : GetOffice365ActiveUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365ActiveUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365GroupsActivityCounts(period='{period}')
@@ -407,7 +410,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365GroupsActivityCountsWithPeriod(period: string | undefined) : GetOffice365GroupsActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365GroupsActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365GroupsActivityDetail(date={date})
@@ -416,7 +419,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365GroupsActivityDetailWithDate(date: string | undefined) : GetOffice365GroupsActivityDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365GroupsActivityDetail(period='{period}')
@@ -425,7 +428,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365GroupsActivityDetailWithPeriod(period: string | undefined) : GetOffice365GroupsActivityDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365GroupsActivityDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365GroupsActivityFileCounts(period='{period}')
@@ -434,7 +437,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365GroupsActivityFileCountsWithPeriod(period: string | undefined) : GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365GroupsActivityFileCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365GroupsActivityGroupCounts(period='{period}')
@@ -443,7 +446,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365GroupsActivityGroupCountsWithPeriod(period: string | undefined) : GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365GroupsActivityGroupCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365GroupsActivityStorage(period='{period}')
@@ -452,7 +455,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365GroupsActivityStorageWithPeriod(period: string | undefined) : GetOffice365GroupsActivityStorageWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365GroupsActivityStorageWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ServicesUserCounts(period='{period}')
@@ -461,7 +464,7 @@ export class ReportsRequestBuilder {
      */
     public getOffice365ServicesUserCountsWithPeriod(period: string | undefined) : GetOffice365ServicesUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOffice365ServicesUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOffice365ServicesUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveActivityFileCounts(period='{period}')
@@ -470,7 +473,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveActivityFileCountsWithPeriod(period: string | undefined) : GetOneDriveActivityFileCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveActivityFileCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveActivityUserCounts(period='{period}')
@@ -479,7 +482,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveActivityUserCountsWithPeriod(period: string | undefined) : GetOneDriveActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveActivityUserDetail(date={date})
@@ -488,7 +491,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveActivityUserDetailWithDate(date: string | undefined) : GetOneDriveActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetOneDriveActivityUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetOneDriveActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveActivityUserDetail(period='{period}')
@@ -497,7 +500,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveActivityUserDetailWithPeriod(period: string | undefined) : GetOneDriveActivityUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveActivityUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveActivityUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveUsageAccountCounts(period='{period}')
@@ -506,7 +509,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveUsageAccountCountsWithPeriod(period: string | undefined) : GetOneDriveUsageAccountCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveUsageAccountCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveUsageAccountDetail(date={date})
@@ -515,7 +518,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveUsageAccountDetailWithDate(date: string | undefined) : GetOneDriveUsageAccountDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveUsageAccountDetail(period='{period}')
@@ -524,7 +527,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveUsageAccountDetailWithPeriod(period: string | undefined) : GetOneDriveUsageAccountDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveUsageAccountDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveUsageFileCounts(period='{period}')
@@ -533,7 +536,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveUsageFileCountsWithPeriod(period: string | undefined) : GetOneDriveUsageFileCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveUsageFileCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveUsageFileCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getOneDriveUsageStorage(period='{period}')
@@ -542,7 +545,7 @@ export class ReportsRequestBuilder {
      */
     public getOneDriveUsageStorageWithPeriod(period: string | undefined) : GetOneDriveUsageStorageWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetOneDriveUsageStorageWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetOneDriveUsageStorageWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getPrinterArchivedPrintJobs(printerId='{printerId}',startDateTime={startDateTime},endDateTime={endDateTime})
@@ -555,7 +558,7 @@ export class ReportsRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!printerId) throw new Error("printerId cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
-        return new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, printerId, startDateTime, endDateTime, false);
+        return new GetPrinterArchivedPrintJobsWithPrinterIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, printerId, startDateTime, endDateTime);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityFileCounts(period='{period}')
@@ -564,7 +567,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointActivityFileCountsWithPeriod(period: string | undefined) : GetSharePointActivityFileCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointActivityFileCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointActivityFileCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityPages(period='{period}')
@@ -573,7 +576,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointActivityPagesWithPeriod(period: string | undefined) : GetSharePointActivityPagesWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointActivityPagesWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointActivityPagesWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityUserCounts(period='{period}')
@@ -582,7 +585,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointActivityUserCountsWithPeriod(period: string | undefined) : GetSharePointActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityUserDetail(date={date})
@@ -591,7 +594,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointActivityUserDetailWithDate(date: string | undefined) : GetSharePointActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetSharePointActivityUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetSharePointActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityUserDetail(period='{period}')
@@ -600,7 +603,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointActivityUserDetailWithPeriod(period: string | undefined) : GetSharePointActivityUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointActivityUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointActivityUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointSiteUsageDetail(date={date})
@@ -609,7 +612,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointSiteUsageDetailWithDate(date: string | undefined) : GetSharePointSiteUsageDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetSharePointSiteUsageDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetSharePointSiteUsageDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointSiteUsageDetail(period='{period}')
@@ -618,7 +621,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointSiteUsageDetailWithPeriod(period: string | undefined) : GetSharePointSiteUsageDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointSiteUsageDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointSiteUsageDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointSiteUsageFileCounts(period='{period}')
@@ -627,7 +630,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointSiteUsageFileCountsWithPeriod(period: string | undefined) : GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointSiteUsageFileCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointSiteUsagePages(period='{period}')
@@ -636,7 +639,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointSiteUsagePagesWithPeriod(period: string | undefined) : GetSharePointSiteUsagePagesWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointSiteUsagePagesWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointSiteUsagePagesWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointSiteUsageSiteCounts(period='{period}')
@@ -645,7 +648,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointSiteUsageSiteCountsWithPeriod(period: string | undefined) : GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointSiteUsageSiteCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSharePointSiteUsageStorage(period='{period}')
@@ -654,7 +657,7 @@ export class ReportsRequestBuilder {
      */
     public getSharePointSiteUsageStorageWithPeriod(period: string | undefined) : GetSharePointSiteUsageStorageWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSharePointSiteUsageStorageWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSharePointSiteUsageStorageWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessActivityCounts(period='{period}')
@@ -663,7 +666,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessActivityCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessActivityUserCounts(period='{period}')
@@ -672,7 +675,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessActivityUserCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessActivityUserDetail(date={date})
@@ -681,7 +684,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessActivityUserDetailWithDate(date: string | undefined) : GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessActivityUserDetail(period='{period}')
@@ -690,7 +693,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessActivityUserDetailWithPeriod(period: string | undefined) : GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessActivityUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessDeviceUsageDistributionUserCounts(period='{period}')
@@ -699,7 +702,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserCounts(period='{period}')
@@ -708,7 +711,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessDeviceUsageUserCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessDeviceUsageUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(date={date})
@@ -717,7 +720,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessDeviceUsageUserDetailWithDate(date: string | undefined) : GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessDeviceUsageUserDetail(period='{period}')
@@ -726,7 +729,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessDeviceUsageUserDetailWithPeriod(period: string | undefined) : GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessDeviceUsageUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessOrganizerActivityCounts(period='{period}')
@@ -735,7 +738,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessOrganizerActivityCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessOrganizerActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessOrganizerActivityMinuteCounts(period='{period}')
@@ -744,7 +747,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessOrganizerActivityMinuteCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessOrganizerActivityMinuteCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessOrganizerActivityUserCounts(period='{period}')
@@ -753,7 +756,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessOrganizerActivityUserCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessOrganizerActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessParticipantActivityCounts(period='{period}')
@@ -762,7 +765,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessParticipantActivityCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessParticipantActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessParticipantActivityMinuteCounts(period='{period}')
@@ -771,7 +774,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessParticipantActivityMinuteCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessParticipantActivityMinuteCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessParticipantActivityUserCounts(period='{period}')
@@ -780,7 +783,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessParticipantActivityUserCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessParticipantActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityCounts(period='{period}')
@@ -789,7 +792,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessPeerToPeerActivityCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessPeerToPeerActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityMinuteCounts(period='{period}')
@@ -798,7 +801,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessPeerToPeerActivityMinuteCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getSkypeForBusinessPeerToPeerActivityUserCounts(period='{period}')
@@ -807,7 +810,7 @@ export class ReportsRequestBuilder {
      */
     public getSkypeForBusinessPeerToPeerActivityUserCountsWithPeriod(period: string | undefined) : GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetSkypeForBusinessPeerToPeerActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsDeviceUsageDistributionUserCounts(period='{period}')
@@ -816,7 +819,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsDeviceUsageDistributionUserCountsWithPeriod(period: string | undefined) : GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsDeviceUsageUserCounts(period='{period}')
@@ -825,7 +828,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsDeviceUsageUserCountsWithPeriod(period: string | undefined) : GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetTeamsDeviceUsageUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsDeviceUsageUserDetail(date={date})
@@ -834,7 +837,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsDeviceUsageUserDetailWithDate(date: string | undefined) : GetTeamsDeviceUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsDeviceUsageUserDetail(period='{period}')
@@ -843,7 +846,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsDeviceUsageUserDetailWithPeriod(period: string | undefined) : GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetTeamsDeviceUsageUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsUserActivityCounts(period='{period}')
@@ -852,7 +855,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsUserActivityCountsWithPeriod(period: string | undefined) : GetTeamsUserActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetTeamsUserActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetTeamsUserActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsUserActivityUserCounts(period='{period}')
@@ -861,7 +864,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsUserActivityUserCountsWithPeriod(period: string | undefined) : GetTeamsUserActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetTeamsUserActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsUserActivityUserDetail(date={date})
@@ -870,7 +873,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsUserActivityUserDetailWithDate(date: string | undefined) : GetTeamsUserActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getTeamsUserActivityUserDetail(period='{period}')
@@ -879,7 +882,7 @@ export class ReportsRequestBuilder {
      */
     public getTeamsUserActivityUserDetailWithPeriod(period: string | undefined) : GetTeamsUserActivityUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetTeamsUserActivityUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getUserArchivedPrintJobs(userId='{userId}',startDateTime={startDateTime},endDateTime={endDateTime})
@@ -892,7 +895,7 @@ export class ReportsRequestBuilder {
         if(!endDateTime) throw new Error("endDateTime cannot be undefined");
         if(!startDateTime) throw new Error("startDateTime cannot be undefined");
         if(!userId) throw new Error("userId cannot be undefined");
-        return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, userId, startDateTime, endDateTime, false);
+        return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeRequestBuilder(this.pathParameters, this.requestAdapter, userId, startDateTime, endDateTime);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerActivityCounts(period='{period}')
@@ -901,7 +904,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerActivityCountsWithPeriod(period: string | undefined) : GetYammerActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerActivityUserCounts(period='{period}')
@@ -910,7 +913,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerActivityUserCountsWithPeriod(period: string | undefined) : GetYammerActivityUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerActivityUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerActivityUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerActivityUserDetail(date={date})
@@ -919,7 +922,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerActivityUserDetailWithDate(date: string | undefined) : GetYammerActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetYammerActivityUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetYammerActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerActivityUserDetail(period='{period}')
@@ -928,7 +931,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerActivityUserDetailWithPeriod(period: string | undefined) : GetYammerActivityUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerActivityUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerActivityUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerDeviceUsageDistributionUserCounts(period='{period}')
@@ -937,7 +940,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerDeviceUsageDistributionUserCountsWithPeriod(period: string | undefined) : GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerDeviceUsageDistributionUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerDeviceUsageUserCounts(period='{period}')
@@ -946,7 +949,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerDeviceUsageUserCountsWithPeriod(period: string | undefined) : GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerDeviceUsageUserCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerDeviceUsageUserDetail(date={date})
@@ -955,7 +958,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerDeviceUsageUserDetailWithDate(date: string | undefined) : GetYammerDeviceUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerDeviceUsageUserDetail(period='{period}')
@@ -964,7 +967,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerDeviceUsageUserDetailWithPeriod(period: string | undefined) : GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerDeviceUsageUserDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerGroupsActivityCounts(period='{period}')
@@ -973,7 +976,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerGroupsActivityCountsWithPeriod(period: string | undefined) : GetYammerGroupsActivityCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerGroupsActivityCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerGroupsActivityCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerGroupsActivityDetail(date={date})
@@ -982,7 +985,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerGroupsActivityDetailWithDate(date: string | undefined) : GetYammerGroupsActivityDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
-        return new GetYammerGroupsActivityDetailWithDateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, date, false);
+        return new GetYammerGroupsActivityDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerGroupsActivityDetail(period='{period}')
@@ -991,7 +994,7 @@ export class ReportsRequestBuilder {
      */
     public getYammerGroupsActivityDetailWithPeriod(period: string | undefined) : GetYammerGroupsActivityDetailWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerGroupsActivityDetailWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerGroupsActivityDetailWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getYammerGroupsActivityGroupCounts(period='{period}')
@@ -1000,14 +1003,14 @@ export class ReportsRequestBuilder {
      */
     public getYammerGroupsActivityGroupCountsWithPeriod(period: string | undefined) : GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new GetYammerGroupsActivityGroupCountsWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentFailureDetails()
      * @returns a managedDeviceEnrollmentFailureDetailsRequestBuilder
      */
     public managedDeviceEnrollmentFailureDetails() : ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
-        return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ManagedDeviceEnrollmentFailureDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')
@@ -1022,14 +1025,14 @@ export class ReportsRequestBuilder {
         if(!skip) throw new Error("skip cannot be undefined");
         if(!skipToken) throw new Error("skipToken cannot be undefined");
         if(!top) throw new Error("top cannot be undefined");
-        return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, skip, top, filter, skipToken, false);
+        return new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder(this.pathParameters, this.requestAdapter, skip, top, filter, skipToken);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentTopFailures()
      * @returns a managedDeviceEnrollmentTopFailuresRequestBuilder
      */
     public managedDeviceEnrollmentTopFailures() : ManagedDeviceEnrollmentTopFailuresRequestBuilder {
-        return new ManagedDeviceEnrollmentTopFailuresRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ManagedDeviceEnrollmentTopFailuresRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentTopFailures(period='{period}')
@@ -1038,38 +1041,42 @@ export class ReportsRequestBuilder {
      */
     public managedDeviceEnrollmentTopFailuresWithPeriod(period: string | undefined) : ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder {
         if(!period) throw new Error("period cannot be undefined");
-        return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, period, false);
+        return new ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder(this.pathParameters, this.requestAdapter, period);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByPrinter.item collection
+     * Gets an item from the MicrosoftGraph.reports.monthlyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByPrinterRequestBuilder
      */
-    public monthlyPrintUsageByPrinterById(id: String) : ib9899557722b381a7699dd538a724094f336d189e17eb2d2561874f0e59697e2 {
+    public monthlyPrintUsageByPrinterById(id: string) : i2811fd2d057a6dfed54fa969fb51cea4aa6eb8017e9a59f0d70fc2c383a8f4a8 {
         if(!id) throw new Error("id cannot be undefined");
-        return new ib9899557722b381a7699dd538a724094f336d189e17eb2d2561874f0e59697e2(this.currentPath + this.pathSegment + "/monthlyPrintUsageByPrinter/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("printUsageByPrinter_id", id);
+        return new i2811fd2d057a6dfed54fa969fb51cea4aa6eb8017e9a59f0d70fc2c383a8f4a8(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.reports.monthlyPrintUsageByUser.item collection
+     * Gets an item from the MicrosoftGraph.reports.monthlyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
      * @returns a printUsageByUserRequestBuilder
      */
-    public monthlyPrintUsageByUserById(id: String) : ia76da27ec5e04aaff38a214ca72f61eb909d0fc63c80595a54e6488b7adf78f9 {
+    public monthlyPrintUsageByUserById(id: string) : ia79d2dce40236fafa7231c9c1b1c82c9ae6f9481127446b01ef78fd01944a7d2 {
         if(!id) throw new Error("id cannot be undefined");
-        return new ia76da27ec5e04aaff38a214ca72f61eb909d0fc63c80595a54e6488b7adf78f9(this.currentPath + this.pathSegment + "/monthlyPrintUsageByUser/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("printUsageByUser_id", id);
+        return new ia79d2dce40236fafa7231c9c1b1c82c9ae6f9481127446b01ef78fd01944a7d2(urlTplParams, this.requestAdapter);
     };
     /**
      * Update reports
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ReportRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ReportRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
 }

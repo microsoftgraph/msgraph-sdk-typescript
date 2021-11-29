@@ -1,11 +1,11 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewInstanceDecisionItemResource implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Display name of the resource  */
     private _displayName?: string | undefined;
-    /** Resource ID  */
+    /** Identifier of the resource  */
     private _id?: string | undefined;
     /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.  */
     private _type?: string | undefined;
@@ -30,7 +30,7 @@ export class AccessReviewInstanceDecisionItemResource implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the id property value. Resource ID
+     * Gets the id property value. Identifier of the resource
      * @returns a string
      */
     public get id() {
@@ -80,7 +80,7 @@ export class AccessReviewInstanceDecisionItemResource implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the id property value. Resource ID
+     * Sets the id property value. Identifier of the resource
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

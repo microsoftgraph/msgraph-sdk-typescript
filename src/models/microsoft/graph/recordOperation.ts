@@ -1,5 +1,5 @@
 import {CommsOperation} from './commsOperation';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecordOperation extends CommsOperation implements Parsable {
     /** The access token required to retrieve the recording.  */

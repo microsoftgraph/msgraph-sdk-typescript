@@ -1,6 +1,6 @@
 import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationUserStatus extends Entity implements Parsable {
     /** Devices count for that user.  */

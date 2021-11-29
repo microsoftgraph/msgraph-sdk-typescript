@@ -3,7 +3,7 @@ import {CallRecord} from './callRecords/callRecord';
 import {Entity} from './entity';
 import {OnlineMeeting} from './onlineMeeting';
 import {Presence} from './presence';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudCommunications extends Entity implements Parsable {
     private _callRecords?: CallRecord[] | undefined;

@@ -1,124 +1,127 @@
 import {EducationSubmission} from '../../../../../../../models/microsoft/graph/educationSubmission';
 import {EducationOutcomeRequestBuilder} from './outcomes/item/educationOutcomeRequestBuilder';
 import {OutcomesRequestBuilder} from './outcomes/outcomesRequestBuilder';
-import {EducationSubmissionResourceRequestBuilder as i5310aa956f9f1bebdc8aed9bcbdb0d9d0f319f845ba84d89e213edf7a9518cf5} from './resources/item/educationSubmissionResourceRequestBuilder';
+import {EducationSubmissionResourceRequestBuilder as iaea1d3b6d416847849ba84f8fbe9a8b03f87597363304187a3e874e4735fcb2f} from './resources/item/educationSubmissionResourceRequestBuilder';
 import {ResourcesRequestBuilder} from './resources/resourcesRequestBuilder';
-import {ReturnRequestBuilder} from './return/returnRequestBuilder';
+import {ReturnRequestBuilder} from './return_escaped/returnRequestBuilder';
 import {SetUpResourcesFolderRequestBuilder} from './setUpResourcesFolder/setUpResourcesFolderRequestBuilder';
 import {SubmitRequestBuilder} from './submit/submitRequestBuilder';
-import {EducationSubmissionResourceRequestBuilder as i9c47a34144607b89c1a65d7d0dbdef8160dc52198a1f82a330ec911592df81ef} from './submittedResources/item/educationSubmissionResourceRequestBuilder';
+import {EducationSubmissionResourceRequestBuilder as ieaeabae828e94df57c115c68c9100ca735ae84406f5bb2dd3d15e0492ff48f2d} from './submittedResources/item/educationSubmissionResourceRequestBuilder';
 import {SubmittedResourcesRequestBuilder} from './submittedResources/submittedResourcesRequestBuilder';
 import {UnsubmitRequestBuilder} from './unsubmit/unsubmitRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/submissions/{educationSubmission-id}  */
 export class EducationSubmissionRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get outcomes(): OutcomesRequestBuilder {
-        return new OutcomesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OutcomesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get resources(): ResourcesRequestBuilder {
-        return new ResourcesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get return_escaped(): ReturnRequestBuilder {
-        return new ReturnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ReturnRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
+        return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get submit(): SubmitRequestBuilder {
-        return new SubmitRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get submittedResources(): SubmittedResourcesRequestBuilder {
-        return new SubmittedResourcesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SubmittedResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get unsubmit(): UnsubmitRequestBuilder {
-        return new UnsubmitRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UnsubmitRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Instantiates a new EducationSubmissionRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/education/classes/{educationClass_id}/assignments/{educationAssignment_id}/submissions/{educationSubmission_id}{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: EducationSubmission | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: EducationSubmission | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationSubmission
@@ -126,58 +129,57 @@ export class EducationSubmissionRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmission | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationSubmission | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<EducationSubmission>(requestInfo, EducationSubmission, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationSubmission>(requestInfo, EducationSubmission, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes.item.assignments.item.submissions.item.outcomes.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item.assignments.item.submissions.item.outcomes.item collection
      * @param id Unique identifier of the item
      * @returns a educationOutcomeRequestBuilder
      */
-    public outcomesById(id: String) : EducationOutcomeRequestBuilder {
+    public outcomesById(id: string) : EducationOutcomeRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new EducationOutcomeRequestBuilder(this.currentPath + this.pathSegment + "/outcomes/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationOutcome_id", id);
+        return new EducationOutcomeRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EducationSubmission | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationSubmission | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes.item.assignments.item.submissions.item.resources.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item.assignments.item.submissions.item.resources.item collection
      * @param id Unique identifier of the item
      * @returns a educationSubmissionResourceRequestBuilder
      */
-    public resourcesById(id: String) : i5310aa956f9f1bebdc8aed9bcbdb0d9d0f319f845ba84d89e213edf7a9518cf5 {
+    public resourcesById(id: string) : iaea1d3b6d416847849ba84f8fbe9a8b03f87597363304187a3e874e4735fcb2f {
         if(!id) throw new Error("id cannot be undefined");
-        return new i5310aa956f9f1bebdc8aed9bcbdb0d9d0f319f845ba84d89e213edf7a9518cf5(this.currentPath + this.pathSegment + "/resources/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationSubmissionResource_id", id);
+        return new iaea1d3b6d416847849ba84f8fbe9a8b03f87597363304187a3e874e4735fcb2f(urlTplParams, this.requestAdapter);
     };
     /**
-     * Builds and executes requests for operations under /education/classes/{educationClass-id}/assignments/{educationAssignment-id}/submissions/{educationSubmission-id}/microsoft.graph.setUpResourcesFolder()
-     * @returns a setUpResourcesFolderRequestBuilder
-     */
-    public setUpResourcesFolder() : SetUpResourcesFolderRequestBuilder {
-        return new SetUpResourcesFolderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    };
-    /**
-     * Gets an item from the graphtypescriptv4.utilities.education.classes.item.assignments.item.submissions.item.submittedResources.item collection
+     * Gets an item from the MicrosoftGraph.education.classes.item.assignments.item.submissions.item.submittedResources.item collection
      * @param id Unique identifier of the item
      * @returns a educationSubmissionResourceRequestBuilder
      */
-    public submittedResourcesById(id: String) : i9c47a34144607b89c1a65d7d0dbdef8160dc52198a1f82a330ec911592df81ef {
+    public submittedResourcesById(id: string) : ieaeabae828e94df57c115c68c9100ca735ae84406f5bb2dd3d15e0492ff48f2d {
         if(!id) throw new Error("id cannot be undefined");
-        return new i9c47a34144607b89c1a65d7d0dbdef8160dc52198a1f82a330ec911592df81ef(this.currentPath + this.pathSegment + "/submittedResources/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("educationSubmissionResource_id", id);
+        return new ieaeabae828e94df57c115c68c9100ca735ae84406f5bb2dd3d15e0492ff48f2d(urlTplParams, this.requestAdapter);
     };
 }

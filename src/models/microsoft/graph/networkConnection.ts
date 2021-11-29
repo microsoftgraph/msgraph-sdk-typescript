@@ -1,12 +1,12 @@
 import {ConnectionDirection} from './connectionDirection';
 import {ConnectionStatus} from './connectionStatus';
 import {SecurityNetworkProtocol} from './securityNetworkProtocol';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NetworkConnection implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Name of the application managing the network connection (for example, Facebook, SMTP, etc.).  */
+    /** Name of the application managing the network connection (for example, Facebook or SMTP).  */
     private _applicationName?: string | undefined;
     /** Destination IP address (of the network connection).  */
     private _destinationAddress?: string | undefined;
@@ -60,7 +60,7 @@ export class NetworkConnection implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the applicationName property value. Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
+     * Gets the applicationName property value. Name of the application managing the network connection (for example, Facebook or SMTP).
      * @returns a string
      */
     public get applicationName() {
@@ -263,7 +263,7 @@ export class NetworkConnection implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the applicationName property value. Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
+     * Sets the applicationName property value. Name of the application managing the network connection (for example, Facebook or SMTP).
      * @param value Value to set for the applicationName property.
      */
     public set applicationName(value: string | undefined) {

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {WorkbookChartFont} from './workbookChartFont';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.  */

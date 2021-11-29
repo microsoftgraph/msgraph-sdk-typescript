@@ -7,7 +7,7 @@ import {WindowsInformationProtectionEnforcementLevel} from './windowsInformation
 import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
     /** Navigation property to list of security groups targeted for policy.  */

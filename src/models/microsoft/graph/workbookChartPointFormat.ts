@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {WorkbookChartFill} from './workbookChartFill';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartPointFormat extends Entity implements Parsable {
     /** Represents the fill format of a chart, which includes background formating information. Read-only.  */

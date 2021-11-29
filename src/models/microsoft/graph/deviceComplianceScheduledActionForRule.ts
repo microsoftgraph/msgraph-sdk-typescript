@@ -1,11 +1,11 @@
 import {DeviceComplianceActionItem} from './deviceComplianceActionItem';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceScheduledActionForRule extends Entity implements Parsable {
-    /** Name of the rule which this scheduled action applies to.  */
+    /** Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired.  */
     private _ruleName?: string | undefined;
-    /** The list of scheduled action configurations for this compliance policy.  */
+    /** The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.  */
     private _scheduledActionConfigurations?: DeviceComplianceActionItem[] | undefined;
     /**
      * Instantiates a new deviceComplianceScheduledActionForRule and sets the default values.
@@ -14,14 +14,14 @@ export class DeviceComplianceScheduledActionForRule extends Entity implements Pa
         super();
     };
     /**
-     * Gets the ruleName property value. Name of the rule which this scheduled action applies to.
+     * Gets the ruleName property value. Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired.
      * @returns a string
      */
     public get ruleName() {
         return this._ruleName;
     };
     /**
-     * Gets the scheduledActionConfigurations property value. The list of scheduled action configurations for this compliance policy.
+     * Gets the scheduledActionConfigurations property value. The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
      * @returns a deviceComplianceActionItem
      */
     public get scheduledActionConfigurations() {
@@ -48,14 +48,14 @@ export class DeviceComplianceScheduledActionForRule extends Entity implements Pa
         writer.writeCollectionOfObjectValues<DeviceComplianceActionItem>("scheduledActionConfigurations", this.scheduledActionConfigurations);
     };
     /**
-     * Sets the ruleName property value. Name of the rule which this scheduled action applies to.
+     * Sets the ruleName property value. Name of the rule which this scheduled action applies to. Currently scheduled actions are created per policy instead of per rule, thus RuleName is always set to default value PasswordRequired.
      * @param value Value to set for the ruleName property.
      */
     public set ruleName(value: string | undefined) {
         this._ruleName = value;
     };
     /**
-     * Sets the scheduledActionConfigurations property value. The list of scheduled action configurations for this compliance policy.
+     * Sets the scheduledActionConfigurations property value. The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.
      * @param value Value to set for the scheduledActionConfigurations property.
      */
     public set scheduledActionConfigurations(value: DeviceComplianceActionItem[] | undefined) {

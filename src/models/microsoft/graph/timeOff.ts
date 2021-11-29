@@ -1,6 +1,6 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {TimeOffItem} from './timeOffItem';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOff extends ChangeTrackedEntity implements Parsable {
     /** The draft version of this timeOff that is viewable by managers. Required.  */

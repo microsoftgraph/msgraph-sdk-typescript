@@ -5,7 +5,7 @@ import {List} from './list';
 import {ListItem} from './listItem';
 import {Permission} from './permission';
 import {Site} from './site';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharedDriveItem extends BaseItem implements Parsable {
     /** Used to access the underlying driveItem  */

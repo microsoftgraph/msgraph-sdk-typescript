@@ -3,7 +3,7 @@ import {WorkbookFormatProtection} from './workbookFormatProtection';
 import {WorkbookRangeBorder} from './workbookRangeBorder';
 import {WorkbookRangeFill} from './workbookRangeFill';
 import {WorkbookRangeFont} from './workbookRangeFont';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRangeFormat extends Entity implements Parsable {
     /** Collection of border objects that apply to the overall range selected Read-only.  */
@@ -14,13 +14,13 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
     private _fill?: WorkbookRangeFill | undefined;
     /** Returns the font object defined on the overall range selected Read-only.  */
     private _font?: WorkbookRangeFont | undefined;
-    /** Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.  */
+    /** Represents the horizontal alignment for the specified object. The possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.  */
     private _horizontalAlignment?: string | undefined;
     /** Returns the format protection object for a range. Read-only.  */
     private _protection?: WorkbookFormatProtection | undefined;
     /** Gets or sets the height of all rows in the range. If the row heights are not uniform null will be returned.  */
     private _rowHeight?: number | undefined;
-    /** Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.  */
+    /** Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed.  */
     private _verticalAlignment?: string | undefined;
     /** Indicates if Excel wraps the text in the object. A null value indicates that the entire range doesn't have uniform wrap setting  */
     private _wrapText?: boolean | undefined;
@@ -59,7 +59,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
         return this._font;
     };
     /**
-     * Gets the horizontalAlignment property value. Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
+     * Gets the horizontalAlignment property value. Represents the horizontal alignment for the specified object. The possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
      * @returns a string
      */
     public get horizontalAlignment() {
@@ -80,7 +80,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
         return this._rowHeight;
     };
     /**
-     * Gets the verticalAlignment property value. Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.
+     * Gets the verticalAlignment property value. Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed.
      * @returns a string
      */
     public get verticalAlignment() {
@@ -156,7 +156,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
         this._font = value;
     };
     /**
-     * Sets the horizontalAlignment property value. Represents the horizontal alignment for the specified object. Possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
+     * Sets the horizontalAlignment property value. Represents the horizontal alignment for the specified object. The possible values are: General, Left, Center, Right, Fill, Justify, CenterAcrossSelection, Distributed.
      * @param value Value to set for the horizontalAlignment property.
      */
     public set horizontalAlignment(value: string | undefined) {
@@ -177,7 +177,7 @@ export class WorkbookRangeFormat extends Entity implements Parsable {
         this._rowHeight = value;
     };
     /**
-     * Sets the verticalAlignment property value. Represents the vertical alignment for the specified object. Possible values are: Top, Center, Bottom, Justify, Distributed.
+     * Sets the verticalAlignment property value. Represents the vertical alignment for the specified object. The possible values are: Top, Center, Bottom, Justify, Distributed.
      * @param value Value to set for the verticalAlignment property.
      */
     public set verticalAlignment(value: string | undefined) {

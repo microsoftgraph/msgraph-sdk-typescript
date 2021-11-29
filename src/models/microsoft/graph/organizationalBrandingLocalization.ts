@@ -1,5 +1,5 @@
-import {OrganizationalBrandingProperties} from '../../../branding/organizationalBrandingProperties';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {OrganizationalBrandingProperties} from './organizationalBrandingProperties';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrganizationalBrandingLocalization extends OrganizationalBrandingProperties implements Parsable {
     /**

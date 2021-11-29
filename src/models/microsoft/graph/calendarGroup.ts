@@ -1,6 +1,6 @@
 import {Calendar} from './calendar';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarGroup extends Entity implements Parsable {
     /** The calendars in the calendar group. Navigation property. Read-only. Nullable.  */

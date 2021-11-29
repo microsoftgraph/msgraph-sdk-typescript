@@ -10,218 +10,226 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
 import {ForwardRequestBuilder} from './forward/forwardRequestBuilder';
 import {InstancesRequestBuilder} from './instances/instancesRequestBuilder';
-import {EventRequestBuilder as i1eee39ed6825b766e361ee19fc69a370165623795ee2ca846cfe56c336291adb} from './instances/item/eventRequestBuilder';
+import {EventRequestBuilder as ie9134f7702d2a54acb4060cb0555b46ebd1d0d616921a53ea46b7a60059c79b6} from './instances/item/eventRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
 import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderRequestBuilder';
 import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/calendars/{calendar-id}/calendarView/{event-id}  */
 export class EventRequestBuilder {
     public get accept(): AcceptRequestBuilder {
-        return new AcceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get attachments(): AttachmentsRequestBuilder {
-        return new AttachmentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get calendar(): CalendarRequestBuilder {
-        return new CalendarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get cancel(): CancelRequestBuilder {
-        return new CancelRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get decline(): DeclineRequestBuilder {
-        return new DeclineRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dismissReminder(): DismissReminderRequestBuilder {
-        return new DismissReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get extensions(): ExtensionsRequestBuilder {
-        return new ExtensionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get forward(): ForwardRequestBuilder {
-        return new ForwardRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
     public get instances(): InstancesRequestBuilder {
-        return new InstancesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
-        return new SnoozeReminderRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
-        return new TentativelyAcceptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendars.item.calendarView.item.attachments.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarView.item.attachments.item collection
      * @param id Unique identifier of the item
      * @returns a attachmentRequestBuilder
      */
-    public attachmentsById(id: String) : AttachmentRequestBuilder {
+    public attachmentsById(id: string) : AttachmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new AttachmentRequestBuilder(this.currentPath + this.pathSegment + "/attachments/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("attachment_id", id);
+        return new AttachmentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EventRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/me/calendars/{calendar_id}/calendarView/{event_id}{?startDateTime,endDateTime,select}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     endDateTime?: string,
-                    expand?: string[],
                     select?: string[],
                     startDateTime?: string
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Event | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Event | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendars.item.calendarView.item.extensions.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarView.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
-    public extensionsById(id: String) : ExtensionRequestBuilder {
+    public extensionsById(id: string) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ExtensionRequestBuilder(this.currentPath + this.pathSegment + "/extensions/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("extension_id", id);
+        return new ExtensionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
      */
     public get(q?: {
                     endDateTime?: string,
-                    expand?: string[],
                     select?: string[],
                     startDateTime?: string
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Event>(requestInfo, Event, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Event>(requestInfo, Event, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendars.item.calendarView.item.instances.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarView.item.instances.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public instancesById(id: String) : i1eee39ed6825b766e361ee19fc69a370165623795ee2ca846cfe56c336291adb {
+    public instancesById(id: string) : ie9134f7702d2a54acb4060cb0555b46ebd1d0d616921a53ea46b7a60059c79b6 {
         if(!id) throw new Error("id cannot be undefined");
-        return new i1eee39ed6825b766e361ee19fc69a370165623795ee2ca846cfe56c336291adb(this.currentPath + this.pathSegment + "/instances/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("event_id1", id);
+        return new ie9134f7702d2a54acb4060cb0555b46ebd1d0d616921a53ea46b7a60059c79b6(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendars.item.calendarView.item.multiValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarView.item.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
-    public multiValueExtendedPropertiesById(id: String) : MultiValueLegacyExtendedPropertyRequestBuilder {
+    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new MultiValueLegacyExtendedPropertyRequestBuilder(this.currentPath + this.pathSegment + "/multiValueExtendedProperties/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("multiValueLegacyExtendedProperty_id", id);
+        return new MultiValueLegacyExtendedPropertyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The calendar view for the calendar. Navigation property. Read-only.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Event | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Event | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendars.item.calendarView.item.singleValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.me.calendars.item.calendarView.item.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */
-    public singleValueExtendedPropertiesById(id: String) : SingleValueLegacyExtendedPropertyRequestBuilder {
+    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new SingleValueLegacyExtendedPropertyRequestBuilder(this.currentPath + this.pathSegment + "/singleValueExtendedProperties/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("singleValueLegacyExtendedProperty_id", id);
+        return new SingleValueLegacyExtendedPropertyRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

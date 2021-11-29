@@ -1,7 +1,7 @@
 import {ComplianceManagementPartnerAssignment} from './complianceManagementPartnerAssignment';
 import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenantState';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ComplianceManagementPartner extends Entity implements Parsable {
     /** User groups which enroll Android devices through partner.  */

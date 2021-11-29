@@ -1,5 +1,5 @@
 import {PrintUsage} from './printUsage';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinter extends PrintUsage implements Parsable {
     private _printerId?: string | undefined;

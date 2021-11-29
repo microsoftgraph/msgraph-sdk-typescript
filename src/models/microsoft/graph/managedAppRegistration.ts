@@ -3,7 +3,7 @@ import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
 import {ManagedAppOperation} from './managedAppOperation';
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {MobileAppIdentifier} from './mobileAppIdentifier';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppRegistration extends Entity implements Parsable {
     /** The app package Identifier  */
@@ -184,7 +184,7 @@ export class ManagedAppRegistration extends Entity implements Parsable {
         writer.writeStringValue("deviceName", this.deviceName);
         writer.writeStringValue("deviceTag", this.deviceTag);
         writer.writeStringValue("deviceType", this.deviceType);
-        writer.writeEnumValue<ManagedAppFlaggedReason>("flaggedReasons", ...this.flaggedReasons);
+        this.flaggedReasons && writer.writeEnumValue<ManagedAppFlaggedReason>("flaggedReasons", ...this.flaggedReasons);
         writer.writeCollectionOfObjectValues<ManagedAppPolicy>("intendedPolicies", this.intendedPolicies);
         writer.writeDateValue("lastSyncDateTime", this.lastSyncDateTime);
         writer.writeStringValue("managementSdkVersion", this.managementSdkVersion);

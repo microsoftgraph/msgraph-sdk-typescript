@@ -2,7 +2,7 @@ import {ManagedAppConfiguration} from './managedAppConfiguration';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements Parsable {
     /** List of apps to which the policy is deployed.  */

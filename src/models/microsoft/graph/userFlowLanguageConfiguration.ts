@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {UserFlowLanguagePage} from './userFlowLanguagePage';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserFlowLanguageConfiguration extends Entity implements Parsable {
     /** Collection of pages with the default content to display in a user flow for a specified language. This collection does not allow any kind of modification.  */

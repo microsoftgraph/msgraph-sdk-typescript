@@ -10,4 +10,6 @@ export enum ManagementAgentType {
     Unknown = "unknown",
     Jamf = "jamf",
     GoogleCloudDevicePolicyController = "googleCloudDevicePolicyController",
+    Microsoft365ManagedMdm = "microsoft365ManagedMdm",
+    MsSense = "msSense",
 }

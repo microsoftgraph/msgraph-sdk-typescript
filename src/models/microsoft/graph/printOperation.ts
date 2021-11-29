@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {PrintOperationStatus} from './printOperationStatus';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintOperation extends Entity implements Parsable {
     /** The DateTimeOffset when the operation was created. Read-only.  */

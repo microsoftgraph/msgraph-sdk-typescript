@@ -4,7 +4,7 @@ import {ManagedDeviceMobileAppConfigurationDeviceStatus} from './managedDeviceMo
 import {ManagedDeviceMobileAppConfigurationDeviceSummary} from './managedDeviceMobileAppConfigurationDeviceSummary';
 import {ManagedDeviceMobileAppConfigurationUserStatus} from './managedDeviceMobileAppConfigurationUserStatus';
 import {ManagedDeviceMobileAppConfigurationUserSummary} from './managedDeviceMobileAppConfigurationUserSummary';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable {
     /** The list of group assignemenets for app configration.  */

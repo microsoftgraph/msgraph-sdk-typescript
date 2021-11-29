@@ -1,9 +1,9 @@
 import {EducationResource} from './educationResource';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentResource extends Entity implements Parsable {
-    /** Indicates whether this resource should be copied to each student submission for modification and submission.  */
+    /** Indicates whether this resource should be copied to each student submission for modification and submission. Required  */
     private _distributeForStudentWork?: boolean | undefined;
     /** Resource object that has been associated with this assignment.  */
     private _resource?: EducationResource | undefined;
@@ -14,7 +14,7 @@ export class EducationAssignmentResource extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the distributeForStudentWork property value. Indicates whether this resource should be copied to each student submission for modification and submission.
+     * Gets the distributeForStudentWork property value. Indicates whether this resource should be copied to each student submission for modification and submission. Required
      * @returns a boolean
      */
     public get distributeForStudentWork() {
@@ -48,7 +48,7 @@ export class EducationAssignmentResource extends Entity implements Parsable {
         writer.writeObjectValue<EducationResource>("resource", this.resource);
     };
     /**
-     * Sets the distributeForStudentWork property value. Indicates whether this resource should be copied to each student submission for modification and submission.
+     * Sets the distributeForStudentWork property value. Indicates whether this resource should be copied to each student submission for modification and submission. Required
      * @param value Value to set for the distributeForStudentWork property.
      */
     public set distributeForStudentWork(value: boolean | undefined) {

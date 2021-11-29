@@ -1,8 +1,13 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {RbacApplication} from './rbacApplication';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoleManagement implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
+    /** Read-only. Nullable.  */
+    private _directory?: RbacApplication | undefined;
+    /** The RbacApplication for Entitlement Management  */
+    private _entitlementManagement?: RbacApplication | undefined;
     /**
      * Instantiates a new RoleManagement and sets the default values.
      */
@@ -17,11 +22,27 @@ export class RoleManagement implements Parsable {
         return this._additionalData;
     };
     /**
+     * Gets the directory property value. Read-only. Nullable.
+     * @returns a rbacApplication
+     */
+    public get directory() {
+        return this._directory;
+    };
+    /**
+     * Gets the entitlementManagement property value. The RbacApplication for Entitlement Management
+     * @returns a rbacApplication
+     */
+    public get entitlementManagement() {
+        return this._entitlementManagement;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
+            ["directory", (o, n) => { (o as unknown as RoleManagement).directory = n.getObjectValue<RbacApplication>(RbacApplication); }],
+            ["entitlementManagement", (o, n) => { (o as unknown as RoleManagement).entitlementManagement = n.getObjectValue<RbacApplication>(RbacApplication); }],
         ]);
     };
     /**
@@ -30,6 +51,8 @@ export class RoleManagement implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeObjectValue<RbacApplication>("directory", this.directory);
+        writer.writeObjectValue<RbacApplication>("entitlementManagement", this.entitlementManagement);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -38,5 +61,19 @@ export class RoleManagement implements Parsable {
      */
     public set additionalData(value: Map<string, unknown>) {
         this._additionalData = value;
+    };
+    /**
+     * Sets the directory property value. Read-only. Nullable.
+     * @param value Value to set for the directory property.
+     */
+    public set directory(value: RbacApplication | undefined) {
+        this._directory = value;
+    };
+    /**
+     * Sets the entitlementManagement property value. The RbacApplication for Entitlement Management
+     * @param value Value to set for the entitlementManagement property.
+     */
+    public set entitlementManagement(value: RbacApplication | undefined) {
+        this._entitlementManagement = value;
     };
 }

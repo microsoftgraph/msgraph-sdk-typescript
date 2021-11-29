@@ -1,5 +1,5 @@
 import {DirectoryObject} from './directoryObject';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
     /** The description to set for the directory role. Read-only.  */

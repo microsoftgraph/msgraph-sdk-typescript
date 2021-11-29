@@ -6,7 +6,7 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookOperation} from './workbookOperation';
 import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Workbook extends Entity implements Parsable {
     private _application?: WorkbookApplication | undefined;
@@ -14,7 +14,7 @@ export class Workbook extends Entity implements Parsable {
     private _functions?: WorkbookFunctions | undefined;
     /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.  */
     private _names?: WorkbookNamedItem[] | undefined;
-    /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.  */
+    /** The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.  */
     private _operations?: WorkbookOperation[] | undefined;
     /** Represents a collection of tables associated with the workbook. Read-only.  */
     private _tables?: WorkbookTable[] | undefined;
@@ -55,7 +55,7 @@ export class Workbook extends Entity implements Parsable {
         return this._names;
     };
     /**
-     * Gets the operations property value. The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+     * Gets the operations property value. The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
      * @returns a workbookOperation
      */
     public get operations() {
@@ -134,7 +134,7 @@ export class Workbook extends Entity implements Parsable {
         this._names = value;
     };
     /**
-     * Sets the operations property value. The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
+     * Sets the operations property value. The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
      * @param value Value to set for the operations property.
      */
     public set operations(value: WorkbookOperation[] | undefined) {

@@ -1,4 +1,4 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamMemberSettings implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -7,7 +7,7 @@ export class TeamMemberSettings implements Parsable {
     private _allowAddRemoveApps?: boolean | undefined;
     /** If set to true, members can add and update private channels.  */
     private _allowCreatePrivateChannels?: boolean | undefined;
-    /** If set to true, members can add and update any channels.  */
+    /** If set to true, members can add and update channels.  */
     private _allowCreateUpdateChannels?: boolean | undefined;
     /** If set to true, members can add, update, and remove connectors.  */
     private _allowCreateUpdateRemoveConnectors?: boolean | undefined;
@@ -43,7 +43,7 @@ export class TeamMemberSettings implements Parsable {
         return this._allowCreatePrivateChannels;
     };
     /**
-     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
+     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update channels.
      * @returns a boolean
      */
     public get allowCreateUpdateChannels() {
@@ -120,7 +120,7 @@ export class TeamMemberSettings implements Parsable {
         this._allowCreatePrivateChannels = value;
     };
     /**
-     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
+     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update channels.
      * @param value Value to set for the allowCreateUpdateChannels property.
      */
     public set allowCreateUpdateChannels(value: boolean | undefined) {

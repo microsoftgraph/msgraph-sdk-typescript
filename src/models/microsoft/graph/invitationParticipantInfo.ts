@@ -1,11 +1,11 @@
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InvitationParticipantInfo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     private _identity?: IdentitySet | undefined;
-    /** Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.  */
+    /** Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.  */
     private _replacesCallId?: string | undefined;
     /**
      * Instantiates a new invitationParticipantInfo and sets the default values.
@@ -28,7 +28,7 @@ export class InvitationParticipantInfo implements Parsable {
         return this._identity;
     };
     /**
-     * Gets the replacesCallId property value. Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.
+     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
      * @returns a string
      */
     public get replacesCallId() {
@@ -69,7 +69,7 @@ export class InvitationParticipantInfo implements Parsable {
         this._identity = value;
     };
     /**
-     * Sets the replacesCallId property value. Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.
+     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
      * @param value Value to set for the replacesCallId property.
      */
     public set replacesCallId(value: string | undefined) {

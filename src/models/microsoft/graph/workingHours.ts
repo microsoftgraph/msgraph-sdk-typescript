@@ -1,6 +1,6 @@
 import {DayOfWeek} from './dayOfWeek';
 import {TimeZoneBase} from './timeZoneBase';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkingHours implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -72,7 +72,7 @@ export class WorkingHours implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
+        this.daysOfWeek && writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
         writer.writeStringValue("endTime", this.endTime);
         writer.writeStringValue("startTime", this.startTime);
         writer.writeObjectValue<TimeZoneBase>("timeZone", this.timeZone);

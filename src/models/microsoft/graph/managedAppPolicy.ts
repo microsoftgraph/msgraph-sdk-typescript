@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppPolicy extends Entity implements Parsable {
     /** The date and time the policy was created.  */

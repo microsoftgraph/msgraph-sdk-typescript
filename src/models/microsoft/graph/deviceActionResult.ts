@@ -1,5 +1,5 @@
 import {ActionState} from './actionState';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceActionResult implements Parsable {
     /** Action name  */

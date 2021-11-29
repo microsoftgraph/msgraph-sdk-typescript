@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentSettings extends Entity implements Parsable {
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.  */

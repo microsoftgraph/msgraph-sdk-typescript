@@ -1,6 +1,6 @@
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationAssignment extends Entity implements Parsable {
     /** The assignment target for the device configuration.  */

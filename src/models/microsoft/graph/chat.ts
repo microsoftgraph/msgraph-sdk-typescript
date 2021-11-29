@@ -4,10 +4,10 @@ import {ConversationMember} from './conversationMember';
 import {Entity} from './entity';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsTab} from './teamsTab';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Chat extends Entity implements Parsable {
-    /** Specifies the type of chat. Possible values are:group, oneOnOne and meeting.  */
+    /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.  */
     private _chatType?: ChatType | undefined;
     /** Date and time at which the chat was created. Read-only.  */
     private _createdDateTime?: Date | undefined;
@@ -29,7 +29,7 @@ export class Chat extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the chatType property value. Specifies the type of chat. Possible values are:group, oneOnOne and meeting.
+     * Gets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
      * @returns a chatType
      */
     public get chatType() {
@@ -117,7 +117,7 @@ export class Chat extends Entity implements Parsable {
         writer.writeStringValue("topic", this.topic);
     };
     /**
-     * Sets the chatType property value. Specifies the type of chat. Possible values are:group, oneOnOne and meeting.
+     * Sets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.
      * @param value Value to set for the chatType property.
      */
     public set chatType(value: ChatType | undefined) {

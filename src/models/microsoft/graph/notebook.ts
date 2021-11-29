@@ -3,7 +3,7 @@ import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
 import {OnenoteUserRole} from './onenoteUserRole';
 import {SectionGroup} from './sectionGroup';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default notebook. Read-only.  */

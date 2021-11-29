@@ -2,7 +2,7 @@ import {Endpoint} from '../endpoint';
 import {Entity} from '../entity';
 import {FailureInfo} from './failureInfo';
 import {Media} from './media';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Segment extends Entity implements Parsable {
     /** Endpoint that answered this segment.  */

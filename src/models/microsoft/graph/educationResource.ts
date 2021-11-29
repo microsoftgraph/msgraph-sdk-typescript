@@ -1,18 +1,18 @@
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationResource implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Who created the resource.  */
+    /** The individual who created the resource.  */
     private _createdBy?: IdentitySet | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the resource was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _createdDateTime?: Date | undefined;
     /** Display name of resource.  */
     private _displayName?: string | undefined;
-    /** Who was the last user to modify the resource.  */
+    /** The last user to modify the resource.  */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new educationResource and sets the default values.
@@ -28,14 +28,14 @@ export class EducationResource implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the createdBy property value. Who created the resource.
+     * Gets the createdBy property value. The individual who created the resource.
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the createdDateTime property value. Moment in time when the resource was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get createdDateTime() {
@@ -49,14 +49,14 @@ export class EducationResource implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the lastModifiedBy property value. Who was the last user to modify the resource.
+     * Gets the lastModifiedBy property value. The last user to modify the resource.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Gets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
@@ -96,14 +96,14 @@ export class EducationResource implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the createdBy property value. Who created the resource.
+     * Sets the createdBy property value. The individual who created the resource.
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
         this._createdBy = value;
     };
     /**
-     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the createdDateTime property value. Moment in time when the resource was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
@@ -117,14 +117,14 @@ export class EducationResource implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the lastModifiedBy property value. Who was the last user to modify the resource.
+     * Sets the lastModifiedBy property value. The last user to modify the resource.
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Sets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {

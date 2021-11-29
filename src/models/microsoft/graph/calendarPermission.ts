@@ -1,7 +1,7 @@
 import {CalendarRoleType} from './calendarRoleType';
 import {EmailAddress} from './emailAddress';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarPermission extends Entity implements Parsable {
     /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.  */
@@ -75,7 +75,7 @@ export class CalendarPermission extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...this.allowedRoles);
+        this.allowedRoles && writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...this.allowedRoles);
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
         writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         writer.writeBooleanValue("isRemovable", this.isRemovable);

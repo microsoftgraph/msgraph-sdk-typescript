@@ -1,6 +1,6 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {OpenShiftItem} from './openShiftItem';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShift extends ChangeTrackedEntity implements Parsable {
     /** An unpublished open shift.  */

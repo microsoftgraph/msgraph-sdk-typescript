@@ -13,7 +13,7 @@ import {MobileAppCategory} from './mobileAppCategory';
 import {TargetedManagedAppConfiguration} from './targetedManagedAppConfiguration';
 import {VppToken} from './vppToken';
 import {WindowsInformationProtectionPolicy} from './windowsInformationProtectionPolicy';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceAppManagement extends Entity implements Parsable {
     /** Android managed app policies.  */

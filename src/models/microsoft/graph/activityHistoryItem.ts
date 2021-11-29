@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {Status} from './status';
 import {UserActivity} from './userActivity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityHistoryItem extends Entity implements Parsable {
     /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.  */

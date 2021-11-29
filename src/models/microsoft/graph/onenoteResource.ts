@@ -1,5 +1,5 @@
 import {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable {
     /** The content stream  */

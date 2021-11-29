@@ -1,7 +1,7 @@
 import {AttendeeBase} from './attendeeBase';
 import {ResponseStatus} from './responseStatus';
 import {TimeSlot} from './timeSlot';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Attendee extends AttendeeBase implements Parsable {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.  */

@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {TeamsApp} from './teamsApp';
 import {TeamsAppDefinition} from './teamsAppDefinition';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed.  */

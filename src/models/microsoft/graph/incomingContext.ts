@@ -1,14 +1,14 @@
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IncomingContext implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The id of the participant that is under observation. Read-only.  */
+    /** The ID of the participant that is under observation. Read-only.  */
     private _observedParticipantId?: string | undefined;
     /** The identity that the call is happening on behalf of.  */
     private _onBehalfOf?: IdentitySet | undefined;
-    /** The id of the participant that triggered the incoming call. Read-only.  */
+    /** The ID of the participant that triggered the incoming call. Read-only.  */
     private _sourceParticipantId?: string | undefined;
     /** The identity that transferred the call.  */
     private _transferor?: IdentitySet | undefined;
@@ -26,7 +26,7 @@ export class IncomingContext implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the observedParticipantId property value. The id of the participant that is under observation. Read-only.
+     * Gets the observedParticipantId property value. The ID of the participant that is under observation. Read-only.
      * @returns a string
      */
     public get observedParticipantId() {
@@ -40,7 +40,7 @@ export class IncomingContext implements Parsable {
         return this._onBehalfOf;
     };
     /**
-     * Gets the sourceParticipantId property value. The id of the participant that triggered the incoming call. Read-only.
+     * Gets the sourceParticipantId property value. The ID of the participant that triggered the incoming call. Read-only.
      * @returns a string
      */
     public get sourceParticipantId() {
@@ -85,7 +85,7 @@ export class IncomingContext implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the observedParticipantId property value. The id of the participant that is under observation. Read-only.
+     * Sets the observedParticipantId property value. The ID of the participant that is under observation. Read-only.
      * @param value Value to set for the observedParticipantId property.
      */
     public set observedParticipantId(value: string | undefined) {
@@ -99,7 +99,7 @@ export class IncomingContext implements Parsable {
         this._onBehalfOf = value;
     };
     /**
-     * Sets the sourceParticipantId property value. The id of the participant that triggered the incoming call. Read-only.
+     * Sets the sourceParticipantId property value. The ID of the participant that triggered the incoming call. Read-only.
      * @param value Value to set for the sourceParticipantId property.
      */
     public set sourceParticipantId(value: string | undefined) {

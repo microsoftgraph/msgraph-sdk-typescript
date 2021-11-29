@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookWorksheetProtection extends Entity implements Parsable {
     /** Sheet protection options. Read-only.  */

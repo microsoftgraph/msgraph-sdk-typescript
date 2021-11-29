@@ -1,6 +1,6 @@
 import {IdentitySet} from './identitySet';
 import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageMentionedIdentitySet extends IdentitySet implements Parsable {
     /** If present, represents a conversation (for example, team or channel) @mentioned in a message.  */

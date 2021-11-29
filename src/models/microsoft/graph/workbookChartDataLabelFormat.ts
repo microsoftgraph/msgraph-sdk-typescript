@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartFont} from './workbookChartFont';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartDataLabelFormat extends Entity implements Parsable {
     /** Represents the fill format of the current chart data label. Read-only.  */

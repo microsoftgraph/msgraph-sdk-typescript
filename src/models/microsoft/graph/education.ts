@@ -1,7 +1,7 @@
 import {EducationClass} from './educationClass';
 import {EducationSchool} from './educationSchool';
 import {EducationUser} from './educationUser';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Education implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */

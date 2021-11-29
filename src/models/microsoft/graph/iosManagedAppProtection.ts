@@ -2,14 +2,14 @@ import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
     /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.  */
     private _appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
     /** List of apps to which the policy is deployed.  */
     private _apps?: ManagedMobileApp[] | undefined;
-    /** A custom browser protocol to open weblink on iOS.  */
+    /** A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.  */
     private _customBrowserProtocol?: string | undefined;
     /** Count of apps to which the current policy is deployed.  */
     private _deployedAppCount?: number | undefined;
@@ -40,7 +40,7 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
         return this._apps;
     };
     /**
-     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
+     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @returns a string
      */
     public get customBrowserProtocol() {
@@ -119,7 +119,7 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
         this._apps = value;
     };
     /**
-     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
+     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
      * @param value Value to set for the customBrowserProtocol property.
      */
     public set customBrowserProtocol(value: string | undefined) {

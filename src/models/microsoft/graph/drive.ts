@@ -5,9 +5,11 @@ import {List} from './list';
 import {Quota} from './quota';
 import {SharepointIds} from './sharepointIds';
 import {SystemFacet} from './systemFacet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Drive extends BaseItem implements Parsable {
+    /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.  */
+    private _bundles?: DriveItem[] | undefined;
     /** Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.  */
     private _driveType?: string | undefined;
     /** The list of items the user is following. Only in OneDrive for Business.  */
@@ -32,6 +34,13 @@ export class Drive extends BaseItem implements Parsable {
      */
     public constructor() {
         super();
+    };
+    /**
+     * Gets the bundles property value. Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+     * @returns a driveItem
+     */
+    public get bundles() {
+        return this._bundles;
     };
     /**
      * Gets the driveType property value. Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.
@@ -109,6 +118,7 @@ export class Drive extends BaseItem implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["bundles", (o, n) => { (o as unknown as Drive).bundles = n.getCollectionOfObjectValues<DriveItem>(DriveItem); }],
             ["driveType", (o, n) => { (o as unknown as Drive).driveType = n.getStringValue(); }],
             ["following", (o, n) => { (o as unknown as Drive).following = n.getCollectionOfObjectValues<DriveItem>(DriveItem); }],
             ["items", (o, n) => { (o as unknown as Drive).items = n.getCollectionOfObjectValues<DriveItem>(DriveItem); }],
@@ -128,6 +138,7 @@ export class Drive extends BaseItem implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<DriveItem>("bundles", this.bundles);
         writer.writeStringValue("driveType", this.driveType);
         writer.writeCollectionOfObjectValues<DriveItem>("following", this.following);
         writer.writeCollectionOfObjectValues<DriveItem>("items", this.items);
@@ -138,6 +149,13 @@ export class Drive extends BaseItem implements Parsable {
         writer.writeObjectValue<SharepointIds>("sharePointIds", this.sharePointIds);
         writer.writeCollectionOfObjectValues<DriveItem>("special", this.special);
         writer.writeObjectValue<SystemFacet>("system", this.system);
+    };
+    /**
+     * Sets the bundles property value. Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.
+     * @param value Value to set for the bundles property.
+     */
+    public set bundles(value: DriveItem[] | undefined) {
+        this._bundles = value;
     };
     /**
      * Sets the driveType property value. Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.

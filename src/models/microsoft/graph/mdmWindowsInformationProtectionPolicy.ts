@@ -1,5 +1,5 @@
 import {WindowsInformationProtection} from './windowsInformationProtection';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MdmWindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {
     /**

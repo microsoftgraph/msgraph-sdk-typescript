@@ -1,6 +1,6 @@
 import {AgreementFileData} from './agreementFileData';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementFileProperties extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;

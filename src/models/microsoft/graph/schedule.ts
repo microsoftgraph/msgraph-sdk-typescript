@@ -9,7 +9,7 @@ import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import {TimeOff} from './timeOff';
 import {TimeOffReason} from './timeOffReason';
 import {TimeOffRequest} from './timeOffRequest';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Schedule extends Entity implements Parsable {
     /** Indicates whether the schedule is enabled for the team. Required.  */

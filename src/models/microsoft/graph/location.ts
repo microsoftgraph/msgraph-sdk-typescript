@@ -2,7 +2,7 @@ import {LocationType} from './locationType';
 import {LocationUniqueIdType} from './locationUniqueIdType';
 import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {PhysicalAddress} from './physicalAddress';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Location implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -15,7 +15,7 @@ export class Location implements Parsable {
     private _displayName?: string | undefined;
     /** Optional email address of the location.  */
     private _locationEmailAddress?: string | undefined;
-    /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
+    /** The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
     private _locationType?: LocationType | undefined;
     /** Optional URI representing the location.  */
     private _locationUri?: string | undefined;
@@ -65,7 +65,7 @@ export class Location implements Parsable {
         return this._locationEmailAddress;
     };
     /**
-     * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Gets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @returns a locationType
      */
     public get locationType() {
@@ -160,7 +160,7 @@ export class Location implements Parsable {
         this._locationEmailAddress = value;
     };
     /**
-     * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Sets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @param value Value to set for the locationType property.
      */
     public set locationType(value: LocationType | undefined) {

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {WorkbookFilterCriteria} from './workbookFilterCriteria';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFilter extends Entity implements Parsable {
     /** The currently applied filter on the given column. Read-only.  */

@@ -1,5 +1,6 @@
 import {Audio} from './audio';
 import {BaseItem} from './baseItem';
+import {Bundle} from './bundle';
 import {Deleted} from './deleted';
 import {DriveItemVersion} from './driveItemVersion';
 import {File} from './file';
@@ -9,6 +10,7 @@ import {GeoCoordinates} from './geoCoordinates';
 import {Image} from './image';
 import {ItemAnalytics} from './itemAnalytics';
 import {ListItem} from './listItem';
+import {Malware} from './malware';
 import {Package} from './package';
 import {PendingOperations} from './pendingOperations';
 import {Permission} from './permission';
@@ -24,13 +26,14 @@ import {Subscription} from './subscription';
 import {ThumbnailSet} from './thumbnailSet';
 import {Video} from './video';
 import {Workbook} from './workbook';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item.  */
     private _analytics?: ItemAnalytics | undefined;
     /** Audio metadata, if the item is an audio file. Read-only.  */
     private _audio?: Audio | undefined;
+    private _bundle?: Bundle | undefined;
     /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.  */
     private _children?: DriveItem[] | undefined;
     /** The content stream, if the item represents a file.  */
@@ -51,9 +54,11 @@ export class DriveItem extends BaseItem implements Parsable {
     private _listItem?: ListItem | undefined;
     /** Location metadata, if the item has location data. Read-only.  */
     private _location?: GeoCoordinates | undefined;
+    /** Malware metadata, if the item was detected to contain malware. Read-only.  */
+    private _malware?: Malware | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.  */
     private _package?: Package | undefined;
-    /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.  */
+    /** If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.  */
     private _pendingOperations?: PendingOperations | undefined;
     /** The set of permissions for the item. Read-only. Nullable.  */
     private _permissions?: Permission[] | undefined;
@@ -106,6 +111,13 @@ export class DriveItem extends BaseItem implements Parsable {
      */
     public get audio() {
         return this._audio;
+    };
+    /**
+     * Gets the bundle property value. 
+     * @returns a bundle
+     */
+    public get bundle() {
+        return this._bundle;
     };
     /**
      * Gets the children property value. Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
@@ -178,6 +190,13 @@ export class DriveItem extends BaseItem implements Parsable {
         return this._location;
     };
     /**
+     * Gets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
+     * @returns a malware
+     */
+    public get malware() {
+        return this._malware;
+    };
+    /**
      * Gets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @returns a package
      */
@@ -185,7 +204,7 @@ export class DriveItem extends BaseItem implements Parsable {
         return this._package;
     };
     /**
-     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Gets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @returns a pendingOperations
      */
     public get pendingOperations() {
@@ -311,6 +330,7 @@ export class DriveItem extends BaseItem implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["analytics", (o, n) => { (o as unknown as DriveItem).analytics = n.getObjectValue<ItemAnalytics>(ItemAnalytics); }],
             ["audio", (o, n) => { (o as unknown as DriveItem).audio = n.getObjectValue<Audio>(Audio); }],
+            ["bundle", (o, n) => { (o as unknown as DriveItem).bundle = n.getObjectValue<Bundle>(Bundle); }],
             ["children", (o, n) => { (o as unknown as DriveItem).children = n.getCollectionOfObjectValues<DriveItem>(DriveItem); }],
             ["content", (o, n) => { (o as unknown as DriveItem).content = n.getStringValue(); }],
             ["cTag", (o, n) => { (o as unknown as DriveItem).cTag = n.getStringValue(); }],
@@ -321,6 +341,7 @@ export class DriveItem extends BaseItem implements Parsable {
             ["image", (o, n) => { (o as unknown as DriveItem).image = n.getObjectValue<Image>(Image); }],
             ["listItem", (o, n) => { (o as unknown as DriveItem).listItem = n.getObjectValue<ListItem>(ListItem); }],
             ["location", (o, n) => { (o as unknown as DriveItem).location = n.getObjectValue<GeoCoordinates>(GeoCoordinates); }],
+            ["malware", (o, n) => { (o as unknown as DriveItem).malware = n.getObjectValue<Malware>(Malware); }],
             ["package", (o, n) => { (o as unknown as DriveItem).package = n.getObjectValue<Package>(Package); }],
             ["pendingOperations", (o, n) => { (o as unknown as DriveItem).pendingOperations = n.getObjectValue<PendingOperations>(PendingOperations); }],
             ["permissions", (o, n) => { (o as unknown as DriveItem).permissions = n.getCollectionOfObjectValues<Permission>(Permission); }],
@@ -350,6 +371,7 @@ export class DriveItem extends BaseItem implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<ItemAnalytics>("analytics", this.analytics);
         writer.writeObjectValue<Audio>("audio", this.audio);
+        writer.writeObjectValue<Bundle>("bundle", this.bundle);
         writer.writeCollectionOfObjectValues<DriveItem>("children", this.children);
         writer.writeStringValue("content", this.content);
         writer.writeStringValue("cTag", this.cTag);
@@ -360,6 +382,7 @@ export class DriveItem extends BaseItem implements Parsable {
         writer.writeObjectValue<Image>("image", this.image);
         writer.writeObjectValue<ListItem>("listItem", this.listItem);
         writer.writeObjectValue<GeoCoordinates>("location", this.location);
+        writer.writeObjectValue<Malware>("malware", this.malware);
         writer.writeObjectValue<Package>("package", this.package);
         writer.writeObjectValue<PendingOperations>("pendingOperations", this.pendingOperations);
         writer.writeCollectionOfObjectValues<Permission>("permissions", this.permissions);
@@ -392,6 +415,13 @@ export class DriveItem extends BaseItem implements Parsable {
      */
     public set audio(value: Audio | undefined) {
         this._audio = value;
+    };
+    /**
+     * Sets the bundle property value. 
+     * @param value Value to set for the bundle property.
+     */
+    public set bundle(value: Bundle | undefined) {
+        this._bundle = value;
     };
     /**
      * Sets the children property value. Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.
@@ -464,6 +494,13 @@ export class DriveItem extends BaseItem implements Parsable {
         this._location = value;
     };
     /**
+     * Sets the malware property value. Malware metadata, if the item was detected to contain malware. Read-only.
+     * @param value Value to set for the malware property.
+     */
+    public set malware(value: Malware | undefined) {
+        this._malware = value;
+    };
+    /**
      * Sets the package property value. If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.
      * @param value Value to set for the package property.
      */
@@ -471,7 +508,7 @@ export class DriveItem extends BaseItem implements Parsable {
         this._package = value;
     };
     /**
-     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Sets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @param value Value to set for the pendingOperations property.
      */
     public set pendingOperations(value: PendingOperations | undefined) {

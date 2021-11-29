@@ -3,4 +3,5 @@ export enum ChatMessageType {
     ChatEvent = "chatEvent",
     Typing = "typing",
     UnknownFutureValue = "unknownFutureValue",
+    SystemEventMessage = "systemEventMessage",
 }

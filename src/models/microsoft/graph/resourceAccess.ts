@@ -1,11 +1,11 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceAccess implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.  */
     private _id?: string | undefined;
-    /** Specifies whether the id property references an oauth2PermissionScopes or an appRole. Possible values are Scope or Role.  */
+    /** Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).  */
     private _type?: string | undefined;
     /**
      * Instantiates a new resourceAccess and sets the default values.
@@ -28,7 +28,7 @@ export class ResourceAccess implements Parsable {
         return this._id;
     };
     /**
-     * Gets the type property value. Specifies whether the id property references an oauth2PermissionScopes or an appRole. Possible values are Scope or Role.
+     * Gets the type property value. Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).
      * @returns a string
      */
     public get type() {
@@ -69,7 +69,7 @@ export class ResourceAccess implements Parsable {
         this._id = value;
     };
     /**
-     * Sets the type property value. Specifies whether the id property references an oauth2PermissionScopes or an appRole. Possible values are Scope or Role.
+     * Sets the type property value. Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

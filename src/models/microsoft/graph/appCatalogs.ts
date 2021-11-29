@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {TeamsApp} from './teamsApp';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppCatalogs extends Entity implements Parsable {
     private _teamsApps?: TeamsApp[] | undefined;

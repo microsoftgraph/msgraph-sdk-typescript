@@ -4,7 +4,7 @@ import {EducationSubmissionResource} from './educationSubmissionResource';
 import {EducationSubmissionStatus} from './educationSubmissionStatus';
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSubmission extends Entity implements Parsable {
     /** Read-Write. Nullable.  */

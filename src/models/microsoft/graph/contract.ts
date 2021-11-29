@@ -1,5 +1,5 @@
 import {DirectoryObject} from './directoryObject';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Contract extends DirectoryObject implements Parsable {
     /** Type of contract. Possible values are:  SyndicationPartner, BreadthPartner, ResellerPartner. See more in the table below.  */

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {ShiftPreferences} from './shiftPreferences';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserSettings extends Entity implements Parsable {
     /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.  */

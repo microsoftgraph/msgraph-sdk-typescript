@@ -3,7 +3,7 @@ import {Json} from './json';
 import {WorkbookChartAxisFormat} from './workbookChartAxisFormat';
 import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxis extends Entity implements Parsable {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only.  */

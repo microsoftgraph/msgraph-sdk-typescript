@@ -4,13 +4,18 @@ import {Entity} from './entity';
 import {IdentityApiConnector} from './identityApiConnector';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityContainer extends Entity implements Parsable {
+    /** Represents entry point for API connectors.  */
     private _apiConnectors?: IdentityApiConnector[] | undefined;
+    /** Represents entry point for B2X/self-service sign-up identity userflows.  */
     private _b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
+    /** the entry point for the Conditional Access (CA) object model.  */
     private _conditionalAccess?: ConditionalAccessRoot | undefined;
+    /** Represents entry point for identity provider base.  */
     private _identityProviders?: IdentityProviderBase[] | undefined;
+    /** Represents entry point for identity userflow attributes.  */
     private _userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
     /**
      * Instantiates a new identityContainer and sets the default values.
@@ -19,35 +24,35 @@ export class IdentityContainer extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the apiConnectors property value. 
+     * Gets the apiConnectors property value. Represents entry point for API connectors.
      * @returns a identityApiConnector
      */
     public get apiConnectors() {
         return this._apiConnectors;
     };
     /**
-     * Gets the b2xUserFlows property value. 
+     * Gets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
      * @returns a b2xIdentityUserFlow
      */
     public get b2xUserFlows() {
         return this._b2xUserFlows;
     };
     /**
-     * Gets the conditionalAccess property value. 
+     * Gets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
      * @returns a conditionalAccessRoot
      */
     public get conditionalAccess() {
         return this._conditionalAccess;
     };
     /**
-     * Gets the identityProviders property value. 
+     * Gets the identityProviders property value. Represents entry point for identity provider base.
      * @returns a identityProviderBase
      */
     public get identityProviders() {
         return this._identityProviders;
     };
     /**
-     * Gets the userFlowAttributes property value. 
+     * Gets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
      * @returns a identityUserFlowAttribute
      */
     public get userFlowAttributes() {
@@ -80,35 +85,35 @@ export class IdentityContainer extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("userFlowAttributes", this.userFlowAttributes);
     };
     /**
-     * Sets the apiConnectors property value. 
+     * Sets the apiConnectors property value. Represents entry point for API connectors.
      * @param value Value to set for the apiConnectors property.
      */
     public set apiConnectors(value: IdentityApiConnector[] | undefined) {
         this._apiConnectors = value;
     };
     /**
-     * Sets the b2xUserFlows property value. 
+     * Sets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
      * @param value Value to set for the b2xUserFlows property.
      */
     public set b2xUserFlows(value: B2xIdentityUserFlow[] | undefined) {
         this._b2xUserFlows = value;
     };
     /**
-     * Sets the conditionalAccess property value. 
+     * Sets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
      * @param value Value to set for the conditionalAccess property.
      */
     public set conditionalAccess(value: ConditionalAccessRoot | undefined) {
         this._conditionalAccess = value;
     };
     /**
-     * Sets the identityProviders property value. 
+     * Sets the identityProviders property value. Represents entry point for identity provider base.
      * @param value Value to set for the identityProviders property.
      */
     public set identityProviders(value: IdentityProviderBase[] | undefined) {
         this._identityProviders = value;
     };
     /**
-     * Sets the userFlowAttributes property value. 
+     * Sets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
      * @param value Value to set for the userFlowAttributes property.
      */
     public set userFlowAttributes(value: IdentityUserFlowAttribute[] | undefined) {

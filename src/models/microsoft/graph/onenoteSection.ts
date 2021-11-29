@@ -3,7 +3,7 @@ import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenotePage} from './onenotePage';
 import {SectionGroup} from './sectionGroup';
 import {SectionLinks} from './sectionLinks';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteSection extends OnenoteEntityHierarchyModel implements Parsable {
     /** Indicates whether this is the user's default section. Read-only.  */

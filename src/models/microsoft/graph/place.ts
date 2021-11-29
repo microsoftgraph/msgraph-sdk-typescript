@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {PhysicalAddress} from './physicalAddress';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Place extends Entity implements Parsable {
     /** The street address of the place.  */

@@ -6,7 +6,7 @@ import {ThreatAssessmentResult} from './threatAssessmentResult';
 import {ThreatAssessmentStatus} from './threatAssessmentStatus';
 import {ThreatCategory} from './threatCategory';
 import {ThreatExpectedAssessment} from './threatExpectedAssessment';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentRequest extends Entity implements Parsable {
     /** The threat category. Possible values are: spam, phishing, malware.  */
@@ -19,7 +19,7 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The expected assessment from submitter. Possible values are: block, unblock.  */
     private _expectedAssessment?: ThreatExpectedAssessment | undefined;
-    /** The source of the threat assessment request. Possible values are: user, administrator.  */
+    /** The source of the threat assessment request. Possible values are: administrator.  */
     private _requestSource?: ThreatAssessmentRequestSource | undefined;
     /** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.  */
     private _results?: ThreatAssessmentResult[] | undefined;
@@ -67,7 +67,7 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         return this._expectedAssessment;
     };
     /**
-     * Gets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
+     * Gets the requestSource property value. The source of the threat assessment request. Possible values are: administrator.
      * @returns a threatAssessmentRequestSource
      */
     public get requestSource() {
@@ -155,7 +155,7 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         this._expectedAssessment = value;
     };
     /**
-     * Sets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
+     * Sets the requestSource property value. The source of the threat assessment request. Possible values are: administrator.
      * @param value Value to set for the requestSource property.
      */
     public set requestSource(value: ThreatAssessmentRequestSource | undefined) {

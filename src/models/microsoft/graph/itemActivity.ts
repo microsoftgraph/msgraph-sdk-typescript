@@ -2,7 +2,7 @@ import {AccessAction} from './accessAction';
 import {DriveItem} from './driveItem';
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemActivity extends Entity implements Parsable {
     /** An item was accessed.  */

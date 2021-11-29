@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {IdentityUserFlowAttributeDataType} from './identityUserFlowAttributeDataType';
 import {IdentityUserFlowAttributeType} from './identityUserFlowAttributeType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttribute extends Entity implements Parsable {
     /** The data type of the user flow attribute. This cannot be modified after the custom user flow attribute is created. The supported values for dataType are: string , boolean , int64 , stringCollection , dateTime.  */

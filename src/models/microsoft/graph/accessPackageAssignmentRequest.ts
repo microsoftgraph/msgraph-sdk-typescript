@@ -1,0 +1,191 @@
+import {AccessPackage} from './accessPackage';
+import {AccessPackageAssignment} from './accessPackageAssignment';
+import {AccessPackageRequestState} from './accessPackageRequestState';
+import {AccessPackageRequestType} from './accessPackageRequestType';
+import {AccessPackageSubject} from './accessPackageSubject';
+import {EntitlementManagementSchedule} from './entitlementManagementSchedule';
+import {Entity} from './entity';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export class AccessPackageAssignmentRequest extends Entity implements Parsable {
+    /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.  */
+    private _accessPackage?: AccessPackage | undefined;
+    private _assignment?: AccessPackageAssignment | undefined;
+    private _completedDateTime?: Date | undefined;
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    private _createdDateTime?: Date | undefined;
+    /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.  */
+    private _requestor?: AccessPackageSubject | undefined;
+    /** One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.  */
+    private _requestType?: AccessPackageRequestType | undefined;
+    /** The range of dates that access is to be assigned to the requestor. Read-only.  */
+    private _schedule?: EntitlementManagementSchedule | undefined;
+    private _state?: AccessPackageRequestState | undefined;
+    private _status?: string | undefined;
+    /**
+     * Instantiates a new accessPackageAssignmentRequest and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
+     * Gets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+     * @returns a accessPackage
+     */
+    public get accessPackage() {
+        return this._accessPackage;
+    };
+    /**
+     * Gets the assignment property value. 
+     * @returns a accessPackageAssignment
+     */
+    public get assignment() {
+        return this._assignment;
+    };
+    /**
+     * Gets the completedDateTime property value. 
+     * @returns a Date
+     */
+    public get completedDateTime() {
+        return this._completedDateTime;
+    };
+    /**
+     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Gets the requestor property value. The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
+     * @returns a accessPackageSubject
+     */
+    public get requestor() {
+        return this._requestor;
+    };
+    /**
+     * Gets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
+     * @returns a accessPackageRequestType
+     */
+    public get requestType() {
+        return this._requestType;
+    };
+    /**
+     * Gets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
+     * @returns a entitlementManagementSchedule
+     */
+    public get schedule() {
+        return this._schedule;
+    };
+    /**
+     * Gets the state property value. 
+     * @returns a accessPackageRequestState
+     */
+    public get state() {
+        return this._state;
+    };
+    /**
+     * Gets the status property value. 
+     * @returns a string
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["accessPackage", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).accessPackage = n.getObjectValue<AccessPackage>(AccessPackage); }],
+            ["assignment", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).assignment = n.getObjectValue<AccessPackageAssignment>(AccessPackageAssignment); }],
+            ["completedDateTime", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).completedDateTime = n.getDateValue(); }],
+            ["createdDateTime", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).createdDateTime = n.getDateValue(); }],
+            ["requestor", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).requestor = n.getObjectValue<AccessPackageSubject>(AccessPackageSubject); }],
+            ["requestType", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).requestType = n.getEnumValue<AccessPackageRequestType>(AccessPackageRequestType); }],
+            ["schedule", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).schedule = n.getObjectValue<EntitlementManagementSchedule>(EntitlementManagementSchedule); }],
+            ["state", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).state = n.getEnumValue<AccessPackageRequestState>(AccessPackageRequestState); }],
+            ["status", (o, n) => { (o as unknown as AccessPackageAssignmentRequest).status = n.getStringValue(); }],
+        ]);
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeObjectValue<AccessPackage>("accessPackage", this.accessPackage);
+        writer.writeObjectValue<AccessPackageAssignment>("assignment", this.assignment);
+        writer.writeDateValue("completedDateTime", this.completedDateTime);
+        writer.writeDateValue("createdDateTime", this.createdDateTime);
+        writer.writeObjectValue<AccessPackageSubject>("requestor", this.requestor);
+        writer.writeEnumValue<AccessPackageRequestType>("requestType", this.requestType);
+        writer.writeObjectValue<EntitlementManagementSchedule>("schedule", this.schedule);
+        writer.writeEnumValue<AccessPackageRequestState>("state", this.state);
+        writer.writeStringValue("status", this.status);
+    };
+    /**
+     * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+     * @param value Value to set for the accessPackage property.
+     */
+    public set accessPackage(value: AccessPackage | undefined) {
+        this._accessPackage = value;
+    };
+    /**
+     * Sets the assignment property value. 
+     * @param value Value to set for the assignment property.
+     */
+    public set assignment(value: AccessPackageAssignment | undefined) {
+        this._assignment = value;
+    };
+    /**
+     * Sets the completedDateTime property value. 
+     * @param value Value to set for the completedDateTime property.
+     */
+    public set completedDateTime(value: Date | undefined) {
+        this._completedDateTime = value;
+    };
+    /**
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
+    };
+    /**
+     * Sets the requestor property value. The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.
+     * @param value Value to set for the requestor property.
+     */
+    public set requestor(value: AccessPackageSubject | undefined) {
+        this._requestor = value;
+    };
+    /**
+     * Sets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
+     * @param value Value to set for the requestType property.
+     */
+    public set requestType(value: AccessPackageRequestType | undefined) {
+        this._requestType = value;
+    };
+    /**
+     * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
+     * @param value Value to set for the schedule property.
+     */
+    public set schedule(value: EntitlementManagementSchedule | undefined) {
+        this._schedule = value;
+    };
+    /**
+     * Sets the state property value. 
+     * @param value Value to set for the state property.
+     */
+    public set state(value: AccessPackageRequestState | undefined) {
+        this._state = value;
+    };
+    /**
+     * Sets the status property value. 
+     * @param value Value to set for the status property.
+     */
+    public set status(value: string | undefined) {
+        this._status = value;
+    };
+}

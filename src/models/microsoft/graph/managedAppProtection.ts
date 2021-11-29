@@ -4,7 +4,7 @@ import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedBrowserType} from './managedBrowserType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     /** Data storage locations where a user may store managed data.  */
@@ -298,7 +298,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeEnumValue<ManagedAppDataStorageLocation>("allowedDataStorageLocations", ...this.allowedDataStorageLocations);
+        this.allowedDataStorageLocations && writer.writeEnumValue<ManagedAppDataStorageLocation>("allowedDataStorageLocations", ...this.allowedDataStorageLocations);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
         writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);

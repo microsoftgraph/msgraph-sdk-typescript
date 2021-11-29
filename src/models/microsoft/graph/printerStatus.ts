@@ -1,6 +1,6 @@
 import {PrinterProcessingState} from './printerProcessingState';
 import {PrinterProcessingStateDetail} from './printerProcessingStateDetail';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterStatus implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -63,7 +63,7 @@ export class PrinterStatus implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        writer.writeEnumValue<PrinterProcessingStateDetail>("details", ...this.details);
+        this.details && writer.writeEnumValue<PrinterProcessingStateDetail>("details", ...this.details);
         writer.writeEnumValue<PrinterProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };

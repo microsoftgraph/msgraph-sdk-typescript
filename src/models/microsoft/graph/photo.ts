@@ -1,4 +1,4 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Photo implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -19,7 +19,7 @@ export class Photo implements Parsable {
     private _iso?: number | undefined;
     /** The orientation value from the camera. Writable on OneDrive Personal.  */
     private _orientation?: number | undefined;
-    /** The date and time the photo was taken in UTC time. Read-only.  */
+    /** Represents the date and time the photo was taken. Read-only.  */
     private _takenDateTime?: Date | undefined;
     /**
      * Instantiates a new photo and sets the default values.
@@ -91,7 +91,7 @@ export class Photo implements Parsable {
         return this._orientation;
     };
     /**
-     * Gets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
+     * Gets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
      * @returns a Date
      */
     public get takenDateTime() {
@@ -195,7 +195,7 @@ export class Photo implements Parsable {
         this._orientation = value;
     };
     /**
-     * Sets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
+     * Sets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
      * @param value Value to set for the takenDateTime property.
      */
     public set takenDateTime(value: Date | undefined) {

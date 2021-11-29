@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {RoleAssignment} from './roleAssignment';
 import {RolePermission} from './rolePermission';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoleDefinition extends Entity implements Parsable {
     /** Description of the Role definition.  */

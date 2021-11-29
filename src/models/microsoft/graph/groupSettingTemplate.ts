@@ -1,6 +1,6 @@
 import {DirectoryObject} from './directoryObject';
 import {SettingTemplateValue} from './settingTemplateValue';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GroupSettingTemplate extends DirectoryObject implements Parsable {
     /** Description of the template.  */

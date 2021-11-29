@@ -129,7 +129,7 @@ import {F_Inv_RTRequestBuilder} from './f_Inv_RT/f_Inv_RTRequestBuilder';
 import {F_InvRequestBuilder} from './f_Inv/f_InvRequestBuilder';
 import {FactRequestBuilder} from './fact/factRequestBuilder';
 import {FactDoubleRequestBuilder} from './factDouble/factDoubleRequestBuilder';
-import {FalseRequestBuilder} from './false/falseRequestBuilder';
+import {FalseRequestBuilder} from './false_escaped/falseRequestBuilder';
 import {FindRequestBuilder} from './find/findRequestBuilder';
 import {FindBRequestBuilder} from './findB/findBRequestBuilder';
 import {FisherRequestBuilder} from './fisher/fisherRequestBuilder';
@@ -156,7 +156,7 @@ import {HlookupRequestBuilder} from './hlookup/hlookupRequestBuilder';
 import {HourRequestBuilder} from './hour/hourRequestBuilder';
 import {HyperlinkRequestBuilder} from './hyperlink/hyperlinkRequestBuilder';
 import {HypGeom_DistRequestBuilder} from './hypGeom_Dist/hypGeom_DistRequestBuilder';
-import {IfRequestBuilder} from './if/ifRequestBuilder';
+import {IfRequestBuilder} from './if_escaped/ifRequestBuilder';
 import {ImAbsRequestBuilder} from './imAbs/imAbsRequestBuilder';
 import {ImaginaryRequestBuilder} from './imaginary/imaginaryRequestBuilder';
 import {ImArgumentRequestBuilder} from './imArgument/imArgumentRequestBuilder';
@@ -337,7 +337,7 @@ import {TimevalueRequestBuilder} from './timevalue/timevalueRequestBuilder';
 import {TodayRequestBuilder} from './today/todayRequestBuilder';
 import {TrimRequestBuilder} from './trim/trimRequestBuilder';
 import {TrimMeanRequestBuilder} from './trimMean/trimMeanRequestBuilder';
-import {TrueRequestBuilder} from './true/trueRequestBuilder';
+import {TrueRequestBuilder} from './true_escaped/trueRequestBuilder';
 import {TruncRequestBuilder} from './trunc/truncRequestBuilder';
 import {TypeRequestBuilder} from './type/typeRequestBuilder';
 import {UnicharRequestBuilder} from './unichar/unicharRequestBuilder';
@@ -365,1196 +365,1196 @@ import {YieldRequestBuilder} from './yield/yieldRequestBuilder';
 import {YieldDiscRequestBuilder} from './yieldDisc/yieldDiscRequestBuilder';
 import {YieldMatRequestBuilder} from './yieldMat/yieldMatRequestBuilder';
 import {Z_TestRequestBuilder} from './z_Test/z_TestRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/functions  */
 export class FunctionsRequestBuilder {
     public get abs(): AbsRequestBuilder {
-        return new AbsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AbsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get accrInt(): AccrIntRequestBuilder {
-        return new AccrIntRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AccrIntRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get accrIntM(): AccrIntMRequestBuilder {
-        return new AccrIntMRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AccrIntMRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get acos(): AcosRequestBuilder {
-        return new AcosRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AcosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get acosh(): AcoshRequestBuilder {
-        return new AcoshRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AcoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get acot(): AcotRequestBuilder {
-        return new AcotRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AcotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get acoth(): AcothRequestBuilder {
-        return new AcothRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AcothRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get amorDegrc(): AmorDegrcRequestBuilder {
-        return new AmorDegrcRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AmorDegrcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get amorLinc(): AmorLincRequestBuilder {
-        return new AmorLincRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AmorLincRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get and(): AndRequestBuilder {
-        return new AndRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AndRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get arabic(): ArabicRequestBuilder {
-        return new ArabicRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ArabicRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get areas(): AreasRequestBuilder {
-        return new AreasRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AreasRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get asc(): AscRequestBuilder {
-        return new AscRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get asin(): AsinRequestBuilder {
-        return new AsinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AsinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get asinh(): AsinhRequestBuilder {
-        return new AsinhRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AsinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get atan(): AtanRequestBuilder {
-        return new AtanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AtanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get atan2(): Atan2RequestBuilder {
-        return new Atan2RequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Atan2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get atanh(): AtanhRequestBuilder {
-        return new AtanhRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AtanhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get aveDev(): AveDevRequestBuilder {
-        return new AveDevRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AveDevRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get average(): AverageRequestBuilder {
-        return new AverageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get averageA(): AverageARequestBuilder {
-        return new AverageARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AverageARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get averageIf(): AverageIfRequestBuilder {
-        return new AverageIfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AverageIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get averageIfs(): AverageIfsRequestBuilder {
-        return new AverageIfsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AverageIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bahtText(): BahtTextRequestBuilder {
-        return new BahtTextRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BahtTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get base(): BaseRequestBuilder {
-        return new BaseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get besselI(): BesselIRequestBuilder {
-        return new BesselIRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BesselIRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get besselJ(): BesselJRequestBuilder {
-        return new BesselJRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BesselJRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get besselK(): BesselKRequestBuilder {
-        return new BesselKRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BesselKRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get besselY(): BesselYRequestBuilder {
-        return new BesselYRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BesselYRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get beta_Dist(): Beta_DistRequestBuilder {
-        return new Beta_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Beta_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get beta_Inv(): Beta_InvRequestBuilder {
-        return new Beta_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Beta_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bin2Dec(): Bin2DecRequestBuilder {
-        return new Bin2DecRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Bin2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bin2Hex(): Bin2HexRequestBuilder {
-        return new Bin2HexRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Bin2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bin2Oct(): Bin2OctRequestBuilder {
-        return new Bin2OctRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Bin2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get binom_Dist(): Binom_DistRequestBuilder {
-        return new Binom_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Binom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get binom_Dist_Range(): Binom_Dist_RangeRequestBuilder {
-        return new Binom_Dist_RangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Binom_Dist_RangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get binom_Inv(): Binom_InvRequestBuilder {
-        return new Binom_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Binom_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bitand(): BitandRequestBuilder {
-        return new BitandRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BitandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bitlshift(): BitlshiftRequestBuilder {
-        return new BitlshiftRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BitlshiftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bitor(): BitorRequestBuilder {
-        return new BitorRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BitorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bitrshift(): BitrshiftRequestBuilder {
-        return new BitrshiftRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BitrshiftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get bitxor(): BitxorRequestBuilder {
-        return new BitxorRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new BitxorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ceiling_Math(): Ceiling_MathRequestBuilder {
-        return new Ceiling_MathRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Ceiling_MathRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ceiling_Precise(): Ceiling_PreciseRequestBuilder {
-        return new Ceiling_PreciseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Ceiling_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get char(): CharRequestBuilder {
-        return new CharRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CharRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get chiSq_Dist(): ChiSq_DistRequestBuilder {
-        return new ChiSq_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ChiSq_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get chiSq_Dist_RT(): ChiSq_Dist_RTRequestBuilder {
-        return new ChiSq_Dist_RTRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ChiSq_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get chiSq_Inv(): ChiSq_InvRequestBuilder {
-        return new ChiSq_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ChiSq_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get chiSq_Inv_RT(): ChiSq_Inv_RTRequestBuilder {
-        return new ChiSq_Inv_RTRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ChiSq_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get choose(): ChooseRequestBuilder {
-        return new ChooseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ChooseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get clean(): CleanRequestBuilder {
-        return new CleanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CleanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get code(): CodeRequestBuilder {
-        return new CodeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get columns(): ColumnsRequestBuilder {
-        return new ColumnsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get combin(): CombinRequestBuilder {
-        return new CombinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CombinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get combina(): CombinaRequestBuilder {
-        return new CombinaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CombinaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get complex(): ComplexRequestBuilder {
-        return new ComplexRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ComplexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get concatenate(): ConcatenateRequestBuilder {
-        return new ConcatenateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ConcatenateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get confidence_Norm(): Confidence_NormRequestBuilder {
-        return new Confidence_NormRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Confidence_NormRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get confidence_T(): Confidence_TRequestBuilder {
-        return new Confidence_TRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Confidence_TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get convert(): ConvertRequestBuilder {
-        return new ConvertRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ConvertRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get cos(): CosRequestBuilder {
-        return new CosRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get cosh(): CoshRequestBuilder {
-        return new CoshRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get cot(): CotRequestBuilder {
-        return new CotRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coth(): CothRequestBuilder {
-        return new CothRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CothRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get count(): CountRequestBuilder {
-        return new CountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get countA(): CountARequestBuilder {
-        return new CountARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CountARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get countBlank(): CountBlankRequestBuilder {
-        return new CountBlankRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CountBlankRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get countIf(): CountIfRequestBuilder {
-        return new CountIfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CountIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get countIfs(): CountIfsRequestBuilder {
-        return new CountIfsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CountIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coupDayBs(): CoupDayBsRequestBuilder {
-        return new CoupDayBsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoupDayBsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coupDays(): CoupDaysRequestBuilder {
-        return new CoupDaysRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoupDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coupDaysNc(): CoupDaysNcRequestBuilder {
-        return new CoupDaysNcRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoupDaysNcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coupNcd(): CoupNcdRequestBuilder {
-        return new CoupNcdRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoupNcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coupNum(): CoupNumRequestBuilder {
-        return new CoupNumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoupNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get coupPcd(): CoupPcdRequestBuilder {
-        return new CoupPcdRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CoupPcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get csc(): CscRequestBuilder {
-        return new CscRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get csch(): CschRequestBuilder {
-        return new CschRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CschRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get cumIPmt(): CumIPmtRequestBuilder {
-        return new CumIPmtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CumIPmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get cumPrinc(): CumPrincRequestBuilder {
-        return new CumPrincRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CumPrincRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get date(): DateRequestBuilder {
-        return new DateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get datevalue(): DatevalueRequestBuilder {
-        return new DatevalueRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DatevalueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get daverage(): DaverageRequestBuilder {
-        return new DaverageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DaverageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get day(): DayRequestBuilder {
-        return new DayRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get days(): DaysRequestBuilder {
-        return new DaysRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get days360(): Days360RequestBuilder {
-        return new Days360RequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Days360RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get db(): DbRequestBuilder {
-        return new DbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dbcs(): DbcsRequestBuilder {
-        return new DbcsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DbcsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dcount(): DcountRequestBuilder {
-        return new DcountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DcountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dcountA(): DcountARequestBuilder {
-        return new DcountARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DcountARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ddb(): DdbRequestBuilder {
-        return new DdbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DdbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dec2Bin(): Dec2BinRequestBuilder {
-        return new Dec2BinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Dec2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dec2Hex(): Dec2HexRequestBuilder {
-        return new Dec2HexRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Dec2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dec2Oct(): Dec2OctRequestBuilder {
-        return new Dec2OctRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Dec2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get decimal(): DecimalRequestBuilder {
-        return new DecimalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DecimalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get degrees(): DegreesRequestBuilder {
-        return new DegreesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DegreesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get delta(): DeltaRequestBuilder {
-        return new DeltaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get devSq(): DevSqRequestBuilder {
-        return new DevSqRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DevSqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dget(): DgetRequestBuilder {
-        return new DgetRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DgetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get disc(): DiscRequestBuilder {
-        return new DiscRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dmax(): DmaxRequestBuilder {
-        return new DmaxRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DmaxRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dmin(): DminRequestBuilder {
-        return new DminRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DminRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dollar(): DollarRequestBuilder {
-        return new DollarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DollarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dollarDe(): DollarDeRequestBuilder {
-        return new DollarDeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DollarDeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dollarFr(): DollarFrRequestBuilder {
-        return new DollarFrRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DollarFrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dproduct(): DproductRequestBuilder {
-        return new DproductRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DproductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dstDev(): DstDevRequestBuilder {
-        return new DstDevRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DstDevRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dstDevP(): DstDevPRequestBuilder {
-        return new DstDevPRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DstDevPRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dsum(): DsumRequestBuilder {
-        return new DsumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DsumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get duration(): DurationRequestBuilder {
-        return new DurationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dvar(): DvarRequestBuilder {
-        return new DvarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DvarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get dvarP(): DvarPRequestBuilder {
-        return new DvarPRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DvarPRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ecma_Ceiling(): Ecma_CeilingRequestBuilder {
-        return new Ecma_CeilingRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Ecma_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get edate(): EdateRequestBuilder {
-        return new EdateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EdateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get effect(): EffectRequestBuilder {
-        return new EffectRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EffectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get eoMonth(): EoMonthRequestBuilder {
-        return new EoMonthRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EoMonthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get erf(): ErfRequestBuilder {
-        return new ErfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ErfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get erf_Precise(): Erf_PreciseRequestBuilder {
-        return new Erf_PreciseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Erf_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get erfC(): ErfCRequestBuilder {
-        return new ErfCRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ErfCRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get erfC_Precise(): ErfC_PreciseRequestBuilder {
-        return new ErfC_PreciseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ErfC_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get error_Type(): Error_TypeRequestBuilder {
-        return new Error_TypeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Error_TypeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get even(): EvenRequestBuilder {
-        return new EvenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EvenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get exact(): ExactRequestBuilder {
-        return new ExactRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ExactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get exp(): ExpRequestBuilder {
-        return new ExpRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ExpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get expon_Dist(): Expon_DistRequestBuilder {
-        return new Expon_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Expon_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get f_Dist(): F_DistRequestBuilder {
-        return new F_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new F_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get f_Dist_RT(): F_Dist_RTRequestBuilder {
-        return new F_Dist_RTRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new F_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get f_Inv(): F_InvRequestBuilder {
-        return new F_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new F_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get f_Inv_RT(): F_Inv_RTRequestBuilder {
-        return new F_Inv_RTRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new F_Inv_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get fact(): FactRequestBuilder {
-        return new FactRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FactRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get factDouble(): FactDoubleRequestBuilder {
-        return new FactDoubleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FactDoubleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get false_escaped(): FalseRequestBuilder {
-        return new FalseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FalseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get find(): FindRequestBuilder {
-        return new FindRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FindRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get findB(): FindBRequestBuilder {
-        return new FindBRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FindBRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get fisher(): FisherRequestBuilder {
-        return new FisherRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get fisherInv(): FisherInvRequestBuilder {
-        return new FisherInvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FisherInvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get fixed(): FixedRequestBuilder {
-        return new FixedRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FixedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get floor_Math(): Floor_MathRequestBuilder {
-        return new Floor_MathRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Floor_MathRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get floor_Precise(): Floor_PreciseRequestBuilder {
-        return new Floor_PreciseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Floor_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get fv(): FvRequestBuilder {
-        return new FvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get fvschedule(): FvscheduleRequestBuilder {
-        return new FvscheduleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FvscheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gamma(): GammaRequestBuilder {
-        return new GammaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GammaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gamma_Dist(): Gamma_DistRequestBuilder {
-        return new Gamma_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Gamma_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gamma_Inv(): Gamma_InvRequestBuilder {
-        return new Gamma_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Gamma_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gammaLn(): GammaLnRequestBuilder {
-        return new GammaLnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GammaLnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gammaLn_Precise(): GammaLn_PreciseRequestBuilder {
-        return new GammaLn_PreciseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GammaLn_PreciseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gauss(): GaussRequestBuilder {
-        return new GaussRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GaussRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get gcd(): GcdRequestBuilder {
-        return new GcdRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GcdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get geoMean(): GeoMeanRequestBuilder {
-        return new GeoMeanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GeoMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get geStep(): GeStepRequestBuilder {
-        return new GeStepRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GeStepRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get harMean(): HarMeanRequestBuilder {
-        return new HarMeanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new HarMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get hex2Bin(): Hex2BinRequestBuilder {
-        return new Hex2BinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Hex2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get hex2Dec(): Hex2DecRequestBuilder {
-        return new Hex2DecRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Hex2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get hex2Oct(): Hex2OctRequestBuilder {
-        return new Hex2OctRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Hex2OctRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get hlookup(): HlookupRequestBuilder {
-        return new HlookupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new HlookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get hour(): HourRequestBuilder {
-        return new HourRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new HourRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
     public get hyperlink(): HyperlinkRequestBuilder {
-        return new HyperlinkRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new HyperlinkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get hypGeom_Dist(): HypGeom_DistRequestBuilder {
-        return new HypGeom_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new HypGeom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get if_escaped(): IfRequestBuilder {
-        return new IfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imAbs(): ImAbsRequestBuilder {
-        return new ImAbsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImAbsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imaginary(): ImaginaryRequestBuilder {
-        return new ImaginaryRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImaginaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imArgument(): ImArgumentRequestBuilder {
-        return new ImArgumentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImArgumentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imConjugate(): ImConjugateRequestBuilder {
-        return new ImConjugateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImConjugateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imCos(): ImCosRequestBuilder {
-        return new ImCosRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImCosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imCosh(): ImCoshRequestBuilder {
-        return new ImCoshRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImCoshRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imCot(): ImCotRequestBuilder {
-        return new ImCotRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImCotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imCsc(): ImCscRequestBuilder {
-        return new ImCscRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImCscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imCsch(): ImCschRequestBuilder {
-        return new ImCschRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImCschRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imDiv(): ImDivRequestBuilder {
-        return new ImDivRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImDivRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imExp(): ImExpRequestBuilder {
-        return new ImExpRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImExpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imLn(): ImLnRequestBuilder {
-        return new ImLnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImLnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imLog10(): ImLog10RequestBuilder {
-        return new ImLog10RequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImLog10RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imLog2(): ImLog2RequestBuilder {
-        return new ImLog2RequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImLog2RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imPower(): ImPowerRequestBuilder {
-        return new ImPowerRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImPowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imProduct(): ImProductRequestBuilder {
-        return new ImProductRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImProductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imReal(): ImRealRequestBuilder {
-        return new ImRealRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImRealRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSec(): ImSecRequestBuilder {
-        return new ImSecRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSech(): ImSechRequestBuilder {
-        return new ImSechRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSechRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSin(): ImSinRequestBuilder {
-        return new ImSinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSinh(): ImSinhRequestBuilder {
-        return new ImSinhRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSqrt(): ImSqrtRequestBuilder {
-        return new ImSqrtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSqrtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSub(): ImSubRequestBuilder {
-        return new ImSubRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imSum(): ImSumRequestBuilder {
-        return new ImSumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImSumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get imTan(): ImTanRequestBuilder {
-        return new ImTanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ImTanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get int(): IntRequestBuilder {
-        return new IntRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IntRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get intRate(): IntRateRequestBuilder {
-        return new IntRateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IntRateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ipmt(): IpmtRequestBuilder {
-        return new IpmtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IpmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get irr(): IrrRequestBuilder {
-        return new IrrRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IrrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isErr(): IsErrRequestBuilder {
-        return new IsErrRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsErrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isError(): IsErrorRequestBuilder {
-        return new IsErrorRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsErrorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isEven(): IsEvenRequestBuilder {
-        return new IsEvenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsEvenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isFormula(): IsFormulaRequestBuilder {
-        return new IsFormulaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsFormulaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isLogical(): IsLogicalRequestBuilder {
-        return new IsLogicalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsLogicalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isNA(): IsNARequestBuilder {
-        return new IsNARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsNARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isNonText(): IsNonTextRequestBuilder {
-        return new IsNonTextRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsNonTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isNumber(): IsNumberRequestBuilder {
-        return new IsNumberRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsNumberRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get iso_Ceiling(): Iso_CeilingRequestBuilder {
-        return new Iso_CeilingRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Iso_CeilingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isOdd(): IsOddRequestBuilder {
-        return new IsOddRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsOddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isoWeekNum(): IsoWeekNumRequestBuilder {
-        return new IsoWeekNumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsoWeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ispmt(): IspmtRequestBuilder {
-        return new IspmtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IspmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get isref(): IsrefRequestBuilder {
-        return new IsrefRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsrefRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get isText(): IsTextRequestBuilder {
-        return new IsTextRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new IsTextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get kurt(): KurtRequestBuilder {
-        return new KurtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new KurtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get large(): LargeRequestBuilder {
-        return new LargeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LargeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get lcm(): LcmRequestBuilder {
-        return new LcmRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LcmRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get left(): LeftRequestBuilder {
-        return new LeftRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LeftRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get leftb(): LeftbRequestBuilder {
-        return new LeftbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LeftbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get len(): LenRequestBuilder {
-        return new LenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get lenb(): LenbRequestBuilder {
-        return new LenbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LenbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ln(): LnRequestBuilder {
-        return new LnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get log(): LogRequestBuilder {
-        return new LogRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get log10(): Log10RequestBuilder {
-        return new Log10RequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Log10RequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get logNorm_Dist(): LogNorm_DistRequestBuilder {
-        return new LogNorm_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LogNorm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get logNorm_Inv(): LogNorm_InvRequestBuilder {
-        return new LogNorm_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LogNorm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get lookup(): LookupRequestBuilder {
-        return new LookupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get lower(): LowerRequestBuilder {
-        return new LowerRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get match(): MatchRequestBuilder {
-        return new MatchRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MatchRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get max(): MaxRequestBuilder {
-        return new MaxRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MaxRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get maxA(): MaxARequestBuilder {
-        return new MaxARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MaxARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get mduration(): MdurationRequestBuilder {
-        return new MdurationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MdurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get median(): MedianRequestBuilder {
-        return new MedianRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MedianRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get mid(): MidRequestBuilder {
-        return new MidRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MidRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get midb(): MidbRequestBuilder {
-        return new MidbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MidbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get min(): MinRequestBuilder {
-        return new MinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get minA(): MinARequestBuilder {
-        return new MinARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MinARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get minute(): MinuteRequestBuilder {
-        return new MinuteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MinuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get mirr(): MirrRequestBuilder {
-        return new MirrRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MirrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get mod(): ModRequestBuilder {
-        return new ModRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ModRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get month(): MonthRequestBuilder {
-        return new MonthRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MonthRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get mround(): MroundRequestBuilder {
-        return new MroundRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MroundRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get multiNomial(): MultiNomialRequestBuilder {
-        return new MultiNomialRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MultiNomialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get n(): NRequestBuilder {
-        return new NRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get na(): NaRequestBuilder {
-        return new NaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get negBinom_Dist(): NegBinom_DistRequestBuilder {
-        return new NegBinom_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NegBinom_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get networkDays(): NetworkDaysRequestBuilder {
-        return new NetworkDaysRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NetworkDaysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get networkDays_Intl(): NetworkDays_IntlRequestBuilder {
-        return new NetworkDays_IntlRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NetworkDays_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get nominal(): NominalRequestBuilder {
-        return new NominalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NominalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get norm_Dist(): Norm_DistRequestBuilder {
-        return new Norm_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Norm_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get norm_Inv(): Norm_InvRequestBuilder {
-        return new Norm_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Norm_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get norm_S_Dist(): Norm_S_DistRequestBuilder {
-        return new Norm_S_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Norm_S_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get norm_S_Inv(): Norm_S_InvRequestBuilder {
-        return new Norm_S_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Norm_S_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get not(): NotRequestBuilder {
-        return new NotRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NotRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get now(): NowRequestBuilder {
-        return new NowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get nper(): NperRequestBuilder {
-        return new NperRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get npv(): NpvRequestBuilder {
-        return new NpvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NpvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get numberValue(): NumberValueRequestBuilder {
-        return new NumberValueRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NumberValueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oct2Bin(): Oct2BinRequestBuilder {
-        return new Oct2BinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Oct2BinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oct2Dec(): Oct2DecRequestBuilder {
-        return new Oct2DecRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Oct2DecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oct2Hex(): Oct2HexRequestBuilder {
-        return new Oct2HexRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Oct2HexRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get odd(): OddRequestBuilder {
-        return new OddRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oddFPrice(): OddFPriceRequestBuilder {
-        return new OddFPriceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OddFPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oddFYield(): OddFYieldRequestBuilder {
-        return new OddFYieldRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OddFYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oddLPrice(): OddLPriceRequestBuilder {
-        return new OddLPriceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OddLPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get oddLYield(): OddLYieldRequestBuilder {
-        return new OddLYieldRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OddLYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get or(): OrRequestBuilder {
-        return new OrRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get pduration(): PdurationRequestBuilder {
-        return new PdurationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PdurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get percentile_Exc(): Percentile_ExcRequestBuilder {
-        return new Percentile_ExcRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Percentile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get percentile_Inc(): Percentile_IncRequestBuilder {
-        return new Percentile_IncRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Percentile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get percentRank_Exc(): PercentRank_ExcRequestBuilder {
-        return new PercentRank_ExcRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PercentRank_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get percentRank_Inc(): PercentRank_IncRequestBuilder {
-        return new PercentRank_IncRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PercentRank_IncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get permut(): PermutRequestBuilder {
-        return new PermutRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PermutRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get permutationa(): PermutationaRequestBuilder {
-        return new PermutationaRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PermutationaRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get phi(): PhiRequestBuilder {
-        return new PhiRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PhiRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get pi(): PiRequestBuilder {
-        return new PiRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PiRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get pmt(): PmtRequestBuilder {
-        return new PmtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get poisson_Dist(): Poisson_DistRequestBuilder {
-        return new Poisson_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Poisson_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get power(): PowerRequestBuilder {
-        return new PowerRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PowerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get ppmt(): PpmtRequestBuilder {
-        return new PpmtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PpmtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get price(): PriceRequestBuilder {
-        return new PriceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get priceDisc(): PriceDiscRequestBuilder {
-        return new PriceDiscRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PriceDiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get priceMat(): PriceMatRequestBuilder {
-        return new PriceMatRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PriceMatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get product(): ProductRequestBuilder {
-        return new ProductRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ProductRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get proper(): ProperRequestBuilder {
-        return new ProperRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ProperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get pv(): PvRequestBuilder {
-        return new PvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get quartile_Exc(): Quartile_ExcRequestBuilder {
-        return new Quartile_ExcRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Quartile_ExcRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get quartile_Inc(): Quartile_IncRequestBuilder {
-        return new Quartile_IncRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Quartile_IncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get quotient(): QuotientRequestBuilder {
-        return new QuotientRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new QuotientRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get radians(): RadiansRequestBuilder {
-        return new RadiansRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RadiansRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rand(): RandRequestBuilder {
-        return new RandRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RandRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get randBetween(): RandBetweenRequestBuilder {
-        return new RandBetweenRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RandBetweenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rank_Avg(): Rank_AvgRequestBuilder {
-        return new Rank_AvgRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Rank_AvgRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rank_Eq(): Rank_EqRequestBuilder {
-        return new Rank_EqRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Rank_EqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rate(): RateRequestBuilder {
-        return new RateRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get received(): ReceivedRequestBuilder {
-        return new ReceivedRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ReceivedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get replace(): ReplaceRequestBuilder {
-        return new ReplaceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ReplaceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get replaceB(): ReplaceBRequestBuilder {
-        return new ReplaceBRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ReplaceBRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rept(): ReptRequestBuilder {
-        return new ReptRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ReptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get right(): RightRequestBuilder {
-        return new RightRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RightRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rightb(): RightbRequestBuilder {
-        return new RightbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RightbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get roman(): RomanRequestBuilder {
-        return new RomanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RomanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get round(): RoundRequestBuilder {
-        return new RoundRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RoundRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get roundDown(): RoundDownRequestBuilder {
-        return new RoundDownRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RoundDownRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get roundUp(): RoundUpRequestBuilder {
-        return new RoundUpRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RoundUpRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rows(): RowsRequestBuilder {
-        return new RowsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RowsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rri(): RriRequestBuilder {
-        return new RriRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RriRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sec(): SecRequestBuilder {
-        return new SecRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SecRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sech(): SechRequestBuilder {
-        return new SechRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SechRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get second(): SecondRequestBuilder {
-        return new SecondRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SecondRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get seriesSum(): SeriesSumRequestBuilder {
-        return new SeriesSumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SeriesSumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sheet(): SheetRequestBuilder {
-        return new SheetRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SheetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sheets(): SheetsRequestBuilder {
-        return new SheetsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SheetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sign(): SignRequestBuilder {
-        return new SignRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sin(): SinRequestBuilder {
-        return new SinRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sinh(): SinhRequestBuilder {
-        return new SinhRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SinhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get skew(): SkewRequestBuilder {
-        return new SkewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SkewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get skew_p(): Skew_pRequestBuilder {
-        return new Skew_pRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Skew_pRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sln(): SlnRequestBuilder {
-        return new SlnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SlnRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get small(): SmallRequestBuilder {
-        return new SmallRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SmallRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sqrt(): SqrtRequestBuilder {
-        return new SqrtRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SqrtRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sqrtPi(): SqrtPiRequestBuilder {
-        return new SqrtPiRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SqrtPiRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get standardize(): StandardizeRequestBuilder {
-        return new StandardizeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new StandardizeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get stDev_P(): StDev_PRequestBuilder {
-        return new StDev_PRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new StDev_PRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get stDev_S(): StDev_SRequestBuilder {
-        return new StDev_SRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new StDev_SRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get stDevA(): StDevARequestBuilder {
-        return new StDevARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new StDevARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get stDevPA(): StDevPARequestBuilder {
-        return new StDevPARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new StDevPARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get substitute(): SubstituteRequestBuilder {
-        return new SubstituteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SubstituteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get subtotal(): SubtotalRequestBuilder {
-        return new SubtotalRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SubtotalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sum(): SumRequestBuilder {
-        return new SumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sumIf(): SumIfRequestBuilder {
-        return new SumIfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SumIfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sumIfs(): SumIfsRequestBuilder {
-        return new SumIfsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SumIfsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sumSq(): SumSqRequestBuilder {
-        return new SumSqRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SumSqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get syd(): SydRequestBuilder {
-        return new SydRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SydRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get t(): TRequestBuilder {
-        return new TRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get t_Dist(): T_DistRequestBuilder {
-        return new T_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new T_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get t_Dist_2T(): T_Dist_2TRequestBuilder {
-        return new T_Dist_2TRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new T_Dist_2TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get t_Dist_RT(): T_Dist_RTRequestBuilder {
-        return new T_Dist_RTRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new T_Dist_RTRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get t_Inv(): T_InvRequestBuilder {
-        return new T_InvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new T_InvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get t_Inv_2T(): T_Inv_2TRequestBuilder {
-        return new T_Inv_2TRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new T_Inv_2TRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tan(): TanRequestBuilder {
-        return new TanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tanh(): TanhRequestBuilder {
-        return new TanhRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TanhRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tbillEq(): TbillEqRequestBuilder {
-        return new TbillEqRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TbillEqRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tbillPrice(): TbillPriceRequestBuilder {
-        return new TbillPriceRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TbillPriceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get tbillYield(): TbillYieldRequestBuilder {
-        return new TbillYieldRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TbillYieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get text(): TextRequestBuilder {
-        return new TextRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TextRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get time(): TimeRequestBuilder {
-        return new TimeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TimeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get timevalue(): TimevalueRequestBuilder {
-        return new TimevalueRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TimevalueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get today(): TodayRequestBuilder {
-        return new TodayRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TodayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get trim(): TrimRequestBuilder {
-        return new TrimRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TrimRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get trimMean(): TrimMeanRequestBuilder {
-        return new TrimMeanRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TrimMeanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get true_escaped(): TrueRequestBuilder {
-        return new TrueRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TrueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get trunc(): TruncRequestBuilder {
-        return new TruncRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TruncRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get type(): TypeRequestBuilder {
-        return new TypeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TypeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get unichar(): UnicharRequestBuilder {
-        return new UnicharRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UnicharRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get unicode(): UnicodeRequestBuilder {
-        return new UnicodeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UnicodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get upper(): UpperRequestBuilder {
-        return new UpperRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UpperRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get usdollar(): UsdollarRequestBuilder {
-        return new UsdollarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UsdollarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get value(): ValueRequestBuilder {
-        return new ValueRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ValueRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get var_P(): Var_PRequestBuilder {
-        return new Var_PRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Var_PRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get var_S(): Var_SRequestBuilder {
-        return new Var_SRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Var_SRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get varA(): VarARequestBuilder {
-        return new VarARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new VarARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get varPA(): VarPARequestBuilder {
-        return new VarPARequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new VarPARequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get vdb(): VdbRequestBuilder {
-        return new VdbRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new VdbRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get vlookup(): VlookupRequestBuilder {
-        return new VlookupRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new VlookupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get weekday(): WeekdayRequestBuilder {
-        return new WeekdayRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WeekdayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get weekNum(): WeekNumRequestBuilder {
-        return new WeekNumRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WeekNumRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get weibull_Dist(): Weibull_DistRequestBuilder {
-        return new Weibull_DistRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Weibull_DistRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workDay(): WorkDayRequestBuilder {
-        return new WorkDayRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkDayRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workDay_Intl(): WorkDay_IntlRequestBuilder {
-        return new WorkDay_IntlRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkDay_IntlRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get xirr(): XirrRequestBuilder {
-        return new XirrRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new XirrRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get xnpv(): XnpvRequestBuilder {
-        return new XnpvRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new XnpvRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get xor(): XorRequestBuilder {
-        return new XorRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new XorRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get year(): YearRequestBuilder {
-        return new YearRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new YearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get yearFrac(): YearFracRequestBuilder {
-        return new YearFracRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new YearFracRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get yield(): YieldRequestBuilder {
-        return new YieldRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new YieldRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get yieldDisc(): YieldDiscRequestBuilder {
-        return new YieldDiscRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new YieldDiscRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get yieldMat(): YieldMatRequestBuilder {
-        return new YieldMatRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new YieldMatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get z_Test(): Z_TestRequestBuilder {
-        return new Z_TestRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Z_TestRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new FunctionsRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/functions";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook/functions{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Delete navigation property functions for workbooks
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Get functions from workbooks
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update the navigation property functions in workbooks
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: WorkbookFunctions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WorkbookFunctions | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Delete navigation property functions for workbooks
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get functions from workbooks
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WorkbookFunctions
@@ -1562,24 +1562,24 @@ export class FunctionsRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctions | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WorkbookFunctions | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<WorkbookFunctions>(requestInfo, WorkbookFunctions, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WorkbookFunctions>(requestInfo, WorkbookFunctions, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property functions in workbooks
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: WorkbookFunctions | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WorkbookFunctions | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
 }

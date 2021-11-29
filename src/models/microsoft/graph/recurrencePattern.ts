@@ -1,18 +1,18 @@
 import {DayOfWeek} from './dayOfWeek';
 import {RecurrencePatternType} from './recurrencePatternType';
 import {WeekIndex} from './weekIndex';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecurrencePattern implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The day of the month on which the event occurs. Required if type is absoluteMonthly or absoluteYearly.  */
     private _dayOfMonth?: number | undefined;
-    /** A collection of the days of the week on which the event occurs. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.  */
+    /** A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.  */
     private _daysOfWeek?: DayOfWeek[] | undefined;
-    /** The first day of the week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.  */
+    /** The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.  */
     private _firstDayOfWeek?: DayOfWeek | undefined;
-    /** Specifies on which instance of the allowed days specified in daysOfsWeek the event occurs, counted from the first instance in the month. Possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.  */
+    /** Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.  */
     private _index?: WeekIndex | undefined;
     /** The number of units between occurrences, where units can be in days, weeks, months, or years, depending on the type. Required.  */
     private _interval?: number | undefined;
@@ -41,21 +41,21 @@ export class RecurrencePattern implements Parsable {
         return this._dayOfMonth;
     };
     /**
-     * Gets the daysOfWeek property value. A collection of the days of the week on which the event occurs. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.
+     * Gets the daysOfWeek property value. A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.
      * @returns a dayOfWeek
      */
     public get daysOfWeek() {
         return this._daysOfWeek;
     };
     /**
-     * Gets the firstDayOfWeek property value. The first day of the week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
+     * Gets the firstDayOfWeek property value. The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
      * @returns a dayOfWeek
      */
     public get firstDayOfWeek() {
         return this._firstDayOfWeek;
     };
     /**
-     * Gets the index property value. Specifies on which instance of the allowed days specified in daysOfsWeek the event occurs, counted from the first instance in the month. Possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
+     * Gets the index property value. Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
      * @returns a weekIndex
      */
     public get index() {
@@ -104,7 +104,7 @@ export class RecurrencePattern implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeNumberValue("dayOfMonth", this.dayOfMonth);
-        writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
+        this.daysOfWeek && writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
         writer.writeEnumValue<DayOfWeek>("firstDayOfWeek", this.firstDayOfWeek);
         writer.writeEnumValue<WeekIndex>("index", this.index);
         writer.writeNumberValue("interval", this.interval);
@@ -127,21 +127,21 @@ export class RecurrencePattern implements Parsable {
         this._dayOfMonth = value;
     };
     /**
-     * Sets the daysOfWeek property value. A collection of the days of the week on which the event occurs. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.
+     * Sets the daysOfWeek property value. A collection of the days of the week on which the event occurs. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. If type is relativeMonthly or relativeYearly, and daysOfWeek specifies more than one day, the event falls on the first day that satisfies the pattern.  Required if type is weekly, relativeMonthly, or relativeYearly.
      * @param value Value to set for the daysOfWeek property.
      */
     public set daysOfWeek(value: DayOfWeek[] | undefined) {
         this._daysOfWeek = value;
     };
     /**
-     * Sets the firstDayOfWeek property value. The first day of the week. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
+     * Sets the firstDayOfWeek property value. The first day of the week. The possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. Default is sunday. Required if type is weekly.
      * @param value Value to set for the firstDayOfWeek property.
      */
     public set firstDayOfWeek(value: DayOfWeek | undefined) {
         this._firstDayOfWeek = value;
     };
     /**
-     * Sets the index property value. Specifies on which instance of the allowed days specified in daysOfsWeek the event occurs, counted from the first instance in the month. Possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
+     * Sets the index property value. Specifies on which instance of the allowed days specified in daysOfWeek the event occurs, counted from the first instance in the month. The possible values are: first, second, third, fourth, last. Default is first. Optional and used if type is relativeMonthly or relativeYearly.
      * @param value Value to set for the index property.
      */
     public set index(value: WeekIndex | undefined) {

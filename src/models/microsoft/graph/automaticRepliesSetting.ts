@@ -1,12 +1,12 @@
 import {AutomaticRepliesStatus} from './automaticRepliesStatus';
 import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {ExternalAudienceScope} from './externalAudienceScope';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AutomaticRepliesSetting implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.  */
+    /** The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.  */
     private _externalAudience?: ExternalAudienceScope | undefined;
     /** The automatic reply to send to the specified external audience, if Status is AlwaysEnabled or Scheduled.  */
     private _externalReplyMessage?: string | undefined;
@@ -16,7 +16,7 @@ export class AutomaticRepliesSetting implements Parsable {
     private _scheduledEndDateTime?: DateTimeTimeZone | undefined;
     /** The date and time that automatic replies are set to begin, if Status is set to Scheduled.  */
     private _scheduledStartDateTime?: DateTimeTimeZone | undefined;
-    /** Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.  */
+    /** Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.  */
     private _status?: AutomaticRepliesStatus | undefined;
     /**
      * Instantiates a new automaticRepliesSetting and sets the default values.
@@ -32,7 +32,7 @@ export class AutomaticRepliesSetting implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * Gets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @returns a externalAudienceScope
      */
     public get externalAudience() {
@@ -67,7 +67,7 @@ export class AutomaticRepliesSetting implements Parsable {
         return this._scheduledStartDateTime;
     };
     /**
-     * Gets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * Gets the status property value. Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @returns a automaticRepliesStatus
      */
     public get status() {
@@ -109,7 +109,7 @@ export class AutomaticRepliesSetting implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. Possible values are: none, contactsOnly, all.
+     * Sets the externalAudience property value. The set of audience external to the signed-in user's organization who will receive the ExternalReplyMessage, if Status is AlwaysEnabled or Scheduled. The possible values are: none, contactsOnly, all.
      * @param value Value to set for the externalAudience property.
      */
     public set externalAudience(value: ExternalAudienceScope | undefined) {
@@ -144,7 +144,7 @@ export class AutomaticRepliesSetting implements Parsable {
         this._scheduledStartDateTime = value;
     };
     /**
-     * Sets the status property value. Configurations status for automatic replies. Possible values are: disabled, alwaysEnabled, scheduled.
+     * Sets the status property value. Configurations status for automatic replies. The possible values are: disabled, alwaysEnabled, scheduled.
      * @param value Value to set for the status property.
      */
     public set status(value: AutomaticRepliesStatus | undefined) {

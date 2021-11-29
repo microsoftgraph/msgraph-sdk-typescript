@@ -1,11 +1,11 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class KeyValue implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Key.  */
+    /** Key for the key-value pair.  */
     private _key?: string | undefined;
-    /** Value.  */
+    /** Value for the key-value pair.  */
     private _value?: string | undefined;
     /**
      * Instantiates a new keyValue and sets the default values.
@@ -21,14 +21,14 @@ export class KeyValue implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the key property value. Key.
+     * Gets the key property value. Key for the key-value pair.
      * @returns a string
      */
     public get key() {
         return this._key;
     };
     /**
-     * Gets the value property value. Value.
+     * Gets the value property value. Value for the key-value pair.
      * @returns a string
      */
     public get value() {
@@ -62,14 +62,14 @@ export class KeyValue implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the key property value. Key.
+     * Sets the key property value. Key for the key-value pair.
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
         this._key = value;
     };
     /**
-     * Sets the value property value. Value.
+     * Sets the value property value. Value for the key-value pair.
      * @param value Value to set for the value property.
      */
     public set value(value: string | undefined) {

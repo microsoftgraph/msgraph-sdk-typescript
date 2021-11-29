@@ -1,15 +1,15 @@
 import {AccessReviewApplyAction} from './accessReviewApplyAction';
 import {PatternedRecurrence} from './patternedRecurrence';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewScheduleSettings implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.  */
+    /** Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.  */
     private _applyActions?: AccessReviewApplyAction[] | undefined;
-    /** Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.  */
+    /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.  */
     private _autoApplyDecisionsEnabled?: boolean | undefined;
-    /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.  */
+    /** Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.  */
     private _defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false.  */
     private _defaultDecisionEnabled?: boolean | undefined;
@@ -19,7 +19,7 @@ export class AccessReviewScheduleSettings implements Parsable {
     private _justificationRequiredOnApproval?: boolean | undefined;
     /** Indicates whether emails are enabled or disabled. Default value is false.  */
     private _mailNotificationsEnabled?: boolean | undefined;
-    /** Indicates whether decision recommendations are enabled/disabled.  */
+    /** Indicates whether decision recommendations are enabled or disabled.  */
     private _recommendationsEnabled?: boolean | undefined;
     /** Detailed settings for recurrence using the standard Outlook recurrence object. Only weekly and absoluteMonthly on recurrencePattern are supported. Use the property startDate on recurrenceRange to determine the day the review starts.  */
     private _recurrence?: PatternedRecurrence | undefined;
@@ -39,21 +39,21 @@ export class AccessReviewScheduleSettings implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the applyActions property value. Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.
+     * Gets the applyActions property value. Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.
      * @returns a accessReviewApplyAction
      */
     public get applyActions() {
         return this._applyActions;
     };
     /**
-     * Gets the autoApplyDecisionsEnabled property value. Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.
+     * Gets the autoApplyDecisionsEnabled property value. Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.
      * @returns a boolean
      */
     public get autoApplyDecisionsEnabled() {
         return this._autoApplyDecisionsEnabled;
     };
     /**
-     * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+     * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
      * @returns a string
      */
     public get defaultDecision() {
@@ -88,7 +88,7 @@ export class AccessReviewScheduleSettings implements Parsable {
         return this._mailNotificationsEnabled;
     };
     /**
-     * Gets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled/disabled.
+     * Gets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled.
      * @returns a boolean
      */
     public get recommendationsEnabled() {
@@ -152,21 +152,21 @@ export class AccessReviewScheduleSettings implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the applyActions property value. Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction. See accessReviewApplyAction.
+     * Sets the applyActions property value. Optional field. Describes the  actions to take once a review is complete. There are two types that are currently supported: removeAccessApplyAction (default) and disableAndDeleteUserApplyAction. Field only needs to be specified in the case of disableAndDeleteUserApplyAction.
      * @param value Value to set for the applyActions property.
      */
     public set applyActions(value: AccessReviewApplyAction[] | undefined) {
         this._applyActions = value;
     };
     /**
-     * Sets the autoApplyDecisionsEnabled property value. Indicates whether decisions are automatically applied. When set to false, a user must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.
+     * Sets the autoApplyDecisionsEnabled property value. Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.
      * @param value Value to set for the autoApplyDecisionsEnabled property.
      */
     public set autoApplyDecisionsEnabled(value: boolean | undefined) {
         this._autoApplyDecisionsEnabled = value;
     };
     /**
-     * Sets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+     * Sets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
      * @param value Value to set for the defaultDecision property.
      */
     public set defaultDecision(value: string | undefined) {
@@ -201,7 +201,7 @@ export class AccessReviewScheduleSettings implements Parsable {
         this._mailNotificationsEnabled = value;
     };
     /**
-     * Sets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled/disabled.
+     * Sets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled.
      * @param value Value to set for the recommendationsEnabled property.
      */
     public set recommendationsEnabled(value: boolean | undefined) {

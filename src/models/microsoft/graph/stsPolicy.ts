@@ -1,6 +1,6 @@
 import {DirectoryObject} from './directoryObject';
 import {PolicyBase} from './policyBase';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class StsPolicy extends PolicyBase implements Parsable {
     private _appliesTo?: DirectoryObject[] | undefined;

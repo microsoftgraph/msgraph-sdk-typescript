@@ -7,7 +7,7 @@ import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterCapabilities implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -291,13 +291,13 @@ export class PrinterCapabilities implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfPrimitiveValues<number>("bottomMargins", this.bottomMargins);
         writer.writeBooleanValue("collation", this.collation);
-        writer.writeEnumValue<PrintColorMode>("colorModes", ...this.colorModes);
+        this.colorModes && writer.writeEnumValue<PrintColorMode>("colorModes", ...this.colorModes);
         writer.writeCollectionOfPrimitiveValues<string>("contentTypes", this.contentTypes);
         writer.writeObjectValue<IntegerRange>("copiesPerJob", this.copiesPerJob);
         writer.writeCollectionOfPrimitiveValues<number>("dpis", this.dpis);
-        writer.writeEnumValue<PrintDuplexMode>("duplexModes", ...this.duplexModes);
-        writer.writeEnumValue<PrinterFeedOrientation>("feedOrientations", ...this.feedOrientations);
-        writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
+        this.duplexModes && writer.writeEnumValue<PrintDuplexMode>("duplexModes", ...this.duplexModes);
+        this.feedOrientations && writer.writeEnumValue<PrinterFeedOrientation>("feedOrientations", ...this.feedOrientations);
+        this.finishings && writer.writeEnumValue<PrintFinishing>("finishings", ...this.finishings);
         writer.writeCollectionOfPrimitiveValues<string>("inputBins", this.inputBins);
         writer.writeBooleanValue("isColorPrintingSupported", this.isColorPrintingSupported);
         writer.writeBooleanValue("isPageRangeSupported", this.isPageRangeSupported);
@@ -305,13 +305,13 @@ export class PrinterCapabilities implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("mediaColors", this.mediaColors);
         writer.writeCollectionOfPrimitiveValues<string>("mediaSizes", this.mediaSizes);
         writer.writeCollectionOfPrimitiveValues<string>("mediaTypes", this.mediaTypes);
-        writer.writeEnumValue<PrintMultipageLayout>("multipageLayouts", ...this.multipageLayouts);
-        writer.writeEnumValue<PrintOrientation>("orientations", ...this.orientations);
+        this.multipageLayouts && writer.writeEnumValue<PrintMultipageLayout>("multipageLayouts", ...this.multipageLayouts);
+        this.orientations && writer.writeEnumValue<PrintOrientation>("orientations", ...this.orientations);
         writer.writeCollectionOfPrimitiveValues<string>("outputBins", this.outputBins);
         writer.writeCollectionOfPrimitiveValues<number>("pagesPerSheet", this.pagesPerSheet);
-        writer.writeEnumValue<PrintQuality>("qualities", ...this.qualities);
+        this.qualities && writer.writeEnumValue<PrintQuality>("qualities", ...this.qualities);
         writer.writeCollectionOfPrimitiveValues<number>("rightMargins", this.rightMargins);
-        writer.writeEnumValue<PrintScaling>("scalings", ...this.scalings);
+        this.scalings && writer.writeEnumValue<PrintScaling>("scalings", ...this.scalings);
         writer.writeBooleanValue("supportsFitPdfToPage", this.supportsFitPdfToPage);
         writer.writeCollectionOfPrimitiveValues<number>("topMargins", this.topMargins);
         writer.writeAdditionalData(this.additionalData);

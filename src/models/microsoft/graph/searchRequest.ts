@@ -1,10 +1,16 @@
+import {AggregationOption} from './aggregationOption';
 import {EntityType} from './entityType';
 import {SearchQuery} from './searchQuery';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {SortProperty} from './sortProperty';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchRequest implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
+    /** Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.  */
+    private _aggregationFilters?: string[] | undefined;
+    /** Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.  */
+    private _aggregations?: AggregationOption[] | undefined;
     /** Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.  */
     private _contentSources?: string[] | undefined;
     /** This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional.  */
@@ -18,6 +24,8 @@ export class SearchRequest implements Parsable {
     private _query?: SearchQuery | undefined;
     /** The size of the page to be retrieved. Optional.  */
     private _size?: number | undefined;
+    /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.  */
+    private _sortProperties?: SortProperty[] | undefined;
     /**
      * Instantiates a new searchRequest and sets the default values.
      */
@@ -30,6 +38,20 @@ export class SearchRequest implements Parsable {
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Gets the aggregationFilters property value. Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.
+     * @returns a string
+     */
+    public get aggregationFilters() {
+        return this._aggregationFilters;
+    };
+    /**
+     * Gets the aggregations property value. Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
+     * @returns a aggregationOption
+     */
+    public get aggregations() {
+        return this._aggregations;
     };
     /**
      * Gets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
@@ -81,11 +103,20 @@ export class SearchRequest implements Parsable {
         return this._size;
     };
     /**
+     * Gets the sortProperties property value. Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
+     * @returns a sortProperty
+     */
+    public get sortProperties() {
+        return this._sortProperties;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
+            ["aggregationFilters", (o, n) => { (o as unknown as SearchRequest).aggregationFilters = n.getCollectionOfPrimitiveValues<string>(); }],
+            ["aggregations", (o, n) => { (o as unknown as SearchRequest).aggregations = n.getCollectionOfObjectValues<AggregationOption>(AggregationOption); }],
             ["contentSources", (o, n) => { (o as unknown as SearchRequest).contentSources = n.getCollectionOfPrimitiveValues<string>(); }],
             ["enableTopResults", (o, n) => { (o as unknown as SearchRequest).enableTopResults = n.getBooleanValue(); }],
             ["entityTypes", (o, n) => { (o as unknown as SearchRequest).entityTypes = n.getEnumValues<EntityType>(EntityType); }],
@@ -93,6 +124,7 @@ export class SearchRequest implements Parsable {
             ["from", (o, n) => { (o as unknown as SearchRequest).from = n.getNumberValue(); }],
             ["query", (o, n) => { (o as unknown as SearchRequest).query = n.getObjectValue<SearchQuery>(SearchQuery); }],
             ["size", (o, n) => { (o as unknown as SearchRequest).size = n.getNumberValue(); }],
+            ["sortProperties", (o, n) => { (o as unknown as SearchRequest).sortProperties = n.getCollectionOfObjectValues<SortProperty>(SortProperty); }],
         ]);
     };
     /**
@@ -101,13 +133,16 @@ export class SearchRequest implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeCollectionOfPrimitiveValues<string>("aggregationFilters", this.aggregationFilters);
+        writer.writeCollectionOfObjectValues<AggregationOption>("aggregations", this.aggregations);
         writer.writeCollectionOfPrimitiveValues<string>("contentSources", this.contentSources);
         writer.writeBooleanValue("enableTopResults", this.enableTopResults);
-        writer.writeEnumValue<EntityType>("entityTypes", ...this.entityTypes);
+        this.entityTypes && writer.writeEnumValue<EntityType>("entityTypes", ...this.entityTypes);
         writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
         writer.writeNumberValue("from", this.from);
         writer.writeObjectValue<SearchQuery>("query", this.query);
         writer.writeNumberValue("size", this.size);
+        writer.writeCollectionOfObjectValues<SortProperty>("sortProperties", this.sortProperties);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -116,6 +151,20 @@ export class SearchRequest implements Parsable {
      */
     public set additionalData(value: Map<string, unknown>) {
         this._additionalData = value;
+    };
+    /**
+     * Sets the aggregationFilters property value. Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.
+     * @param value Value to set for the aggregationFilters property.
+     */
+    public set aggregationFilters(value: string[] | undefined) {
+        this._aggregationFilters = value;
+    };
+    /**
+     * Sets the aggregations property value. Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.
+     * @param value Value to set for the aggregations property.
+     */
+    public set aggregations(value: AggregationOption[] | undefined) {
+        this._aggregations = value;
     };
     /**
      * Sets the contentSources property value. Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.
@@ -165,5 +214,12 @@ export class SearchRequest implements Parsable {
      */
     public set size(value: number | undefined) {
         this._size = value;
+    };
+    /**
+     * Sets the sortProperties property value. Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.
+     * @param value Value to set for the sortProperties property.
+     */
+    public set sortProperties(value: SortProperty[] | undefined) {
+        this._sortProperties = value;
     };
 }

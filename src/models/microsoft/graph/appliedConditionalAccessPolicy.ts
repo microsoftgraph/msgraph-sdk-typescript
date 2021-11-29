@@ -1,5 +1,5 @@
 import {AppliedConditionalAccessPolicyResult} from './appliedConditionalAccessPolicyResult';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppliedConditionalAccessPolicy implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -10,9 +10,9 @@ export class AppliedConditionalAccessPolicy implements Parsable {
     private _enforcedGrantControls?: string[] | undefined;
     /** Refers to the session controls enforced by the conditional access policy (example: 'Require app enforced controls').  */
     private _enforcedSessionControls?: string[] | undefined;
-    /** Identifier of the conditional access policy.  */
+    /** An identifier of the conditional access policy.  */
     private _id?: string | undefined;
-    /** Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted  */
+    /** Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.  */
     private _result?: AppliedConditionalAccessPolicyResult | undefined;
     /**
      * Instantiates a new appliedConditionalAccessPolicy and sets the default values.
@@ -49,14 +49,14 @@ export class AppliedConditionalAccessPolicy implements Parsable {
         return this._enforcedSessionControls;
     };
     /**
-     * Gets the id property value. Identifier of the conditional access policy.
+     * Gets the id property value. An identifier of the conditional access policy.
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted
+     * Gets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
      * @returns a appliedConditionalAccessPolicyResult
      */
     public get result() {
@@ -117,14 +117,14 @@ export class AppliedConditionalAccessPolicy implements Parsable {
         this._enforcedSessionControls = value;
     };
     /**
-     * Sets the id property value. Identifier of the conditional access policy.
+     * Sets the id property value. An identifier of the conditional access policy.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
         this._id = value;
     };
     /**
-     * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue, reportOnlySuccess, reportOnlyFailure, reportOnlyNotApplied, reportOnlyInterrupted
+     * Sets the result property value. Indicates the result of the CA policy that was triggered. Possible values are: success, failure, notApplied (Policy isn't applied because policy conditions were not met),notEnabled (This is due to the policy in disabled state), unknown, unknownFutureValue.
      * @param value Value to set for the result property.
      */
     public set result(value: AppliedConditionalAccessPolicyResult | undefined) {

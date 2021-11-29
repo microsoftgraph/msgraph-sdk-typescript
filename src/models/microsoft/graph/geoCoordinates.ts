@@ -1,13 +1,13 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GeoCoordinates implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only.  */
     private _altitude?: number | undefined;
-    /** Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.  */
+    /** Optional. The latitude, in decimal, for the item. Read-only.  */
     private _latitude?: number | undefined;
-    /** Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.  */
+    /** Optional. The longitude, in decimal, for the item. Read-only.  */
     private _longitude?: number | undefined;
     /**
      * Instantiates a new geoCoordinates and sets the default values.
@@ -30,14 +30,14 @@ export class GeoCoordinates implements Parsable {
         return this._altitude;
     };
     /**
-     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
      * @returns a double
      */
     public get latitude() {
         return this._latitude;
     };
     /**
-     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
      * @returns a double
      */
     public get longitude() {
@@ -80,14 +80,14 @@ export class GeoCoordinates implements Parsable {
         this._altitude = value;
     };
     /**
-     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
      * @param value Value to set for the latitude property.
      */
     public set latitude(value: number | undefined) {
         this._latitude = value;
     };
     /**
-     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
+     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
      * @param value Value to set for the longitude property.
      */
     public set longitude(value: number | undefined) {

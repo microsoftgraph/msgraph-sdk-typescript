@@ -5,10 +5,10 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {OutlookItem} from './outlookItem';
 import {Recipient} from './recipient';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Post extends OutlookItem implements Parsable {
-    /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable.  */
+    /** Read-only. Nullable. Supports $expand.  */
     private _attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null.  */
     private _body?: ItemBody | undefined;
@@ -16,12 +16,12 @@ export class Post extends OutlookItem implements Parsable {
     private _conversationId?: string | undefined;
     /** Unique ID of the conversation thread. Read-only.  */
     private _conversationThreadId?: string | undefined;
-    /** The collection of open extensions defined for the post. Read-only. Nullable.  */
+    /** The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.  */
     private _extensions?: Extension[] | undefined;
     private _from?: Recipient | undefined;
     /** Indicates whether the post has at least one attachment. This is a default property.  */
     private _hasAttachments?: boolean | undefined;
-    /** The earlier post that this post is replying to in the conversationThread. Read-only.  */
+    /** Read-only. Supports $expand.  */
     private _inReplyTo?: Post | undefined;
     /** The collection of multi-value extended properties defined for the post. Read-only. Nullable.  */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
@@ -40,7 +40,7 @@ export class Post extends OutlookItem implements Parsable {
         super();
     };
     /**
-     * Gets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable.
+     * Gets the attachments property value. Read-only. Nullable. Supports $expand.
      * @returns a attachment
      */
     public get attachments() {
@@ -68,7 +68,7 @@ export class Post extends OutlookItem implements Parsable {
         return this._conversationThreadId;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
      * @returns a extension
      */
     public get extensions() {
@@ -89,7 +89,7 @@ export class Post extends OutlookItem implements Parsable {
         return this._hasAttachments;
     };
     /**
-     * Gets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only.
+     * Gets the inReplyTo property value. Read-only. Supports $expand.
      * @returns a post
      */
     public get inReplyTo() {
@@ -173,7 +173,7 @@ export class Post extends OutlookItem implements Parsable {
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
     };
     /**
-     * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable.
+     * Sets the attachments property value. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the attachments property.
      */
     public set attachments(value: Attachment[] | undefined) {
@@ -201,7 +201,7 @@ export class Post extends OutlookItem implements Parsable {
         this._conversationThreadId = value;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {
@@ -222,7 +222,7 @@ export class Post extends OutlookItem implements Parsable {
         this._hasAttachments = value;
     };
     /**
-     * Sets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only.
+     * Sets the inReplyTo property value. Read-only. Supports $expand.
      * @param value Value to set for the inReplyTo property.
      */
     public set inReplyTo(value: Post | undefined) {

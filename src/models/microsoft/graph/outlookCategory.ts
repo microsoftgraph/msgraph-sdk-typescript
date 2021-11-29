@@ -1,6 +1,6 @@
 import {CategoryColor} from './categoryColor';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OutlookCategory extends Entity implements Parsable {
     /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.  */

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {UserFlowType} from './userFlowType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlow extends Entity implements Parsable {
     private _userFlowType?: UserFlowType | undefined;

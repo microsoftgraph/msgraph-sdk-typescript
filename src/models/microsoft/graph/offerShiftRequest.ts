@@ -1,14 +1,14 @@
 import {ScheduleChangeRequest} from './scheduleChangeRequest';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request.  */
     private _recipientActionMessage?: string | undefined;
-    /** User id of the recipient of the offer shift request.  */
+    /** User ID of the recipient of the offer shift request.  */
     private _recipientUserId?: string | undefined;
-    /** User id of the sender of the offer shift request.  */
+    /** User ID of the sender of the offer shift request.  */
     private _senderShiftId?: string | undefined;
     /**
      * Instantiates a new offerShiftRequest and sets the default values.
@@ -31,14 +31,14 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
         return this._recipientActionMessage;
     };
     /**
-     * Gets the recipientUserId property value. User id of the recipient of the offer shift request.
+     * Gets the recipientUserId property value. User ID of the recipient of the offer shift request.
      * @returns a string
      */
     public get recipientUserId() {
         return this._recipientUserId;
     };
     /**
-     * Gets the senderShiftId property value. User id of the sender of the offer shift request.
+     * Gets the senderShiftId property value. User ID of the sender of the offer shift request.
      * @returns a string
      */
     public get senderShiftId() {
@@ -83,14 +83,14 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
         this._recipientActionMessage = value;
     };
     /**
-     * Sets the recipientUserId property value. User id of the recipient of the offer shift request.
+     * Sets the recipientUserId property value. User ID of the recipient of the offer shift request.
      * @param value Value to set for the recipientUserId property.
      */
     public set recipientUserId(value: string | undefined) {
         this._recipientUserId = value;
     };
     /**
-     * Sets the senderShiftId property value. User id of the sender of the offer shift request.
+     * Sets the senderShiftId property value. User ID of the sender of the offer shift request.
      * @param value Value to set for the senderShiftId property.
      */
     public set senderShiftId(value: string | undefined) {

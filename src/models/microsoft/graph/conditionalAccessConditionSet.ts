@@ -1,10 +1,11 @@
 import {ConditionalAccessApplications} from './conditionalAccessApplications';
 import {ConditionalAccessClientApp} from './conditionalAccessClientApp';
+import {ConditionalAccessDevices} from './conditionalAccessDevices';
 import {ConditionalAccessLocations} from './conditionalAccessLocations';
 import {ConditionalAccessPlatforms} from './conditionalAccessPlatforms';
 import {ConditionalAccessUsers} from './conditionalAccessUsers';
 import {RiskLevel} from './riskLevel';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessConditionSet implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -13,6 +14,8 @@ export class ConditionalAccessConditionSet implements Parsable {
     private _applications?: ConditionalAccessApplications | undefined;
     /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  */
     private _clientAppTypes?: ConditionalAccessClientApp[] | undefined;
+    /** Devices in the policy.  */
+    private _devices?: ConditionalAccessDevices | undefined;
     /** Locations included in and excluded from the policy.  */
     private _locations?: ConditionalAccessLocations | undefined;
     /** Platforms included in and excluded from the policy.  */
@@ -48,6 +51,13 @@ export class ConditionalAccessConditionSet implements Parsable {
      */
     public get clientAppTypes() {
         return this._clientAppTypes;
+    };
+    /**
+     * Gets the devices property value. Devices in the policy.
+     * @returns a conditionalAccessDevices
+     */
+    public get devices() {
+        return this._devices;
     };
     /**
      * Gets the locations property value. Locations included in and excluded from the policy.
@@ -92,6 +102,7 @@ export class ConditionalAccessConditionSet implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["applications", (o, n) => { (o as unknown as ConditionalAccessConditionSet).applications = n.getObjectValue<ConditionalAccessApplications>(ConditionalAccessApplications); }],
             ["clientAppTypes", (o, n) => { (o as unknown as ConditionalAccessConditionSet).clientAppTypes = n.getEnumValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); }],
+            ["devices", (o, n) => { (o as unknown as ConditionalAccessConditionSet).devices = n.getObjectValue<ConditionalAccessDevices>(ConditionalAccessDevices); }],
             ["locations", (o, n) => { (o as unknown as ConditionalAccessConditionSet).locations = n.getObjectValue<ConditionalAccessLocations>(ConditionalAccessLocations); }],
             ["platforms", (o, n) => { (o as unknown as ConditionalAccessConditionSet).platforms = n.getObjectValue<ConditionalAccessPlatforms>(ConditionalAccessPlatforms); }],
             ["signInRiskLevels", (o, n) => { (o as unknown as ConditionalAccessConditionSet).signInRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); }],
@@ -106,11 +117,12 @@ export class ConditionalAccessConditionSet implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ConditionalAccessApplications>("applications", this.applications);
-        writer.writeEnumValue<ConditionalAccessClientApp>("clientAppTypes", ...this.clientAppTypes);
+        this.clientAppTypes && writer.writeEnumValue<ConditionalAccessClientApp>("clientAppTypes", ...this.clientAppTypes);
+        writer.writeObjectValue<ConditionalAccessDevices>("devices", this.devices);
         writer.writeObjectValue<ConditionalAccessLocations>("locations", this.locations);
         writer.writeObjectValue<ConditionalAccessPlatforms>("platforms", this.platforms);
-        writer.writeEnumValue<RiskLevel>("signInRiskLevels", ...this.signInRiskLevels);
-        writer.writeEnumValue<RiskLevel>("userRiskLevels", ...this.userRiskLevels);
+        this.signInRiskLevels && writer.writeEnumValue<RiskLevel>("signInRiskLevels", ...this.signInRiskLevels);
+        this.userRiskLevels && writer.writeEnumValue<RiskLevel>("userRiskLevels", ...this.userRiskLevels);
         writer.writeObjectValue<ConditionalAccessUsers>("users", this.users);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -134,6 +146,13 @@ export class ConditionalAccessConditionSet implements Parsable {
      */
     public set clientAppTypes(value: ConditionalAccessClientApp[] | undefined) {
         this._clientAppTypes = value;
+    };
+    /**
+     * Sets the devices property value. Devices in the policy.
+     * @param value Value to set for the devices property.
+     */
+    public set devices(value: ConditionalAccessDevices | undefined) {
+        this._devices = value;
     };
     /**
      * Sets the locations property value. Locations included in and excluded from the policy.

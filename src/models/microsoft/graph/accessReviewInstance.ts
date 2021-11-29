@@ -2,14 +2,16 @@ import {AccessReviewInstanceDecisionItem} from './accessReviewInstanceDecisionIt
 import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AccessReviewScope} from './accessReviewScope';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewInstance extends Entity implements Parsable {
-    /** Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.  */
+    /** Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.  */
     private _decisions?: AccessReviewInstanceDecisionItem[] | undefined;
     /** DateTime when review instance is scheduled to end.The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $select. Read-only.  */
     private _endDateTime?: Date | undefined;
+    /** This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. Supports $select.  */
     private _fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
+    /** This collection of access review scopes is used to define who the reviewers are. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.  */
     private _reviewers?: AccessReviewReviewerScope[] | undefined;
     /** Created based on scope and instanceEnumerationScope at the accessReviewScheduleDefinition level. Defines the scope of users reviewed in a group. Supports $select and $filter (contains only). Read-only.  */
     private _scope?: AccessReviewScope | undefined;
@@ -24,7 +26,7 @@ export class AccessReviewInstance extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the decisions property value. Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Gets the decisions property value. Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
      * @returns a accessReviewInstanceDecisionItem
      */
     public get decisions() {
@@ -38,14 +40,14 @@ export class AccessReviewInstance extends Entity implements Parsable {
         return this._endDateTime;
     };
     /**
-     * Gets the fallbackReviewers property value. 
+     * Gets the fallbackReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. Supports $select.
      * @returns a accessReviewReviewerScope
      */
     public get fallbackReviewers() {
         return this._fallbackReviewers;
     };
     /**
-     * Gets the reviewers property value. 
+     * Gets the reviewers property value. This collection of access review scopes is used to define who the reviewers are. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.
      * @returns a accessReviewReviewerScope
      */
     public get reviewers() {
@@ -103,7 +105,7 @@ export class AccessReviewInstance extends Entity implements Parsable {
         writer.writeStringValue("status", this.status);
     };
     /**
-     * Sets the decisions property value. Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Sets the decisions property value. Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
      * @param value Value to set for the decisions property.
      */
     public set decisions(value: AccessReviewInstanceDecisionItem[] | undefined) {
@@ -117,14 +119,14 @@ export class AccessReviewInstance extends Entity implements Parsable {
         this._endDateTime = value;
     };
     /**
-     * Sets the fallbackReviewers property value. 
+     * Sets the fallbackReviewers property value. This collection of reviewer scopes is used to define the list of fallback reviewers. These fallback reviewers will be notified to take action if no users are found from the list of reviewers specified. This could occur when either the group owner is specified as the reviewer but the group owner does not exist, or manager is specified as reviewer but a user's manager does not exist. Supports $select.
      * @param value Value to set for the fallbackReviewers property.
      */
     public set fallbackReviewers(value: AccessReviewReviewerScope[] | undefined) {
         this._fallbackReviewers = value;
     };
     /**
-     * Sets the reviewers property value. 
+     * Sets the reviewers property value. This collection of access review scopes is used to define who the reviewers are. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.
      * @param value Value to set for the reviewers property.
      */
     public set reviewers(value: AccessReviewReviewerScope[] | undefined) {

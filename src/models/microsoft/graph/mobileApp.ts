@@ -3,7 +3,7 @@ import {MimeContent} from './mimeContent';
 import {MobileAppAssignment} from './mobileAppAssignment';
 import {MobileAppCategory} from './mobileAppCategory';
 import {MobileAppPublishingState} from './mobileAppPublishingState';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileApp extends Entity implements Parsable {
     /** The list of group assignments for this mobile app.  */

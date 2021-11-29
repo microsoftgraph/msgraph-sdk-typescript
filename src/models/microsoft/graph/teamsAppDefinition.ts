@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {TeamworkBot} from './teamworkBot';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppDefinition extends Entity implements Parsable {
     /** The details of the bot specified in the Teams app manifest.  */

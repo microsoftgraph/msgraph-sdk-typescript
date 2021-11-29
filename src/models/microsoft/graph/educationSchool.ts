@@ -4,7 +4,7 @@ import {EducationOrganization} from './educationOrganization';
 import {EducationUser} from './educationUser';
 import {IdentitySet} from './identitySet';
 import {PhysicalAddress} from './physicalAddress';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSchool extends EducationOrganization implements Parsable {
     /** Address of the school.  */

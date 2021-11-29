@@ -1,6 +1,6 @@
 import {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityApiConnector extends Entity implements Parsable {
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.  */

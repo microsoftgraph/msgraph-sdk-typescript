@@ -1,9 +1,10 @@
 import {AdministrativeUnit} from './administrativeUnit';
 import {DirectoryObject} from './directoryObject';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Directory extends Entity implements Parsable {
+    /** Conceptual container for user and group directory objects.  */
     private _administrativeUnits?: AdministrativeUnit[] | undefined;
     /** Recently deleted items. Read-only. Nullable.  */
     private _deletedItems?: DirectoryObject[] | undefined;
@@ -14,7 +15,7 @@ export class Directory extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the administrativeUnits property value. 
+     * Gets the administrativeUnits property value. Conceptual container for user and group directory objects.
      * @returns a administrativeUnit
      */
     public get administrativeUnits() {
@@ -48,7 +49,7 @@ export class Directory extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", this.deletedItems);
     };
     /**
-     * Sets the administrativeUnits property value. 
+     * Sets the administrativeUnits property value. Conceptual container for user and group directory objects.
      * @param value Value to set for the administrativeUnits property.
      */
     public set administrativeUnits(value: AdministrativeUnit[] | undefined) {

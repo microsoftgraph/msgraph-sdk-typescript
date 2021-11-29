@@ -1,6 +1,6 @@
 import {AgreementFileLocalization} from './agreementFileLocalization';
 import {AgreementFileProperties} from './agreementFileProperties';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementFile extends AgreementFileProperties implements Parsable {
     private _localizations?: AgreementFileLocalization[] | undefined;

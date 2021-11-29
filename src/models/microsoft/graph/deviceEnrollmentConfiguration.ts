@@ -1,6 +1,6 @@
 import {EnrollmentConfigurationAssignment} from './enrollmentConfigurationAssignment';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
     /** The list of group assignments for the device configuration profile  */

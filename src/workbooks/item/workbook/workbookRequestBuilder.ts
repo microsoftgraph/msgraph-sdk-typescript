@@ -11,183 +11,190 @@ import {WorkbookOperationRequestBuilder} from './operations/item/workbookOperati
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
 import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
+import {TableRowOperationResultWithKeyRequestBuilder} from './tableRowOperationResultWithKey/tableRowOperationResultWithKeyRequestBuilder';
 import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
 import {WorkbookWorksheetRequestBuilder} from './worksheets/item/workbookWorksheetRequestBuilder';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook  */
 export class WorkbookRequestBuilder {
     public get application(): ApplicationRequestBuilder {
-        return new ApplicationRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get closeSession(): CloseSessionRequestBuilder {
-        return new CloseSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CloseSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get comments(): CommentsRequestBuilder {
-        return new CommentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CommentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get createSession(): CreateSessionRequestBuilder {
-        return new CreateSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CreateSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get functions(): FunctionsRequestBuilder {
-        return new FunctionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new FunctionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get names(): NamesRequestBuilder {
-        return new NamesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new NamesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get operations(): OperationsRequestBuilder {
-        return new OperationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get refreshSession(): RefreshSessionRequestBuilder {
-        return new RefreshSessionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RefreshSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get tables(): TablesRequestBuilder {
-        return new TablesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TablesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get worksheets(): WorksheetsRequestBuilder {
-        return new WorksheetsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorksheetsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.workbook.comments.item collection
+     * Gets an item from the MicrosoftGraph.workbooks.item.workbook.comments.item collection
      * @param id Unique identifier of the item
      * @returns a workbookCommentRequestBuilder
      */
-    public commentsById(id: String) : WorkbookCommentRequestBuilder {
+    public commentsById(id: string) : WorkbookCommentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new WorkbookCommentRequestBuilder(this.currentPath + this.pathSegment + "/comments/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("workbookComment_id", id);
+        return new WorkbookCommentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new WorkbookRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/workbook";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook{?expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Workbook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Workbook | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Workbook
      */
     public get(q?: {
                     expand?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Workbook>(requestInfo, Workbook, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Workbook>(requestInfo, Workbook, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.workbook.names.item collection
+     * Gets an item from the MicrosoftGraph.workbooks.item.workbook.names.item collection
      * @param id Unique identifier of the item
      * @returns a workbookNamedItemRequestBuilder
      */
-    public namesById(id: String) : WorkbookNamedItemRequestBuilder {
+    public namesById(id: string) : WorkbookNamedItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new WorkbookNamedItemRequestBuilder(this.currentPath + this.pathSegment + "/names/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("workbookNamedItem_id", id);
+        return new WorkbookNamedItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.workbook.operations.item collection
+     * Gets an item from the MicrosoftGraph.workbooks.item.workbook.operations.item collection
      * @param id Unique identifier of the item
      * @returns a workbookOperationRequestBuilder
      */
-    public operationsById(id: String) : WorkbookOperationRequestBuilder {
+    public operationsById(id: string) : WorkbookOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new WorkbookOperationRequestBuilder(this.currentPath + this.pathSegment + "/operations/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("workbookOperation_id", id);
+        return new WorkbookOperationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Workbook | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Workbook | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/microsoft.graph.sessionInfoResource(key='{key}')
@@ -196,24 +203,37 @@ export class WorkbookRequestBuilder {
      */
     public sessionInfoResourceWithKey(key: string | undefined) : SessionInfoResourceWithKeyRequestBuilder {
         if(!key) throw new Error("key cannot be undefined");
-        return new SessionInfoResourceWithKeyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, key, false);
+        return new SessionInfoResourceWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.workbook.tables.item collection
+     * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/microsoft.graph.tableRowOperationResult(key='{key}')
+     * @param key Usage: key={key}
+     * @returns a tableRowOperationResultWithKeyRequestBuilder
+     */
+    public tableRowOperationResultWithKey(key: string | undefined) : TableRowOperationResultWithKeyRequestBuilder {
+        if(!key) throw new Error("key cannot be undefined");
+        return new TableRowOperationResultWithKeyRequestBuilder(this.pathParameters, this.requestAdapter, key);
+    };
+    /**
+     * Gets an item from the MicrosoftGraph.workbooks.item.workbook.tables.item collection
      * @param id Unique identifier of the item
      * @returns a workbookTableRequestBuilder
      */
-    public tablesById(id: String) : WorkbookTableRequestBuilder {
+    public tablesById(id: string) : WorkbookTableRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new WorkbookTableRequestBuilder(this.currentPath + this.pathSegment + "/tables/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("workbookTable_id", id);
+        return new WorkbookTableRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.workbooks.item.workbook.worksheets.item collection
+     * Gets an item from the MicrosoftGraph.workbooks.item.workbook.worksheets.item collection
      * @param id Unique identifier of the item
      * @returns a workbookWorksheetRequestBuilder
      */
-    public worksheetsById(id: String) : WorkbookWorksheetRequestBuilder {
+    public worksheetsById(id: string) : WorkbookWorksheetRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new WorkbookWorksheetRequestBuilder(this.currentPath + this.pathSegment + "/worksheets/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("workbookWorksheet_id", id);
+        return new WorkbookWorksheetRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

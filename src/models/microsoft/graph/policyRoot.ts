@@ -12,21 +12,34 @@ import {IdentitySecurityDefaultsEnforcementPolicy} from './identitySecurityDefau
 import {PermissionGrantPolicy} from './permissionGrantPolicy';
 import {TokenIssuancePolicy} from './tokenIssuancePolicy';
 import {TokenLifetimePolicy} from './tokenLifetimePolicy';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PolicyRoot extends Entity implements Parsable {
+    /** The policy that controls the idle time out for web sessions for applications.  */
     private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
+    /** The policy by which consent requests are created and managed for the entire tenant.  */
     private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
+    /** The policy configuration of the self-service sign-up experience of external users.  */
     private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
+    /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).  */
     private _authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
+    /** The policy that controls Azure AD authorization settings.  */
     private _authorizationPolicy?: AuthorizationPolicy | undefined;
+    /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.  */
     private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
+    /** The custom rules that define an access scenario.  */
     private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
+    /** The feature rollout policy associated with a directory object.  */
     private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
+    /** The policy to control Azure AD authentication behavior for federated users.  */
     private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
+    /** The policy that represents the security defaults that protect against common attacks.  */
     private _identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
+    /** The policy that specifies the conditions under which consent can be granted.  */
     private _permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
+    /** The policy that specifies the characteristics of SAML tokens issued by Azure AD.  */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
+    /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.  */
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /**
      * Instantiates a new policyRoot and sets the default values.
@@ -35,91 +48,91 @@ export class PolicyRoot extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the activityBasedTimeoutPolicies property value. 
+     * Gets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
      * @returns a activityBasedTimeoutPolicy
      */
     public get activityBasedTimeoutPolicies() {
         return this._activityBasedTimeoutPolicies;
     };
     /**
-     * Gets the adminConsentRequestPolicy property value. 
+     * Gets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
      * @returns a adminConsentRequestPolicy
      */
     public get adminConsentRequestPolicy() {
         return this._adminConsentRequestPolicy;
     };
     /**
-     * Gets the authenticationFlowsPolicy property value. 
+     * Gets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
      * @returns a authenticationFlowsPolicy
      */
     public get authenticationFlowsPolicy() {
         return this._authenticationFlowsPolicy;
     };
     /**
-     * Gets the authenticationMethodsPolicy property value. 
+     * Gets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
      * @returns a authenticationMethodsPolicy
      */
     public get authenticationMethodsPolicy() {
         return this._authenticationMethodsPolicy;
     };
     /**
-     * Gets the authorizationPolicy property value. 
+     * Gets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
      * @returns a authorizationPolicy
      */
     public get authorizationPolicy() {
         return this._authorizationPolicy;
     };
     /**
-     * Gets the claimsMappingPolicies property value. 
+     * Gets the claimsMappingPolicies property value. The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      * @returns a claimsMappingPolicy
      */
     public get claimsMappingPolicies() {
         return this._claimsMappingPolicies;
     };
     /**
-     * Gets the conditionalAccessPolicies property value. 
+     * Gets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
      * @returns a conditionalAccessPolicy
      */
     public get conditionalAccessPolicies() {
         return this._conditionalAccessPolicies;
     };
     /**
-     * Gets the featureRolloutPolicies property value. 
+     * Gets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
      * @returns a featureRolloutPolicy
      */
     public get featureRolloutPolicies() {
         return this._featureRolloutPolicies;
     };
     /**
-     * Gets the homeRealmDiscoveryPolicies property value. 
+     * Gets the homeRealmDiscoveryPolicies property value. The policy to control Azure AD authentication behavior for federated users.
      * @returns a homeRealmDiscoveryPolicy
      */
     public get homeRealmDiscoveryPolicies() {
         return this._homeRealmDiscoveryPolicies;
     };
     /**
-     * Gets the identitySecurityDefaultsEnforcementPolicy property value. 
+     * Gets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
      * @returns a identitySecurityDefaultsEnforcementPolicy
      */
     public get identitySecurityDefaultsEnforcementPolicy() {
         return this._identitySecurityDefaultsEnforcementPolicy;
     };
     /**
-     * Gets the permissionGrantPolicies property value. 
+     * Gets the permissionGrantPolicies property value. The policy that specifies the conditions under which consent can be granted.
      * @returns a permissionGrantPolicy
      */
     public get permissionGrantPolicies() {
         return this._permissionGrantPolicies;
     };
     /**
-     * Gets the tokenIssuancePolicies property value. 
+     * Gets the tokenIssuancePolicies property value. The policy that specifies the characteristics of SAML tokens issued by Azure AD.
      * @returns a tokenIssuancePolicy
      */
     public get tokenIssuancePolicies() {
         return this._tokenIssuancePolicies;
     };
     /**
-     * Gets the tokenLifetimePolicies property value. 
+     * Gets the tokenLifetimePolicies property value. The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
      * @returns a tokenLifetimePolicy
      */
     public get tokenLifetimePolicies() {
@@ -168,91 +181,91 @@ export class PolicyRoot extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", this.tokenLifetimePolicies);
     };
     /**
-     * Sets the activityBasedTimeoutPolicies property value. 
+     * Sets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.
      * @param value Value to set for the activityBasedTimeoutPolicies property.
      */
     public set activityBasedTimeoutPolicies(value: ActivityBasedTimeoutPolicy[] | undefined) {
         this._activityBasedTimeoutPolicies = value;
     };
     /**
-     * Sets the adminConsentRequestPolicy property value. 
+     * Sets the adminConsentRequestPolicy property value. The policy by which consent requests are created and managed for the entire tenant.
      * @param value Value to set for the adminConsentRequestPolicy property.
      */
     public set adminConsentRequestPolicy(value: AdminConsentRequestPolicy | undefined) {
         this._adminConsentRequestPolicy = value;
     };
     /**
-     * Sets the authenticationFlowsPolicy property value. 
+     * Sets the authenticationFlowsPolicy property value. The policy configuration of the self-service sign-up experience of external users.
      * @param value Value to set for the authenticationFlowsPolicy property.
      */
     public set authenticationFlowsPolicy(value: AuthenticationFlowsPolicy | undefined) {
         this._authenticationFlowsPolicy = value;
     };
     /**
-     * Sets the authenticationMethodsPolicy property value. 
+     * Sets the authenticationMethodsPolicy property value. The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).
      * @param value Value to set for the authenticationMethodsPolicy property.
      */
     public set authenticationMethodsPolicy(value: AuthenticationMethodsPolicy | undefined) {
         this._authenticationMethodsPolicy = value;
     };
     /**
-     * Sets the authorizationPolicy property value. 
+     * Sets the authorizationPolicy property value. The policy that controls Azure AD authorization settings.
      * @param value Value to set for the authorizationPolicy property.
      */
     public set authorizationPolicy(value: AuthorizationPolicy | undefined) {
         this._authorizationPolicy = value;
     };
     /**
-     * Sets the claimsMappingPolicies property value. 
+     * Sets the claimsMappingPolicies property value. The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
      * @param value Value to set for the claimsMappingPolicies property.
      */
     public set claimsMappingPolicies(value: ClaimsMappingPolicy[] | undefined) {
         this._claimsMappingPolicies = value;
     };
     /**
-     * Sets the conditionalAccessPolicies property value. 
+     * Sets the conditionalAccessPolicies property value. The custom rules that define an access scenario.
      * @param value Value to set for the conditionalAccessPolicies property.
      */
     public set conditionalAccessPolicies(value: ConditionalAccessPolicy[] | undefined) {
         this._conditionalAccessPolicies = value;
     };
     /**
-     * Sets the featureRolloutPolicies property value. 
+     * Sets the featureRolloutPolicies property value. The feature rollout policy associated with a directory object.
      * @param value Value to set for the featureRolloutPolicies property.
      */
     public set featureRolloutPolicies(value: FeatureRolloutPolicy[] | undefined) {
         this._featureRolloutPolicies = value;
     };
     /**
-     * Sets the homeRealmDiscoveryPolicies property value. 
+     * Sets the homeRealmDiscoveryPolicies property value. The policy to control Azure AD authentication behavior for federated users.
      * @param value Value to set for the homeRealmDiscoveryPolicies property.
      */
     public set homeRealmDiscoveryPolicies(value: HomeRealmDiscoveryPolicy[] | undefined) {
         this._homeRealmDiscoveryPolicies = value;
     };
     /**
-     * Sets the identitySecurityDefaultsEnforcementPolicy property value. 
+     * Sets the identitySecurityDefaultsEnforcementPolicy property value. The policy that represents the security defaults that protect against common attacks.
      * @param value Value to set for the identitySecurityDefaultsEnforcementPolicy property.
      */
     public set identitySecurityDefaultsEnforcementPolicy(value: IdentitySecurityDefaultsEnforcementPolicy | undefined) {
         this._identitySecurityDefaultsEnforcementPolicy = value;
     };
     /**
-     * Sets the permissionGrantPolicies property value. 
+     * Sets the permissionGrantPolicies property value. The policy that specifies the conditions under which consent can be granted.
      * @param value Value to set for the permissionGrantPolicies property.
      */
     public set permissionGrantPolicies(value: PermissionGrantPolicy[] | undefined) {
         this._permissionGrantPolicies = value;
     };
     /**
-     * Sets the tokenIssuancePolicies property value. 
+     * Sets the tokenIssuancePolicies property value. The policy that specifies the characteristics of SAML tokens issued by Azure AD.
      * @param value Value to set for the tokenIssuancePolicies property.
      */
     public set tokenIssuancePolicies(value: TokenIssuancePolicy[] | undefined) {
         this._tokenIssuancePolicies = value;
     };
     /**
-     * Sets the tokenLifetimePolicies property value. 
+     * Sets the tokenLifetimePolicies property value. The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.
      * @param value Value to set for the tokenLifetimePolicies property.
      */
     public set tokenLifetimePolicies(value: TokenLifetimePolicy[] | undefined) {

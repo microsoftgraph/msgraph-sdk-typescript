@@ -3,7 +3,7 @@ import {Json} from './json';
 import {WorkbookRangeFormat} from './workbookRangeFormat';
 import {WorkbookRangeSort} from './workbookRangeSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRange extends Entity implements Parsable {
     /** Represents the range reference in A1-style. Address value will contain the Sheet reference (e.g. Sheet1!A1:B4). Read-only.  */
@@ -42,7 +42,7 @@ export class WorkbookRange extends Entity implements Parsable {
     private _text?: Json | undefined;
     /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.  */
     private _values?: Json | undefined;
-    /** Represents the type of data of each cell. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.  */
+    /** Represents the type of data of each cell. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.  */
     private _valueTypes?: Json | undefined;
     /** The worksheet containing the current range. Read-only.  */
     private _worksheet?: WorkbookWorksheet | undefined;
@@ -179,7 +179,7 @@ export class WorkbookRange extends Entity implements Parsable {
         return this._values;
     };
     /**
-     * Gets the valueTypes property value. Represents the type of data of each cell. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.
+     * Gets the valueTypes property value. Represents the type of data of each cell. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.
      * @returns a Json
      */
     public get valueTypes() {
@@ -375,7 +375,7 @@ export class WorkbookRange extends Entity implements Parsable {
         this._values = value;
     };
     /**
-     * Sets the valueTypes property value. Represents the type of data of each cell. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.
+     * Sets the valueTypes property value. Represents the type of data of each cell. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error. Read-only.
      * @param value Value to set for the valueTypes property.
      */
     public set valueTypes(value: Json | undefined) {

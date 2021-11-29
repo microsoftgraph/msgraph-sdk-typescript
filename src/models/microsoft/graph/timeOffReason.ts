@@ -1,6 +1,6 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
     /** The name of the timeOffReason. Required.  */

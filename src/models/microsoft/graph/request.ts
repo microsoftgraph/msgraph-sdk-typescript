@@ -1,13 +1,19 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Request extends Entity implements Parsable {
+    /** The identifier of the approval of the request.  */
     private _approvalId?: string | undefined;
+    /** The request completion date time.  */
     private _completedDateTime?: Date | undefined;
+    /** The user who created this request.  */
     private _createdBy?: IdentitySet | undefined;
+    /** The request creation date time.  */
     private _createdDateTime?: Date | undefined;
+    /** Free text field to define any custom data for the request. Not used.  */
     private _customData?: string | undefined;
+    /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.  */
     private _status?: string | undefined;
     /**
      * Instantiates a new request and sets the default values.
@@ -16,42 +22,42 @@ export class Request extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the approvalId property value. 
+     * Gets the approvalId property value. The identifier of the approval of the request.
      * @returns a string
      */
     public get approvalId() {
         return this._approvalId;
     };
     /**
-     * Gets the completedDateTime property value. 
+     * Gets the completedDateTime property value. The request completion date time.
      * @returns a Date
      */
     public get completedDateTime() {
         return this._completedDateTime;
     };
     /**
-     * Gets the createdBy property value. 
+     * Gets the createdBy property value. The user who created this request.
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Gets the createdDateTime property value. 
+     * Gets the createdDateTime property value. The request creation date time.
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Gets the customData property value. 
+     * Gets the customData property value. Free text field to define any custom data for the request. Not used.
      * @returns a string
      */
     public get customData() {
         return this._customData;
     };
     /**
-     * Gets the status property value. 
+     * Gets the status property value. The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.
      * @returns a string
      */
     public get status() {
@@ -86,42 +92,42 @@ export class Request extends Entity implements Parsable {
         writer.writeStringValue("status", this.status);
     };
     /**
-     * Sets the approvalId property value. 
+     * Sets the approvalId property value. The identifier of the approval of the request.
      * @param value Value to set for the approvalId property.
      */
     public set approvalId(value: string | undefined) {
         this._approvalId = value;
     };
     /**
-     * Sets the completedDateTime property value. 
+     * Sets the completedDateTime property value. The request completion date time.
      * @param value Value to set for the completedDateTime property.
      */
     public set completedDateTime(value: Date | undefined) {
         this._completedDateTime = value;
     };
     /**
-     * Sets the createdBy property value. 
+     * Sets the createdBy property value. The user who created this request.
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
         this._createdBy = value;
     };
     /**
-     * Sets the createdDateTime property value. 
+     * Sets the createdDateTime property value. The request creation date time.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
         this._createdDateTime = value;
     };
     /**
-     * Sets the customData property value. 
+     * Sets the customData property value. Free text field to define any custom data for the request. Not used.
      * @param value Value to set for the customData property.
      */
     public set customData(value: string | undefined) {
         this._customData = value;
     };
     /**
-     * Sets the status property value. 
+     * Sets the status property value. The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.
      * @param value Value to set for the status property.
      */
     public set status(value: string | undefined) {

@@ -1,9 +1,11 @@
 import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationOutcome extends Entity implements Parsable {
+    /** The individual who updated the resource.  */
     private _lastModifiedBy?: IdentitySet | undefined;
+    /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.  */
     private _lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new educationOutcome and sets the default values.
@@ -12,14 +14,14 @@ export class EducationOutcome extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the lastModifiedBy property value. 
+     * Gets the lastModifiedBy property value. The individual who updated the resource.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
     };
     /**
-     * Gets the lastModifiedDateTime property value. 
+     * Gets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
@@ -46,14 +48,14 @@ export class EducationOutcome extends Entity implements Parsable {
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
     };
     /**
-     * Sets the lastModifiedBy property value. 
+     * Sets the lastModifiedBy property value. The individual who updated the resource.
      * @param value Value to set for the lastModifiedBy property.
      */
     public set lastModifiedBy(value: IdentitySet | undefined) {
         this._lastModifiedBy = value;
     };
     /**
-     * Sets the lastModifiedDateTime property value. 
+     * Sets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {

@@ -2,7 +2,7 @@ import {AttendeeAvailability} from './attendeeAvailability';
 import {FreeBusyStatus} from './freeBusyStatus';
 import {Location} from './location';
 import {TimeSlot} from './timeSlot';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestion implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -17,7 +17,7 @@ export class MeetingTimeSuggestion implements Parsable {
     private _meetingTimeSlot?: TimeSlot | undefined;
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence.  */
     private _order?: number | undefined;
-    /** Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
     private _organizerAvailability?: FreeBusyStatus | undefined;
     /** Reason for suggesting the meeting time.  */
     private _suggestionReason?: string | undefined;
@@ -70,7 +70,7 @@ export class MeetingTimeSuggestion implements Parsable {
         return this._order;
     };
     /**
-     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @returns a freeBusyStatus
      */
     public get organizerAvailability() {
@@ -156,7 +156,7 @@ export class MeetingTimeSuggestion implements Parsable {
         this._order = value;
     };
     /**
-     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param value Value to set for the organizerAvailability property.
      */
     public set organizerAvailability(value: FreeBusyStatus | undefined) {

@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {PrintUsageByUser} from './printUsageByUser';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ReportRoot extends Entity implements Parsable {
     private _dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;

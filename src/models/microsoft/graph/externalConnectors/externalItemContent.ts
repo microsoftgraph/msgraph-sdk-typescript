@@ -1,10 +1,12 @@
 import {ExternalItemContentType} from './externalItemContentType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalItemContent implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
+    /** The type of content in the value property. Possible values are: text, html, unknownFutureValue.  */
     private _type?: ExternalItemContentType | undefined;
+    /** The content for the externalItem. Required.  */
     private _value?: string | undefined;
     /**
      * Instantiates a new externalItemContent and sets the default values.
@@ -20,14 +22,14 @@ export class ExternalItemContent implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the type property value. 
+     * Gets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue.
      * @returns a externalItemContentType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The content for the externalItem. Required.
      * @returns a string
      */
     public get value() {
@@ -61,14 +63,14 @@ export class ExternalItemContent implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the type property value. 
+     * Sets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue.
      * @param value Value to set for the type property.
      */
     public set type(value: ExternalItemContentType | undefined) {
         this._type = value;
     };
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The content for the externalItem. Required.
      * @param value Value to set for the value property.
      */
     public set value(value: string | undefined) {

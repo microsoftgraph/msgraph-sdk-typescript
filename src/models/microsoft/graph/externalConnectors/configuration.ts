@@ -1,8 +1,9 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Configuration implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
+    /** A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.  */
     private _authorizedAppIds?: string[] | undefined;
     /**
      * Instantiates a new configuration and sets the default values.
@@ -18,7 +19,7 @@ export class Configuration implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the authorizedAppIds property value. 
+     * Gets the authorizedAppIds property value. A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
      * @returns a string
      */
     public get authorizedAppIds() {
@@ -50,7 +51,7 @@ export class Configuration implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the authorizedAppIds property value. 
+     * Sets the authorizedAppIds property value. A collection of application IDs for registered Azure Active Directory apps that are allowed to manage the externalConnection and to index content in the externalConnection.
      * @param value Value to set for the authorizedAppIds property.
      */
     public set authorizedAppIds(value: string[] | undefined) {

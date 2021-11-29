@@ -7,93 +7,94 @@ import {RestrictedSignInRequestBuilder} from './restrictedSignIns/item/restricte
 import {RestrictedSignInsRequestBuilder} from './restrictedSignIns/restrictedSignInsRequestBuilder';
 import {SignInRequestBuilder} from './signIns/item/signInRequestBuilder';
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /auditLogs  */
 export class AuditLogsRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get directoryAudits(): DirectoryAuditsRequestBuilder {
-        return new DirectoryAuditsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DirectoryAuditsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get provisioning(): ProvisioningRequestBuilder {
-        return new ProvisioningRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get restrictedSignIns(): RestrictedSignInsRequestBuilder {
-        return new RestrictedSignInsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RestrictedSignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get signIns(): SignInsRequestBuilder {
-        return new SignInsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Instantiates a new AuditLogsRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/auditLogs";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/auditLogs{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Get auditLogs
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update auditLogs
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: AuditLogRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: AuditLogRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.directoryAudits.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.directoryAudits.item collection
      * @param id Unique identifier of the item
      * @returns a directoryAuditRequestBuilder
      */
-    public directoryAuditsById(id: String) : DirectoryAuditRequestBuilder {
+    public directoryAuditsById(id: string) : DirectoryAuditRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new DirectoryAuditRequestBuilder(this.currentPath + this.pathSegment + "/directoryAudits/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("directoryAudit_id", id);
+        return new DirectoryAuditRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get auditLogs
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
@@ -101,51 +102,57 @@ export class AuditLogsRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuditLogRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<AuditLogRoot>(requestInfo, AuditLogRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AuditLogRoot>(requestInfo, AuditLogRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update auditLogs
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AuditLogRoot | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AuditLogRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.provisioning.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.provisioning.item collection
      * @param id Unique identifier of the item
      * @returns a provisioningObjectSummaryRequestBuilder
      */
-    public provisioningById(id: String) : ProvisioningObjectSummaryRequestBuilder {
+    public provisioningById(id: string) : ProvisioningObjectSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ProvisioningObjectSummaryRequestBuilder(this.currentPath + this.pathSegment + "/provisioning/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("provisioningObjectSummary_id", id);
+        return new ProvisioningObjectSummaryRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.restrictedSignIns.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.restrictedSignIns.item collection
      * @param id Unique identifier of the item
      * @returns a restrictedSignInRequestBuilder
      */
-    public restrictedSignInsById(id: String) : RestrictedSignInRequestBuilder {
+    public restrictedSignInsById(id: string) : RestrictedSignInRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new RestrictedSignInRequestBuilder(this.currentPath + this.pathSegment + "/restrictedSignIns/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("restrictedSignIn_id", id);
+        return new RestrictedSignInRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.auditLogs.signIns.item collection
+     * Gets an item from the MicrosoftGraph.auditLogs.signIns.item collection
      * @param id Unique identifier of the item
      * @returns a signInRequestBuilder
      */
-    public signInsById(id: String) : SignInRequestBuilder {
+    public signInsById(id: string) : SignInRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new SignInRequestBuilder(this.currentPath + this.pathSegment + "/signIns/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("signIn_id", id);
+        return new SignInRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

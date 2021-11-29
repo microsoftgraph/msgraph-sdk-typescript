@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {Thumbnail} from './thumbnail';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThumbnailSet extends Entity implements Parsable {
     /** A 1920x1920 scaled thumbnail.  */

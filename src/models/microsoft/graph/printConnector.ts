@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {PrinterLocation} from './printerLocation';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintConnector extends Entity implements Parsable {
     /** The connector's version.  */

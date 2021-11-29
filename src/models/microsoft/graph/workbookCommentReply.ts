@@ -1,10 +1,10 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookCommentReply extends Entity implements Parsable {
-    /** The content of replied comment.  */
+    /** The content of a comment reply.  */
     private _content?: string | undefined;
-    /** Indicates the type for the replied comment.  */
+    /** Indicates the type for the comment reply.  */
     private _contentType?: string | undefined;
     /**
      * Instantiates a new workbookCommentReply and sets the default values.
@@ -13,14 +13,14 @@ export class WorkbookCommentReply extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. The content of replied comment.
+     * Gets the content property value. The content of a comment reply.
      * @returns a string
      */
     public get content() {
         return this._content;
     };
     /**
-     * Gets the contentType property value. Indicates the type for the replied comment.
+     * Gets the contentType property value. Indicates the type for the comment reply.
      * @returns a string
      */
     public get contentType() {
@@ -47,14 +47,14 @@ export class WorkbookCommentReply extends Entity implements Parsable {
         writer.writeStringValue("contentType", this.contentType);
     };
     /**
-     * Sets the content property value. The content of replied comment.
+     * Sets the content property value. The content of a comment reply.
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {
         this._content = value;
     };
     /**
-     * Sets the contentType property value. Indicates the type for the replied comment.
+     * Sets the contentType property value. Indicates the type for the comment reply.
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: string | undefined) {

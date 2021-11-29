@@ -1,24 +1,24 @@
 import {AlternativeSecurityId} from './alternativeSecurityId';
 import {DirectoryObject} from './directoryObject';
 import {Extension} from './extension';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Device extends DirectoryObject implements Parsable {
-    /** true if the account is enabled; otherwise, false. Default is true. Supports $filter (eq, ne, NOT, in).  */
+    /** true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, NOT, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.  */
     private _accountEnabled?: boolean | undefined;
     /** For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le).  */
     private _alternativeSecurityIds?: AlternativeSecurityId[] | undefined;
-    /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le) and $orderBy.  */
+    /** The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le, and eq on null values) and $orderBy.  */
     private _approximateLastSignInDateTime?: Date | undefined;
     /** The timestamp when the device is no longer deemed compliant. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
     private _complianceExpirationDateTime?: Date | undefined;
-    /** Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).  */
+    /** Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).  */
     private _deviceId?: string | undefined;
     /** For internal use only. Set to null.  */
     private _deviceMetadata?: string | undefined;
     /** For internal use only.  */
     private _deviceVersion?: number | undefined;
-    /** The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.  */
+    /** The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.  */
     private _displayName?: string | undefined;
     /** The collection of open extensions defined for the device. Read-only. Nullable.  */
     private _extensions?: Extension[] | undefined;
@@ -32,11 +32,11 @@ export class Device extends DirectoryObject implements Parsable {
     private _memberOf?: DirectoryObject[] | undefined;
     /** The last time at which the object was synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z Read-only. Supports $filter (eq, ne, NOT, ge, le, in).  */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in).  */
+    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in, and eq on null values).  */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).  */
+    /** The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).  */
     private _operatingSystem?: string | undefined;
-    /** Operating system version of the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).  */
+    /** The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).  */
     private _operatingSystemVersion?: string | undefined;
     /** For internal use only. Not nullable. Supports $filter (eq, NOT, ge, le, startsWith).  */
     private _physicalIds?: string[] | undefined;
@@ -48,9 +48,9 @@ export class Device extends DirectoryObject implements Parsable {
     private _registeredUsers?: DirectoryObject[] | undefined;
     /** List of labels applied to the device by the system.  */
     private _systemLabels?: string[] | undefined;
-    /** Groups that this device is a member of. This operation is transitive. Supports $expand.  */
+    /** Groups that the device is a member of. This operation is transitive. Supports $expand.  */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
-    /** Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory  */
+    /** Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory  */
     private _trustType?: string | undefined;
     /**
      * Instantiates a new device and sets the default values.
@@ -59,7 +59,7 @@ export class Device extends DirectoryObject implements Parsable {
         super();
     };
     /**
-     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true. Supports $filter (eq, ne, NOT, in).
+     * Gets the accountEnabled property value. true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, NOT, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
      * @returns a boolean
      */
     public get accountEnabled() {
@@ -73,7 +73,7 @@ export class Device extends DirectoryObject implements Parsable {
         return this._alternativeSecurityIds;
     };
     /**
-     * Gets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le) and $orderBy.
+     * Gets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le, and eq on null values) and $orderBy.
      * @returns a Date
      */
     public get approximateLastSignInDateTime() {
@@ -87,7 +87,7 @@ export class Device extends DirectoryObject implements Parsable {
         return this._complianceExpirationDateTime;
     };
     /**
-     * Gets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).
+     * Gets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).
      * @returns a string
      */
     public get deviceId() {
@@ -108,7 +108,7 @@ export class Device extends DirectoryObject implements Parsable {
         return this._deviceVersion;
     };
     /**
-     * Gets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
+     * Gets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @returns a string
      */
     public get displayName() {
@@ -157,21 +157,21 @@ export class Device extends DirectoryObject implements Parsable {
         return this._onPremisesLastSyncDateTime;
     };
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in, and eq on null values).
      * @returns a boolean
      */
     public get onPremisesSyncEnabled() {
         return this._onPremisesSyncEnabled;
     };
     /**
-     * Gets the operatingSystem property value. The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
+     * Gets the operatingSystem property value. The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).
      * @returns a string
      */
     public get operatingSystem() {
         return this._operatingSystem;
     };
     /**
-     * Gets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
+     * Gets the operatingSystemVersion property value. The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).
      * @returns a string
      */
     public get operatingSystemVersion() {
@@ -213,14 +213,14 @@ export class Device extends DirectoryObject implements Parsable {
         return this._systemLabels;
     };
     /**
-     * Gets the transitiveMemberOf property value. Groups that this device is a member of. This operation is transitive. Supports $expand.
+     * Gets the transitiveMemberOf property value. Groups that the device is a member of. This operation is transitive. Supports $expand.
      * @returns a directoryObject
      */
     public get transitiveMemberOf() {
         return this._transitiveMemberOf;
     };
     /**
-     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Gets the trustType property value. Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
      * @returns a string
      */
     public get trustType() {
@@ -291,7 +291,7 @@ export class Device extends DirectoryObject implements Parsable {
         writer.writeStringValue("trustType", this.trustType);
     };
     /**
-     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Default is true. Supports $filter (eq, ne, NOT, in).
+     * Sets the accountEnabled property value. true if the account is enabled; otherwise, false. Required. Default is true.  Supports $filter (eq, ne, NOT, in). Only callers in Global Administrator and Cloud Device Administrator roles can set this property.
      * @param value Value to set for the accountEnabled property.
      */
     public set accountEnabled(value: boolean | undefined) {
@@ -305,7 +305,7 @@ export class Device extends DirectoryObject implements Parsable {
         this._alternativeSecurityIds = value;
     };
     /**
-     * Sets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le) and $orderBy.
+     * Sets the approximateLastSignInDateTime property value. The timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. Supports $filter (eq, ne, NOT, ge, le, and eq on null values) and $orderBy.
      * @param value Value to set for the approximateLastSignInDateTime property.
      */
     public set approximateLastSignInDateTime(value: Date | undefined) {
@@ -319,7 +319,7 @@ export class Device extends DirectoryObject implements Parsable {
         this._complianceExpirationDateTime = value;
     };
     /**
-     * Sets the deviceId property value. Identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).
+     * Sets the deviceId property value. Unique identifier set by Azure Device Registration Service at the time of registration. Supports $filter (eq, ne, NOT, startsWith).
      * @param value Value to set for the deviceId property.
      */
     public set deviceId(value: string | undefined) {
@@ -340,7 +340,7 @@ export class Device extends DirectoryObject implements Parsable {
         this._deviceVersion = value;
     };
     /**
-     * Sets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
+     * Sets the displayName property value. The display name for the device. Required. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -389,21 +389,21 @@ export class Device extends DirectoryObject implements Parsable {
         this._onPremisesLastSyncDateTime = value;
     };
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Read-only. Supports $filter (eq, ne, NOT, in, and eq on null values).
      * @param value Value to set for the onPremisesSyncEnabled property.
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
         this._onPremisesSyncEnabled = value;
     };
     /**
-     * Sets the operatingSystem property value. The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
+     * Sets the operatingSystem property value. The type of operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).
      * @param value Value to set for the operatingSystem property.
      */
     public set operatingSystem(value: string | undefined) {
         this._operatingSystem = value;
     };
     /**
-     * Sets the operatingSystemVersion property value. Operating system version of the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith).
+     * Sets the operatingSystemVersion property value. The version of the operating system on the device. Required. Supports $filter (eq, ne, NOT, ge, le, startsWith, and eq on null values).
      * @param value Value to set for the operatingSystemVersion property.
      */
     public set operatingSystemVersion(value: string | undefined) {
@@ -445,14 +445,14 @@ export class Device extends DirectoryObject implements Parsable {
         this._systemLabels = value;
     };
     /**
-     * Sets the transitiveMemberOf property value. Groups that this device is a member of. This operation is transitive. Supports $expand.
+     * Sets the transitiveMemberOf property value. Groups that the device is a member of. This operation is transitive. Supports $expand.
      * @param value Value to set for the transitiveMemberOf property.
      */
     public set transitiveMemberOf(value: DirectoryObject[] | undefined) {
         this._transitiveMemberOf = value;
     };
     /**
-     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values: Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
+     * Sets the trustType property value. Type of trust for the joined device. Read-only. Possible values:  Workplace (indicates bring your own personal devices), AzureAd (Cloud only joined devices), ServerAd (on-premises domain joined devices joined to Azure AD). For more details, see Introduction to device management in Azure Active Directory
      * @param value Value to set for the trustType property.
      */
     public set trustType(value: string | undefined) {

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {ServicePlanInfo} from './servicePlanInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LicenseDetails extends Entity implements Parsable {
     /** Information about the service plans assigned with the license. Read-only, Not nullable  */

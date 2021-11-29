@@ -1,14 +1,14 @@
 import {AppConsentRequestScope} from './appConsentRequestScope';
 import {Entity} from './entity';
 import {UserConsentRequest} from './userConsentRequest';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppConsentRequest extends Entity implements Parsable {
     /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.  */
     private _appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby.  */
     private _appId?: string | undefined;
-    /** A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.  */
+    /** A list of pending scopes waiting for approval. Required.  */
     private _pendingScopes?: AppConsentRequestScope[] | undefined;
     /** A list of pending user consent requests.  */
     private _userConsentRequests?: UserConsentRequest[] | undefined;
@@ -33,7 +33,7 @@ export class AppConsentRequest extends Entity implements Parsable {
         return this._appId;
     };
     /**
-     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
      * @returns a appConsentRequestScope
      */
     public get pendingScopes() {
@@ -85,7 +85,7 @@ export class AppConsentRequest extends Entity implements Parsable {
         this._appId = value;
     };
     /**
-     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
+     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
      * @param value Value to set for the pendingScopes property.
      */
     public set pendingScopes(value: AppConsentRequestScope[] | undefined) {

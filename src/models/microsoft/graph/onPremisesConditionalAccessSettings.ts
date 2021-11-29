@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnPremisesConditionalAccessSettings extends Entity implements Parsable {
     /** Indicates if on premises conditional access is enabled for this organization  */

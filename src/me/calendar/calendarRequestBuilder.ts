@@ -3,203 +3,211 @@ import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalend
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionRequestBuilder} from './calendarPermissions/item/calendarPermissionRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder as idddd020ecb8ea9dcbc76a5e9239d59d47f5a38a3842644638182413b2f848082} from './calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder as iefa4ca62c21b69e0f2d0e2fde2d7ae2b3182ba74dcef092918b7ce0bd28d004b} from './calendarView/item/eventRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventRequestBuilder as i9aa0b57f55186a99e4d01d9c1ab3bc7b37fd92ca69569b1534bacbaabee058dc} from './events/item/eventRequestBuilder';
+import {EventRequestBuilder as i0c4a496ea180bc2e83abcbb63a5ae1c2a0e29161399604ffb82f0ed4cfa98c6d} from './events/item/eventRequestBuilder';
 import {GetScheduleRequestBuilder} from './getSchedule/getScheduleRequestBuilder';
 import {MultiValueLegacyExtendedPropertyRequestBuilder} from './multiValueExtendedProperties/item/multiValueLegacyExtendedPropertyRequestBuilder';
 import {MultiValueExtendedPropertiesRequestBuilder} from './multiValueExtendedProperties/multiValueExtendedPropertiesRequestBuilder';
 import {SingleValueLegacyExtendedPropertyRequestBuilder} from './singleValueExtendedProperties/item/singleValueLegacyExtendedPropertyRequestBuilder';
 import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtendedProperties/singleValueExtendedPropertiesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/calendar  */
 export class CalendarRequestBuilder {
     public get calendarPermissions(): CalendarPermissionsRequestBuilder {
-        return new CalendarPermissionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CalendarPermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get calendarView(): CalendarViewRequestBuilder {
-        return new CalendarViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get events(): EventsRequestBuilder {
-        return new EventsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get getSchedule(): GetScheduleRequestBuilder {
-        return new GetScheduleRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
-        return new MultiValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
-        return new SingleValueExtendedPropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Builds and executes requests for operations under /me/calendar/microsoft.graph.allowedCalendarSharingRoles(User='{User}')
      * @param User Usage: User={User}
      * @returns a allowedCalendarSharingRolesWithUserRequestBuilder
      */
-    public allowedCalendarSharingRolesWithUser(User: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder {
-        if(!User) throw new Error("User cannot be undefined");
-        return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, User, false);
+    public allowedCalendarSharingRolesWithUser(user: string | undefined) : AllowedCalendarSharingRolesWithUserRequestBuilder {
+        if(!user) throw new Error("user cannot be undefined");
+        return new AllowedCalendarSharingRolesWithUserRequestBuilder(this.pathParameters, this.requestAdapter, user);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarPermissions.item collection
+     * Gets an item from the MicrosoftGraph.me.calendar.calendarPermissions.item collection
      * @param id Unique identifier of the item
      * @returns a calendarPermissionRequestBuilder
      */
-    public calendarPermissionsById(id: String) : CalendarPermissionRequestBuilder {
+    public calendarPermissionsById(id: string) : CalendarPermissionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new CalendarPermissionRequestBuilder(this.currentPath + this.pathSegment + "/calendarPermissions/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("calendarPermission_id", id);
+        return new CalendarPermissionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.calendarView.item collection
+     * Gets an item from the MicrosoftGraph.me.calendar.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public calendarViewById(id: String) : idddd020ecb8ea9dcbc76a5e9239d59d47f5a38a3842644638182413b2f848082 {
+    public calendarViewById(id: string) : iefa4ca62c21b69e0f2d0e2fde2d7ae2b3182ba74dcef092918b7ce0bd28d004b {
         if(!id) throw new Error("id cannot be undefined");
-        return new idddd020ecb8ea9dcbc76a5e9239d59d47f5a38a3842644638182413b2f848082(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("event_id", id);
+        return new iefa4ca62c21b69e0f2d0e2fde2d7ae2b3182ba74dcef092918b7ce0bd28d004b(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CalendarRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/calendar";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/me/calendar{?select}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * The user's primary calendar. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * The user's primary calendar. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
-                    expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * The user's primary calendar. Read-only.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Calendar | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Calendar | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * The user's primary calendar. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.events.item collection
+     * Gets an item from the MicrosoftGraph.me.calendar.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public eventsById(id: String) : i9aa0b57f55186a99e4d01d9c1ab3bc7b37fd92ca69569b1534bacbaabee058dc {
+    public eventsById(id: string) : i0c4a496ea180bc2e83abcbb63a5ae1c2a0e29161399604ffb82f0ed4cfa98c6d {
         if(!id) throw new Error("id cannot be undefined");
-        return new i9aa0b57f55186a99e4d01d9c1ab3bc7b37fd92ca69569b1534bacbaabee058dc(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("event_id", id);
+        return new i0c4a496ea180bc2e83abcbb63a5ae1c2a0e29161399604ffb82f0ed4cfa98c6d(urlTplParams, this.requestAdapter);
     };
     /**
      * The user's primary calendar. Read-only.
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Calendar
      */
     public get(q?: {
-                    expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Calendar>(requestInfo, Calendar, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, Calendar, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.multiValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.me.calendar.multiValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a multiValueLegacyExtendedPropertyRequestBuilder
      */
-    public multiValueExtendedPropertiesById(id: String) : MultiValueLegacyExtendedPropertyRequestBuilder {
+    public multiValueExtendedPropertiesById(id: string) : MultiValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new MultiValueLegacyExtendedPropertyRequestBuilder(this.currentPath + this.pathSegment + "/multiValueExtendedProperties/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("multiValueLegacyExtendedProperty_id", id);
+        return new MultiValueLegacyExtendedPropertyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The user's primary calendar. Read-only.
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Calendar | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Calendar | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.calendar.singleValueExtendedProperties.item collection
+     * Gets an item from the MicrosoftGraph.me.calendar.singleValueExtendedProperties.item collection
      * @param id Unique identifier of the item
      * @returns a singleValueLegacyExtendedPropertyRequestBuilder
      */
-    public singleValueExtendedPropertiesById(id: String) : SingleValueLegacyExtendedPropertyRequestBuilder {
+    public singleValueExtendedPropertiesById(id: string) : SingleValueLegacyExtendedPropertyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new SingleValueLegacyExtendedPropertyRequestBuilder(this.currentPath + this.pathSegment + "/singleValueExtendedProperties/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("singleValueLegacyExtendedProperty_id", id);
+        return new SingleValueLegacyExtendedPropertyRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

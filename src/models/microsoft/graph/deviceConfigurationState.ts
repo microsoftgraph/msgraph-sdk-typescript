@@ -2,7 +2,7 @@ import {ComplianceStatus} from './complianceStatus';
 import {DeviceConfigurationSettingState} from './deviceConfigurationSettingState';
 import {Entity} from './entity';
 import {PolicyPlatformType} from './policyPlatformType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationState extends Entity implements Parsable {
     /** The name of the policy for this policyBase  */

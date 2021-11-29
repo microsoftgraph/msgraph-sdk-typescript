@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {Identity} from './identity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScopedRoleMembership extends Entity implements Parsable {
     /** Unique identifier for the administrative unit that the directory role is scoped to  */

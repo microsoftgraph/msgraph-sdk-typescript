@@ -1,7 +1,7 @@
 import {Notebook} from './notebook';
 import {OnenoteEntityHierarchyModel} from './onenoteEntityHierarchyModel';
 import {OnenoteSection} from './onenoteSection';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsable {
     /** The notebook that contains the section group. Read-only.  */

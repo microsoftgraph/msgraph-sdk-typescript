@@ -2,18 +2,18 @@ import {AutomaticRepliesSetting} from './automaticRepliesSetting';
 import {DelegateMeetingMessageDeliveryOptions} from './delegateMeetingMessageDeliveryOptions';
 import {LocaleInfo} from './localeInfo';
 import {WorkingHours} from './workingHours';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailboxSettings implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Folder ID of an archive folder for the user. Read only.  */
+    /** Folder ID of an archive folder for the user.  */
     private _archiveFolder?: string | undefined;
     /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.  */
     private _automaticRepliesSetting?: AutomaticRepliesSetting | undefined;
     /** The date format for the user's mailbox.  */
     private _dateFormat?: string | undefined;
-    /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.  */
+    /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.  */
     private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
     /** The locale information for the user, including the preferred language and country/region.  */
     private _language?: LocaleInfo | undefined;
@@ -37,7 +37,7 @@ export class MailboxSettings implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Gets the archiveFolder property value. Folder ID of an archive folder for the user.
      * @returns a string
      */
     public get archiveFolder() {
@@ -58,7 +58,7 @@ export class MailboxSettings implements Parsable {
         return this._dateFormat;
     };
     /**
-     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
+     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
      * @returns a delegateMeetingMessageDeliveryOptions
      */
     public get delegateMeetingMessageDeliveryOptions() {
@@ -132,7 +132,7 @@ export class MailboxSettings implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
+     * Sets the archiveFolder property value. Folder ID of an archive folder for the user.
      * @param value Value to set for the archiveFolder property.
      */
     public set archiveFolder(value: string | undefined) {
@@ -153,7 +153,7 @@ export class MailboxSettings implements Parsable {
         this._dateFormat = value;
     };
     /**
-     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
+     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
      * @param value Value to set for the delegateMeetingMessageDeliveryOptions property.
      */
     public set delegateMeetingMessageDeliveryOptions(value: DelegateMeetingMessageDeliveryOptions | undefined) {

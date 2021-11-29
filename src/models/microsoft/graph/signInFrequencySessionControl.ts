@@ -1,6 +1,6 @@
 import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
 import {SigninFrequencyType} from './signinFrequencyType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SignInFrequencySessionControl extends ConditionalAccessSessionControl implements Parsable {
     /** Possible values are: days, hours.  */

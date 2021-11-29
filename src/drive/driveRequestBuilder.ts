@@ -1,105 +1,122 @@
 import {Drive} from '../models/microsoft/graph/drive';
+import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
+import {DriveItemRequestBuilder as ie8bea6b11d1f30727646860f643cc8ca93e130741b786c53eea459ad3e60093b} from './bundles/item/driveItemRequestBuilder';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemRequestBuilder as i417f01b2fce527fdb71e560b246e89b09ea6229a43565eedec1677673d810282} from './following/item/driveItemRequestBuilder';
-import {DriveItemRequestBuilder as i82754964648f9f41beb73660969e85b541138f52ac60687c4b545aa8e082f4fa} from './items/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i570b4469af2630b8042d4c3c02a20fc8feed43969231f81b8fabf0aab6f90b38} from './following/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i39f4c37a1945f726045c398817c0a8671679990685a0bb40ecc54ef98865b9dc} from './items/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SearchWithQRequestBuilder} from './searchWithQ/searchWithQRequestBuilder';
 import {SharedWithMeRequestBuilder} from './sharedWithMe/sharedWithMeRequestBuilder';
-import {DriveItemRequestBuilder as i9a31140587c11f0827c80ad357d3b8d912cd864d1c1b0bddfba08a23093804f5} from './special/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i85c2319a7bfd81fe6040d965db965e363b6f230dd117640d669ac516aca2e537} from './special/item/driveItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /drive  */
 export class DriveRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    public get following(): FollowingRequestBuilder {
-        return new FollowingRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get bundles(): BundlesRequestBuilder {
+        return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
+    public get following(): FollowingRequestBuilder {
+        return new FollowingRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     public get items(): ItemsRequestBuilder {
-        return new ItemsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get list(): ListRequestBuilder {
-        return new ListRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get root(): RootRequestBuilder {
-        return new RootRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get special(): SpecialRequestBuilder {
-        return new SpecialRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
+    /**
+     * Gets an item from the MicrosoftGraph.drive.bundles.item collection
+     * @param id Unique identifier of the item
+     * @returns a driveItemRequestBuilder
+     */
+    public bundlesById(id: string) : ie8bea6b11d1f30727646860f643cc8ca93e130741b786c53eea459ad3e60093b {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("driveItem_id", id);
+        return new ie8bea6b11d1f30727646860f643cc8ca93e130741b786c53eea459ad3e60093b(urlTplParams, this.requestAdapter);
+    };
     /**
      * Instantiates a new DriveRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/drive";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/drive{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Get drive
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update drive
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Drive | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Drive | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.following.item collection
+     * Gets an item from the MicrosoftGraph.drive.following.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public followingById(id: String) : i417f01b2fce527fdb71e560b246e89b09ea6229a43565eedec1677673d810282 {
+    public followingById(id: string) : i570b4469af2630b8042d4c3c02a20fc8feed43969231f81b8fabf0aab6f90b38 {
         if(!id) throw new Error("id cannot be undefined");
-        return new i417f01b2fce527fdb71e560b246e89b09ea6229a43565eedec1677673d810282(this.currentPath + this.pathSegment + "/following/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("driveItem_id", id);
+        return new i570b4469af2630b8042d4c3c02a20fc8feed43969231f81b8fabf0aab6f90b38(urlTplParams, this.requestAdapter);
     };
     /**
      * Get drive
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
@@ -107,41 +124,43 @@ export class DriveRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Drive>(requestInfo, Drive, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Drive>(requestInfo, Drive, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.items.item collection
+     * Gets an item from the MicrosoftGraph.drive.items.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public itemsById(id: String) : i82754964648f9f41beb73660969e85b541138f52ac60687c4b545aa8e082f4fa {
+    public itemsById(id: string) : i39f4c37a1945f726045c398817c0a8671679990685a0bb40ecc54ef98865b9dc {
         if(!id) throw new Error("id cannot be undefined");
-        return new i82754964648f9f41beb73660969e85b541138f52ac60687c4b545aa8e082f4fa(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("driveItem_id", id);
+        return new i39f4c37a1945f726045c398817c0a8671679990685a0bb40ecc54ef98865b9dc(urlTplParams, this.requestAdapter);
     };
     /**
      * Update drive
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Drive | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Drive | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /drive/microsoft.graph.recent()
      * @returns a recentRequestBuilder
      */
     public recent() : RecentRequestBuilder {
-        return new RecentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RecentRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /drive/microsoft.graph.search(q='{q}')
@@ -150,22 +169,24 @@ export class DriveRequestBuilder {
      */
     public searchWithQ(q: string | undefined) : SearchWithQRequestBuilder {
         if(!q) throw new Error("q cannot be undefined");
-        return new SearchWithQRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, q, false);
+        return new SearchWithQRequestBuilder(this.pathParameters, this.requestAdapter, q);
     };
     /**
      * Builds and executes requests for operations under /drive/microsoft.graph.sharedWithMe()
      * @returns a sharedWithMeRequestBuilder
      */
     public sharedWithMe() : SharedWithMeRequestBuilder {
-        return new SharedWithMeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SharedWithMeRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.drive.special.item collection
+     * Gets an item from the MicrosoftGraph.drive.special.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public specialById(id: String) : i9a31140587c11f0827c80ad357d3b8d912cd864d1c1b0bddfba08a23093804f5 {
+    public specialById(id: string) : i85c2319a7bfd81fe6040d965db965e363b6f230dd117640d669ac516aca2e537 {
         if(!id) throw new Error("id cannot be undefined");
-        return new i9a31140587c11f0827c80ad357d3b8d912cd864d1c1b0bddfba08a23093804f5(this.currentPath + this.pathSegment + "/special/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("driveItem_id", id);
+        return new i85c2319a7bfd81fe6040d965db965e363b6f230dd117640d669ac516aca2e537(urlTplParams, this.requestAdapter);
     };
 }

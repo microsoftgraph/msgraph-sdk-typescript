@@ -1,7 +1,7 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ScheduleChangeRequestActor} from './scheduleChangeRequestActor';
 import {ScheduleChangeState} from './scheduleChangeState';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable {
     private _assignedTo?: ScheduleChangeRequestActor | undefined;

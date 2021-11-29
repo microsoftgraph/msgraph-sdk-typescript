@@ -1,9 +1,11 @@
 import {Entity} from '../entity';
 import {Property} from './property';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Schema extends Entity implements Parsable {
+    /** Must be set to microsoft.graph.externalConnector.externalItem. Required.  */
     private _baseType?: string | undefined;
+    /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.  */
     private _properties?: Property[] | undefined;
     /**
      * Instantiates a new schema and sets the default values.
@@ -12,14 +14,14 @@ export class Schema extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the baseType property value. 
+     * Gets the baseType property value. Must be set to microsoft.graph.externalConnector.externalItem. Required.
      * @returns a string
      */
     public get baseType() {
         return this._baseType;
     };
     /**
-     * Gets the properties property value. 
+     * Gets the properties property value. The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
      * @returns a property
      */
     public get properties() {
@@ -46,14 +48,14 @@ export class Schema extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Property>("properties", this.properties);
     };
     /**
-     * Sets the baseType property value. 
+     * Sets the baseType property value. Must be set to microsoft.graph.externalConnector.externalItem. Required.
      * @param value Value to set for the baseType property.
      */
     public set baseType(value: string | undefined) {
         this._baseType = value;
     };
     /**
-     * Sets the properties property value. 
+     * Sets the properties property value. The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.
      * @param value Value to set for the properties property.
      */
     public set properties(value: Property[] | undefined) {

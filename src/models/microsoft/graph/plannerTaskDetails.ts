@@ -2,14 +2,14 @@ import {Entity} from './entity';
 import {PlannerChecklistItems} from './plannerChecklistItems';
 import {PlannerExternalReferences} from './plannerExternalReferences';
 import {PlannerPreviewType} from './plannerPreviewType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerTaskDetails extends Entity implements Parsable {
     /** The collection of checklist items on the task.  */
     private _checklist?: PlannerChecklistItems | undefined;
     /** Description of the task  */
     private _description?: string | undefined;
-    /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.  */
+    /** This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.  */
     private _previewType?: PlannerPreviewType | undefined;
     /** The collection of references on the task.  */
     private _references?: PlannerExternalReferences | undefined;
@@ -34,7 +34,7 @@ export class PlannerTaskDetails extends Entity implements Parsable {
         return this._description;
     };
     /**
-     * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
+     * Gets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      * @returns a plannerPreviewType
      */
     public get previewType() {
@@ -86,7 +86,7 @@ export class PlannerTaskDetails extends Entity implements Parsable {
         this._description = value;
     };
     /**
-     * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
+     * Sets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.
      * @param value Value to set for the previewType property.
      */
     public set previewType(value: PlannerPreviewType | undefined) {

@@ -19,7 +19,7 @@ import {SecurityVendorInformation} from './securityVendorInformation';
 import {UriClickSecurityState} from './uriClickSecurityState';
 import {UserSecurityState} from './userSecurityState';
 import {VulnerabilityState} from './vulnerabilityState';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Alert extends Entity implements Parsable {
     /** Name or alias of the activity group (attacker) this alert is attributed to.  */

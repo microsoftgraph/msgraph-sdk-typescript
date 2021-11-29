@@ -1,10 +1,10 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkHostedContent extends Entity implements Parsable {
     /** Write only. Bytes for the hosted content (such as images).  */
     private _contentBytes?: string | undefined;
-    /** Write only. Content type, such as image/png, image/jpg.  */
+    /** Write only. Content type. sicj as image/png, image/jpg.  */
     private _contentType?: string | undefined;
     /**
      * Instantiates a new teamworkHostedContent and sets the default values.
@@ -20,7 +20,7 @@ export class TeamworkHostedContent extends Entity implements Parsable {
         return this._contentBytes;
     };
     /**
-     * Gets the contentType property value. Write only. Content type, such as image/png, image/jpg.
+     * Gets the contentType property value. Write only. Content type. sicj as image/png, image/jpg.
      * @returns a string
      */
     public get contentType() {
@@ -54,7 +54,7 @@ export class TeamworkHostedContent extends Entity implements Parsable {
         this._contentBytes = value;
     };
     /**
-     * Sets the contentType property value. Write only. Content type, such as image/png, image/jpg.
+     * Sets the contentType property value. Write only. Content type. sicj as image/png, image/jpg.
      * @param value Value to set for the contentType property.
      */
     public set contentType(value: string | undefined) {

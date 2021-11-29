@@ -2,11 +2,14 @@ import {Entity} from '../entity';
 import {Acl} from './acl';
 import {ExternalItemContent} from './externalItemContent';
 import {Properties} from './properties';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalItem extends Entity implements Parsable {
+    /** An array of access control entries. Each entry specifies the access granted to a user or group. Required.  */
     private _acl?: Acl[] | undefined;
+    /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.  */
     private _content?: ExternalItemContent | undefined;
+    /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.  */
     private _properties?: Properties | undefined;
     /**
      * Instantiates a new externalItem and sets the default values.
@@ -15,21 +18,21 @@ export class ExternalItem extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the acl property value. 
+     * Gets the acl property value. An array of access control entries. Each entry specifies the access granted to a user or group. Required.
      * @returns a acl
      */
     public get acl() {
         return this._acl;
     };
     /**
-     * Gets the content property value. 
+     * Gets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @returns a externalItemContent
      */
     public get content() {
         return this._content;
     };
     /**
-     * Gets the properties property value. 
+     * Gets the properties property value. A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
      * @returns a properties
      */
     public get properties() {
@@ -58,21 +61,21 @@ export class ExternalItem extends Entity implements Parsable {
         writer.writeObjectValue<Properties>("properties", this.properties);
     };
     /**
-     * Sets the acl property value. 
+     * Sets the acl property value. An array of access control entries. Each entry specifies the access granted to a user or group. Required.
      * @param value Value to set for the acl property.
      */
     public set acl(value: Acl[] | undefined) {
         this._acl = value;
     };
     /**
-     * Sets the content property value. 
+     * Sets the content property value. A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.
      * @param value Value to set for the content property.
      */
     public set content(value: ExternalItemContent | undefined) {
         this._content = value;
     };
     /**
-     * Sets the properties property value. 
+     * Sets the properties property value. A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.
      * @param value Value to set for the properties property.
      */
     public set properties(value: Properties | undefined) {

@@ -2,7 +2,7 @@ import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAs
 import {Entity} from './entity';
 import {InstallIntent} from './installIntent';
 import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileAppAssignment extends Entity implements Parsable {
     /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {WorkbookChartAxis} from './workbookChartAxis';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxes extends Entity implements Parsable {
     /** Represents the category axis in a chart. Read-only.  */

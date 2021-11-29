@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {MediaStream} from './mediaStream';
 import {ParticipantInfo} from './participantInfo';
 import {RecordingInfo} from './recordingInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Participant extends Entity implements Parsable {
     private _info?: ParticipantInfo | undefined;
@@ -12,7 +12,9 @@ export class Participant extends Entity implements Parsable {
     private _isMuted?: boolean | undefined;
     /** The list of media streams.  */
     private _mediaStreams?: MediaStream[] | undefined;
-    /** Information on whether the participant has recording capability.  */
+    /** A blob of data provided by the participant in the roster.  */
+    private _metadata?: string | undefined;
+    /** Information about whether the participant has recording capability.  */
     private _recordingInfo?: RecordingInfo | undefined;
     /**
      * Instantiates a new participant and sets the default values.
@@ -49,7 +51,14 @@ export class Participant extends Entity implements Parsable {
         return this._mediaStreams;
     };
     /**
-     * Gets the recordingInfo property value. Information on whether the participant has recording capability.
+     * Gets the metadata property value. A blob of data provided by the participant in the roster.
+     * @returns a string
+     */
+    public get metadata() {
+        return this._metadata;
+    };
+    /**
+     * Gets the recordingInfo property value. Information about whether the participant has recording capability.
      * @returns a recordingInfo
      */
     public get recordingInfo() {
@@ -65,6 +74,7 @@ export class Participant extends Entity implements Parsable {
             ["isInLobby", (o, n) => { (o as unknown as Participant).isInLobby = n.getBooleanValue(); }],
             ["isMuted", (o, n) => { (o as unknown as Participant).isMuted = n.getBooleanValue(); }],
             ["mediaStreams", (o, n) => { (o as unknown as Participant).mediaStreams = n.getCollectionOfObjectValues<MediaStream>(MediaStream); }],
+            ["metadata", (o, n) => { (o as unknown as Participant).metadata = n.getStringValue(); }],
             ["recordingInfo", (o, n) => { (o as unknown as Participant).recordingInfo = n.getObjectValue<RecordingInfo>(RecordingInfo); }],
         ]);
     };
@@ -79,6 +89,7 @@ export class Participant extends Entity implements Parsable {
         writer.writeBooleanValue("isInLobby", this.isInLobby);
         writer.writeBooleanValue("isMuted", this.isMuted);
         writer.writeCollectionOfObjectValues<MediaStream>("mediaStreams", this.mediaStreams);
+        writer.writeStringValue("metadata", this.metadata);
         writer.writeObjectValue<RecordingInfo>("recordingInfo", this.recordingInfo);
     };
     /**
@@ -110,7 +121,14 @@ export class Participant extends Entity implements Parsable {
         this._mediaStreams = value;
     };
     /**
-     * Sets the recordingInfo property value. Information on whether the participant has recording capability.
+     * Sets the metadata property value. A blob of data provided by the participant in the roster.
+     * @param value Value to set for the metadata property.
+     */
+    public set metadata(value: string | undefined) {
+        this._metadata = value;
+    };
+    /**
+     * Sets the recordingInfo property value. Information about whether the participant has recording capability.
      * @param value Value to set for the recordingInfo property.
      */
     public set recordingInfo(value: RecordingInfo | undefined) {

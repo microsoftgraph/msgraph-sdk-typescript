@@ -5,7 +5,7 @@ import {OutlookItem} from '../../../../../../models/microsoft/graph/outlookItem'
 import {PhysicalAddress} from '../../../../../../models/microsoft/graph/physicalAddress';
 import {ProfilePhoto} from '../../../../../../models/microsoft/graph/profilePhoto';
 import {SingleValueLegacyExtendedProperty} from '../../../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {
     /** The name of the contact's assistant.  */
@@ -28,7 +28,7 @@ export class Delta extends OutlookItem implements Parsable {
     private _displayName?: string | undefined;
     /** The contact's email addresses.  */
     private _emailAddresses?: EmailAddress[] | undefined;
-    /** The collection of open extensions defined for the contact. Nullable.  */
+    /** The collection of open extensions defined for the contact. Read-only. Nullable.  */
     private _extensions?: Extension[] | undefined;
     /** The name the contact is filed under.  */
     private _fileAs?: string | undefined;
@@ -40,47 +40,29 @@ export class Delta extends OutlookItem implements Parsable {
     private _homeAddress?: PhysicalAddress | undefined;
     /** The contact's home phone numbers.  */
     private _homePhones?: string[] | undefined;
-    /** The contact's instant messaging (IM) addresses.  */
     private _imAddresses?: string[] | undefined;
-    /** The contact's initials.  */
     private _initials?: string | undefined;
-    /** The contact’s job title.  */
     private _jobTitle?: string | undefined;
-    /** The name of the contact's manager.  */
     private _manager?: string | undefined;
-    /** The contact's middle name.  */
     private _middleName?: string | undefined;
-    /** The contact's mobile phone number.  */
     private _mobilePhone?: string | undefined;
     /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable.  */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The contact's nickname.  */
     private _nickName?: string | undefined;
-    /** The location of the contact's office.  */
     private _officeLocation?: string | undefined;
-    /** Other addresses for the contact.  */
     private _otherAddress?: PhysicalAddress | undefined;
-    /** The ID of the contact's parent folder.  */
     private _parentFolderId?: string | undefined;
-    /** The user's notes about the contact.  */
     private _personalNotes?: string | undefined;
     /** Optional contact picture. You can get or set a photo for a contact.  */
     private _photo?: ProfilePhoto | undefined;
-    /** The contact's profession.  */
     private _profession?: string | undefined;
     /** The collection of single-value extended properties defined for the contact. Read-only. Nullable.  */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The name of the contact's spouse/partner.  */
     private _spouseName?: string | undefined;
-    /** The contact's surname.  */
     private _surname?: string | undefined;
-    /** The contact's title.  */
     private _title?: string | undefined;
-    /** The phonetic Japanese company name of the contact.  */
     private _yomiCompanyName?: string | undefined;
-    /** The phonetic Japanese given name (first name) of the contact.  */
     private _yomiGivenName?: string | undefined;
-    /** The phonetic Japanese surname (last name)  of the contact.  */
     private _yomiSurname?: string | undefined;
     /**
      * Instantiates a new delta and sets the default values.
@@ -159,7 +141,7 @@ export class Delta extends OutlookItem implements Parsable {
         return this._emailAddresses;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
      * @returns a extension
      */
     public get extensions() {
@@ -201,42 +183,42 @@ export class Delta extends OutlookItem implements Parsable {
         return this._homePhones;
     };
     /**
-     * Gets the imAddresses property value. The contact's instant messaging (IM) addresses.
+     * Gets the imAddresses property value. 
      * @returns a string
      */
     public get imAddresses() {
         return this._imAddresses;
     };
     /**
-     * Gets the initials property value. The contact's initials.
+     * Gets the initials property value. 
      * @returns a string
      */
     public get initials() {
         return this._initials;
     };
     /**
-     * Gets the jobTitle property value. The contact’s job title.
+     * Gets the jobTitle property value. 
      * @returns a string
      */
     public get jobTitle() {
         return this._jobTitle;
     };
     /**
-     * Gets the manager property value. The name of the contact's manager.
+     * Gets the manager property value. 
      * @returns a string
      */
     public get manager() {
         return this._manager;
     };
     /**
-     * Gets the middleName property value. The contact's middle name.
+     * Gets the middleName property value. 
      * @returns a string
      */
     public get middleName() {
         return this._middleName;
     };
     /**
-     * Gets the mobilePhone property value. The contact's mobile phone number.
+     * Gets the mobilePhone property value. 
      * @returns a string
      */
     public get mobilePhone() {
@@ -250,35 +232,35 @@ export class Delta extends OutlookItem implements Parsable {
         return this._multiValueExtendedProperties;
     };
     /**
-     * Gets the nickName property value. The contact's nickname.
+     * Gets the nickName property value. 
      * @returns a string
      */
     public get nickName() {
         return this._nickName;
     };
     /**
-     * Gets the officeLocation property value. The location of the contact's office.
+     * Gets the officeLocation property value. 
      * @returns a string
      */
     public get officeLocation() {
         return this._officeLocation;
     };
     /**
-     * Gets the otherAddress property value. Other addresses for the contact.
+     * Gets the otherAddress property value. 
      * @returns a physicalAddress
      */
     public get otherAddress() {
         return this._otherAddress;
     };
     /**
-     * Gets the parentFolderId property value. The ID of the contact's parent folder.
+     * Gets the parentFolderId property value. 
      * @returns a string
      */
     public get parentFolderId() {
         return this._parentFolderId;
     };
     /**
-     * Gets the personalNotes property value. The user's notes about the contact.
+     * Gets the personalNotes property value. 
      * @returns a string
      */
     public get personalNotes() {
@@ -292,7 +274,7 @@ export class Delta extends OutlookItem implements Parsable {
         return this._photo;
     };
     /**
-     * Gets the profession property value. The contact's profession.
+     * Gets the profession property value. 
      * @returns a string
      */
     public get profession() {
@@ -306,42 +288,42 @@ export class Delta extends OutlookItem implements Parsable {
         return this._singleValueExtendedProperties;
     };
     /**
-     * Gets the spouseName property value. The name of the contact's spouse/partner.
+     * Gets the spouseName property value. 
      * @returns a string
      */
     public get spouseName() {
         return this._spouseName;
     };
     /**
-     * Gets the surname property value. The contact's surname.
+     * Gets the surname property value. 
      * @returns a string
      */
     public get surname() {
         return this._surname;
     };
     /**
-     * Gets the title property value. The contact's title.
+     * Gets the title property value. 
      * @returns a string
      */
     public get title() {
         return this._title;
     };
     /**
-     * Gets the yomiCompanyName property value. The phonetic Japanese company name of the contact.
+     * Gets the yomiCompanyName property value. 
      * @returns a string
      */
     public get yomiCompanyName() {
         return this._yomiCompanyName;
     };
     /**
-     * Gets the yomiGivenName property value. The phonetic Japanese given name (first name) of the contact.
+     * Gets the yomiGivenName property value. 
      * @returns a string
      */
     public get yomiGivenName() {
         return this._yomiGivenName;
     };
     /**
-     * Gets the yomiSurname property value. The phonetic Japanese surname (last name)  of the contact.
+     * Gets the yomiSurname property value. 
      * @returns a string
      */
     public get yomiSurname() {
@@ -508,7 +490,7 @@ export class Delta extends OutlookItem implements Parsable {
         this._emailAddresses = value;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {
@@ -550,42 +532,42 @@ export class Delta extends OutlookItem implements Parsable {
         this._homePhones = value;
     };
     /**
-     * Sets the imAddresses property value. The contact's instant messaging (IM) addresses.
+     * Sets the imAddresses property value. 
      * @param value Value to set for the imAddresses property.
      */
     public set imAddresses(value: string[] | undefined) {
         this._imAddresses = value;
     };
     /**
-     * Sets the initials property value. The contact's initials.
+     * Sets the initials property value. 
      * @param value Value to set for the initials property.
      */
     public set initials(value: string | undefined) {
         this._initials = value;
     };
     /**
-     * Sets the jobTitle property value. The contact’s job title.
+     * Sets the jobTitle property value. 
      * @param value Value to set for the jobTitle property.
      */
     public set jobTitle(value: string | undefined) {
         this._jobTitle = value;
     };
     /**
-     * Sets the manager property value. The name of the contact's manager.
+     * Sets the manager property value. 
      * @param value Value to set for the manager property.
      */
     public set manager(value: string | undefined) {
         this._manager = value;
     };
     /**
-     * Sets the middleName property value. The contact's middle name.
+     * Sets the middleName property value. 
      * @param value Value to set for the middleName property.
      */
     public set middleName(value: string | undefined) {
         this._middleName = value;
     };
     /**
-     * Sets the mobilePhone property value. The contact's mobile phone number.
+     * Sets the mobilePhone property value. 
      * @param value Value to set for the mobilePhone property.
      */
     public set mobilePhone(value: string | undefined) {
@@ -599,35 +581,35 @@ export class Delta extends OutlookItem implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
-     * Sets the nickName property value. The contact's nickname.
+     * Sets the nickName property value. 
      * @param value Value to set for the nickName property.
      */
     public set nickName(value: string | undefined) {
         this._nickName = value;
     };
     /**
-     * Sets the officeLocation property value. The location of the contact's office.
+     * Sets the officeLocation property value. 
      * @param value Value to set for the officeLocation property.
      */
     public set officeLocation(value: string | undefined) {
         this._officeLocation = value;
     };
     /**
-     * Sets the otherAddress property value. Other addresses for the contact.
+     * Sets the otherAddress property value. 
      * @param value Value to set for the otherAddress property.
      */
     public set otherAddress(value: PhysicalAddress | undefined) {
         this._otherAddress = value;
     };
     /**
-     * Sets the parentFolderId property value. The ID of the contact's parent folder.
+     * Sets the parentFolderId property value. 
      * @param value Value to set for the parentFolderId property.
      */
     public set parentFolderId(value: string | undefined) {
         this._parentFolderId = value;
     };
     /**
-     * Sets the personalNotes property value. The user's notes about the contact.
+     * Sets the personalNotes property value. 
      * @param value Value to set for the personalNotes property.
      */
     public set personalNotes(value: string | undefined) {
@@ -641,7 +623,7 @@ export class Delta extends OutlookItem implements Parsable {
         this._photo = value;
     };
     /**
-     * Sets the profession property value. The contact's profession.
+     * Sets the profession property value. 
      * @param value Value to set for the profession property.
      */
     public set profession(value: string | undefined) {
@@ -655,42 +637,42 @@ export class Delta extends OutlookItem implements Parsable {
         this._singleValueExtendedProperties = value;
     };
     /**
-     * Sets the spouseName property value. The name of the contact's spouse/partner.
+     * Sets the spouseName property value. 
      * @param value Value to set for the spouseName property.
      */
     public set spouseName(value: string | undefined) {
         this._spouseName = value;
     };
     /**
-     * Sets the surname property value. The contact's surname.
+     * Sets the surname property value. 
      * @param value Value to set for the surname property.
      */
     public set surname(value: string | undefined) {
         this._surname = value;
     };
     /**
-     * Sets the title property value. The contact's title.
+     * Sets the title property value. 
      * @param value Value to set for the title property.
      */
     public set title(value: string | undefined) {
         this._title = value;
     };
     /**
-     * Sets the yomiCompanyName property value. The phonetic Japanese company name of the contact.
+     * Sets the yomiCompanyName property value. 
      * @param value Value to set for the yomiCompanyName property.
      */
     public set yomiCompanyName(value: string | undefined) {
         this._yomiCompanyName = value;
     };
     /**
-     * Sets the yomiGivenName property value. The phonetic Japanese given name (first name) of the contact.
+     * Sets the yomiGivenName property value. 
      * @param value Value to set for the yomiGivenName property.
      */
     public set yomiGivenName(value: string | undefined) {
         this._yomiGivenName = value;
     };
     /**
-     * Sets the yomiSurname property value. The phonetic Japanese surname (last name)  of the contact.
+     * Sets the yomiSurname property value. 
      * @param value Value to set for the yomiSurname property.
      */
     public set yomiSurname(value: string | undefined) {

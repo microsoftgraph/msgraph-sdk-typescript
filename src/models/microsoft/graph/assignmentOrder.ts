@@ -1,9 +1,9 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AssignmentOrder implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.  */
+    /** A list of identityUserFlowAttribute object identifiers that determine the order in which attributes should be collected within a user flow.  */
     private _order?: string[] | undefined;
     /**
      * Instantiates a new assignmentOrder and sets the default values.
@@ -19,7 +19,7 @@ export class AssignmentOrder implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the order property value. A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
+     * Gets the order property value. A list of identityUserFlowAttribute object identifiers that determine the order in which attributes should be collected within a user flow.
      * @returns a string
      */
     public get order() {
@@ -51,7 +51,7 @@ export class AssignmentOrder implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the order property value. A list of identityUserFlowAttribute IDs provided to determine the order in which attributes should be collected within a user flow.
+     * Sets the order property value. A list of identityUserFlowAttribute object identifiers that determine the order in which attributes should be collected within a user flow.
      * @param value Value to set for the order property.
      */
     public set order(value: string[] | undefined) {

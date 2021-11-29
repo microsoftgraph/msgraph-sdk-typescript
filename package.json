@@ -4,11 +4,15 @@
   "description": "",
   "main": "index.js",
   "dependencies": {
-    "@microsoft/kiota-abstractions": "^1.0.19",
+    "@azure/identity": "^2.0.1",
+    "@microsoft/kiota-abstractions": "file:main/microsoft-kiota-abstractions-1.0.24.tgz",
+    "@microsoft/kiota-http-fetchlibrary": "file:main/microsoft-kiota-http-fetchlibrary-1.0.12.tgz",
+    "@microsoft/kiota-serialization-json": "file:main/microsoft-kiota-serialization-json-1.0.5.tgz",
     "tslib": "^2.3.1"
   },
   "scripts": {
-    "build": "tsc -p tsconfig.json"
+    "build": "tsc -p tsconfig.json",
+    "run": "node ./lib/main.js"
   },
   "repository": {
     "type": "git",

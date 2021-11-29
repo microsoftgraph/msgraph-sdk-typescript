@@ -3,7 +3,7 @@ import {Entity} from './entity';
 import {Json} from './json';
 import {Status} from './status';
 import {VisualInfo} from './visualInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserActivity extends Entity implements Parsable {
     /** Required. URL used to launch the activity in the best native experience represented by the appId. Might launch a web-based app if no native app exists.  */

@@ -8,11 +8,12 @@ import {ChatMessagePolicyViolation} from './chatMessagePolicyViolation';
 import {ChatMessageReaction} from './chatMessageReaction';
 import {ChatMessageType} from './chatMessageType';
 import {Entity} from './entity';
+import {EventMessageDetail} from './eventMessageDetail';
 import {ItemBody} from './itemBody';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessage extends Entity implements Parsable {
-    /** Attached files. Attachments are currently read-only – sending attachments is not supported.  */
+    /** References to attached objects like files, tabs, meetings etc.  */
     private _attachments?: ChatMessageAttachment[] | undefined;
     private _body?: ItemBody | undefined;
     /** If the message was sent in a channel, represents identity of the channel.  */
@@ -25,7 +26,9 @@ export class ChatMessage extends Entity implements Parsable {
     private _deletedDateTime?: Date | undefined;
     /** Read-only. Version number of the chat message.  */
     private _etag?: string | undefined;
-    /** Read only. Details of the sender of the chat message.  */
+    /** Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.  */
+    private _eventDetail?: EventMessageDetail | undefined;
+    /** Details of the sender of the chat message. Can only be set during migration.  */
     private _from?: ChatMessageFromIdentitySet | undefined;
     /** Content in a message hosted by Microsoft Teams - for example, images or code snippets.  */
     private _hostedContents?: ChatMessageHostedContent[] | undefined;
@@ -37,9 +40,9 @@ export class ChatMessage extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;
     /** Locale of the chat message set by the client. Always set to en-us.  */
     private _locale?: string | undefined;
-    /** List of entities mentioned in the chat message. Currently supports user, bot, team, channel.  */
+    /** List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.  */
     private _mentions?: ChatMessageMention[] | undefined;
-    /** The type of chat message. The possible value is: message.  */
+    /** The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.  */
     private _messageType?: ChatMessageType | undefined;
     /** Defines the properties of a policy violation set by a data loss prevention (DLP) application.  */
     private _policyViolation?: ChatMessagePolicyViolation | undefined;
@@ -62,7 +65,7 @@ export class ChatMessage extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the attachments property value. Attached files. Attachments are currently read-only – sending attachments is not supported.
+     * Gets the attachments property value. References to attached objects like files, tabs, meetings etc.
      * @returns a chatMessageAttachment
      */
     public get attachments() {
@@ -111,7 +114,14 @@ export class ChatMessage extends Entity implements Parsable {
         return this._etag;
     };
     /**
-     * Gets the from property value. Read only. Details of the sender of the chat message.
+     * Gets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.
+     * @returns a eventMessageDetail
+     */
+    public get eventDetail() {
+        return this._eventDetail;
+    };
+    /**
+     * Gets the from property value. Details of the sender of the chat message. Can only be set during migration.
      * @returns a chatMessageFromIdentitySet
      */
     public get from() {
@@ -153,14 +163,14 @@ export class ChatMessage extends Entity implements Parsable {
         return this._locale;
     };
     /**
-     * Gets the mentions property value. List of entities mentioned in the chat message. Currently supports user, bot, team, channel.
+     * Gets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.
      * @returns a chatMessageMention
      */
     public get mentions() {
         return this._mentions;
     };
     /**
-     * Gets the messageType property value. The type of chat message. The possible value is: message.
+     * Gets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
      * @returns a chatMessageType
      */
     public get messageType() {
@@ -228,6 +238,7 @@ export class ChatMessage extends Entity implements Parsable {
             ["createdDateTime", (o, n) => { (o as unknown as ChatMessage).createdDateTime = n.getDateValue(); }],
             ["deletedDateTime", (o, n) => { (o as unknown as ChatMessage).deletedDateTime = n.getDateValue(); }],
             ["etag", (o, n) => { (o as unknown as ChatMessage).etag = n.getStringValue(); }],
+            ["eventDetail", (o, n) => { (o as unknown as ChatMessage).eventDetail = n.getObjectValue<EventMessageDetail>(EventMessageDetail); }],
             ["from", (o, n) => { (o as unknown as ChatMessage).from = n.getObjectValue<ChatMessageFromIdentitySet>(ChatMessageFromIdentitySet); }],
             ["hostedContents", (o, n) => { (o as unknown as ChatMessage).hostedContents = n.getCollectionOfObjectValues<ChatMessageHostedContent>(ChatMessageHostedContent); }],
             ["importance", (o, n) => { (o as unknown as ChatMessage).importance = n.getEnumValue<ChatMessageImportance>(ChatMessageImportance); }],
@@ -259,6 +270,7 @@ export class ChatMessage extends Entity implements Parsable {
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("deletedDateTime", this.deletedDateTime);
         writer.writeStringValue("etag", this.etag);
+        writer.writeObjectValue<EventMessageDetail>("eventDetail", this.eventDetail);
         writer.writeObjectValue<ChatMessageFromIdentitySet>("from", this.from);
         writer.writeCollectionOfObjectValues<ChatMessageHostedContent>("hostedContents", this.hostedContents);
         writer.writeEnumValue<ChatMessageImportance>("importance", this.importance);
@@ -276,7 +288,7 @@ export class ChatMessage extends Entity implements Parsable {
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
-     * Sets the attachments property value. Attached files. Attachments are currently read-only – sending attachments is not supported.
+     * Sets the attachments property value. References to attached objects like files, tabs, meetings etc.
      * @param value Value to set for the attachments property.
      */
     public set attachments(value: ChatMessageAttachment[] | undefined) {
@@ -325,7 +337,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._etag = value;
     };
     /**
-     * Sets the from property value. Read only. Details of the sender of the chat message.
+     * Sets the eventDetail property value. Read-only.  If present, represents details of an event that happened in a chat, a channel, or a team, for example, members were added, and so on. For event messages, the messageType property will be set to systemEventMessage.
+     * @param value Value to set for the eventDetail property.
+     */
+    public set eventDetail(value: EventMessageDetail | undefined) {
+        this._eventDetail = value;
+    };
+    /**
+     * Sets the from property value. Details of the sender of the chat message. Can only be set during migration.
      * @param value Value to set for the from property.
      */
     public set from(value: ChatMessageFromIdentitySet | undefined) {
@@ -367,14 +386,14 @@ export class ChatMessage extends Entity implements Parsable {
         this._locale = value;
     };
     /**
-     * Sets the mentions property value. List of entities mentioned in the chat message. Currently supports user, bot, team, channel.
+     * Sets the mentions property value. List of entities mentioned in the chat message. Supported entities are: user, bot, team, and channel.
      * @param value Value to set for the mentions property.
      */
     public set mentions(value: ChatMessageMention[] | undefined) {
         this._mentions = value;
     };
     /**
-     * Sets the messageType property value. The type of chat message. The possible value is: message.
+     * Sets the messageType property value. The type of chat message. The possible values are: message, chatEvent, typing, unknownFutureValue, systemEventMessage. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: systemEventMessage.
      * @param value Value to set for the messageType property.
      */
     public set messageType(value: ChatMessageType | undefined) {

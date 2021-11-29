@@ -1,13 +1,13 @@
 import {Entity} from './entity';
 import {ThreatAssessmentResultType} from './threatAssessmentResultType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentResult extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _createdDateTime?: Date | undefined;
     /** The result message for each threat assessment.  */
     private _message?: string | undefined;
-    /** The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.  */
+    /** The threat assessment result type. Possible values are: checkPolicy, rescan.  */
     private _resultType?: ThreatAssessmentResultType | undefined;
     /**
      * Instantiates a new threatAssessmentResult and sets the default values.
@@ -30,7 +30,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         return this._message;
     };
     /**
-     * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
+     * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy, rescan.
      * @returns a threatAssessmentResultType
      */
     public get resultType() {
@@ -73,7 +73,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         this._message = value;
     };
     /**
-     * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
+     * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy, rescan.
      * @param value Value to set for the resultType property.
      */
     public set resultType(value: ThreatAssessmentResultType | undefined) {

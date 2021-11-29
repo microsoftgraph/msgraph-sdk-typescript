@@ -1,5 +1,5 @@
 import {DirectoryObject} from './directoryObject';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceSpecificPermissionGrant extends DirectoryObject implements Parsable {
     /** ID of the service principal of the Azure AD app that has been granted access. Read-only.  */

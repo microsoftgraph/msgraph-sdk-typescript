@@ -7,5 +7,5 @@ export enum EntityType {
     List = "list",
     ListItem = "listItem",
     Drive = "drive",
-    Unknownfuturevalue = "unknownfuturevalue",
+    UnknownFutureValue = "unknownFutureValue",
 }

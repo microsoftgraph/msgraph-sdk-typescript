@@ -1,17 +1,17 @@
 import {Entity} from './entity';
 import {ExtensionSchemaProperty} from './extensionSchemaProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchemaExtension extends Entity implements Parsable {
-    /** Description for the schema extension.  */
+    /** Description for the schema extension. Supports $filter (eq).  */
     private _description?: string | undefined;
-    /** The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed.  */
+    /** The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).  */
     private _owner?: string | undefined;
     /** The collection of property names and types that make up the schema extension definition.  */
     private _properties?: ExtensionSchemaProperty[] | undefined;
-    /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors.  */
+    /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).  */
     private _status?: string | undefined;
-    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.  */
+    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.  */
     private _targetTypes?: string[] | undefined;
     /**
      * Instantiates a new schemaExtension and sets the default values.
@@ -20,14 +20,14 @@ export class SchemaExtension extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the description property value. Description for the schema extension.
+     * Gets the description property value. Description for the schema extension. Supports $filter (eq).
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Gets the owner property value. The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed.
+     * Gets the owner property value. The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).
      * @returns a string
      */
     public get owner() {
@@ -41,14 +41,14 @@ export class SchemaExtension extends Entity implements Parsable {
         return this._properties;
     };
     /**
-     * Gets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors.
+     * Gets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).
      * @returns a string
      */
     public get status() {
         return this._status;
     };
     /**
-     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
+     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
      * @returns a string
      */
     public get targetTypes() {
@@ -81,14 +81,14 @@ export class SchemaExtension extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("targetTypes", this.targetTypes);
     };
     /**
-     * Sets the description property value. Description for the schema extension.
+     * Sets the description property value. Description for the schema extension. Supports $filter (eq).
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Sets the owner property value. The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed.
+     * Sets the owner property value. The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).
      * @param value Value to set for the owner property.
      */
     public set owner(value: string | undefined) {
@@ -102,14 +102,14 @@ export class SchemaExtension extends Entity implements Parsable {
         this._properties = value;
     };
     /**
-     * Sets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors.
+     * Sets the status property value. The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).
      * @param value Value to set for the status property.
      */
     public set status(value: string | undefined) {
         this._status = value;
     };
     /**
-     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
+     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
      * @param value Value to set for the targetTypes property.
      */
     public set targetTypes(value: string[] | undefined) {

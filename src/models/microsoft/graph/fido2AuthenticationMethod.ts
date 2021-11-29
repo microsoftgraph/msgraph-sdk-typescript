@@ -1,13 +1,13 @@
 import {AttestationLevel} from './attestationLevel';
 import {AuthenticationMethod} from './authenticationMethod';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.  */
     private _aaGuid?: string | undefined;
     /** The attestation certificate(s) attached to this security key.  */
     private _attestationCertificates?: string[] | undefined;
-    /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.  */
+    /** The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.  */
     private _attestationLevel?: AttestationLevel | undefined;
     /** The timestamp when this key was registered to the user.  */
     private _createdDateTime?: Date | undefined;
@@ -36,7 +36,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         return this._attestationCertificates;
     };
     /**
-     * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+     * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
      * @returns a attestationLevel
      */
     public get attestationLevel() {
@@ -106,7 +106,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         this._attestationCertificates = value;
     };
     /**
-     * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
+     * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
      * @param value Value to set for the attestationLevel property.
      */
     public set attestationLevel(value: AttestationLevel | undefined) {

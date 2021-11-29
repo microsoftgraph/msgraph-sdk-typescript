@@ -1,7 +1,7 @@
 import {EmailRole} from './emailRole';
 import {LogonType} from './logonType';
 import {UserAccountSecurityType} from './userAccountSecurityType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserSecurityState implements Parsable {
     /** AAD User object identifier (GUID) - represents the physical/multi-account user entity.  */

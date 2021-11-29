@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {PlannerBucket} from './plannerBucket';
 import {PlannerPlan} from './plannerPlan';
 import {PlannerTask} from './plannerTask';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Planner extends Entity implements Parsable {
     /** Read-only. Nullable. Returns a collection of the specified buckets  */

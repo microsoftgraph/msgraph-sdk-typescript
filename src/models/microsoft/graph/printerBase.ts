@@ -4,7 +4,7 @@ import {PrinterDefaults} from './printerDefaults';
 import {PrinterLocation} from './printerLocation';
 import {PrinterStatus} from './printerStatus';
 import {PrintJob} from './printJob';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterBase extends Entity implements Parsable {
     /** The capabilities of the printer/printerShare.  */

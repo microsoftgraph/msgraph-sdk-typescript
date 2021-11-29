@@ -1,10 +1,10 @@
 import {DirectoryObject} from './directoryObject';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PolicyBase extends DirectoryObject implements Parsable {
-    /** Description for this policy.  */
+    /** Description for this policy. Required.  */
     private _description?: string | undefined;
-    /** Display name for this policy.  */
+    /** Display name for this policy. Required.  */
     private _displayName?: string | undefined;
     /**
      * Instantiates a new policyBase and sets the default values.
@@ -13,14 +13,14 @@ export class PolicyBase extends DirectoryObject implements Parsable {
         super();
     };
     /**
-     * Gets the description property value. Description for this policy.
+     * Gets the description property value. Description for this policy. Required.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Gets the displayName property value. Display name for this policy.
+     * Gets the displayName property value. Display name for this policy. Required.
      * @returns a string
      */
     public get displayName() {
@@ -47,14 +47,14 @@ export class PolicyBase extends DirectoryObject implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
     };
     /**
-     * Sets the description property value. Description for this policy.
+     * Sets the description property value. Description for this policy. Required.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Sets the displayName property value. Display name for this policy.
+     * Sets the displayName property value. Display name for this policy. Required.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

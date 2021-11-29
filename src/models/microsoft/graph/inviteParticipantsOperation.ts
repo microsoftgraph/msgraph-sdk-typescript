@@ -1,6 +1,6 @@
 import {CommsOperation} from './commsOperation';
 import {InvitationParticipantInfo} from './invitationParticipantInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InviteParticipantsOperation extends CommsOperation implements Parsable {
     /** The participants to invite.  */

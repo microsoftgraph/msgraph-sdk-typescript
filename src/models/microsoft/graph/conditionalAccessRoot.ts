@@ -1,10 +1,12 @@
 import {ConditionalAccessPolicy} from './conditionalAccessPolicy';
 import {Entity} from './entity';
 import {NamedLocation} from './namedLocation';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessRoot extends Entity implements Parsable {
+    /** Read-only. Nullable. Returns a collection of the specified named locations.  */
     private _namedLocations?: NamedLocation[] | undefined;
+    /** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.  */
     private _policies?: ConditionalAccessPolicy[] | undefined;
     /**
      * Instantiates a new conditionalAccessRoot and sets the default values.
@@ -13,14 +15,14 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the namedLocations property value. 
+     * Gets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
      * @returns a namedLocation
      */
     public get namedLocations() {
         return this._namedLocations;
     };
     /**
-     * Gets the policies property value. 
+     * Gets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
      * @returns a conditionalAccessPolicy
      */
     public get policies() {
@@ -47,14 +49,14 @@ export class ConditionalAccessRoot extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ConditionalAccessPolicy>("policies", this.policies);
     };
     /**
-     * Sets the namedLocations property value. 
+     * Sets the namedLocations property value. Read-only. Nullable. Returns a collection of the specified named locations.
      * @param value Value to set for the namedLocations property.
      */
     public set namedLocations(value: NamedLocation[] | undefined) {
         this._namedLocations = value;
     };
     /**
-     * Sets the policies property value. 
+     * Sets the policies property value. Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.
      * @param value Value to set for the policies property.
      */
     public set policies(value: ConditionalAccessPolicy[] | undefined) {

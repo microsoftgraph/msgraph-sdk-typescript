@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {Json} from './json';
 import {WorkbookWorksheet} from './workbookWorksheet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookNamedItem extends Entity implements Parsable {
     /** Represents the comment associated with this name.  */
@@ -10,7 +10,7 @@ export class WorkbookNamedItem extends Entity implements Parsable {
     private _name?: string | undefined;
     /** Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only.  */
     private _scope?: string | undefined;
-    /** Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.  */
+    /** Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.  */
     private _type?: string | undefined;
     /** Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only.  */
     private _value?: Json | undefined;
@@ -46,7 +46,7 @@ export class WorkbookNamedItem extends Entity implements Parsable {
         return this._scope;
     };
     /**
-     * Gets the type property value. Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.
+     * Gets the type property value. Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.
      * @returns a string
      */
     public get type() {
@@ -125,7 +125,7 @@ export class WorkbookNamedItem extends Entity implements Parsable {
         this._scope = value;
     };
     /**
-     * Sets the type property value. Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.
+     * Sets the type property value. Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

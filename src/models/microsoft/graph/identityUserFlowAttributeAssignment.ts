@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {IdentityUserFlowAttributeInputType} from './identityUserFlowAttributeInputType';
 import {UserAttributeValuesItem} from './userAttributeValuesItem';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowAttributeAssignment extends Entity implements Parsable {
     /** The display name of the identityUserFlowAttribute within a user flow.  */

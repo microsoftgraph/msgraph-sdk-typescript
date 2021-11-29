@@ -1,3 +1,4 @@
+import {AudioRoutingGroup} from './audioRoutingGroup';
 import {CallDirection} from './callDirection';
 import {CallMediaState} from './callMediaState';
 import {CallOptions} from './callOptions';
@@ -16,9 +17,11 @@ import {Participant} from './participant';
 import {ParticipantInfo} from './participantInfo';
 import {ResultInfo} from './resultInfo';
 import {ToneInfo} from './toneInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Call extends Entity implements Parsable {
+    /** Read-only. Nullable.  */
+    private _audioRoutingGroups?: AudioRoutingGroup[] | undefined;
     /** The callback URL on which callbacks will be delivered. Must be https.  */
     private _callbackUri?: string | undefined;
     /** A unique identifier for all the participant calls in a conference or a unique identifier for two participant calls in a P2P call.  This needs to be copied over from Microsoft.Graph.Call.CallChainId.  */
@@ -26,17 +29,17 @@ export class Call extends Entity implements Parsable {
     private _callOptions?: CallOptions | undefined;
     /** The routing information on how the call was retargeted. Read-only.  */
     private _callRoutes?: CallRoute[] | undefined;
-    /** The chat information. Required information for meeting scenarios.  */
+    /** The chat information. Required information for joining a meeting.  */
     private _chatInfo?: ChatInfo | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only.  */
     private _direction?: CallDirection | undefined;
     /** The context associated with an incoming call. Read-only. Server generated.  */
     private _incomingContext?: IncomingContext | undefined;
-    /** The media configuration. Required information for creating peer to peer calls or joining meetings.  */
+    /** The media configuration. Required.  */
     private _mediaConfig?: MediaConfig | undefined;
     /** Read-only. The call media state.  */
     private _mediaState?: CallMediaState | undefined;
-    /** The meeting information. Required information for meeting scenarios.  */
+    /** The meeting information that's required for joining a meeting.  */
     private _meetingInfo?: MeetingInfo | undefined;
     private _myParticipantId?: string | undefined;
     /** Read-only. Nullable.  */
@@ -58,6 +61,13 @@ export class Call extends Entity implements Parsable {
      */
     public constructor() {
         super();
+    };
+    /**
+     * Gets the audioRoutingGroups property value. Read-only. Nullable.
+     * @returns a audioRoutingGroup
+     */
+    public get audioRoutingGroups() {
+        return this._audioRoutingGroups;
     };
     /**
      * Gets the callbackUri property value. The callback URL on which callbacks will be delivered. Must be https.
@@ -88,7 +98,7 @@ export class Call extends Entity implements Parsable {
         return this._callRoutes;
     };
     /**
-     * Gets the chatInfo property value. The chat information. Required information for meeting scenarios.
+     * Gets the chatInfo property value. The chat information. Required information for joining a meeting.
      * @returns a chatInfo
      */
     public get chatInfo() {
@@ -109,7 +119,7 @@ export class Call extends Entity implements Parsable {
         return this._incomingContext;
     };
     /**
-     * Gets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
+     * Gets the mediaConfig property value. The media configuration. Required.
      * @returns a mediaConfig
      */
     public get mediaConfig() {
@@ -123,7 +133,7 @@ export class Call extends Entity implements Parsable {
         return this._mediaState;
     };
     /**
-     * Gets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
+     * Gets the meetingInfo property value. The meeting information that's required for joining a meeting.
      * @returns a meetingInfo
      */
     public get meetingInfo() {
@@ -219,6 +229,7 @@ export class Call extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["audioRoutingGroups", (o, n) => { (o as unknown as Call).audioRoutingGroups = n.getCollectionOfObjectValues<AudioRoutingGroup>(AudioRoutingGroup); }],
             ["callbackUri", (o, n) => { (o as unknown as Call).callbackUri = n.getStringValue(); }],
             ["callChainId", (o, n) => { (o as unknown as Call).callChainId = n.getStringValue(); }],
             ["callOptions", (o, n) => { (o as unknown as Call).callOptions = n.getObjectValue<CallOptions>(CallOptions); }],
@@ -250,6 +261,7 @@ export class Call extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<AudioRoutingGroup>("audioRoutingGroups", this.audioRoutingGroups);
         writer.writeStringValue("callbackUri", this.callbackUri);
         writer.writeStringValue("callChainId", this.callChainId);
         writer.writeObjectValue<CallOptions>("callOptions", this.callOptions);
@@ -263,7 +275,7 @@ export class Call extends Entity implements Parsable {
         writer.writeStringValue("myParticipantId", this.myParticipantId);
         writer.writeCollectionOfObjectValues<CommsOperation>("operations", this.operations);
         writer.writeCollectionOfObjectValues<Participant>("participants", this.participants);
-        writer.writeEnumValue<Modality>("requestedModalities", ...this.requestedModalities);
+        this.requestedModalities && writer.writeEnumValue<Modality>("requestedModalities", ...this.requestedModalities);
         writer.writeObjectValue<ResultInfo>("resultInfo", this.resultInfo);
         writer.writeObjectValue<ParticipantInfo>("source", this.source);
         writer.writeEnumValue<CallState>("state", this.state);
@@ -272,6 +284,13 @@ export class Call extends Entity implements Parsable {
         writer.writeStringValue("tenantId", this.tenantId);
         writer.writeObjectValue<ToneInfo>("toneInfo", this.toneInfo);
         writer.writeObjectValue<CallTranscriptionInfo>("transcription", this.transcription);
+    };
+    /**
+     * Sets the audioRoutingGroups property value. Read-only. Nullable.
+     * @param value Value to set for the audioRoutingGroups property.
+     */
+    public set audioRoutingGroups(value: AudioRoutingGroup[] | undefined) {
+        this._audioRoutingGroups = value;
     };
     /**
      * Sets the callbackUri property value. The callback URL on which callbacks will be delivered. Must be https.
@@ -302,7 +321,7 @@ export class Call extends Entity implements Parsable {
         this._callRoutes = value;
     };
     /**
-     * Sets the chatInfo property value. The chat information. Required information for meeting scenarios.
+     * Sets the chatInfo property value. The chat information. Required information for joining a meeting.
      * @param value Value to set for the chatInfo property.
      */
     public set chatInfo(value: ChatInfo | undefined) {
@@ -323,7 +342,7 @@ export class Call extends Entity implements Parsable {
         this._incomingContext = value;
     };
     /**
-     * Sets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
+     * Sets the mediaConfig property value. The media configuration. Required.
      * @param value Value to set for the mediaConfig property.
      */
     public set mediaConfig(value: MediaConfig | undefined) {
@@ -337,7 +356,7 @@ export class Call extends Entity implements Parsable {
         this._mediaState = value;
     };
     /**
-     * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
+     * Sets the meetingInfo property value. The meeting information that's required for joining a meeting.
      * @param value Value to set for the meetingInfo property.
      */
     public set meetingInfo(value: MeetingInfo | undefined) {

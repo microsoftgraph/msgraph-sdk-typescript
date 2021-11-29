@@ -2,7 +2,7 @@ import {Alert} from './alert';
 import {Entity} from './entity';
 import {SecureScore} from './secureScore';
 import {SecureScoreControlProfile} from './secureScoreControlProfile';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Security extends Entity implements Parsable {
     /** Read-only. Nullable.  */

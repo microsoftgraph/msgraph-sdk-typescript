@@ -1,6 +1,6 @@
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsAndConditionsAssignment extends Entity implements Parsable {
     /** Assignment target that the T&C policy is assigned to.  */

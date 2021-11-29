@@ -1,6 +1,6 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ShiftItem} from './shiftItem';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Shift extends ChangeTrackedEntity implements Parsable {
     /** The draft version of this shift that is viewable by managers. Required.  */

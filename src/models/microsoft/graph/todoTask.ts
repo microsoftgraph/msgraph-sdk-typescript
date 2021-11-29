@@ -6,7 +6,7 @@ import {ItemBody} from './itemBody';
 import {LinkedResource} from './linkedResource';
 import {PatternedRecurrence} from './patternedRecurrence';
 import {TaskStatus} from './taskStatus';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoTask extends Entity implements Parsable {
     /** The task body that typically contains information about the task.  */

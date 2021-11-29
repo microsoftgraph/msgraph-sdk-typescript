@@ -2,7 +2,7 @@ import {Notebook} from './notebook';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import {OnenoteSection} from './onenoteSection';
 import {PageLinks} from './pageLinks';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** The page's HTML content.  */

@@ -4,7 +4,7 @@ import {Entity} from './entity';
 import {ManagedEBookAssignment} from './managedEBookAssignment';
 import {MimeContent} from './mimeContent';
 import {UserInstallStateSummary} from './userInstallStateSummary';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBook extends Entity implements Parsable {
     /** The list of assignments for this eBook.  */

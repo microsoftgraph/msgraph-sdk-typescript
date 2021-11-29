@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {Json} from './json';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookTableRow extends Entity implements Parsable {
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.  */

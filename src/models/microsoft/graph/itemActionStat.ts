@@ -1,4 +1,4 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemActionStat implements Parsable {
     /** The number of times the action took place. Read-only.  */

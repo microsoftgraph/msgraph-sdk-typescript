@@ -1,6 +1,6 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ShiftAvailability} from './shiftAvailability';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftPreferences extends ChangeTrackedEntity implements Parsable {
     /** Availability of the user to be scheduled for work and its recurrence pattern.  */

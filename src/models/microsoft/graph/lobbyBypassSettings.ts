@@ -1,12 +1,12 @@
 import {LobbyBypassScope} from './lobbyBypassScope';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LobbyBypassSettings implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Specifies whether or not to always let dial-in callers bypass the lobby. Optional.  */
     private _isDialInBypassEnabled?: boolean | undefined;
-    /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.  */
+    /** Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.  */
     private _scope?: LobbyBypassScope | undefined;
     /**
      * Instantiates a new lobbyBypassSettings and sets the default values.
@@ -29,7 +29,7 @@ export class LobbyBypassSettings implements Parsable {
         return this._isDialInBypassEnabled;
     };
     /**
-     * Gets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.
+     * Gets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
      * @returns a lobbyBypassScope
      */
     public get scope() {
@@ -70,7 +70,7 @@ export class LobbyBypassSettings implements Parsable {
         this._isDialInBypassEnabled = value;
     };
     /**
-     * Sets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Possible values are listed in the following table. Optional.
+     * Sets the scope property value. Specifies the type of participants that are automatically admitted into a meeting, bypassing the lobby. Optional.
      * @param value Value to set for the scope property.
      */
     public set scope(value: LobbyBypassScope | undefined) {

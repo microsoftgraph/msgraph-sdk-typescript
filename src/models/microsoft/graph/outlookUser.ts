@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {OutlookCategory} from './outlookCategory';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OutlookUser extends Entity implements Parsable {
     /** A list of categories defined for the user.  */

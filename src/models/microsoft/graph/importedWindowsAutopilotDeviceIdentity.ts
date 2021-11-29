@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {ImportedWindowsAutopilotDeviceIdentityState} from './importedWindowsAutopilotDeviceIdentityState';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable {
     /** UPN of the user the device will be assigned  */

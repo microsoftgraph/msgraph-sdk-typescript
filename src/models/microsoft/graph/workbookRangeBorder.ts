@@ -1,14 +1,14 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRangeBorder extends Entity implements Parsable {
     /** HTML color code representing the color of the border line, of the form #RRGGBB (e.g. 'FFA500') or as a named HTML color (e.g. 'orange').  */
     private _color?: string | undefined;
-    /** Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.  */
+    /** Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.  */
     private _sideIndex?: string | undefined;
-    /** One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.  */
+    /** One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.  */
     private _style?: string | undefined;
-    /** Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.  */
+    /** Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.  */
     private _weight?: string | undefined;
     /**
      * Instantiates a new workbookRangeBorder and sets the default values.
@@ -24,21 +24,21 @@ export class WorkbookRangeBorder extends Entity implements Parsable {
         return this._color;
     };
     /**
-     * Gets the sideIndex property value. Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
+     * Gets the sideIndex property value. Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
      * @returns a string
      */
     public get sideIndex() {
         return this._sideIndex;
     };
     /**
-     * Gets the style property value. One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
+     * Gets the style property value. One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
      * @returns a string
      */
     public get style() {
         return this._style;
     };
     /**
-     * Gets the weight property value. Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.
+     * Gets the weight property value. Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
      * @returns a string
      */
     public get weight() {
@@ -76,21 +76,21 @@ export class WorkbookRangeBorder extends Entity implements Parsable {
         this._color = value;
     };
     /**
-     * Sets the sideIndex property value. Constant value that indicates the specific side of the border. Possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
+     * Sets the sideIndex property value. Constant value that indicates the specific side of the border. The possible values are: EdgeTop, EdgeBottom, EdgeLeft, EdgeRight, InsideVertical, InsideHorizontal, DiagonalDown, DiagonalUp. Read-only.
      * @param value Value to set for the sideIndex property.
      */
     public set sideIndex(value: string | undefined) {
         this._sideIndex = value;
     };
     /**
-     * Sets the style property value. One of the constants of line style specifying the line style for the border. Possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
+     * Sets the style property value. One of the constants of line style specifying the line style for the border. The possible values are: None, Continuous, Dash, DashDot, DashDotDot, Dot, Double, SlantDashDot.
      * @param value Value to set for the style property.
      */
     public set style(value: string | undefined) {
         this._style = value;
     };
     /**
-     * Sets the weight property value. Specifies the weight of the border around a range. Possible values are: Hairline, Thin, Medium, Thick.
+     * Sets the weight property value. Specifies the weight of the border around a range. The possible values are: Hairline, Thin, Medium, Thick.
      * @param value Value to set for the weight property.
      */
     public set weight(value: string | undefined) {

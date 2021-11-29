@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerBucketTaskBoardTaskFormat extends Entity implements Parsable {
     /** Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here.  */

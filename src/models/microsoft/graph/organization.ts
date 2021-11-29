@@ -7,7 +7,7 @@ import {OrganizationalBranding} from './organizationalBranding';
 import {PrivacyProfile} from './privacyProfile';
 import {ProvisionedPlan} from './provisionedPlan';
 import {VerifiedDomain} from './verifiedDomain';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Organization extends DirectoryObject implements Parsable {
     /** The collection of service plans associated with the tenant. Not nullable.  */
@@ -15,31 +15,31 @@ export class Organization extends DirectoryObject implements Parsable {
     private _branding?: OrganizationalBranding | undefined;
     /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property.  */
     private _businessPhones?: string[] | undefined;
-    /** Navigation property to manage  certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.  */
+    /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.  */
     private _certificateBasedAuthConfiguration?: CertificateBasedAuthConfiguration[] | undefined;
     /** City name of the address for the organization.  */
     private _city?: string | undefined;
     /** Country/region name of the address for the organization.  */
     private _country?: string | undefined;
-    /** Country/region abbreviation for the organization.  */
+    /** Country or region abbreviation for the organization in ISO 3166-2 format.  */
     private _countryLetterCode?: string | undefined;
     /** Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
     private _createdDateTime?: Date | undefined;
     /** The display name for the tenant.  */
     private _displayName?: string | undefined;
-    /** The collection of open extensions defined for the organization resource. Nullable.  */
+    /** The collection of open extensions defined for the organization. Read-only. Nullable.  */
     private _extensions?: Extension[] | undefined;
     /** Not nullable.  */
     private _marketingNotificationEmails?: string[] | undefined;
     /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365.  */
     private _mobileDeviceManagementAuthority?: MdmAuthority | undefined;
-    /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).  */
+    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).  */
     private _onPremisesSyncEnabled?: boolean | undefined;
     /** Postal code of the address for the organization.  */
     private _postalCode?: string | undefined;
-    /** The preferred language for the organization. Should follow ISO 639-1 Code; for example en.  */
+    /** The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.  */
     private _preferredLanguage?: string | undefined;
     /** The privacy profile of an organization.  */
     private _privacyProfile?: PrivacyProfile | undefined;
@@ -84,7 +84,7 @@ export class Organization extends DirectoryObject implements Parsable {
         return this._businessPhones;
     };
     /**
-     * Gets the certificateBasedAuthConfiguration property value. Navigation property to manage  certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     * Gets the certificateBasedAuthConfiguration property value. Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
      * @returns a certificateBasedAuthConfiguration
      */
     public get certificateBasedAuthConfiguration() {
@@ -105,7 +105,7 @@ export class Organization extends DirectoryObject implements Parsable {
         return this._country;
     };
     /**
-     * Gets the countryLetterCode property value. Country/region abbreviation for the organization.
+     * Gets the countryLetterCode property value. Country or region abbreviation for the organization in ISO 3166-2 format.
      * @returns a string
      */
     public get countryLetterCode() {
@@ -126,7 +126,7 @@ export class Organization extends DirectoryObject implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the organization. Read-only. Nullable.
      * @returns a extension
      */
     public get extensions() {
@@ -147,14 +147,14 @@ export class Organization extends DirectoryObject implements Parsable {
         return this._mobileDeviceManagementAuthority;
     };
     /**
-     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @returns a Date
      */
     public get onPremisesLastSyncDateTime() {
         return this._onPremisesLastSyncDateTime;
     };
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
      * @returns a boolean
      */
     public get onPremisesSyncEnabled() {
@@ -168,7 +168,7 @@ export class Organization extends DirectoryObject implements Parsable {
         return this._postalCode;
     };
     /**
-     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
      * @returns a string
      */
     public get preferredLanguage() {
@@ -325,7 +325,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._businessPhones = value;
     };
     /**
-     * Sets the certificateBasedAuthConfiguration property value. Navigation property to manage  certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
+     * Sets the certificateBasedAuthConfiguration property value. Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.
      * @param value Value to set for the certificateBasedAuthConfiguration property.
      */
     public set certificateBasedAuthConfiguration(value: CertificateBasedAuthConfiguration[] | undefined) {
@@ -346,7 +346,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._country = value;
     };
     /**
-     * Sets the countryLetterCode property value. Country/region abbreviation for the organization.
+     * Sets the countryLetterCode property value. Country or region abbreviation for the organization in ISO 3166-2 format.
      * @param value Value to set for the countryLetterCode property.
      */
     public set countryLetterCode(value: string | undefined) {
@@ -367,7 +367,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the organization. Read-only. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {
@@ -388,14 +388,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._mobileDeviceManagementAuthority = value;
     };
     /**
-     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @param value Value to set for the onPremisesLastSyncDateTime property.
      */
     public set onPremisesLastSyncDateTime(value: Date | undefined) {
         this._onPremisesLastSyncDateTime = value;
     };
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
      * @param value Value to set for the onPremisesSyncEnabled property.
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
@@ -409,7 +409,7 @@ export class Organization extends DirectoryObject implements Parsable {
         this._postalCode = value;
     };
     /**
-     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
+     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
      * @param value Value to set for the preferredLanguage property.
      */
     public set preferredLanguage(value: string | undefined) {

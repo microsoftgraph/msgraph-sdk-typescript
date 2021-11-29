@@ -3,20 +3,20 @@ import {IdentitySet} from './identitySet';
 import {PlannerBucket} from './plannerBucket';
 import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerPlan extends Entity implements Parsable {
-    /** Collection of buckets in the plan. Read-only. Nullable.  */
+    /** Read-only. Nullable. Collection of buckets in the plan.  */
     private _buckets?: PlannerBucket[] | undefined;
     /** Read-only. The user who created the plan.  */
     private _createdBy?: IdentitySet | undefined;
     /** Read-only. Date and time at which the plan is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _createdDateTime?: Date | undefined;
-    /** Additional details about the plan. Read-only. Nullable.  */
+    /** Read-only. Nullable. Additional details about the plan.  */
     private _details?: PlannerPlanDetails | undefined;
     /** ID of the Group that owns the plan. A valid group must exist before this field can be set. After it is set, this property can’t be updated.  */
     private _owner?: string | undefined;
-    /** Collection of tasks in the plan. Read-only. Nullable.  */
+    /** Read-only. Nullable. Collection of tasks in the plan.  */
     private _tasks?: PlannerTask[] | undefined;
     /** Required. Title of the plan.  */
     private _title?: string | undefined;
@@ -27,7 +27,7 @@ export class PlannerPlan extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
+     * Gets the buckets property value. Read-only. Nullable. Collection of buckets in the plan.
      * @returns a plannerBucket
      */
     public get buckets() {
@@ -48,7 +48,7 @@ export class PlannerPlan extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
-     * Gets the details property value. Additional details about the plan. Read-only. Nullable.
+     * Gets the details property value. Read-only. Nullable. Additional details about the plan.
      * @returns a plannerPlanDetails
      */
     public get details() {
@@ -62,7 +62,7 @@ export class PlannerPlan extends Entity implements Parsable {
         return this._owner;
     };
     /**
-     * Gets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
+     * Gets the tasks property value. Read-only. Nullable. Collection of tasks in the plan.
      * @returns a plannerTask
      */
     public get tasks() {
@@ -106,7 +106,7 @@ export class PlannerPlan extends Entity implements Parsable {
         writer.writeStringValue("title", this.title);
     };
     /**
-     * Sets the buckets property value. Collection of buckets in the plan. Read-only. Nullable.
+     * Sets the buckets property value. Read-only. Nullable. Collection of buckets in the plan.
      * @param value Value to set for the buckets property.
      */
     public set buckets(value: PlannerBucket[] | undefined) {
@@ -127,7 +127,7 @@ export class PlannerPlan extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Sets the details property value. Additional details about the plan. Read-only. Nullable.
+     * Sets the details property value. Read-only. Nullable. Additional details about the plan.
      * @param value Value to set for the details property.
      */
     public set details(value: PlannerPlanDetails | undefined) {
@@ -141,7 +141,7 @@ export class PlannerPlan extends Entity implements Parsable {
         this._owner = value;
     };
     /**
-     * Sets the tasks property value. Collection of tasks in the plan. Read-only. Nullable.
+     * Sets the tasks property value. Read-only. Nullable. Collection of tasks in the plan.
      * @param value Value to set for the tasks property.
      */
     public set tasks(value: PlannerTask[] | undefined) {

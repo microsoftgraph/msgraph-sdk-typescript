@@ -1,4 +1,4 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class KeyCredential implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -7,17 +7,17 @@ export class KeyCredential implements Parsable {
     private _customKeyIdentifier?: string | undefined;
     /** Friendly name for the key. Optional.  */
     private _displayName?: string | undefined;
-    /** The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _endDateTime?: Date | undefined;
-    /** Value for the key credential. Should be a base 64 encoded value.  */
+    /** The certificate's raw data in byte array converted to Base64 string; for example, [System.Convert]::ToBase64String($Cert.GetRawCertData()).  */
     private _key?: string | undefined;
     /** The unique identifier (GUID) for the key.  */
     private _keyId?: string | undefined;
-    /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _startDateTime?: Date | undefined;
-    /** The type of key credential; for example, 'Symmetric'.  */
+    /** The type of key credential; for example, Symmetric.  */
     private _type?: string | undefined;
-    /** A string that describes the purpose for which the key can be used; for example, 'Verify'.  */
+    /** A string that describes the purpose for which the key can be used; for example, Verify.  */
     private _usage?: string | undefined;
     /**
      * Instantiates a new keyCredential and sets the default values.
@@ -47,14 +47,14 @@ export class KeyCredential implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the endDateTime property value. The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the endDateTime property value. The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Gets the key property value. Value for the key credential. Should be a base 64 encoded value.
+     * Gets the key property value. The certificate's raw data in byte array converted to Base64 string; for example, [System.Convert]::ToBase64String($Cert.GetRawCertData()).
      * @returns a binary
      */
     public get key() {
@@ -68,21 +68,21 @@ export class KeyCredential implements Parsable {
         return this._keyId;
     };
     /**
-     * Gets the startDateTime property value. The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the startDateTime property value. The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Gets the type property value. The type of key credential; for example, 'Symmetric'.
+     * Gets the type property value. The type of key credential; for example, Symmetric.
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Gets the usage property value. A string that describes the purpose for which the key can be used; for example, 'Verify'.
+     * Gets the usage property value. A string that describes the purpose for which the key can be used; for example, Verify.
      * @returns a string
      */
     public get usage() {
@@ -142,14 +142,14 @@ export class KeyCredential implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the endDateTime property value. The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the endDateTime property value. The date and time at which the credential expires.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
         this._endDateTime = value;
     };
     /**
-     * Sets the key property value. Value for the key credential. Should be a base 64 encoded value.
+     * Sets the key property value. The certificate's raw data in byte array converted to Base64 string; for example, [System.Convert]::ToBase64String($Cert.GetRawCertData()).
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
@@ -163,21 +163,21 @@ export class KeyCredential implements Parsable {
         this._keyId = value;
     };
     /**
-     * Sets the startDateTime property value. The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the startDateTime property value. The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Sets the type property value. The type of key credential; for example, 'Symmetric'.
+     * Sets the type property value. The type of key credential; for example, Symmetric.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {
         this._type = value;
     };
     /**
-     * Sets the usage property value. A string that describes the purpose for which the key can be used; for example, 'Verify'.
+     * Sets the usage property value. A string that describes the purpose for which the key can be used; for example, Verify.
      * @param value Value to set for the usage property.
      */
     public set usage(value: string | undefined) {

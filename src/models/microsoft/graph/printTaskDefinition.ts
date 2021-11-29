@@ -1,7 +1,7 @@
 import {AppIdentity} from './appIdentity';
 import {Entity} from './entity';
 import {PrintTask} from './printTask';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskDefinition extends Entity implements Parsable {
     private _createdBy?: AppIdentity | undefined;

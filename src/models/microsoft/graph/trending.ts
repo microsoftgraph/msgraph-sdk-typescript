@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Trending extends Entity implements Parsable {
     private _lastModifiedDateTime?: Date | undefined;

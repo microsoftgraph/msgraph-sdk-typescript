@@ -1,6 +1,6 @@
 import {IdentitySet} from './identitySet';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** Identity of the user, device, and application which created the item. Read-only.  */

@@ -1,13 +1,13 @@
 import {GroupType} from './groupType';
 import {ModifiedProperty} from './modifiedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetResource implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Indicates the visible name defined for the resource. Typically specified when the resource is created.  */
     private _displayName?: string | undefined;
-    /** When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue  */
+    /** When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue  */
     private _groupType?: GroupType | undefined;
     /** Indicates the unique ID of the resource.  */
     private _id?: string | undefined;
@@ -38,7 +38,7 @@ export class TargetResource implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the groupType property value. When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
+     * Gets the groupType property value. When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue
      * @returns a groupType
      */
     public get groupType() {
@@ -115,7 +115,7 @@ export class TargetResource implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the groupType property value. When type is set to Group, this indicates the group type.  Possible values are: unifiedGroups, azureAD, and unknownFutureValue
+     * Sets the groupType property value. When type is set to Group, this indicates the group type. Possible values are: unifiedGroups, azureAD, and unknownFutureValue
      * @param value Value to set for the groupType property.
      */
     public set groupType(value: GroupType | undefined) {

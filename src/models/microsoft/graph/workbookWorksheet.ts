@@ -4,7 +4,7 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookPivotTable} from './workbookPivotTable';
 import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookWorksheet extends Entity implements Parsable {
     /** Returns collection of charts that are part of the worksheet. Read-only.  */

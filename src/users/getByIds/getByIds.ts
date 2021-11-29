@@ -1,5 +1,5 @@
 import {Entity} from '../../models/microsoft/graph/entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GetByIds extends Entity implements Parsable {
     private _deletedDateTime?: Date | undefined;

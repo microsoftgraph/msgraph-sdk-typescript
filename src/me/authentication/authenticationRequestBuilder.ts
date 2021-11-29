@@ -7,119 +7,121 @@ import {MicrosoftAuthenticatorAuthenticationMethodRequestBuilder} from './micros
 import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
 import {WindowsHelloForBusinessAuthenticationMethodRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/authentication  */
 export class AuthenticationRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get fido2Methods(): Fido2MethodsRequestBuilder {
-        return new Fido2MethodsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get methods(): MethodsRequestBuilder {
-        return new MethodsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
-        return new MicrosoftAuthenticatorMethodsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
-        return new WindowsHelloForBusinessMethodsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new AuthenticationRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/authentication";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/me/authentication{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Delete navigation property authentication for me
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Get authentication from me
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update the navigation property authentication in me
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Authentication | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Authentication | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Delete navigation property authentication for me
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.fido2Methods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.fido2Methods.item collection
      * @param id Unique identifier of the item
      * @returns a fido2AuthenticationMethodRequestBuilder
      */
-    public fido2MethodsById(id: String) : Fido2AuthenticationMethodRequestBuilder {
+    public fido2MethodsById(id: string) : Fido2AuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new Fido2AuthenticationMethodRequestBuilder(this.currentPath + this.pathSegment + "/fido2Methods/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("fido2AuthenticationMethod_id", id);
+        return new Fido2AuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get authentication from me
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
@@ -127,51 +129,57 @@ export class AuthenticationRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Authentication>(requestInfo, Authentication, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, Authentication, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.methods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.methods.item collection
      * @param id Unique identifier of the item
      * @returns a authenticationMethodRequestBuilder
      */
-    public methodsById(id: String) : AuthenticationMethodRequestBuilder {
+    public methodsById(id: string) : AuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new AuthenticationMethodRequestBuilder(this.currentPath + this.pathSegment + "/methods/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("authenticationMethod_id", id);
+        return new AuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.microsoftAuthenticatorMethods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.microsoftAuthenticatorMethods.item collection
      * @param id Unique identifier of the item
      * @returns a microsoftAuthenticatorAuthenticationMethodRequestBuilder
      */
-    public microsoftAuthenticatorMethodsById(id: String) : MicrosoftAuthenticatorAuthenticationMethodRequestBuilder {
+    public microsoftAuthenticatorMethodsById(id: string) : MicrosoftAuthenticatorAuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new MicrosoftAuthenticatorAuthenticationMethodRequestBuilder(this.currentPath + this.pathSegment + "/microsoftAuthenticatorMethods/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("microsoftAuthenticatorAuthenticationMethod_id", id);
+        return new MicrosoftAuthenticatorAuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property authentication in me
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Authentication | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Authentication | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.me.authentication.windowsHelloForBusinessMethods.item collection
+     * Gets an item from the MicrosoftGraph.me.authentication.windowsHelloForBusinessMethods.item collection
      * @param id Unique identifier of the item
      * @returns a windowsHelloForBusinessAuthenticationMethodRequestBuilder
      */
-    public windowsHelloForBusinessMethodsById(id: String) : WindowsHelloForBusinessAuthenticationMethodRequestBuilder {
+    public windowsHelloForBusinessMethodsById(id: string) : WindowsHelloForBusinessAuthenticationMethodRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new WindowsHelloForBusinessAuthenticationMethodRequestBuilder(this.currentPath + this.pathSegment + "/windowsHelloForBusinessMethods/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("windowsHelloForBusinessAuthenticationMethod_id", id);
+        return new WindowsHelloForBusinessAuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

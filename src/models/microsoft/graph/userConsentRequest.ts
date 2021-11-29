@@ -1,6 +1,6 @@
 import {Approval} from './approval';
 import {Request} from './request';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserConsentRequest extends Request implements Parsable {
     /** Approval decisions associated with a request.  */

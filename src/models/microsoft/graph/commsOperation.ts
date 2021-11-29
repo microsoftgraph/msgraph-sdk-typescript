@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {OperationStatus} from './operationStatus';
 import {ResultInfo} from './resultInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CommsOperation extends Entity implements Parsable {
     /** Unique Client Context string. Max limit is 256 chars.  */

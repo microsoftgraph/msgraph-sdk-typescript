@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookRangeFont extends Entity implements Parsable {
     /** Represents the bold status of font.  */
@@ -12,7 +12,7 @@ export class WorkbookRangeFont extends Entity implements Parsable {
     private _name?: string | undefined;
     /** Font size.  */
     private _size?: number | undefined;
-    /** Type of underline applied to the font. Possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.  */
+    /** Type of underline applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.  */
     private _underline?: string | undefined;
     /**
      * Instantiates a new workbookRangeFont and sets the default values.
@@ -56,7 +56,7 @@ export class WorkbookRangeFont extends Entity implements Parsable {
         return this._size;
     };
     /**
-     * Gets the underline property value. Type of underline applied to the font. Possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.
+     * Gets the underline property value. Type of underline applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.
      * @returns a string
      */
     public get underline() {
@@ -126,7 +126,7 @@ export class WorkbookRangeFont extends Entity implements Parsable {
         this._size = value;
     };
     /**
-     * Sets the underline property value. Type of underline applied to the font. Possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.
+     * Sets the underline property value. Type of underline applied to the font. The possible values are: None, Single, Double, SingleAccountant, DoubleAccountant.
      * @param value Value to set for the underline property.
      */
     public set underline(value: string | undefined) {

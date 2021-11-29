@@ -1,12 +1,12 @@
 import {ConditionalAccessGrantControl} from './conditionalAccessGrantControl';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessGrantControls implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.  */
     private _builtInControls?: ConditionalAccessGrantControl[] | undefined;
-    /** List of custom controls IDs required by the policy. Learn more about custom controls here: https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview  */
+    /** List of custom controls IDs required by the policy. For more information, see Custom controls.  */
     private _customAuthenticationFactors?: string[] | undefined;
     /** Defines the relationship of the grant controls. Possible values: AND, OR.  */
     private _operator?: string | undefined;
@@ -33,7 +33,7 @@ export class ConditionalAccessGrantControls implements Parsable {
         return this._builtInControls;
     };
     /**
-     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. Learn more about custom controls here: https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview
+     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.
      * @returns a string
      */
     public get customAuthenticationFactors() {
@@ -71,7 +71,7 @@ export class ConditionalAccessGrantControls implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...this.builtInControls);
+        this.builtInControls && writer.writeEnumValue<ConditionalAccessGrantControl>("builtInControls", ...this.builtInControls);
         writer.writeCollectionOfPrimitiveValues<string>("customAuthenticationFactors", this.customAuthenticationFactors);
         writer.writeStringValue("operator", this.operator);
         writer.writeCollectionOfPrimitiveValues<string>("termsOfUse", this.termsOfUse);
@@ -92,7 +92,7 @@ export class ConditionalAccessGrantControls implements Parsable {
         this._builtInControls = value;
     };
     /**
-     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. Learn more about custom controls here: https://docs.microsoft.com/azure/active-directory/conditional-access/controls#custom-controls-preview
+     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.
      * @param value Value to set for the customAuthenticationFactors property.
      */
     public set customAuthenticationFactors(value: string[] | undefined) {

@@ -1,5 +1,5 @@
 import {DomainDnsRecord} from '../../../models/microsoft/graph/domainDnsRecord';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class VerificationDnsRecordsResponse implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */

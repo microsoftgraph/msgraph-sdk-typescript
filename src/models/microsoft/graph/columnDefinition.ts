@@ -1,16 +1,22 @@
 import {BooleanColumn} from './booleanColumn';
 import {CalculatedColumn} from './calculatedColumn';
 import {ChoiceColumn} from './choiceColumn';
+import {ColumnTypes} from './columnTypes';
+import {ColumnValidation} from './columnValidation';
+import {ContentApprovalStatusColumn} from './contentApprovalStatusColumn';
 import {CurrencyColumn} from './currencyColumn';
 import {DateTimeColumn} from './dateTimeColumn';
 import {DefaultColumnValue} from './defaultColumnValue';
 import {Entity} from './entity';
 import {GeolocationColumn} from './geolocationColumn';
+import {HyperlinkOrPictureColumn} from './hyperlinkOrPictureColumn';
 import {LookupColumn} from './lookupColumn';
 import {NumberColumn} from './numberColumn';
 import {PersonOrGroupColumn} from './personOrGroupColumn';
+import {TermColumn} from './termColumn';
 import {TextColumn} from './textColumn';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {ThumbnailColumn} from './thumbnailColumn';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ColumnDefinition extends Entity implements Parsable {
     /** This column stores boolean values.  */
@@ -21,6 +27,8 @@ export class ColumnDefinition extends Entity implements Parsable {
     private _choice?: ChoiceColumn | undefined;
     /** For site columns, the name of the group this column belongs to. Helps organize related columns.  */
     private _columnGroup?: string | undefined;
+    /** This column stores content approval status.  */
+    private _contentApprovalStatus?: ContentApprovalStatusColumn | undefined;
     /** This column stores currency values.  */
     private _currency?: CurrencyColumn | undefined;
     /** This column stores DateTime values.  */
@@ -37,8 +45,16 @@ export class ColumnDefinition extends Entity implements Parsable {
     private _geolocation?: GeolocationColumn | undefined;
     /** Specifies whether the column is displayed in the user interface.  */
     private _hidden?: boolean | undefined;
-    /** Specifies whether the column values can used for sorting and searching.  */
+    /** This column stores hyperlink or picture values.  */
+    private _hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
+    /** Specifies whether the column values can be used for sorting and searching.  */
     private _indexed?: boolean | undefined;
+    /** Indicates whether this column can be deleted.  */
+    private _isDeletable?: boolean | undefined;
+    /** Indicates whether values in the column can be reordered. Read-only.  */
+    private _isReorderable?: boolean | undefined;
+    /** Specifies whether the column can be changed.  */
+    private _isSealed?: boolean | undefined;
     /** This column's data is looked up from another source in the site.  */
     private _lookup?: LookupColumn | undefined;
     /** The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName.  */
@@ -47,12 +63,24 @@ export class ColumnDefinition extends Entity implements Parsable {
     private _number?: NumberColumn | undefined;
     /** This column stores Person or Group values.  */
     private _personOrGroup?: PersonOrGroupColumn | undefined;
+    /** If 'true', changes to this column will be propagated to lists that implement the column.  */
+    private _propagateChanges?: boolean | undefined;
     /** Specifies whether the column values can be modified.  */
     private _readOnly?: boolean | undefined;
-    /** Specifies whether the column value is not optional.  */
+    /** Specifies whether the column value isn't optional.  */
     private _required?: boolean | undefined;
+    /** The source column for the content type column.  */
+    private _sourceColumn?: ColumnDefinition | undefined;
+    /** This column stores taxonomy terms.  */
+    private _term?: TermColumn | undefined;
     /** This column stores text values.  */
     private _text?: TextColumn | undefined;
+    /** This column stores thumbnail values.  */
+    private _thumbnail?: ThumbnailColumn | undefined;
+    /** For site columns, the type of column. Read-only.  */
+    private _type?: ColumnTypes | undefined;
+    /** This column stores validation formula and message for the column.  */
+    private _validation?: ColumnValidation | undefined;
     /**
      * Instantiates a new columnDefinition and sets the default values.
      */
@@ -86,6 +114,13 @@ export class ColumnDefinition extends Entity implements Parsable {
      */
     public get columnGroup() {
         return this._columnGroup;
+    };
+    /**
+     * Gets the contentApprovalStatus property value. This column stores content approval status.
+     * @returns a contentApprovalStatusColumn
+     */
+    public get contentApprovalStatus() {
+        return this._contentApprovalStatus;
     };
     /**
      * Gets the currency property value. This column stores currency values.
@@ -144,11 +179,39 @@ export class ColumnDefinition extends Entity implements Parsable {
         return this._hidden;
     };
     /**
-     * Gets the indexed property value. Specifies whether the column values can used for sorting and searching.
+     * Gets the hyperlinkOrPicture property value. This column stores hyperlink or picture values.
+     * @returns a hyperlinkOrPictureColumn
+     */
+    public get hyperlinkOrPicture() {
+        return this._hyperlinkOrPicture;
+    };
+    /**
+     * Gets the indexed property value. Specifies whether the column values can be used for sorting and searching.
      * @returns a boolean
      */
     public get indexed() {
         return this._indexed;
+    };
+    /**
+     * Gets the isDeletable property value. Indicates whether this column can be deleted.
+     * @returns a boolean
+     */
+    public get isDeletable() {
+        return this._isDeletable;
+    };
+    /**
+     * Gets the isReorderable property value. Indicates whether values in the column can be reordered. Read-only.
+     * @returns a boolean
+     */
+    public get isReorderable() {
+        return this._isReorderable;
+    };
+    /**
+     * Gets the isSealed property value. Specifies whether the column can be changed.
+     * @returns a boolean
+     */
+    public get isSealed() {
+        return this._isSealed;
     };
     /**
      * Gets the lookup property value. This column's data is looked up from another source in the site.
@@ -179,6 +242,13 @@ export class ColumnDefinition extends Entity implements Parsable {
         return this._personOrGroup;
     };
     /**
+     * Gets the propagateChanges property value. If 'true', changes to this column will be propagated to lists that implement the column.
+     * @returns a boolean
+     */
+    public get propagateChanges() {
+        return this._propagateChanges;
+    };
+    /**
      * Gets the readOnly property value. Specifies whether the column values can be modified.
      * @returns a boolean
      */
@@ -186,11 +256,25 @@ export class ColumnDefinition extends Entity implements Parsable {
         return this._readOnly;
     };
     /**
-     * Gets the required property value. Specifies whether the column value is not optional.
+     * Gets the required property value. Specifies whether the column value isn't optional.
      * @returns a boolean
      */
     public get required() {
         return this._required;
+    };
+    /**
+     * Gets the sourceColumn property value. The source column for the content type column.
+     * @returns a columnDefinition
+     */
+    public get sourceColumn() {
+        return this._sourceColumn;
+    };
+    /**
+     * Gets the term property value. This column stores taxonomy terms.
+     * @returns a termColumn
+     */
+    public get term() {
+        return this._term;
     };
     /**
      * Gets the text property value. This column stores text values.
@@ -198,6 +282,27 @@ export class ColumnDefinition extends Entity implements Parsable {
      */
     public get text() {
         return this._text;
+    };
+    /**
+     * Gets the thumbnail property value. This column stores thumbnail values.
+     * @returns a thumbnailColumn
+     */
+    public get thumbnail() {
+        return this._thumbnail;
+    };
+    /**
+     * Gets the type property value. For site columns, the type of column. Read-only.
+     * @returns a columnTypes
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
+     * Gets the validation property value. This column stores validation formula and message for the column.
+     * @returns a columnValidation
+     */
+    public get validation() {
+        return this._validation;
     };
     /**
      * The deserialization information for the current model
@@ -209,6 +314,7 @@ export class ColumnDefinition extends Entity implements Parsable {
             ["calculated", (o, n) => { (o as unknown as ColumnDefinition).calculated = n.getObjectValue<CalculatedColumn>(CalculatedColumn); }],
             ["choice", (o, n) => { (o as unknown as ColumnDefinition).choice = n.getObjectValue<ChoiceColumn>(ChoiceColumn); }],
             ["columnGroup", (o, n) => { (o as unknown as ColumnDefinition).columnGroup = n.getStringValue(); }],
+            ["contentApprovalStatus", (o, n) => { (o as unknown as ColumnDefinition).contentApprovalStatus = n.getObjectValue<ContentApprovalStatusColumn>(ContentApprovalStatusColumn); }],
             ["currency", (o, n) => { (o as unknown as ColumnDefinition).currency = n.getObjectValue<CurrencyColumn>(CurrencyColumn); }],
             ["dateTime", (o, n) => { (o as unknown as ColumnDefinition).dateTime = n.getObjectValue<DateTimeColumn>(DateTimeColumn); }],
             ["defaultValue", (o, n) => { (o as unknown as ColumnDefinition).defaultValue = n.getObjectValue<DefaultColumnValue>(DefaultColumnValue); }],
@@ -217,14 +323,24 @@ export class ColumnDefinition extends Entity implements Parsable {
             ["enforceUniqueValues", (o, n) => { (o as unknown as ColumnDefinition).enforceUniqueValues = n.getBooleanValue(); }],
             ["geolocation", (o, n) => { (o as unknown as ColumnDefinition).geolocation = n.getObjectValue<GeolocationColumn>(GeolocationColumn); }],
             ["hidden", (o, n) => { (o as unknown as ColumnDefinition).hidden = n.getBooleanValue(); }],
+            ["hyperlinkOrPicture", (o, n) => { (o as unknown as ColumnDefinition).hyperlinkOrPicture = n.getObjectValue<HyperlinkOrPictureColumn>(HyperlinkOrPictureColumn); }],
             ["indexed", (o, n) => { (o as unknown as ColumnDefinition).indexed = n.getBooleanValue(); }],
+            ["isDeletable", (o, n) => { (o as unknown as ColumnDefinition).isDeletable = n.getBooleanValue(); }],
+            ["isReorderable", (o, n) => { (o as unknown as ColumnDefinition).isReorderable = n.getBooleanValue(); }],
+            ["isSealed", (o, n) => { (o as unknown as ColumnDefinition).isSealed = n.getBooleanValue(); }],
             ["lookup", (o, n) => { (o as unknown as ColumnDefinition).lookup = n.getObjectValue<LookupColumn>(LookupColumn); }],
             ["name", (o, n) => { (o as unknown as ColumnDefinition).name = n.getStringValue(); }],
             ["number", (o, n) => { (o as unknown as ColumnDefinition).number = n.getObjectValue<NumberColumn>(NumberColumn); }],
             ["personOrGroup", (o, n) => { (o as unknown as ColumnDefinition).personOrGroup = n.getObjectValue<PersonOrGroupColumn>(PersonOrGroupColumn); }],
+            ["propagateChanges", (o, n) => { (o as unknown as ColumnDefinition).propagateChanges = n.getBooleanValue(); }],
             ["readOnly", (o, n) => { (o as unknown as ColumnDefinition).readOnly = n.getBooleanValue(); }],
             ["required", (o, n) => { (o as unknown as ColumnDefinition).required = n.getBooleanValue(); }],
+            ["sourceColumn", (o, n) => { (o as unknown as ColumnDefinition).sourceColumn = n.getObjectValue<ColumnDefinition>(ColumnDefinition); }],
+            ["term", (o, n) => { (o as unknown as ColumnDefinition).term = n.getObjectValue<TermColumn>(TermColumn); }],
             ["text", (o, n) => { (o as unknown as ColumnDefinition).text = n.getObjectValue<TextColumn>(TextColumn); }],
+            ["thumbnail", (o, n) => { (o as unknown as ColumnDefinition).thumbnail = n.getObjectValue<ThumbnailColumn>(ThumbnailColumn); }],
+            ["type", (o, n) => { (o as unknown as ColumnDefinition).type = n.getEnumValue<ColumnTypes>(ColumnTypes); }],
+            ["validation", (o, n) => { (o as unknown as ColumnDefinition).validation = n.getObjectValue<ColumnValidation>(ColumnValidation); }],
         ]);
     };
     /**
@@ -238,6 +354,7 @@ export class ColumnDefinition extends Entity implements Parsable {
         writer.writeObjectValue<CalculatedColumn>("calculated", this.calculated);
         writer.writeObjectValue<ChoiceColumn>("choice", this.choice);
         writer.writeStringValue("columnGroup", this.columnGroup);
+        writer.writeObjectValue<ContentApprovalStatusColumn>("contentApprovalStatus", this.contentApprovalStatus);
         writer.writeObjectValue<CurrencyColumn>("currency", this.currency);
         writer.writeObjectValue<DateTimeColumn>("dateTime", this.dateTime);
         writer.writeObjectValue<DefaultColumnValue>("defaultValue", this.defaultValue);
@@ -246,14 +363,24 @@ export class ColumnDefinition extends Entity implements Parsable {
         writer.writeBooleanValue("enforceUniqueValues", this.enforceUniqueValues);
         writer.writeObjectValue<GeolocationColumn>("geolocation", this.geolocation);
         writer.writeBooleanValue("hidden", this.hidden);
+        writer.writeObjectValue<HyperlinkOrPictureColumn>("hyperlinkOrPicture", this.hyperlinkOrPicture);
         writer.writeBooleanValue("indexed", this.indexed);
+        writer.writeBooleanValue("isDeletable", this.isDeletable);
+        writer.writeBooleanValue("isReorderable", this.isReorderable);
+        writer.writeBooleanValue("isSealed", this.isSealed);
         writer.writeObjectValue<LookupColumn>("lookup", this.lookup);
         writer.writeStringValue("name", this.name);
         writer.writeObjectValue<NumberColumn>("number", this.number);
         writer.writeObjectValue<PersonOrGroupColumn>("personOrGroup", this.personOrGroup);
+        writer.writeBooleanValue("propagateChanges", this.propagateChanges);
         writer.writeBooleanValue("readOnly", this.readOnly);
         writer.writeBooleanValue("required", this.required);
+        writer.writeObjectValue<ColumnDefinition>("sourceColumn", this.sourceColumn);
+        writer.writeObjectValue<TermColumn>("term", this.term);
         writer.writeObjectValue<TextColumn>("text", this.text);
+        writer.writeObjectValue<ThumbnailColumn>("thumbnail", this.thumbnail);
+        writer.writeEnumValue<ColumnTypes>("type", this.type);
+        writer.writeObjectValue<ColumnValidation>("validation", this.validation);
     };
     /**
      * Sets the boolean property value. This column stores boolean values.
@@ -282,6 +409,13 @@ export class ColumnDefinition extends Entity implements Parsable {
      */
     public set columnGroup(value: string | undefined) {
         this._columnGroup = value;
+    };
+    /**
+     * Sets the contentApprovalStatus property value. This column stores content approval status.
+     * @param value Value to set for the contentApprovalStatus property.
+     */
+    public set contentApprovalStatus(value: ContentApprovalStatusColumn | undefined) {
+        this._contentApprovalStatus = value;
     };
     /**
      * Sets the currency property value. This column stores currency values.
@@ -340,11 +474,39 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._hidden = value;
     };
     /**
-     * Sets the indexed property value. Specifies whether the column values can used for sorting and searching.
+     * Sets the hyperlinkOrPicture property value. This column stores hyperlink or picture values.
+     * @param value Value to set for the hyperlinkOrPicture property.
+     */
+    public set hyperlinkOrPicture(value: HyperlinkOrPictureColumn | undefined) {
+        this._hyperlinkOrPicture = value;
+    };
+    /**
+     * Sets the indexed property value. Specifies whether the column values can be used for sorting and searching.
      * @param value Value to set for the indexed property.
      */
     public set indexed(value: boolean | undefined) {
         this._indexed = value;
+    };
+    /**
+     * Sets the isDeletable property value. Indicates whether this column can be deleted.
+     * @param value Value to set for the isDeletable property.
+     */
+    public set isDeletable(value: boolean | undefined) {
+        this._isDeletable = value;
+    };
+    /**
+     * Sets the isReorderable property value. Indicates whether values in the column can be reordered. Read-only.
+     * @param value Value to set for the isReorderable property.
+     */
+    public set isReorderable(value: boolean | undefined) {
+        this._isReorderable = value;
+    };
+    /**
+     * Sets the isSealed property value. Specifies whether the column can be changed.
+     * @param value Value to set for the isSealed property.
+     */
+    public set isSealed(value: boolean | undefined) {
+        this._isSealed = value;
     };
     /**
      * Sets the lookup property value. This column's data is looked up from another source in the site.
@@ -375,6 +537,13 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._personOrGroup = value;
     };
     /**
+     * Sets the propagateChanges property value. If 'true', changes to this column will be propagated to lists that implement the column.
+     * @param value Value to set for the propagateChanges property.
+     */
+    public set propagateChanges(value: boolean | undefined) {
+        this._propagateChanges = value;
+    };
+    /**
      * Sets the readOnly property value. Specifies whether the column values can be modified.
      * @param value Value to set for the readOnly property.
      */
@@ -382,11 +551,25 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._readOnly = value;
     };
     /**
-     * Sets the required property value. Specifies whether the column value is not optional.
+     * Sets the required property value. Specifies whether the column value isn't optional.
      * @param value Value to set for the required property.
      */
     public set required(value: boolean | undefined) {
         this._required = value;
+    };
+    /**
+     * Sets the sourceColumn property value. The source column for the content type column.
+     * @param value Value to set for the sourceColumn property.
+     */
+    public set sourceColumn(value: ColumnDefinition | undefined) {
+        this._sourceColumn = value;
+    };
+    /**
+     * Sets the term property value. This column stores taxonomy terms.
+     * @param value Value to set for the term property.
+     */
+    public set term(value: TermColumn | undefined) {
+        this._term = value;
     };
     /**
      * Sets the text property value. This column stores text values.
@@ -394,5 +577,26 @@ export class ColumnDefinition extends Entity implements Parsable {
      */
     public set text(value: TextColumn | undefined) {
         this._text = value;
+    };
+    /**
+     * Sets the thumbnail property value. This column stores thumbnail values.
+     * @param value Value to set for the thumbnail property.
+     */
+    public set thumbnail(value: ThumbnailColumn | undefined) {
+        this._thumbnail = value;
+    };
+    /**
+     * Sets the type property value. For site columns, the type of column. Read-only.
+     * @param value Value to set for the type property.
+     */
+    public set type(value: ColumnTypes | undefined) {
+        this._type = value;
+    };
+    /**
+     * Sets the validation property value. This column stores validation formula and message for the column.
+     * @param value Value to set for the validation property.
+     */
+    public set validation(value: ColumnValidation | undefined) {
+        this._validation = value;
     };
 }

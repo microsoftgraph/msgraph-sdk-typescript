@@ -2,7 +2,7 @@ import {PrintConnector} from './printConnector';
 import {PrinterBase} from './printerBase';
 import {PrinterShare} from './printerShare';
 import {PrintTaskTrigger} from './printTaskTrigger';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Printer extends PrinterBase implements Parsable {
     /** The connectors that are associated with the printer.  */

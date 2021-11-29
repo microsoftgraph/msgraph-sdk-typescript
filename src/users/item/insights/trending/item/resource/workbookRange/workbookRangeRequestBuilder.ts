@@ -26,33 +26,31 @@ import {UnmergeRequestBuilder} from './unmerge/unmergeRequestBuilder';
 import {UsedRangeRequestBuilder} from './usedRange/usedRangeRequestBuilder';
 import {UsedRangeWithValuesOnlyRequestBuilder} from './usedRangeWithValuesOnly/usedRangeWithValuesOnlyRequestBuilder';
 import {VisibleViewRequestBuilder} from './visibleView/visibleViewRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange  */
 export class WorkbookRangeRequestBuilder {
     public get clear(): ClearRequestBuilder {
-        return new ClearRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ClearRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
     public get delete(): DeleteRequestBuilder {
-        return new DeleteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
     public get insert(): InsertRequestBuilder {
-        return new InsertRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new InsertRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get merge(): MergeRequestBuilder {
-        return new MergeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MergeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get unmerge(): UnmergeRequestBuilder {
-        return new UnmergeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UnmergeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.boundingRect(anotherRange='{anotherRange}')
      * @param anotherRange Usage: anotherRange={anotherRange}
@@ -60,7 +58,7 @@ export class WorkbookRangeRequestBuilder {
      */
     public boundingRectWithAnotherRange(anotherRange: string | undefined) : BoundingRectWithAnotherRangeRequestBuilder {
         if(!anotherRange) throw new Error("anotherRange cannot be undefined");
-        return new BoundingRectWithAnotherRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, anotherRange, false);
+        return new BoundingRectWithAnotherRangeRequestBuilder(this.pathParameters, this.requestAdapter, anotherRange);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.cell(row={row},column={column})
@@ -71,14 +69,14 @@ export class WorkbookRangeRequestBuilder {
     public cellWithRowWithColumn(row: number | undefined, column: number | undefined) : CellWithRowWithColumnRequestBuilder {
         if(!column) throw new Error("column cannot be undefined");
         if(!row) throw new Error("row cannot be undefined");
-        return new CellWithRowWithColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, row, column, false);
+        return new CellWithRowWithColumnRequestBuilder(this.pathParameters, this.requestAdapter, row, column);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsAfter()
      * @returns a columnsAfterRequestBuilder
      */
     public columnsAfter() : ColumnsAfterRequestBuilder {
-        return new ColumnsAfterRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ColumnsAfterRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsAfter(count={count})
@@ -87,14 +85,14 @@ export class WorkbookRangeRequestBuilder {
      */
     public columnsAfterWithCount(count: number | undefined) : ColumnsAfterWithCountRequestBuilder {
         if(!count) throw new Error("count cannot be undefined");
-        return new ColumnsAfterWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+        return new ColumnsAfterWithCountRequestBuilder(this.pathParameters, this.requestAdapter, count);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsBefore()
      * @returns a columnsBeforeRequestBuilder
      */
     public columnsBefore() : ColumnsBeforeRequestBuilder {
-        return new ColumnsBeforeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ColumnsBeforeRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.columnsBefore(count={count})
@@ -103,7 +101,7 @@ export class WorkbookRangeRequestBuilder {
      */
     public columnsBeforeWithCount(count: number | undefined) : ColumnsBeforeWithCountRequestBuilder {
         if(!count) throw new Error("count cannot be undefined");
-        return new ColumnsBeforeWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+        return new ColumnsBeforeWithCountRequestBuilder(this.pathParameters, this.requestAdapter, count);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.column(column={column})
@@ -112,35 +110,34 @@ export class WorkbookRangeRequestBuilder {
      */
     public columnWithColumn(column: number | undefined) : ColumnWithColumnRequestBuilder {
         if(!column) throw new Error("column cannot be undefined");
-        return new ColumnWithColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, column, false);
+        return new ColumnWithColumnRequestBuilder(this.pathParameters, this.requestAdapter, column);
     };
     /**
      * Instantiates a new WorkbookRangeRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/microsoft.graph.workbookRange";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/users/{user_id}/insights/trending/{trending_id}/resource/microsoft.graph.workbookRange";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.entireColumn()
      * @returns a entireColumnRequestBuilder
      */
     public entireColumn() : EntireColumnRequestBuilder {
-        return new EntireColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EntireColumnRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.entireRow()
      * @returns a entireRowRequestBuilder
      */
     public entireRow() : EntireRowRequestBuilder {
-        return new EntireRowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EntireRowRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.intersection(anotherRange='{anotherRange}')
@@ -149,28 +146,28 @@ export class WorkbookRangeRequestBuilder {
      */
     public intersectionWithAnotherRange(anotherRange: string | undefined) : IntersectionWithAnotherRangeRequestBuilder {
         if(!anotherRange) throw new Error("anotherRange cannot be undefined");
-        return new IntersectionWithAnotherRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, anotherRange, false);
+        return new IntersectionWithAnotherRangeRequestBuilder(this.pathParameters, this.requestAdapter, anotherRange);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.lastCell()
      * @returns a lastCellRequestBuilder
      */
     public lastCell() : LastCellRequestBuilder {
-        return new LastCellRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LastCellRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.lastColumn()
      * @returns a lastColumnRequestBuilder
      */
     public lastColumn() : LastColumnRequestBuilder {
-        return new LastColumnRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LastColumnRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.lastRow()
      * @returns a lastRowRequestBuilder
      */
     public lastRow() : LastRowRequestBuilder {
-        return new LastRowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new LastRowRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.offsetRange(rowOffset={rowOffset},columnOffset={columnOffset})
@@ -181,7 +178,7 @@ export class WorkbookRangeRequestBuilder {
     public offsetRangeWithRowOffsetWithColumnOffset(rowOffset: number | undefined, columnOffset: number | undefined) : OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder {
         if(!columnOffset) throw new Error("columnOffset cannot be undefined");
         if(!rowOffset) throw new Error("rowOffset cannot be undefined");
-        return new OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, rowOffset, columnOffset, false);
+        return new OffsetRangeWithRowOffsetWithColumnOffsetRequestBuilder(this.pathParameters, this.requestAdapter, rowOffset, columnOffset);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.resizedRange(deltaRows={deltaRows},deltaColumns={deltaColumns})
@@ -192,14 +189,14 @@ export class WorkbookRangeRequestBuilder {
     public resizedRangeWithDeltaRowsWithDeltaColumns(deltaRows: number | undefined, deltaColumns: number | undefined) : ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder {
         if(!deltaColumns) throw new Error("deltaColumns cannot be undefined");
         if(!deltaRows) throw new Error("deltaRows cannot be undefined");
-        return new ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, deltaRows, deltaColumns, false);
+        return new ResizedRangeWithDeltaRowsWithDeltaColumnsRequestBuilder(this.pathParameters, this.requestAdapter, deltaRows, deltaColumns);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsAbove()
      * @returns a rowsAboveRequestBuilder
      */
     public rowsAbove() : RowsAboveRequestBuilder {
-        return new RowsAboveRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RowsAboveRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsAbove(count={count})
@@ -208,14 +205,14 @@ export class WorkbookRangeRequestBuilder {
      */
     public rowsAboveWithCount(count: number | undefined) : RowsAboveWithCountRequestBuilder {
         if(!count) throw new Error("count cannot be undefined");
-        return new RowsAboveWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+        return new RowsAboveWithCountRequestBuilder(this.pathParameters, this.requestAdapter, count);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsBelow()
      * @returns a rowsBelowRequestBuilder
      */
     public rowsBelow() : RowsBelowRequestBuilder {
-        return new RowsBelowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RowsBelowRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.rowsBelow(count={count})
@@ -224,7 +221,7 @@ export class WorkbookRangeRequestBuilder {
      */
     public rowsBelowWithCount(count: number | undefined) : RowsBelowWithCountRequestBuilder {
         if(!count) throw new Error("count cannot be undefined");
-        return new RowsBelowWithCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, count, false);
+        return new RowsBelowWithCountRequestBuilder(this.pathParameters, this.requestAdapter, count);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.row(row={row})
@@ -233,14 +230,14 @@ export class WorkbookRangeRequestBuilder {
      */
     public rowWithRow(row: number | undefined) : RowWithRowRequestBuilder {
         if(!row) throw new Error("row cannot be undefined");
-        return new RowWithRowRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, row, false);
+        return new RowWithRowRequestBuilder(this.pathParameters, this.requestAdapter, row);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.usedRange()
      * @returns a usedRangeRequestBuilder
      */
     public usedRange() : UsedRangeRequestBuilder {
-        return new UsedRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UsedRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.usedRange(valuesOnly={valuesOnly})
@@ -249,13 +246,13 @@ export class WorkbookRangeRequestBuilder {
      */
     public usedRangeWithValuesOnly(valuesOnly: boolean | undefined) : UsedRangeWithValuesOnlyRequestBuilder {
         if(!valuesOnly) throw new Error("valuesOnly cannot be undefined");
-        return new UsedRangeWithValuesOnlyRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, valuesOnly, false);
+        return new UsedRangeWithValuesOnlyRequestBuilder(this.pathParameters, this.requestAdapter, valuesOnly);
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/insights/trending/{trending-id}/resource/microsoft.graph.workbookRange/microsoft.graph.visibleView()
      * @returns a visibleViewRequestBuilder
      */
     public visibleView() : VisibleViewRequestBuilder {
-        return new VisibleViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new VisibleViewRequestBuilder(this.pathParameters, this.requestAdapter);
     };
 }

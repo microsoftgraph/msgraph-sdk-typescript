@@ -1,7 +1,7 @@
 import {DeviceExchangeAccessStateSummary} from './deviceExchangeAccessStateSummary';
 import {DeviceOperatingSystemSummary} from './deviceOperatingSystemSummary';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceOverview extends Entity implements Parsable {
     /** Distribution of Exchange Access State in Intune  */

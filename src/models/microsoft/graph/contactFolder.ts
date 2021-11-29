@@ -2,7 +2,7 @@ import {Contact} from './contact';
 import {Entity} from './entity';
 import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ContactFolder extends Entity implements Parsable {
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable.  */

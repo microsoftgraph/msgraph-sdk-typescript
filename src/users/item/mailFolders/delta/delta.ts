@@ -4,7 +4,7 @@ import {Message} from '../../../../models/microsoft/graph/message';
 import {MessageRule} from '../../../../models/microsoft/graph/messageRule';
 import {MultiValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from '../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Delta extends Entity implements Parsable {
     /** The number of immediate child mailFolders in the current mailFolder.  */

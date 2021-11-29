@@ -1,6 +1,6 @@
 import {EducationResource} from './educationResource';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSubmissionResource extends Entity implements Parsable {
     /** Pointer to the assignment from which this resource was copied. If this is null, the student uploaded the resource.  */

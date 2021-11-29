@@ -7,7 +7,7 @@ import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskForm
 import {PlannerPreviewType} from './plannerPreviewType';
 import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTaskFormat';
 import {PlannerTaskDetails} from './plannerTaskDetails';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerTask extends Entity implements Parsable {
     /** Number of checklist items with value set to false, representing incomplete items.  */
@@ -48,7 +48,7 @@ export class PlannerTask extends Entity implements Parsable {
     private _percentComplete?: number | undefined;
     /** Plan ID to which the task belongs.  */
     private _planId?: string | undefined;
-    /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.  */
+    /** This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.  */
     private _previewType?: PlannerPreviewType | undefined;
     /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.  */
     private _progressTaskBoardFormat?: PlannerProgressTaskBoardTaskFormat | undefined;
@@ -198,7 +198,7 @@ export class PlannerTask extends Entity implements Parsable {
         return this._planId;
     };
     /**
-     * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
+     * Gets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
      * @returns a plannerPreviewType
      */
     public get previewType() {
@@ -430,7 +430,7 @@ export class PlannerTask extends Entity implements Parsable {
         this._planId = value;
     };
     /**
-     * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
+     * Sets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
      * @param value Value to set for the previewType property.
      */
     public set previewType(value: PlannerPreviewType | undefined) {

@@ -5,7 +5,7 @@ import {FieldValueSet} from './fieldValueSet';
 import {ItemAnalytics} from './itemAnalytics';
 import {ListItemVersion} from './listItemVersion';
 import {SharepointIds} from './sharepointIds';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ListItem extends BaseItem implements Parsable {
     /** Analytics about the view activities that took place on this item.  */

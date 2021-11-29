@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {LicenseUnitsDetail} from './licenseUnitsDetail';
 import {ServicePlanInfo} from './servicePlanInfo';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SubscribedSku extends Entity implements Parsable {
     /** For example, 'User' or 'Company'.  */

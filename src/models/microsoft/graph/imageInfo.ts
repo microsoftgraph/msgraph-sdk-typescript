@@ -1,4 +1,4 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImageInfo implements Parsable {
     /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image  */

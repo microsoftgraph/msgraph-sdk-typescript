@@ -1,6 +1,6 @@
 import {FileHash} from './fileHash';
 import {ProcessIntegrityLevel} from './processIntegrityLevel';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Process implements Parsable {
     /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.  */

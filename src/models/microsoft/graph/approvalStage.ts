@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {Identity} from './identity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApprovalStage extends Entity implements Parsable {
     /** Indicates whether the stage is assigned to the calling user to review. Read-only.  */

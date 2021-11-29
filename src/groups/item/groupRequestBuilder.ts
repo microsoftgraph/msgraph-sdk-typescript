@@ -6,18 +6,18 @@ import {AppRoleAssignmentRequestBuilder} from './appRoleAssignments/item/appRole
 import {AssignLicenseRequestBuilder} from './assignLicense/assignLicenseRequestBuilder';
 import {CalendarRequestBuilder} from './calendar/calendarRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
-import {EventRequestBuilder as id5f4132d491be6ec6415105ddcf4d2bd3db68e99ef81e7280593fa21d1d55eba} from './calendarView/item/eventRequestBuilder';
+import {EventRequestBuilder as ia36db38b9385abdf1fb756951e1536690223e4982b7e2084afc76bf2470a7803} from './calendarView/item/eventRequestBuilder';
 import {CheckGrantedPermissionsForAppRequestBuilder} from './checkGrantedPermissionsForApp/checkGrantedPermissionsForAppRequestBuilder';
 import {CheckMemberGroupsRequestBuilder} from './checkMemberGroups/checkMemberGroupsRequestBuilder';
 import {CheckMemberObjectsRequestBuilder} from './checkMemberObjects/checkMemberObjectsRequestBuilder';
 import {ConversationsRequestBuilder} from './conversations/conversationsRequestBuilder';
 import {ConversationRequestBuilder} from './conversations/item/conversationRequestBuilder';
 import {CreatedOnBehalfOfRequestBuilder} from './createdOnBehalfOf/createdOnBehalfOfRequestBuilder';
-import {DriveRequestBuilder as iec58096e7f23b3db1d8cba846f6e223b70e73f39662ccfa8d78f852242c431c0} from './drive/driveRequestBuilder';
+import {DriveRequestBuilder as i7a0a837279bf2fec69933ce253cb923f7db8aeaf5bc180d4308e449cdc4e8ac1} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
-import {DriveRequestBuilder as id234198a7feedd0c4783ce7a23ee14421a3c83a17e7fa50bbede8c2a4d2ad464} from './drives/item/driveRequestBuilder';
+import {DriveRequestBuilder as ib9af17f14dd37abfe384964670ca0df0d68d34f36cec5cd487499b1745b40a84} from './drives/item/driveRequestBuilder';
 import {EventsRequestBuilder} from './events/eventsRequestBuilder';
-import {EventRequestBuilder as ib0276888e1ff4a495dc789b1c740fe1439011f1aaf13f6c6d2b67a2040ca7074} from './events/item/eventRequestBuilder';
+import {EventRequestBuilder as ib76fec8f1b7e684b5298f34b67296de875a3a9413e4909f48e21bb28eb942d83} from './events/item/eventRequestBuilder';
 import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionRequestBuilder} from './extensions/item/extensionRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
@@ -52,275 +52,287 @@ import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveM
 import {TransitiveMembersRequestBuilder} from './transitiveMembers/transitiveMembersRequestBuilder';
 import {UnsubscribeByMailRequestBuilder} from './unsubscribeByMail/unsubscribeByMailRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /groups/{group-id}  */
 export class GroupRequestBuilder {
     public get acceptedSenders(): AcceptedSendersRequestBuilder {
-        return new AcceptedSendersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AcceptedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get addFavorite(): AddFavoriteRequestBuilder {
-        return new AddFavoriteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AddFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
-        return new AppRoleAssignmentsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get assignLicense(): AssignLicenseRequestBuilder {
-        return new AssignLicenseRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get calendar(): CalendarRequestBuilder {
-        return new CalendarRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get calendarView(): CalendarViewRequestBuilder {
-        return new CalendarViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get checkGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
-        return new CheckGrantedPermissionsForAppRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CheckGrantedPermissionsForAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
-        return new CheckMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
-        return new CheckMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get conversations(): ConversationsRequestBuilder {
-        return new ConversationsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ConversationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
-        return new CreatedOnBehalfOfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    public get drive(): iec58096e7f23b3db1d8cba846f6e223b70e73f39662ccfa8d78f852242c431c0 {
-        return new iec58096e7f23b3db1d8cba846f6e223b70e73f39662ccfa8d78f852242c431c0(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get drive(): i7a0a837279bf2fec69933ce253cb923f7db8aeaf5bc180d4308e449cdc4e8ac1 {
+        return new i7a0a837279bf2fec69933ce253cb923f7db8aeaf5bc180d4308e449cdc4e8ac1(this.pathParameters, this.requestAdapter);
     }
     public get drives(): DrivesRequestBuilder {
-        return new DrivesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get events(): EventsRequestBuilder {
-        return new EventsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get extensions(): ExtensionsRequestBuilder {
-        return new ExtensionsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
-        return new GetMemberGroupsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
-        return new GetMemberObjectsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
-        return new GroupLifecyclePoliciesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get memberOf(): MemberOfRequestBuilder {
-        return new MemberOfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get members(): MembersRequestBuilder {
-        return new MembersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get membersWithLicenseErrors(): MembersWithLicenseErrorsRequestBuilder {
-        return new MembersWithLicenseErrorsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MembersWithLicenseErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get onenote(): OnenoteRequestBuilder {
-        return new OnenoteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get owners(): OwnersRequestBuilder {
-        return new OwnersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get permissionGrants(): PermissionGrantsRequestBuilder {
-        return new PermissionGrantsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get photo(): PhotoRequestBuilder {
-        return new PhotoRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get photos(): PhotosRequestBuilder {
-        return new PhotosRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PhotosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get planner(): PlannerRequestBuilder {
-        return new PlannerRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get rejectedSenders(): RejectedSendersRequestBuilder {
-        return new RejectedSendersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RejectedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get removeFavorite(): RemoveFavoriteRequestBuilder {
-        return new RemoveFavoriteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RemoveFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get renew(): RenewRequestBuilder {
-        return new RenewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RenewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get resetUnseenCount(): ResetUnseenCountRequestBuilder {
-        return new ResetUnseenCountRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ResetUnseenCountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get restore(): RestoreRequestBuilder {
-        return new RestoreRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get settings(): SettingsRequestBuilder {
-        return new SettingsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get sites(): SitesRequestBuilder {
-        return new SitesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get subscribeByMail(): SubscribeByMailRequestBuilder {
-        return new SubscribeByMailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get team(): TeamRequestBuilder {
-        return new TeamRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get threads(): ThreadsRequestBuilder {
-        return new ThreadsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ThreadsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
-        return new TransitiveMemberOfRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get transitiveMembers(): TransitiveMembersRequestBuilder {
-        return new TransitiveMembersRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TransitiveMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get unsubscribeByMail(): UnsubscribeByMailRequestBuilder {
-        return new UnsubscribeByMailRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new UnsubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get validateProperties(): ValidatePropertiesRequestBuilder {
-        return new ValidatePropertiesRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.appRoleAssignments.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.appRoleAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a appRoleAssignmentRequestBuilder
      */
-    public appRoleAssignmentsById(id: String) : AppRoleAssignmentRequestBuilder {
+    public appRoleAssignmentsById(id: string) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new AppRoleAssignmentRequestBuilder(this.currentPath + this.pathSegment + "/appRoleAssignments/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("appRoleAssignment_id", id);
+        return new AppRoleAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.calendarView.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.calendarView.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public calendarViewById(id: String) : id5f4132d491be6ec6415105ddcf4d2bd3db68e99ef81e7280593fa21d1d55eba {
+    public calendarViewById(id: string) : ia36db38b9385abdf1fb756951e1536690223e4982b7e2084afc76bf2470a7803 {
         if(!id) throw new Error("id cannot be undefined");
-        return new id5f4132d491be6ec6415105ddcf4d2bd3db68e99ef81e7280593fa21d1d55eba(this.currentPath + this.pathSegment + "/calendarView/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("event_id", id);
+        return new ia36db38b9385abdf1fb756951e1536690223e4982b7e2084afc76bf2470a7803(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new GroupRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/groups/{group_id}{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.conversations.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.conversations.item collection
      * @param id Unique identifier of the item
      * @returns a conversationRequestBuilder
      */
-    public conversationsById(id: String) : ConversationRequestBuilder {
+    public conversationsById(id: string) : ConversationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ConversationRequestBuilder(this.currentPath + this.pathSegment + "/conversations/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("conversation_id", id);
+        return new ConversationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+     * Delete entity from groups
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+     * Get entity from groups by key
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+     * Update entity in groups
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Group | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Group | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+     * Delete entity from groups
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.drives.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveRequestBuilder
      */
-    public drivesById(id: String) : id234198a7feedd0c4783ce7a23ee14421a3c83a17e7fa50bbede8c2a4d2ad464 {
+    public drivesById(id: string) : ib9af17f14dd37abfe384964670ca0df0d68d34f36cec5cd487499b1745b40a84 {
         if(!id) throw new Error("id cannot be undefined");
-        return new id234198a7feedd0c4783ce7a23ee14421a3c83a17e7fa50bbede8c2a4d2ad464(this.currentPath + this.pathSegment + "/drives/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("drive_id", id);
+        return new ib9af17f14dd37abfe384964670ca0df0d68d34f36cec5cd487499b1745b40a84(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.events.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.events.item collection
      * @param id Unique identifier of the item
      * @returns a eventRequestBuilder
      */
-    public eventsById(id: String) : ib0276888e1ff4a495dc789b1c740fe1439011f1aaf13f6c6d2b67a2040ca7074 {
+    public eventsById(id: string) : ib76fec8f1b7e684b5298f34b67296de875a3a9413e4909f48e21bb28eb942d83 {
         if(!id) throw new Error("id cannot be undefined");
-        return new ib0276888e1ff4a495dc789b1c740fe1439011f1aaf13f6c6d2b67a2040ca7074(this.currentPath + this.pathSegment + "/events/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("event_id", id);
+        return new ib76fec8f1b7e684b5298f34b67296de875a3a9413e4909f48e21bb28eb942d83(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.extensions.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.extensions.item collection
      * @param id Unique identifier of the item
      * @returns a extensionRequestBuilder
      */
-    public extensionsById(id: String) : ExtensionRequestBuilder {
+    public extensionsById(id: string) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ExtensionRequestBuilder(this.currentPath + this.pathSegment + "/extensions/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("extension_id", id);
+        return new ExtensionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+     * Get entity from groups by key
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
@@ -328,78 +340,90 @@ export class GroupRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Group>(requestInfo, Group, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Group>(requestInfo, Group, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.groupLifecyclePolicies.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.groupLifecyclePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a groupLifecyclePolicyRequestBuilder
      */
-    public groupLifecyclePoliciesById(id: String) : GroupLifecyclePolicyRequestBuilder {
+    public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new GroupLifecyclePolicyRequestBuilder(this.currentPath + this.pathSegment + "/groupLifecyclePolicies/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("groupLifecyclePolicy_id", id);
+        return new GroupLifecyclePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Represents an Azure Active Directory object. The directoryObject type is the base type for many other directory entity types.
+     * Update entity in groups
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Group | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Group | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.permissionGrants.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.permissionGrants.item collection
      * @param id Unique identifier of the item
      * @returns a resourceSpecificPermissionGrantRequestBuilder
      */
-    public permissionGrantsById(id: String) : ResourceSpecificPermissionGrantRequestBuilder {
+    public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ResourceSpecificPermissionGrantRequestBuilder(this.currentPath + this.pathSegment + "/permissionGrants/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("resourceSpecificPermissionGrant_id", id);
+        return new ResourceSpecificPermissionGrantRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.photos.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.photos.item collection
      * @param id Unique identifier of the item
      * @returns a profilePhotoRequestBuilder
      */
-    public photosById(id: String) : ProfilePhotoRequestBuilder {
+    public photosById(id: string) : ProfilePhotoRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ProfilePhotoRequestBuilder(this.currentPath + this.pathSegment + "/photos/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("profilePhoto_id", id);
+        return new ProfilePhotoRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.settings.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.settings.item collection
      * @param id Unique identifier of the item
      * @returns a groupSettingRequestBuilder
      */
-    public settingsById(id: String) : GroupSettingRequestBuilder {
+    public settingsById(id: string) : GroupSettingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new GroupSettingRequestBuilder(this.currentPath + this.pathSegment + "/settings/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("groupSetting_id", id);
+        return new GroupSettingRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.sites.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item collection
      * @param id Unique identifier of the item
      * @returns a siteRequestBuilder
      */
-    public sitesById(id: String) : SiteRequestBuilder {
+    public sitesById(id: string) : SiteRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new SiteRequestBuilder(this.currentPath + this.pathSegment + "/sites/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("site_id", id);
+        return new SiteRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.groups.item.threads.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.threads.item collection
      * @param id Unique identifier of the item
      * @returns a conversationThreadRequestBuilder
      */
-    public threadsById(id: String) : ConversationThreadRequestBuilder {
+    public threadsById(id: string) : ConversationThreadRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
-        return new ConversationThreadRequestBuilder(this.currentPath + this.pathSegment + "/threads/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("conversationThread_id", id);
+        return new ConversationThreadRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

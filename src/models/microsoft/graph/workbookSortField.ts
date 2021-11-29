@@ -1,5 +1,5 @@
 import {WorkbookIcon} from './workbookIcon';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookSortField implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -8,13 +8,13 @@ export class WorkbookSortField implements Parsable {
     private _ascending?: boolean | undefined;
     /** Represents the color that is the target of the condition if the sorting is on font or cell color.  */
     private _color?: string | undefined;
-    /** Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.  */
+    /** Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.  */
     private _dataOption?: string | undefined;
     /** Represents the icon that is the target of the condition if the sorting is on the cell's icon.  */
     private _icon?: WorkbookIcon | undefined;
     /** Represents the column (or row, depending on the sort orientation) that the condition is on. Represented as an offset from the first column (or row).  */
     private _key?: number | undefined;
-    /** Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.  */
+    /** Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.  */
     private _sortOn?: string | undefined;
     /**
      * Instantiates a new workbookSortField and sets the default values.
@@ -44,7 +44,7 @@ export class WorkbookSortField implements Parsable {
         return this._color;
     };
     /**
-     * Gets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * Gets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
      * @returns a string
      */
     public get dataOption() {
@@ -65,7 +65,7 @@ export class WorkbookSortField implements Parsable {
         return this._key;
     };
     /**
-     * Gets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * Gets the sortOn property value. Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
      * @returns a string
      */
     public get sortOn() {
@@ -121,7 +121,7 @@ export class WorkbookSortField implements Parsable {
         this._color = value;
     };
     /**
-     * Sets the dataOption property value. Represents additional sorting options for this field. Possible values are: Normal, TextAsNumber.
+     * Sets the dataOption property value. Represents additional sorting options for this field. The possible values are: Normal, TextAsNumber.
      * @param value Value to set for the dataOption property.
      */
     public set dataOption(value: string | undefined) {
@@ -142,7 +142,7 @@ export class WorkbookSortField implements Parsable {
         this._key = value;
     };
     /**
-     * Sets the sortOn property value. Represents the type of sorting of this condition. Possible values are: Value, CellColor, FontColor, Icon.
+     * Sets the sortOn property value. Represents the type of sorting of this condition. The possible values are: Value, CellColor, FontColor, Icon.
      * @param value Value to set for the sortOn property.
      */
     public set sortOn(value: string | undefined) {

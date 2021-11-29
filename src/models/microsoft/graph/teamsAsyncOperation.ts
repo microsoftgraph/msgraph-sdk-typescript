@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {OperationError} from './operationError';
 import {TeamsAsyncOperationStatus} from './teamsAsyncOperationStatus';
 import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAsyncOperation extends Entity implements Parsable {
     /** Number of times the operation was attempted before being marked successful or failed.  */

@@ -1,5 +1,5 @@
 import {ShiftItem} from './shiftItem';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftItem extends ShiftItem implements Parsable {
     /** Count of the number of slots for the given open shift.  */

@@ -1,6 +1,6 @@
 import {Chat} from './chat';
 import {TeamsAppInstallation} from './teamsAppInstallation';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Parsable {
     /** The chat between the user and Teams app.  */

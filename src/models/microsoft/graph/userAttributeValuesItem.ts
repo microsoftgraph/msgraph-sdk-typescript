@@ -1,11 +1,11 @@
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserAttributeValuesItem implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Used to set the value as the default.  */
+    /** Determines whether the value is set as the default.  */
     private _isDefault?: boolean | undefined;
-    /** The display name of the property displayed to the end user in the user flow.  */
+    /** The display name of the property displayed to the user in the user flow.  */
     private _name?: string | undefined;
     /** The value that is set when this item is selected.  */
     private _value?: string | undefined;
@@ -23,14 +23,14 @@ export class UserAttributeValuesItem implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the isDefault property value. Used to set the value as the default.
+     * Gets the isDefault property value. Determines whether the value is set as the default.
      * @returns a boolean
      */
     public get isDefault() {
         return this._isDefault;
     };
     /**
-     * Gets the name property value. The display name of the property displayed to the end user in the user flow.
+     * Gets the name property value. The display name of the property displayed to the user in the user flow.
      * @returns a string
      */
     public get name() {
@@ -73,14 +73,14 @@ export class UserAttributeValuesItem implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the isDefault property value. Used to set the value as the default.
+     * Sets the isDefault property value. Determines whether the value is set as the default.
      * @param value Value to set for the isDefault property.
      */
     public set isDefault(value: boolean | undefined) {
         this._isDefault = value;
     };
     /**
-     * Sets the name property value. The display name of the property displayed to the end user in the user flow.
+     * Sets the name property value. The display name of the property displayed to the user in the user flow.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {

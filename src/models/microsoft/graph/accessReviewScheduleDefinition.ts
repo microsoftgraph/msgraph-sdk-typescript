@@ -1,19 +1,22 @@
 import {AccessReviewInstance} from './accessReviewInstance';
+import {AccessReviewNotificationRecipientItem} from './accessReviewNotificationRecipientItem';
 import {AccessReviewReviewerScope} from './accessReviewReviewerScope';
 import {AccessReviewScheduleSettings} from './accessReviewScheduleSettings';
 import {AccessReviewScope} from './accessReviewScope';
 import {Entity} from './entity';
 import {UserIdentity} from './userIdentity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewScheduleDefinition extends Entity implements Parsable {
+    /** Defines the list of additional users or group members to be notified of the access review progress.  */
+    private _additionalNotificationRecipients?: AccessReviewNotificationRecipientItem[] | undefined;
     /** User who created this review. Read-only.  */
     private _createdBy?: UserIdentity | undefined;
-    /** Timestamp when the access review series was created. Supports $select. Read-only.  */
+    /** Timestamp when the access review series was created. Supports $select and $orderBy. Read-only.  */
     private _createdDateTime?: Date | undefined;
     /** Description provided by review creators to provide more context of the review to admins. Supports $select.  */
     private _descriptionForAdmins?: string | undefined;
-    /** Description provided  by review creators to provide more context of the review to reviewers. Reviewers will see this description in the email sent to them requesting their review. Supports $select.  */
+    /** Description provided  by review creators to provide more context of the review to reviewers. Reviewers will see this description in the email sent to them requesting their review. Email notifications support up to 256 characters. Supports $select.  */
     private _descriptionForReviewers?: string | undefined;
     /** Name of the access review series. Supports $select and $orderBy. Required on create.  */
     private _displayName?: string | undefined;
@@ -21,13 +24,13 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     private _fallbackReviewers?: AccessReviewReviewerScope[] | undefined;
     /** This property is required when scoping a review to guest users' access across all Microsoft 365 groups and determines which Microsoft 365 groups are reviewed. Each group will become a unique accessReviewInstance of the access review series.  For supported scopes, see accessReviewScope. Supports $select. For examples of options for configuring instanceEnumerationScope, see Configure the scope of your access review definition using the Microsoft Graph API.  */
     private _instanceEnumerationScope?: AccessReviewScope | undefined;
-    /** Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.  */
+    /** If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.  */
     private _instances?: AccessReviewInstance[] | undefined;
     /** Timestamp when the access review series was last modified. Supports $select. Read-only.  */
     private _lastModifiedDateTime?: Date | undefined;
     /** This collection of access review scopes is used to define who are the reviewers. The reviewers property is only updatable if individual users are assigned as reviewers. Required on create. Supports $select. For examples of options for assigning reviewers, see Assign reviewers to your access review definition using the Microsoft Graph API.  */
     private _reviewers?: AccessReviewReviewerScope[] | undefined;
-    /** Defines scope of resources to review. For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.  */
+    /** Defines the entities whose access is reviewed.  For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.  */
     private _scope?: AccessReviewScope | undefined;
     /** The settings for an access review series, see type definition below. Supports $select. Required on create.  */
     private _settings?: AccessReviewScheduleSettings | undefined;
@@ -40,6 +43,13 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         super();
     };
     /**
+     * Gets the additionalNotificationRecipients property value. Defines the list of additional users or group members to be notified of the access review progress.
+     * @returns a accessReviewNotificationRecipientItem
+     */
+    public get additionalNotificationRecipients() {
+        return this._additionalNotificationRecipients;
+    };
+    /**
      * Gets the createdBy property value. User who created this review. Read-only.
      * @returns a userIdentity
      */
@@ -47,7 +57,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         return this._createdBy;
     };
     /**
-     * Gets the createdDateTime property value. Timestamp when the access review series was created. Supports $select. Read-only.
+     * Gets the createdDateTime property value. Timestamp when the access review series was created. Supports $select and $orderBy. Read-only.
      * @returns a Date
      */
     public get createdDateTime() {
@@ -61,7 +71,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         return this._descriptionForAdmins;
     };
     /**
-     * Gets the descriptionForReviewers property value. Description provided  by review creators to provide more context of the review to reviewers. Reviewers will see this description in the email sent to them requesting their review. Supports $select.
+     * Gets the descriptionForReviewers property value. Description provided  by review creators to provide more context of the review to reviewers. Reviewers will see this description in the email sent to them requesting their review. Email notifications support up to 256 characters. Supports $select.
      * @returns a string
      */
     public get descriptionForReviewers() {
@@ -89,7 +99,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         return this._instanceEnumerationScope;
     };
     /**
-     * Gets the instances property value. Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
+     * Gets the instances property value. If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
      * @returns a accessReviewInstance
      */
     public get instances() {
@@ -110,7 +120,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         return this._reviewers;
     };
     /**
-     * Gets the scope property value. Defines scope of resources to review. For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.
+     * Gets the scope property value. Defines the entities whose access is reviewed.  For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.
      * @returns a accessReviewScope
      */
     public get scope() {
@@ -136,6 +146,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["additionalNotificationRecipients", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).additionalNotificationRecipients = n.getCollectionOfObjectValues<AccessReviewNotificationRecipientItem>(AccessReviewNotificationRecipientItem); }],
             ["createdBy", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).createdBy = n.getObjectValue<UserIdentity>(UserIdentity); }],
             ["createdDateTime", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).createdDateTime = n.getDateValue(); }],
             ["descriptionForAdmins", (o, n) => { (o as unknown as AccessReviewScheduleDefinition).descriptionForAdmins = n.getStringValue(); }],
@@ -158,6 +169,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
+        writer.writeCollectionOfObjectValues<AccessReviewNotificationRecipientItem>("additionalNotificationRecipients", this.additionalNotificationRecipients);
         writer.writeObjectValue<UserIdentity>("createdBy", this.createdBy);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeStringValue("descriptionForAdmins", this.descriptionForAdmins);
@@ -173,6 +185,13 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         writer.writeStringValue("status", this.status);
     };
     /**
+     * Sets the additionalNotificationRecipients property value. Defines the list of additional users or group members to be notified of the access review progress.
+     * @param value Value to set for the additionalNotificationRecipients property.
+     */
+    public set additionalNotificationRecipients(value: AccessReviewNotificationRecipientItem[] | undefined) {
+        this._additionalNotificationRecipients = value;
+    };
+    /**
      * Sets the createdBy property value. User who created this review. Read-only.
      * @param value Value to set for the createdBy property.
      */
@@ -180,7 +199,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         this._createdBy = value;
     };
     /**
-     * Sets the createdDateTime property value. Timestamp when the access review series was created. Supports $select. Read-only.
+     * Sets the createdDateTime property value. Timestamp when the access review series was created. Supports $select and $orderBy. Read-only.
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
@@ -194,7 +213,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         this._descriptionForAdmins = value;
     };
     /**
-     * Sets the descriptionForReviewers property value. Description provided  by review creators to provide more context of the review to reviewers. Reviewers will see this description in the email sent to them requesting their review. Supports $select.
+     * Sets the descriptionForReviewers property value. Description provided  by review creators to provide more context of the review to reviewers. Reviewers will see this description in the email sent to them requesting their review. Email notifications support up to 256 characters. Supports $select.
      * @param value Value to set for the descriptionForReviewers property.
      */
     public set descriptionForReviewers(value: string | undefined) {
@@ -222,7 +241,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         this._instanceEnumerationScope = value;
     };
     /**
-     * Sets the instances property value. Set of access reviews instances for this access review series. Access reviews that do not recur will only have one instance; otherwise, there is an instance for each recurrence.
+     * Sets the instances property value. If the accessReviewScheduleDefinition is a recurring access review, instances represent each recurrence. A review that does not recur will have exactly one instance. Instances also represent each unique resource under review in the accessReviewScheduleDefinition. If a review has multiple resources and multiple instances, each resource will have a unique instance for each recurrence.
      * @param value Value to set for the instances property.
      */
     public set instances(value: AccessReviewInstance[] | undefined) {
@@ -243,7 +262,7 @@ export class AccessReviewScheduleDefinition extends Entity implements Parsable {
         this._reviewers = value;
     };
     /**
-     * Sets the scope property value. Defines scope of resources to review. For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.
+     * Sets the scope property value. Defines the entities whose access is reviewed.  For supported scopes, see accessReviewScope. Required on create. Supports $select and $filter (contains only). For examples of options for configuring scope, see Configure the scope of your access review definition using the Microsoft Graph API.
      * @param value Value to set for the scope property.
      */
     public set scope(value: AccessReviewScope | undefined) {

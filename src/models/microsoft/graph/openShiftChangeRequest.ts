@@ -1,5 +1,5 @@
 import {ScheduleChangeRequest} from './scheduleChangeRequest';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequest extends ScheduleChangeRequest implements Parsable {
     /** ID for the open shift.  */

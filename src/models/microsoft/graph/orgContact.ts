@@ -2,26 +2,26 @@ import {DirectoryObject} from './directoryObject';
 import {OnPremisesProvisioningError} from './onPremisesProvisioningError';
 import {Phone} from './phone';
 import {PhysicalOfficeAddress} from './physicalOfficeAddress';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrgContact extends DirectoryObject implements Parsable {
     /** Postal addresses for this organizational contact. For now a contact can only have one physical address.  */
     private _addresses?: PhysicalOfficeAddress[] | undefined;
-    /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).  */
+    /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).  */
     private _companyName?: string | undefined;
-    /** The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).  */
+    /** The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).  */
     private _department?: string | undefined;
     /** The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.  */
     private _directReports?: DirectoryObject[] | undefined;
-    /** Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.  */
+    /** Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.  */
     private _displayName?: string | undefined;
-    /** First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).  */
+    /** First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).  */
     private _givenName?: string | undefined;
-    /** Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).  */
+    /** Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).  */
     private _jobTitle?: string | undefined;
-    /** The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).  */
+    /** The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).  */
     private _mail?: string | undefined;
-    /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).  */
+    /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).  */
     private _mailNickname?: string | undefined;
     /** The user or contact that is this contact's manager. Read-only. Supports $expand.  */
     private _manager?: DirectoryObject | undefined;
@@ -31,13 +31,13 @@ export class OrgContact extends DirectoryObject implements Parsable {
     private _onPremisesLastSyncDateTime?: Date | undefined;
     /** List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, NOT).  */
     private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
-    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  */
+    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, NOT, in, and eq on null values).  */
     private _onPremisesSyncEnabled?: boolean | undefined;
     /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, NOT, in).  */
     private _phones?: Phone[] | undefined;
     /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, NOT, ge, le, startsWith).  */
     private _proxyAddresses?: string[] | undefined;
-    /** Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith)  */
+    /** Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values)  */
     private _surname?: string | undefined;
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
@@ -54,14 +54,14 @@ export class OrgContact extends DirectoryObject implements Parsable {
         return this._addresses;
     };
     /**
-     * Gets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Gets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get companyName() {
         return this._companyName;
     };
     /**
-     * Gets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Gets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get department() {
@@ -75,35 +75,35 @@ export class OrgContact extends DirectoryObject implements Parsable {
         return this._directReports;
     };
     /**
-     * Gets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
+     * Gets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Gets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get givenName() {
         return this._givenName;
     };
     /**
-     * Gets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Gets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get jobTitle() {
         return this._jobTitle;
     };
     /**
-     * Gets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Gets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get mail() {
         return this._mail;
     };
     /**
-     * Gets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Gets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get mailNickname() {
@@ -138,7 +138,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
         return this._onPremisesProvisioningErrors;
     };
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, NOT, in, and eq on null values).
      * @returns a boolean
      */
     public get onPremisesSyncEnabled() {
@@ -159,7 +159,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
         return this._proxyAddresses;
     };
     /**
-     * Gets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith)
+     * Gets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values)
      * @returns a string
      */
     public get surname() {
@@ -232,14 +232,14 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this._addresses = value;
     };
     /**
-     * Sets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Sets the companyName property value. Name of the company that this organizational contact belong to. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the companyName property.
      */
     public set companyName(value: string | undefined) {
         this._companyName = value;
     };
     /**
-     * Sets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Sets the department property value. The name for the department in which the contact works. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the department property.
      */
     public set department(value: string | undefined) {
@@ -253,35 +253,35 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this._directReports = value;
     };
     /**
-     * Sets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith), $search, and $orderBy.
+     * Sets the displayName property value. Display name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Sets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Sets the givenName property value. First name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the givenName property.
      */
     public set givenName(value: string | undefined) {
         this._givenName = value;
     };
     /**
-     * Sets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Sets the jobTitle property value. Job title for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the jobTitle property.
      */
     public set jobTitle(value: string | undefined) {
         this._jobTitle = value;
     };
     /**
-     * Sets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Sets the mail property value. The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the mail property.
      */
     public set mail(value: string | undefined) {
         this._mail = value;
     };
     /**
-     * Sets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith).
+     * Sets the mailNickname property value. Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the mailNickname property.
      */
     public set mailNickname(value: string | undefined) {
@@ -316,7 +316,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this._onPremisesProvisioningErrors = value;
     };
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, NOT, in, and eq on null values).
      * @param value Value to set for the onPremisesSyncEnabled property.
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
@@ -337,7 +337,7 @@ export class OrgContact extends DirectoryObject implements Parsable {
         this._proxyAddresses = value;
     };
     /**
-     * Sets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith)
+     * Sets the surname property value. Last name for this organizational contact. Supports $filter (eq, ne, NOT, ge, le, in, startsWith, and eq on null values)
      * @param value Value to set for the surname property.
      */
     public set surname(value: string | undefined) {

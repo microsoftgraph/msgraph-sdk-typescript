@@ -1,6 +1,6 @@
 import {OnenoteOperationError} from './onenoteOperationError';
 import {Operation} from './operation';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteOperation extends Operation implements Parsable {
     /** The error returned by the operation.  */

@@ -1,6 +1,6 @@
 import {BaseItemVersion} from './baseItemVersion';
 import {FieldValueSet} from './fieldValueSet';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ListItemVersion extends BaseItemVersion implements Parsable {
     /** A collection of the fields and values for this version of the list item.  */

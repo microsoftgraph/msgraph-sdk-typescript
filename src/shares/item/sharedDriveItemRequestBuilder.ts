@@ -1,125 +1,125 @@
 import {SharedDriveItem} from '../../models/microsoft/graph/sharedDriveItem';
-import {DriveItemRequestBuilder as id2470b9eeb2833d66a6b8d3ea9bee2dde9514842d753ec2eed455e037d0f1655} from './driveItem/driveItemRequestBuilder';
-import {DriveItemRequestBuilder as i4fba342279fc1c2668482717497edd77ab27425d9e9c00719b4d7fcae0535403} from './items/item/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i3af83002bb2fa90f63afd341cb142c2dcd9d6c7b553a1725dfeb2ec9fc13d194} from './driveItem/driveItemRequestBuilder';
+import {DriveItemRequestBuilder as i06a8c52ebbacf3b926bea558c4ddc711813177053c4e9ebc4b2b7fc969b8a2cd} from './items/item/driveItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {ListItemRequestBuilder} from './listItem/listItemRequestBuilder';
 import {PermissionRequestBuilder} from './permission/permissionRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
 import {SiteRequestBuilder} from './site/siteRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /shares/{sharedDriveItem-id}  */
 export class SharedDriveItemRequestBuilder {
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    public get driveItem(): id2470b9eeb2833d66a6b8d3ea9bee2dde9514842d753ec2eed455e037d0f1655 {
-        return new id2470b9eeb2833d66a6b8d3ea9bee2dde9514842d753ec2eed455e037d0f1655(this.currentPath + this.pathSegment, this.httpCore, false);
+    public get driveItem(): i3af83002bb2fa90f63afd341cb142c2dcd9d6c7b553a1725dfeb2ec9fc13d194 {
+        return new i3af83002bb2fa90f63afd341cb142c2dcd9d6c7b553a1725dfeb2ec9fc13d194(this.pathParameters, this.requestAdapter);
     }
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get items(): ItemsRequestBuilder {
-        return new ItemsRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get list(): ListRequestBuilder {
-        return new ListRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get listItem(): ListItemRequestBuilder {
-        return new ListItemRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get permission(): PermissionRequestBuilder {
-        return new PermissionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get root(): RootRequestBuilder {
-        return new RootRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get site(): SiteRequestBuilder {
-        return new SiteRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new SiteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     /**
      * Instantiates a new SharedDriveItemRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/shares/{sharedDriveItem_id}{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Delete entity from shares
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         h && requestInfo.setHeadersFromRawObject(h);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Get entity from shares by key
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Update entity in shares
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: SharedDriveItem | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: SharedDriveItem | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
         h && requestInfo.setHeadersFromRawObject(h);
-        requestInfo.setContentFromParsable(this.httpCore, "application/json", body);
-        o && requestInfo.addMiddlewareOptions(...o);
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Delete entity from shares
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get entity from shares by key
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SharedDriveItem
@@ -127,33 +127,35 @@ export class SharedDriveItemRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedDriveItem | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SharedDriveItem | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<SharedDriveItem>(requestInfo, SharedDriveItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SharedDriveItem>(requestInfo, SharedDriveItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the graphtypescriptv4.utilities.shares.item.items.item collection
+     * Gets an item from the MicrosoftGraph.shares.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
-    public itemsById(id: String) : i4fba342279fc1c2668482717497edd77ab27425d9e9c00719b4d7fcae0535403 {
+    public itemsById(id: string) : i06a8c52ebbacf3b926bea558c4ddc711813177053c4e9ebc4b2b7fc969b8a2cd {
         if(!id) throw new Error("id cannot be undefined");
-        return new i4fba342279fc1c2668482717497edd77ab27425d9e9c00719b4d7fcae0535403(this.currentPath + this.pathSegment + "/items/" + id, this.httpCore, false);
+        const urlTplParams = getPathParameters(this.pathParameters);
+        id && urlTplParams.set("driveItem_id", id);
+        return new i06a8c52ebbacf3b926bea558c4ddc711813177053c4e9ebc4b2b7fc969b8a2cd(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in shares
      * @param body 
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: SharedDriveItem | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SharedDriveItem | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.httpCore?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
 }

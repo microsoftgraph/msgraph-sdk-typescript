@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {ItemActivityStat} from './itemActivityStat';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemAnalytics extends Entity implements Parsable {
     private _allTime?: ItemActivityStat | undefined;

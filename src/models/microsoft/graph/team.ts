@@ -12,7 +12,7 @@ import {TeamsAsyncOperation} from './teamsAsyncOperation';
 import {TeamSpecialization} from './teamSpecialization';
 import {TeamsTemplate} from './teamsTemplate';
 import {TeamVisibilityType} from './teamVisibilityType';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Team extends Entity implements Parsable {
     /** The collection of channels & messages associated with the team.  */

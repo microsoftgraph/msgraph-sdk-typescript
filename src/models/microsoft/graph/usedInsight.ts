@@ -2,7 +2,7 @@ import {Entity} from './entity';
 import {ResourceReference} from './resourceReference';
 import {ResourceVisualization} from './resourceVisualization';
 import {UsageDetails} from './usageDetails';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UsedInsight extends Entity implements Parsable {
     /** Information about when the item was last viewed or modified by the user. Read only.  */

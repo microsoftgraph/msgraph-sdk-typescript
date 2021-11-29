@@ -1,6 +1,6 @@
 import {EnrollmentState} from './enrollmentState';
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
     /** Addressable user name.  */
@@ -9,7 +9,7 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
     private _azureActiveDirectoryDeviceId?: string | undefined;
     /** Display Name  */
     private _displayName?: string | undefined;
-    /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.  */
+    /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.  */
     private _enrollmentState?: EnrollmentState | undefined;
     /** Group Tag of the Windows autopilot device.  */
     private _groupTag?: string | undefined;
@@ -63,7 +63,7 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.
      * @returns a enrollmentState
      */
     public get enrollmentState() {
@@ -223,7 +223,7 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
+     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.
      * @param value Value to set for the enrollmentState property.
      */
     public set enrollmentState(value: EnrollmentState | undefined) {

@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {TodoTaskList} from './todoTaskList';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Todo extends Entity implements Parsable {
     /** The task lists in the users mailbox.  */

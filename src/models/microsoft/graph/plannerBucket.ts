@@ -1,6 +1,6 @@
 import {Entity} from './entity';
 import {PlannerTask} from './plannerTask';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerBucket extends Entity implements Parsable {
     /** Name of the bucket.  */

@@ -1,7 +1,7 @@
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
 import {InstallIntent} from './installIntent';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBookAssignment extends Entity implements Parsable {
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */

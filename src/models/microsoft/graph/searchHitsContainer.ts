@@ -1,9 +1,12 @@
+import {SearchAggregation} from './searchAggregation';
 import {SearchHit} from './searchHit';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchHitsContainer implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
+    /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.  */
+    private _aggregations?: SearchAggregation[] | undefined;
     /** A collection of the search results.  */
     private _hits?: SearchHit[] | undefined;
     /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly.  */
@@ -22,6 +25,13 @@ export class SearchHitsContainer implements Parsable {
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Gets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
+     * @returns a searchAggregation
+     */
+    public get aggregations() {
+        return this._aggregations;
     };
     /**
      * Gets the hits property value. A collection of the search results.
@@ -50,6 +60,7 @@ export class SearchHitsContainer implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
+            ["aggregations", (o, n) => { (o as unknown as SearchHitsContainer).aggregations = n.getCollectionOfObjectValues<SearchAggregation>(SearchAggregation); }],
             ["hits", (o, n) => { (o as unknown as SearchHitsContainer).hits = n.getCollectionOfObjectValues<SearchHit>(SearchHit); }],
             ["moreResultsAvailable", (o, n) => { (o as unknown as SearchHitsContainer).moreResultsAvailable = n.getBooleanValue(); }],
             ["total", (o, n) => { (o as unknown as SearchHitsContainer).total = n.getNumberValue(); }],
@@ -61,6 +72,7 @@ export class SearchHitsContainer implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeCollectionOfObjectValues<SearchAggregation>("aggregations", this.aggregations);
         writer.writeCollectionOfObjectValues<SearchHit>("hits", this.hits);
         writer.writeBooleanValue("moreResultsAvailable", this.moreResultsAvailable);
         writer.writeNumberValue("total", this.total);
@@ -72,6 +84,13 @@ export class SearchHitsContainer implements Parsable {
      */
     public set additionalData(value: Map<string, unknown>) {
         this._additionalData = value;
+    };
+    /**
+     * Sets the aggregations property value. Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.
+     * @param value Value to set for the aggregations property.
+     */
+    public set aggregations(value: SearchAggregation[] | undefined) {
+        this._aggregations = value;
     };
     /**
      * Sets the hits property value. A collection of the search results.

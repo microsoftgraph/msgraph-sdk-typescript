@@ -1,7 +1,7 @@
 import {Entity} from './entity';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsApp extends Entity implements Parsable {
     /** The details for each version of the app.  */

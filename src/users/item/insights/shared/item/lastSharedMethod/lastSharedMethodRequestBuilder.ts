@@ -4,7 +4,7 @@ import {ManagedAppProtectionRequestBuilder} from './managedAppProtection/managed
 import {MobileAppContentFileRequestBuilder} from './mobileAppContentFile/mobileAppContentFileRequestBuilder';
 import {PrintDocumentRequestBuilder} from './printDocument/printDocumentRequestBuilder';
 import {PrintJobRequestBuilder} from './printJob/printJobRequestBuilder';
-import {$refRequestBuilder} from './ref/$refRequestBuilder';
+import {RefRequestBuilder} from './ref/refRequestBuilder';
 import {ScheduleChangeRequestRequestBuilder} from './scheduleChangeRequest/scheduleChangeRequestRequestBuilder';
 import {TargetedManagedAppProtectionRequestBuilder} from './targetedManagedAppProtection/targetedManagedAppProtectionRequestBuilder';
 import {WindowsInformationProtectionRequestBuilder} from './windowsInformationProtection/windowsInformationProtectionRequestBuilder';
@@ -13,97 +13,95 @@ import {WorkbookRangeFillRequestBuilder} from './workbookRangeFill/workbookRange
 import {WorkbookRangeFormatRequestBuilder} from './workbookRangeFormat/workbookRangeFormatRequestBuilder';
 import {WorkbookRangeSortRequestBuilder} from './workbookRangeSort/workbookRangeSortRequestBuilder';
 import {WorkbookRangeViewRequestBuilder} from './workbookRangeView/workbookRangeViewRequestBuilder';
-import {HttpCore, HttpMethod, RequestInformation, ResponseHandler, MiddlewareOption} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/insights/shared/{sharedInsight-id}/lastSharedMethod  */
 export class LastSharedMethodRequestBuilder {
-    public get $ref(): $refRequestBuilder {
-        return new $refRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
-    }
     public get calendarSharingMessage(): CalendarSharingMessageRequestBuilder {
-        return new CalendarSharingMessageRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new CalendarSharingMessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Current path for the request  */
-    private readonly currentPath: string;
-    /** The http core service to use to execute the requests.  */
-    private readonly httpCore: HttpCore;
-    /** Whether the current path is a raw URL  */
-    private readonly isRawUrl: boolean;
     public get managedAppProtection(): ManagedAppProtectionRequestBuilder {
-        return new ManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ManagedAppProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get mobileAppContentFile(): MobileAppContentFileRequestBuilder {
-        return new MobileAppContentFileRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new MobileAppContentFileRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path segment to use to build the URL for the current request builder  */
-    private readonly pathSegment: string;
+    /** Path parameters for the request  */
+    private readonly pathParameters: Map<string, unknown>;
     public get printDocument(): PrintDocumentRequestBuilder {
-        return new PrintDocumentRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PrintDocumentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get printJob(): PrintJobRequestBuilder {
-        return new PrintJobRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new PrintJobRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    public get ref(): RefRequestBuilder {
+        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The request adapter to use to execute the requests.  */
+    private readonly requestAdapter: RequestAdapter;
     public get scheduleChangeRequest(): ScheduleChangeRequestRequestBuilder {
-        return new ScheduleChangeRequestRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new ScheduleChangeRequestRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get targetedManagedAppProtection(): TargetedManagedAppProtectionRequestBuilder {
-        return new TargetedManagedAppProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new TargetedManagedAppProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** Url template to use to build the URL for the current request builder  */
+    private readonly urlTemplate: string;
     public get windowsInformationProtection(): WindowsInformationProtectionRequestBuilder {
-        return new WindowsInformationProtectionRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WindowsInformationProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workbookRange(): WorkbookRangeRequestBuilder {
-        return new WorkbookRangeRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkbookRangeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workbookRangeFill(): WorkbookRangeFillRequestBuilder {
-        return new WorkbookRangeFillRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkbookRangeFillRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workbookRangeFormat(): WorkbookRangeFormatRequestBuilder {
-        return new WorkbookRangeFormatRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkbookRangeFormatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workbookRangeSort(): WorkbookRangeSortRequestBuilder {
-        return new WorkbookRangeSortRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkbookRangeSortRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get workbookRangeView(): WorkbookRangeViewRequestBuilder {
-        return new WorkbookRangeViewRequestBuilder(this.currentPath + this.pathSegment, this.httpCore, false);
+        return new WorkbookRangeViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
      * Instantiates a new LastSharedMethodRequestBuilder and sets the default values.
-     * @param currentPath Current path for the request
-     * @param httpCore The http core service to use to execute the requests.
-     * @param isRawUrl Whether the current path is a raw URL
+     * @param pathParameters The raw url or the Url template parameters for the request.
+     * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(currentPath: string, httpCore: HttpCore, isRawUrl: boolean = true) {
-        if(!currentPath) throw new Error("currentPath cannot be undefined");
-        if(!httpCore) throw new Error("httpCore cannot be undefined");
-        this.pathSegment = "/lastSharedMethod";
-        this.httpCore = httpCore;
-        this.currentPath = currentPath;
-        this.isRawUrl = isRawUrl;
+    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+        if(!pathParameters) throw new Error("pathParameters cannot be undefined");
+        if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
+        this.urlTemplate = "{+baseurl}/users/{user_id}/insights/shared/{sharedInsight_id}/lastSharedMethod{?select,expand}";
+        const urlTplParams = getPathParameters(pathParameters);
+        this.pathParameters = urlTplParams;
+        this.requestAdapter = requestAdapter;
     };
     /**
      * Get lastSharedMethod from users
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
-        requestInfo.setUri(this.currentPath, this.pathSegment, this.isRawUrl);
+        requestInfo.urlTemplate = this.urlTemplate;
+        requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         h && requestInfo.setHeadersFromRawObject(h);
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addMiddlewareOptions(...o);
+        o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
      * Get lastSharedMethod from users
      * @param h Request headers
-     * @param o Request options for HTTP middlewares
+     * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Entity
@@ -111,10 +109,10 @@ export class LastSharedMethodRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: MiddlewareOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Entity | undefined> {
+                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Entity | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.httpCore?.sendAsync<Entity>(requestInfo, Entity, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Entity>(requestInfo, Entity, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
 }

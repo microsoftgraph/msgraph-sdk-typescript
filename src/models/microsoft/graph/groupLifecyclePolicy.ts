@@ -1,5 +1,5 @@
 import {Entity} from './entity';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GroupLifecyclePolicy extends Entity implements Parsable {
     /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.  */

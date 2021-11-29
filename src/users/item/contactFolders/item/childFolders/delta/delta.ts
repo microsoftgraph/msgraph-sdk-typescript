@@ -3,7 +3,7 @@ import {ContactFolder} from '../../../../../../models/microsoft/graph/contactFol
 import {Entity} from '../../../../../../models/microsoft/graph/entity';
 import {MultiValueLegacyExtendedProperty} from '../../../../../../models/microsoft/graph/multiValueLegacyExtendedProperty';
 import {SingleValueLegacyExtendedProperty} from '../../../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Delta extends Entity implements Parsable {
     /** The collection of child folders in the folder. Navigation property. Read-only. Nullable.  */

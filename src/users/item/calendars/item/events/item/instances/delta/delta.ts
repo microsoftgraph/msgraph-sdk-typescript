@@ -18,10 +18,10 @@ import {Recipient} from '../../../../../../../../models/microsoft/graph/recipien
 import {ResponseStatus} from '../../../../../../../../models/microsoft/graph/responseStatus';
 import {Sensitivity} from '../../../../../../../../models/microsoft/graph/sensitivity';
 import {SingleValueLegacyExtendedProperty} from '../../../../../../../../models/microsoft/graph/singleValueLegacyExtendedProperty';
-import {SerializationWriter, ParseNode, Parsable} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Delta extends OutlookItem implements Parsable {
-    /** True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.  */
+    /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.  */
     private _allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.  */
     private _attachments?: Attachment[] | undefined;
@@ -43,67 +43,39 @@ export class Delta extends OutlookItem implements Parsable {
     private _hideAttendees?: boolean | undefined;
     /** A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.  */
     private _iCalUId?: string | undefined;
-    /** The importance of the event. The possible values are: low, normal, high.  */
     private _importance?: Importance | undefined;
     /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.  */
     private _instances?: Event[] | undefined;
-    /** Set to true if the event lasts all day.  */
     private _isAllDay?: boolean | undefined;
-    /** Set to true if the event has been canceled.  */
     private _isCancelled?: boolean | undefined;
-    /** Set to true if the user has updated the meeting in Outlook but has not sent the updates to attendees. Set to false if all changes have been sent, or if the event is an appointment without any attendees.  */
     private _isDraft?: boolean | undefined;
-    /** True if this event has online meeting information, false otherwise. Default is false. Optional.  */
     private _isOnlineMeeting?: boolean | undefined;
-    /** Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.  */
     private _isOrganizer?: boolean | undefined;
-    /** Set to true if an alert is set to remind the user of the event.  */
     private _isReminderOn?: boolean | undefined;
-    /** The location of the event.  */
     private _location?: Location | undefined;
-    /** The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.  */
     private _locations?: Location[] | undefined;
     /** The collection of multi-value extended properties defined for the event. Read-only. Nullable.  */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** Details for an attendee to join the meeting online. Read-only.  */
     private _onlineMeeting?: OnlineMeetingInfo | undefined;
-    /** Represents the online meeting service provider. The possible values are teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.  */
     private _onlineMeetingProvider?: OnlineMeetingProviderType | undefined;
-    /** A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.  */
     private _onlineMeetingUrl?: string | undefined;
-    /** The organizer of the event.  */
     private _organizer?: Recipient | undefined;
-    /** The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.  */
     private _originalEndTimeZone?: string | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _originalStart?: Date | undefined;
-    /** The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.  */
     private _originalStartTimeZone?: string | undefined;
-    /** The recurrence pattern for the event.  */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The number of minutes before the event start time that the reminder alert occurs.  */
     private _reminderMinutesBeforeStart?: number | undefined;
-    /** Default is true, which represents the organizer would like an invitee to send a response to the event.  */
     private _responseRequested?: boolean | undefined;
-    /** Indicates the type of response sent in response to an event message.  */
     private _responseStatus?: ResponseStatus | undefined;
-    /** The possible values are: normal, personal, private, confidential.  */
     private _sensitivity?: Sensitivity | undefined;
-    /** The ID for the recurring series master item, if this event is part of a recurring series.  */
     private _seriesMasterId?: string | undefined;
-    /** The status to show. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
     private _showAs?: FreeBusyStatus | undefined;
     /** The collection of single-value extended properties defined for the event. Read-only. Nullable.  */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The date, time, and time zone that the event starts. By default, the start time is in UTC.  */
     private _start?: DateTimeTimeZone | undefined;
-    /** The text of the event's subject line.  */
     private _subject?: string | undefined;
-    /** A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.  */
     private _transactionId?: string | undefined;
-    /** The event type. The possible values are: singleInstance, occurrence, exception, seriesMaster. Read-only.  */
     private _type?: EventType | undefined;
-    /** The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL cannot be accessed from within an iFrame.  */
     private _webLink?: string | undefined;
     /**
      * Instantiates a new delta and sets the default values.
@@ -112,7 +84,7 @@ export class Delta extends OutlookItem implements Parsable {
         super();
     };
     /**
-     * Gets the allowNewTimeProposals property value. True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
+     * Gets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
      * @returns a boolean
      */
     public get allowNewTimeProposals() {
@@ -189,7 +161,7 @@ export class Delta extends OutlookItem implements Parsable {
         return this._iCalUId;
     };
     /**
-     * Gets the importance property value. The importance of the event. The possible values are: low, normal, high.
+     * Gets the importance property value. 
      * @returns a importance
      */
     public get importance() {
@@ -203,56 +175,56 @@ export class Delta extends OutlookItem implements Parsable {
         return this._instances;
     };
     /**
-     * Gets the isAllDay property value. Set to true if the event lasts all day.
+     * Gets the isAllDay property value. 
      * @returns a boolean
      */
     public get isAllDay() {
         return this._isAllDay;
     };
     /**
-     * Gets the isCancelled property value. Set to true if the event has been canceled.
+     * Gets the isCancelled property value. 
      * @returns a boolean
      */
     public get isCancelled() {
         return this._isCancelled;
     };
     /**
-     * Gets the isDraft property value. Set to true if the user has updated the meeting in Outlook but has not sent the updates to attendees. Set to false if all changes have been sent, or if the event is an appointment without any attendees.
+     * Gets the isDraft property value. 
      * @returns a boolean
      */
     public get isDraft() {
         return this._isDraft;
     };
     /**
-     * Gets the isOnlineMeeting property value. True if this event has online meeting information, false otherwise. Default is false. Optional.
+     * Gets the isOnlineMeeting property value. 
      * @returns a boolean
      */
     public get isOnlineMeeting() {
         return this._isOnlineMeeting;
     };
     /**
-     * Gets the isOrganizer property value. Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.
+     * Gets the isOrganizer property value. 
      * @returns a boolean
      */
     public get isOrganizer() {
         return this._isOrganizer;
     };
     /**
-     * Gets the isReminderOn property value. Set to true if an alert is set to remind the user of the event.
+     * Gets the isReminderOn property value. 
      * @returns a boolean
      */
     public get isReminderOn() {
         return this._isReminderOn;
     };
     /**
-     * Gets the location property value. The location of the event.
+     * Gets the location property value. 
      * @returns a location
      */
     public get location() {
         return this._location;
     };
     /**
-     * Gets the locations property value. The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.
+     * Gets the locations property value. 
      * @returns a location
      */
     public get locations() {
@@ -266,98 +238,98 @@ export class Delta extends OutlookItem implements Parsable {
         return this._multiValueExtendedProperties;
     };
     /**
-     * Gets the onlineMeeting property value. Details for an attendee to join the meeting online. Read-only.
+     * Gets the onlineMeeting property value. 
      * @returns a onlineMeetingInfo
      */
     public get onlineMeeting() {
         return this._onlineMeeting;
     };
     /**
-     * Gets the onlineMeetingProvider property value. Represents the online meeting service provider. The possible values are teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.
+     * Gets the onlineMeetingProvider property value. 
      * @returns a onlineMeetingProviderType
      */
     public get onlineMeetingProvider() {
         return this._onlineMeetingProvider;
     };
     /**
-     * Gets the onlineMeetingUrl property value. A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
+     * Gets the onlineMeetingUrl property value. 
      * @returns a string
      */
     public get onlineMeetingUrl() {
         return this._onlineMeetingUrl;
     };
     /**
-     * Gets the organizer property value. The organizer of the event.
+     * Gets the organizer property value. 
      * @returns a recipient
      */
     public get organizer() {
         return this._organizer;
     };
     /**
-     * Gets the originalEndTimeZone property value. The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.
+     * Gets the originalEndTimeZone property value. 
      * @returns a string
      */
     public get originalEndTimeZone() {
         return this._originalEndTimeZone;
     };
     /**
-     * Gets the originalStart property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the originalStart property value. 
      * @returns a Date
      */
     public get originalStart() {
         return this._originalStart;
     };
     /**
-     * Gets the originalStartTimeZone property value. The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.
+     * Gets the originalStartTimeZone property value. 
      * @returns a string
      */
     public get originalStartTimeZone() {
         return this._originalStartTimeZone;
     };
     /**
-     * Gets the recurrence property value. The recurrence pattern for the event.
+     * Gets the recurrence property value. 
      * @returns a patternedRecurrence
      */
     public get recurrence() {
         return this._recurrence;
     };
     /**
-     * Gets the reminderMinutesBeforeStart property value. The number of minutes before the event start time that the reminder alert occurs.
+     * Gets the reminderMinutesBeforeStart property value. 
      * @returns a integer
      */
     public get reminderMinutesBeforeStart() {
         return this._reminderMinutesBeforeStart;
     };
     /**
-     * Gets the responseRequested property value. Default is true, which represents the organizer would like an invitee to send a response to the event.
+     * Gets the responseRequested property value. 
      * @returns a boolean
      */
     public get responseRequested() {
         return this._responseRequested;
     };
     /**
-     * Gets the responseStatus property value. Indicates the type of response sent in response to an event message.
+     * Gets the responseStatus property value. 
      * @returns a responseStatus
      */
     public get responseStatus() {
         return this._responseStatus;
     };
     /**
-     * Gets the sensitivity property value. The possible values are: normal, personal, private, confidential.
+     * Gets the sensitivity property value. 
      * @returns a sensitivity
      */
     public get sensitivity() {
         return this._sensitivity;
     };
     /**
-     * Gets the seriesMasterId property value. The ID for the recurring series master item, if this event is part of a recurring series.
+     * Gets the seriesMasterId property value. 
      * @returns a string
      */
     public get seriesMasterId() {
         return this._seriesMasterId;
     };
     /**
-     * Gets the showAs property value. The status to show. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the showAs property value. 
      * @returns a freeBusyStatus
      */
     public get showAs() {
@@ -371,35 +343,35 @@ export class Delta extends OutlookItem implements Parsable {
         return this._singleValueExtendedProperties;
     };
     /**
-     * Gets the start property value. The date, time, and time zone that the event starts. By default, the start time is in UTC.
+     * Gets the start property value. 
      * @returns a dateTimeTimeZone
      */
     public get start() {
         return this._start;
     };
     /**
-     * Gets the subject property value. The text of the event's subject line.
+     * Gets the subject property value. 
      * @returns a string
      */
     public get subject() {
         return this._subject;
     };
     /**
-     * Gets the transactionId property value. A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.
+     * Gets the transactionId property value. 
      * @returns a string
      */
     public get transactionId() {
         return this._transactionId;
     };
     /**
-     * Gets the type property value. The event type. The possible values are: singleInstance, occurrence, exception, seriesMaster. Read-only.
+     * Gets the type property value. 
      * @returns a eventType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Gets the webLink property value. The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL cannot be accessed from within an iFrame.
+     * Gets the webLink property value. 
      * @returns a string
      */
     public get webLink() {
@@ -506,7 +478,7 @@ export class Delta extends OutlookItem implements Parsable {
         writer.writeStringValue("webLink", this.webLink);
     };
     /**
-     * Sets the allowNewTimeProposals property value. True if the meeting organizer allows invitees to propose a new time when responding, false otherwise. Optional. Default is true.
+     * Sets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
      * @param value Value to set for the allowNewTimeProposals property.
      */
     public set allowNewTimeProposals(value: boolean | undefined) {
@@ -583,7 +555,7 @@ export class Delta extends OutlookItem implements Parsable {
         this._iCalUId = value;
     };
     /**
-     * Sets the importance property value. The importance of the event. The possible values are: low, normal, high.
+     * Sets the importance property value. 
      * @param value Value to set for the importance property.
      */
     public set importance(value: Importance | undefined) {
@@ -597,56 +569,56 @@ export class Delta extends OutlookItem implements Parsable {
         this._instances = value;
     };
     /**
-     * Sets the isAllDay property value. Set to true if the event lasts all day.
+     * Sets the isAllDay property value. 
      * @param value Value to set for the isAllDay property.
      */
     public set isAllDay(value: boolean | undefined) {
         this._isAllDay = value;
     };
     /**
-     * Sets the isCancelled property value. Set to true if the event has been canceled.
+     * Sets the isCancelled property value. 
      * @param value Value to set for the isCancelled property.
      */
     public set isCancelled(value: boolean | undefined) {
         this._isCancelled = value;
     };
     /**
-     * Sets the isDraft property value. Set to true if the user has updated the meeting in Outlook but has not sent the updates to attendees. Set to false if all changes have been sent, or if the event is an appointment without any attendees.
+     * Sets the isDraft property value. 
      * @param value Value to set for the isDraft property.
      */
     public set isDraft(value: boolean | undefined) {
         this._isDraft = value;
     };
     /**
-     * Sets the isOnlineMeeting property value. True if this event has online meeting information, false otherwise. Default is false. Optional.
+     * Sets the isOnlineMeeting property value. 
      * @param value Value to set for the isOnlineMeeting property.
      */
     public set isOnlineMeeting(value: boolean | undefined) {
         this._isOnlineMeeting = value;
     };
     /**
-     * Sets the isOrganizer property value. Set to true if the calendar owner (specified by the owner property of the calendar) is the organizer of the event (specified by the organizer property of the event). This also applies if a delegate organized the event on behalf of the owner.
+     * Sets the isOrganizer property value. 
      * @param value Value to set for the isOrganizer property.
      */
     public set isOrganizer(value: boolean | undefined) {
         this._isOrganizer = value;
     };
     /**
-     * Sets the isReminderOn property value. Set to true if an alert is set to remind the user of the event.
+     * Sets the isReminderOn property value. 
      * @param value Value to set for the isReminderOn property.
      */
     public set isReminderOn(value: boolean | undefined) {
         this._isReminderOn = value;
     };
     /**
-     * Sets the location property value. The location of the event.
+     * Sets the location property value. 
      * @param value Value to set for the location property.
      */
     public set location(value: Location | undefined) {
         this._location = value;
     };
     /**
-     * Sets the locations property value. The locations where the event is held or attended from. The location and locations properties always correspond with each other. If you update the location property, any prior locations in the locations collection would be removed and replaced by the new location value.
+     * Sets the locations property value. 
      * @param value Value to set for the locations property.
      */
     public set locations(value: Location[] | undefined) {
@@ -660,98 +632,98 @@ export class Delta extends OutlookItem implements Parsable {
         this._multiValueExtendedProperties = value;
     };
     /**
-     * Sets the onlineMeeting property value. Details for an attendee to join the meeting online. Read-only.
+     * Sets the onlineMeeting property value. 
      * @param value Value to set for the onlineMeeting property.
      */
     public set onlineMeeting(value: OnlineMeetingInfo | undefined) {
         this._onlineMeeting = value;
     };
     /**
-     * Sets the onlineMeetingProvider property value. Represents the online meeting service provider. The possible values are teamsForBusiness, skypeForBusiness, and skypeForConsumer. Optional.
+     * Sets the onlineMeetingProvider property value. 
      * @param value Value to set for the onlineMeetingProvider property.
      */
     public set onlineMeetingProvider(value: OnlineMeetingProviderType | undefined) {
         this._onlineMeetingProvider = value;
     };
     /**
-     * Sets the onlineMeetingUrl property value. A URL for an online meeting. The property is set only when an organizer specifies an event as an online meeting such as a Skype meeting. Read-only.
+     * Sets the onlineMeetingUrl property value. 
      * @param value Value to set for the onlineMeetingUrl property.
      */
     public set onlineMeetingUrl(value: string | undefined) {
         this._onlineMeetingUrl = value;
     };
     /**
-     * Sets the organizer property value. The organizer of the event.
+     * Sets the organizer property value. 
      * @param value Value to set for the organizer property.
      */
     public set organizer(value: Recipient | undefined) {
         this._organizer = value;
     };
     /**
-     * Sets the originalEndTimeZone property value. The end time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.
+     * Sets the originalEndTimeZone property value. 
      * @param value Value to set for the originalEndTimeZone property.
      */
     public set originalEndTimeZone(value: string | undefined) {
         this._originalEndTimeZone = value;
     };
     /**
-     * Sets the originalStart property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the originalStart property value. 
      * @param value Value to set for the originalStart property.
      */
     public set originalStart(value: Date | undefined) {
         this._originalStart = value;
     };
     /**
-     * Sets the originalStartTimeZone property value. The start time zone that was set when the event was created. A value of tzone://Microsoft/Custom indicates that a legacy custom time zone was set in desktop Outlook.
+     * Sets the originalStartTimeZone property value. 
      * @param value Value to set for the originalStartTimeZone property.
      */
     public set originalStartTimeZone(value: string | undefined) {
         this._originalStartTimeZone = value;
     };
     /**
-     * Sets the recurrence property value. The recurrence pattern for the event.
+     * Sets the recurrence property value. 
      * @param value Value to set for the recurrence property.
      */
     public set recurrence(value: PatternedRecurrence | undefined) {
         this._recurrence = value;
     };
     /**
-     * Sets the reminderMinutesBeforeStart property value. The number of minutes before the event start time that the reminder alert occurs.
+     * Sets the reminderMinutesBeforeStart property value. 
      * @param value Value to set for the reminderMinutesBeforeStart property.
      */
     public set reminderMinutesBeforeStart(value: number | undefined) {
         this._reminderMinutesBeforeStart = value;
     };
     /**
-     * Sets the responseRequested property value. Default is true, which represents the organizer would like an invitee to send a response to the event.
+     * Sets the responseRequested property value. 
      * @param value Value to set for the responseRequested property.
      */
     public set responseRequested(value: boolean | undefined) {
         this._responseRequested = value;
     };
     /**
-     * Sets the responseStatus property value. Indicates the type of response sent in response to an event message.
+     * Sets the responseStatus property value. 
      * @param value Value to set for the responseStatus property.
      */
     public set responseStatus(value: ResponseStatus | undefined) {
         this._responseStatus = value;
     };
     /**
-     * Sets the sensitivity property value. The possible values are: normal, personal, private, confidential.
+     * Sets the sensitivity property value. 
      * @param value Value to set for the sensitivity property.
      */
     public set sensitivity(value: Sensitivity | undefined) {
         this._sensitivity = value;
     };
     /**
-     * Sets the seriesMasterId property value. The ID for the recurring series master item, if this event is part of a recurring series.
+     * Sets the seriesMasterId property value. 
      * @param value Value to set for the seriesMasterId property.
      */
     public set seriesMasterId(value: string | undefined) {
         this._seriesMasterId = value;
     };
     /**
-     * Sets the showAs property value. The status to show. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the showAs property value. 
      * @param value Value to set for the showAs property.
      */
     public set showAs(value: FreeBusyStatus | undefined) {
@@ -765,35 +737,35 @@ export class Delta extends OutlookItem implements Parsable {
         this._singleValueExtendedProperties = value;
     };
     /**
-     * Sets the start property value. The date, time, and time zone that the event starts. By default, the start time is in UTC.
+     * Sets the start property value. 
      * @param value Value to set for the start property.
      */
     public set start(value: DateTimeTimeZone | undefined) {
         this._start = value;
     };
     /**
-     * Sets the subject property value. The text of the event's subject line.
+     * Sets the subject property value. 
      * @param value Value to set for the subject property.
      */
     public set subject(value: string | undefined) {
         this._subject = value;
     };
     /**
-     * Sets the transactionId property value. A custom identifier specified by a client app for the server to avoid redundant POST operations in case of client retries to create the same event. This is useful when low network connectivity causes the client to time out before receiving a response from the server for the client's prior create-event request. After you set transactionId when creating an event, you cannot change transactionId in a subsequent update. This property is only returned in a response payload if an app has set it. Optional.
+     * Sets the transactionId property value. 
      * @param value Value to set for the transactionId property.
      */
     public set transactionId(value: string | undefined) {
         this._transactionId = value;
     };
     /**
-     * Sets the type property value. The event type. The possible values are: singleInstance, occurrence, exception, seriesMaster. Read-only.
+     * Sets the type property value. 
      * @param value Value to set for the type property.
      */
     public set type(value: EventType | undefined) {
         this._type = value;
     };
     /**
-     * Sets the webLink property value. The URL to open the event in Outlook on the web.Outlook on the web opens the event in the browser if you are signed in to your mailbox. Otherwise, Outlook on the web prompts you to sign in.This URL cannot be accessed from within an iFrame.
+     * Sets the webLink property value. 
      * @param value Value to set for the webLink property.
      */
     public set webLink(value: string | undefined) {
