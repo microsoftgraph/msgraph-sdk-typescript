@@ -5,9 +5,9 @@
   "main": "index.js",
   "dependencies": {
     "@azure/identity": "^2.0.1",
-    "@microsoft/kiota-abstractions": "file:main/microsoft-kiota-abstractions-1.0.24.tgz",
-    "@microsoft/kiota-http-fetchlibrary": "file:main/microsoft-kiota-http-fetchlibrary-1.0.12.tgz",
-    "@microsoft/kiota-serialization-json": "file:main/microsoft-kiota-serialization-json-1.0.5.tgz",
+    "@microsoft/kiota-abstractions": "^1.0.25",
+    "@microsoft/kiota-http-fetchlibrary": "^1.0.12",
+    "@microsoft/kiota-serialization-json": "^1.0.6",
     "tslib": "^2.3.1"
   },
   "scripts": {
