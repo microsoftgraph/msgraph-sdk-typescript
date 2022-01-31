@@ -5,9 +5,9 @@ name: Node.js CI
 on:
   workflow_dispatch:
   push:
-    branches: [ test-compilation ]
+    branches: [ dev ]
   pull_request:
-    branches: [ test-compilation ]
+    branches: [ dev ]
 
 jobs:
   build:
