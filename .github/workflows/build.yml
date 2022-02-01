@@ -1,0 +1,35 @@
+# Temporary flow to test compilation of the generated requests
+
+name: Node.js CI
+
+on:
+  workflow_dispatch:
+  push:
+    branches: [ dev ]
+  pull_request:
+    branches: [ dev ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [14.x]
+        # Single version should work for compilation testing
+
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v2.4.0
+      with:
+        always-auth: true
+        registry-url: 'https://npm.pkg.github.com'
+        scope: '@microsoft'
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+    - run: npm ci
+      env:
+        NODE_AUTH_TOKEN: ${{ secrets.KIOTA_FEED_TOKEN }}
+    - run: npm run build
