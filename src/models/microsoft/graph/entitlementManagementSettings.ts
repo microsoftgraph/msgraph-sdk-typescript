@@ -1,10 +1,10 @@
 import {AccessPackageExternalUserLifecycleAction} from './accessPackageExternalUserLifecycleAction';
 import {Entity} from './entity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EntitlementManagementSettings extends Entity implements Parsable {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.  */
-    private _durationUntilExternalUserDeletedAfterBlocked?: string | undefined;
+    private _durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
     /** One of None, BlockSignIn, or BlockSignInAndDelete.  */
     private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
     /**
@@ -15,7 +15,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
     };
     /**
      * Gets the durationUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.
-     * @returns a string
+     * @returns a Duration
      */
     public get durationUntilExternalUserDeletedAfterBlocked() {
         return this._durationUntilExternalUserDeletedAfterBlocked;
@@ -33,7 +33,7 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["durationUntilExternalUserDeletedAfterBlocked", (o, n) => { (o as unknown as EntitlementManagementSettings).durationUntilExternalUserDeletedAfterBlocked = n.getStringValue(); }],
+            ["durationUntilExternalUserDeletedAfterBlocked", (o, n) => { (o as unknown as EntitlementManagementSettings).durationUntilExternalUserDeletedAfterBlocked = n.getDurationValue(); }],
             ["externalUserLifecycleAction", (o, n) => { (o as unknown as EntitlementManagementSettings).externalUserLifecycleAction = n.getEnumValue<AccessPackageExternalUserLifecycleAction>(AccessPackageExternalUserLifecycleAction); }],
         ]);
     };
@@ -44,14 +44,14 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeStringValue("durationUntilExternalUserDeletedAfterBlocked", this.durationUntilExternalUserDeletedAfterBlocked);
+        writer.writeDurationValue("durationUntilExternalUserDeletedAfterBlocked", this.durationUntilExternalUserDeletedAfterBlocked);
         writer.writeEnumValue<AccessPackageExternalUserLifecycleAction>("externalUserLifecycleAction", this.externalUserLifecycleAction);
     };
     /**
      * Sets the durationUntilExternalUserDeletedAfterBlocked property value. If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.
      * @param value Value to set for the durationUntilExternalUserDeletedAfterBlocked property.
      */
-    public set durationUntilExternalUserDeletedAfterBlocked(value: string | undefined) {
+    public set durationUntilExternalUserDeletedAfterBlocked(value: Duration | undefined) {
         this._durationUntilExternalUserDeletedAfterBlocked = value;
     };
     /**

@@ -1,6 +1,6 @@
 import {DayOfWeek} from './dayOfWeek';
 import {TimeZoneBase} from './timeZoneBase';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class WorkingHours implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -8,9 +8,9 @@ export class WorkingHours implements Parsable {
     /** The days of the week on which the user works.  */
     private _daysOfWeek?: DayOfWeek[] | undefined;
     /** The time of the day that the user stops working.  */
-    private _endTime?: string | undefined;
+    private _endTime?: TimeOnly | undefined;
     /** The time of the day that the user starts working.  */
-    private _startTime?: string | undefined;
+    private _startTime?: TimeOnly | undefined;
     /** The time zone to which the working hours apply.  */
     private _timeZone?: TimeZoneBase | undefined;
     /**
@@ -35,14 +35,14 @@ export class WorkingHours implements Parsable {
     };
     /**
      * Gets the endTime property value. The time of the day that the user stops working.
-     * @returns a string
+     * @returns a TimeOnly
      */
     public get endTime() {
         return this._endTime;
     };
     /**
      * Gets the startTime property value. The time of the day that the user starts working.
-     * @returns a string
+     * @returns a TimeOnly
      */
     public get startTime() {
         return this._startTime;
@@ -61,8 +61,8 @@ export class WorkingHours implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["daysOfWeek", (o, n) => { (o as unknown as WorkingHours).daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); }],
-            ["endTime", (o, n) => { (o as unknown as WorkingHours).endTime = n.getStringValue(); }],
-            ["startTime", (o, n) => { (o as unknown as WorkingHours).startTime = n.getStringValue(); }],
+            ["endTime", (o, n) => { (o as unknown as WorkingHours).endTime = n.getTimeOnlyValue(); }],
+            ["startTime", (o, n) => { (o as unknown as WorkingHours).startTime = n.getTimeOnlyValue(); }],
             ["timeZone", (o, n) => { (o as unknown as WorkingHours).timeZone = n.getObjectValue<TimeZoneBase>(TimeZoneBase); }],
         ]);
     };
@@ -73,8 +73,8 @@ export class WorkingHours implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         this.daysOfWeek && writer.writeEnumValue<DayOfWeek>("daysOfWeek", ...this.daysOfWeek);
-        writer.writeStringValue("endTime", this.endTime);
-        writer.writeStringValue("startTime", this.startTime);
+        writer.writeTimeOnlyValue("endTime", this.endTime);
+        writer.writeTimeOnlyValue("startTime", this.startTime);
         writer.writeObjectValue<TimeZoneBase>("timeZone", this.timeZone);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -96,14 +96,14 @@ export class WorkingHours implements Parsable {
      * Sets the endTime property value. The time of the day that the user stops working.
      * @param value Value to set for the endTime property.
      */
-    public set endTime(value: string | undefined) {
+    public set endTime(value: TimeOnly | undefined) {
         this._endTime = value;
     };
     /**
      * Sets the startTime property value. The time of the day that the user starts working.
      * @param value Value to set for the startTime property.
      */
-    public set startTime(value: string | undefined) {
+    public set startTime(value: TimeOnly | undefined) {
         this._startTime = value;
     };
     /**

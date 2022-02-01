@@ -1,11 +1,11 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SetPresenceRequestBody implements Parsable {
     private _activity?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     private _availability?: string | undefined;
-    private _expirationDuration?: string | undefined;
+    private _expirationDuration?: Duration | undefined;
     private _sessionId?: string | undefined;
     /**
      * Instantiates a new setPresenceRequestBody and sets the default values.
@@ -36,7 +36,7 @@ export class SetPresenceRequestBody implements Parsable {
     };
     /**
      * Gets the expirationDuration property value. 
-     * @returns a string
+     * @returns a Duration
      */
     public get expirationDuration() {
         return this._expirationDuration;
@@ -56,7 +56,7 @@ export class SetPresenceRequestBody implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["activity", (o, n) => { (o as unknown as SetPresenceRequestBody).activity = n.getStringValue(); }],
             ["availability", (o, n) => { (o as unknown as SetPresenceRequestBody).availability = n.getStringValue(); }],
-            ["expirationDuration", (o, n) => { (o as unknown as SetPresenceRequestBody).expirationDuration = n.getStringValue(); }],
+            ["expirationDuration", (o, n) => { (o as unknown as SetPresenceRequestBody).expirationDuration = n.getDurationValue(); }],
             ["sessionId", (o, n) => { (o as unknown as SetPresenceRequestBody).sessionId = n.getStringValue(); }],
         ]);
     };
@@ -68,7 +68,7 @@ export class SetPresenceRequestBody implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("activity", this.activity);
         writer.writeStringValue("availability", this.availability);
-        writer.writeStringValue("expirationDuration", this.expirationDuration);
+        writer.writeDurationValue("expirationDuration", this.expirationDuration);
         writer.writeStringValue("sessionId", this.sessionId);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -97,7 +97,7 @@ export class SetPresenceRequestBody implements Parsable {
      * Sets the expirationDuration property value. 
      * @param value Value to set for the expirationDuration property.
      */
-    public set expirationDuration(value: string | undefined) {
+    public set expirationDuration(value: Duration | undefined) {
         this._expirationDuration = value;
     };
     /**

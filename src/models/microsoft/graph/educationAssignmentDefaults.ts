@@ -1,7 +1,7 @@
 import {EducationAddedStudentAction} from './educationAddedStudentAction';
 import {EducationAddToCalendarOptions} from './educationAddToCalendarOptions';
 import {Entity} from './entity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentDefaults extends Entity implements Parsable {
     /** Class-level default behavior for handling students who are added after the assignment is published. Possible values are: none, assignIfOpen.  */
@@ -9,7 +9,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
     /** Optional field to control adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.  */
     private _addToCalendarAction?: EducationAddToCalendarOptions | undefined;
     /** Class-level default value for due time field. Default value is 23:59:00.  */
-    private _dueTime?: string | undefined;
+    private _dueTime?: TimeOnly | undefined;
     /** Default Teams channel to which notifications will be sent. Default value is null.  */
     private _notificationChannelUrl?: string | undefined;
     /**
@@ -34,7 +34,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
     };
     /**
      * Gets the dueTime property value. Class-level default value for due time field. Default value is 23:59:00.
-     * @returns a string
+     * @returns a TimeOnly
      */
     public get dueTime() {
         return this._dueTime;
@@ -54,7 +54,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["addedStudentAction", (o, n) => { (o as unknown as EducationAssignmentDefaults).addedStudentAction = n.getEnumValue<EducationAddedStudentAction>(EducationAddedStudentAction); }],
             ["addToCalendarAction", (o, n) => { (o as unknown as EducationAssignmentDefaults).addToCalendarAction = n.getEnumValue<EducationAddToCalendarOptions>(EducationAddToCalendarOptions); }],
-            ["dueTime", (o, n) => { (o as unknown as EducationAssignmentDefaults).dueTime = n.getStringValue(); }],
+            ["dueTime", (o, n) => { (o as unknown as EducationAssignmentDefaults).dueTime = n.getTimeOnlyValue(); }],
             ["notificationChannelUrl", (o, n) => { (o as unknown as EducationAssignmentDefaults).notificationChannelUrl = n.getStringValue(); }],
         ]);
     };
@@ -67,7 +67,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeEnumValue<EducationAddedStudentAction>("addedStudentAction", this.addedStudentAction);
         writer.writeEnumValue<EducationAddToCalendarOptions>("addToCalendarAction", this.addToCalendarAction);
-        writer.writeStringValue("dueTime", this.dueTime);
+        writer.writeTimeOnlyValue("dueTime", this.dueTime);
         writer.writeStringValue("notificationChannelUrl", this.notificationChannelUrl);
     };
     /**
@@ -88,7 +88,7 @@ export class EducationAssignmentDefaults extends Entity implements Parsable {
      * Sets the dueTime property value. Class-level default value for due time field. Default value is 23:59:00.
      * @param value Value to set for the dueTime property.
      */
-    public set dueTime(value: string | undefined) {
+    public set dueTime(value: TimeOnly | undefined) {
         this._dueTime = value;
     };
     /**

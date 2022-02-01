@@ -82,7 +82,7 @@ export class ServicePrincipalRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -113,7 +113,7 @@ export class ServicePrincipalRequestBuilder {
     public appRoleAssignedToById(id: string) : id264871d11b08aa216c6bb84e1d3049313f651dadab99e82446e8b8087c552d7 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("appRoleAssignment_id", id);
+        urlTplParams["appRoleAssignment_id"] = id
         return new id264871d11b08aa216c6bb84e1d3049313f651dadab99e82446e8b8087c552d7(urlTplParams, this.requestAdapter);
     };
     /**
@@ -124,7 +124,7 @@ export class ServicePrincipalRequestBuilder {
     public appRoleAssignmentsById(id: string) : ic470083d77450ef856e1152c7a00b83851507aeedced30cfd5fb8a4b4951f432 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("appRoleAssignment_id", id);
+        urlTplParams["appRoleAssignment_id"] = id
         return new ic470083d77450ef856e1152c7a00b83851507aeedced30cfd5fb8a4b4951f432(urlTplParams, this.requestAdapter);
     };
     /**
@@ -132,7 +132,7 @@ export class ServicePrincipalRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal_id}{?select,expand}";
@@ -146,12 +146,12 @@ export class ServicePrincipalRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -165,12 +165,12 @@ export class ServicePrincipalRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -182,13 +182,13 @@ export class ServicePrincipalRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ServicePrincipal | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ServicePrincipal | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -201,7 +201,7 @@ export class ServicePrincipalRequestBuilder {
     public delegatedPermissionClassificationsById(id: string) : DelegatedPermissionClassificationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("delegatedPermissionClassification_id", id);
+        urlTplParams["delegatedPermissionClassification_id"] = id
         return new DelegatedPermissionClassificationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -210,7 +210,7 @@ export class ServicePrincipalRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -224,7 +224,7 @@ export class ServicePrincipalRequestBuilder {
     public endpointsById(id: string) : EndpointRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("endpoint_id", id);
+        urlTplParams["endpoint_id"] = id
         return new EndpointRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -238,7 +238,7 @@ export class ServicePrincipalRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -251,7 +251,7 @@ export class ServicePrincipalRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ServicePrincipal | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServicePrincipal | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

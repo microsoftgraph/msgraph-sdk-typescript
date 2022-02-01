@@ -126,7 +126,7 @@ export class GroupRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -193,7 +193,7 @@ export class GroupRequestBuilder {
     public appRoleAssignmentsById(id: string) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("appRoleAssignment_id", id);
+        urlTplParams["appRoleAssignment_id"] = id
         return new AppRoleAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -204,7 +204,7 @@ export class GroupRequestBuilder {
     public calendarViewById(id: string) : ib1d753d0c7e3079e35305b619f10bc2ffd07d97c1bf427eacc02b06a6b4f5929 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("event_id", id);
+        urlTplParams["event_id"] = id
         return new ib1d753d0c7e3079e35305b619f10bc2ffd07d97c1bf427eacc02b06a6b4f5929(urlTplParams, this.requestAdapter);
     };
     /**
@@ -212,7 +212,7 @@ export class GroupRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group_id}{?select,expand}";
@@ -228,7 +228,7 @@ export class GroupRequestBuilder {
     public conversationsById(id: string) : ConversationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("conversation_id", id);
+        urlTplParams["conversation_id"] = id
         return new ConversationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -237,12 +237,12 @@ export class GroupRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -256,12 +256,12 @@ export class GroupRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -273,13 +273,13 @@ export class GroupRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Group | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Group | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -290,7 +290,7 @@ export class GroupRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -304,7 +304,7 @@ export class GroupRequestBuilder {
     public drivesById(id: string) : idee2d4adefe56a9bb0152f8fcbda33bbd0c458a6b09f9067922246747182fb02 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("drive_id", id);
+        urlTplParams["drive_id"] = id
         return new idee2d4adefe56a9bb0152f8fcbda33bbd0c458a6b09f9067922246747182fb02(urlTplParams, this.requestAdapter);
     };
     /**
@@ -315,7 +315,7 @@ export class GroupRequestBuilder {
     public eventsById(id: string) : id1cee79efccec2642a6bc57a25892614aab058d6519226a3adfc280d66820888 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("event_id", id);
+        urlTplParams["event_id"] = id
         return new id1cee79efccec2642a6bc57a25892614aab058d6519226a3adfc280d66820888(urlTplParams, this.requestAdapter);
     };
     /**
@@ -326,7 +326,7 @@ export class GroupRequestBuilder {
     public extensionsById(id: string) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("extension_id", id);
+        urlTplParams["extension_id"] = id
         return new ExtensionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -340,7 +340,7 @@ export class GroupRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -354,7 +354,7 @@ export class GroupRequestBuilder {
     public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("groupLifecyclePolicy_id", id);
+        urlTplParams["groupLifecyclePolicy_id"] = id
         return new GroupLifecyclePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -364,7 +364,7 @@ export class GroupRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Group | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Group | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -379,7 +379,7 @@ export class GroupRequestBuilder {
     public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("resourceSpecificPermissionGrant_id", id);
+        urlTplParams["resourceSpecificPermissionGrant_id"] = id
         return new ResourceSpecificPermissionGrantRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -390,7 +390,7 @@ export class GroupRequestBuilder {
     public photosById(id: string) : ProfilePhotoRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("profilePhoto_id", id);
+        urlTplParams["profilePhoto_id"] = id
         return new ProfilePhotoRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -401,7 +401,7 @@ export class GroupRequestBuilder {
     public settingsById(id: string) : GroupSettingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("groupSetting_id", id);
+        urlTplParams["groupSetting_id"] = id
         return new GroupSettingRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -412,7 +412,7 @@ export class GroupRequestBuilder {
     public sitesById(id: string) : SiteRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("site_id", id);
+        urlTplParams["site_id"] = id
         return new SiteRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -423,7 +423,7 @@ export class GroupRequestBuilder {
     public threadsById(id: string) : ConversationThreadRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("conversationThread_id", id);
+        urlTplParams["conversationThread_id"] = id
         return new ConversationThreadRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

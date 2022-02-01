@@ -3,7 +3,7 @@ import {AgreementFile} from './agreementFile';
 import {AgreementFileLocalization} from './agreementFileLocalization';
 import {Entity} from './entity';
 import {TermsExpiration} from './termsExpiration';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Agreement extends Entity implements Parsable {
     /** Read-only. Information about acceptances of this agreement.  */
@@ -21,7 +21,7 @@ export class Agreement extends Entity implements Parsable {
     /** Expiration schedule and frequency of agreement for all users.  */
     private _termsExpiration?: TermsExpiration | undefined;
     /** The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.  */
-    private _userReacceptRequiredFrequency?: string | undefined;
+    private _userReacceptRequiredFrequency?: Duration | undefined;
     /**
      * Instantiates a new agreement and sets the default values.
      */
@@ -79,7 +79,7 @@ export class Agreement extends Entity implements Parsable {
     };
     /**
      * Gets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
-     * @returns a string
+     * @returns a Duration
      */
     public get userReacceptRequiredFrequency() {
         return this._userReacceptRequiredFrequency;
@@ -97,7 +97,7 @@ export class Agreement extends Entity implements Parsable {
             ["isPerDeviceAcceptanceRequired", (o, n) => { (o as unknown as Agreement).isPerDeviceAcceptanceRequired = n.getBooleanValue(); }],
             ["isViewingBeforeAcceptanceRequired", (o, n) => { (o as unknown as Agreement).isViewingBeforeAcceptanceRequired = n.getBooleanValue(); }],
             ["termsExpiration", (o, n) => { (o as unknown as Agreement).termsExpiration = n.getObjectValue<TermsExpiration>(TermsExpiration); }],
-            ["userReacceptRequiredFrequency", (o, n) => { (o as unknown as Agreement).userReacceptRequiredFrequency = n.getStringValue(); }],
+            ["userReacceptRequiredFrequency", (o, n) => { (o as unknown as Agreement).userReacceptRequiredFrequency = n.getDurationValue(); }],
         ]);
     };
     /**
@@ -114,7 +114,7 @@ export class Agreement extends Entity implements Parsable {
         writer.writeBooleanValue("isPerDeviceAcceptanceRequired", this.isPerDeviceAcceptanceRequired);
         writer.writeBooleanValue("isViewingBeforeAcceptanceRequired", this.isViewingBeforeAcceptanceRequired);
         writer.writeObjectValue<TermsExpiration>("termsExpiration", this.termsExpiration);
-        writer.writeStringValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
+        writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
     };
     /**
      * Sets the acceptances property value. Read-only. Information about acceptances of this agreement.
@@ -169,7 +169,7 @@ export class Agreement extends Entity implements Parsable {
      * Sets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
      * @param value Value to set for the userReacceptRequiredFrequency property.
      */
-    public set userReacceptRequiredFrequency(value: string | undefined) {
+    public set userReacceptRequiredFrequency(value: Duration | undefined) {
         this._userReacceptRequiredFrequency = value;
     };
 }

@@ -32,7 +32,7 @@ export class ScheduleRequestBuilder {
         return new OpenShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
@@ -63,7 +63,7 @@ export class ScheduleRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/teams/{team_id}/schedule{?select,expand}";
@@ -77,12 +77,12 @@ export class ScheduleRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -96,12 +96,12 @@ export class ScheduleRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -113,13 +113,13 @@ export class ScheduleRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Schedule | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Schedule | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -130,7 +130,7 @@ export class ScheduleRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -147,7 +147,7 @@ export class ScheduleRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -161,7 +161,7 @@ export class ScheduleRequestBuilder {
     public offerShiftRequestsById(id: string) : OfferShiftRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("offerShiftRequest_id", id);
+        urlTplParams["offerShiftRequest_id"] = id
         return new OfferShiftRequestRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -172,7 +172,7 @@ export class ScheduleRequestBuilder {
     public openShiftChangeRequestsById(id: string) : OpenShiftChangeRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("openShiftChangeRequest_id", id);
+        urlTplParams["openShiftChangeRequest_id"] = id
         return new OpenShiftChangeRequestRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -183,7 +183,7 @@ export class ScheduleRequestBuilder {
     public openShiftsById(id: string) : OpenShiftRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("openShift_id", id);
+        urlTplParams["openShift_id"] = id
         return new OpenShiftRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -193,7 +193,7 @@ export class ScheduleRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Schedule | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Schedule | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -208,7 +208,7 @@ export class ScheduleRequestBuilder {
     public schedulingGroupsById(id: string) : SchedulingGroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("schedulingGroup_id", id);
+        urlTplParams["schedulingGroup_id"] = id
         return new SchedulingGroupRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -219,7 +219,7 @@ export class ScheduleRequestBuilder {
     public shiftsById(id: string) : ShiftRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("shift_id", id);
+        urlTplParams["shift_id"] = id
         return new ShiftRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -230,7 +230,7 @@ export class ScheduleRequestBuilder {
     public swapShiftsChangeRequestsById(id: string) : SwapShiftsChangeRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("swapShiftsChangeRequest_id", id);
+        urlTplParams["swapShiftsChangeRequest_id"] = id
         return new SwapShiftsChangeRequestRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -241,7 +241,7 @@ export class ScheduleRequestBuilder {
     public timeOffReasonsById(id: string) : TimeOffReasonRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("timeOffReason_id", id);
+        urlTplParams["timeOffReason_id"] = id
         return new TimeOffReasonRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -252,7 +252,7 @@ export class ScheduleRequestBuilder {
     public timeOffRequestsById(id: string) : TimeOffRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("timeOffRequest_id", id);
+        urlTplParams["timeOffRequest_id"] = id
         return new TimeOffRequestRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -263,7 +263,7 @@ export class ScheduleRequestBuilder {
     public timesOffById(id: string) : TimeOffRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("timeOff_id", id);
+        urlTplParams["timeOff_id"] = id
         return new TimeOffRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

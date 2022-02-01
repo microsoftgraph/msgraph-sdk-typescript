@@ -221,7 +221,7 @@ export class UserRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get people(): PeopleRequestBuilder {
         return new PeopleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -288,7 +288,7 @@ export class UserRequestBuilder {
     public activitiesById(id: string) : UserActivityRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("userActivity_id", id);
+        urlTplParams["userActivity_id"] = id
         return new UserActivityRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -299,7 +299,7 @@ export class UserRequestBuilder {
     public appRoleAssignmentsById(id: string) : AppRoleAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("appRoleAssignment_id", id);
+        urlTplParams["appRoleAssignment_id"] = id
         return new AppRoleAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -310,7 +310,7 @@ export class UserRequestBuilder {
     public calendarGroupsById(id: string) : CalendarGroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("calendarGroup_id", id);
+        urlTplParams["calendarGroup_id"] = id
         return new CalendarGroupRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -321,7 +321,7 @@ export class UserRequestBuilder {
     public calendarsById(id: string) : i43268436427f84798b52d19db0110f43280c2390e027654c1a87e0b7ae05454d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("calendar_id", id);
+        urlTplParams["calendar_id"] = id
         return new i43268436427f84798b52d19db0110f43280c2390e027654c1a87e0b7ae05454d(urlTplParams, this.requestAdapter);
     };
     /**
@@ -332,7 +332,7 @@ export class UserRequestBuilder {
     public calendarViewById(id: string) : i45411db7f9e2560e8d4aa618f9dfd53a35a23d59ecd301d9f4d92b144486f6a4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("event_id", id);
+        urlTplParams["event_id"] = id
         return new i45411db7f9e2560e8d4aa618f9dfd53a35a23d59ecd301d9f4d92b144486f6a4(urlTplParams, this.requestAdapter);
     };
     /**
@@ -343,7 +343,7 @@ export class UserRequestBuilder {
     public chatsById(id: string) : ChatRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("chat_id", id);
+        urlTplParams["chat_id"] = id
         return new ChatRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -351,7 +351,7 @@ export class UserRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/users/{user_id}{?select,expand}";
@@ -367,7 +367,7 @@ export class UserRequestBuilder {
     public contactFoldersById(id: string) : ContactFolderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("contactFolder_id", id);
+        urlTplParams["contactFolder_id"] = id
         return new ContactFolderRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -378,7 +378,7 @@ export class UserRequestBuilder {
     public contactsById(id: string) : ContactRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("contact_id", id);
+        urlTplParams["contact_id"] = id
         return new ContactRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -387,12 +387,12 @@ export class UserRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -406,12 +406,12 @@ export class UserRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -423,13 +423,13 @@ export class UserRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: User | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: User | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -440,7 +440,7 @@ export class UserRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -454,7 +454,7 @@ export class UserRequestBuilder {
     public deviceManagementTroubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("deviceManagementTroubleshootingEvent_id", id);
+        urlTplParams["deviceManagementTroubleshootingEvent_id"] = id
         return new DeviceManagementTroubleshootingEventRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -465,7 +465,7 @@ export class UserRequestBuilder {
     public drivesById(id: string) : i5d6a51915a6122d3bceb8a2403a2b3e90a5ef3ad9c1ce6ecf266e0f7e26d1f70 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("drive_id", id);
+        urlTplParams["drive_id"] = id
         return new i5d6a51915a6122d3bceb8a2403a2b3e90a5ef3ad9c1ce6ecf266e0f7e26d1f70(urlTplParams, this.requestAdapter);
     };
     /**
@@ -476,7 +476,7 @@ export class UserRequestBuilder {
     public eventsById(id: string) : if20931266b1b33dc07828250101c5b223f1bc11eddb954de0b13a1250d0f7f08 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("event_id", id);
+        urlTplParams["event_id"] = id
         return new if20931266b1b33dc07828250101c5b223f1bc11eddb954de0b13a1250d0f7f08(urlTplParams, this.requestAdapter);
     };
     /**
@@ -487,7 +487,7 @@ export class UserRequestBuilder {
     public extensionsById(id: string) : ExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("extension_id", id);
+        urlTplParams["extension_id"] = id
         return new ExtensionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -501,7 +501,7 @@ export class UserRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -529,7 +529,7 @@ export class UserRequestBuilder {
     public joinedTeamsById(id: string) : TeamRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("team_id", id);
+        urlTplParams["team_id"] = id
         return new TeamRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -540,7 +540,7 @@ export class UserRequestBuilder {
     public licenseDetailsById(id: string) : LicenseDetailsRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("licenseDetails_id", id);
+        urlTplParams["licenseDetails_id"] = id
         return new LicenseDetailsRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -551,7 +551,7 @@ export class UserRequestBuilder {
     public mailFoldersById(id: string) : MailFolderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("mailFolder_id", id);
+        urlTplParams["mailFolder_id"] = id
         return new MailFolderRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -562,7 +562,7 @@ export class UserRequestBuilder {
     public managedDevicesById(id: string) : ManagedDeviceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("managedDevice_id", id);
+        urlTplParams["managedDevice_id"] = id
         return new ManagedDeviceRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -573,7 +573,7 @@ export class UserRequestBuilder {
     public messagesById(id: string) : MessageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("message_id", id);
+        urlTplParams["message_id"] = id
         return new MessageRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -584,7 +584,7 @@ export class UserRequestBuilder {
     public onlineMeetingsById(id: string) : OnlineMeetingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("onlineMeeting_id", id);
+        urlTplParams["onlineMeeting_id"] = id
         return new OnlineMeetingRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -594,7 +594,7 @@ export class UserRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: User | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: User | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -609,7 +609,7 @@ export class UserRequestBuilder {
     public peopleById(id: string) : PersonRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("person_id", id);
+        urlTplParams["person_id"] = id
         return new PersonRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -620,7 +620,7 @@ export class UserRequestBuilder {
     public photosById(id: string) : ProfilePhotoRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("profilePhoto_id", id);
+        urlTplParams["profilePhoto_id"] = id
         return new ProfilePhotoRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -642,7 +642,7 @@ export class UserRequestBuilder {
     public scopedRoleMemberOfById(id: string) : ScopedRoleMembershipRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("scopedRoleMembership_id", id);
+        urlTplParams["scopedRoleMembership_id"] = id
         return new ScopedRoleMembershipRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

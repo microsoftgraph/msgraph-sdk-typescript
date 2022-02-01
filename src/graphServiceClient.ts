@@ -245,7 +245,7 @@ export class GraphServiceClient {
         return new OrganizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -327,7 +327,7 @@ export class GraphServiceClient {
     public agreementAcceptancesById(id: string) : AgreementAcceptanceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("agreementAcceptance_id", id);
+        urlTplParams["agreementAcceptance_id"] = id
         return new AgreementAcceptanceRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -338,7 +338,7 @@ export class GraphServiceClient {
     public agreementsById(id: string) : AgreementRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("agreement_id", id);
+        urlTplParams["agreement_id"] = id
         return new AgreementRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -349,7 +349,7 @@ export class GraphServiceClient {
     public applicationsById(id: string) : ApplicationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("application_id", id);
+        urlTplParams["application_id"] = id
         return new ApplicationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -360,7 +360,7 @@ export class GraphServiceClient {
     public applicationTemplatesById(id: string) : ApplicationTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("applicationTemplate_id", id);
+        urlTplParams["applicationTemplate_id"] = id
         return new ApplicationTemplateRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -371,7 +371,7 @@ export class GraphServiceClient {
     public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("authenticationMethodConfiguration_id", id);
+        urlTplParams["authenticationMethodConfiguration_id"] = id
         return new AuthenticationMethodConfigurationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -382,7 +382,7 @@ export class GraphServiceClient {
     public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("certificateBasedAuthConfiguration_id", id);
+        urlTplParams["certificateBasedAuthConfiguration_id"] = id
         return new CertificateBasedAuthConfigurationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -393,7 +393,7 @@ export class GraphServiceClient {
     public chatsById(id: string) : ChatRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("chat_id", id);
+        urlTplParams["chat_id"] = id
         return new ChatRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -404,7 +404,7 @@ export class GraphServiceClient {
     public connectionsById(id: string) : ExternalConnectionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("externalConnection_id", id);
+        urlTplParams["externalConnection_id"] = id
         return new ExternalConnectionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -413,7 +413,7 @@ export class GraphServiceClient {
      */
     public constructor(requestAdapter: RequestAdapter) {
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.pathParameters = new Map<string, unknown>();
+        this.pathParameters = {};
         this.urlTemplate = "{+baseurl}";
         this.requestAdapter = requestAdapter;
         registerDefaultSerializer(JsonSerializationWriterFactory);
@@ -428,7 +428,7 @@ export class GraphServiceClient {
     public contactsById(id: string) : OrgContactRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("orgContact_id", id);
+        urlTplParams["orgContact_id"] = id
         return new OrgContactRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -439,15 +439,15 @@ export class GraphServiceClient {
     public contractsById(id: string) : ContractRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("contract_id", id);
+        urlTplParams["contract_id"] = id
         return new ContractRequestBuilder(urlTplParams, this.requestAdapter);
     };
-    public createGetRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -459,7 +459,7 @@ export class GraphServiceClient {
     public dataPolicyOperationsById(id: string) : DataPolicyOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("dataPolicyOperation_id", id);
+        urlTplParams["dataPolicyOperation_id"] = id
         return new DataPolicyOperationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -470,7 +470,7 @@ export class GraphServiceClient {
     public devicesById(id: string) : DeviceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("device_id", id);
+        urlTplParams["device_id"] = id
         return new DeviceRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -481,7 +481,7 @@ export class GraphServiceClient {
     public directoryObjectsById(id: string) : DirectoryObjectRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("directoryObject_id", id);
+        urlTplParams["directoryObject_id"] = id
         return new DirectoryObjectRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -492,7 +492,7 @@ export class GraphServiceClient {
     public directoryRolesById(id: string) : DirectoryRoleRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("directoryRole_id", id);
+        urlTplParams["directoryRole_id"] = id
         return new DirectoryRoleRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -503,7 +503,7 @@ export class GraphServiceClient {
     public directoryRoleTemplatesById(id: string) : DirectoryRoleTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("directoryRoleTemplate_id", id);
+        urlTplParams["directoryRoleTemplate_id"] = id
         return new DirectoryRoleTemplateRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -514,7 +514,7 @@ export class GraphServiceClient {
     public domainDnsRecordsById(id: string) : DomainDnsRecordRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("domainDnsRecord_id", id);
+        urlTplParams["domainDnsRecord_id"] = id
         return new DomainDnsRecordRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -525,7 +525,7 @@ export class GraphServiceClient {
     public domainsById(id: string) : DomainRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("domain_id", id);
+        urlTplParams["domain_id"] = id
         return new DomainRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -536,10 +536,10 @@ export class GraphServiceClient {
     public drivesById(id: string) : i293b3e07a6ff84dbcb3c88ef30f868413747575cba4c9e099fc5dcfb6da938ed {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("drive_id", id);
+        urlTplParams["drive_id"] = id
         return new i293b3e07a6ff84dbcb3c88ef30f868413747575cba4c9e099fc5dcfb6da938ed(urlTplParams, this.requestAdapter);
     };
-    public get(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
@@ -553,7 +553,7 @@ export class GraphServiceClient {
     public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("groupLifecyclePolicy_id", id);
+        urlTplParams["groupLifecyclePolicy_id"] = id
         return new GroupLifecyclePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -564,7 +564,7 @@ export class GraphServiceClient {
     public groupsById(id: string) : GroupRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("group_id", id);
+        urlTplParams["group_id"] = id
         return new GroupRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -575,7 +575,7 @@ export class GraphServiceClient {
     public groupSettingsById(id: string) : GroupSettingRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("groupSetting_id", id);
+        urlTplParams["groupSetting_id"] = id
         return new GroupSettingRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -586,7 +586,7 @@ export class GraphServiceClient {
     public groupSettingTemplatesById(id: string) : GroupSettingTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("groupSettingTemplate_id", id);
+        urlTplParams["groupSettingTemplate_id"] = id
         return new GroupSettingTemplateRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -597,7 +597,7 @@ export class GraphServiceClient {
     public identityProvidersById(id: string) : IdentityProviderRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("identityProvider_id", id);
+        urlTplParams["identityProvider_id"] = id
         return new IdentityProviderRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -608,7 +608,7 @@ export class GraphServiceClient {
     public invitationsById(id: string) : InvitationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("invitation_id", id);
+        urlTplParams["invitation_id"] = id
         return new InvitationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -619,7 +619,7 @@ export class GraphServiceClient {
     public localizationsById(id: string) : OrganizationalBrandingLocalizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("organizationalBrandingLocalization_id", id);
+        urlTplParams["organizationalBrandingLocalization_id"] = id
         return new OrganizationalBrandingLocalizationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -630,7 +630,7 @@ export class GraphServiceClient {
     public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("oAuth2PermissionGrant_id", id);
+        urlTplParams["oAuth2PermissionGrant_id"] = id
         return new OAuth2PermissionGrantRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -641,7 +641,7 @@ export class GraphServiceClient {
     public organizationById(id: string) : OrganizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("organization_id", id);
+        urlTplParams["organization_id"] = id
         return new OrganizationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -652,7 +652,7 @@ export class GraphServiceClient {
     public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("resourceSpecificPermissionGrant_id", id);
+        urlTplParams["resourceSpecificPermissionGrant_id"] = id
         return new ResourceSpecificPermissionGrantRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -663,7 +663,7 @@ export class GraphServiceClient {
     public placesById(id: string) : PlaceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("place_id", id);
+        urlTplParams["place_id"] = id
         return new PlaceRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -674,7 +674,7 @@ export class GraphServiceClient {
     public schemaExtensionsById(id: string) : SchemaExtensionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("schemaExtension_id", id);
+        urlTplParams["schemaExtension_id"] = id
         return new SchemaExtensionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -685,7 +685,7 @@ export class GraphServiceClient {
     public scopedRoleMembershipsById(id: string) : ScopedRoleMembershipRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("scopedRoleMembership_id", id);
+        urlTplParams["scopedRoleMembership_id"] = id
         return new ScopedRoleMembershipRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -696,7 +696,7 @@ export class GraphServiceClient {
     public servicePrincipalsById(id: string) : ServicePrincipalRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("servicePrincipal_id", id);
+        urlTplParams["servicePrincipal_id"] = id
         return new ServicePrincipalRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -707,7 +707,7 @@ export class GraphServiceClient {
     public sharesById(id: string) : SharedDriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("sharedDriveItem_id", id);
+        urlTplParams["sharedDriveItem_id"] = id
         return new SharedDriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -718,7 +718,7 @@ export class GraphServiceClient {
     public sitesById(id: string) : SiteRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("site_id", id);
+        urlTplParams["site_id"] = id
         return new SiteRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -729,7 +729,7 @@ export class GraphServiceClient {
     public subscribedSkusById(id: string) : SubscribedSkuRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("subscribedSku_id", id);
+        urlTplParams["subscribedSku_id"] = id
         return new SubscribedSkuRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -740,7 +740,7 @@ export class GraphServiceClient {
     public subscriptionsById(id: string) : SubscriptionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("subscription_id", id);
+        urlTplParams["subscription_id"] = id
         return new SubscriptionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -751,7 +751,7 @@ export class GraphServiceClient {
     public teamsById(id: string) : TeamRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("team_id", id);
+        urlTplParams["team_id"] = id
         return new TeamRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -762,7 +762,7 @@ export class GraphServiceClient {
     public teamsTemplatesById(id: string) : TeamsTemplateRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("teamsTemplate_id", id);
+        urlTplParams["teamsTemplate_id"] = id
         return new TeamsTemplateRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -773,7 +773,7 @@ export class GraphServiceClient {
     public usersById(id: string) : UserRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("user_id", id);
+        urlTplParams["user_id"] = id
         return new UserRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -784,7 +784,7 @@ export class GraphServiceClient {
     public workbooksById(id: string) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("driveItem_id", id);
+        urlTplParams["driveItem_id"] = id
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

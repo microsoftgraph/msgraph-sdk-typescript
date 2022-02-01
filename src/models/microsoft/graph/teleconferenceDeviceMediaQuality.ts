@@ -1,20 +1,20 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeleconferenceDeviceMediaQuality implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The average inbound stream network jitter.  */
-    private _averageInboundJitter?: string | undefined;
+    private _averageInboundJitter?: Duration | undefined;
     /** The average inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.  */
     private _averageInboundPacketLossRateInPercentage?: number | undefined;
     /** The average inbound stream network round trip delay.  */
-    private _averageInboundRoundTripDelay?: string | undefined;
+    private _averageInboundRoundTripDelay?: Duration | undefined;
     /** The average outbound stream network jitter.  */
-    private _averageOutboundJitter?: string | undefined;
+    private _averageOutboundJitter?: Duration | undefined;
     /** The average outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.  */
     private _averageOutboundPacketLossRateInPercentage?: number | undefined;
     /** The average outbound stream network round trip delay.  */
-    private _averageOutboundRoundTripDelay?: string | undefined;
+    private _averageOutboundRoundTripDelay?: Duration | undefined;
     /** The channel index of media. Indexing begins with 1.  If a media session contains 3 video modalities, channel indexes will be 1, 2, and 3.  */
     private _channelIndex?: number | undefined;
     /** The total number of the inbound packets.  */
@@ -24,19 +24,19 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     /** The local media port.  */
     private _localPort?: number | undefined;
     /** The maximum inbound stream network jitter.  */
-    private _maximumInboundJitter?: string | undefined;
+    private _maximumInboundJitter?: Duration | undefined;
     /** The maximum inbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.  */
     private _maximumInboundPacketLossRateInPercentage?: number | undefined;
     /** The maximum inbound stream network round trip delay.  */
-    private _maximumInboundRoundTripDelay?: string | undefined;
+    private _maximumInboundRoundTripDelay?: Duration | undefined;
     /** The maximum outbound stream network jitter.  */
-    private _maximumOutboundJitter?: string | undefined;
+    private _maximumOutboundJitter?: Duration | undefined;
     /** The maximum outbound stream packet loss rate in percentage (0-100). For example, 0.01 means 0.01%.  */
     private _maximumOutboundPacketLossRateInPercentage?: number | undefined;
     /** The maximum outbound stream network round trip delay.  */
-    private _maximumOutboundRoundTripDelay?: string | undefined;
+    private _maximumOutboundRoundTripDelay?: Duration | undefined;
     /** The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations.  */
-    private _mediaDuration?: string | undefined;
+    private _mediaDuration?: Duration | undefined;
     /** The network link speed in bytes  */
     private _networkLinkSpeedInBytes?: number | undefined;
     /** The total number of the outbound packets.  */
@@ -60,7 +60,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     };
     /**
      * Gets the averageInboundJitter property value. The average inbound stream network jitter.
-     * @returns a string
+     * @returns a Duration
      */
     public get averageInboundJitter() {
         return this._averageInboundJitter;
@@ -74,14 +74,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     };
     /**
      * Gets the averageInboundRoundTripDelay property value. The average inbound stream network round trip delay.
-     * @returns a string
+     * @returns a Duration
      */
     public get averageInboundRoundTripDelay() {
         return this._averageInboundRoundTripDelay;
     };
     /**
      * Gets the averageOutboundJitter property value. The average outbound stream network jitter.
-     * @returns a string
+     * @returns a Duration
      */
     public get averageOutboundJitter() {
         return this._averageOutboundJitter;
@@ -95,7 +95,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     };
     /**
      * Gets the averageOutboundRoundTripDelay property value. The average outbound stream network round trip delay.
-     * @returns a string
+     * @returns a Duration
      */
     public get averageOutboundRoundTripDelay() {
         return this._averageOutboundRoundTripDelay;
@@ -130,7 +130,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     };
     /**
      * Gets the maximumInboundJitter property value. The maximum inbound stream network jitter.
-     * @returns a string
+     * @returns a Duration
      */
     public get maximumInboundJitter() {
         return this._maximumInboundJitter;
@@ -144,14 +144,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     };
     /**
      * Gets the maximumInboundRoundTripDelay property value. The maximum inbound stream network round trip delay.
-     * @returns a string
+     * @returns a Duration
      */
     public get maximumInboundRoundTripDelay() {
         return this._maximumInboundRoundTripDelay;
     };
     /**
      * Gets the maximumOutboundJitter property value. The maximum outbound stream network jitter.
-     * @returns a string
+     * @returns a Duration
      */
     public get maximumOutboundJitter() {
         return this._maximumOutboundJitter;
@@ -165,14 +165,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
     };
     /**
      * Gets the maximumOutboundRoundTripDelay property value. The maximum outbound stream network round trip delay.
-     * @returns a string
+     * @returns a Duration
      */
     public get maximumOutboundRoundTripDelay() {
         return this._maximumOutboundRoundTripDelay;
     };
     /**
      * Gets the mediaDuration property value. The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations.
-     * @returns a string
+     * @returns a Duration
      */
     public get mediaDuration() {
         return this._mediaDuration;
@@ -211,23 +211,23 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["averageInboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageInboundJitter = n.getStringValue(); }],
+            ["averageInboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageInboundJitter = n.getDurationValue(); }],
             ["averageInboundPacketLossRateInPercentage", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageInboundPacketLossRateInPercentage = n.getNumberValue(); }],
-            ["averageInboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageInboundRoundTripDelay = n.getStringValue(); }],
-            ["averageOutboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundJitter = n.getStringValue(); }],
+            ["averageInboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageInboundRoundTripDelay = n.getDurationValue(); }],
+            ["averageOutboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundJitter = n.getDurationValue(); }],
             ["averageOutboundPacketLossRateInPercentage", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundPacketLossRateInPercentage = n.getNumberValue(); }],
-            ["averageOutboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundRoundTripDelay = n.getStringValue(); }],
+            ["averageOutboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).averageOutboundRoundTripDelay = n.getDurationValue(); }],
             ["channelIndex", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).channelIndex = n.getNumberValue(); }],
             ["inboundPackets", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).inboundPackets = n.getNumberValue(); }],
             ["localIPAddress", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).localIPAddress = n.getStringValue(); }],
             ["localPort", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).localPort = n.getNumberValue(); }],
-            ["maximumInboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumInboundJitter = n.getStringValue(); }],
+            ["maximumInboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumInboundJitter = n.getDurationValue(); }],
             ["maximumInboundPacketLossRateInPercentage", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumInboundPacketLossRateInPercentage = n.getNumberValue(); }],
-            ["maximumInboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumInboundRoundTripDelay = n.getStringValue(); }],
-            ["maximumOutboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundJitter = n.getStringValue(); }],
+            ["maximumInboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumInboundRoundTripDelay = n.getDurationValue(); }],
+            ["maximumOutboundJitter", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundJitter = n.getDurationValue(); }],
             ["maximumOutboundPacketLossRateInPercentage", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundPacketLossRateInPercentage = n.getNumberValue(); }],
-            ["maximumOutboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundRoundTripDelay = n.getStringValue(); }],
-            ["mediaDuration", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).mediaDuration = n.getStringValue(); }],
+            ["maximumOutboundRoundTripDelay", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).maximumOutboundRoundTripDelay = n.getDurationValue(); }],
+            ["mediaDuration", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).mediaDuration = n.getDurationValue(); }],
             ["networkLinkSpeedInBytes", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).networkLinkSpeedInBytes = n.getNumberValue(); }],
             ["outboundPackets", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).outboundPackets = n.getNumberValue(); }],
             ["remoteIPAddress", (o, n) => { (o as unknown as TeleconferenceDeviceMediaQuality).remoteIPAddress = n.getStringValue(); }],
@@ -240,23 +240,23 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("averageInboundJitter", this.averageInboundJitter);
+        writer.writeDurationValue("averageInboundJitter", this.averageInboundJitter);
         writer.writeNumberValue("averageInboundPacketLossRateInPercentage", this.averageInboundPacketLossRateInPercentage);
-        writer.writeStringValue("averageInboundRoundTripDelay", this.averageInboundRoundTripDelay);
-        writer.writeStringValue("averageOutboundJitter", this.averageOutboundJitter);
+        writer.writeDurationValue("averageInboundRoundTripDelay", this.averageInboundRoundTripDelay);
+        writer.writeDurationValue("averageOutboundJitter", this.averageOutboundJitter);
         writer.writeNumberValue("averageOutboundPacketLossRateInPercentage", this.averageOutboundPacketLossRateInPercentage);
-        writer.writeStringValue("averageOutboundRoundTripDelay", this.averageOutboundRoundTripDelay);
+        writer.writeDurationValue("averageOutboundRoundTripDelay", this.averageOutboundRoundTripDelay);
         writer.writeNumberValue("channelIndex", this.channelIndex);
         writer.writeNumberValue("inboundPackets", this.inboundPackets);
         writer.writeStringValue("localIPAddress", this.localIPAddress);
         writer.writeNumberValue("localPort", this.localPort);
-        writer.writeStringValue("maximumInboundJitter", this.maximumInboundJitter);
+        writer.writeDurationValue("maximumInboundJitter", this.maximumInboundJitter);
         writer.writeNumberValue("maximumInboundPacketLossRateInPercentage", this.maximumInboundPacketLossRateInPercentage);
-        writer.writeStringValue("maximumInboundRoundTripDelay", this.maximumInboundRoundTripDelay);
-        writer.writeStringValue("maximumOutboundJitter", this.maximumOutboundJitter);
+        writer.writeDurationValue("maximumInboundRoundTripDelay", this.maximumInboundRoundTripDelay);
+        writer.writeDurationValue("maximumOutboundJitter", this.maximumOutboundJitter);
         writer.writeNumberValue("maximumOutboundPacketLossRateInPercentage", this.maximumOutboundPacketLossRateInPercentage);
-        writer.writeStringValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
-        writer.writeStringValue("mediaDuration", this.mediaDuration);
+        writer.writeDurationValue("maximumOutboundRoundTripDelay", this.maximumOutboundRoundTripDelay);
+        writer.writeDurationValue("mediaDuration", this.mediaDuration);
         writer.writeNumberValue("networkLinkSpeedInBytes", this.networkLinkSpeedInBytes);
         writer.writeNumberValue("outboundPackets", this.outboundPackets);
         writer.writeStringValue("remoteIPAddress", this.remoteIPAddress);
@@ -274,7 +274,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the averageInboundJitter property value. The average inbound stream network jitter.
      * @param value Value to set for the averageInboundJitter property.
      */
-    public set averageInboundJitter(value: string | undefined) {
+    public set averageInboundJitter(value: Duration | undefined) {
         this._averageInboundJitter = value;
     };
     /**
@@ -288,14 +288,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the averageInboundRoundTripDelay property value. The average inbound stream network round trip delay.
      * @param value Value to set for the averageInboundRoundTripDelay property.
      */
-    public set averageInboundRoundTripDelay(value: string | undefined) {
+    public set averageInboundRoundTripDelay(value: Duration | undefined) {
         this._averageInboundRoundTripDelay = value;
     };
     /**
      * Sets the averageOutboundJitter property value. The average outbound stream network jitter.
      * @param value Value to set for the averageOutboundJitter property.
      */
-    public set averageOutboundJitter(value: string | undefined) {
+    public set averageOutboundJitter(value: Duration | undefined) {
         this._averageOutboundJitter = value;
     };
     /**
@@ -309,7 +309,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the averageOutboundRoundTripDelay property value. The average outbound stream network round trip delay.
      * @param value Value to set for the averageOutboundRoundTripDelay property.
      */
-    public set averageOutboundRoundTripDelay(value: string | undefined) {
+    public set averageOutboundRoundTripDelay(value: Duration | undefined) {
         this._averageOutboundRoundTripDelay = value;
     };
     /**
@@ -344,7 +344,7 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the maximumInboundJitter property value. The maximum inbound stream network jitter.
      * @param value Value to set for the maximumInboundJitter property.
      */
-    public set maximumInboundJitter(value: string | undefined) {
+    public set maximumInboundJitter(value: Duration | undefined) {
         this._maximumInboundJitter = value;
     };
     /**
@@ -358,14 +358,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the maximumInboundRoundTripDelay property value. The maximum inbound stream network round trip delay.
      * @param value Value to set for the maximumInboundRoundTripDelay property.
      */
-    public set maximumInboundRoundTripDelay(value: string | undefined) {
+    public set maximumInboundRoundTripDelay(value: Duration | undefined) {
         this._maximumInboundRoundTripDelay = value;
     };
     /**
      * Sets the maximumOutboundJitter property value. The maximum outbound stream network jitter.
      * @param value Value to set for the maximumOutboundJitter property.
      */
-    public set maximumOutboundJitter(value: string | undefined) {
+    public set maximumOutboundJitter(value: Duration | undefined) {
         this._maximumOutboundJitter = value;
     };
     /**
@@ -379,14 +379,14 @@ export class TeleconferenceDeviceMediaQuality implements Parsable {
      * Sets the maximumOutboundRoundTripDelay property value. The maximum outbound stream network round trip delay.
      * @param value Value to set for the maximumOutboundRoundTripDelay property.
      */
-    public set maximumOutboundRoundTripDelay(value: string | undefined) {
+    public set maximumOutboundRoundTripDelay(value: Duration | undefined) {
         this._maximumOutboundRoundTripDelay = value;
     };
     /**
      * Sets the mediaDuration property value. The total modality duration. If the media enabled and disabled multiple times, MediaDuration will the summation of all of the durations.
      * @param value Value to set for the mediaDuration property.
      */
-    public set mediaDuration(value: string | undefined) {
+    public set mediaDuration(value: Duration | undefined) {
         this._mediaDuration = value;
     };
     /**

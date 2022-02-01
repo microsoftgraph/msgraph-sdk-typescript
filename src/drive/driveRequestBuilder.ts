@@ -29,7 +29,7 @@ export class DriveRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     public get root(): RootRequestBuilder {
@@ -48,7 +48,7 @@ export class DriveRequestBuilder {
     public bundlesById(id: string) : ifeaedc338e16e622570118f652fbe0259b52f108544d39107565308fee7a6525 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("driveItem_id", id);
+        urlTplParams["driveItem_id"] = id
         return new ifeaedc338e16e622570118f652fbe0259b52f108544d39107565308fee7a6525(urlTplParams, this.requestAdapter);
     };
     /**
@@ -56,7 +56,7 @@ export class DriveRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/drive{?select,expand}";
@@ -74,12 +74,12 @@ export class DriveRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -91,13 +91,13 @@ export class DriveRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Drive | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Drive | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -110,7 +110,7 @@ export class DriveRequestBuilder {
     public followingById(id: string) : i786d5cb17870ef0d7d98e3be546764ed03e35355d04c9dfaca6b940dd5a46b51 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("driveItem_id", id);
+        urlTplParams["driveItem_id"] = id
         return new i786d5cb17870ef0d7d98e3be546764ed03e35355d04c9dfaca6b940dd5a46b51(urlTplParams, this.requestAdapter);
     };
     /**
@@ -124,7 +124,7 @@ export class DriveRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -138,7 +138,7 @@ export class DriveRequestBuilder {
     public itemsById(id: string) : id657986388abbb698e4d11a87325ff14d691a0e2b76f5f17558f121b40afd900 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("driveItem_id", id);
+        urlTplParams["driveItem_id"] = id
         return new id657986388abbb698e4d11a87325ff14d691a0e2b76f5f17558f121b40afd900(urlTplParams, this.requestAdapter);
     };
     /**
@@ -148,7 +148,7 @@ export class DriveRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Drive | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Drive | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -186,7 +186,7 @@ export class DriveRequestBuilder {
     public specialById(id: string) : ideadf5d33dbd863193f6ed82422a0ed2ad8edf4e8bf50b5eb1ce8967d69f810d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("driveItem_id", id);
+        urlTplParams["driveItem_id"] = id
         return new ideadf5d33dbd863193f6ed82422a0ed2ad8edf4e8bf50b5eb1ce8967d69f810d(urlTplParams, this.requestAdapter);
     };
 }

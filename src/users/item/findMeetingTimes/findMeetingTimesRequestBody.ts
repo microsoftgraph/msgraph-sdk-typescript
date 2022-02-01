@@ -1,7 +1,7 @@
 import {AttendeeBase} from '../../../models/microsoft/graph/attendeeBase';
 import {LocationConstraint} from '../../../models/microsoft/graph/locationConstraint';
 import {TimeConstraint} from '../../../models/microsoft/graph/timeConstraint';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FindMeetingTimesRequestBody implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -10,7 +10,7 @@ export class FindMeetingTimesRequestBody implements Parsable {
     private _isOrganizerOptional?: boolean | undefined;
     private _locationConstraint?: LocationConstraint | undefined;
     private _maxCandidates?: number | undefined;
-    private _meetingDuration?: string | undefined;
+    private _meetingDuration?: Duration | undefined;
     private _minimumAttendeePercentage?: number | undefined;
     private _returnSuggestionReasons?: boolean | undefined;
     private _timeConstraint?: TimeConstraint | undefined;
@@ -57,7 +57,7 @@ export class FindMeetingTimesRequestBody implements Parsable {
     };
     /**
      * Gets the meetingDuration property value. 
-     * @returns a string
+     * @returns a Duration
      */
     public get meetingDuration() {
         return this._meetingDuration;
@@ -93,7 +93,7 @@ export class FindMeetingTimesRequestBody implements Parsable {
             ["isOrganizerOptional", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).isOrganizerOptional = n.getBooleanValue(); }],
             ["locationConstraint", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).locationConstraint = n.getObjectValue<LocationConstraint>(LocationConstraint); }],
             ["maxCandidates", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).maxCandidates = n.getNumberValue(); }],
-            ["meetingDuration", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).meetingDuration = n.getStringValue(); }],
+            ["meetingDuration", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).meetingDuration = n.getDurationValue(); }],
             ["minimumAttendeePercentage", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).minimumAttendeePercentage = n.getNumberValue(); }],
             ["returnSuggestionReasons", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).returnSuggestionReasons = n.getBooleanValue(); }],
             ["timeConstraint", (o, n) => { (o as unknown as FindMeetingTimesRequestBody).timeConstraint = n.getObjectValue<TimeConstraint>(TimeConstraint); }],
@@ -109,7 +109,7 @@ export class FindMeetingTimesRequestBody implements Parsable {
         writer.writeBooleanValue("isOrganizerOptional", this.isOrganizerOptional);
         writer.writeObjectValue<LocationConstraint>("locationConstraint", this.locationConstraint);
         writer.writeNumberValue("maxCandidates", this.maxCandidates);
-        writer.writeStringValue("meetingDuration", this.meetingDuration);
+        writer.writeDurationValue("meetingDuration", this.meetingDuration);
         writer.writeNumberValue("minimumAttendeePercentage", this.minimumAttendeePercentage);
         writer.writeBooleanValue("returnSuggestionReasons", this.returnSuggestionReasons);
         writer.writeObjectValue<TimeConstraint>("timeConstraint", this.timeConstraint);
@@ -154,7 +154,7 @@ export class FindMeetingTimesRequestBody implements Parsable {
      * Sets the meetingDuration property value. 
      * @param value Value to set for the meetingDuration property.
      */
-    public set meetingDuration(value: string | undefined) {
+    public set meetingDuration(value: Duration | undefined) {
         this._meetingDuration = value;
     };
     /**

@@ -1,11 +1,11 @@
 import {EducationGender} from './educationGender';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationStudent implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Birth date of the student.  */
-    private _birthDate?: string | undefined;
+    private _birthDate?: DateOnly | undefined;
     /** ID of the student in the source system.  */
     private _externalId?: string | undefined;
     /** Possible values are: female, male, other.  */
@@ -31,7 +31,7 @@ export class EducationStudent implements Parsable {
     };
     /**
      * Gets the birthDate property value. Birth date of the student.
-     * @returns a string
+     * @returns a DateOnly
      */
     public get birthDate() {
         return this._birthDate;
@@ -77,7 +77,7 @@ export class EducationStudent implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["birthDate", (o, n) => { (o as unknown as EducationStudent).birthDate = n.getStringValue(); }],
+            ["birthDate", (o, n) => { (o as unknown as EducationStudent).birthDate = n.getDateOnlyValue(); }],
             ["externalId", (o, n) => { (o as unknown as EducationStudent).externalId = n.getStringValue(); }],
             ["gender", (o, n) => { (o as unknown as EducationStudent).gender = n.getEnumValue<EducationGender>(EducationGender); }],
             ["grade", (o, n) => { (o as unknown as EducationStudent).grade = n.getStringValue(); }],
@@ -91,7 +91,7 @@ export class EducationStudent implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("birthDate", this.birthDate);
+        writer.writeDateOnlyValue("birthDate", this.birthDate);
         writer.writeStringValue("externalId", this.externalId);
         writer.writeEnumValue<EducationGender>("gender", this.gender);
         writer.writeStringValue("grade", this.grade);
@@ -110,7 +110,7 @@ export class EducationStudent implements Parsable {
      * Sets the birthDate property value. Birth date of the student.
      * @param value Value to set for the birthDate property.
      */
-    public set birthDate(value: string | undefined) {
+    public set birthDate(value: DateOnly | undefined) {
         this._birthDate = value;
     };
     /**

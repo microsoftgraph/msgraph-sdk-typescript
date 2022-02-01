@@ -1,10 +1,10 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsExpiration implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.  */
-    private _frequency?: string | undefined;
+    private _frequency?: Duration | undefined;
     /** The DateTime when the agreement is set to expire for all users. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _startDateTime?: Date | undefined;
     /**
@@ -22,7 +22,7 @@ export class TermsExpiration implements Parsable {
     };
     /**
      * Gets the frequency property value. Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.
-     * @returns a string
+     * @returns a Duration
      */
     public get frequency() {
         return this._frequency;
@@ -40,7 +40,7 @@ export class TermsExpiration implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["frequency", (o, n) => { (o as unknown as TermsExpiration).frequency = n.getStringValue(); }],
+            ["frequency", (o, n) => { (o as unknown as TermsExpiration).frequency = n.getDurationValue(); }],
             ["startDateTime", (o, n) => { (o as unknown as TermsExpiration).startDateTime = n.getDateValue(); }],
         ]);
     };
@@ -50,7 +50,7 @@ export class TermsExpiration implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("frequency", this.frequency);
+        writer.writeDurationValue("frequency", this.frequency);
         writer.writeDateValue("startDateTime", this.startDateTime);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -65,7 +65,7 @@ export class TermsExpiration implements Parsable {
      * Sets the frequency property value. Represents the frequency at which the terms will expire, after its first expiration as set in startDateTime. The value is represented in ISO 8601 format for durations. For example, PT1M represents a time period of 1 month.
      * @param value Value to set for the frequency property.
      */
-    public set frequency(value: string | undefined) {
+    public set frequency(value: Duration | undefined) {
         this._frequency = value;
     };
     /**

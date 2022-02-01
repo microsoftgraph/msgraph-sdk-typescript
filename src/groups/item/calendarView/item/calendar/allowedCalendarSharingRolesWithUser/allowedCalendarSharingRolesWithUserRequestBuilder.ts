@@ -3,7 +3,7 @@ import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformat
 /** Builds and executes requests for operations under /groups/{group-id}/calendarView/{event-id}/calendar/microsoft.graph.allowedCalendarSharingRoles(User='{User}')  */
 export class AllowedCalendarSharingRolesWithUserRequestBuilder {
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -14,12 +14,12 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder {
      * @param requestAdapter The request adapter to use to execute the requests.
      * @param User Usage: User={User}
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter, user?: string | undefined) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, user?: string | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/groups/{group_id}/calendarView/{event_id}/calendar/microsoft.graph.allowedCalendarSharingRoles(User='{User}')";
         const urlTplParams = getPathParameters(pathParameters);
-        user && urlTplParams.set("User", user);
+        urlTplParams["User"] = user
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -29,12 +29,12 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -45,7 +45,7 @@ export class AllowedCalendarSharingRolesWithUserRequestBuilder {
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of String
      */
-    public get(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string[] | undefined> {
+    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string[] | undefined> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );

@@ -1,11 +1,11 @@
 import {Entity} from './entity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsage extends Entity implements Parsable {
     private _completedBlackAndWhiteJobCount?: number | undefined;
     private _completedColorJobCount?: number | undefined;
     private _incompleteJobCount?: number | undefined;
-    private _usageDate?: string | undefined;
+    private _usageDate?: DateOnly | undefined;
     /**
      * Instantiates a new printUsage and sets the default values.
      */
@@ -35,7 +35,7 @@ export class PrintUsage extends Entity implements Parsable {
     };
     /**
      * Gets the usageDate property value. 
-     * @returns a string
+     * @returns a DateOnly
      */
     public get usageDate() {
         return this._usageDate;
@@ -49,7 +49,7 @@ export class PrintUsage extends Entity implements Parsable {
             ["completedBlackAndWhiteJobCount", (o, n) => { (o as unknown as PrintUsage).completedBlackAndWhiteJobCount = n.getNumberValue(); }],
             ["completedColorJobCount", (o, n) => { (o as unknown as PrintUsage).completedColorJobCount = n.getNumberValue(); }],
             ["incompleteJobCount", (o, n) => { (o as unknown as PrintUsage).incompleteJobCount = n.getNumberValue(); }],
-            ["usageDate", (o, n) => { (o as unknown as PrintUsage).usageDate = n.getStringValue(); }],
+            ["usageDate", (o, n) => { (o as unknown as PrintUsage).usageDate = n.getDateOnlyValue(); }],
         ]);
     };
     /**
@@ -62,7 +62,7 @@ export class PrintUsage extends Entity implements Parsable {
         writer.writeNumberValue("completedBlackAndWhiteJobCount", this.completedBlackAndWhiteJobCount);
         writer.writeNumberValue("completedColorJobCount", this.completedColorJobCount);
         writer.writeNumberValue("incompleteJobCount", this.incompleteJobCount);
-        writer.writeStringValue("usageDate", this.usageDate);
+        writer.writeDateOnlyValue("usageDate", this.usageDate);
     };
     /**
      * Sets the completedBlackAndWhiteJobCount property value. 
@@ -89,7 +89,7 @@ export class PrintUsage extends Entity implements Parsable {
      * Sets the usageDate property value. 
      * @param value Value to set for the usageDate property.
      */
-    public set usageDate(value: string | undefined) {
+    public set usageDate(value: DateOnly | undefined) {
         this._usageDate = value;
     };
 }
