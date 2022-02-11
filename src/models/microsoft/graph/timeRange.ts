@@ -1,12 +1,12 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class TimeRange implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** End time for the time range.  */
-    private _endTime?: string | undefined;
+    private _endTime?: TimeOnly | undefined;
     /** Start time for the time range.  */
-    private _startTime?: string | undefined;
+    private _startTime?: TimeOnly | undefined;
     /**
      * Instantiates a new timeRange and sets the default values.
      */
@@ -22,14 +22,14 @@ export class TimeRange implements Parsable {
     };
     /**
      * Gets the endTime property value. End time for the time range.
-     * @returns a string
+     * @returns a TimeOnly
      */
     public get endTime() {
         return this._endTime;
     };
     /**
      * Gets the startTime property value. Start time for the time range.
-     * @returns a string
+     * @returns a TimeOnly
      */
     public get startTime() {
         return this._startTime;
@@ -40,8 +40,8 @@ export class TimeRange implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["endTime", (o, n) => { (o as unknown as TimeRange).endTime = n.getStringValue(); }],
-            ["startTime", (o, n) => { (o as unknown as TimeRange).startTime = n.getStringValue(); }],
+            ["endTime", (o, n) => { (o as unknown as TimeRange).endTime = n.getTimeOnlyValue(); }],
+            ["startTime", (o, n) => { (o as unknown as TimeRange).startTime = n.getTimeOnlyValue(); }],
         ]);
     };
     /**
@@ -50,8 +50,8 @@ export class TimeRange implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("endTime", this.endTime);
-        writer.writeStringValue("startTime", this.startTime);
+        writer.writeTimeOnlyValue("endTime", this.endTime);
+        writer.writeTimeOnlyValue("startTime", this.startTime);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -65,14 +65,14 @@ export class TimeRange implements Parsable {
      * Sets the endTime property value. End time for the time range.
      * @param value Value to set for the endTime property.
      */
-    public set endTime(value: string | undefined) {
+    public set endTime(value: TimeOnly | undefined) {
         this._endTime = value;
     };
     /**
      * Sets the startTime property value. Start time for the time range.
      * @param value Value to set for the startTime property.
      */
-    public set startTime(value: string | undefined) {
+    public set startTime(value: TimeOnly | undefined) {
         this._startTime = value;
     };
 }

@@ -99,7 +99,7 @@ import {PrintUsageByPrinterRequestBuilder as iaafa86dccc49d3e41ea8e657dece09ce19
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
 import {PrintUsageByUserRequestBuilder as i617bae82dfe555c7f28788c1f9054d51e9ebaa17a9de3da27d74277de5f2f2f1} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DateOnly, getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /reports  */
 export class ReportsRequestBuilder {
@@ -116,7 +116,7 @@ export class ReportsRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -126,7 +126,7 @@ export class ReportsRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports{?select,expand}";
@@ -144,12 +144,12 @@ export class ReportsRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -161,13 +161,13 @@ export class ReportsRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ReportRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ReportRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -180,7 +180,7 @@ export class ReportsRequestBuilder {
     public dailyPrintUsageByPrinterById(id: string) : ia93f446642a7da6e6b121f647bb4d4ab1fb7a15331ca1ece54c9a2587ac3d44e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printUsageByPrinter_id", id);
+        urlTplParams["printUsageByPrinter_id"] = id
         return new ia93f446642a7da6e6b121f647bb4d4ab1fb7a15331ca1ece54c9a2587ac3d44e(urlTplParams, this.requestAdapter);
     };
     /**
@@ -191,7 +191,7 @@ export class ReportsRequestBuilder {
     public dailyPrintUsageByUserById(id: string) : ie73b737b58b6f47a96a936ca4194e058c681a6ec2233078a94f1d766889780ae {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printUsageByUser_id", id);
+        urlTplParams["printUsageByUser_id"] = id
         return new ie73b737b58b6f47a96a936ca4194e058c681a6ec2233078a94f1d766889780ae(urlTplParams, this.requestAdapter);
     };
     /**
@@ -219,7 +219,7 @@ export class ReportsRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -248,7 +248,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getEmailActivityUserDetailWithDateRequestBuilder
      */
-    public getEmailActivityUserDetailWithDate(date: string | undefined) : GetEmailActivityUserDetailWithDateRequestBuilder {
+    public getEmailActivityUserDetailWithDate(date: DateOnly | undefined) : GetEmailActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetEmailActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -284,7 +284,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getEmailAppUsageUserDetailWithDateRequestBuilder
      */
-    public getEmailAppUsageUserDetailWithDate(date: string | undefined) : GetEmailAppUsageUserDetailWithDateRequestBuilder {
+    public getEmailAppUsageUserDetailWithDate(date: DateOnly | undefined) : GetEmailAppUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetEmailAppUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -390,7 +390,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getOffice365ActiveUserDetailWithDateRequestBuilder
      */
-    public getOffice365ActiveUserDetailWithDate(date: string | undefined) : GetOffice365ActiveUserDetailWithDateRequestBuilder {
+    public getOffice365ActiveUserDetailWithDate(date: DateOnly | undefined) : GetOffice365ActiveUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetOffice365ActiveUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -417,7 +417,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getOffice365GroupsActivityDetailWithDateRequestBuilder
      */
-    public getOffice365GroupsActivityDetailWithDate(date: string | undefined) : GetOffice365GroupsActivityDetailWithDateRequestBuilder {
+    public getOffice365GroupsActivityDetailWithDate(date: DateOnly | undefined) : GetOffice365GroupsActivityDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetOffice365GroupsActivityDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -489,7 +489,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getOneDriveActivityUserDetailWithDateRequestBuilder
      */
-    public getOneDriveActivityUserDetailWithDate(date: string | undefined) : GetOneDriveActivityUserDetailWithDateRequestBuilder {
+    public getOneDriveActivityUserDetailWithDate(date: DateOnly | undefined) : GetOneDriveActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetOneDriveActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -516,7 +516,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getOneDriveUsageAccountDetailWithDateRequestBuilder
      */
-    public getOneDriveUsageAccountDetailWithDate(date: string | undefined) : GetOneDriveUsageAccountDetailWithDateRequestBuilder {
+    public getOneDriveUsageAccountDetailWithDate(date: DateOnly | undefined) : GetOneDriveUsageAccountDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetOneDriveUsageAccountDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -592,7 +592,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getSharePointActivityUserDetailWithDateRequestBuilder
      */
-    public getSharePointActivityUserDetailWithDate(date: string | undefined) : GetSharePointActivityUserDetailWithDateRequestBuilder {
+    public getSharePointActivityUserDetailWithDate(date: DateOnly | undefined) : GetSharePointActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetSharePointActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -610,7 +610,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getSharePointSiteUsageDetailWithDateRequestBuilder
      */
-    public getSharePointSiteUsageDetailWithDate(date: string | undefined) : GetSharePointSiteUsageDetailWithDateRequestBuilder {
+    public getSharePointSiteUsageDetailWithDate(date: DateOnly | undefined) : GetSharePointSiteUsageDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetSharePointSiteUsageDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -682,7 +682,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getSkypeForBusinessActivityUserDetailWithDateRequestBuilder
      */
-    public getSkypeForBusinessActivityUserDetailWithDate(date: string | undefined) : GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
+    public getSkypeForBusinessActivityUserDetailWithDate(date: DateOnly | undefined) : GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetSkypeForBusinessActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -718,7 +718,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder
      */
-    public getSkypeForBusinessDeviceUsageUserDetailWithDate(date: string | undefined) : GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder {
+    public getSkypeForBusinessDeviceUsageUserDetailWithDate(date: DateOnly | undefined) : GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetSkypeForBusinessDeviceUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -835,7 +835,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getTeamsDeviceUsageUserDetailWithDateRequestBuilder
      */
-    public getTeamsDeviceUsageUserDetailWithDate(date: string | undefined) : GetTeamsDeviceUsageUserDetailWithDateRequestBuilder {
+    public getTeamsDeviceUsageUserDetailWithDate(date: DateOnly | undefined) : GetTeamsDeviceUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetTeamsDeviceUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -871,7 +871,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getTeamsUserActivityUserDetailWithDateRequestBuilder
      */
-    public getTeamsUserActivityUserDetailWithDate(date: string | undefined) : GetTeamsUserActivityUserDetailWithDateRequestBuilder {
+    public getTeamsUserActivityUserDetailWithDate(date: DateOnly | undefined) : GetTeamsUserActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetTeamsUserActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -920,7 +920,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getYammerActivityUserDetailWithDateRequestBuilder
      */
-    public getYammerActivityUserDetailWithDate(date: string | undefined) : GetYammerActivityUserDetailWithDateRequestBuilder {
+    public getYammerActivityUserDetailWithDate(date: DateOnly | undefined) : GetYammerActivityUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetYammerActivityUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -956,7 +956,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getYammerDeviceUsageUserDetailWithDateRequestBuilder
      */
-    public getYammerDeviceUsageUserDetailWithDate(date: string | undefined) : GetYammerDeviceUsageUserDetailWithDateRequestBuilder {
+    public getYammerDeviceUsageUserDetailWithDate(date: DateOnly | undefined) : GetYammerDeviceUsageUserDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetYammerDeviceUsageUserDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -983,7 +983,7 @@ export class ReportsRequestBuilder {
      * @param date Usage: date={date}
      * @returns a getYammerGroupsActivityDetailWithDateRequestBuilder
      */
-    public getYammerGroupsActivityDetailWithDate(date: string | undefined) : GetYammerGroupsActivityDetailWithDateRequestBuilder {
+    public getYammerGroupsActivityDetailWithDate(date: DateOnly | undefined) : GetYammerGroupsActivityDetailWithDateRequestBuilder {
         if(!date) throw new Error("date cannot be undefined");
         return new GetYammerGroupsActivityDetailWithDateRequestBuilder(this.pathParameters, this.requestAdapter, date);
     };
@@ -1051,7 +1051,7 @@ export class ReportsRequestBuilder {
     public monthlyPrintUsageByPrinterById(id: string) : iaafa86dccc49d3e41ea8e657dece09ce19e473845958e2db749fe06f3d666903 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printUsageByPrinter_id", id);
+        urlTplParams["printUsageByPrinter_id"] = id
         return new iaafa86dccc49d3e41ea8e657dece09ce19e473845958e2db749fe06f3d666903(urlTplParams, this.requestAdapter);
     };
     /**
@@ -1062,7 +1062,7 @@ export class ReportsRequestBuilder {
     public monthlyPrintUsageByUserById(id: string) : i617bae82dfe555c7f28788c1f9054d51e9ebaa17a9de3da27d74277de5f2f2f1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printUsageByUser_id", id);
+        urlTplParams["printUsageByUser_id"] = id
         return new i617bae82dfe555c7f28788c1f9054d51e9ebaa17a9de3da27d74277de5f2f2f1(urlTplParams, this.requestAdapter);
     };
     /**
@@ -1072,7 +1072,7 @@ export class ReportsRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ReportRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ReportRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

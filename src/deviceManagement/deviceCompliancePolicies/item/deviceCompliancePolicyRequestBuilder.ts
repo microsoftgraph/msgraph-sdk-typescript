@@ -33,7 +33,7 @@ export class DeviceCompliancePolicyRequestBuilder {
         return new DeviceStatusOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     public get scheduleActionsForRules(): ScheduleActionsForRulesRequestBuilder {
@@ -58,7 +58,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     public assignmentsById(id: string) : DeviceCompliancePolicyAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("deviceCompliancePolicyAssignment_id", id);
+        urlTplParams["deviceCompliancePolicyAssignment_id"] = id
         return new DeviceCompliancePolicyAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -66,7 +66,7 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy_id}{?select,expand}";
@@ -80,12 +80,12 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -99,12 +99,12 @@ export class DeviceCompliancePolicyRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -116,13 +116,13 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: DeviceCompliancePolicy | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: DeviceCompliancePolicy | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -133,7 +133,7 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -147,7 +147,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     public deviceSettingStateSummariesById(id: string) : SettingStateDeviceSummaryRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("settingStateDeviceSummary_id", id);
+        urlTplParams["settingStateDeviceSummary_id"] = id
         return new SettingStateDeviceSummaryRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -158,7 +158,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     public deviceStatusesById(id: string) : DeviceComplianceDeviceStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("deviceComplianceDeviceStatus_id", id);
+        urlTplParams["deviceComplianceDeviceStatus_id"] = id
         return new DeviceComplianceDeviceStatusRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -172,7 +172,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicy | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceCompliancePolicy | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -185,7 +185,7 @@ export class DeviceCompliancePolicyRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DeviceCompliancePolicy | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceCompliancePolicy | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -200,7 +200,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     public scheduledActionsForRuleById(id: string) : DeviceComplianceScheduledActionForRuleRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("deviceComplianceScheduledActionForRule_id", id);
+        urlTplParams["deviceComplianceScheduledActionForRule_id"] = id
         return new DeviceComplianceScheduledActionForRuleRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -211,7 +211,7 @@ export class DeviceCompliancePolicyRequestBuilder {
     public userStatusesById(id: string) : DeviceComplianceUserStatusRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("deviceComplianceUserStatus_id", id);
+        urlTplParams["deviceComplianceUserStatus_id"] = id
         return new DeviceComplianceUserStatusRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

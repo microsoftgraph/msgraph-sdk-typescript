@@ -4,7 +4,7 @@ import {BookingReminder} from './bookingReminder';
 import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import {Entity} from './entity';
 import {Location} from './location';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingService extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed.  */
@@ -12,7 +12,7 @@ export class BookingService extends Entity implements Parsable {
     /** Contains the set of custom questions associated with a particular service.  */
     private _customQuestions?: BookingQuestionAssignment[] | undefined;
     /** The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S.  */
-    private _defaultDuration?: string | undefined;
+    private _defaultDuration?: Duration | undefined;
     /** The default physical location for the service.  */
     private _defaultLocation?: Location | undefined;
     /** The default monetary price for the service.  */
@@ -34,9 +34,9 @@ export class BookingService extends Entity implements Parsable {
     /** Additional information about this service.  */
     private _notes?: string | undefined;
     /** The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked.  */
-    private _postBuffer?: string | undefined;
+    private _postBuffer?: Duration | undefined;
     /** The time to buffer before an appointment for this service can start.  */
-    private _preBuffer?: string | undefined;
+    private _preBuffer?: Duration | undefined;
     /** The set of policies that determine how appointments for this type of service should be created and managed.  */
     private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
     /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.  */
@@ -67,7 +67,7 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the defaultDuration property value. The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S.
-     * @returns a string
+     * @returns a Duration
      */
     public get defaultDuration() {
         return this._defaultDuration;
@@ -144,14 +144,14 @@ export class BookingService extends Entity implements Parsable {
     };
     /**
      * Gets the postBuffer property value. The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked.
-     * @returns a string
+     * @returns a Duration
      */
     public get postBuffer() {
         return this._postBuffer;
     };
     /**
      * Gets the preBuffer property value. The time to buffer before an appointment for this service can start.
-     * @returns a string
+     * @returns a Duration
      */
     public get preBuffer() {
         return this._preBuffer;
@@ -192,7 +192,7 @@ export class BookingService extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["additionalInformation", (o, n) => { (o as unknown as BookingService).additionalInformation = n.getStringValue(); }],
             ["customQuestions", (o, n) => { (o as unknown as BookingService).customQuestions = n.getCollectionOfObjectValues<BookingQuestionAssignment>(BookingQuestionAssignment); }],
-            ["defaultDuration", (o, n) => { (o as unknown as BookingService).defaultDuration = n.getStringValue(); }],
+            ["defaultDuration", (o, n) => { (o as unknown as BookingService).defaultDuration = n.getDurationValue(); }],
             ["defaultLocation", (o, n) => { (o as unknown as BookingService).defaultLocation = n.getObjectValue<Location>(Location); }],
             ["defaultPrice", (o, n) => { (o as unknown as BookingService).defaultPrice = n.getNumberValue(); }],
             ["defaultPriceType", (o, n) => { (o as unknown as BookingService).defaultPriceType = n.getEnumValue<BookingPriceType>(BookingPriceType); }],
@@ -203,8 +203,8 @@ export class BookingService extends Entity implements Parsable {
             ["isLocationOnline", (o, n) => { (o as unknown as BookingService).isLocationOnline = n.getBooleanValue(); }],
             ["maximumAttendeesCount", (o, n) => { (o as unknown as BookingService).maximumAttendeesCount = n.getNumberValue(); }],
             ["notes", (o, n) => { (o as unknown as BookingService).notes = n.getStringValue(); }],
-            ["postBuffer", (o, n) => { (o as unknown as BookingService).postBuffer = n.getStringValue(); }],
-            ["preBuffer", (o, n) => { (o as unknown as BookingService).preBuffer = n.getStringValue(); }],
+            ["postBuffer", (o, n) => { (o as unknown as BookingService).postBuffer = n.getDurationValue(); }],
+            ["preBuffer", (o, n) => { (o as unknown as BookingService).preBuffer = n.getDurationValue(); }],
             ["schedulingPolicy", (o, n) => { (o as unknown as BookingService).schedulingPolicy = n.getObjectValue<BookingSchedulingPolicy>(BookingSchedulingPolicy); }],
             ["smsNotificationsEnabled", (o, n) => { (o as unknown as BookingService).smsNotificationsEnabled = n.getBooleanValue(); }],
             ["staffMemberIds", (o, n) => { (o as unknown as BookingService).staffMemberIds = n.getCollectionOfPrimitiveValues<string>(); }],
@@ -220,7 +220,7 @@ export class BookingService extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("additionalInformation", this.additionalInformation);
         writer.writeCollectionOfObjectValues<BookingQuestionAssignment>("customQuestions", this.customQuestions);
-        writer.writeStringValue("defaultDuration", this.defaultDuration);
+        writer.writeDurationValue("defaultDuration", this.defaultDuration);
         writer.writeObjectValue<Location>("defaultLocation", this.defaultLocation);
         writer.writeNumberValue("defaultPrice", this.defaultPrice);
         writer.writeEnumValue<BookingPriceType>("defaultPriceType", this.defaultPriceType);
@@ -231,8 +231,8 @@ export class BookingService extends Entity implements Parsable {
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
         writer.writeStringValue("notes", this.notes);
-        writer.writeStringValue("postBuffer", this.postBuffer);
-        writer.writeStringValue("preBuffer", this.preBuffer);
+        writer.writeDurationValue("postBuffer", this.postBuffer);
+        writer.writeDurationValue("preBuffer", this.preBuffer);
         writer.writeObjectValue<BookingSchedulingPolicy>("schedulingPolicy", this.schedulingPolicy);
         writer.writeBooleanValue("smsNotificationsEnabled", this.smsNotificationsEnabled);
         writer.writeCollectionOfPrimitiveValues<string>("staffMemberIds", this.staffMemberIds);
@@ -256,7 +256,7 @@ export class BookingService extends Entity implements Parsable {
      * Sets the defaultDuration property value. The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S.
      * @param value Value to set for the defaultDuration property.
      */
-    public set defaultDuration(value: string | undefined) {
+    public set defaultDuration(value: Duration | undefined) {
         this._defaultDuration = value;
     };
     /**
@@ -333,14 +333,14 @@ export class BookingService extends Entity implements Parsable {
      * Sets the postBuffer property value. The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked.
      * @param value Value to set for the postBuffer property.
      */
-    public set postBuffer(value: string | undefined) {
+    public set postBuffer(value: Duration | undefined) {
         this._postBuffer = value;
     };
     /**
      * Sets the preBuffer property value. The time to buffer before an appointment for this service can start.
      * @param value Value to set for the preBuffer property.
      */
-    public set preBuffer(value: string | undefined) {
+    public set preBuffer(value: Duration | undefined) {
         this._preBuffer = value;
     };
     /**

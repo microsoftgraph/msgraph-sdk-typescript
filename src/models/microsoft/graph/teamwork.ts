@@ -3,6 +3,7 @@ import {WorkforceIntegration} from './workforceIntegration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Teamwork extends Entity implements Parsable {
+    /** A workforce integration with shifts.  */
     private _workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
      * Instantiates a new teamwork and sets the default values.
@@ -11,7 +12,7 @@ export class Teamwork extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the workforceIntegrations property value. 
+     * Gets the workforceIntegrations property value. A workforce integration with shifts.
      * @returns a workforceIntegration
      */
     public get workforceIntegrations() {
@@ -36,7 +37,7 @@ export class Teamwork extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<WorkforceIntegration>("workforceIntegrations", this.workforceIntegrations);
     };
     /**
-     * Sets the workforceIntegrations property value. 
+     * Sets the workforceIntegrations property value. A workforce integration with shifts.
      * @param value Value to set for the workforceIntegrations property.
      */
     public set workforceIntegrations(value: WorkforceIntegration[] | undefined) {

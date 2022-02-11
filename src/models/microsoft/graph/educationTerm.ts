@@ -1,4 +1,4 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationTerm implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -6,11 +6,11 @@ export class EducationTerm implements Parsable {
     /** Display name of the term.  */
     private _displayName?: string | undefined;
     /** End of the term.  */
-    private _endDate?: string | undefined;
+    private _endDate?: DateOnly | undefined;
     /** ID of term in the syncing system.  */
     private _externalId?: string | undefined;
     /** Start of the term.  */
-    private _startDate?: string | undefined;
+    private _startDate?: DateOnly | undefined;
     /**
      * Instantiates a new educationTerm and sets the default values.
      */
@@ -33,7 +33,7 @@ export class EducationTerm implements Parsable {
     };
     /**
      * Gets the endDate property value. End of the term.
-     * @returns a string
+     * @returns a DateOnly
      */
     public get endDate() {
         return this._endDate;
@@ -47,7 +47,7 @@ export class EducationTerm implements Parsable {
     };
     /**
      * Gets the startDate property value. Start of the term.
-     * @returns a string
+     * @returns a DateOnly
      */
     public get startDate() {
         return this._startDate;
@@ -59,9 +59,9 @@ export class EducationTerm implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["displayName", (o, n) => { (o as unknown as EducationTerm).displayName = n.getStringValue(); }],
-            ["endDate", (o, n) => { (o as unknown as EducationTerm).endDate = n.getStringValue(); }],
+            ["endDate", (o, n) => { (o as unknown as EducationTerm).endDate = n.getDateOnlyValue(); }],
             ["externalId", (o, n) => { (o as unknown as EducationTerm).externalId = n.getStringValue(); }],
-            ["startDate", (o, n) => { (o as unknown as EducationTerm).startDate = n.getStringValue(); }],
+            ["startDate", (o, n) => { (o as unknown as EducationTerm).startDate = n.getDateOnlyValue(); }],
         ]);
     };
     /**
@@ -71,9 +71,9 @@ export class EducationTerm implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("displayName", this.displayName);
-        writer.writeStringValue("endDate", this.endDate);
+        writer.writeDateOnlyValue("endDate", this.endDate);
         writer.writeStringValue("externalId", this.externalId);
-        writer.writeStringValue("startDate", this.startDate);
+        writer.writeDateOnlyValue("startDate", this.startDate);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -94,7 +94,7 @@ export class EducationTerm implements Parsable {
      * Sets the endDate property value. End of the term.
      * @param value Value to set for the endDate property.
      */
-    public set endDate(value: string | undefined) {
+    public set endDate(value: DateOnly | undefined) {
         this._endDate = value;
     };
     /**
@@ -108,7 +108,7 @@ export class EducationTerm implements Parsable {
      * Sets the startDate property value. Start of the term.
      * @param value Value to set for the startDate property.
      */
-    public set startDate(value: string | undefined) {
+    public set startDate(value: DateOnly | undefined) {
         this._startDate = value;
     };
 }

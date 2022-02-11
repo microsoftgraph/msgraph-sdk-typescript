@@ -22,7 +22,7 @@ export class PrintRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -47,7 +47,7 @@ export class PrintRequestBuilder {
     public connectorsById(id: string) : PrintConnectorRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printConnector_id", id);
+        urlTplParams["printConnector_id"] = id
         return new PrintConnectorRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -55,7 +55,7 @@ export class PrintRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/print{?select,expand}";
@@ -73,12 +73,12 @@ export class PrintRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -90,13 +90,13 @@ export class PrintRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Print | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Print | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -112,7 +112,7 @@ export class PrintRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -126,7 +126,7 @@ export class PrintRequestBuilder {
     public operationsById(id: string) : PrintOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printOperation_id", id);
+        urlTplParams["printOperation_id"] = id
         return new PrintOperationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -136,7 +136,7 @@ export class PrintRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Print | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Print | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -151,7 +151,7 @@ export class PrintRequestBuilder {
     public printersById(id: string) : PrinterRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printer_id", id);
+        urlTplParams["printer_id"] = id
         return new PrinterRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -162,7 +162,7 @@ export class PrintRequestBuilder {
     public servicesById(id: string) : PrintServiceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printService_id", id);
+        urlTplParams["printService_id"] = id
         return new PrintServiceRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -173,7 +173,7 @@ export class PrintRequestBuilder {
     public sharesById(id: string) : PrinterShareRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printerShare_id", id);
+        urlTplParams["printerShare_id"] = id
         return new PrinterShareRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -184,7 +184,7 @@ export class PrintRequestBuilder {
     public taskDefinitionsById(id: string) : PrintTaskDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("printTaskDefinition_id", id);
+        urlTplParams["printTaskDefinition_id"] = id
         return new PrintTaskDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

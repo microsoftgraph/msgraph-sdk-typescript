@@ -56,7 +56,7 @@ export class SiteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -81,7 +81,7 @@ export class SiteRequestBuilder {
     public columnsById(id: string) : ColumnDefinitionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("columnDefinition_id", id);
+        urlTplParams["columnDefinition_id"] = id
         return new ColumnDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -89,7 +89,7 @@ export class SiteRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/sites/{site_id}{?select,expand}";
@@ -105,7 +105,7 @@ export class SiteRequestBuilder {
     public contentTypesById(id: string) : ContentTypeRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("contentType_id", id);
+        urlTplParams["contentType_id"] = id
         return new ContentTypeRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -114,12 +114,12 @@ export class SiteRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -133,12 +133,12 @@ export class SiteRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -150,13 +150,13 @@ export class SiteRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Site | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Site | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -167,7 +167,7 @@ export class SiteRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -181,7 +181,7 @@ export class SiteRequestBuilder {
     public drivesById(id: string) : if7500c77e24ce9533441cc6542d79806839264d3572988a0d4825527a4cce716 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("drive_id", id);
+        urlTplParams["drive_id"] = id
         return new if7500c77e24ce9533441cc6542d79806839264d3572988a0d4825527a4cce716(urlTplParams, this.requestAdapter);
     };
     /**
@@ -195,7 +195,7 @@ export class SiteRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -247,7 +247,7 @@ export class SiteRequestBuilder {
     public itemsById(id: string) : BaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("baseItem_id", id);
+        urlTplParams["baseItem_id"] = id
         return new BaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -258,7 +258,7 @@ export class SiteRequestBuilder {
     public listsById(id: string) : ListRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("list_id", id);
+        urlTplParams["list_id"] = id
         return new ListRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -268,7 +268,7 @@ export class SiteRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Site | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Site | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -283,7 +283,7 @@ export class SiteRequestBuilder {
     public permissionsById(id: string) : PermissionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("permission_id", id);
+        urlTplParams["permission_id"] = id
         return new PermissionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -294,7 +294,7 @@ export class SiteRequestBuilder {
     public sitesById(id: string) : id3ccdfa5612ed9e34f2e27d79938dfaeb307a2575694f9b174c809a1f697c132 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("site_id1", id);
+        urlTplParams["site_id1"] = id
         return new id3ccdfa5612ed9e34f2e27d79938dfaeb307a2575694f9b174c809a1f697c132(urlTplParams, this.requestAdapter);
     };
     /**
@@ -305,7 +305,7 @@ export class SiteRequestBuilder {
     public termStoresById(id: string) : StoreRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("store_id", id);
+        urlTplParams["store_id"] = id
         return new StoreRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

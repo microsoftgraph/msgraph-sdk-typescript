@@ -42,7 +42,7 @@ export class WorkbookRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get refreshSession(): RefreshSessionRequestBuilder {
         return new RefreshSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -64,7 +64,7 @@ export class WorkbookRequestBuilder {
     public commentsById(id: string) : WorkbookCommentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("workbookComment_id", id);
+        urlTplParams["workbookComment_id"] = id
         return new WorkbookCommentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -72,7 +72,7 @@ export class WorkbookRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/workbooks/{driveItem_id}/workbook{?expand}";
@@ -86,12 +86,12 @@ export class WorkbookRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -104,12 +104,12 @@ export class WorkbookRequestBuilder {
      */
     public createGetRequestInformation(q?: {
                     expand?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -121,13 +121,13 @@ export class WorkbookRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Workbook | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Workbook | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -138,7 +138,7 @@ export class WorkbookRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -154,7 +154,7 @@ export class WorkbookRequestBuilder {
      */
     public get(q?: {
                     expand?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Workbook | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -168,7 +168,7 @@ export class WorkbookRequestBuilder {
     public namesById(id: string) : WorkbookNamedItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("workbookNamedItem_id", id);
+        urlTplParams["workbookNamedItem_id"] = id
         return new WorkbookNamedItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -179,7 +179,7 @@ export class WorkbookRequestBuilder {
     public operationsById(id: string) : WorkbookOperationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("workbookOperation_id", id);
+        urlTplParams["workbookOperation_id"] = id
         return new WorkbookOperationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -189,7 +189,7 @@ export class WorkbookRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Workbook | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Workbook | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -222,7 +222,7 @@ export class WorkbookRequestBuilder {
     public tablesById(id: string) : WorkbookTableRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("workbookTable_id", id);
+        urlTplParams["workbookTable_id"] = id
         return new WorkbookTableRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -233,7 +233,7 @@ export class WorkbookRequestBuilder {
     public worksheetsById(id: string) : WorkbookWorksheetRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("workbookWorksheet_id", id);
+        urlTplParams["workbookWorksheet_id"] = id
         return new WorkbookWorksheetRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

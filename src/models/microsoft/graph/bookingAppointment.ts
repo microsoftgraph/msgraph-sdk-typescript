@@ -4,7 +4,7 @@ import {BookingReminder} from './bookingReminder';
 import {DateTimeTimeZone} from './dateTimeTimeZone';
 import {Entity} from './entity';
 import {Location} from './location';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingAppointment extends Entity implements Parsable {
     /** Additional information that is sent to the customer when an appointment is confirmed.  */
@@ -14,7 +14,7 @@ export class BookingAppointment extends Entity implements Parsable {
     /** The time zone of the customer. For a list of possible values, see dateTimeTimeZone.  */
     private _customerTimeZone?: string | undefined;
     /** The length of the appointment, denoted in ISO8601 format.  */
-    private _duration?: string | undefined;
+    private _duration?: Duration | undefined;
     private _endDateTime?: DateTimeTimeZone | undefined;
     /** The current number of customers in the appointment.  */
     private _filledAttendeesCount?: number | undefined;
@@ -27,9 +27,9 @@ export class BookingAppointment extends Entity implements Parsable {
     /** True indicates that the bookingCustomer for this appointment does not wish to receive a confirmation for this appointment.  */
     private _optOutOfCustomerEmail?: boolean | undefined;
     /** The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format.  */
-    private _postBuffer?: string | undefined;
+    private _postBuffer?: Duration | undefined;
     /** The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format.  */
-    private _preBuffer?: string | undefined;
+    private _preBuffer?: Duration | undefined;
     /** The regular price for an appointment for the specified bookingService.  */
     private _price?: number | undefined;
     /** A setting to provide flexibility for the pricing structure of services. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.  */
@@ -80,7 +80,7 @@ export class BookingAppointment extends Entity implements Parsable {
     };
     /**
      * Gets the duration property value. The length of the appointment, denoted in ISO8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get duration() {
         return this._duration;
@@ -129,14 +129,14 @@ export class BookingAppointment extends Entity implements Parsable {
     };
     /**
      * Gets the postBuffer property value. The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get postBuffer() {
         return this._postBuffer;
     };
     /**
      * Gets the preBuffer property value. The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get preBuffer() {
         return this._preBuffer;
@@ -227,15 +227,15 @@ export class BookingAppointment extends Entity implements Parsable {
             ["additionalInformation", (o, n) => { (o as unknown as BookingAppointment).additionalInformation = n.getStringValue(); }],
             ["customers", (o, n) => { (o as unknown as BookingAppointment).customers = n.getCollectionOfObjectValues<BookingCustomerInformationBase>(BookingCustomerInformationBase); }],
             ["customerTimeZone", (o, n) => { (o as unknown as BookingAppointment).customerTimeZone = n.getStringValue(); }],
-            ["duration", (o, n) => { (o as unknown as BookingAppointment).duration = n.getStringValue(); }],
+            ["duration", (o, n) => { (o as unknown as BookingAppointment).duration = n.getDurationValue(); }],
             ["endDateTime", (o, n) => { (o as unknown as BookingAppointment).endDateTime = n.getObjectValue<DateTimeTimeZone>(DateTimeTimeZone); }],
             ["filledAttendeesCount", (o, n) => { (o as unknown as BookingAppointment).filledAttendeesCount = n.getNumberValue(); }],
             ["isLocationOnline", (o, n) => { (o as unknown as BookingAppointment).isLocationOnline = n.getBooleanValue(); }],
             ["joinWebUrl", (o, n) => { (o as unknown as BookingAppointment).joinWebUrl = n.getStringValue(); }],
             ["maximumAttendeesCount", (o, n) => { (o as unknown as BookingAppointment).maximumAttendeesCount = n.getNumberValue(); }],
             ["optOutOfCustomerEmail", (o, n) => { (o as unknown as BookingAppointment).optOutOfCustomerEmail = n.getBooleanValue(); }],
-            ["postBuffer", (o, n) => { (o as unknown as BookingAppointment).postBuffer = n.getStringValue(); }],
-            ["preBuffer", (o, n) => { (o as unknown as BookingAppointment).preBuffer = n.getStringValue(); }],
+            ["postBuffer", (o, n) => { (o as unknown as BookingAppointment).postBuffer = n.getDurationValue(); }],
+            ["preBuffer", (o, n) => { (o as unknown as BookingAppointment).preBuffer = n.getDurationValue(); }],
             ["price", (o, n) => { (o as unknown as BookingAppointment).price = n.getNumberValue(); }],
             ["priceType", (o, n) => { (o as unknown as BookingAppointment).priceType = n.getEnumValue<BookingPriceType>(BookingPriceType); }],
             ["reminders", (o, n) => { (o as unknown as BookingAppointment).reminders = n.getCollectionOfObjectValues<BookingReminder>(BookingReminder); }],
@@ -259,15 +259,15 @@ export class BookingAppointment extends Entity implements Parsable {
         writer.writeStringValue("additionalInformation", this.additionalInformation);
         writer.writeCollectionOfObjectValues<BookingCustomerInformationBase>("customers", this.customers);
         writer.writeStringValue("customerTimeZone", this.customerTimeZone);
-        writer.writeStringValue("duration", this.duration);
+        writer.writeDurationValue("duration", this.duration);
         writer.writeObjectValue<DateTimeTimeZone>("endDateTime", this.endDateTime);
         writer.writeNumberValue("filledAttendeesCount", this.filledAttendeesCount);
         writer.writeBooleanValue("isLocationOnline", this.isLocationOnline);
         writer.writeStringValue("joinWebUrl", this.joinWebUrl);
         writer.writeNumberValue("maximumAttendeesCount", this.maximumAttendeesCount);
         writer.writeBooleanValue("optOutOfCustomerEmail", this.optOutOfCustomerEmail);
-        writer.writeStringValue("postBuffer", this.postBuffer);
-        writer.writeStringValue("preBuffer", this.preBuffer);
+        writer.writeDurationValue("postBuffer", this.postBuffer);
+        writer.writeDurationValue("preBuffer", this.preBuffer);
         writer.writeNumberValue("price", this.price);
         writer.writeEnumValue<BookingPriceType>("priceType", this.priceType);
         writer.writeCollectionOfObjectValues<BookingReminder>("reminders", this.reminders);
@@ -305,7 +305,7 @@ export class BookingAppointment extends Entity implements Parsable {
      * Sets the duration property value. The length of the appointment, denoted in ISO8601 format.
      * @param value Value to set for the duration property.
      */
-    public set duration(value: string | undefined) {
+    public set duration(value: Duration | undefined) {
         this._duration = value;
     };
     /**
@@ -354,14 +354,14 @@ export class BookingAppointment extends Entity implements Parsable {
      * Sets the postBuffer property value. The amount of time to reserve after the appointment ends, for cleaning up, as an example. The value is expressed in ISO8601 format.
      * @param value Value to set for the postBuffer property.
      */
-    public set postBuffer(value: string | undefined) {
+    public set postBuffer(value: Duration | undefined) {
         this._postBuffer = value;
     };
     /**
      * Sets the preBuffer property value. The amount of time to reserve before the appointment begins, for preparation, as an example. The value is expressed in ISO8601 format.
      * @param value Value to set for the preBuffer property.
      */
-    public set preBuffer(value: string | undefined) {
+    public set preBuffer(value: Duration | undefined) {
         this._preBuffer = value;
     };
     /**

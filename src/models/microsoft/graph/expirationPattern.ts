@@ -1,11 +1,11 @@
 import {ExpirationPatternType} from './expirationPatternType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExpirationPattern implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.  */
-    private _duration?: string | undefined;
+    private _duration?: Duration | undefined;
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _endDateTime?: Date | undefined;
     /** The requestor's desired expiration pattern type.  */
@@ -25,7 +25,7 @@ export class ExpirationPattern implements Parsable {
     };
     /**
      * Gets the duration property value. The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.
-     * @returns a string
+     * @returns a Duration
      */
     public get duration() {
         return this._duration;
@@ -50,7 +50,7 @@ export class ExpirationPattern implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["duration", (o, n) => { (o as unknown as ExpirationPattern).duration = n.getStringValue(); }],
+            ["duration", (o, n) => { (o as unknown as ExpirationPattern).duration = n.getDurationValue(); }],
             ["endDateTime", (o, n) => { (o as unknown as ExpirationPattern).endDateTime = n.getDateValue(); }],
             ["type", (o, n) => { (o as unknown as ExpirationPattern).type = n.getEnumValue<ExpirationPatternType>(ExpirationPatternType); }],
         ]);
@@ -61,7 +61,7 @@ export class ExpirationPattern implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("duration", this.duration);
+        writer.writeDurationValue("duration", this.duration);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeEnumValue<ExpirationPatternType>("type", this.type);
         writer.writeAdditionalData(this.additionalData);
@@ -77,7 +77,7 @@ export class ExpirationPattern implements Parsable {
      * Sets the duration property value. The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.
      * @param value Value to set for the duration property.
      */
-    public set duration(value: string | undefined) {
+    public set duration(value: Duration | undefined) {
         this._duration = value;
     };
     /**

@@ -84,7 +84,7 @@ export class Group extends DirectoryObject implements Parsable {
     private _mailNickname?: string | undefined;
     /** Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.  */
     private _memberOf?: DirectoryObject[] | undefined;
-    /** Users, contacts, and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for security groups and mail-enabled security groups), DELETE (supported only for security groups) Read-only. Nullable. Supports $expand.  */
+    /** Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).  */
     private _members?: DirectoryObject[] | undefined;
     /** The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).  */
     private _membershipRule?: string | undefined;
@@ -108,7 +108,7 @@ export class Group extends DirectoryObject implements Parsable {
     private _onPremisesSecurityIdentifier?: string | undefined;
     /** true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).  */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.  */
+    /** The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).  */
     private _owners?: DirectoryObject[] | undefined;
     /** The permissions that have been granted for a group to a specific application. Supports $expand.  */
     private _permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
@@ -378,7 +378,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._memberOf;
     };
     /**
-     * Gets the members property value. Users, contacts, and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for security groups and mail-enabled security groups), DELETE (supported only for security groups) Read-only. Nullable. Supports $expand.
+     * Gets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @returns a directoryObject
      */
     public get members() {
@@ -462,7 +462,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._onPremisesSyncEnabled;
     };
     /**
-     * Gets the owners property value. The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.
+     * Gets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      * @returns a directoryObject
      */
     public get owners() {
@@ -979,7 +979,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._memberOf = value;
     };
     /**
-     * Sets the members property value. Users, contacts, and groups that are members of this group. HTTP Methods: GET (supported for all groups), POST (supported for security groups and mail-enabled security groups), DELETE (supported only for security groups) Read-only. Nullable. Supports $expand.
+     * Sets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param value Value to set for the members property.
      */
     public set members(value: DirectoryObject[] | undefined) {
@@ -1063,7 +1063,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._onPremisesSyncEnabled = value;
     };
     /**
-     * Sets the owners property value. The owners of the group. The owners are a set of non-admin users who are allowed to modify this object. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand.
+     * Sets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      * @param value Value to set for the owners property.
      */
     public set owners(value: DirectoryObject[] | undefined) {

@@ -1,5 +1,5 @@
 import {BookingReminderRecipients} from './bookingReminderRecipients';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingReminder implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -7,7 +7,7 @@ export class BookingReminder implements Parsable {
     /** The message in the reminder.  */
     private _message?: string | undefined;
     /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.  */
-    private _offset?: string | undefined;
+    private _offset?: Duration | undefined;
     /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.  */
     private _recipients?: BookingReminderRecipients | undefined;
     /**
@@ -32,7 +32,7 @@ export class BookingReminder implements Parsable {
     };
     /**
      * Gets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get offset() {
         return this._offset;
@@ -51,7 +51,7 @@ export class BookingReminder implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["message", (o, n) => { (o as unknown as BookingReminder).message = n.getStringValue(); }],
-            ["offset", (o, n) => { (o as unknown as BookingReminder).offset = n.getStringValue(); }],
+            ["offset", (o, n) => { (o as unknown as BookingReminder).offset = n.getDurationValue(); }],
             ["recipients", (o, n) => { (o as unknown as BookingReminder).recipients = n.getEnumValue<BookingReminderRecipients>(BookingReminderRecipients); }],
         ]);
     };
@@ -62,7 +62,7 @@ export class BookingReminder implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("message", this.message);
-        writer.writeStringValue("offset", this.offset);
+        writer.writeDurationValue("offset", this.offset);
         writer.writeEnumValue<BookingReminderRecipients>("recipients", this.recipients);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -84,7 +84,7 @@ export class BookingReminder implements Parsable {
      * Sets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
      * @param value Value to set for the offset property.
      */
-    public set offset(value: string | undefined) {
+    public set offset(value: Duration | undefined) {
         this._offset = value;
     };
     /**

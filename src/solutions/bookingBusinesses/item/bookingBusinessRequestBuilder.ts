@@ -30,7 +30,7 @@ export class BookingBusinessRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -55,7 +55,7 @@ export class BookingBusinessRequestBuilder {
     public appointmentsById(id: string) : i997ccbf7bb5289987c0ea2a9d877c922c2dde4dae2f168d974bfa5ec6c77d457 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("bookingAppointment_id", id);
+        urlTplParams["bookingAppointment_id"] = id
         return new i997ccbf7bb5289987c0ea2a9d877c922c2dde4dae2f168d974bfa5ec6c77d457(urlTplParams, this.requestAdapter);
     };
     /**
@@ -66,7 +66,7 @@ export class BookingBusinessRequestBuilder {
     public calendarViewById(id: string) : i39a3bd2acc0d7d300ef61cc0dd9f73c0c10e44dc1d967351af1f548071ea7a42 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("bookingAppointment_id", id);
+        urlTplParams["bookingAppointment_id"] = id
         return new i39a3bd2acc0d7d300ef61cc0dd9f73c0c10e44dc1d967351af1f548071ea7a42(urlTplParams, this.requestAdapter);
     };
     /**
@@ -74,7 +74,7 @@ export class BookingBusinessRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/solutions/bookingBusinesses/{bookingBusiness_id}{?select,expand}";
@@ -88,12 +88,12 @@ export class BookingBusinessRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -107,12 +107,12 @@ export class BookingBusinessRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -124,13 +124,13 @@ export class BookingBusinessRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: BookingBusiness | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: BookingBusiness | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -143,7 +143,7 @@ export class BookingBusinessRequestBuilder {
     public customersById(id: string) : BookingCustomerBaseRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("bookingCustomerBase_id", id);
+        urlTplParams["bookingCustomerBase_id"] = id
         return new BookingCustomerBaseRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -154,7 +154,7 @@ export class BookingBusinessRequestBuilder {
     public customQuestionsById(id: string) : BookingCustomQuestionRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("bookingCustomQuestion_id", id);
+        urlTplParams["bookingCustomQuestion_id"] = id
         return new BookingCustomQuestionRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -163,7 +163,7 @@ export class BookingBusinessRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -180,7 +180,7 @@ export class BookingBusinessRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -193,7 +193,7 @@ export class BookingBusinessRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: BookingBusiness | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: BookingBusiness | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -208,7 +208,7 @@ export class BookingBusinessRequestBuilder {
     public servicesById(id: string) : BookingServiceRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("bookingService_id", id);
+        urlTplParams["bookingService_id"] = id
         return new BookingServiceRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -219,7 +219,7 @@ export class BookingBusinessRequestBuilder {
     public staffMembersById(id: string) : BookingStaffMemberBaseRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("bookingStaffMemberBase_id", id);
+        urlTplParams["bookingStaffMemberBase_id"] = id
         return new BookingStaffMemberBaseRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

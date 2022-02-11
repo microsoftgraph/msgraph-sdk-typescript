@@ -35,7 +35,7 @@ export class EntitlementManagementRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     public get settings(): SettingsRequestBuilder {
@@ -51,7 +51,7 @@ export class EntitlementManagementRequestBuilder {
     public accessPackageAssignmentApprovalsById(id: string) : ApprovalRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("approval_id", id);
+        urlTplParams["approval_id"] = id
         return new ApprovalRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -62,7 +62,7 @@ export class EntitlementManagementRequestBuilder {
     public accessPackagesById(id: string) : AccessPackageRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("accessPackage_id", id);
+        urlTplParams["accessPackage_id"] = id
         return new AccessPackageRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -73,7 +73,7 @@ export class EntitlementManagementRequestBuilder {
     public assignmentRequestsById(id: string) : AccessPackageAssignmentRequestRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("accessPackageAssignmentRequest_id", id);
+        urlTplParams["accessPackageAssignmentRequest_id"] = id
         return new AccessPackageAssignmentRequestRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -84,7 +84,7 @@ export class EntitlementManagementRequestBuilder {
     public assignmentsById(id: string) : AccessPackageAssignmentRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("accessPackageAssignment_id", id);
+        urlTplParams["accessPackageAssignment_id"] = id
         return new AccessPackageAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -95,7 +95,7 @@ export class EntitlementManagementRequestBuilder {
     public catalogsById(id: string) : AccessPackageCatalogRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("accessPackageCatalog_id", id);
+        urlTplParams["accessPackageCatalog_id"] = id
         return new AccessPackageCatalogRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -106,7 +106,7 @@ export class EntitlementManagementRequestBuilder {
     public connectedOrganizationsById(id: string) : ConnectedOrganizationRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("connectedOrganization_id", id);
+        urlTplParams["connectedOrganization_id"] = id
         return new ConnectedOrganizationRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -114,7 +114,7 @@ export class EntitlementManagementRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/identityGovernance/entitlementManagement{?select,expand}";
@@ -128,12 +128,12 @@ export class EntitlementManagementRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -147,12 +147,12 @@ export class EntitlementManagementRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -164,13 +164,13 @@ export class EntitlementManagementRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: EntitlementManagement | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: EntitlementManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -181,7 +181,7 @@ export class EntitlementManagementRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
@@ -198,7 +198,7 @@ export class EntitlementManagementRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagement | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagement | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -211,7 +211,7 @@ export class EntitlementManagementRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EntitlementManagement | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EntitlementManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o

@@ -1,4 +1,4 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingSchedulingPolicy implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
@@ -6,13 +6,13 @@ export class BookingSchedulingPolicy implements Parsable {
     /** True if to allow customers to choose a specific person for the booking.  */
     private _allowStaffSelection?: boolean | undefined;
     /** Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format.  */
-    private _maximumAdvance?: string | undefined;
+    private _maximumAdvance?: Duration | undefined;
     /** The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format.  */
-    private _minimumLeadTime?: string | undefined;
+    private _minimumLeadTime?: Duration | undefined;
     /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business.  */
     private _sendConfirmationsToOwner?: boolean | undefined;
     /** Duration of each time slot, denoted in ISO 8601 format.  */
-    private _timeSlotInterval?: string | undefined;
+    private _timeSlotInterval?: Duration | undefined;
     /**
      * Instantiates a new bookingSchedulingPolicy and sets the default values.
      */
@@ -35,14 +35,14 @@ export class BookingSchedulingPolicy implements Parsable {
     };
     /**
      * Gets the maximumAdvance property value. Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get maximumAdvance() {
         return this._maximumAdvance;
     };
     /**
      * Gets the minimumLeadTime property value. The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get minimumLeadTime() {
         return this._minimumLeadTime;
@@ -56,7 +56,7 @@ export class BookingSchedulingPolicy implements Parsable {
     };
     /**
      * Gets the timeSlotInterval property value. Duration of each time slot, denoted in ISO 8601 format.
-     * @returns a string
+     * @returns a Duration
      */
     public get timeSlotInterval() {
         return this._timeSlotInterval;
@@ -68,10 +68,10 @@ export class BookingSchedulingPolicy implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["allowStaffSelection", (o, n) => { (o as unknown as BookingSchedulingPolicy).allowStaffSelection = n.getBooleanValue(); }],
-            ["maximumAdvance", (o, n) => { (o as unknown as BookingSchedulingPolicy).maximumAdvance = n.getStringValue(); }],
-            ["minimumLeadTime", (o, n) => { (o as unknown as BookingSchedulingPolicy).minimumLeadTime = n.getStringValue(); }],
+            ["maximumAdvance", (o, n) => { (o as unknown as BookingSchedulingPolicy).maximumAdvance = n.getDurationValue(); }],
+            ["minimumLeadTime", (o, n) => { (o as unknown as BookingSchedulingPolicy).minimumLeadTime = n.getDurationValue(); }],
             ["sendConfirmationsToOwner", (o, n) => { (o as unknown as BookingSchedulingPolicy).sendConfirmationsToOwner = n.getBooleanValue(); }],
-            ["timeSlotInterval", (o, n) => { (o as unknown as BookingSchedulingPolicy).timeSlotInterval = n.getStringValue(); }],
+            ["timeSlotInterval", (o, n) => { (o as unknown as BookingSchedulingPolicy).timeSlotInterval = n.getDurationValue(); }],
         ]);
     };
     /**
@@ -81,10 +81,10 @@ export class BookingSchedulingPolicy implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeBooleanValue("allowStaffSelection", this.allowStaffSelection);
-        writer.writeStringValue("maximumAdvance", this.maximumAdvance);
-        writer.writeStringValue("minimumLeadTime", this.minimumLeadTime);
+        writer.writeDurationValue("maximumAdvance", this.maximumAdvance);
+        writer.writeDurationValue("minimumLeadTime", this.minimumLeadTime);
         writer.writeBooleanValue("sendConfirmationsToOwner", this.sendConfirmationsToOwner);
-        writer.writeStringValue("timeSlotInterval", this.timeSlotInterval);
+        writer.writeDurationValue("timeSlotInterval", this.timeSlotInterval);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
@@ -105,14 +105,14 @@ export class BookingSchedulingPolicy implements Parsable {
      * Sets the maximumAdvance property value. Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format.
      * @param value Value to set for the maximumAdvance property.
      */
-    public set maximumAdvance(value: string | undefined) {
+    public set maximumAdvance(value: Duration | undefined) {
         this._maximumAdvance = value;
     };
     /**
      * Sets the minimumLeadTime property value. The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format.
      * @param value Value to set for the minimumLeadTime property.
      */
-    public set minimumLeadTime(value: string | undefined) {
+    public set minimumLeadTime(value: Duration | undefined) {
         this._minimumLeadTime = value;
     };
     /**
@@ -126,7 +126,7 @@ export class BookingSchedulingPolicy implements Parsable {
      * Sets the timeSlotInterval property value. Duration of each time slot, denoted in ISO 8601 format.
      * @param value Value to set for the timeSlotInterval property.
      */
-    public set timeSlotInterval(value: string | undefined) {
+    public set timeSlotInterval(value: Duration | undefined) {
         this._timeSlotInterval = value;
     };
 }

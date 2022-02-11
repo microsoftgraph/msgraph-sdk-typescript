@@ -55,7 +55,7 @@ export class PoliciesRequestBuilder {
         return new IdentitySecurityDefaultsEnforcementPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
-    private readonly pathParameters: Map<string, unknown>;
+    private readonly pathParameters: Record<string, unknown>;
     public get permissionGrantPolicies(): PermissionGrantPoliciesRequestBuilder {
         return new PermissionGrantPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -77,7 +77,7 @@ export class PoliciesRequestBuilder {
     public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("activityBasedTimeoutPolicy_id", id);
+        urlTplParams["activityBasedTimeoutPolicy_id"] = id
         return new ActivityBasedTimeoutPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -88,7 +88,7 @@ export class PoliciesRequestBuilder {
     public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("claimsMappingPolicy_id", id);
+        urlTplParams["claimsMappingPolicy_id"] = id
         return new ClaimsMappingPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -99,7 +99,7 @@ export class PoliciesRequestBuilder {
     public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("conditionalAccessPolicy_id", id);
+        urlTplParams["conditionalAccessPolicy_id"] = id
         return new ConditionalAccessPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -107,7 +107,7 @@ export class PoliciesRequestBuilder {
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
-    public constructor(pathParameters: Map<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/policies{?select,expand}";
@@ -125,12 +125,12 @@ export class PoliciesRequestBuilder {
     public createGetRequestInformation(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -142,13 +142,13 @@ export class PoliciesRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: PolicyRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: PolicyRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        h && requestInfo.setHeadersFromRawObject(h);
+        requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -161,7 +161,7 @@ export class PoliciesRequestBuilder {
     public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("featureRolloutPolicy_id", id);
+        urlTplParams["featureRolloutPolicy_id"] = id
         return new FeatureRolloutPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -175,7 +175,7 @@ export class PoliciesRequestBuilder {
     public get(q?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
@@ -189,7 +189,7 @@ export class PoliciesRequestBuilder {
     public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("homeRealmDiscoveryPolicy_id", id);
+        urlTplParams["homeRealmDiscoveryPolicy_id"] = id
         return new HomeRealmDiscoveryPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -199,7 +199,7 @@ export class PoliciesRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PolicyRoot | undefined, h?: object | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PolicyRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
@@ -214,7 +214,7 @@ export class PoliciesRequestBuilder {
     public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("permissionGrantPolicy_id", id);
+        urlTplParams["permissionGrantPolicy_id"] = id
         return new PermissionGrantPolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -225,7 +225,7 @@ export class PoliciesRequestBuilder {
     public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("tokenIssuancePolicy_id", id);
+        urlTplParams["tokenIssuancePolicy_id"] = id
         return new TokenIssuancePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -236,7 +236,7 @@ export class PoliciesRequestBuilder {
     public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        id && urlTplParams.set("tokenLifetimePolicy_id", id);
+        urlTplParams["tokenLifetimePolicy_id"] = id
         return new TokenLifetimePolicyRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

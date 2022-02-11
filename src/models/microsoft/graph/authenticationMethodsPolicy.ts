@@ -4,7 +4,7 @@ import {RegistrationEnforcement} from './registrationEnforcement';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodsPolicy extends Entity implements Parsable {
-    /** Represents the settings for each authentication method.  */
+    /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.  */
     private _authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
     /** A description of the policy.  */
     private _description?: string | undefined;
@@ -24,7 +24,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the authenticationMethodConfigurations property value. Represents the settings for each authentication method.
+     * Gets the authenticationMethodConfigurations property value. Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
      * @returns a authenticationMethodConfiguration
      */
     public get authenticationMethodConfigurations() {
@@ -103,7 +103,7 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         writer.writeObjectValue<RegistrationEnforcement>("registrationEnforcement", this.registrationEnforcement);
     };
     /**
-     * Sets the authenticationMethodConfigurations property value. Represents the settings for each authentication method.
+     * Sets the authenticationMethodConfigurations property value. Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
      * @param value Value to set for the authenticationMethodConfigurations property.
      */
     public set authenticationMethodConfigurations(value: AuthenticationMethodConfiguration[] | undefined) {

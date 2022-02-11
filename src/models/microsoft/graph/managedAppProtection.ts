@@ -4,7 +4,7 @@ import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {ManagedBrowserType} from './managedBrowserType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     /** Data storage locations where a user may store managed data.  */
@@ -44,13 +44,13 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     /** Indicates whether organizational credentials are required for app use.  */
     private _organizationalCredentialsRequired?: boolean | undefined;
     /** TimePeriod before the all-level pin must be reset if PinRequired is set to True.  */
-    private _periodBeforePinReset?: string | undefined;
+    private _periodBeforePinReset?: Duration | undefined;
     /** The period after which access is checked when the device is not connected to the internet.  */
-    private _periodOfflineBeforeAccessCheck?: string | undefined;
+    private _periodOfflineBeforeAccessCheck?: Duration | undefined;
     /** The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.  */
-    private _periodOfflineBeforeWipeIsEnforced?: string | undefined;
+    private _periodOfflineBeforeWipeIsEnforced?: Duration | undefined;
     /** The period after which access is checked when the device is connected to the internet.  */
-    private _periodOnlineBeforeAccessCheck?: string | undefined;
+    private _periodOnlineBeforeAccessCheck?: Duration | undefined;
     /** Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.  */
     private _pinCharacterSet?: ManagedAppPinCharacterSet | undefined;
     /** Indicates whether an app-level pin is required.  */
@@ -195,28 +195,28 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     };
     /**
      * Gets the periodBeforePinReset property value. TimePeriod before the all-level pin must be reset if PinRequired is set to True.
-     * @returns a string
+     * @returns a Duration
      */
     public get periodBeforePinReset() {
         return this._periodBeforePinReset;
     };
     /**
      * Gets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet.
-     * @returns a string
+     * @returns a Duration
      */
     public get periodOfflineBeforeAccessCheck() {
         return this._periodOfflineBeforeAccessCheck;
     };
     /**
      * Gets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
-     * @returns a string
+     * @returns a Duration
      */
     public get periodOfflineBeforeWipeIsEnforced() {
         return this._periodOfflineBeforeWipeIsEnforced;
     };
     /**
      * Gets the periodOnlineBeforeAccessCheck property value. The period after which access is checked when the device is connected to the internet.
-     * @returns a string
+     * @returns a Duration
      */
     public get periodOnlineBeforeAccessCheck() {
         return this._periodOnlineBeforeAccessCheck;
@@ -280,10 +280,10 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
             ["minimumWarningAppVersion", (o, n) => { (o as unknown as ManagedAppProtection).minimumWarningAppVersion = n.getStringValue(); }],
             ["minimumWarningOsVersion", (o, n) => { (o as unknown as ManagedAppProtection).minimumWarningOsVersion = n.getStringValue(); }],
             ["organizationalCredentialsRequired", (o, n) => { (o as unknown as ManagedAppProtection).organizationalCredentialsRequired = n.getBooleanValue(); }],
-            ["periodBeforePinReset", (o, n) => { (o as unknown as ManagedAppProtection).periodBeforePinReset = n.getStringValue(); }],
-            ["periodOfflineBeforeAccessCheck", (o, n) => { (o as unknown as ManagedAppProtection).periodOfflineBeforeAccessCheck = n.getStringValue(); }],
-            ["periodOfflineBeforeWipeIsEnforced", (o, n) => { (o as unknown as ManagedAppProtection).periodOfflineBeforeWipeIsEnforced = n.getStringValue(); }],
-            ["periodOnlineBeforeAccessCheck", (o, n) => { (o as unknown as ManagedAppProtection).periodOnlineBeforeAccessCheck = n.getStringValue(); }],
+            ["periodBeforePinReset", (o, n) => { (o as unknown as ManagedAppProtection).periodBeforePinReset = n.getDurationValue(); }],
+            ["periodOfflineBeforeAccessCheck", (o, n) => { (o as unknown as ManagedAppProtection).periodOfflineBeforeAccessCheck = n.getDurationValue(); }],
+            ["periodOfflineBeforeWipeIsEnforced", (o, n) => { (o as unknown as ManagedAppProtection).periodOfflineBeforeWipeIsEnforced = n.getDurationValue(); }],
+            ["periodOnlineBeforeAccessCheck", (o, n) => { (o as unknown as ManagedAppProtection).periodOnlineBeforeAccessCheck = n.getDurationValue(); }],
             ["pinCharacterSet", (o, n) => { (o as unknown as ManagedAppProtection).pinCharacterSet = n.getEnumValue<ManagedAppPinCharacterSet>(ManagedAppPinCharacterSet); }],
             ["pinRequired", (o, n) => { (o as unknown as ManagedAppProtection).pinRequired = n.getBooleanValue(); }],
             ["printBlocked", (o, n) => { (o as unknown as ManagedAppProtection).printBlocked = n.getBooleanValue(); }],
@@ -316,10 +316,10 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
         writer.writeStringValue("minimumWarningAppVersion", this.minimumWarningAppVersion);
         writer.writeStringValue("minimumWarningOsVersion", this.minimumWarningOsVersion);
         writer.writeBooleanValue("organizationalCredentialsRequired", this.organizationalCredentialsRequired);
-        writer.writeStringValue("periodBeforePinReset", this.periodBeforePinReset);
-        writer.writeStringValue("periodOfflineBeforeAccessCheck", this.periodOfflineBeforeAccessCheck);
-        writer.writeStringValue("periodOfflineBeforeWipeIsEnforced", this.periodOfflineBeforeWipeIsEnforced);
-        writer.writeStringValue("periodOnlineBeforeAccessCheck", this.periodOnlineBeforeAccessCheck);
+        writer.writeDurationValue("periodBeforePinReset", this.periodBeforePinReset);
+        writer.writeDurationValue("periodOfflineBeforeAccessCheck", this.periodOfflineBeforeAccessCheck);
+        writer.writeDurationValue("periodOfflineBeforeWipeIsEnforced", this.periodOfflineBeforeWipeIsEnforced);
+        writer.writeDurationValue("periodOnlineBeforeAccessCheck", this.periodOnlineBeforeAccessCheck);
         writer.writeEnumValue<ManagedAppPinCharacterSet>("pinCharacterSet", this.pinCharacterSet);
         writer.writeBooleanValue("pinRequired", this.pinRequired);
         writer.writeBooleanValue("printBlocked", this.printBlocked);
@@ -456,28 +456,28 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      * Sets the periodBeforePinReset property value. TimePeriod before the all-level pin must be reset if PinRequired is set to True.
      * @param value Value to set for the periodBeforePinReset property.
      */
-    public set periodBeforePinReset(value: string | undefined) {
+    public set periodBeforePinReset(value: Duration | undefined) {
         this._periodBeforePinReset = value;
     };
     /**
      * Sets the periodOfflineBeforeAccessCheck property value. The period after which access is checked when the device is not connected to the internet.
      * @param value Value to set for the periodOfflineBeforeAccessCheck property.
      */
-    public set periodOfflineBeforeAccessCheck(value: string | undefined) {
+    public set periodOfflineBeforeAccessCheck(value: Duration | undefined) {
         this._periodOfflineBeforeAccessCheck = value;
     };
     /**
      * Sets the periodOfflineBeforeWipeIsEnforced property value. The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.
      * @param value Value to set for the periodOfflineBeforeWipeIsEnforced property.
      */
-    public set periodOfflineBeforeWipeIsEnforced(value: string | undefined) {
+    public set periodOfflineBeforeWipeIsEnforced(value: Duration | undefined) {
         this._periodOfflineBeforeWipeIsEnforced = value;
     };
     /**
      * Sets the periodOnlineBeforeAccessCheck property value. The period after which access is checked when the device is connected to the internet.
      * @param value Value to set for the periodOnlineBeforeAccessCheck property.
      */
-    public set periodOnlineBeforeAccessCheck(value: string | undefined) {
+    public set periodOnlineBeforeAccessCheck(value: Duration | undefined) {
         this._periodOnlineBeforeAccessCheck = value;
     };
     /**
