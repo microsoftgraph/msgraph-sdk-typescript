@@ -44,7 +44,7 @@ export class DefaultManagedAppProtectionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class DefaultManagedAppProtectionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class DefaultManagedAppProtectionsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DefaultManagedAppProtectionsResponse>(requestInfo, DefaultManagedAppProtectionsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DefaultManagedAppProtectionsResponse>(requestInfo, DefaultManagedAppProtectionsResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Default managed app policies.
@@ -103,6 +103,6 @@ export class DefaultManagedAppProtectionsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<DefaultManagedAppProtection>(requestInfo, DefaultManagedAppProtection, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DefaultManagedAppProtection>(requestInfo, DefaultManagedAppProtection, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

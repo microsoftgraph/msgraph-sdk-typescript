@@ -8,7 +8,7 @@ export class Phone implements Parsable {
     /** The phone number.  */
     private _number?: string | undefined;
     private _region?: string | undefined;
-    /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.  */
+    /** The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.  */
     private _type?: PhoneType | undefined;
     /**
      * Instantiates a new phone and sets the default values.
@@ -45,7 +45,7 @@ export class Phone implements Parsable {
         return this._region;
     };
     /**
-     * Gets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * Gets the type property value. The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
      * @returns a phoneType
      */
     public get type() {
@@ -104,7 +104,7 @@ export class Phone implements Parsable {
         this._region = value;
     };
     /**
-     * Sets the type property value. The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
+     * Sets the type property value. The type of phone number. The possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.
      * @param value Value to set for the type property.
      */
     public set type(value: PhoneType | undefined) {

@@ -44,7 +44,7 @@ export class WorkforceIntegrationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class WorkforceIntegrationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class WorkforceIntegrationsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<WorkforceIntegrationsResponse>(requestInfo, WorkforceIntegrationsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WorkforceIntegrationsResponse>(requestInfo, WorkforceIntegrationsResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * A workforce integration with shifts.
@@ -103,6 +103,6 @@ export class WorkforceIntegrationsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<WorkforceIntegration>(requestInfo, WorkforceIntegration, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WorkforceIntegration>(requestInfo, WorkforceIntegration, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

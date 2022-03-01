@@ -5,7 +5,7 @@ export class VerifiedPublisher implements Parsable {
     private _addedDateTime?: Date | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.  */
+    /** The verified publisher name from the app publisher's Partner Center account.  */
     private _displayName?: string | undefined;
     /** The ID of the verified publisher from the app publisher's Partner Center account.  */
     private _verifiedPublisherId?: string | undefined;
@@ -30,7 +30,7 @@ export class VerifiedPublisher implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+     * Gets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
      * @returns a string
      */
     public get displayName() {
@@ -80,7 +80,7 @@ export class VerifiedPublisher implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+     * Sets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

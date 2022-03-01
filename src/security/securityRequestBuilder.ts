@@ -1,9 +1,9 @@
 import {Security} from '../models/microsoft/graph/security';
 import {AlertsRequestBuilder} from './alerts/alertsRequestBuilder';
-import {AlertRequestBuilder} from './alerts/item/alertRequestBuilder';
-import {SecureScoreControlProfileRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileRequestBuilder';
+import {AlertItemRequestBuilder} from './alerts/item/alertItemRequestBuilder';
+import {SecureScoreControlProfileItemRequestBuilder} from './secureScoreControlProfiles/item/secureScoreControlProfileItemRequestBuilder';
 import {SecureScoreControlProfilesRequestBuilder} from './secureScoreControlProfiles/secureScoreControlProfilesRequestBuilder';
-import {SecureScoreRequestBuilder} from './secureScores/item/secureScoreRequestBuilder';
+import {SecureScoreItemRequestBuilder} from './secureScores/item/secureScoreItemRequestBuilder';
 import {SecureScoresRequestBuilder} from './secureScores/secureScoresRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -27,13 +27,13 @@ export class SecurityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.alerts.item collection
      * @param id Unique identifier of the item
-     * @returns a alertRequestBuilder
+     * @returns a alertItemRequestBuilder
      */
-    public alertsById(id: string) : AlertRequestBuilder {
+    public alertsById(id: string) : AlertItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["alert_id"] = id
-        return new AlertRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AlertItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SecurityRequestBuilder and sets the default values.
@@ -63,7 +63,7 @@ export class SecurityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -81,7 +81,7 @@ export class SecurityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -101,7 +101,7 @@ export class SecurityRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Security>(requestInfo, Security, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Security>(requestInfo, Security, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update security
@@ -115,28 +115,28 @@ export class SecurityRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScoreControlProfiles.item collection
      * @param id Unique identifier of the item
-     * @returns a secureScoreControlProfileRequestBuilder
+     * @returns a secureScoreControlProfileItemRequestBuilder
      */
-    public secureScoreControlProfilesById(id: string) : SecureScoreControlProfileRequestBuilder {
+    public secureScoreControlProfilesById(id: string) : SecureScoreControlProfileItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["secureScoreControlProfile_id"] = id
-        return new SecureScoreControlProfileRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SecureScoreControlProfileItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.security.secureScores.item collection
      * @param id Unique identifier of the item
-     * @returns a secureScoreRequestBuilder
+     * @returns a secureScoreItemRequestBuilder
      */
-    public secureScoresById(id: string) : SecureScoreRequestBuilder {
+    public secureScoresById(id: string) : SecureScoreItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["secureScore_id"] = id
-        return new SecureScoreRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SecureScoreItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

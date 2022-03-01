@@ -3,9 +3,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class BookingQuestionAssignment implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Indicates whether it is mandatory to answer the custom question.  */
+    /** The ID of the custom question.  */
     private _isRequired?: boolean | undefined;
-    /** If it is mandatory to answer the custom question.  */
+    /** Indicates whether it is mandatory to answer the custom question.  */
     private _questionId?: string | undefined;
     /**
      * Instantiates a new bookingQuestionAssignment and sets the default values.
@@ -21,14 +21,14 @@ export class BookingQuestionAssignment implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the isRequired property value. Indicates whether it is mandatory to answer the custom question.
+     * Gets the isRequired property value. The ID of the custom question.
      * @returns a boolean
      */
     public get isRequired() {
         return this._isRequired;
     };
     /**
-     * Gets the questionId property value. If it is mandatory to answer the custom question.
+     * Gets the questionId property value. Indicates whether it is mandatory to answer the custom question.
      * @returns a string
      */
     public get questionId() {
@@ -62,14 +62,14 @@ export class BookingQuestionAssignment implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the isRequired property value. Indicates whether it is mandatory to answer the custom question.
+     * Sets the isRequired property value. The ID of the custom question.
      * @param value Value to set for the isRequired property.
      */
     public set isRequired(value: boolean | undefined) {
         this._isRequired = value;
     };
     /**
-     * Sets the questionId property value. If it is mandatory to answer the custom question.
+     * Sets the questionId property value. Indicates whether it is mandatory to answer the custom question.
      * @param value Value to set for the questionId property.
      */
     public set questionId(value: string | undefined) {

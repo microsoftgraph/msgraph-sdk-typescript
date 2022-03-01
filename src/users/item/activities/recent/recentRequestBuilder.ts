@@ -33,7 +33,7 @@ export class RecentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -48,6 +48,6 @@ export class RecentRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<Recent>(requestInfo, Recent, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<Recent>(requestInfo, Recent, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

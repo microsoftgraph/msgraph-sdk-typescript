@@ -44,7 +44,7 @@ export class AppliedPoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class AppliedPoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class AppliedPoliciesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AppliedPoliciesResponse>(requestInfo, AppliedPoliciesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AppliedPoliciesResponse>(requestInfo, AppliedPoliciesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Zero or more policys already applied on the registered app when it last synchronized with managment service.
@@ -103,6 +103,6 @@ export class AppliedPoliciesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ManagedAppPolicy>(requestInfo, ManagedAppPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ManagedAppPolicy>(requestInfo, ManagedAppPolicy, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

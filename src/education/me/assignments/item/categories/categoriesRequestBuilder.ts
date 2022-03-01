@@ -44,7 +44,7 @@ export class CategoriesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class CategoriesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class CategoriesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<CategoriesResponse>(requestInfo, CategoriesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CategoriesResponse>(requestInfo, CategoriesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * When set, enables users to easily find assignments of a given type.  Read-only. Nullable.
@@ -103,6 +103,6 @@ export class CategoriesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<EducationCategory>(requestInfo, EducationCategory, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationCategory>(requestInfo, EducationCategory, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

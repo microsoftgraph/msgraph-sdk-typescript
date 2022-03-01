@@ -44,7 +44,7 @@ export class NotificationMessageTemplatesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class NotificationMessageTemplatesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class NotificationMessageTemplatesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<NotificationMessageTemplatesResponse>(requestInfo, NotificationMessageTemplatesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<NotificationMessageTemplatesResponse>(requestInfo, NotificationMessageTemplatesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The Notification Message Templates.
@@ -103,6 +103,6 @@ export class NotificationMessageTemplatesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<NotificationMessageTemplate>(requestInfo, NotificationMessageTemplate, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<NotificationMessageTemplate>(requestInfo, NotificationMessageTemplate, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

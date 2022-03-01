@@ -35,7 +35,7 @@ export class SessionInfoResourceWithKeyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -50,6 +50,6 @@ export class SessionInfoResourceWithKeyRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<WorkbookSessionInfo>(requestInfo, WorkbookSessionInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<WorkbookSessionInfo>(requestInfo, WorkbookSessionInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -27,7 +27,7 @@ export class MemberOfRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+     * The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -47,13 +47,13 @@ export class MemberOfRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The groups, directory roles and administrative units that the user is a member of. Read-only. Nullable. Supports $expand.
+     * The groups and directory roles that the user is a member of. Read-only. Nullable. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -73,6 +73,6 @@ export class MemberOfRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<MemberOfResponse>(requestInfo, MemberOfResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MemberOfResponse>(requestInfo, MemberOfResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

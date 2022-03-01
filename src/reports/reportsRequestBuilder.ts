@@ -1,8 +1,8 @@
 import {ReportRoot} from '../models/microsoft/graph/reportRoot';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder as ia93f446642a7da6e6b121f647bb4d4ab1fb7a15331ca1ece54c9a2587ac3d44e} from './dailyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterItemRequestBuilder as iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401} from './dailyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
-import {PrintUsageByUserRequestBuilder as ie73b737b58b6f47a96a936ca4194e058c681a6ec2233078a94f1d766889780ae} from './dailyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserItemRequestBuilder as i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c} from './dailyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {DeviceConfigurationDeviceActivityRequestBuilder} from './deviceConfigurationDeviceActivity/deviceConfigurationDeviceActivityRequestBuilder';
 import {DeviceConfigurationUserActivityRequestBuilder} from './deviceConfigurationUserActivity/deviceConfigurationUserActivityRequestBuilder';
 import {GetEmailActivityCountsWithPeriodRequestBuilder} from './getEmailActivityCountsWithPeriod/getEmailActivityCountsWithPeriodRequestBuilder';
@@ -95,9 +95,9 @@ import {ManagedDeviceEnrollmentFailureDetailsRequestBuilder} from './managedDevi
 import {ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder} from './managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipToken/managedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresRequestBuilder} from './managedDeviceEnrollmentTopFailures/managedDeviceEnrollmentTopFailuresRequestBuilder';
 import {ManagedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder} from './managedDeviceEnrollmentTopFailuresWithPeriod/managedDeviceEnrollmentTopFailuresWithPeriodRequestBuilder';
-import {PrintUsageByPrinterRequestBuilder as iaafa86dccc49d3e41ea8e657dece09ce19e473845958e2db749fe06f3d666903} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterRequestBuilder';
+import {PrintUsageByPrinterItemRequestBuilder as iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df} from './monthlyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
-import {PrintUsageByUserRequestBuilder as i617bae82dfe555c7f28788c1f9054d51e9ebaa17a9de3da27d74277de5f2f2f1} from './monthlyPrintUsageByUser/item/printUsageByUserRequestBuilder';
+import {PrintUsageByUserItemRequestBuilder as i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e} from './monthlyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -149,7 +149,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -167,7 +167,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -175,24 +175,24 @@ export class ReportsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.dailyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByPrinterRequestBuilder
+     * @returns a printUsageByPrinterItemRequestBuilder
      */
-    public dailyPrintUsageByPrinterById(id: string) : ia93f446642a7da6e6b121f647bb4d4ab1fb7a15331ca1ece54c9a2587ac3d44e {
+    public dailyPrintUsageByPrinterById(id: string) : iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByPrinter_id"] = id
-        return new ia93f446642a7da6e6b121f647bb4d4ab1fb7a15331ca1ece54c9a2587ac3d44e(urlTplParams, this.requestAdapter);
+        return new iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.dailyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByUserRequestBuilder
+     * @returns a printUsageByUserItemRequestBuilder
      */
-    public dailyPrintUsageByUserById(id: string) : ie73b737b58b6f47a96a936ca4194e058c681a6ec2233078a94f1d766889780ae {
+    public dailyPrintUsageByUserById(id: string) : i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByUser_id"] = id
-        return new ie73b737b58b6f47a96a936ca4194e058c681a6ec2233078a94f1d766889780ae(urlTplParams, this.requestAdapter);
+        return new i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c(urlTplParams, this.requestAdapter);
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.deviceConfigurationDeviceActivity()
@@ -223,7 +223,7 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, ReportRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ReportRoot>(requestInfo, ReportRoot, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /reports/microsoft.graph.getEmailActivityCounts(period='{period}')
@@ -1046,24 +1046,24 @@ export class ReportsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.monthlyPrintUsageByPrinter.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByPrinterRequestBuilder
+     * @returns a printUsageByPrinterItemRequestBuilder
      */
-    public monthlyPrintUsageByPrinterById(id: string) : iaafa86dccc49d3e41ea8e657dece09ce19e473845958e2db749fe06f3d666903 {
+    public monthlyPrintUsageByPrinterById(id: string) : iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByPrinter_id"] = id
-        return new iaafa86dccc49d3e41ea8e657dece09ce19e473845958e2db749fe06f3d666903(urlTplParams, this.requestAdapter);
+        return new iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.reports.monthlyPrintUsageByUser.item collection
      * @param id Unique identifier of the item
-     * @returns a printUsageByUserRequestBuilder
+     * @returns a printUsageByUserItemRequestBuilder
      */
-    public monthlyPrintUsageByUserById(id: string) : i617bae82dfe555c7f28788c1f9054d51e9ebaa17a9de3da27d74277de5f2f2f1 {
+    public monthlyPrintUsageByUserById(id: string) : i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printUsageByUser_id"] = id
-        return new i617bae82dfe555c7f28788c1f9054d51e9ebaa17a9de3da27d74277de5f2f2f1(urlTplParams, this.requestAdapter);
+        return new i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e(urlTplParams, this.requestAdapter);
     };
     /**
      * Update reports
@@ -1077,6 +1077,6 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

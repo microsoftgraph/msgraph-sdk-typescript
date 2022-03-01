@@ -39,7 +39,7 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -54,6 +54,6 @@ export class GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeR
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime>(requestInfo, GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime>(requestInfo, GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTime, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

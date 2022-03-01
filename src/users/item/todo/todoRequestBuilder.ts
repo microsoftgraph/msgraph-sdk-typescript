@@ -1,5 +1,5 @@
 import {Todo} from '../../../models/microsoft/graph/todo';
-import {TodoTaskListRequestBuilder} from './lists/item/todoTaskListRequestBuilder';
+import {TodoTaskListItemRequestBuilder} from './lists/item/todoTaskListItemRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -38,7 +38,7 @@ export class TodoRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -57,7 +57,7 @@ export class TodoRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -75,7 +75,7 @@ export class TodoRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -90,7 +90,7 @@ export class TodoRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Represents the To Do services available to a user.
@@ -107,18 +107,18 @@ export class TodoRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Todo>(requestInfo, Todo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Todo>(requestInfo, Todo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.todo.lists.item collection
      * @param id Unique identifier of the item
-     * @returns a todoTaskListRequestBuilder
+     * @returns a todoTaskListItemRequestBuilder
      */
-    public listsById(id: string) : TodoTaskListRequestBuilder {
+    public listsById(id: string) : TodoTaskListItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["todoTaskList_id"] = id
-        return new TodoTaskListRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TodoTaskListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Represents the To Do services available to a user.
@@ -132,6 +132,6 @@ export class TodoRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

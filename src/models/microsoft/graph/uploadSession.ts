@@ -5,7 +5,7 @@ export class UploadSession implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** The date and time in UTC that the upload session will expire. The complete file must be uploaded before this expiration time is reached.  */
     private _expirationDateTime?: Date | undefined;
-    /** When uploading files to document libraries, this is a collection of byte ranges that the server is missing for the file. These ranges are zero-indexed and of the format, '{start}-{end}' (e.g. '0-26' to indicate the first 27 bytes of the file). When uploading files as Outlook attachments, instead of a collection of ranges, this property always indicates a single value '{start}', the location in the file where the next upload should begin.  */
+    /** A collection of byte ranges that the server is missing for the file. These ranges are zero indexed and of the format 'start-end' (e.g. '0-26' to indicate the first 27 bytes of the file). When uploading files as Outlook attachments, instead of a collection of ranges, this property always indicates a single value '{start}', the location in the file where the next upload should begin.  */
     private _nextExpectedRanges?: string[] | undefined;
     /** The URL endpoint that accepts PUT requests for byte ranges of the file.  */
     private _uploadUrl?: string | undefined;
@@ -30,7 +30,7 @@ export class UploadSession implements Parsable {
         return this._expirationDateTime;
     };
     /**
-     * Gets the nextExpectedRanges property value. When uploading files to document libraries, this is a collection of byte ranges that the server is missing for the file. These ranges are zero-indexed and of the format, '{start}-{end}' (e.g. '0-26' to indicate the first 27 bytes of the file). When uploading files as Outlook attachments, instead of a collection of ranges, this property always indicates a single value '{start}', the location in the file where the next upload should begin.
+     * Gets the nextExpectedRanges property value. A collection of byte ranges that the server is missing for the file. These ranges are zero indexed and of the format 'start-end' (e.g. '0-26' to indicate the first 27 bytes of the file). When uploading files as Outlook attachments, instead of a collection of ranges, this property always indicates a single value '{start}', the location in the file where the next upload should begin.
      * @returns a string
      */
     public get nextExpectedRanges() {
@@ -80,7 +80,7 @@ export class UploadSession implements Parsable {
         this._expirationDateTime = value;
     };
     /**
-     * Sets the nextExpectedRanges property value. When uploading files to document libraries, this is a collection of byte ranges that the server is missing for the file. These ranges are zero-indexed and of the format, '{start}-{end}' (e.g. '0-26' to indicate the first 27 bytes of the file). When uploading files as Outlook attachments, instead of a collection of ranges, this property always indicates a single value '{start}', the location in the file where the next upload should begin.
+     * Sets the nextExpectedRanges property value. A collection of byte ranges that the server is missing for the file. These ranges are zero indexed and of the format 'start-end' (e.g. '0-26' to indicate the first 27 bytes of the file). When uploading files as Outlook attachments, instead of a collection of ranges, this property always indicates a single value '{start}', the location in the file where the next upload should begin.
      * @param value Value to set for the nextExpectedRanges property.
      */
     public set nextExpectedRanges(value: string[] | undefined) {

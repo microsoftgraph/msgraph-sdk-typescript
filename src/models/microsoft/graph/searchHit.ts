@@ -11,6 +11,8 @@ export class SearchHit implements Parsable {
     /** The rank or the order of the result.  */
     private _rank?: number | undefined;
     private _resource?: Entity | undefined;
+    /** ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.  */
+    private _resultTemplateId?: string | undefined;
     /** A summary of the result, if a summary is available.  */
     private _summary?: string | undefined;
     /**
@@ -55,6 +57,13 @@ export class SearchHit implements Parsable {
         return this._resource;
     };
     /**
+     * Gets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * @returns a string
+     */
+    public get resultTemplateId() {
+        return this._resultTemplateId;
+    };
+    /**
      * Gets the summary property value. A summary of the result, if a summary is available.
      * @returns a string
      */
@@ -71,6 +80,7 @@ export class SearchHit implements Parsable {
             ["hitId", (o, n) => { (o as unknown as SearchHit).hitId = n.getStringValue(); }],
             ["rank", (o, n) => { (o as unknown as SearchHit).rank = n.getNumberValue(); }],
             ["resource", (o, n) => { (o as unknown as SearchHit).resource = n.getObjectValue<Entity>(Entity); }],
+            ["resultTemplateId", (o, n) => { (o as unknown as SearchHit).resultTemplateId = n.getStringValue(); }],
             ["summary", (o, n) => { (o as unknown as SearchHit).summary = n.getStringValue(); }],
         ]);
     };
@@ -84,6 +94,7 @@ export class SearchHit implements Parsable {
         writer.writeStringValue("hitId", this.hitId);
         writer.writeNumberValue("rank", this.rank);
         writer.writeObjectValue<Entity>("resource", this.resource);
+        writer.writeStringValue("resultTemplateId", this.resultTemplateId);
         writer.writeStringValue("summary", this.summary);
         writer.writeAdditionalData(this.additionalData);
     };
@@ -121,6 +132,13 @@ export class SearchHit implements Parsable {
      */
     public set resource(value: Entity | undefined) {
         this._resource = value;
+    };
+    /**
+     * Sets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * @param value Value to set for the resultTemplateId property.
+     */
+    public set resultTemplateId(value: string | undefined) {
+        this._resultTemplateId = value;
     };
     /**
      * Sets the summary property value. A summary of the result, if a summary is available.

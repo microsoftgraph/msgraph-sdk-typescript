@@ -44,7 +44,7 @@ export class UserStateSummaryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class UserStateSummaryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class UserStateSummaryRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<UserStateSummaryResponse>(requestInfo, UserStateSummaryResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserStateSummaryResponse>(requestInfo, UserStateSummaryResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The list of installation states for this eBook.
@@ -103,6 +103,6 @@ export class UserStateSummaryRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, UserInstallStateSummary, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UserInstallStateSummary>(requestInfo, UserInstallStateSummary, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,8 +1,8 @@
 import {Directory} from '../models/microsoft/graph/directory';
 import {AdministrativeUnitsRequestBuilder} from './administrativeUnits/administrativeUnitsRequestBuilder';
-import {AdministrativeUnitRequestBuilder} from './administrativeUnits/item/administrativeUnitRequestBuilder';
+import {AdministrativeUnitItemRequestBuilder} from './administrativeUnits/item/administrativeUnitItemRequestBuilder';
 import {DeletedItemsRequestBuilder} from './deletedItems/deletedItemsRequestBuilder';
-import {DirectoryObjectRequestBuilder} from './deletedItems/item/directoryObjectRequestBuilder';
+import {DirectoryObjectItemRequestBuilder} from './deletedItems/item/directoryObjectItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /directory  */
@@ -22,13 +22,13 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.administrativeUnits.item collection
      * @param id Unique identifier of the item
-     * @returns a administrativeUnitRequestBuilder
+     * @returns a administrativeUnitItemRequestBuilder
      */
-    public administrativeUnitsById(id: string) : AdministrativeUnitRequestBuilder {
+    public administrativeUnitsById(id: string) : AdministrativeUnitItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["administrativeUnit_id"] = id
-        return new AdministrativeUnitRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AdministrativeUnitItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DirectoryRequestBuilder and sets the default values.
@@ -58,7 +58,7 @@ export class DirectoryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -76,7 +76,7 @@ export class DirectoryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -84,13 +84,13 @@ export class DirectoryRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.directory.deletedItems.item collection
      * @param id Unique identifier of the item
-     * @returns a directoryObjectRequestBuilder
+     * @returns a directoryObjectItemRequestBuilder
      */
-    public deletedItemsById(id: string) : DirectoryObjectRequestBuilder {
+    public deletedItemsById(id: string) : DirectoryObjectItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["directoryObject_id"] = id
-        return new DirectoryObjectRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get directory
@@ -107,7 +107,7 @@ export class DirectoryRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Directory>(requestInfo, Directory, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Directory>(requestInfo, Directory, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update directory
@@ -121,6 +121,6 @@ export class DirectoryRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

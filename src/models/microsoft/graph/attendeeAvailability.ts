@@ -7,7 +7,7 @@ export class AttendeeAvailability implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.  */
     private _attendee?: AttendeeBase | undefined;
-    /** The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
     private _availability?: FreeBusyStatus | undefined;
     /**
      * Instantiates a new attendeeAvailability and sets the default values.
@@ -30,7 +30,7 @@ export class AttendeeAvailability implements Parsable {
         return this._attendee;
     };
     /**
-     * Gets the availability property value. The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the availability property value. The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @returns a freeBusyStatus
      */
     public get availability() {
@@ -71,7 +71,7 @@ export class AttendeeAvailability implements Parsable {
         this._attendee = value;
     };
     /**
-     * Sets the availability property value. The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the availability property value. The availability status of the attendee. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param value Value to set for the availability property.
      */
     public set availability(value: FreeBusyStatus | undefined) {

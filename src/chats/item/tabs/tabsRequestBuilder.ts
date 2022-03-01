@@ -24,7 +24,7 @@ export class TabsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get tabs from chats
+     * A collection of all the tabs in the chat. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -44,13 +44,13 @@ export class TabsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Create new navigation property to tabs for chats
+     * A collection of all the tabs in the chat. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,13 +62,13 @@ export class TabsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Get tabs from chats
+     * A collection of all the tabs in the chat. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -88,10 +88,10 @@ export class TabsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TabsResponse>(requestInfo, TabsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TabsResponse>(requestInfo, TabsResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Create new navigation property to tabs for chats
+     * A collection of all the tabs in the chat. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +103,6 @@ export class TabsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<TeamsTab>(requestInfo, TeamsTab, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsTab>(requestInfo, TeamsTab, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

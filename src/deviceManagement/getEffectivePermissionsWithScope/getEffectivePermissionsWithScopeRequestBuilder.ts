@@ -35,7 +35,7 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -50,6 +50,6 @@ export class GetEffectivePermissionsWithScopeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetEffectivePermissionsWithScope>(requestInfo, GetEffectivePermissionsWithScope, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<GetEffectivePermissionsWithScope>(requestInfo, GetEffectivePermissionsWithScope, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,9 +1,9 @@
 import {ServiceAnnouncement} from '../../models/microsoft/graph/serviceAnnouncement';
 import {HealthOverviewsRequestBuilder} from './healthOverviews/healthOverviewsRequestBuilder';
-import {ServiceHealthRequestBuilder} from './healthOverviews/item/serviceHealthRequestBuilder';
+import {ServiceHealthItemRequestBuilder} from './healthOverviews/item/serviceHealthItemRequestBuilder';
 import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
-import {ServiceHealthIssueRequestBuilder} from './issues/item/serviceHealthIssueRequestBuilder';
-import {ServiceUpdateMessageRequestBuilder} from './messages/item/serviceUpdateMessageRequestBuilder';
+import {ServiceHealthIssueItemRequestBuilder} from './issues/item/serviceHealthIssueItemRequestBuilder';
+import {ServiceUpdateMessageItemRequestBuilder} from './messages/item/serviceUpdateMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -48,7 +48,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -67,7 +67,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -85,7 +85,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -100,7 +100,7 @@ export class ServiceAnnouncementRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * A container for service communications resources. Read-only.
@@ -117,40 +117,40 @@ export class ServiceAnnouncementRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, ServiceAnnouncement, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, ServiceAnnouncement, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.healthOverviews.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthRequestBuilder
+     * @returns a serviceHealthItemRequestBuilder
      */
-    public healthOverviewsById(id: string) : ServiceHealthRequestBuilder {
+    public healthOverviewsById(id: string) : ServiceHealthItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealth_id"] = id
-        return new ServiceHealthRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ServiceHealthItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.issues.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthIssueRequestBuilder
+     * @returns a serviceHealthIssueItemRequestBuilder
      */
-    public issuesById(id: string) : ServiceHealthIssueRequestBuilder {
+    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealthIssue_id"] = id
-        return new ServiceHealthIssueRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceUpdateMessageRequestBuilder
+     * @returns a serviceUpdateMessageItemRequestBuilder
      */
-    public messagesById(id: string) : ServiceUpdateMessageRequestBuilder {
+    public messagesById(id: string) : ServiceUpdateMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceUpdateMessage_id"] = id
-        return new ServiceUpdateMessageRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ServiceUpdateMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * A container for service communications resources. Read-only.
@@ -164,6 +164,6 @@ export class ServiceAnnouncementRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

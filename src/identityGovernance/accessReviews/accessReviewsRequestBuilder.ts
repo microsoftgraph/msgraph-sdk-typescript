@@ -1,12 +1,17 @@
 import {AccessReviewSet} from '../../models/microsoft/graph/accessReviewSet';
 import {DefinitionsRequestBuilder} from './definitions/definitionsRequestBuilder';
-import {AccessReviewScheduleDefinitionRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionRequestBuilder';
+import {AccessReviewScheduleDefinitionItemRequestBuilder} from './definitions/item/accessReviewScheduleDefinitionItemRequestBuilder';
+import {HistoryDefinitionsRequestBuilder} from './historyDefinitions/historyDefinitionsRequestBuilder';
+import {AccessReviewHistoryDefinitionItemRequestBuilder} from './historyDefinitions/item/accessReviewHistoryDefinitionItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /identityGovernance/accessReviews  */
 export class AccessReviewsRequestBuilder {
     public get definitions(): DefinitionsRequestBuilder {
         return new DefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    public get historyDefinitions(): HistoryDefinitionsRequestBuilder {
+        return new HistoryDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -38,7 +43,7 @@ export class AccessReviewsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -57,7 +62,7 @@ export class AccessReviewsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -75,7 +80,7 @@ export class AccessReviewsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -83,13 +88,13 @@ export class AccessReviewsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.definitions.item collection
      * @param id Unique identifier of the item
-     * @returns a accessReviewScheduleDefinitionRequestBuilder
+     * @returns a accessReviewScheduleDefinitionItemRequestBuilder
      */
-    public definitionsById(id: string) : AccessReviewScheduleDefinitionRequestBuilder {
+    public definitionsById(id: string) : AccessReviewScheduleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["accessReviewScheduleDefinition_id"] = id
-        return new AccessReviewScheduleDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AccessReviewScheduleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete navigation property accessReviews for identityGovernance
@@ -101,7 +106,7 @@ export class AccessReviewsRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get accessReviews from identityGovernance
@@ -118,7 +123,18 @@ export class AccessReviewsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AccessReviewSet>(requestInfo, AccessReviewSet, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessReviewSet>(requestInfo, AccessReviewSet, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.accessReviews.historyDefinitions.item collection
+     * @param id Unique identifier of the item
+     * @returns a accessReviewHistoryDefinitionItemRequestBuilder
+     */
+    public historyDefinitionsById(id: string) : AccessReviewHistoryDefinitionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["accessReviewHistoryDefinition_id"] = id
+        return new AccessReviewHistoryDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property accessReviews in identityGovernance
@@ -132,6 +148,6 @@ export class AccessReviewsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

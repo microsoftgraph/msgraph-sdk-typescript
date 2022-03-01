@@ -5,9 +5,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class DelegatedPermissionClassification extends Entity implements Parsable {
     /** The classification value being given. Possible value: low. Does not support $filter.  */
     private _classification?: PermissionClassificationType | undefined;
-    /** The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.  */
+    /** The unique identifier (id) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.  */
     private _permissionId?: string | undefined;
-    /** The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter.  */
+    /** The claim value (value) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Does not support $filter.  */
     private _permissionName?: string | undefined;
     /**
      * Instantiates a new delegatedPermissionClassification and sets the default values.
@@ -23,14 +23,14 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
         return this._classification;
     };
     /**
-     * Gets the permissionId property value. The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.
+     * Gets the permissionId property value. The unique identifier (id) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.
      * @returns a string
      */
     public get permissionId() {
         return this._permissionId;
     };
     /**
-     * Gets the permissionName property value. The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter.
+     * Gets the permissionName property value. The claim value (value) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Does not support $filter.
      * @returns a string
      */
     public get permissionName() {
@@ -66,14 +66,14 @@ export class DelegatedPermissionClassification extends Entity implements Parsabl
         this._classification = value;
     };
     /**
-     * Sets the permissionId property value. The unique identifier (id) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.
+     * Sets the permissionId property value. The unique identifier (id) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Required on create. Does not support $filter.
      * @param value Value to set for the permissionId property.
      */
     public set permissionId(value: string | undefined) {
         this._permissionId = value;
     };
     /**
-     * Sets the permissionName property value. The claim value (value) for the delegated permission listed in the publishedPermissionScopes collection of the servicePrincipal. Does not support $filter.
+     * Sets the permissionName property value. The claim value (value) for the delegated permission listed in the oauth2PermissionScopes collection of the servicePrincipal. Does not support $filter.
      * @param value Value to set for the permissionName property.
      */
     public set permissionName(value: string | undefined) {

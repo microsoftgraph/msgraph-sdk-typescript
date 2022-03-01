@@ -4,6 +4,7 @@ import {ConversationMember} from './conversationMember';
 import {Entity} from './entity';
 import {TeamsAppInstallation} from './teamsAppInstallation';
 import {TeamsTab} from './teamsTab';
+import {TeamworkOnlineMeetingInfo} from './teamworkOnlineMeetingInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Chat extends Entity implements Parsable {
@@ -19,7 +20,12 @@ export class Chat extends Entity implements Parsable {
     private _members?: ConversationMember[] | undefined;
     /** A collection of all the messages in the chat. Nullable.  */
     private _messages?: ChatMessage[] | undefined;
+    /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.  */
+    private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
+    /** A collection of all the tabs in the chat. Nullable.  */
     private _tabs?: TeamsTab[] | undefined;
+    /** The identifier of the tenant in which the chat was created. Read-only.  */
+    private _tenantId?: string | undefined;
     /** (Optional) Subject or topic for the chat. Only available for group chats.  */
     private _topic?: string | undefined;
     /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.  */
@@ -73,11 +79,25 @@ export class Chat extends Entity implements Parsable {
         return this._messages;
     };
     /**
-     * Gets the tabs property value. 
+     * Gets the onlineMeetingInfo property value. Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
+     * @returns a teamworkOnlineMeetingInfo
+     */
+    public get onlineMeetingInfo() {
+        return this._onlineMeetingInfo;
+    };
+    /**
+     * Gets the tabs property value. A collection of all the tabs in the chat. Nullable.
      * @returns a teamsTab
      */
     public get tabs() {
         return this._tabs;
+    };
+    /**
+     * Gets the tenantId property value. The identifier of the tenant in which the chat was created. Read-only.
+     * @returns a string
+     */
+    public get tenantId() {
+        return this._tenantId;
     };
     /**
      * Gets the topic property value. (Optional) Subject or topic for the chat. Only available for group chats.
@@ -105,7 +125,9 @@ export class Chat extends Entity implements Parsable {
             ["lastUpdatedDateTime", (o, n) => { (o as unknown as Chat).lastUpdatedDateTime = n.getDateValue(); }],
             ["members", (o, n) => { (o as unknown as Chat).members = n.getCollectionOfObjectValues<ConversationMember>(ConversationMember); }],
             ["messages", (o, n) => { (o as unknown as Chat).messages = n.getCollectionOfObjectValues<ChatMessage>(ChatMessage); }],
+            ["onlineMeetingInfo", (o, n) => { (o as unknown as Chat).onlineMeetingInfo = n.getObjectValue<TeamworkOnlineMeetingInfo>(TeamworkOnlineMeetingInfo); }],
             ["tabs", (o, n) => { (o as unknown as Chat).tabs = n.getCollectionOfObjectValues<TeamsTab>(TeamsTab); }],
+            ["tenantId", (o, n) => { (o as unknown as Chat).tenantId = n.getStringValue(); }],
             ["topic", (o, n) => { (o as unknown as Chat).topic = n.getStringValue(); }],
             ["webUrl", (o, n) => { (o as unknown as Chat).webUrl = n.getStringValue(); }],
         ]);
@@ -123,7 +145,9 @@ export class Chat extends Entity implements Parsable {
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeCollectionOfObjectValues<ConversationMember>("members", this.members);
         writer.writeCollectionOfObjectValues<ChatMessage>("messages", this.messages);
+        writer.writeObjectValue<TeamworkOnlineMeetingInfo>("onlineMeetingInfo", this.onlineMeetingInfo);
         writer.writeCollectionOfObjectValues<TeamsTab>("tabs", this.tabs);
+        writer.writeStringValue("tenantId", this.tenantId);
         writer.writeStringValue("topic", this.topic);
         writer.writeStringValue("webUrl", this.webUrl);
     };
@@ -170,11 +194,25 @@ export class Chat extends Entity implements Parsable {
         this._messages = value;
     };
     /**
-     * Sets the tabs property value. 
+     * Sets the onlineMeetingInfo property value. Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.
+     * @param value Value to set for the onlineMeetingInfo property.
+     */
+    public set onlineMeetingInfo(value: TeamworkOnlineMeetingInfo | undefined) {
+        this._onlineMeetingInfo = value;
+    };
+    /**
+     * Sets the tabs property value. A collection of all the tabs in the chat. Nullable.
      * @param value Value to set for the tabs property.
      */
     public set tabs(value: TeamsTab[] | undefined) {
         this._tabs = value;
+    };
+    /**
+     * Sets the tenantId property value. The identifier of the tenant in which the chat was created. Read-only.
+     * @param value Value to set for the tenantId property.
+     */
+    public set tenantId(value: string | undefined) {
+        this._tenantId = value;
     };
     /**
      * Sets the topic property value. (Optional) Subject or topic for the chat. Only available for group chats.

@@ -25,7 +25,7 @@ export class WorkbookRangeView extends Entity implements Parsable {
     private _text?: Json | undefined;
     /** Represents the raw values of the specified range view. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.  */
     private _values?: Json | undefined;
-    /** Represents the type of data of each cell. Read-only. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.  */
+    /** Represents the type of data of each cell. Read-only. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.  */
     private _valueTypes?: Json | undefined;
     /**
      * Instantiates a new workbookRangeView and sets the default values.
@@ -111,7 +111,7 @@ export class WorkbookRangeView extends Entity implements Parsable {
         return this._values;
     };
     /**
-     * Gets the valueTypes property value. Represents the type of data of each cell. Read-only. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.
+     * Gets the valueTypes property value. Represents the type of data of each cell. Read-only. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.
      * @returns a Json
      */
     public get valueTypes() {
@@ -235,7 +235,7 @@ export class WorkbookRangeView extends Entity implements Parsable {
         this._values = value;
     };
     /**
-     * Sets the valueTypes property value. Represents the type of data of each cell. Read-only. Possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.
+     * Sets the valueTypes property value. Represents the type of data of each cell. Read-only. The possible values are: Unknown, Empty, String, Integer, Double, Boolean, Error.
      * @param value Value to set for the valueTypes property.
      */
     public set valueTypes(value: Json | undefined) {

@@ -24,7 +24,7 @@ export class ExtensionsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of open extensions defined for the organization resource. Nullable.
+     * The collection of open extensions defined for the organization. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -44,13 +44,13 @@ export class ExtensionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of open extensions defined for the organization resource. Nullable.
+     * The collection of open extensions defined for the organization. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,13 +62,13 @@ export class ExtensionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of open extensions defined for the organization resource. Nullable.
+     * The collection of open extensions defined for the organization. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -88,10 +88,10 @@ export class ExtensionsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ExtensionsResponse>(requestInfo, ExtensionsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ExtensionsResponse>(requestInfo, ExtensionsResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The collection of open extensions defined for the organization resource. Nullable.
+     * The collection of open extensions defined for the organization. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +103,6 @@ export class ExtensionsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<Extension>(requestInfo, Extension, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Extension>(requestInfo, Extension, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

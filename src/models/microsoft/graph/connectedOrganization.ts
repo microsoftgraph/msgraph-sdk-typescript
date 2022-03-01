@@ -19,7 +19,7 @@ export class ConnectedOrganization extends Entity implements Parsable {
     private _internalSponsors?: DirectoryObject[] | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
     private _modifiedDateTime?: Date | undefined;
-    /** The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.  */
+    /** The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.  */
     private _state?: ConnectedOrganizationState | undefined;
     /**
      * Instantiates a new connectedOrganization and sets the default values.
@@ -77,7 +77,7 @@ export class ConnectedOrganization extends Entity implements Parsable {
         return this._modifiedDateTime;
     };
     /**
-     * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
+     * Gets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.
      * @returns a connectedOrganizationState
      */
     public get state() {
@@ -165,7 +165,7 @@ export class ConnectedOrganization extends Entity implements Parsable {
         this._modifiedDateTime = value;
     };
     /**
-     * Sets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not. Possible values are: configured, proposed.
+     * Sets the state property value. The state of a connected organization defines whether assignment policies with requestor scope type AllConfiguredConnectedOrganizationSubjects are applicable or not.  The possible values are: configured, proposed, unknownFutureValue.
      * @param value Value to set for the state property.
      */
     public set state(value: ConnectedOrganizationState | undefined) {

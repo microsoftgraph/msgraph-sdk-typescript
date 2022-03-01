@@ -33,7 +33,7 @@ export class GetAllMessagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -48,6 +48,6 @@ export class GetAllMessagesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetAllMessages>(requestInfo, GetAllMessages, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<GetAllMessages>(requestInfo, GetAllMessages, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

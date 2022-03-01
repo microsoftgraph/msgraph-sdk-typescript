@@ -25,7 +25,7 @@ export class AccessPackagesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -45,13 +45,13 @@ export class AccessPackagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -63,7 +63,7 @@ export class AccessPackagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -78,7 +78,7 @@ export class AccessPackagesRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -98,10 +98,10 @@ export class AccessPackagesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AccessPackagesResponse>(requestInfo, AccessPackagesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessPackagesResponse>(requestInfo, AccessPackagesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The access packages in this catalog. Read-only. Nullable. Supports $expand.
+     * The access packages in this catalog. Read-only. Nullable.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -113,6 +113,6 @@ export class AccessPackagesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<AccessPackage>(requestInfo, AccessPackage, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AccessPackage>(requestInfo, AccessPackage, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

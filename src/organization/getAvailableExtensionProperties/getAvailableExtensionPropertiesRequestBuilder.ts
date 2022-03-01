@@ -1,4 +1,4 @@
-import {GetAvailableExtensionProperties} from './getAvailableExtensionProperties';
+import {ExtensionProperty} from '../../models/microsoft/graph/extensionProperty';
 import {GetAvailableExtensionPropertiesRequestBody} from './getAvailableExtensionPropertiesRequestBody';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -36,7 +36,7 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -47,13 +47,13 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetAvailableExtensionProperties
+     * @returns a Promise of ExtensionProperty
      */
-    public post(body: GetAvailableExtensionPropertiesRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAvailableExtensionProperties[] | undefined> {
+    public post(body: GetAvailableExtensionPropertiesRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionProperty[] | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetAvailableExtensionProperties>(requestInfo, GetAvailableExtensionProperties, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<ExtensionProperty>(requestInfo, ExtensionProperty, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

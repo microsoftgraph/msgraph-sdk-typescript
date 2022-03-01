@@ -48,7 +48,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -66,7 +66,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -92,7 +92,7 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ImportedWindowsAutopilotDeviceIdentitiesResponse>(requestInfo, ImportedWindowsAutopilotDeviceIdentitiesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ImportedWindowsAutopilotDeviceIdentitiesResponse>(requestInfo, ImportedWindowsAutopilotDeviceIdentitiesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Collection of imported Windows autopilot devices.
@@ -107,6 +107,6 @@ export class ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ImportedWindowsAutopilotDeviceIdentity>(requestInfo, ImportedWindowsAutopilotDeviceIdentity, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ImportedWindowsAutopilotDeviceIdentity>(requestInfo, ImportedWindowsAutopilotDeviceIdentity, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

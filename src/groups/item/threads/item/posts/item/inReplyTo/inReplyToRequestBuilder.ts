@@ -31,7 +31,7 @@ export class InReplyToRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -41,12 +41,12 @@ export class InReplyToRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -60,13 +60,13 @@ export class InReplyToRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -78,13 +78,13 @@ export class InReplyToRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -93,10 +93,10 @@ export class InReplyToRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -110,10 +110,10 @@ export class InReplyToRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Post>(requestInfo, Post, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Post>(requestInfo, Post, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Read-only. Supports $expand.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -124,6 +124,6 @@ export class InReplyToRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

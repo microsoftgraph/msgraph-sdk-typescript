@@ -22,7 +22,7 @@ export class ContentRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The group's profile photo.
+     * The group's profile photo
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -32,12 +32,12 @@ export class ContentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The group's profile photo.
+     * The group's profile photo
      * @param body Binary request body
      * @param h Request headers
      * @param o Request options
@@ -49,13 +49,13 @@ export class ContentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PUT;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setStreamContent(body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The group's profile photo.
+     * The group's profile photo
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -65,10 +65,10 @@ export class ContentRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The group's profile photo.
+     * The group's profile photo
      * @param body Binary request body
      * @param h Request headers
      * @param o Request options
@@ -79,6 +79,6 @@ export class ContentRequestBuilder {
         const requestInfo = this.createPutRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

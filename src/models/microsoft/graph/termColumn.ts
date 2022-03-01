@@ -5,7 +5,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class TermColumn implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Specifies whether the column will allow more than one value  */
+    /** Specifies whether the column will allow more than one value.  */
     private _allowMultipleValues?: boolean | undefined;
     private _parentTerm?: Term | undefined;
     /** Specifies whether to display the entire term path or only the term label.  */
@@ -25,7 +25,7 @@ export class TermColumn implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value
+     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value.
      * @returns a boolean
      */
     public get allowMultipleValues() {
@@ -84,7 +84,7 @@ export class TermColumn implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value
+     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value.
      * @param value Value to set for the allowMultipleValues property.
      */
     public set allowMultipleValues(value: boolean | undefined) {

@@ -2,6 +2,7 @@ import {BaseItemVersion} from './baseItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItemVersion extends BaseItemVersion implements Parsable {
+    /** The content stream for this version of the item.  */
     private _content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item.  */
     private _size?: number | undefined;
@@ -12,7 +13,7 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. 
+     * Gets the content property value. The content stream for this version of the item.
      * @returns a binary
      */
     public get content() {
@@ -46,7 +47,7 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
         writer.writeNumberValue("size", this.size);
     };
     /**
-     * Sets the content property value. 
+     * Sets the content property value. The content stream for this version of the item.
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {

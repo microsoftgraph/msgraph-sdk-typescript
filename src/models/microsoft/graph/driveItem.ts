@@ -58,7 +58,7 @@ export class DriveItem extends BaseItem implements Parsable {
     private _malware?: Malware | undefined;
     /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.  */
     private _package?: Package | undefined;
-    /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.  */
+    /** If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.  */
     private _pendingOperations?: PendingOperations | undefined;
     /** The set of permissions for the item. Read-only. Nullable.  */
     private _permissions?: Permission[] | undefined;
@@ -204,7 +204,7 @@ export class DriveItem extends BaseItem implements Parsable {
         return this._package;
     };
     /**
-     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Gets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @returns a pendingOperations
      */
     public get pendingOperations() {
@@ -508,7 +508,7 @@ export class DriveItem extends BaseItem implements Parsable {
         this._package = value;
     };
     /**
-     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
+     * Sets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
      * @param value Value to set for the pendingOperations property.
      */
     public set pendingOperations(value: PendingOperations | undefined) {

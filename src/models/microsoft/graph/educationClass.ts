@@ -22,7 +22,7 @@ export class EducationClass extends Entity implements Parsable {
     private _classCode?: string | undefined;
     /** Course information for the class.  */
     private _course?: EducationCourse | undefined;
-    /** Entity who created the class.  */
+    /** Entity who created the class  */
     private _createdBy?: IdentitySet | undefined;
     /** Description of the class.  */
     private _description?: string | undefined;
@@ -32,7 +32,7 @@ export class EducationClass extends Entity implements Parsable {
     private _externalId?: string | undefined;
     /** Name of the class in the syncing system.  */
     private _externalName?: string | undefined;
-    /** The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.  */
+    /** How this class was created. Possible values are: sis, manual.  */
     private _externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from.  */
     private _externalSourceDetail?: string | undefined;
@@ -48,7 +48,7 @@ export class EducationClass extends Entity implements Parsable {
     private _schools?: EducationSchool[] | undefined;
     /** All teachers in the class. Nullable.  */
     private _teachers?: EducationUser[] | undefined;
-    /** Term for the class.  */
+    /** Term for this class.  */
     private _term?: EducationTerm | undefined;
     /**
      * Instantiates a new educationClass and sets the default values.
@@ -99,7 +99,7 @@ export class EducationClass extends Entity implements Parsable {
         return this._course;
     };
     /**
-     * Gets the createdBy property value. Entity who created the class.
+     * Gets the createdBy property value. Entity who created the class
      * @returns a identitySet
      */
     public get createdBy() {
@@ -134,7 +134,7 @@ export class EducationClass extends Entity implements Parsable {
         return this._externalName;
     };
     /**
-     * Gets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
+     * Gets the externalSource property value. How this class was created. Possible values are: sis, manual.
      * @returns a educationExternalSource
      */
     public get externalSource() {
@@ -190,7 +190,7 @@ export class EducationClass extends Entity implements Parsable {
         return this._teachers;
     };
     /**
-     * Gets the term property value. Term for the class.
+     * Gets the term property value. Term for this class.
      * @returns a educationTerm
      */
     public get term() {
@@ -295,7 +295,7 @@ export class EducationClass extends Entity implements Parsable {
         this._course = value;
     };
     /**
-     * Sets the createdBy property value. Entity who created the class.
+     * Sets the createdBy property value. Entity who created the class
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
@@ -330,7 +330,7 @@ export class EducationClass extends Entity implements Parsable {
         this._externalName = value;
     };
     /**
-     * Sets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
+     * Sets the externalSource property value. How this class was created. Possible values are: sis, manual.
      * @param value Value to set for the externalSource property.
      */
     public set externalSource(value: EducationExternalSource | undefined) {
@@ -386,7 +386,7 @@ export class EducationClass extends Entity implements Parsable {
         this._teachers = value;
     };
     /**
-     * Sets the term property value. Term for the class.
+     * Sets the term property value. Term for this class.
      * @param value Value to set for the term property.
      */
     public set term(value: EducationTerm | undefined) {

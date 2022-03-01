@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ExternalItemContent implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The type of content in the value property. Possible values are text and html. Required.  */
+    /** The type of content in the value property. Possible values are: text, html, unknownFutureValue.  */
     private _type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required.  */
     private _value?: string | undefined;
@@ -22,7 +22,7 @@ export class ExternalItemContent implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the type property value. The type of content in the value property. Possible values are text and html. Required.
+     * Gets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue.
      * @returns a externalItemContentType
      */
     public get type() {
@@ -63,7 +63,7 @@ export class ExternalItemContent implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the type property value. The type of content in the value property. Possible values are text and html. Required.
+     * Sets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue.
      * @param value Value to set for the type property.
      */
     public set type(value: ExternalItemContentType | undefined) {

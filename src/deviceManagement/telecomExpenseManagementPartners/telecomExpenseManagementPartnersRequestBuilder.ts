@@ -44,7 +44,7 @@ export class TelecomExpenseManagementPartnersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +62,7 @@ export class TelecomExpenseManagementPartnersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -88,7 +88,7 @@ export class TelecomExpenseManagementPartnersRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartnersResponse>(requestInfo, TelecomExpenseManagementPartnersResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartnersResponse>(requestInfo, TelecomExpenseManagementPartnersResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The telecom expense management partners.
@@ -103,6 +103,6 @@ export class TelecomExpenseManagementPartnersRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartner>(requestInfo, TelecomExpenseManagementPartner, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TelecomExpenseManagementPartner>(requestInfo, TelecomExpenseManagementPartner, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

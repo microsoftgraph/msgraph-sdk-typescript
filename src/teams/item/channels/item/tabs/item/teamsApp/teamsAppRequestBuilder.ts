@@ -27,7 +27,7 @@ export class TeamsAppRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The application that is linked to the tab.
+     * The application that is linked to the tab. This cannot be changed after tab creation.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +41,13 @@ export class TeamsAppRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The application that is linked to the tab.
+     * The application that is linked to the tab. This cannot be changed after tab creation.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +61,6 @@ export class TeamsAppRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TeamsApp>(requestInfo, TeamsApp, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TeamsApp>(requestInfo, TeamsApp, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -27,7 +27,7 @@ export class DirectoryScopeRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * The directory object that is the scope of the assignment. Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +41,13 @@ export class DirectoryScopeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * The directory object that is the scope of the assignment. Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +61,6 @@ export class DirectoryScopeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, DirectoryObject, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, DirectoryObject, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

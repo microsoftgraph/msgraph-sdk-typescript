@@ -8,7 +8,7 @@ export class Website implements Parsable {
     private _address?: string | undefined;
     /** The display name of the web site.  */
     private _displayName?: string | undefined;
-    /** Possible values are: other, home, work, blog, profile.  */
+    /** The possible values are: other, home, work, blog, profile.  */
     private _type?: WebsiteType | undefined;
     /**
      * Instantiates a new website and sets the default values.
@@ -38,7 +38,7 @@ export class Website implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the type property value. Possible values are: other, home, work, blog, profile.
+     * Gets the type property value. The possible values are: other, home, work, blog, profile.
      * @returns a websiteType
      */
     public get type() {
@@ -88,7 +88,7 @@ export class Website implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the type property value. Possible values are: other, home, work, blog, profile.
+     * Sets the type property value. The possible values are: other, home, work, blog, profile.
      * @param value Value to set for the type property.
      */
     public set type(value: WebsiteType | undefined) {

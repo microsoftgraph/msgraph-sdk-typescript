@@ -25,7 +25,7 @@ export class ChannelsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * The collection of channels and messages associated with the team.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -45,13 +45,13 @@ export class ChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * The collection of channels and messages associated with the team.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -63,13 +63,13 @@ export class ChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * The collection of channels and messages associated with the team.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -89,7 +89,7 @@ export class ChannelsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ChannelsResponse>(requestInfo, ChannelsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ChannelsResponse>(requestInfo, ChannelsResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /teams/{team-id}/channels/microsoft.graph.getAllMessages()
@@ -99,7 +99,7 @@ export class ChannelsRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * The collection of channels and messages associated with the team.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -111,6 +111,6 @@ export class ChannelsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, Channel, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Channel>(requestInfo, Channel, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

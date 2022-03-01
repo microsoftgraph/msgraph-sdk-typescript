@@ -27,7 +27,7 @@ export class MemberOfRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
+     * Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -47,13 +47,13 @@ export class MemberOfRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
+     * Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -73,6 +73,6 @@ export class MemberOfRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<MemberOfResponse>(requestInfo, MemberOfResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MemberOfResponse>(requestInfo, MemberOfResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

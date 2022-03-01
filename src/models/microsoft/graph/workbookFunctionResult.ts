@@ -3,7 +3,7 @@ import {Json} from './json';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFunctionResult extends Entity implements Parsable {
-    private _error?: string | undefined;
+    private _error_escaped?: string | undefined;
     private _value?: Json | undefined;
     /**
      * Instantiates a new workbookFunctionResult and sets the default values.
@@ -15,8 +15,8 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
      * Gets the error property value. 
      * @returns a string
      */
-    public get error() {
-        return this._error;
+    public get error_escaped() {
+        return this._error_escaped;
     };
     /**
      * Gets the value property value. 
@@ -31,7 +31,7 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["error", (o, n) => { (o as unknown as WorkbookFunctionResult).error = n.getStringValue(); }],
+            ["error", (o, n) => { (o as unknown as WorkbookFunctionResult).error_escaped = n.getStringValue(); }],
             ["value", (o, n) => { (o as unknown as WorkbookFunctionResult).value = n.getObjectValue<Json>(Json); }],
         ]);
     };
@@ -42,15 +42,15 @@ export class WorkbookFunctionResult extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeStringValue("error", this.error);
+        writer.writeStringValue("error", this.error_escaped);
         writer.writeObjectValue<Json>("value", this.value);
     };
     /**
      * Sets the error property value. 
-     * @param value Value to set for the error property.
+     * @param value Value to set for the error_escaped property.
      */
-    public set error(value: string | undefined) {
-        this._error = value;
+    public set error_escaped(value: string | undefined) {
+        this._error_escaped = value;
     };
     /**
      * Sets the value property value. 

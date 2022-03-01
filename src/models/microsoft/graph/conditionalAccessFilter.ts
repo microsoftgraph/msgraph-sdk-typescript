@@ -6,7 +6,7 @@ export class ConditionalAccessFilter implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** Mode to use for the filter. Possible values are include or exclude.  */
     private _mode?: FilterMode | undefined;
-    /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions  */
+    /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions  */
     private _rule?: string | undefined;
     /**
      * Instantiates a new conditionalAccessFilter and sets the default values.
@@ -29,7 +29,7 @@ export class ConditionalAccessFilter implements Parsable {
         return this._mode;
     };
     /**
-     * Gets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions
+     * Gets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
      * @returns a string
      */
     public get rule() {
@@ -70,7 +70,7 @@ export class ConditionalAccessFilter implements Parsable {
         this._mode = value;
     };
     /**
-     * Sets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions
+     * Sets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
      * @param value Value to set for the rule property.
      */
     public set rule(value: string | undefined) {

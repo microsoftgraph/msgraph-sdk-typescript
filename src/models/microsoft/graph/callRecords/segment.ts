@@ -1,5 +1,5 @@
-import {Endpoint} from '../endpoint';
 import {Entity} from '../entity';
+import {Endpoint} from './endpoint';
 import {FailureInfo} from './failureInfo';
 import {Media} from './media';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';

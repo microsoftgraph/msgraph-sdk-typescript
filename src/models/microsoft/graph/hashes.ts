@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class Hashes implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The CRC32 value of the file (if available). Read-only.  */
+    /** The CRC32 value of the file in little endian (if available). Read-only.  */
     private _crc32Hash?: string | undefined;
     /** A proprietary hash of the file that can be used to determine if the contents of the file have changed (if available). Read-only.  */
     private _quickXorHash?: string | undefined;
@@ -25,7 +25,7 @@ export class Hashes implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the crc32Hash property value. The CRC32 value of the file (if available). Read-only.
+     * Gets the crc32Hash property value. The CRC32 value of the file in little endian (if available). Read-only.
      * @returns a string
      */
     public get crc32Hash() {
@@ -84,7 +84,7 @@ export class Hashes implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the crc32Hash property value. The CRC32 value of the file (if available). Read-only.
+     * Sets the crc32Hash property value. The CRC32 value of the file in little endian (if available). Read-only.
      * @param value Value to set for the crc32Hash property.
      */
     public set crc32Hash(value: string | undefined) {

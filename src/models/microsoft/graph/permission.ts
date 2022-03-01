@@ -15,7 +15,7 @@ export class Permission extends Entity implements Parsable {
     private _grantedToIdentitiesV2?: SharePointIdentitySet[] | undefined;
     /** For user type permissions, the details of the users and applications for this permission. Read-only.  */
     private _grantedToV2?: SharePointIdentitySet | undefined;
-    /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.  */
+    /** Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..  */
     private _hasPassword?: boolean | undefined;
     /** Provides a reference to the ancestor of the current permission, if it is inherited from an ancestor. Read-only.  */
     private _inheritedFrom?: ItemReference | undefined;
@@ -25,7 +25,7 @@ export class Permission extends Entity implements Parsable {
     private _link?: SharingLink | undefined;
     /** The type of permission, for example, read. See below for the full list of roles. Read-only.  */
     private _roles?: string[] | undefined;
-    /** A unique token that can be used to access this shared item via the [shares API][]. Read-only.  */
+    /** A unique token that can be used to access this shared item via the **shares** API. Read-only.  */
     private _shareId?: string | undefined;
     /**
      * Instantiates a new permission and sets the default values.
@@ -69,7 +69,7 @@ export class Permission extends Entity implements Parsable {
         return this._grantedToV2;
     };
     /**
-     * Gets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+     * Gets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..
      * @returns a boolean
      */
     public get hasPassword() {
@@ -104,7 +104,7 @@ export class Permission extends Entity implements Parsable {
         return this._roles;
     };
     /**
-     * Gets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * Gets the shareId property value. A unique token that can be used to access this shared item via the **shares** API. Read-only.
      * @returns a string
      */
     public get shareId() {
@@ -184,7 +184,7 @@ export class Permission extends Entity implements Parsable {
         this._grantedToV2 = value;
     };
     /**
-     * Sets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only.
+     * Sets the hasPassword property value. Indicates whether the password is set for this permission. This property only appears in the response. Optional. Read-only. For OneDrive Personal only..
      * @param value Value to set for the hasPassword property.
      */
     public set hasPassword(value: boolean | undefined) {
@@ -219,7 +219,7 @@ export class Permission extends Entity implements Parsable {
         this._roles = value;
     };
     /**
-     * Sets the shareId property value. A unique token that can be used to access this shared item via the [shares API][]. Read-only.
+     * Sets the shareId property value. A unique token that can be used to access this shared item via the **shares** API. Read-only.
      * @param value Value to set for the shareId property.
      */
     public set shareId(value: string | undefined) {

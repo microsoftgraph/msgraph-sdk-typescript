@@ -1,7 +1,7 @@
-import {Endpoint} from '../endpoint';
 import {Entity} from '../entity';
-import {Modality} from '../modality';
+import {Endpoint} from './endpoint';
 import {FailureInfo} from './failureInfo';
+import {Modality} from './modality';
 import {Segment} from './segment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -18,7 +18,7 @@ export class Session extends Entity implements Parsable {
     private _modalities?: Modality[] | undefined;
     /** The list of segments involved in the session. Read-only. Nullable.  */
     private _segments?: Segment[] | undefined;
-    /** UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _startDateTime?: Date | undefined;
     /**
      * Instantiates a new session and sets the default values.
@@ -69,7 +69,7 @@ export class Session extends Entity implements Parsable {
         return this._segments;
     };
     /**
-     * Gets the startDateTime property value. UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the startDateTime property value. UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get startDateTime() {
@@ -148,7 +148,7 @@ export class Session extends Entity implements Parsable {
         this._segments = value;
     };
     /**
-     * Sets the startDateTime property value. UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the startDateTime property value. UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

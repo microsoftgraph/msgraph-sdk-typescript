@@ -3,7 +3,7 @@ import {TeamworkConversationIdentityType} from './teamworkConversationIdentityTy
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkConversationIdentity extends Identity implements Parsable {
-    /** Type of conversation. Possible values are: team, channel, and chat.  */
+    /** Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.  */
     private _conversationIdentityType?: TeamworkConversationIdentityType | undefined;
     /**
      * Instantiates a new teamworkConversationIdentity and sets the default values.
@@ -12,7 +12,7 @@ export class TeamworkConversationIdentity extends Identity implements Parsable {
         super();
     };
     /**
-     * Gets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, and chat.
+     * Gets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
      * @returns a teamworkConversationIdentityType
      */
     public get conversationIdentityType() {
@@ -37,7 +37,7 @@ export class TeamworkConversationIdentity extends Identity implements Parsable {
         writer.writeEnumValue<TeamworkConversationIdentityType>("conversationIdentityType", this.conversationIdentityType);
     };
     /**
-     * Sets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, and chat.
+     * Sets the conversationIdentityType property value. Type of conversation. Possible values are: team, channel, chat, and unknownFutureValue.
      * @param value Value to set for the conversationIdentityType property.
      */
     public set conversationIdentityType(value: TeamworkConversationIdentityType | undefined) {

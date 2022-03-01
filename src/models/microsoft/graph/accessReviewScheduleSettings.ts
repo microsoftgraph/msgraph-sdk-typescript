@@ -9,7 +9,7 @@ export class AccessReviewScheduleSettings implements Parsable {
     private _applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.  */
     private _autoApplyDecisionsEnabled?: boolean | undefined;
-    /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.  */
+    /** Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.  */
     private _defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false.  */
     private _defaultDecisionEnabled?: boolean | undefined;
@@ -21,7 +21,7 @@ export class AccessReviewScheduleSettings implements Parsable {
     private _mailNotificationsEnabled?: boolean | undefined;
     /** Indicates whether decision recommendations are enabled or disabled.  */
     private _recommendationsEnabled?: boolean | undefined;
-    /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.  */
+    /** Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.  */
     private _recurrence?: PatternedRecurrence | undefined;
     /** Indicates whether reminders are enabled or disabled. Default value is false.  */
     private _reminderNotificationsEnabled?: boolean | undefined;
@@ -53,7 +53,7 @@ export class AccessReviewScheduleSettings implements Parsable {
         return this._autoApplyDecisionsEnabled;
     };
     /**
-     * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+     * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
      * @returns a string
      */
     public get defaultDecision() {
@@ -95,7 +95,7 @@ export class AccessReviewScheduleSettings implements Parsable {
         return this._recommendationsEnabled;
     };
     /**
-     * Gets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
+     * Gets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      * @returns a patternedRecurrence
      */
     public get recurrence() {
@@ -166,7 +166,7 @@ export class AccessReviewScheduleSettings implements Parsable {
         this._autoApplyDecisionsEnabled = value;
     };
     /**
-     * Sets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
+     * Sets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
      * @param value Value to set for the defaultDecision property.
      */
     public set defaultDecision(value: string | undefined) {
@@ -208,7 +208,7 @@ export class AccessReviewScheduleSettings implements Parsable {
         this._recommendationsEnabled = value;
     };
     /**
-     * Sets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
+     * Sets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      * @param value Value to set for the recurrence property.
      */
     public set recurrence(value: PatternedRecurrence | undefined) {

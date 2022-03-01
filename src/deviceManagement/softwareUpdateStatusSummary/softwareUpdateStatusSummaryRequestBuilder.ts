@@ -41,7 +41,7 @@ export class SoftwareUpdateStatusSummaryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -61,6 +61,6 @@ export class SoftwareUpdateStatusSummaryRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<SoftwareUpdateStatusSummary>(requestInfo, SoftwareUpdateStatusSummary, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SoftwareUpdateStatusSummary>(requestInfo, SoftwareUpdateStatusSummary, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

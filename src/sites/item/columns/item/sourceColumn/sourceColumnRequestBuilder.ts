@@ -27,7 +27,7 @@ export class SourceColumnRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The source column for content type column.
+     * The source column for the content type column.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +41,13 @@ export class SourceColumnRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The source column for content type column.
+     * The source column for the content type column.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +61,6 @@ export class SourceColumnRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ColumnDefinition>(requestInfo, ColumnDefinition, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ColumnDefinition>(requestInfo, ColumnDefinition, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

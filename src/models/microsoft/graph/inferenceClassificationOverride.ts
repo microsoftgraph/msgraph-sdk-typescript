@@ -4,7 +4,7 @@ import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InferenceClassificationOverride extends Entity implements Parsable {
-    /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.  */
+    /** Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.  */
     private _classifyAs?: InferenceClassificationType | undefined;
     /** The email address information of the sender for whom the override is created.  */
     private _senderEmailAddress?: EmailAddress | undefined;
@@ -15,7 +15,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
         super();
     };
     /**
-     * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+     * Gets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      * @returns a inferenceClassificationType
      */
     public get classifyAs() {
@@ -49,7 +49,7 @@ export class InferenceClassificationOverride extends Entity implements Parsable 
         writer.writeObjectValue<EmailAddress>("senderEmailAddress", this.senderEmailAddress);
     };
     /**
-     * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.
+     * Sets the classifyAs property value. Specifies how incoming messages from a specific sender should always be classified as. The possible values are: focused, other.
      * @param value Value to set for the classifyAs property.
      */
     public set classifyAs(value: InferenceClassificationType | undefined) {

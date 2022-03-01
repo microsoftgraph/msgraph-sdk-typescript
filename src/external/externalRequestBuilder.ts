@@ -1,6 +1,6 @@
 import {External} from '../models/microsoft/graph/externalConnectors/external';
 import {ConnectionsRequestBuilder} from './connections/connectionsRequestBuilder';
-import {ExternalConnectionRequestBuilder} from './connections/item/externalConnectionRequestBuilder';
+import {ExternalConnectionItemRequestBuilder} from './connections/item/externalConnectionItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /external  */
@@ -17,13 +17,13 @@ export class ExternalRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.external.connections.item collection
      * @param id Unique identifier of the item
-     * @returns a externalConnectionRequestBuilder
+     * @returns a externalConnectionItemRequestBuilder
      */
-    public connectionsById(id: string) : ExternalConnectionRequestBuilder {
+    public connectionsById(id: string) : ExternalConnectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["externalConnection_id"] = id
-        return new ExternalConnectionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ExternalConnectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ExternalRequestBuilder and sets the default values.
@@ -53,7 +53,7 @@ export class ExternalRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -71,7 +71,7 @@ export class ExternalRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -91,7 +91,7 @@ export class ExternalRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<External>(requestInfo, External, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<External>(requestInfo, External, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update external
@@ -105,6 +105,6 @@ export class ExternalRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

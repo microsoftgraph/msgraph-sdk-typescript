@@ -1,3 +1,4 @@
+import {IncomingCallOptions} from '../../../../models/microsoft/graph/incomingCallOptions';
 import {MediaConfig} from '../../../../models/microsoft/graph/mediaConfig';
 import {Modality} from '../../../../models/microsoft/graph/modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -7,6 +8,7 @@ export class AnswerRequestBody implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     private _callbackUri?: string | undefined;
+    private _callOptions?: IncomingCallOptions | undefined;
     private _mediaConfig?: MediaConfig | undefined;
     private _participantCapacity?: number | undefined;
     /**
@@ -37,6 +39,13 @@ export class AnswerRequestBody implements Parsable {
         return this._callbackUri;
     };
     /**
+     * Gets the callOptions property value. 
+     * @returns a incomingCallOptions
+     */
+    public get callOptions() {
+        return this._callOptions;
+    };
+    /**
      * Gets the mediaConfig property value. 
      * @returns a mediaConfig
      */
@@ -58,6 +67,7 @@ export class AnswerRequestBody implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["acceptedModalities", (o, n) => { (o as unknown as AnswerRequestBody).acceptedModalities = n.getEnumValues<Modality>(Modality); }],
             ["callbackUri", (o, n) => { (o as unknown as AnswerRequestBody).callbackUri = n.getStringValue(); }],
+            ["callOptions", (o, n) => { (o as unknown as AnswerRequestBody).callOptions = n.getObjectValue<IncomingCallOptions>(IncomingCallOptions); }],
             ["mediaConfig", (o, n) => { (o as unknown as AnswerRequestBody).mediaConfig = n.getObjectValue<MediaConfig>(MediaConfig); }],
             ["participantCapacity", (o, n) => { (o as unknown as AnswerRequestBody).participantCapacity = n.getNumberValue(); }],
         ]);
@@ -70,6 +80,7 @@ export class AnswerRequestBody implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         this.acceptedModalities && writer.writeEnumValue<Modality>("acceptedModalities", ...this.acceptedModalities);
         writer.writeStringValue("callbackUri", this.callbackUri);
+        writer.writeObjectValue<IncomingCallOptions>("callOptions", this.callOptions);
         writer.writeObjectValue<MediaConfig>("mediaConfig", this.mediaConfig);
         writer.writeNumberValue("participantCapacity", this.participantCapacity);
         writer.writeAdditionalData(this.additionalData);
@@ -94,6 +105,13 @@ export class AnswerRequestBody implements Parsable {
      */
     public set callbackUri(value: string | undefined) {
         this._callbackUri = value;
+    };
+    /**
+     * Sets the callOptions property value. 
+     * @param value Value to set for the callOptions property.
+     */
+    public set callOptions(value: IncomingCallOptions | undefined) {
+        this._callOptions = value;
     };
     /**
      * Sets the mediaConfig property value. 

@@ -1,4 +1,4 @@
-import {ReminderViewWithStartDateTimeWithEndDateTime} from './reminderViewWithStartDateTimeWithEndDateTime';
+import {Reminder} from '../../../models/microsoft/graph/reminder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/microsoft.graph.reminderView(StartDateTime='{StartDateTime}',EndDateTime='{EndDateTime}')  */
@@ -37,7 +37,7 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -46,12 +46,12 @@ export class ReminderViewWithStartDateTimeWithEndDateTimeRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ReminderViewWithStartDateTimeWithEndDateTime
+     * @returns a Promise of Reminder
      */
-    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReminderViewWithStartDateTimeWithEndDateTime[] | undefined> {
+    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Reminder[] | undefined> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<ReminderViewWithStartDateTimeWithEndDateTime>(requestInfo, ReminderViewWithStartDateTimeWithEndDateTime, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<Reminder>(requestInfo, Reminder, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

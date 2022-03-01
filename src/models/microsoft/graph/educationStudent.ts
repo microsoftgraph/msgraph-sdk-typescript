@@ -8,7 +8,7 @@ export class EducationStudent implements Parsable {
     private _birthDate?: DateOnly | undefined;
     /** ID of the student in the source system.  */
     private _externalId?: string | undefined;
-    /** Possible values are: female, male, other.  */
+    /** The possible values are: female, male, other, unknownFutureValue.  */
     private _gender?: EducationGender | undefined;
     /** Current grade level of the student.  */
     private _grade?: string | undefined;
@@ -44,7 +44,7 @@ export class EducationStudent implements Parsable {
         return this._externalId;
     };
     /**
-     * Gets the gender property value. Possible values are: female, male, other.
+     * Gets the gender property value. The possible values are: female, male, other, unknownFutureValue.
      * @returns a educationGender
      */
     public get gender() {
@@ -121,7 +121,7 @@ export class EducationStudent implements Parsable {
         this._externalId = value;
     };
     /**
-     * Sets the gender property value. Possible values are: female, male, other.
+     * Sets the gender property value. The possible values are: female, male, other, unknownFutureValue.
      * @param value Value to set for the gender property.
      */
     public set gender(value: EducationGender | undefined) {

@@ -3,7 +3,7 @@ import {TimeSlot} from './timeSlot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeConstraint implements Parsable {
-    /** The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.  */
+    /** The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.  */
     private _activityDomain?: ActivityDomain | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
@@ -15,7 +15,7 @@ export class TimeConstraint implements Parsable {
         this._additionalData = new Map<string, unknown>();
     };
     /**
-     * Gets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * Gets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      * @returns a activityDomain
      */
     public get activityDomain() {
@@ -56,7 +56,7 @@ export class TimeConstraint implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the activityDomain property value. The nature of the activity, optional. Possible values are: work, personal, unrestricted, or unknown.
+     * Sets the activityDomain property value. The nature of the activity, optional. The possible values are: work, personal, unrestricted, or unknown.
      * @param value Value to set for the activityDomain property.
      */
     public set activityDomain(value: ActivityDomain | undefined) {

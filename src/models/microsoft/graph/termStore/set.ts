@@ -1,6 +1,6 @@
 import {Entity} from '../entity';
-import {Group} from '../group';
 import {KeyValue} from '../keyValue';
+import {Group} from './group';
 import {LocalizedName} from './localizedName';
 import {Relation} from './relation';
 import {Term} from './term';
@@ -11,7 +11,7 @@ export class Set extends Entity implements Parsable {
     private _children?: Term[] | undefined;
     /** Date and time of set creation. Read-only.  */
     private _createdDateTime?: Date | undefined;
-    /** Description giving details on the term usage.  */
+    /** Description that gives details on the term usage.  */
     private _description?: string | undefined;
     /** Name of the set for each languageTag.  */
     private _localizedNames?: LocalizedName[] | undefined;
@@ -43,7 +43,7 @@ export class Set extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
-     * Gets the description property value. Description giving details on the term usage.
+     * Gets the description property value. Description that gives details on the term usage.
      * @returns a string
      */
     public get description() {
@@ -131,7 +131,7 @@ export class Set extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Sets the description property value. Description giving details on the term usage.
+     * Sets the description property value. Description that gives details on the term usage.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {

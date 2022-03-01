@@ -3,7 +3,7 @@ import {Recipient} from './recipient';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttendeeBase extends Recipient implements Parsable {
-    /** The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.  */
+    /** The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.  */
     private _type?: AttendeeType | undefined;
     /**
      * Instantiates a new attendeeBase and sets the default values.
@@ -12,7 +12,7 @@ export class AttendeeBase extends Recipient implements Parsable {
         super();
     };
     /**
-     * Gets the type property value. The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * Gets the type property value. The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
      * @returns a attendeeType
      */
     public get type() {
@@ -37,7 +37,7 @@ export class AttendeeBase extends Recipient implements Parsable {
         writer.writeEnumValue<AttendeeType>("type", this.type);
     };
     /**
-     * Sets the type property value. The type of attendee. Possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
+     * Sets the type property value. The type of attendee. The possible values are: required, optional, resource. Currently if the attendee is a person, findMeetingTimes always considers the person is of the Required type.
      * @param value Value to set for the type property.
      */
     public set type(value: AttendeeType | undefined) {

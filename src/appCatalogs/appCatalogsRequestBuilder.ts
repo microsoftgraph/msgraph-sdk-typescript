@@ -1,5 +1,5 @@
 import {AppCatalogs} from '../models/microsoft/graph/appCatalogs';
-import {TeamsAppRequestBuilder} from './teamsApps/item/teamsAppRequestBuilder';
+import {TeamsAppItemRequestBuilder} from './teamsApps/item/teamsAppItemRequestBuilder';
 import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -42,7 +42,7 @@ export class AppCatalogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -60,7 +60,7 @@ export class AppCatalogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -80,7 +80,7 @@ export class AppCatalogsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, AppCatalogs, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, AppCatalogs, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update appCatalogs
@@ -94,17 +94,17 @@ export class AppCatalogsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.appCatalogs.teamsApps.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsAppRequestBuilder
+     * @returns a teamsAppItemRequestBuilder
      */
-    public teamsAppsById(id: string) : TeamsAppRequestBuilder {
+    public teamsAppsById(id: string) : TeamsAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsApp_id"] = id
-        return new TeamsAppRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TeamsAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -12,7 +12,7 @@ export class RecurrenceRange implements Parsable {
     private _recurrenceTimeZone?: string | undefined;
     /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.  */
     private _startDate?: DateOnly | undefined;
-    /** The recurrence range. Possible values are: endDate, noEnd, numbered. Required.  */
+    /** The recurrence range. The possible values are: endDate, noEnd, numbered. Required.  */
     private _type?: RecurrenceRangeType | undefined;
     /**
      * Instantiates a new recurrenceRange and sets the default values.
@@ -56,7 +56,7 @@ export class RecurrenceRange implements Parsable {
         return this._startDate;
     };
     /**
-     * Gets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
+     * Gets the type property value. The recurrence range. The possible values are: endDate, noEnd, numbered. Required.
      * @returns a recurrenceRangeType
      */
     public get type() {
@@ -124,7 +124,7 @@ export class RecurrenceRange implements Parsable {
         this._startDate = value;
     };
     /**
-     * Sets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
+     * Sets the type property value. The recurrence range. The possible values are: endDate, noEnd, numbered. Required.
      * @param value Value to set for the type property.
      */
     public set type(value: RecurrenceRangeType | undefined) {

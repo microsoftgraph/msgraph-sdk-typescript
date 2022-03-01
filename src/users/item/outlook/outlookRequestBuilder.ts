@@ -1,5 +1,5 @@
 import {OutlookUser} from '../../../models/microsoft/graph/outlookUser';
-import {OutlookCategoryRequestBuilder} from './masterCategories/item/outlookCategoryRequestBuilder';
+import {OutlookCategoryItemRequestBuilder} from './masterCategories/item/outlookCategoryItemRequestBuilder';
 import {MasterCategoriesRequestBuilder} from './masterCategories/masterCategoriesRequestBuilder';
 import {SupportedLanguagesRequestBuilder} from './supportedLanguages/supportedLanguagesRequestBuilder';
 import {SupportedTimeZonesRequestBuilder} from './supportedTimeZones/supportedTimeZonesRequestBuilder';
@@ -31,7 +31,7 @@ export class OutlookRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Read-only.
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -41,12 +41,12 @@ export class OutlookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Read-only.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -59,13 +59,13 @@ export class OutlookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Read-only.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -77,13 +77,13 @@ export class OutlookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Read-only.
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -92,10 +92,10 @@ export class OutlookRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Read-only.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -108,21 +108,21 @@ export class OutlookRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<OutlookUser>(requestInfo, OutlookUser, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OutlookUser>(requestInfo, OutlookUser, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.outlook.masterCategories.item collection
      * @param id Unique identifier of the item
-     * @returns a outlookCategoryRequestBuilder
+     * @returns a outlookCategoryItemRequestBuilder
      */
-    public masterCategoriesById(id: string) : OutlookCategoryRequestBuilder {
+    public masterCategoriesById(id: string) : OutlookCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["outlookCategory_id"] = id
-        return new OutlookCategoryRequestBuilder(urlTplParams, this.requestAdapter);
+        return new OutlookCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Selective Outlook services available to the user. Read-only. Nullable.
+     * Read-only.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -133,7 +133,7 @@ export class OutlookRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /users/{user-id}/outlook/microsoft.graph.supportedLanguages()

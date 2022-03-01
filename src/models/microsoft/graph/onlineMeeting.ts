@@ -15,15 +15,15 @@ export class OnlineMeeting extends Entity implements Parsable {
     private _allowAttendeeToEnableCamera?: boolean | undefined;
     /** Indicates whether attendees can turn on their microphone.  */
     private _allowAttendeeToEnableMic?: boolean | undefined;
-    /** Specifies who can be a presenter in a meeting.  */
+    /** Specifies who can be a presenter in a meeting. Possible values are listed in the following table.  */
     private _allowedPresenters?: OnlineMeetingPresenters | undefined;
     /** Specifies the mode of meeting chat.  */
     private _allowMeetingChat?: MeetingChatMode | undefined;
-    /** Indicates if Teams reactions are enabled for the meeting.  */
+    /** Indicates whether Teams reactions are enabled for the meeting.  */
     private _allowTeamworkReactions?: boolean | undefined;
     /** The attendance reports of an online meeting. Read-only.  */
     private _attendanceReports?: MeetingAttendanceReport[] | undefined;
-    /** The content stream of the attendee report of a Teams live event. Read-only.  */
+    /** The content stream of the attendee report of a Microsoft Teams live event. Read-only.  */
     private _attendeeReport?: string | undefined;
     /** The phone access (dial-in) information for an online meeting. Read-only.  */
     private _audioConferencing?: AudioConferencing | undefined;
@@ -37,17 +37,17 @@ export class OnlineMeeting extends Entity implements Parsable {
     private _endDateTime?: Date | undefined;
     /** The external ID. A custom ID. Optional.  */
     private _externalId?: string | undefined;
-    /** Indicates whether this is a Teams live event.  */
+    /** Indicates if this is a Teams live event.  */
     private _isBroadcast?: boolean | undefined;
     /** Indicates whether to announce when callers join or leave.  */
     private _isEntryExitAnnounced?: boolean | undefined;
-    /** The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.  */
+    /** The join information in the language and locale variant specified in the Accept-Language request HTTP header. Read-only.  */
     private _joinInformation?: ItemBody | undefined;
     /** The join URL of the online meeting. Read-only.  */
     private _joinWebUrl?: string | undefined;
-    /** Specifies which participants can bypass the meeting lobby.  */
+    /** Specifies which participants can bypass the meeting   lobby.  */
     private _lobbyBypassSettings?: LobbyBypassSettings | undefined;
-    /** The participants associated with the online meeting. This includes the organizer and the attendees.  */
+    /** The participants associated with the online meeting.  This includes the organizer and the attendees.  */
     private _participants?: MeetingParticipants | undefined;
     /** Indicates whether to record the meeting automatically.  */
     private _recordAutomatically?: boolean | undefined;
@@ -78,7 +78,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         return this._allowAttendeeToEnableMic;
     };
     /**
-     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
+     * Gets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are listed in the following table.
      * @returns a onlineMeetingPresenters
      */
     public get allowedPresenters() {
@@ -92,7 +92,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         return this._allowMeetingChat;
     };
     /**
-     * Gets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
+     * Gets the allowTeamworkReactions property value. Indicates whether Teams reactions are enabled for the meeting.
      * @returns a boolean
      */
     public get allowTeamworkReactions() {
@@ -106,7 +106,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         return this._attendanceReports;
     };
     /**
-     * Gets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
+     * Gets the attendeeReport property value. The content stream of the attendee report of a Microsoft Teams live event. Read-only.
      * @returns a binary
      */
     public get attendeeReport() {
@@ -155,7 +155,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         return this._externalId;
     };
     /**
-     * Gets the isBroadcast property value. Indicates whether this is a Teams live event.
+     * Gets the isBroadcast property value. Indicates if this is a Teams live event.
      * @returns a boolean
      */
     public get isBroadcast() {
@@ -169,7 +169,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         return this._isEntryExitAnnounced;
     };
     /**
-     * Gets the joinInformation property value. The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
+     * Gets the joinInformation property value. The join information in the language and locale variant specified in the Accept-Language request HTTP header. Read-only.
      * @returns a itemBody
      */
     public get joinInformation() {
@@ -183,14 +183,14 @@ export class OnlineMeeting extends Entity implements Parsable {
         return this._joinWebUrl;
     };
     /**
-     * Gets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting lobby.
+     * Gets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting   lobby.
      * @returns a lobbyBypassSettings
      */
     public get lobbyBypassSettings() {
         return this._lobbyBypassSettings;
     };
     /**
-     * Gets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
+     * Gets the participants property value. The participants associated with the online meeting.  This includes the organizer and the attendees.
      * @returns a meetingParticipants
      */
     public get participants() {
@@ -301,7 +301,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._allowAttendeeToEnableMic = value;
     };
     /**
-     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting.
+     * Sets the allowedPresenters property value. Specifies who can be a presenter in a meeting. Possible values are listed in the following table.
      * @param value Value to set for the allowedPresenters property.
      */
     public set allowedPresenters(value: OnlineMeetingPresenters | undefined) {
@@ -315,7 +315,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._allowMeetingChat = value;
     };
     /**
-     * Sets the allowTeamworkReactions property value. Indicates if Teams reactions are enabled for the meeting.
+     * Sets the allowTeamworkReactions property value. Indicates whether Teams reactions are enabled for the meeting.
      * @param value Value to set for the allowTeamworkReactions property.
      */
     public set allowTeamworkReactions(value: boolean | undefined) {
@@ -329,7 +329,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._attendanceReports = value;
     };
     /**
-     * Sets the attendeeReport property value. The content stream of the attendee report of a Teams live event. Read-only.
+     * Sets the attendeeReport property value. The content stream of the attendee report of a Microsoft Teams live event. Read-only.
      * @param value Value to set for the attendeeReport property.
      */
     public set attendeeReport(value: string | undefined) {
@@ -378,7 +378,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._externalId = value;
     };
     /**
-     * Sets the isBroadcast property value. Indicates whether this is a Teams live event.
+     * Sets the isBroadcast property value. Indicates if this is a Teams live event.
      * @param value Value to set for the isBroadcast property.
      */
     public set isBroadcast(value: boolean | undefined) {
@@ -392,7 +392,7 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._isEntryExitAnnounced = value;
     };
     /**
-     * Sets the joinInformation property value. The join information in the language and locale variant specified in 'Accept-Language' request HTTP header. Read-only.
+     * Sets the joinInformation property value. The join information in the language and locale variant specified in the Accept-Language request HTTP header. Read-only.
      * @param value Value to set for the joinInformation property.
      */
     public set joinInformation(value: ItemBody | undefined) {
@@ -406,14 +406,14 @@ export class OnlineMeeting extends Entity implements Parsable {
         this._joinWebUrl = value;
     };
     /**
-     * Sets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting lobby.
+     * Sets the lobbyBypassSettings property value. Specifies which participants can bypass the meeting   lobby.
      * @param value Value to set for the lobbyBypassSettings property.
      */
     public set lobbyBypassSettings(value: LobbyBypassSettings | undefined) {
         this._lobbyBypassSettings = value;
     };
     /**
-     * Sets the participants property value. The participants associated with the online meeting. This includes the organizer and the attendees.
+     * Sets the participants property value. The participants associated with the online meeting.  This includes the organizer and the attendees.
      * @param value Value to set for the participants property.
      */
     public set participants(value: MeetingParticipants | undefined) {

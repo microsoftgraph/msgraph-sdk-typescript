@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The object identifier of an Azure AD user or group.  */
+    /** The object identifier of an Azure Active Directory user or group.  */
     private _id?: string | undefined;
     /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.  */
     private _targetedAuthenticationMethod?: string | undefined;
@@ -24,7 +24,7 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements P
         return this._additionalData;
     };
     /**
-     * Gets the id property value. The object identifier of an Azure AD user or group.
+     * Gets the id property value. The object identifier of an Azure Active Directory user or group.
      * @returns a string
      */
     public get id() {
@@ -74,7 +74,7 @@ export class AuthenticationMethodsRegistrationCampaignIncludeTarget implements P
         this._additionalData = value;
     };
     /**
-     * Sets the id property value. The object identifier of an Azure AD user or group.
+     * Sets the id property value. The object identifier of an Azure Active Directory user or group.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

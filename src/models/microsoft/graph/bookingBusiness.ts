@@ -10,7 +10,7 @@ import {PhysicalAddress} from './physicalAddress';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingBusiness extends Entity implements Parsable {
-    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.  */
+    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.  */
     private _address?: PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable.  */
     private _appointments?: BookingAppointment[] | undefined;
@@ -51,7 +51,7 @@ export class BookingBusiness extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
+     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      * @returns a physicalAddress
      */
     public get address() {
@@ -220,7 +220,7 @@ export class BookingBusiness extends Entity implements Parsable {
         writer.writeStringValue("webSiteUrl", this.webSiteUrl);
     };
     /**
-     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
+     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
      * @param value Value to set for the address property.
      */
     public set address(value: PhysicalAddress | undefined) {

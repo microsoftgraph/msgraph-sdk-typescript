@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class EducationTeacher implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Id of the Teacher in external source system.  */
+    /** ID of the teacher in the source system.  */
     private _externalId?: string | undefined;
     /** Teacher number.  */
     private _teacherNumber?: string | undefined;
@@ -21,7 +21,7 @@ export class EducationTeacher implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the externalId property value. Id of the Teacher in external source system.
+     * Gets the externalId property value. ID of the teacher in the source system.
      * @returns a string
      */
     public get externalId() {
@@ -62,7 +62,7 @@ export class EducationTeacher implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the externalId property value. Id of the Teacher in external source system.
+     * Sets the externalId property value. ID of the teacher in the source system.
      * @param value Value to set for the externalId property.
      */
     public set externalId(value: string | undefined) {

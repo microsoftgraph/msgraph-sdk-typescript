@@ -1,13 +1,13 @@
 import {Channel} from '../../../models/microsoft/graph/channel';
 import {CompleteMigrationRequestBuilder} from './completeMigration/completeMigrationRequestBuilder';
 import {FilesFolderRequestBuilder} from './filesFolder/filesFolderRequestBuilder';
-import {ConversationMemberRequestBuilder} from './members/item/conversationMemberRequestBuilder';
+import {ConversationMemberItemRequestBuilder} from './members/item/conversationMemberItemRequestBuilder';
 import {MembersRequestBuilder} from './members/membersRequestBuilder';
-import {ChatMessageRequestBuilder} from './messages/item/chatMessageRequestBuilder';
+import {ChatMessageItemRequestBuilder} from './messages/item/chatMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
 import {ProvisionEmailRequestBuilder} from './provisionEmail/provisionEmailRequestBuilder';
 import {RemoveEmailRequestBuilder} from './removeEmail/removeEmailRequestBuilder';
-import {TeamsTabRequestBuilder} from './tabs/item/teamsTabRequestBuilder';
+import {TeamsTabItemRequestBuilder} from './tabs/item/teamsTabItemRequestBuilder';
 import {TabsRequestBuilder} from './tabs/tabsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -64,7 +64,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -83,7 +83,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -101,7 +101,7 @@ export class PrimaryChannelRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -116,7 +116,7 @@ export class PrimaryChannelRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The general channel for the team.
@@ -133,29 +133,29 @@ export class PrimaryChannelRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, Channel, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Channel>(requestInfo, Channel, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.primaryChannel.members.item collection
      * @param id Unique identifier of the item
-     * @returns a conversationMemberRequestBuilder
+     * @returns a conversationMemberItemRequestBuilder
      */
-    public membersById(id: string) : ConversationMemberRequestBuilder {
+    public membersById(id: string) : ConversationMemberItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conversationMember_id"] = id
-        return new ConversationMemberRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ConversationMemberItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.primaryChannel.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a chatMessageRequestBuilder
+     * @returns a chatMessageItemRequestBuilder
      */
-    public messagesById(id: string) : ChatMessageRequestBuilder {
+    public messagesById(id: string) : ChatMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["chatMessage_id"] = id
-        return new ChatMessageRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ChatMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The general channel for the team.
@@ -169,17 +169,17 @@ export class PrimaryChannelRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.primaryChannel.tabs.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsTabRequestBuilder
+     * @returns a teamsTabItemRequestBuilder
      */
-    public tabsById(id: string) : TeamsTabRequestBuilder {
+    public tabsById(id: string) : TeamsTabItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsTab_id"] = id
-        return new TeamsTabRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TeamsTabItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

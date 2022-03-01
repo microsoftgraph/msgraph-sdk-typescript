@@ -7,7 +7,7 @@ export class Operation extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The time of the last action of the operation.  */
     private _lastActionDateTime?: Date | undefined;
-    /** Possible values are: notStarted, running, completed, failed. Read-only.  */
+    /** The current status of the operation: notStarted, running, completed, failed  */
     private _status?: OperationStatus | undefined;
     /**
      * Instantiates a new operation and sets the default values.
@@ -30,7 +30,7 @@ export class Operation extends Entity implements Parsable {
         return this._lastActionDateTime;
     };
     /**
-     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Gets the status property value. The current status of the operation: notStarted, running, completed, failed
      * @returns a operationStatus
      */
     public get status() {
@@ -73,7 +73,7 @@ export class Operation extends Entity implements Parsable {
         this._lastActionDateTime = value;
     };
     /**
-     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Sets the status property value. The current status of the operation: notStarted, running, completed, failed
      * @param value Value to set for the status property.
      */
     public set status(value: OperationStatus | undefined) {

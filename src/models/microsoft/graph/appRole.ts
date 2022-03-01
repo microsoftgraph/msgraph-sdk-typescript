@@ -9,7 +9,7 @@ export class AppRole implements Parsable {
     private _description?: string | undefined;
     /** Display name for the permission that appears in the app role assignment and consent experiences.  */
     private _displayName?: string | undefined;
-    /** Unique role identifier inside the appRoles collection. When creating a new app role, a new Guid identifier must be provided.  */
+    /** Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.  */
     private _id?: string | undefined;
     /** When creating or updating an app role, this must be set to true (which is the default). To delete a role, this must first be set to false.  At that point, in a subsequent call, this role may be removed.  */
     private _isEnabled?: boolean | undefined;
@@ -52,7 +52,7 @@ export class AppRole implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new Guid identifier must be provided.
+     * Gets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
      * @returns a string
      */
     public get id() {
@@ -138,7 +138,7 @@ export class AppRole implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new Guid identifier must be provided.
+     * Sets the id property value. Unique role identifier inside the appRoles collection. When creating a new app role, a new GUID identifier must be provided.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

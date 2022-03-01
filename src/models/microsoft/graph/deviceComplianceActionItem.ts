@@ -3,7 +3,7 @@ import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceActionItem extends Entity implements Parsable {
-    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.  */
+    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.  */
     private _actionType?: DeviceComplianceActionType | undefined;
     /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760  */
     private _gracePeriodHours?: number | undefined;
@@ -18,7 +18,7 @@ export class DeviceComplianceActionItem extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
      * @returns a deviceComplianceActionType
      */
     public get actionType() {
@@ -70,7 +70,7 @@ export class DeviceComplianceActionItem extends Entity implements Parsable {
         writer.writeStringValue("notificationTemplateId", this.notificationTemplateId);
     };
     /**
-     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
+     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
      * @param value Value to set for the actionType property.
      */
     public set actionType(value: DeviceComplianceActionType | undefined) {

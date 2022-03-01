@@ -8,7 +8,7 @@ export class ExpirationPattern implements Parsable {
     private _duration?: Duration | undefined;
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _endDateTime?: Date | undefined;
-    /** The requestor's desired expiration pattern type.  */
+    /** The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.  */
     private _type?: ExpirationPatternType | undefined;
     /**
      * Instantiates a new expirationPattern and sets the default values.
@@ -38,7 +38,7 @@ export class ExpirationPattern implements Parsable {
         return this._endDateTime;
     };
     /**
-     * Gets the type property value. The requestor's desired expiration pattern type.
+     * Gets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
      * @returns a expirationPatternType
      */
     public get type() {
@@ -88,7 +88,7 @@ export class ExpirationPattern implements Parsable {
         this._endDateTime = value;
     };
     /**
-     * Sets the type property value. The requestor's desired expiration pattern type.
+     * Sets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
      * @param value Value to set for the type property.
      */
     public set type(value: ExpirationPatternType | undefined) {

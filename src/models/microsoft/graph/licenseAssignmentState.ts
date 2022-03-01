@@ -7,13 +7,13 @@ export class LicenseAssignmentState implements Parsable {
     private _assignedByGroup?: string | undefined;
     /** The service plans that are disabled in this assignment. Read-Only.  */
     private _disabledPlans?: string[] | undefined;
-    /** License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. Possible values: CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Others. For more information on how to identify and resolve license assignment errors see here.  */
-    private _error?: string | undefined;
+    /** License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.  */
+    private _error_escaped?: string | undefined;
     /** The timestamp when the state of the license assignment was last updated.  */
     private _lastUpdatedDateTime?: Date | undefined;
     /** The unique identifier for the SKU. Read-Only.  */
     private _skuId?: string | undefined;
-    /** Indicate the current state of this assignment. Read-Only. Possible values: Active, ActiveWithError, Disabled and Error.  */
+    /** Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.  */
     private _state?: string | undefined;
     /**
      * Instantiates a new licenseAssignmentState and sets the default values.
@@ -43,11 +43,11 @@ export class LicenseAssignmentState implements Parsable {
         return this._disabledPlans;
     };
     /**
-     * Gets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. Possible values: CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Others. For more information on how to identify and resolve license assignment errors see here.
+     * Gets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.
      * @returns a string
      */
-    public get error() {
-        return this._error;
+    public get error_escaped() {
+        return this._error_escaped;
     };
     /**
      * Gets the lastUpdatedDateTime property value. The timestamp when the state of the license assignment was last updated.
@@ -64,7 +64,7 @@ export class LicenseAssignmentState implements Parsable {
         return this._skuId;
     };
     /**
-     * Gets the state property value. Indicate the current state of this assignment. Read-Only. Possible values: Active, ActiveWithError, Disabled and Error.
+     * Gets the state property value. Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.
      * @returns a string
      */
     public get state() {
@@ -78,7 +78,7 @@ export class LicenseAssignmentState implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([
             ["assignedByGroup", (o, n) => { (o as unknown as LicenseAssignmentState).assignedByGroup = n.getStringValue(); }],
             ["disabledPlans", (o, n) => { (o as unknown as LicenseAssignmentState).disabledPlans = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["error", (o, n) => { (o as unknown as LicenseAssignmentState).error = n.getStringValue(); }],
+            ["error", (o, n) => { (o as unknown as LicenseAssignmentState).error_escaped = n.getStringValue(); }],
             ["lastUpdatedDateTime", (o, n) => { (o as unknown as LicenseAssignmentState).lastUpdatedDateTime = n.getDateValue(); }],
             ["skuId", (o, n) => { (o as unknown as LicenseAssignmentState).skuId = n.getStringValue(); }],
             ["state", (o, n) => { (o as unknown as LicenseAssignmentState).state = n.getStringValue(); }],
@@ -92,7 +92,7 @@ export class LicenseAssignmentState implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("assignedByGroup", this.assignedByGroup);
         writer.writeCollectionOfPrimitiveValues<string>("disabledPlans", this.disabledPlans);
-        writer.writeStringValue("error", this.error);
+        writer.writeStringValue("error", this.error_escaped);
         writer.writeDateValue("lastUpdatedDateTime", this.lastUpdatedDateTime);
         writer.writeStringValue("skuId", this.skuId);
         writer.writeStringValue("state", this.state);
@@ -120,11 +120,11 @@ export class LicenseAssignmentState implements Parsable {
         this._disabledPlans = value;
     };
     /**
-     * Sets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. Possible values: CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Others. For more information on how to identify and resolve license assignment errors see here.
-     * @param value Value to set for the error property.
+     * Sets the error property value. License assignment failure error. If the license is assigned successfully, this field will be Null. Read-Only. The possible values are CountViolation, MutuallyExclusiveViolation, DependencyViolation, ProhibitedInUsageLocationViolation, UniquenessViolation, and Other. For more information on how to identify and resolve license assignment errors see here.
+     * @param value Value to set for the error_escaped property.
      */
-    public set error(value: string | undefined) {
-        this._error = value;
+    public set error_escaped(value: string | undefined) {
+        this._error_escaped = value;
     };
     /**
      * Sets the lastUpdatedDateTime property value. The timestamp when the state of the license assignment was last updated.
@@ -141,7 +141,7 @@ export class LicenseAssignmentState implements Parsable {
         this._skuId = value;
     };
     /**
-     * Sets the state property value. Indicate the current state of this assignment. Read-Only. Possible values: Active, ActiveWithError, Disabled and Error.
+     * Sets the state property value. Indicate the current state of this assignment. Read-Only. The possible values are Active, ActiveWithError, Disabled, and Error.
      * @param value Value to set for the state property.
      */
     public set state(value: string | undefined) {

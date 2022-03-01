@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class RegistrationEnforcement implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Run campaigns to remind users to setup targeted authentication methods.  */
+    /** Run campaigns to remind users to set up targeted authentication methods.  */
     private _authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
     /**
      * Instantiates a new registrationEnforcement and sets the default values.
@@ -20,7 +20,7 @@ export class RegistrationEnforcement implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
      * @returns a authenticationMethodsRegistrationCampaign
      */
     public get authenticationMethodsRegistrationCampaign() {
@@ -52,7 +52,7 @@ export class RegistrationEnforcement implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
+     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
      * @param value Value to set for the authenticationMethodsRegistrationCampaign property.
      */
     public set authenticationMethodsRegistrationCampaign(value: AuthenticationMethodsRegistrationCampaign | undefined) {

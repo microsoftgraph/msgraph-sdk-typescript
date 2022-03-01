@@ -14,7 +14,7 @@ export class ParticipantInfo implements Parsable {
     private _languageId?: string | undefined;
     /** The participant ID of the participant. Read-only.  */
     private _participantId?: string | undefined;
-    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.  */
+    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.  */
     private _region?: string | undefined;
     /**
      * Instantiates a new participantInfo and sets the default values.
@@ -65,7 +65,7 @@ export class ParticipantInfo implements Parsable {
         return this._participantId;
     };
     /**
-     * Gets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
+     * Gets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.
      * @returns a string
      */
     public get region() {
@@ -142,7 +142,7 @@ export class ParticipantInfo implements Parsable {
         this._participantId = value;
     };
     /**
-     * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
+     * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.
      * @param value Value to set for the region property.
      */
     public set region(value: string | undefined) {

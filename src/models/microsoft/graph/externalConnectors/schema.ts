@@ -3,7 +3,7 @@ import {Property} from './property';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Schema extends Entity implements Parsable {
-    /** Must be set to microsoft.graph.externalItem. Required.  */
+    /** Must be set to microsoft.graph.externalConnector.externalItem. Required.  */
     private _baseType?: string | undefined;
     /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.  */
     private _properties?: Property[] | undefined;
@@ -14,7 +14,7 @@ export class Schema extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
+     * Gets the baseType property value. Must be set to microsoft.graph.externalConnector.externalItem. Required.
      * @returns a string
      */
     public get baseType() {
@@ -48,7 +48,7 @@ export class Schema extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Property>("properties", this.properties);
     };
     /**
-     * Sets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
+     * Sets the baseType property value. Must be set to microsoft.graph.externalConnector.externalItem. Required.
      * @param value Value to set for the baseType property.
      */
     public set baseType(value: string | undefined) {

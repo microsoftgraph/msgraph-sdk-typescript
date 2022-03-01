@@ -11,7 +11,7 @@ export class SchemaExtension extends Entity implements Parsable {
     private _properties?: ExtensionSchemaProperty[] | undefined;
     /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).  */
     private _status?: string | undefined;
-    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.  */
+    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.  */
     private _targetTypes?: string[] | undefined;
     /**
      * Instantiates a new schemaExtension and sets the default values.
@@ -48,7 +48,7 @@ export class SchemaExtension extends Entity implements Parsable {
         return this._status;
     };
     /**
-     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
+     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
      * @returns a string
      */
     public get targetTypes() {
@@ -109,7 +109,7 @@ export class SchemaExtension extends Entity implements Parsable {
         this._status = value;
     };
     /**
-     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
+     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
      * @param value Value to set for the targetTypes property.
      */
     public set targetTypes(value: string[] | undefined) {

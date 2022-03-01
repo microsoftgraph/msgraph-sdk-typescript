@@ -33,7 +33,7 @@ export class CheckGrantedPermissionsForAppRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -48,6 +48,6 @@ export class CheckGrantedPermissionsForAppRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<CheckGrantedPermissionsForApp>(requestInfo, CheckGrantedPermissionsForApp, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<CheckGrantedPermissionsForApp>(requestInfo, CheckGrantedPermissionsForApp, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

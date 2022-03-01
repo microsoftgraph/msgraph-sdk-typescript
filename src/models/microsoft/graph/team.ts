@@ -15,7 +15,7 @@ import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Team extends Entity implements Parsable {
-    /** The collection of channels & messages associated with the team.  */
+    /** The collection of channels and messages associated with the team.  */
     private _channels?: Channel[] | undefined;
     /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.  */
     private _classification?: string | undefined;
@@ -63,7 +63,7 @@ export class Team extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the channels property value. The collection of channels & messages associated with the team.
+     * Gets the channels property value. The collection of channels and messages associated with the team.
      * @returns a channel
      */
     public get channels() {
@@ -268,7 +268,7 @@ export class Team extends Entity implements Parsable {
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
-     * Sets the channels property value. The collection of channels & messages associated with the team.
+     * Sets the channels property value. The collection of channels and messages associated with the team.
      * @param value Value to set for the channels property.
      */
     public set channels(value: Channel[] | undefined) {

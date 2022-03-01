@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class PrintTask extends Entity implements Parsable {
     private _definition?: PrintTaskDefinition | undefined;
-    /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only.  */
+    /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.  */
     private _parentUrl?: string | undefined;
     private _status?: PrintTaskStatus | undefined;
     private _trigger?: PrintTaskTrigger | undefined;
@@ -24,7 +24,7 @@ export class PrintTask extends Entity implements Parsable {
         return this._definition;
     };
     /**
-     * Gets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only.
+     * Gets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.
      * @returns a string
      */
     public get parentUrl() {
@@ -76,7 +76,7 @@ export class PrintTask extends Entity implements Parsable {
         this._definition = value;
     };
     /**
-     * Sets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only.
+     * Sets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.
      * @param value Value to set for the parentUrl property.
      */
     public set parentUrl(value: string | undefined) {

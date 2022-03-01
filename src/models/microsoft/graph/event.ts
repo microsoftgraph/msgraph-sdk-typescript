@@ -20,7 +20,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Event extends OutlookItem implements Parsable {
-    /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.  */
+    /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.  */
     private _allowNewTimeProposals?: boolean | undefined;
     /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.  */
     private _attachments?: Attachment[] | undefined;
@@ -83,7 +83,7 @@ export class Event extends OutlookItem implements Parsable {
         super();
     };
     /**
-     * Gets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
+     * Gets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
      * @returns a boolean
      */
     public get allowNewTimeProposals() {
@@ -477,7 +477,7 @@ export class Event extends OutlookItem implements Parsable {
         writer.writeStringValue("webLink", this.webLink);
     };
     /**
-     * Sets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
+     * Sets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
      * @param value Value to set for the allowNewTimeProposals property.
      */
     public set allowNewTimeProposals(value: boolean | undefined) {

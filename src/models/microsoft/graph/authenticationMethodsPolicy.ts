@@ -6,13 +6,13 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AuthenticationMethodsPolicy extends Entity implements Parsable {
     /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.  */
     private _authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
-    /** A description of the policy.  */
+    /** A description of the policy. Read-only.  */
     private _description?: string | undefined;
-    /** The name of the policy.  */
+    /** The name of the policy. Read-only.  */
     private _displayName?: string | undefined;
-    /** The date and time of the last update to the policy.  */
+    /** The date and time of the last update to the policy. Read-only.  */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The version of the policy in use.  */
+    /** The version of the policy in use. Read-only.  */
     private _policyVersion?: string | undefined;
     private _reconfirmationInDays?: number | undefined;
     /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.  */
@@ -31,28 +31,28 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         return this._authenticationMethodConfigurations;
     };
     /**
-     * Gets the description property value. A description of the policy.
+     * Gets the description property value. A description of the policy. Read-only.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Gets the displayName property value. The name of the policy.
+     * Gets the displayName property value. The name of the policy. Read-only.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the lastModifiedDateTime property value. The date and time of the last update to the policy.
+     * Gets the lastModifiedDateTime property value. The date and time of the last update to the policy. Read-only.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Gets the policyVersion property value. The version of the policy in use.
+     * Gets the policyVersion property value. The version of the policy in use. Read-only.
      * @returns a string
      */
     public get policyVersion() {
@@ -110,28 +110,28 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         this._authenticationMethodConfigurations = value;
     };
     /**
-     * Sets the description property value. A description of the policy.
+     * Sets the description property value. A description of the policy. Read-only.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Sets the displayName property value. The name of the policy.
+     * Sets the displayName property value. The name of the policy. Read-only.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy.
+     * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy. Read-only.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Sets the policyVersion property value. The version of the policy in use.
+     * Sets the policyVersion property value. The version of the policy in use. Read-only.
      * @param value Value to set for the policyVersion property.
      */
     public set policyVersion(value: string | undefined) {

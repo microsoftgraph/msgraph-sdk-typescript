@@ -1,5 +1,7 @@
 import {AggregationOption} from './aggregationOption';
 import {EntityType} from './entityType';
+import {ResultTemplateOption} from './resultTemplateOption';
+import {SearchAlterationOptions} from './searchAlterationOptions';
 import {SearchQuery} from './searchQuery';
 import {SortProperty} from './sortProperty';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -22,6 +24,10 @@ export class SearchRequest implements Parsable {
     /** Specifies the offset for the search results. Offset 0 returns the very first result. Optional.  */
     private _from?: number | undefined;
     private _query?: SearchQuery | undefined;
+    /** Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional.  */
+    private _queryAlterationOptions?: SearchAlterationOptions | undefined;
+    /** Provides the search result templates options for rendering connectors search results.  */
+    private _resultTemplateOptions?: ResultTemplateOption | undefined;
     /** The size of the page to be retrieved. Optional.  */
     private _size?: number | undefined;
     /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.  */
@@ -96,6 +102,20 @@ export class SearchRequest implements Parsable {
         return this._query;
     };
     /**
+     * Gets the queryAlterationOptions property value. Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional.
+     * @returns a searchAlterationOptions
+     */
+    public get queryAlterationOptions() {
+        return this._queryAlterationOptions;
+    };
+    /**
+     * Gets the resultTemplateOptions property value. Provides the search result templates options for rendering connectors search results.
+     * @returns a resultTemplateOption
+     */
+    public get resultTemplateOptions() {
+        return this._resultTemplateOptions;
+    };
+    /**
      * Gets the size property value. The size of the page to be retrieved. Optional.
      * @returns a integer
      */
@@ -123,6 +143,8 @@ export class SearchRequest implements Parsable {
             ["fields", (o, n) => { (o as unknown as SearchRequest).fields = n.getCollectionOfPrimitiveValues<string>(); }],
             ["from", (o, n) => { (o as unknown as SearchRequest).from = n.getNumberValue(); }],
             ["query", (o, n) => { (o as unknown as SearchRequest).query = n.getObjectValue<SearchQuery>(SearchQuery); }],
+            ["queryAlterationOptions", (o, n) => { (o as unknown as SearchRequest).queryAlterationOptions = n.getObjectValue<SearchAlterationOptions>(SearchAlterationOptions); }],
+            ["resultTemplateOptions", (o, n) => { (o as unknown as SearchRequest).resultTemplateOptions = n.getObjectValue<ResultTemplateOption>(ResultTemplateOption); }],
             ["size", (o, n) => { (o as unknown as SearchRequest).size = n.getNumberValue(); }],
             ["sortProperties", (o, n) => { (o as unknown as SearchRequest).sortProperties = n.getCollectionOfObjectValues<SortProperty>(SortProperty); }],
         ]);
@@ -141,6 +163,8 @@ export class SearchRequest implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
         writer.writeNumberValue("from", this.from);
         writer.writeObjectValue<SearchQuery>("query", this.query);
+        writer.writeObjectValue<SearchAlterationOptions>("queryAlterationOptions", this.queryAlterationOptions);
+        writer.writeObjectValue<ResultTemplateOption>("resultTemplateOptions", this.resultTemplateOptions);
         writer.writeNumberValue("size", this.size);
         writer.writeCollectionOfObjectValues<SortProperty>("sortProperties", this.sortProperties);
         writer.writeAdditionalData(this.additionalData);
@@ -207,6 +231,20 @@ export class SearchRequest implements Parsable {
      */
     public set query(value: SearchQuery | undefined) {
         this._query = value;
+    };
+    /**
+     * Sets the queryAlterationOptions property value. Query alteration options formatted in a JSON blob that contains two optional flags related to spelling correction. Optional.
+     * @param value Value to set for the queryAlterationOptions property.
+     */
+    public set queryAlterationOptions(value: SearchAlterationOptions | undefined) {
+        this._queryAlterationOptions = value;
+    };
+    /**
+     * Sets the resultTemplateOptions property value. Provides the search result templates options for rendering connectors search results.
+     * @param value Value to set for the resultTemplateOptions property.
+     */
+    public set resultTemplateOptions(value: ResultTemplateOption | undefined) {
+        this._resultTemplateOptions = value;
     };
     /**
      * Sets the size property value. The size of the page to be retrieved. Optional.

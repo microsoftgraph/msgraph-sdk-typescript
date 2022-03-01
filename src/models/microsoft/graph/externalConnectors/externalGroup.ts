@@ -1,5 +1,5 @@
 import {Entity} from '../entity';
-import {Identity} from '../identity';
+import {Identity} from './identity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalGroup extends Entity implements Parsable {
@@ -7,7 +7,7 @@ export class ExternalGroup extends Entity implements Parsable {
     private _description?: string | undefined;
     /** The friendly name of the external group. Optional.  */
     private _displayName?: string | undefined;
-    /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.  */
+    /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.  */
     private _members?: Identity[] | undefined;
     /**
      * Instantiates a new externalGroup and sets the default values.
@@ -30,7 +30,7 @@ export class ExternalGroup extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+     * Gets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.
      * @returns a identity
      */
     public get members() {
@@ -73,7 +73,7 @@ export class ExternalGroup extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
+     * Sets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.
      * @param value Value to set for the members property.
      */
     public set members(value: Identity[] | undefined) {

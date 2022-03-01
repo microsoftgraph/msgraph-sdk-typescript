@@ -1,24 +1,24 @@
 import {PolicyRoot} from '../models/microsoft/graph/policyRoot';
 import {ActivityBasedTimeoutPoliciesRequestBuilder} from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
-import {ActivityBasedTimeoutPolicyRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyRequestBuilder';
+import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyItemRequestBuilder';
 import {AdminConsentRequestPolicyRequestBuilder} from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
 import {AuthenticationFlowsPolicyRequestBuilder} from './authenticationFlowsPolicy/authenticationFlowsPolicyRequestBuilder';
 import {AuthenticationMethodsPolicyRequestBuilder} from './authenticationMethodsPolicy/authenticationMethodsPolicyRequestBuilder';
 import {AuthorizationPolicyRequestBuilder} from './authorizationPolicy/authorizationPolicyRequestBuilder';
 import {ClaimsMappingPoliciesRequestBuilder} from './claimsMappingPolicies/claimsMappingPoliciesRequestBuilder';
-import {ClaimsMappingPolicyRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyRequestBuilder';
+import {ClaimsMappingPolicyItemRequestBuilder} from './claimsMappingPolicies/item/claimsMappingPolicyItemRequestBuilder';
 import {ConditionalAccessPoliciesRequestBuilder} from './conditionalAccessPolicies/conditionalAccessPoliciesRequestBuilder';
-import {ConditionalAccessPolicyRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyRequestBuilder';
+import {ConditionalAccessPolicyItemRequestBuilder} from './conditionalAccessPolicies/item/conditionalAccessPolicyItemRequestBuilder';
 import {FeatureRolloutPoliciesRequestBuilder} from './featureRolloutPolicies/featureRolloutPoliciesRequestBuilder';
-import {FeatureRolloutPolicyRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyRequestBuilder';
+import {FeatureRolloutPolicyItemRequestBuilder} from './featureRolloutPolicies/item/featureRolloutPolicyItemRequestBuilder';
 import {HomeRealmDiscoveryPoliciesRequestBuilder} from './homeRealmDiscoveryPolicies/homeRealmDiscoveryPoliciesRequestBuilder';
-import {HomeRealmDiscoveryPolicyRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyRequestBuilder';
+import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPolicies/item/homeRealmDiscoveryPolicyItemRequestBuilder';
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilder} from './identitySecurityDefaultsEnforcementPolicy/identitySecurityDefaultsEnforcementPolicyRequestBuilder';
-import {PermissionGrantPolicyRequestBuilder} from './permissionGrantPolicies/item/permissionGrantPolicyRequestBuilder';
+import {PermissionGrantPolicyItemRequestBuilder} from './permissionGrantPolicies/item/permissionGrantPolicyItemRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilder} from './permissionGrantPolicies/permissionGrantPoliciesRequestBuilder';
-import {TokenIssuancePolicyRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyRequestBuilder';
+import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
-import {TokenLifetimePolicyRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyRequestBuilder';
+import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
 import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/tokenLifetimePoliciesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -72,35 +72,35 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.activityBasedTimeoutPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a activityBasedTimeoutPolicyRequestBuilder
+     * @returns a activityBasedTimeoutPolicyItemRequestBuilder
      */
-    public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyRequestBuilder {
+    public activityBasedTimeoutPoliciesById(id: string) : ActivityBasedTimeoutPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["activityBasedTimeoutPolicy_id"] = id
-        return new ActivityBasedTimeoutPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.claimsMappingPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a claimsMappingPolicyRequestBuilder
+     * @returns a claimsMappingPolicyItemRequestBuilder
      */
-    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyRequestBuilder {
+    public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["claimsMappingPolicy_id"] = id
-        return new ClaimsMappingPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.conditionalAccessPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a conditionalAccessPolicyRequestBuilder
+     * @returns a conditionalAccessPolicyItemRequestBuilder
      */
-    public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyRequestBuilder {
+    public conditionalAccessPoliciesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conditionalAccessPolicy_id"] = id
-        return new ConditionalAccessPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new PoliciesRequestBuilder and sets the default values.
@@ -130,7 +130,7 @@ export class PoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -148,7 +148,7 @@ export class PoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -156,13 +156,13 @@ export class PoliciesRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a featureRolloutPolicyRequestBuilder
+     * @returns a featureRolloutPolicyItemRequestBuilder
      */
-    public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyRequestBuilder {
+    public featureRolloutPoliciesById(id: string) : FeatureRolloutPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["featureRolloutPolicy_id"] = id
-        return new FeatureRolloutPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new FeatureRolloutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get policies
@@ -179,18 +179,18 @@ export class PoliciesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, PolicyRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, PolicyRoot, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a homeRealmDiscoveryPolicyRequestBuilder
+     * @returns a homeRealmDiscoveryPolicyItemRequestBuilder
      */
-    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyRequestBuilder {
+    public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["homeRealmDiscoveryPolicy_id"] = id
-        return new HomeRealmDiscoveryPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new HomeRealmDiscoveryPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update policies
@@ -204,39 +204,39 @@ export class PoliciesRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a permissionGrantPolicyRequestBuilder
+     * @returns a permissionGrantPolicyItemRequestBuilder
      */
-    public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyRequestBuilder {
+    public permissionGrantPoliciesById(id: string) : PermissionGrantPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["permissionGrantPolicy_id"] = id
-        return new PermissionGrantPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PermissionGrantPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a tokenIssuancePolicyRequestBuilder
+     * @returns a tokenIssuancePolicyItemRequestBuilder
      */
-    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyRequestBuilder {
+    public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenIssuancePolicy_id"] = id
-        return new TokenIssuancePolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a tokenLifetimePolicyRequestBuilder
+     * @returns a tokenLifetimePolicyItemRequestBuilder
      */
-    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyRequestBuilder {
+    public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["tokenLifetimePolicy_id"] = id
-        return new TokenLifetimePolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

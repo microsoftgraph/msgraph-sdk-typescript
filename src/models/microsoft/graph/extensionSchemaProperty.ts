@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ExtensionSchemaProperty implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The name of the strongly typed property defined as part of a schema extension.  */
+    /** The name of the strongly-typed property defined as part of a schema extension.  */
     private _name?: string | undefined;
     /** The type of the property that is defined as part of a schema extension.  Allowed values are Binary, Boolean, DateTime, Integer or String.  See the table below for more details.  */
     private _type?: string | undefined;
@@ -21,7 +21,7 @@ export class ExtensionSchemaProperty implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the name property value. The name of the strongly typed property defined as part of a schema extension.
+     * Gets the name property value. The name of the strongly-typed property defined as part of a schema extension.
      * @returns a string
      */
     public get name() {
@@ -62,7 +62,7 @@ export class ExtensionSchemaProperty implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the name property value. The name of the strongly typed property defined as part of a schema extension.
+     * Sets the name property value. The name of the strongly-typed property defined as part of a schema extension.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {

@@ -6,7 +6,7 @@ export class ConditionalAccessGrantControls implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** List of values of built-in controls required by the policy. Possible values: block, mfa, compliantDevice, domainJoinedDevice, approvedApplication, compliantApplication, passwordChange, unknownFutureValue.  */
     private _builtInControls?: ConditionalAccessGrantControl[] | undefined;
-    /** List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).  */
+    /** List of custom controls IDs required by the policy. For more information, see Custom controls.  */
     private _customAuthenticationFactors?: string[] | undefined;
     /** Defines the relationship of the grant controls. Possible values: AND, OR.  */
     private _operator?: string | undefined;
@@ -33,7 +33,7 @@ export class ConditionalAccessGrantControls implements Parsable {
         return this._builtInControls;
     };
     /**
-     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).
+     * Gets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.
      * @returns a string
      */
     public get customAuthenticationFactors() {
@@ -92,7 +92,7 @@ export class ConditionalAccessGrantControls implements Parsable {
         this._builtInControls = value;
     };
     /**
-     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. To learn more about custom control, see Custom controls (preview).
+     * Sets the customAuthenticationFactors property value. List of custom controls IDs required by the policy. For more information, see Custom controls.
      * @param value Value to set for the customAuthenticationFactors property.
      */
     public set customAuthenticationFactors(value: string[] | undefined) {

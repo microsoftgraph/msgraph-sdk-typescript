@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class UnifiedRolePermission implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Set of tasks that can be performed on a resource.  */
+    /** Set of tasks that can be performed on a resource. Required.  */
     private _allowedResourceActions?: string[] | undefined;
     /** Optional constraints that must be met for the permission to be effective.  */
     private _condition?: string | undefined;
@@ -23,7 +23,7 @@ export class UnifiedRolePermission implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
+     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource. Required.
      * @returns a string
      */
     public get allowedResourceActions() {
@@ -73,7 +73,7 @@ export class UnifiedRolePermission implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
+     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource. Required.
      * @param value Value to set for the allowedResourceActions property.
      */
     public set allowedResourceActions(value: string[] | undefined) {

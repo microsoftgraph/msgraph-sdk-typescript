@@ -1,4 +1,4 @@
-import {Group} from '../../../../../models/microsoft/graph/group';
+import {Group} from '../../../../../models/microsoft/graph/termStore/group';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GroupsResponse implements Parsable {

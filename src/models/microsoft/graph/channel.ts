@@ -21,7 +21,7 @@ export class Channel extends Entity implements Parsable {
     private _isFavoriteByDefault?: boolean | undefined;
     /** A collection of membership records associated with the channel.  */
     private _members?: ConversationMember[] | undefined;
-    /** The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.  */
+    /** The type of the channel. Can be set during creation and can't be changed. Possible values are: standard - Channel inherits the list of members of the parent team; private - Channel can have members that are a subset of all the members on the parent team.  */
     private _membershipType?: ChannelMembershipType | undefined;
     /** A collection of all the messages in the channel. A navigation property. Nullable.  */
     private _messages?: ChatMessage[] | undefined;
@@ -85,7 +85,7 @@ export class Channel extends Entity implements Parsable {
         return this._members;
     };
     /**
-     * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
+     * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. Possible values are: standard - Channel inherits the list of members of the parent team; private - Channel can have members that are a subset of all the members on the parent team.
      * @returns a channelMembershipType
      */
     public get membershipType() {
@@ -200,7 +200,7 @@ export class Channel extends Entity implements Parsable {
         this._members = value;
     };
     /**
-     * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
+     * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. Possible values are: standard - Channel inherits the list of members of the parent team; private - Channel can have members that are a subset of all the members on the parent team.
      * @param value Value to set for the membershipType property.
      */
     public set membershipType(value: ChannelMembershipType | undefined) {

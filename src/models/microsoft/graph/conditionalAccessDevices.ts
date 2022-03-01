@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ConditionalAccessDevices implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.  */
+    /** Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.  */
     private _deviceFilter?: ConditionalAccessFilter | undefined;
     /**
      * Instantiates a new conditionalAccessDevices and sets the default values.
@@ -20,7 +20,7 @@ export class ConditionalAccessDevices implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+     * Gets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
      * @returns a conditionalAccessFilter
      */
     public get deviceFilter() {
@@ -52,7 +52,7 @@ export class ConditionalAccessDevices implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them. Cannot be set if includeDevices or excludeDevices is set.
+     * Sets the deviceFilter property value. Filter that defines the dynamic-device-syntax rule to include/exclude devices. A filter can use device properties (such as extension attributes) to include/exclude them.
      * @param value Value to set for the deviceFilter property.
      */
     public set deviceFilter(value: ConditionalAccessFilter | undefined) {

@@ -1,5 +1,5 @@
 import {Entity} from '../entity';
-import {Group} from '../group';
+import {Group} from './group';
 import {Set} from './set';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

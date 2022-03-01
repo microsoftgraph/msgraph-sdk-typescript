@@ -27,7 +27,7 @@ export class TokenLifetimePoliciesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+     * The tokenLifetimePolicies assigned to this service principal.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -47,13 +47,13 @@ export class TokenLifetimePoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The tokenLifetimePolicies assigned to this service principal. Supports $expand.
+     * The tokenLifetimePolicies assigned to this service principal.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -73,6 +73,6 @@ export class TokenLifetimePoliciesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TokenLifetimePoliciesResponse>(requestInfo, TokenLifetimePoliciesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TokenLifetimePoliciesResponse>(requestInfo, TokenLifetimePoliciesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

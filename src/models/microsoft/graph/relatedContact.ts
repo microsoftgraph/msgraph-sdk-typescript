@@ -8,11 +8,11 @@ export class RelatedContact implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** Name of the contact. Required.  */
     private _displayName?: string | undefined;
-    /** Email address of the contact.  */
+    /** Primary email address of the contact.  */
     private _emailAddress?: string | undefined;
     /** Mobile phone number of the contact.  */
     private _mobilePhone?: string | undefined;
-    /** Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.  */
+    /** Relationship to the user. Possible values are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.  */
     private _relationship?: ContactRelationship | undefined;
     /**
      * Instantiates a new relatedContact and sets the default values.
@@ -42,7 +42,7 @@ export class RelatedContact implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the emailAddress property value. Email address of the contact.
+     * Gets the emailAddress property value. Primary email address of the contact.
      * @returns a string
      */
     public get emailAddress() {
@@ -56,7 +56,7 @@ export class RelatedContact implements Parsable {
         return this._mobilePhone;
     };
     /**
-     * Gets the relationship property value. Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+     * Gets the relationship property value. Relationship to the user. Possible values are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
      * @returns a contactRelationship
      */
     public get relationship() {
@@ -110,7 +110,7 @@ export class RelatedContact implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the emailAddress property value. Email address of the contact.
+     * Sets the emailAddress property value. Primary email address of the contact.
      * @param value Value to set for the emailAddress property.
      */
     public set emailAddress(value: string | undefined) {
@@ -124,7 +124,7 @@ export class RelatedContact implements Parsable {
         this._mobilePhone = value;
     };
     /**
-     * Sets the relationship property value. Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
+     * Sets the relationship property value. Relationship to the user. Possible values are parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.
      * @param value Value to set for the relationship property.
      */
     public set relationship(value: ContactRelationship | undefined) {

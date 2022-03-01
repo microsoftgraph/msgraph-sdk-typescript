@@ -2,19 +2,19 @@ import {Workbook} from '../../../models/microsoft/graph/workbook';
 import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CloseSessionRequestBuilder} from './closeSession/closeSessionRequestBuilder';
 import {CommentsRequestBuilder} from './comments/commentsRequestBuilder';
-import {WorkbookCommentRequestBuilder} from './comments/item/workbookCommentRequestBuilder';
+import {WorkbookCommentItemRequestBuilder} from './comments/item/workbookCommentItemRequestBuilder';
 import {CreateSessionRequestBuilder} from './createSession/createSessionRequestBuilder';
 import {FunctionsRequestBuilder} from './functions/functionsRequestBuilder';
-import {WorkbookNamedItemRequestBuilder} from './names/item/workbookNamedItemRequestBuilder';
+import {WorkbookNamedItemItemRequestBuilder} from './names/item/workbookNamedItemItemRequestBuilder';
 import {NamesRequestBuilder} from './names/namesRequestBuilder';
-import {WorkbookOperationRequestBuilder} from './operations/item/workbookOperationRequestBuilder';
+import {WorkbookOperationItemRequestBuilder} from './operations/item/workbookOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {RefreshSessionRequestBuilder} from './refreshSession/refreshSessionRequestBuilder';
 import {SessionInfoResourceWithKeyRequestBuilder} from './sessionInfoResourceWithKey/sessionInfoResourceWithKeyRequestBuilder';
 import {TableRowOperationResultWithKeyRequestBuilder} from './tableRowOperationResultWithKey/tableRowOperationResultWithKeyRequestBuilder';
-import {WorkbookTableRequestBuilder} from './tables/item/workbookTableRequestBuilder';
+import {WorkbookTableItemRequestBuilder} from './tables/item/workbookTableItemRequestBuilder';
 import {TablesRequestBuilder} from './tables/tablesRequestBuilder';
-import {WorkbookWorksheetRequestBuilder} from './worksheets/item/workbookWorksheetRequestBuilder';
+import {WorkbookWorksheetItemRequestBuilder} from './worksheets/item/workbookWorksheetItemRequestBuilder';
 import {WorksheetsRequestBuilder} from './worksheets/worksheetsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -59,13 +59,13 @@ export class WorkbookRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.workbook.comments.item collection
      * @param id Unique identifier of the item
-     * @returns a workbookCommentRequestBuilder
+     * @returns a workbookCommentItemRequestBuilder
      */
-    public commentsById(id: string) : WorkbookCommentRequestBuilder {
+    public commentsById(id: string) : WorkbookCommentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workbookComment_id"] = id
-        return new WorkbookCommentRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WorkbookCommentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new WorkbookRequestBuilder and sets the default values.
@@ -91,7 +91,7 @@ export class WorkbookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -109,7 +109,7 @@ export class WorkbookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -127,7 +127,7 @@ export class WorkbookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -142,7 +142,7 @@ export class WorkbookRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
@@ -158,29 +158,29 @@ export class WorkbookRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Workbook>(requestInfo, Workbook, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Workbook>(requestInfo, Workbook, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.workbook.names.item collection
      * @param id Unique identifier of the item
-     * @returns a workbookNamedItemRequestBuilder
+     * @returns a workbookNamedItemItemRequestBuilder
      */
-    public namesById(id: string) : WorkbookNamedItemRequestBuilder {
+    public namesById(id: string) : WorkbookNamedItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workbookNamedItem_id"] = id
-        return new WorkbookNamedItemRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WorkbookNamedItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.workbook.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a workbookOperationRequestBuilder
+     * @returns a workbookOperationItemRequestBuilder
      */
-    public operationsById(id: string) : WorkbookOperationRequestBuilder {
+    public operationsById(id: string) : WorkbookOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workbookOperation_id"] = id
-        return new WorkbookOperationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WorkbookOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.
@@ -194,7 +194,7 @@ export class WorkbookRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Builds and executes requests for operations under /workbooks/{driveItem-id}/workbook/microsoft.graph.sessionInfoResource(key='{key}')
@@ -217,23 +217,23 @@ export class WorkbookRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.workbook.tables.item collection
      * @param id Unique identifier of the item
-     * @returns a workbookTableRequestBuilder
+     * @returns a workbookTableItemRequestBuilder
      */
-    public tablesById(id: string) : WorkbookTableRequestBuilder {
+    public tablesById(id: string) : WorkbookTableItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workbookTable_id"] = id
-        return new WorkbookTableRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WorkbookTableItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.workbooks.item.workbook.worksheets.item collection
      * @param id Unique identifier of the item
-     * @returns a workbookWorksheetRequestBuilder
+     * @returns a workbookWorksheetItemRequestBuilder
      */
-    public worksheetsById(id: string) : WorkbookWorksheetRequestBuilder {
+    public worksheetsById(id: string) : WorkbookWorksheetItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["workbookWorksheet_id"] = id
-        return new WorkbookWorksheetRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WorkbookWorksheetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

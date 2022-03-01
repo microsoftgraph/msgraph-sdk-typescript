@@ -27,7 +27,7 @@ export class TokenIssuancePoliciesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+     * The tokenIssuancePolicies assigned to this service principal.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -47,13 +47,13 @@ export class TokenIssuancePoliciesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The tokenIssuancePolicies assigned to this service principal. Supports $expand.
+     * The tokenIssuancePolicies assigned to this service principal.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -73,6 +73,6 @@ export class TokenIssuancePoliciesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TokenIssuancePoliciesResponse>(requestInfo, TokenIssuancePoliciesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TokenIssuancePoliciesResponse>(requestInfo, TokenIssuancePoliciesResponse, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

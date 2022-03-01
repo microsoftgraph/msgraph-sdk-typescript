@@ -36,7 +36,7 @@ export class GetPresencesByUserIdRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -54,6 +54,6 @@ export class GetPresencesByUserIdRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetPresencesByUserId>(requestInfo, GetPresencesByUserId, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<GetPresencesByUserId>(requestInfo, GetPresencesByUserId, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

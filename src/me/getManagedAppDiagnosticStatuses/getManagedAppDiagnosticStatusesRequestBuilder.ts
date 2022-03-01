@@ -33,7 +33,7 @@ export class GetManagedAppDiagnosticStatusesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -48,6 +48,6 @@ export class GetManagedAppDiagnosticStatusesRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetManagedAppDiagnosticStatuses>(requestInfo, GetManagedAppDiagnosticStatuses, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<GetManagedAppDiagnosticStatuses>(requestInfo, GetManagedAppDiagnosticStatuses, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

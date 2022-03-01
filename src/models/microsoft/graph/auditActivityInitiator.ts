@@ -5,9 +5,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AuditActivityInitiator implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.  */
+    /** If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.  */
     private _app?: AppIdentity | undefined;
-    /** If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.  */
+    /** If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.  */
     private _user?: UserIdentity | undefined;
     /**
      * Instantiates a new auditActivityInitiator and sets the default values.
@@ -23,14 +23,14 @@ export class AuditActivityInitiator implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
+     * Gets the app property value. If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
      * @returns a appIdentity
      */
     public get app() {
         return this._app;
     };
     /**
-     * Gets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
+     * Gets the user property value. If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
      * @returns a userIdentity
      */
     public get user() {
@@ -64,14 +64,14 @@ export class AuditActivityInitiator implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
+     * Sets the app property value. If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
      * @param value Value to set for the app property.
      */
     public set app(value: AppIdentity | undefined) {
         this._app = value;
     };
     /**
-     * Sets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
+     * Sets the user property value. If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
      * @param value Value to set for the user property.
      */
     public set user(value: UserIdentity | undefined) {

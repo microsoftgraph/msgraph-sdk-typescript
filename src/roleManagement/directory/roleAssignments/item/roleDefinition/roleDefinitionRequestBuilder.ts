@@ -27,7 +27,7 @@ export class RoleDefinitionRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +41,13 @@ export class RoleDefinitionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +61,6 @@ export class RoleDefinitionRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, UnifiedRoleDefinition, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, UnifiedRoleDefinition, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

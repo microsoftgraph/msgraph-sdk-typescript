@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class Report implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Report content; details vary by report type.  */
+    /** Not yet documented  */
     private _content?: string | undefined;
     /**
      * Instantiates a new report and sets the default values.
@@ -19,7 +19,7 @@ export class Report implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the content property value. Report content; details vary by report type.
+     * Gets the content property value. Not yet documented
      * @returns a binary
      */
     public get content() {
@@ -51,7 +51,7 @@ export class Report implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the content property value. Report content; details vary by report type.
+     * Sets the content property value. Not yet documented
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {

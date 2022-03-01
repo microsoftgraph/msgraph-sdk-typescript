@@ -6,7 +6,7 @@ export class DocumentSetContent implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** Content type information of the file.  */
     private _contentType?: ContentTypeInfo | undefined;
-    /** Name of the file in resource folder that should be added as a default content or a template in the document set  */
+    /** Name of the file in resource folder that should be added as a default content or a template in the document set.  */
     private _fileName?: string | undefined;
     /** Folder name in which the file will be placed when a new document set is created in the library.  */
     private _folderName?: string | undefined;
@@ -31,7 +31,7 @@ export class DocumentSetContent implements Parsable {
         return this._contentType;
     };
     /**
-     * Gets the fileName property value. Name of the file in resource folder that should be added as a default content or a template in the document set
+     * Gets the fileName property value. Name of the file in resource folder that should be added as a default content or a template in the document set.
      * @returns a string
      */
     public get fileName() {
@@ -81,7 +81,7 @@ export class DocumentSetContent implements Parsable {
         this._contentType = value;
     };
     /**
-     * Sets the fileName property value. Name of the file in resource folder that should be added as a default content or a template in the document set
+     * Sets the fileName property value. Name of the file in resource folder that should be added as a default content or a template in the document set.
      * @param value Value to set for the fileName property.
      */
     public set fileName(value: string | undefined) {

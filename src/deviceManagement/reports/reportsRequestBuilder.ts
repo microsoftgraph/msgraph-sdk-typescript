@@ -1,6 +1,6 @@
 import {DeviceManagementReports} from '../../models/microsoft/graph/deviceManagementReports';
 import {ExportJobsRequestBuilder} from './exportJobs/exportJobsRequestBuilder';
-import {DeviceManagementExportJobRequestBuilder} from './exportJobs/item/deviceManagementExportJobRequestBuilder';
+import {DeviceManagementExportJobItemRequestBuilder} from './exportJobs/item/deviceManagementExportJobItemRequestBuilder';
 import {GetCachedReportRequestBuilder} from './getCachedReport/getCachedReportRequestBuilder';
 import {GetCompliancePolicyNonComplianceReportRequestBuilder} from './getCompliancePolicyNonComplianceReport/getCompliancePolicyNonComplianceReportRequestBuilder';
 import {GetCompliancePolicyNonComplianceSummaryReportRequestBuilder} from './getCompliancePolicyNonComplianceSummaryReport/getCompliancePolicyNonComplianceSummaryReportRequestBuilder';
@@ -102,7 +102,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -121,7 +121,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -139,7 +139,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -154,18 +154,18 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.reports.exportJobs.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementExportJobRequestBuilder
+     * @returns a deviceManagementExportJobItemRequestBuilder
      */
-    public exportJobsById(id: string) : DeviceManagementExportJobRequestBuilder {
+    public exportJobsById(id: string) : DeviceManagementExportJobItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementExportJob_id"] = id
-        return new DeviceManagementExportJobRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceManagementExportJobItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Reports singleton
@@ -182,7 +182,7 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DeviceManagementReports>(requestInfo, DeviceManagementReports, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceManagementReports>(requestInfo, DeviceManagementReports, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Reports singleton
@@ -196,6 +196,6 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

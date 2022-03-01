@@ -1,4 +1,4 @@
-import {SupportedTimeZones} from './supportedTimeZones';
+import {TimeZoneInformation} from '../../../../models/microsoft/graph/timeZoneInformation';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/outlook/microsoft.graph.supportedTimeZones()  */
@@ -33,7 +33,7 @@ export class SupportedTimeZonesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -42,12 +42,12 @@ export class SupportedTimeZonesRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of SupportedTimeZones
+     * @returns a Promise of TimeZoneInformation
      */
-    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SupportedTimeZones[] | undefined> {
+    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TimeZoneInformation[] | undefined> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<SupportedTimeZones>(requestInfo, SupportedTimeZones, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<TimeZoneInformation>(requestInfo, TimeZoneInformation, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

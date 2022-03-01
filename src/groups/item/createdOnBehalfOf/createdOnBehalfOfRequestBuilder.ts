@@ -27,7 +27,7 @@ export class CreatedOnBehalfOfRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+     * The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +41,13 @@ export class CreatedOnBehalfOfRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+     * The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +61,6 @@ export class CreatedOnBehalfOfRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, DirectoryObject, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, DirectoryObject, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

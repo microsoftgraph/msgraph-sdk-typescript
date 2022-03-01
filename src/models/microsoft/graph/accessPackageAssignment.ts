@@ -8,7 +8,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AccessPackageAssignment extends Entity implements Parsable {
     /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.  */
     private _accessPackage?: AccessPackage | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _expiredDateTime?: Date | undefined;
     /** When the access assignment is to be in place. Read-only.  */
     private _schedule?: EntitlementManagementSchedule | undefined;
@@ -32,7 +32,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
         return this._accessPackage;
     };
     /**
-     * Gets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get expiredDateTime() {
@@ -102,7 +102,7 @@ export class AccessPackageAssignment extends Entity implements Parsable {
         this._accessPackage = value;
     };
     /**
-     * Sets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the expiredDateTime property.
      */
     public set expiredDateTime(value: Date | undefined) {

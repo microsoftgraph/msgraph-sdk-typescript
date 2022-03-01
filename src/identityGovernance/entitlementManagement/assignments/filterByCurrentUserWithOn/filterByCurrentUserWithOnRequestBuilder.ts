@@ -35,7 +35,7 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -50,6 +50,6 @@ export class FilterByCurrentUserWithOnRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<FilterByCurrentUserWithOn>(requestInfo, FilterByCurrentUserWithOn, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<FilterByCurrentUserWithOn>(requestInfo, FilterByCurrentUserWithOn, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

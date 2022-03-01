@@ -1,5 +1,5 @@
 import {Privacy} from '../models/microsoft/graph/privacy';
-import {SubjectRightsRequestRequestBuilder} from './subjectRightsRequests/item/subjectRightsRequestRequestBuilder';
+import {SubjectRightsRequestItemRequestBuilder} from './subjectRightsRequests/item/subjectRightsRequestItemRequestBuilder';
 import {SubjectRightsRequestsRequestBuilder} from './subjectRightsRequests/subjectRightsRequestsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -42,7 +42,7 @@ export class PrivacyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -60,7 +60,7 @@ export class PrivacyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -80,7 +80,7 @@ export class PrivacyRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, Privacy, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, Privacy, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update privacy
@@ -94,17 +94,17 @@ export class PrivacyRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.privacy.subjectRightsRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a subjectRightsRequestRequestBuilder
+     * @returns a subjectRightsRequestItemRequestBuilder
      */
-    public subjectRightsRequestsById(id: string) : SubjectRightsRequestRequestBuilder {
+    public subjectRightsRequestsById(id: string) : SubjectRightsRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subjectRightsRequest_id"] = id
-        return new SubjectRightsRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SubjectRightsRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

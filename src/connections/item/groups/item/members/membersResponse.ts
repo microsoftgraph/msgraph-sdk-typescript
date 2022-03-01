@@ -1,4 +1,4 @@
-import {Identity} from '../../../../../models/microsoft/graph/identity';
+import {Identity} from '../../../../../models/microsoft/graph/externalConnectors/identity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MembersResponse implements Parsable {

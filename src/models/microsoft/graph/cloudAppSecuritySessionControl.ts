@@ -3,7 +3,7 @@ import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable {
-    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.  */
+    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.  */
     private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
     /**
      * Instantiates a new cloudAppSecuritySessionControl and sets the default values.
@@ -12,7 +12,7 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
         super();
     };
     /**
-     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
+     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      * @returns a cloudAppSecuritySessionControlType
      */
     public get cloudAppSecurityType() {
@@ -37,7 +37,7 @@ export class CloudAppSecuritySessionControl extends ConditionalAccessSessionCont
         writer.writeEnumValue<CloudAppSecuritySessionControlType>("cloudAppSecurityType", this.cloudAppSecurityType);
     };
     /**
-     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
+     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
      * @param value Value to set for the cloudAppSecurityType property.
      */
     public set cloudAppSecurityType(value: CloudAppSecuritySessionControlType | undefined) {

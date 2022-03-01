@@ -1,12 +1,12 @@
 import {List} from '../../../models/microsoft/graph/list';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionRequestBuilder} from './columns/item/columnDefinitionRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
-import {ContentTypeRequestBuilder} from './contentTypes/item/contentTypeRequestBuilder';
+import {ContentTypeItemRequestBuilder} from './contentTypes/item/contentTypeItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
-import {ListItemRequestBuilder} from './items/item/listItemRequestBuilder';
+import {ListItemItemRequestBuilder} from './items/item/listItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
-import {SubscriptionRequestBuilder} from './subscriptions/item/subscriptionRequestBuilder';
+import {SubscriptionItemRequestBuilder} from './subscriptions/item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -36,13 +36,13 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.columns.item collection
      * @param id Unique identifier of the item
-     * @returns a columnDefinitionRequestBuilder
+     * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : ColumnDefinitionRequestBuilder {
+    public columnsById(id: string) : ColumnDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition_id"] = id
-        return new ColumnDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ColumnDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ListRequestBuilder and sets the default values.
@@ -60,13 +60,13 @@ export class ListRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.contentTypes.item collection
      * @param id Unique identifier of the item
-     * @returns a contentTypeRequestBuilder
+     * @returns a contentTypeItemRequestBuilder
      */
-    public contentTypesById(id: string) : ContentTypeRequestBuilder {
+    public contentTypesById(id: string) : ContentTypeItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType_id"] = id
-        return new ContentTypeRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Used to access the underlying list
@@ -79,7 +79,7 @@ export class ListRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -98,7 +98,7 @@ export class ListRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -116,7 +116,7 @@ export class ListRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -131,7 +131,7 @@ export class ListRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Used to access the underlying list
@@ -148,18 +148,18 @@ export class ListRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<List>(requestInfo, List, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<List>(requestInfo, List, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.items.item collection
      * @param id Unique identifier of the item
-     * @returns a listItemRequestBuilder
+     * @returns a listItemItemRequestBuilder
      */
-    public itemsById(id: string) : ListItemRequestBuilder {
+    public itemsById(id: string) : ListItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["listItem_id"] = id
-        return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ListItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Used to access the underlying list
@@ -173,17 +173,17 @@ export class ListRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.subscriptions.item collection
      * @param id Unique identifier of the item
-     * @returns a subscriptionRequestBuilder
+     * @returns a subscriptionItemRequestBuilder
      */
-    public subscriptionsById(id: string) : SubscriptionRequestBuilder {
+    public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subscription_id"] = id
-        return new SubscriptionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

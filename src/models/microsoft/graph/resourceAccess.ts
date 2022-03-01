@@ -3,9 +3,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class ResourceAccess implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.  */
+    /** The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.  */
     private _id?: string | undefined;
-    /** Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).  */
+    /** Specifies whether the id property references a delegated permission or an app role (application permission). The possible values are: Scope (for delegated permissions) or Role (for app roles).  */
     private _type?: string | undefined;
     /**
      * Instantiates a new resourceAccess and sets the default values.
@@ -21,14 +21,14 @@ export class ResourceAccess implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the id property value. The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.
+     * Gets the id property value. The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Gets the type property value. Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).
+     * Gets the type property value. Specifies whether the id property references a delegated permission or an app role (application permission). The possible values are: Scope (for delegated permissions) or Role (for app roles).
      * @returns a string
      */
     public get type() {
@@ -62,14 +62,14 @@ export class ResourceAccess implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the id property value. The unique identifier for one of the oauth2PermissionScopes or appRole instances that the resource application exposes.
+     * Sets the id property value. The unique identifier of an app role or delegated permission exposed by the resource application. For delegated permissions, this should match the id property of one of the delegated permissions in the oauth2PermissionScopes collection of the resource application's service principal. For app roles (application permissions), this should match the id property of an app role in the appRoles collection of the resource application's service principal.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
         this._id = value;
     };
     /**
-     * Sets the type property value. Specifies whether the id property references an oauth2PermissionScopes or an appRole. The possible values are: Scope (for OAuth 2.0 permission scopes) or Role (for app roles).
+     * Sets the type property value. Specifies whether the id property references a delegated permission or an app role (application permission). The possible values are: Scope (for delegated permissions) or Role (for app roles).
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

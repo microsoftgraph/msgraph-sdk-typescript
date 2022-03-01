@@ -6,7 +6,7 @@ export class AccessReviewNotificationRecipientItem implements Parsable {
     private _additionalData: Map<string, unknown>;
     /** Determines the recipient of the notification email.  */
     private _notificationRecipientScope?: AccessReviewNotificationRecipientScope | undefined;
-    /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.  */
+    /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.  */
     private _notificationTemplateType?: string | undefined;
     /**
      * Instantiates a new accessReviewNotificationRecipientItem and sets the default values.
@@ -29,7 +29,7 @@ export class AccessReviewNotificationRecipientItem implements Parsable {
         return this._notificationRecipientScope;
     };
     /**
-     * Gets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+     * Gets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
      * @returns a string
      */
     public get notificationTemplateType() {
@@ -70,7 +70,7 @@ export class AccessReviewNotificationRecipientItem implements Parsable {
         this._notificationRecipientScope = value;
     };
     /**
-     * Sets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
+     * Sets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
      * @param value Value to set for the notificationTemplateType property.
      */
     public set notificationTemplateType(value: string | undefined) {

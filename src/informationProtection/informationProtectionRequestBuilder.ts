@@ -1,6 +1,6 @@
 import {InformationProtection} from '../models/microsoft/graph/informationProtection';
 import {BitlockerRequestBuilder} from './bitlocker/bitlockerRequestBuilder';
-import {ThreatAssessmentRequestRequestBuilder} from './threatAssessmentRequests/item/threatAssessmentRequestRequestBuilder';
+import {ThreatAssessmentRequestItemRequestBuilder} from './threatAssessmentRequests/item/threatAssessmentRequestItemRequestBuilder';
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -46,7 +46,7 @@ export class InformationProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -64,7 +64,7 @@ export class InformationProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -84,7 +84,7 @@ export class InformationProtectionRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, InformationProtection, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<InformationProtection>(requestInfo, InformationProtection, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update informationProtection
@@ -98,17 +98,17 @@ export class InformationProtectionRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.informationProtection.threatAssessmentRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a threatAssessmentRequestRequestBuilder
+     * @returns a threatAssessmentRequestItemRequestBuilder
      */
-    public threatAssessmentRequestsById(id: string) : ThreatAssessmentRequestRequestBuilder {
+    public threatAssessmentRequestsById(id: string) : ThreatAssessmentRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["threatAssessmentRequest_id"] = id
-        return new ThreatAssessmentRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ThreatAssessmentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

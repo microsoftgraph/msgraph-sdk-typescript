@@ -27,9 +27,9 @@ export class Group extends DirectoryObject implements Parsable {
     private _allowExternalSenders?: boolean | undefined;
     /** Represents the app roles a group has been granted for an application. Supports $expand.  */
     private _appRoleAssignments?: AppRoleAssignment[] | undefined;
-    /** The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.  */
+    /** The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.  */
     private _assignedLabels?: AssignedLabel[] | undefined;
-    /** The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.  */
+    /** The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only.  */
     private _assignedLicenses?: AssignedLicense[] | undefined;
     /** Indicates if new members added to the group will be auto-subscribed to receive email notifications. You can set this property in a PATCH request for the group; do not set it in the initial POST request that creates the group. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
     private _autoSubscribeNewMembers?: boolean | undefined;
@@ -43,17 +43,17 @@ export class Group extends DirectoryObject implements Parsable {
     private _conversations?: Conversation[] | undefined;
     /** Timestamp of when the group was created. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.  */
     private _createdDateTime?: Date | undefined;
-    /** The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.  */
+    /** The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.  */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
     /** An optional description for the group. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.  */
     private _description?: string | undefined;
-    /** The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.  */
+    /** The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.  */
     private _displayName?: string | undefined;
     /** The group's default drive. Read-only.  */
     private _drive?: Drive | undefined;
     /** The group's drives. Read-only.  */
     private _drives?: Drive[] | undefined;
-    /** The group's events.  */
+    /** The group's calendar events.  */
     private _events?: Event[] | undefined;
     /** Timestamp of when the group is set to expire. The value cannot be modified and is automatically populated when the group is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.  */
     private _expirationDateTime?: Date | undefined;
@@ -63,28 +63,28 @@ export class Group extends DirectoryObject implements Parsable {
     private _groupLifecyclePolicies?: GroupLifecyclePolicy[] | undefined;
     /** Specifies the group type and its membership.  If the collection contains Unified, the group is a Microsoft 365 group; otherwise, it's either a security group or distribution group. For details, see groups overview.If the collection includes DynamicMembership, the group has dynamic membership; otherwise, membership is static.  Returned by default. Supports $filter (eq, not).  */
     private _groupTypes?: string[] | undefined;
-    /** Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).  */
+    /** Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example. Supports $filter (eq).  */
     private _hasMembersWithLicenseErrors?: boolean | undefined;
-    /** true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
+    /** True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
     private _hideFromAddressLists?: boolean | undefined;
-    /** true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
+    /** True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
     private _hideFromOutlookClients?: boolean | undefined;
     private _isArchived?: boolean | undefined;
-    /** Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).  */
+    /** Indicates whether this group can be assigned to an Azure Active Directory role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).  */
     private _isAssignableToRole?: boolean | undefined;
     /** Indicates whether the signed-in user is subscribed to receive email conversations. Default value is true. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
     private _isSubscribedByMail?: boolean | undefined;
-    /** Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.  */
+    /** Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.  */
     private _licenseProcessingState?: LicenseProcessingState | undefined;
     /** The SMTP address for the group, for example, 'serviceadmins@contoso.onmicrosoft.com'. Returned by default. Read-only. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
     private _mail?: string | undefined;
-    /** Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).  */
+    /** Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not).  */
     private _mailEnabled?: boolean | undefined;
-    /** The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).  */
+    /** The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
     private _mailNickname?: string | undefined;
-    /** Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.  */
+    /** Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.  */
     private _memberOf?: DirectoryObject[] | undefined;
-    /** Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).  */
+    /** UMembers of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).  */
     private _members?: DirectoryObject[] | undefined;
     /** The rule that determines members for this group if the group is a dynamic group (groupTypes contains DynamicMembership). For more information about the syntax of the membership rule, see Membership Rules syntax. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith).  */
     private _membershipRule?: string | undefined;
@@ -108,31 +108,31 @@ export class Group extends DirectoryObject implements Parsable {
     private _onPremisesSecurityIdentifier?: string | undefined;
     /** true if this group is synced from an on-premises directory; false if this group was originally synced from an on-premises directory but is no longer synced; null if this object has never been synced from an on-premises directory (default). Returned by default. Read-only. Supports $filter (eq, ne, not, in, and eq on null values).  */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).  */
+    /** The owners of the group. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).  */
     private _owners?: DirectoryObject[] | undefined;
-    /** The permissions that have been granted for a group to a specific application. Supports $expand.  */
+    /** The permission that has been granted for a group to a specific application. Supports $expand.  */
     private _permissionGrants?: ResourceSpecificPermissionGrant[] | undefined;
-    /** The group's profile photo.  */
+    /** The group's profile photo  */
     private _photo?: ProfilePhoto | undefined;
     /** The profile photos owned by the group. Read-only. Nullable.  */
     private _photos?: ProfilePhoto[] | undefined;
-    /** Selective Planner services available to the group. Read-only. Nullable.  */
+    /** Entry-point to Planner resource that might exist for a Unified Group.  */
     private _planner?: PlannerGroup | undefined;
     /** The preferred data location for the Microsoft 365 group. By default, the group inherits the group creator's preferred data location. To set this property, the calling user must be assigned one of the following Azure AD roles:  Global Administrator  User Account Administrator Directory Writer  Exchange Administrator  SharePoint Administrator  For more information about this property, see  OneDrive Online Multi-Geo. Nullable. Returned by default.  */
     private _preferredDataLocation?: string | undefined;
     /** The preferred language for a Microsoft 365 group. Should follow ISO 639-1 Code; for example en-US. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
     private _preferredLanguage?: string | undefined;
-    /** Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).  */
+    /** Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).  */
     private _proxyAddresses?: string[] | undefined;
     /** The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable  */
     private _rejectedSenders?: DirectoryObject[] | undefined;
     /** Timestamp of when the group was last renewed. This cannot be modified directly and is only updated via the renew service action. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. Supports $filter (eq, ne, not, ge, le, in). Read-only.  */
     private _renewedDateTime?: Date | undefined;
-    /** Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).  */
+    /** Specifies whether the group is a security group. Required. Returned by default. Supports $filter (eq, ne, not, in).  */
     private _securityEnabled?: boolean | undefined;
     /** Security identifier of the group, used in Windows scenarios. Returned by default.  */
     private _securityIdentifier?: string | undefined;
-    /** Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.  */
+    /** Read-only. Nullable.  */
     private _settings?: GroupSetting[] | undefined;
     /** The list of SharePoint sites in this group. Access the default site with /sites/root.  */
     private _sites?: Site[] | undefined;
@@ -143,9 +143,9 @@ export class Group extends DirectoryObject implements Parsable {
     private _threads?: ConversationThread[] | undefined;
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
     private _transitiveMembers?: DirectoryObject[] | undefined;
-    /** Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
+    /** Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).  */
     private _unseenCount?: number | undefined;
-    /** Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public.  Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.  */
+    /** Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.  */
     private _visibility?: string | undefined;
     /**
      * Instantiates a new group and sets the default values.
@@ -175,14 +175,14 @@ export class Group extends DirectoryObject implements Parsable {
         return this._appRoleAssignments;
     };
     /**
-     * Gets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
+     * Gets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.
      * @returns a assignedLabel
      */
     public get assignedLabels() {
         return this._assignedLabels;
     };
     /**
-     * Gets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
+     * Gets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only.
      * @returns a assignedLicense
      */
     public get assignedLicenses() {
@@ -231,7 +231,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._createdDateTime;
     };
     /**
-     * Gets the createdOnBehalfOf property value. The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+     * Gets the createdOnBehalfOf property value. The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
      * @returns a directoryObject
      */
     public get createdOnBehalfOf() {
@@ -245,7 +245,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._description;
     };
     /**
-     * Gets the displayName property value. The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Gets the displayName property value. The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @returns a string
      */
     public get displayName() {
@@ -266,7 +266,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._drives;
     };
     /**
-     * Gets the events property value. The group's events.
+     * Gets the events property value. The group's calendar events.
      * @returns a event
      */
     public get events() {
@@ -301,21 +301,21 @@ export class Group extends DirectoryObject implements Parsable {
         return this._groupTypes;
     };
     /**
-     * Gets the hasMembersWithLicenseErrors property value. Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).
+     * Gets the hasMembersWithLicenseErrors property value. Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example. Supports $filter (eq).
      * @returns a boolean
      */
     public get hasMembersWithLicenseErrors() {
         return this._hasMembersWithLicenseErrors;
     };
     /**
-     * Gets the hideFromAddressLists property value. true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Gets the hideFromAddressLists property value. True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @returns a boolean
      */
     public get hideFromAddressLists() {
         return this._hideFromAddressLists;
     };
     /**
-     * Gets the hideFromOutlookClients property value. true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Gets the hideFromOutlookClients property value. True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @returns a boolean
      */
     public get hideFromOutlookClients() {
@@ -329,7 +329,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._isArchived;
     };
     /**
-     * Gets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
+     * Gets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
      * @returns a boolean
      */
     public get isAssignableToRole() {
@@ -343,7 +343,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._isSubscribedByMail;
     };
     /**
-     * Gets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
+     * Gets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.
      * @returns a licenseProcessingState
      */
     public get licenseProcessingState() {
@@ -357,28 +357,28 @@ export class Group extends DirectoryObject implements Parsable {
         return this._mail;
     };
     /**
-     * Gets the mailEnabled property value. Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).
+     * Gets the mailEnabled property value. Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not).
      * @returns a boolean
      */
     public get mailEnabled() {
         return this._mailEnabled;
     };
     /**
-     * Gets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Gets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @returns a string
      */
     public get mailNickname() {
         return this._mailNickname;
     };
     /**
-     * Gets the memberOf property value. Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
+     * Gets the memberOf property value. Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      * @returns a directoryObject
      */
     public get memberOf() {
         return this._memberOf;
     };
     /**
-     * Gets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * Gets the members property value. UMembers of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @returns a directoryObject
      */
     public get members() {
@@ -462,21 +462,21 @@ export class Group extends DirectoryObject implements Parsable {
         return this._onPremisesSyncEnabled;
     };
     /**
-     * Gets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
+     * Gets the owners property value. The owners of the group. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      * @returns a directoryObject
      */
     public get owners() {
         return this._owners;
     };
     /**
-     * Gets the permissionGrants property value. The permissions that have been granted for a group to a specific application. Supports $expand.
+     * Gets the permissionGrants property value. The permission that has been granted for a group to a specific application. Supports $expand.
      * @returns a resourceSpecificPermissionGrant
      */
     public get permissionGrants() {
         return this._permissionGrants;
     };
     /**
-     * Gets the photo property value. The group's profile photo.
+     * Gets the photo property value. The group's profile photo
      * @returns a profilePhoto
      */
     public get photo() {
@@ -490,7 +490,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._photos;
     };
     /**
-     * Gets the planner property value. Selective Planner services available to the group. Read-only. Nullable.
+     * Gets the planner property value. Entry-point to Planner resource that might exist for a Unified Group.
      * @returns a plannerGroup
      */
     public get planner() {
@@ -511,7 +511,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._preferredLanguage;
     };
     /**
-     * Gets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
      * @returns a string
      */
     public get proxyAddresses() {
@@ -532,7 +532,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._renewedDateTime;
     };
     /**
-     * Gets the securityEnabled property value. Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).
+     * Gets the securityEnabled property value. Specifies whether the group is a security group. Required. Returned by default. Supports $filter (eq, ne, not, in).
      * @returns a boolean
      */
     public get securityEnabled() {
@@ -546,7 +546,7 @@ export class Group extends DirectoryObject implements Parsable {
         return this._securityIdentifier;
     };
     /**
-     * Gets the settings property value. Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
+     * Gets the settings property value. Read-only. Nullable.
      * @returns a groupSetting
      */
     public get settings() {
@@ -595,14 +595,14 @@ export class Group extends DirectoryObject implements Parsable {
         return this._transitiveMembers;
     };
     /**
-     * Gets the unseenCount property value. Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Gets the unseenCount property value. Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @returns a integer
      */
     public get unseenCount() {
         return this._unseenCount;
     };
     /**
-     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public.  Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Gets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      * @returns a string
      */
     public get visibility() {
@@ -776,14 +776,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._appRoleAssignments = value;
     };
     /**
-     * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select.
+     * Sets the assignedLabels property value. The list of sensitivity label pairs (label ID, label name) associated with a Microsoft 365 group. Returned only on $select. Read-only.
      * @param value Value to set for the assignedLabels property.
      */
     public set assignedLabels(value: AssignedLabel[] | undefined) {
         this._assignedLabels = value;
     };
     /**
-     * Sets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq). Read-only.
+     * Sets the assignedLicenses property value. The licenses that are assigned to the group. Returned only on $select. Supports $filter (eq).Read-only.
      * @param value Value to set for the assignedLicenses property.
      */
     public set assignedLicenses(value: AssignedLicense[] | undefined) {
@@ -832,7 +832,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Sets the createdOnBehalfOf property value. The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.
+     * Sets the createdOnBehalfOf property value. The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.
      * @param value Value to set for the createdOnBehalfOf property.
      */
     public set createdOnBehalfOf(value: DirectoryObject | undefined) {
@@ -846,7 +846,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._description = value;
     };
     /**
-     * Sets the displayName property value. The display name for the group. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
+     * Sets the displayName property value. The display name for the group. This property is required when a group is created and cannot be cleared during updates. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -867,7 +867,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._drives = value;
     };
     /**
-     * Sets the events property value. The group's events.
+     * Sets the events property value. The group's calendar events.
      * @param value Value to set for the events property.
      */
     public set events(value: Event[] | undefined) {
@@ -902,21 +902,21 @@ export class Group extends DirectoryObject implements Parsable {
         this._groupTypes = value;
     };
     /**
-     * Sets the hasMembersWithLicenseErrors property value. Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true).  Supports $filter (eq).
+     * Sets the hasMembersWithLicenseErrors property value. Indicates whether there are members in this group that have license errors from its group-based license assignment. This property is never returned on a GET operation. You can use it as a $filter argument to get groups that have members with license errors (that is, filter for this property being true). See an example. Supports $filter (eq).
      * @param value Value to set for the hasMembersWithLicenseErrors property.
      */
     public set hasMembersWithLicenseErrors(value: boolean | undefined) {
         this._hasMembersWithLicenseErrors = value;
     };
     /**
-     * Sets the hideFromAddressLists property value. true if the group is not displayed in certain parts of the Outlook user interface: in the Address Book, in address lists for selecting message recipients, and in the Browse Groups dialog for searching groups; false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Sets the hideFromAddressLists property value. True if the group is not displayed in certain parts of the Outlook UI: the Address Book, address lists for selecting message recipients, and the Browse Groups dialog for searching groups; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @param value Value to set for the hideFromAddressLists property.
      */
     public set hideFromAddressLists(value: boolean | undefined) {
         this._hideFromAddressLists = value;
     };
     /**
-     * Sets the hideFromOutlookClients property value. true if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web, false otherwise. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Sets the hideFromOutlookClients property value. True if the group is not displayed in Outlook clients, such as Outlook for Windows and Outlook on the web; otherwise, false. Default value is false. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @param value Value to set for the hideFromOutlookClients property.
      */
     public set hideFromOutlookClients(value: boolean | undefined) {
@@ -930,7 +930,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._isArchived = value;
     };
     /**
-     * Sets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
+     * Sets the isAssignableToRole property value. Indicates whether this group can be assigned to an Azure Active Directory role or not. Optional. This property can only be set while creating the group and is immutable. If set to true, the securityEnabled property must also be set to true and the group cannot be a dynamic group (that is, groupTypes cannot contain DynamicMembership). Only callers in Global administrator and Privileged role administrator roles can set this property. The caller must be assigned the RoleManagement.ReadWrite.Directory permission to set this property or update the membership of such groups. For more, see Using a group to manage Azure AD role assignmentsReturned by default. Supports $filter (eq, ne, not).
      * @param value Value to set for the isAssignableToRole property.
      */
     public set isAssignableToRole(value: boolean | undefined) {
@@ -944,7 +944,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._isSubscribedByMail = value;
     };
     /**
-     * Sets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete. Returned only on $select. Read-only.
+     * Sets the licenseProcessingState property value. Indicates status of the group license assignment to all members of the group. Default value is false. Read-only. Possible values: QueuedForProcessing, ProcessingInProgress, and ProcessingComplete.Returned only on $select. Read-only.
      * @param value Value to set for the licenseProcessingState property.
      */
     public set licenseProcessingState(value: LicenseProcessingState | undefined) {
@@ -958,28 +958,28 @@ export class Group extends DirectoryObject implements Parsable {
         this._mail = value;
     };
     /**
-     * Sets the mailEnabled property value. Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not, and eq on null values).
+     * Sets the mailEnabled property value. Specifies whether the group is mail-enabled. Required. Returned by default. Supports $filter (eq, ne, not).
      * @param value Value to set for the mailEnabled property.
      */
     public set mailEnabled(value: boolean | undefined) {
         this._mailEnabled = value;
     };
     /**
-     * Sets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith).
+     * Sets the mailNickname property value. The mail alias for the group, unique for Microsoft 365 groups in the organization. Maximum length is 64 characters. This property can contain only characters in the ASCII character set 0 - 127 except the following: @ () / [] ' ; : . <> , SPACE. Required. Returned by default. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).
      * @param value Value to set for the mailNickname property.
      */
     public set mailNickname(value: string | undefined) {
         this._mailNickname = value;
     };
     /**
-     * Sets the memberOf property value. Groups and administrative units that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
+     * Sets the memberOf property value. Groups that this group is a member of. HTTP Methods: GET (supported for all groups). Read-only. Nullable. Supports $expand.
      * @param value Value to set for the memberOf property.
      */
     public set memberOf(value: DirectoryObject[] | undefined) {
         this._memberOf = value;
     };
     /**
-     * Sets the members property value. Members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
+     * Sets the members property value. UMembers of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
      * @param value Value to set for the members property.
      */
     public set members(value: DirectoryObject[] | undefined) {
@@ -1063,21 +1063,21 @@ export class Group extends DirectoryObject implements Parsable {
         this._onPremisesSyncEnabled = value;
     };
     /**
-     * Sets the owners property value. The owners of the group who can be users or service principals. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
+     * Sets the owners property value. The owners of the group. Limited to 100 owners. Nullable. If this property is not specified when creating a Microsoft 365 group, the calling user is automatically assigned as the group owner. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=owners($select=id,userPrincipalName,displayName).
      * @param value Value to set for the owners property.
      */
     public set owners(value: DirectoryObject[] | undefined) {
         this._owners = value;
     };
     /**
-     * Sets the permissionGrants property value. The permissions that have been granted for a group to a specific application. Supports $expand.
+     * Sets the permissionGrants property value. The permission that has been granted for a group to a specific application. Supports $expand.
      * @param value Value to set for the permissionGrants property.
      */
     public set permissionGrants(value: ResourceSpecificPermissionGrant[] | undefined) {
         this._permissionGrants = value;
     };
     /**
-     * Sets the photo property value. The group's profile photo.
+     * Sets the photo property value. The group's profile photo
      * @param value Value to set for the photo property.
      */
     public set photo(value: ProfilePhoto | undefined) {
@@ -1091,7 +1091,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._photos = value;
     };
     /**
-     * Sets the planner property value. Selective Planner services available to the group. Read-only. Nullable.
+     * Sets the planner property value. Entry-point to Planner resource that might exist for a Unified Group.
      * @param value Value to set for the planner property.
      */
     public set planner(value: PlannerGroup | undefined) {
@@ -1112,7 +1112,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._preferredLanguage = value;
     };
     /**
-     * Sets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required for filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the proxyAddresses property value. Email addresses for the group that direct to the same group mailbox. For example: ['SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com']. The any operator is required to filter expressions on multi-valued properties. Returned by default. Read-only. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
      * @param value Value to set for the proxyAddresses property.
      */
     public set proxyAddresses(value: string[] | undefined) {
@@ -1133,7 +1133,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._renewedDateTime = value;
     };
     /**
-     * Sets the securityEnabled property value. Specifies whether the group is a security group. Required.Returned by default. Supports $filter (eq, ne, not, in).
+     * Sets the securityEnabled property value. Specifies whether the group is a security group. Required. Returned by default. Supports $filter (eq, ne, not, in).
      * @param value Value to set for the securityEnabled property.
      */
     public set securityEnabled(value: boolean | undefined) {
@@ -1147,7 +1147,7 @@ export class Group extends DirectoryObject implements Parsable {
         this._securityIdentifier = value;
     };
     /**
-     * Sets the settings property value. Settings that can govern this group's behavior, like whether members can invite guest users to the group. Nullable.
+     * Sets the settings property value. Read-only. Nullable.
      * @param value Value to set for the settings property.
      */
     public set settings(value: GroupSetting[] | undefined) {
@@ -1196,14 +1196,14 @@ export class Group extends DirectoryObject implements Parsable {
         this._transitiveMembers = value;
     };
     /**
-     * Sets the unseenCount property value. Count of conversations that have received new posts since the signed-in user last visited the group. This property is the same as unseenConversationsCount.Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
+     * Sets the unseenCount property value. Count of conversations that have received new posts since the signed-in user last visited the group. Returned only on $select. Supported only on the Get group API (GET /groups/{ID}).
      * @param value Value to set for the unseenCount property.
      */
     public set unseenCount(value: number | undefined) {
         this._unseenCount = value;
     };
     /**
-     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public.  Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
+     * Sets the visibility property value. Specifies the group join policy and group content visibility for groups. Possible values are: Private, Public, or Hiddenmembership. Hiddenmembership can be set only for Microsoft 365 groups, when the groups are created. It can't be updated later. Other values of visibility can be updated after group creation. If visibility value is not specified during group creation on Microsoft Graph, a security group is created as Private by default and Microsoft 365 group is Public. Groups assignable to roles are always Private. See group visibility options to learn more. Returned by default. Nullable.
      * @param value Value to set for the visibility property.
      */
     public set visibility(value: string | undefined) {

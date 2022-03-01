@@ -8,7 +8,7 @@ export class ColumnValidation implements Parsable {
     private _defaultLanguage?: string | undefined;
     /** Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.  */
     private _descriptions?: DisplayNameLocalization[] | undefined;
-    /** The formula to validate column value. For examples, see Examples of common formulas in lists  */
+    /** The formula to validate column value. For examples, see Examples of common formulas in lists.  */
     private _formula?: string | undefined;
     /**
      * Instantiates a new columnValidation and sets the default values.
@@ -38,7 +38,7 @@ export class ColumnValidation implements Parsable {
         return this._descriptions;
     };
     /**
-     * Gets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists
+     * Gets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists.
      * @returns a string
      */
     public get formula() {
@@ -88,7 +88,7 @@ export class ColumnValidation implements Parsable {
         this._descriptions = value;
     };
     /**
-     * Sets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists
+     * Sets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists.
      * @param value Value to set for the formula property.
      */
     public set formula(value: string | undefined) {

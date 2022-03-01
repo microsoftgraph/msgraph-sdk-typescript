@@ -1,5 +1,5 @@
 import {Bitlocker} from '../../models/microsoft/graph/bitlocker';
-import {BitlockerRecoveryKeyRequestBuilder} from './recoveryKeys/item/bitlockerRecoveryKeyRequestBuilder';
+import {BitlockerRecoveryKeyItemRequestBuilder} from './recoveryKeys/item/bitlockerRecoveryKeyItemRequestBuilder';
 import {RecoveryKeysRequestBuilder} from './recoveryKeys/recoveryKeysRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -38,7 +38,7 @@ export class BitlockerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -57,7 +57,7 @@ export class BitlockerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -75,7 +75,7 @@ export class BitlockerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -90,7 +90,7 @@ export class BitlockerRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get bitlocker from informationProtection
@@ -107,7 +107,7 @@ export class BitlockerRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Bitlocker>(requestInfo, Bitlocker, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Bitlocker>(requestInfo, Bitlocker, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property bitlocker in informationProtection
@@ -121,17 +121,17 @@ export class BitlockerRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.informationProtection.bitlocker.recoveryKeys.item collection
      * @param id Unique identifier of the item
-     * @returns a bitlockerRecoveryKeyRequestBuilder
+     * @returns a bitlockerRecoveryKeyItemRequestBuilder
      */
-    public recoveryKeysById(id: string) : BitlockerRecoveryKeyRequestBuilder {
+    public recoveryKeysById(id: string) : BitlockerRecoveryKeyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bitlockerRecoveryKey_id"] = id
-        return new BitlockerRecoveryKeyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new BitlockerRecoveryKeyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

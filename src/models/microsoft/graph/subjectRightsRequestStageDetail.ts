@@ -7,7 +7,7 @@ export class SubjectRightsRequestStageDetail implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Describes the error, if any, for the current stage.  */
-    private _error?: PublicError | undefined;
+    private _error_escaped?: PublicError | undefined;
     /** The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.  */
     private _stage?: SubjectRightsRequestStage | undefined;
     /** Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.  */
@@ -29,8 +29,8 @@ export class SubjectRightsRequestStageDetail implements Parsable {
      * Gets the error property value. Describes the error, if any, for the current stage.
      * @returns a publicError
      */
-    public get error() {
-        return this._error;
+    public get error_escaped() {
+        return this._error_escaped;
     };
     /**
      * Gets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
@@ -52,7 +52,7 @@ export class SubjectRightsRequestStageDetail implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["error", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).error = n.getObjectValue<PublicError>(PublicError); }],
+            ["error", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).error_escaped = n.getObjectValue<PublicError>(PublicError); }],
             ["stage", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).stage = n.getEnumValue<SubjectRightsRequestStage>(SubjectRightsRequestStage); }],
             ["status", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).status = n.getEnumValue<SubjectRightsRequestStageStatus>(SubjectRightsRequestStageStatus); }],
         ]);
@@ -63,7 +63,7 @@ export class SubjectRightsRequestStageDetail implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<PublicError>("error", this.error);
+        writer.writeObjectValue<PublicError>("error", this.error_escaped);
         writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         writer.writeEnumValue<SubjectRightsRequestStageStatus>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
@@ -77,10 +77,10 @@ export class SubjectRightsRequestStageDetail implements Parsable {
     };
     /**
      * Sets the error property value. Describes the error, if any, for the current stage.
-     * @param value Value to set for the error property.
+     * @param value Value to set for the error_escaped property.
      */
-    public set error(value: PublicError | undefined) {
-        this._error = value;
+    public set error_escaped(value: PublicError | undefined) {
+        this._error_escaped = value;
     };
     /**
      * Sets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.

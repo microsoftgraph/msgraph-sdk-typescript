@@ -8,19 +8,19 @@ export class Invitation extends Entity implements Parsable {
     private _invitedUser?: User | undefined;
     /** The display name of the user being invited.  */
     private _invitedUserDisplayName?: string | undefined;
-    /** The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`  */
+    /** The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (')Angle brackets (< >)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name.  */
     private _invitedUserEmailAddress?: string | undefined;
     /** Additional configuration for the message being sent to the invited user, including customizing message text, language and cc recipient list.  */
     private _invitedUserMessageInfo?: InvitedUserMessageInfo | undefined;
-    /** The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false.  */
+    /** The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.  */
     private _invitedUserType?: string | undefined;
     /** The URL the user can use to redeem their invitation. Read-only.  */
     private _inviteRedeemUrl?: string | undefined;
-    /** The URL user should be redirected to once the invitation is redeemed. Required.  */
+    /** The URL the user should be redirected to once the invitation is redeemed. Required.  */
     private _inviteRedirectUrl?: string | undefined;
     /** Indicates whether an email should be sent to the user being invited. The default is false.  */
     private _sendInvitationMessage?: boolean | undefined;
-    /** The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error  */
+    /** The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.  */
     private _status?: string | undefined;
     /**
      * Instantiates a new invitation and sets the default values.
@@ -43,7 +43,7 @@ export class Invitation extends Entity implements Parsable {
         return this._invitedUserDisplayName;
     };
     /**
-     * Gets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
+     * Gets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (')Angle brackets (< >)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name.
      * @returns a string
      */
     public get invitedUserEmailAddress() {
@@ -57,7 +57,7 @@ export class Invitation extends Entity implements Parsable {
         return this._invitedUserMessageInfo;
     };
     /**
-     * Gets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false.
+     * Gets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.
      * @returns a string
      */
     public get invitedUserType() {
@@ -71,7 +71,7 @@ export class Invitation extends Entity implements Parsable {
         return this._inviteRedeemUrl;
     };
     /**
-     * Gets the inviteRedirectUrl property value. The URL user should be redirected to once the invitation is redeemed. Required.
+     * Gets the inviteRedirectUrl property value. The URL the user should be redirected to once the invitation is redeemed. Required.
      * @returns a string
      */
     public get inviteRedirectUrl() {
@@ -85,7 +85,7 @@ export class Invitation extends Entity implements Parsable {
         return this._sendInvitationMessage;
     };
     /**
-     * Gets the status property value. The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error
+     * Gets the status property value. The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.
      * @returns a string
      */
     public get status() {
@@ -140,7 +140,7 @@ export class Invitation extends Entity implements Parsable {
         this._invitedUserDisplayName = value;
     };
     /**
-     * Sets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)At sign (@)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Hyphen (-)Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (`
+     * Sets the invitedUserEmailAddress property value. The email address of the user being invited. Required. The following special characters are not permitted in the email address:Tilde (~)Exclamation point (!)Number sign (#)Dollar sign ($)Percent (%)Circumflex (^)Ampersand (&)Asterisk (*)Parentheses (( ))Plus sign (+)Equal sign (=)Brackets ([ ])Braces ({ })Backslash (/)Slash mark (/)Pipe (/|)Semicolon (;)Colon (:)Quotation marks (')Angle brackets (< >)Question mark (?)Comma (,)However, the following exceptions apply:A period (.) or a hyphen (-) is permitted anywhere in the user name, except at the beginning or end of the name.An underscore (_) is permitted anywhere in the user name. This includes at the beginning or end of the name.
      * @param value Value to set for the invitedUserEmailAddress property.
      */
     public set invitedUserEmailAddress(value: string | undefined) {
@@ -154,7 +154,7 @@ export class Invitation extends Entity implements Parsable {
         this._invitedUserMessageInfo = value;
     };
     /**
-     * Sets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you're are company administrator. The default is false.
+     * Sets the invitedUserType property value. The userType of the user being invited. By default, this is Guest. You can invite as Member if you are a company administrator.
      * @param value Value to set for the invitedUserType property.
      */
     public set invitedUserType(value: string | undefined) {
@@ -168,7 +168,7 @@ export class Invitation extends Entity implements Parsable {
         this._inviteRedeemUrl = value;
     };
     /**
-     * Sets the inviteRedirectUrl property value. The URL user should be redirected to once the invitation is redeemed. Required.
+     * Sets the inviteRedirectUrl property value. The URL the user should be redirected to once the invitation is redeemed. Required.
      * @param value Value to set for the inviteRedirectUrl property.
      */
     public set inviteRedirectUrl(value: string | undefined) {
@@ -182,7 +182,7 @@ export class Invitation extends Entity implements Parsable {
         this._sendInvitationMessage = value;
     };
     /**
-     * Sets the status property value. The status of the invitation. Possible values: PendingAcceptance, Completed, InProgress, and Error
+     * Sets the status property value. The status of the invitation. Possible values are: PendingAcceptance, Completed, InProgress, and Error.
      * @param value Value to set for the status property.
      */
     public set status(value: string | undefined) {

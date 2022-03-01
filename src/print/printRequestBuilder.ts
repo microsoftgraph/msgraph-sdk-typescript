@@ -1,15 +1,15 @@
 import {Print} from '../models/microsoft/graph/print';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
-import {PrintConnectorRequestBuilder} from './connectors/item/printConnectorRequestBuilder';
-import {PrintOperationRequestBuilder} from './operations/item/printOperationRequestBuilder';
+import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
+import {PrintOperationItemRequestBuilder} from './operations/item/printOperationItemRequestBuilder';
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
-import {PrinterRequestBuilder} from './printers/item/printerRequestBuilder';
+import {PrinterItemRequestBuilder} from './printers/item/printerItemRequestBuilder';
 import {PrintersRequestBuilder} from './printers/printersRequestBuilder';
-import {PrintServiceRequestBuilder} from './services/item/printServiceRequestBuilder';
+import {PrintServiceItemRequestBuilder} from './services/item/printServiceItemRequestBuilder';
 import {ServicesRequestBuilder} from './services/servicesRequestBuilder';
-import {PrinterShareRequestBuilder} from './shares/item/printerShareRequestBuilder';
+import {PrinterShareItemRequestBuilder} from './shares/item/printerShareItemRequestBuilder';
 import {SharesRequestBuilder} from './shares/sharesRequestBuilder';
-import {PrintTaskDefinitionRequestBuilder} from './taskDefinitions/item/printTaskDefinitionRequestBuilder';
+import {PrintTaskDefinitionItemRequestBuilder} from './taskDefinitions/item/printTaskDefinitionItemRequestBuilder';
 import {TaskDefinitionsRequestBuilder} from './taskDefinitions/taskDefinitionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -42,13 +42,13 @@ export class PrintRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.connectors.item collection
      * @param id Unique identifier of the item
-     * @returns a printConnectorRequestBuilder
+     * @returns a printConnectorItemRequestBuilder
      */
-    public connectorsById(id: string) : PrintConnectorRequestBuilder {
+    public connectorsById(id: string) : PrintConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printConnector_id"] = id
-        return new PrintConnectorRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PrintConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new PrintRequestBuilder and sets the default values.
@@ -78,7 +78,7 @@ export class PrintRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -96,7 +96,7 @@ export class PrintRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -116,18 +116,18 @@ export class PrintRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Print>(requestInfo, Print, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Print>(requestInfo, Print, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.operations.item collection
      * @param id Unique identifier of the item
-     * @returns a printOperationRequestBuilder
+     * @returns a printOperationItemRequestBuilder
      */
-    public operationsById(id: string) : PrintOperationRequestBuilder {
+    public operationsById(id: string) : PrintOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printOperation_id"] = id
-        return new PrintOperationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PrintOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update print
@@ -141,50 +141,50 @@ export class PrintRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.printers.item collection
      * @param id Unique identifier of the item
-     * @returns a printerRequestBuilder
+     * @returns a printerItemRequestBuilder
      */
-    public printersById(id: string) : PrinterRequestBuilder {
+    public printersById(id: string) : PrinterItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printer_id"] = id
-        return new PrinterRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PrinterItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.services.item collection
      * @param id Unique identifier of the item
-     * @returns a printServiceRequestBuilder
+     * @returns a printServiceItemRequestBuilder
      */
-    public servicesById(id: string) : PrintServiceRequestBuilder {
+    public servicesById(id: string) : PrintServiceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printService_id"] = id
-        return new PrintServiceRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PrintServiceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.shares.item collection
      * @param id Unique identifier of the item
-     * @returns a printerShareRequestBuilder
+     * @returns a printerShareItemRequestBuilder
      */
-    public sharesById(id: string) : PrinterShareRequestBuilder {
+    public sharesById(id: string) : PrinterShareItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printerShare_id"] = id
-        return new PrinterShareRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PrinterShareItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.print.taskDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a printTaskDefinitionRequestBuilder
+     * @returns a printTaskDefinitionItemRequestBuilder
      */
-    public taskDefinitionsById(id: string) : PrintTaskDefinitionRequestBuilder {
+    public taskDefinitionsById(id: string) : PrintTaskDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["printTaskDefinition_id"] = id
-        return new PrintTaskDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PrintTaskDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -4,7 +4,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 
 export class OnenoteOperation extends Operation implements Parsable {
     /** The error returned by the operation.  */
-    private _error?: OnenoteOperationError | undefined;
+    private _error_escaped?: OnenoteOperationError | undefined;
     /** The operation percent complete if the operation is still in running status.  */
     private _percentComplete?: string | undefined;
     /** The resource id.  */
@@ -21,8 +21,8 @@ export class OnenoteOperation extends Operation implements Parsable {
      * Gets the error property value. The error returned by the operation.
      * @returns a onenoteOperationError
      */
-    public get error() {
-        return this._error;
+    public get error_escaped() {
+        return this._error_escaped;
     };
     /**
      * Gets the percentComplete property value. The operation percent complete if the operation is still in running status.
@@ -51,7 +51,7 @@ export class OnenoteOperation extends Operation implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["error", (o, n) => { (o as unknown as OnenoteOperation).error = n.getObjectValue<OnenoteOperationError>(OnenoteOperationError); }],
+            ["error", (o, n) => { (o as unknown as OnenoteOperation).error_escaped = n.getObjectValue<OnenoteOperationError>(OnenoteOperationError); }],
             ["percentComplete", (o, n) => { (o as unknown as OnenoteOperation).percentComplete = n.getStringValue(); }],
             ["resourceId", (o, n) => { (o as unknown as OnenoteOperation).resourceId = n.getStringValue(); }],
             ["resourceLocation", (o, n) => { (o as unknown as OnenoteOperation).resourceLocation = n.getStringValue(); }],
@@ -64,17 +64,17 @@ export class OnenoteOperation extends Operation implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        writer.writeObjectValue<OnenoteOperationError>("error", this.error);
+        writer.writeObjectValue<OnenoteOperationError>("error", this.error_escaped);
         writer.writeStringValue("percentComplete", this.percentComplete);
         writer.writeStringValue("resourceId", this.resourceId);
         writer.writeStringValue("resourceLocation", this.resourceLocation);
     };
     /**
      * Sets the error property value. The error returned by the operation.
-     * @param value Value to set for the error property.
+     * @param value Value to set for the error_escaped property.
      */
-    public set error(value: OnenoteOperationError | undefined) {
-        this._error = value;
+    public set error_escaped(value: OnenoteOperationError | undefined) {
+        this._error_escaped = value;
     };
     /**
      * Sets the percentComplete property value. The operation percent complete if the operation is still in running status.

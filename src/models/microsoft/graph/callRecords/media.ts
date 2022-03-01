@@ -1,5 +1,5 @@
-import {MediaStream} from '../mediaStream';
 import {DeviceInfo} from './deviceInfo';
+import {MediaStream} from './mediaStream';
 import {NetworkInfo} from './networkInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 

@@ -3,7 +3,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class SettingValue implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Name of the setting (as defined by the directorySettingTemplate).  */
+    /** Name of the setting (as defined by the groupSettingTemplate).  */
     private _name?: string | undefined;
     /** Value of the setting.  */
     private _value?: string | undefined;
@@ -21,7 +21,7 @@ export class SettingValue implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Gets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      * @returns a string
      */
     public get name() {
@@ -62,7 +62,7 @@ export class SettingValue implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Sets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {

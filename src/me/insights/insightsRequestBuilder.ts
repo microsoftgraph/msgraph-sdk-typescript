@@ -1,8 +1,9 @@
 import {OfficeGraphInsights} from '../../models/microsoft/graph/officeGraphInsights';
-import {SharedInsightRequestBuilder} from './shared/item/sharedInsightRequestBuilder';
+import {SharedInsightItemRequestBuilder} from './shared/item/sharedInsightItemRequestBuilder';
 import {SharedRequestBuilder} from './shared/sharedRequestBuilder';
+import {TrendingItemRequestBuilder} from './trending/item/trendingItemRequestBuilder';
 import {TrendingRequestBuilder} from './trending/trendingRequestBuilder';
-import {UsedInsightRequestBuilder} from './used/item/usedInsightRequestBuilder';
+import {UsedInsightItemRequestBuilder} from './used/item/usedInsightItemRequestBuilder';
 import {UsedRequestBuilder} from './used/usedRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -47,7 +48,7 @@ export class InsightsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -66,7 +67,7 @@ export class InsightsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -84,7 +85,7 @@ export class InsightsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -99,7 +100,7 @@ export class InsightsRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Read-only. Nullable.
@@ -116,7 +117,7 @@ export class InsightsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, OfficeGraphInsights, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OfficeGraphInsights>(requestInfo, OfficeGraphInsights, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Read-only. Nullable.
@@ -130,39 +131,39 @@ export class InsightsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.insights.shared.item collection
      * @param id Unique identifier of the item
-     * @returns a sharedInsightRequestBuilder
+     * @returns a sharedInsightItemRequestBuilder
      */
-    public sharedById(id: string) : SharedInsightRequestBuilder {
+    public sharedById(id: string) : SharedInsightItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["sharedInsight_id"] = id
-        return new SharedInsightRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SharedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.insights.trending.item collection
      * @param id Unique identifier of the item
-     * @returns a trendingRequestBuilder
+     * @returns a trendingItemRequestBuilder
      */
-    public trendingById(id: string) : TrendingRequestBuilder {
+    public trendingById(id: string) : TrendingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["trending_id"] = id
-        return new TrendingRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TrendingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.insights.used.item collection
      * @param id Unique identifier of the item
-     * @returns a usedInsightRequestBuilder
+     * @returns a usedInsightItemRequestBuilder
      */
-    public usedById(id: string) : UsedInsightRequestBuilder {
+    public usedById(id: string) : UsedInsightItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["usedInsight_id"] = id
-        return new UsedInsightRequestBuilder(urlTplParams, this.requestAdapter);
+        return new UsedInsightItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

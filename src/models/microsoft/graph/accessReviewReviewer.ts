@@ -6,7 +6,7 @@ export class AccessReviewReviewer extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** Name of reviewer.  */
     private _displayName?: string | undefined;
-    /** User principal name of the user.  */
+    /** User principal name of the reviewer.  */
     private _userPrincipalName?: string | undefined;
     /**
      * Instantiates a new accessReviewReviewer and sets the default values.
@@ -29,7 +29,7 @@ export class AccessReviewReviewer extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the userPrincipalName property value. User principal name of the user.
+     * Gets the userPrincipalName property value. User principal name of the reviewer.
      * @returns a string
      */
     public get userPrincipalName() {
@@ -72,7 +72,7 @@ export class AccessReviewReviewer extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the userPrincipalName property value. User principal name of the user.
+     * Sets the userPrincipalName property value. User principal name of the reviewer.
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {

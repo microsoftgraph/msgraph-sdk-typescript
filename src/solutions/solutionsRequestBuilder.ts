@@ -1,9 +1,8 @@
-import {Solutions} from '../models/microsoft/graph/solutions';
 import {SolutionsRoot} from '../models/microsoft/graph/solutionsRoot';
 import {BookingBusinessesRequestBuilder} from './bookingBusinesses/bookingBusinessesRequestBuilder';
-import {BookingBusinessRequestBuilder} from './bookingBusinesses/item/bookingBusinessRequestBuilder';
+import {BookingBusinessItemRequestBuilder} from './bookingBusinesses/item/bookingBusinessItemRequestBuilder';
 import {BookingCurrenciesRequestBuilder} from './bookingCurrencies/bookingCurrenciesRequestBuilder';
-import {BookingCurrencyRequestBuilder} from './bookingCurrencies/item/bookingCurrencyRequestBuilder';
+import {BookingCurrencyItemRequestBuilder} from './bookingCurrencies/item/bookingCurrencyItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /solutions  */
@@ -23,24 +22,24 @@ export class SolutionsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingBusinesses.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingBusinessRequestBuilder
+     * @returns a bookingBusinessItemRequestBuilder
      */
-    public bookingBusinessesById(id: string) : BookingBusinessRequestBuilder {
+    public bookingBusinessesById(id: string) : BookingBusinessItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingBusiness_id"] = id
-        return new BookingBusinessRequestBuilder(urlTplParams, this.requestAdapter);
+        return new BookingBusinessItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.solutions.bookingCurrencies.item collection
      * @param id Unique identifier of the item
-     * @returns a bookingCurrencyRequestBuilder
+     * @returns a bookingCurrencyItemRequestBuilder
      */
-    public bookingCurrenciesById(id: string) : BookingCurrencyRequestBuilder {
+    public bookingCurrenciesById(id: string) : BookingCurrencyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["bookingCurrency_id"] = id
-        return new BookingCurrencyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new BookingCurrencyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SolutionsRequestBuilder and sets the default values.
@@ -70,7 +69,7 @@ export class SolutionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -82,13 +81,13 @@ export class SolutionsRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Solutions | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: SolutionsRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -108,7 +107,7 @@ export class SolutionsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<SolutionsRoot>(requestInfo, SolutionsRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SolutionsRoot>(requestInfo, SolutionsRoot, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update solutions
@@ -117,11 +116,11 @@ export class SolutionsRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Solutions | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SolutionsRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

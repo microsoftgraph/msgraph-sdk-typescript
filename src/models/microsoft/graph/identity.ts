@@ -3,9 +3,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class Identity implements Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The display name of the identity. This property is read-only.  */
+    /** The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.  */
     private _displayName?: string | undefined;
-    /** The identifier of the identity. This property is read-only.  */
+    /** Unique identifier for the identity.  */
     private _id?: string | undefined;
     /**
      * Instantiates a new identity and sets the default values.
@@ -21,14 +21,14 @@ export class Identity implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the displayName property value. The display name of the identity. This property is read-only.
+     * Gets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the id property value. The identifier of the identity. This property is read-only.
+     * Gets the id property value. Unique identifier for the identity.
      * @returns a string
      */
     public get id() {
@@ -62,14 +62,14 @@ export class Identity implements Parsable {
         this._additionalData = value;
     };
     /**
-     * Sets the displayName property value. The display name of the identity. This property is read-only.
+     * Sets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Sets the id property value. The identifier of the identity. This property is read-only.
+     * Sets the id property value. Unique identifier for the identity.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

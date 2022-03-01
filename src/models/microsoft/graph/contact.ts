@@ -28,7 +28,7 @@ export class Contact extends OutlookItem implements Parsable {
     private _displayName?: string | undefined;
     /** The contact's email addresses.  */
     private _emailAddresses?: EmailAddress[] | undefined;
-    /** The collection of open extensions defined for the contact. Nullable.  */
+    /** The collection of open extensions defined for the contact. Read-only. Nullable.  */
     private _extensions?: Extension[] | undefined;
     /** The name the contact is filed under.  */
     private _fileAs?: string | undefined;
@@ -141,7 +141,7 @@ export class Contact extends OutlookItem implements Parsable {
         return this._emailAddresses;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
      * @returns a extension
      */
     public get extensions() {
@@ -490,7 +490,7 @@ export class Contact extends OutlookItem implements Parsable {
         this._emailAddresses = value;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the contact. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {

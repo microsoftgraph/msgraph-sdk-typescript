@@ -8,7 +8,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AccessReviewInstance extends Entity implements Parsable {
     /** Returns the collection of reviewers who were contacted to complete this review. While the reviewers and fallbackReviewers properties of the accessReviewScheduleDefinition might specify group owners or managers as reviewers, contactedReviewers returns their individual identities. Supports $select. Read-only.  */
     private _contactedReviewers?: AccessReviewReviewer[] | undefined;
-    /** Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.  */
+    /** Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.  */
     private _decisions?: AccessReviewInstanceDecisionItem[] | undefined;
     /** DateTime when review instance is scheduled to end.The DatetimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $select. Read-only.  */
     private _endDateTime?: Date | undefined;
@@ -36,7 +36,7 @@ export class AccessReviewInstance extends Entity implements Parsable {
         return this._contactedReviewers;
     };
     /**
-     * Gets the decisions property value. Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Gets the decisions property value. Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
      * @returns a accessReviewInstanceDecisionItem
      */
     public get decisions() {
@@ -124,7 +124,7 @@ export class AccessReviewInstance extends Entity implements Parsable {
         this._contactedReviewers = value;
     };
     /**
-     * Sets the decisions property value. Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
+     * Sets the decisions property value. Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
      * @param value Value to set for the decisions property.
      */
     public set decisions(value: AccessReviewInstanceDecisionItem[] | undefined) {

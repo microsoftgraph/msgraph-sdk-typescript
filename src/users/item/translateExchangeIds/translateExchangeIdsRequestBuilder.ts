@@ -1,4 +1,4 @@
-import {TranslateExchangeIds} from './translateExchangeIds';
+import {ConvertIdResult} from '../../../models/microsoft/graph/convertIdResult';
 import {TranslateExchangeIdsRequestBody} from './translateExchangeIdsRequestBody';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -36,7 +36,7 @@ export class TranslateExchangeIdsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -47,13 +47,13 @@ export class TranslateExchangeIdsRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of TranslateExchangeIds
+     * @returns a Promise of ConvertIdResult
      */
-    public post(body: TranslateExchangeIdsRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TranslateExchangeIds[] | undefined> {
+    public post(body: TranslateExchangeIdsRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ConvertIdResult[] | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<TranslateExchangeIds>(requestInfo, TranslateExchangeIds, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendCollectionAsync<ConvertIdResult>(requestInfo, ConvertIdResult, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

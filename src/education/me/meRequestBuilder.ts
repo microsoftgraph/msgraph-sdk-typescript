@@ -1,8 +1,8 @@
 import {EducationUser} from '../../models/microsoft/graph/educationUser';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {EducationAssignmentRequestBuilder} from './assignments/item/educationAssignmentRequestBuilder';
+import {EducationAssignmentItemRequestBuilder} from './assignments/item/educationAssignmentItemRequestBuilder';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationRubricRequestBuilder} from './rubrics/item/educationRubricRequestBuilder';
+import {EducationRubricItemRequestBuilder} from './rubrics/item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
@@ -38,13 +38,13 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a educationAssignmentRequestBuilder
+     * @returns a educationAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : EducationAssignmentRequestBuilder {
+    public assignmentsById(id: string) : EducationAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationAssignment_id"] = id
-        return new EducationAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new MeRequestBuilder and sets the default values.
@@ -70,7 +70,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -89,7 +89,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -107,7 +107,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -122,7 +122,7 @@ export class MeRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get me from education
@@ -139,7 +139,7 @@ export class MeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, EducationUser, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, EducationUser, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property me in education
@@ -153,17 +153,17 @@ export class MeRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.rubrics.item collection
      * @param id Unique identifier of the item
-     * @returns a educationRubricRequestBuilder
+     * @returns a educationRubricItemRequestBuilder
      */
-    public rubricsById(id: string) : EducationRubricRequestBuilder {
+    public rubricsById(id: string) : EducationRubricItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationRubric_id"] = id
-        return new EducationRubricRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationRubricItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

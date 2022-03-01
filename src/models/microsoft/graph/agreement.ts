@@ -12,9 +12,9 @@ export class Agreement extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** Default PDF linked to this agreement.  */
     private _file?: AgreementFile | undefined;
-    /** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.  */
+    /** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.  */
     private _files?: AgreementFileLocalization[] | undefined;
-    /** This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.  */
+    /** Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.  */
     private _isPerDeviceAcceptanceRequired?: boolean | undefined;
     /** Indicates whether the user has to expand the agreement before accepting.  */
     private _isViewingBeforeAcceptanceRequired?: boolean | undefined;
@@ -50,14 +50,14 @@ export class Agreement extends Entity implements Parsable {
         return this._file;
     };
     /**
-     * Gets the files property value. PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * Gets the files property value. PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
      * @returns a agreementFileLocalization
      */
     public get files() {
         return this._files;
     };
     /**
-     * Gets the isPerDeviceAcceptanceRequired property value. This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.
+     * Gets the isPerDeviceAcceptanceRequired property value. Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.
      * @returns a boolean
      */
     public get isPerDeviceAcceptanceRequired() {
@@ -138,14 +138,14 @@ export class Agreement extends Entity implements Parsable {
         this._file = value;
     };
     /**
-     * Sets the files property value. PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * Sets the files property value. PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
      * @param value Value to set for the files property.
      */
     public set files(value: AgreementFileLocalization[] | undefined) {
         this._files = value;
     };
     /**
-     * Sets the isPerDeviceAcceptanceRequired property value. This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.
+     * Sets the isPerDeviceAcceptanceRequired property value. Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.
      * @param value Value to set for the isPerDeviceAcceptanceRequired property.
      */
     public set isPerDeviceAcceptanceRequired(value: boolean | undefined) {

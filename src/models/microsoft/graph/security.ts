@@ -5,7 +5,7 @@ import {SecureScoreControlProfile} from './secureScoreControlProfile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Security extends Entity implements Parsable {
-    /** Notifications for suspicious or potential security issues in a customer’s tenant.  */
+    /** Read-only. Nullable.  */
     private _alerts?: Alert[] | undefined;
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     private _secureScores?: SecureScore[] | undefined;
@@ -16,7 +16,7 @@ export class Security extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the alerts property value. Notifications for suspicious or potential security issues in a customer’s tenant.
+     * Gets the alerts property value. Read-only. Nullable.
      * @returns a alert
      */
     public get alerts() {
@@ -59,7 +59,7 @@ export class Security extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<SecureScore>("secureScores", this.secureScores);
     };
     /**
-     * Sets the alerts property value. Notifications for suspicious or potential security issues in a customer’s tenant.
+     * Sets the alerts property value. Read-only. Nullable.
      * @param value Value to set for the alerts property.
      */
     public set alerts(value: Alert[] | undefined) {

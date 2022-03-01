@@ -8,7 +8,7 @@ export class TeamsTab extends Entity implements Parsable {
     private _configuration?: TeamsTabConfiguration | undefined;
     /** Name of the tab.  */
     private _displayName?: string | undefined;
-    /** The application that is linked to the tab.  */
+    /** The application that is linked to the tab. This cannot be changed after tab creation.  */
     private _teamsApp?: TeamsApp | undefined;
     /** Deep link URL of the tab instance. Read only.  */
     private _webUrl?: string | undefined;
@@ -33,7 +33,7 @@ export class TeamsTab extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the teamsApp property value. The application that is linked to the tab.
+     * Gets the teamsApp property value. The application that is linked to the tab. This cannot be changed after tab creation.
      * @returns a teamsApp
      */
     public get teamsApp() {
@@ -85,7 +85,7 @@ export class TeamsTab extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Sets the teamsApp property value. The application that is linked to the tab.
+     * Sets the teamsApp property value. The application that is linked to the tab. This cannot be changed after tab creation.
      * @param value Value to set for the teamsApp property.
      */
     public set teamsApp(value: TeamsApp | undefined) {

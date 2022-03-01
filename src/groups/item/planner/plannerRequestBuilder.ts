@@ -1,5 +1,5 @@
 import {PlannerGroup} from '../../../models/microsoft/graph/plannerGroup';
-import {PlannerPlanRequestBuilder} from './plans/item/plannerPlanRequestBuilder';
+import {PlannerPlanItemRequestBuilder} from './plans/item/plannerPlanItemRequestBuilder';
 import {PlansRequestBuilder} from './plans/plansRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -28,7 +28,7 @@ export class PlannerRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -38,12 +38,12 @@ export class PlannerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -57,13 +57,13 @@ export class PlannerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -75,13 +75,13 @@ export class PlannerRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -90,10 +90,10 @@ export class PlannerRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -107,10 +107,10 @@ export class PlannerRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<PlannerGroup>(requestInfo, PlannerGroup, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PlannerGroup>(requestInfo, PlannerGroup, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Selective Planner services available to the group. Read-only. Nullable.
+     * Entry-point to Planner resource that might exist for a Unified Group.
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -121,17 +121,17 @@ export class PlannerRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.planner.plans.item collection
      * @param id Unique identifier of the item
-     * @returns a plannerPlanRequestBuilder
+     * @returns a plannerPlanItemRequestBuilder
      */
-    public plansById(id: string) : PlannerPlanRequestBuilder {
+    public plansById(id: string) : PlannerPlanItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["plannerPlan_id"] = id
-        return new PlannerPlanRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PlannerPlanItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

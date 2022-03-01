@@ -30,7 +30,7 @@ export class WorkbookTable extends Entity implements Parsable {
     private _showTotals?: boolean | undefined;
     /** Represents the sorting for the table. Read-only.  */
     private _sort?: WorkbookTableSort | undefined;
-    /** Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.  */
+    /** Constant value that represents the Table style. The possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.  */
     private _style?: string | undefined;
     /** The worksheet containing the current table. Read-only.  */
     private _worksheet?: WorkbookWorksheet | undefined;
@@ -125,7 +125,7 @@ export class WorkbookTable extends Entity implements Parsable {
         return this._sort;
     };
     /**
-     * Gets the style property value. Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.
+     * Gets the style property value. Constant value that represents the Table style. The possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.
      * @returns a string
      */
     public get style() {
@@ -267,7 +267,7 @@ export class WorkbookTable extends Entity implements Parsable {
         this._sort = value;
     };
     /**
-     * Sets the style property value. Constant value that represents the Table style. Possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.
+     * Sets the style property value. Constant value that represents the Table style. The possible values are: TableStyleLight1 thru TableStyleLight21, TableStyleMedium1 thru TableStyleMedium28, TableStyleStyleDark1 thru TableStyleStyleDark11. A custom user-defined style present in the workbook can also be specified.
      * @param value Value to set for the style property.
      */
     public set style(value: string | undefined) {
