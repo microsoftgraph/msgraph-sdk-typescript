@@ -1,6 +1,7 @@
 import {CommsOperation} from './commsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the subscribeToTone method.  */
 export class SubscribeToToneOperation extends CommsOperation implements Parsable {
     /**
      * Instantiates a new subscribeToToneOperation and sets the default values.

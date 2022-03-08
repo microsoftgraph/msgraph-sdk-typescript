@@ -1,10 +1,18 @@
 import {AdministrativeUnit} from '../../models/microsoft/graph/administrativeUnit';
-import {AdministrativeUnitsResponse} from './administrativeUnitsResponse';
+import {AdministrativeUnitCollectionResponse} from '../../models/microsoft/graph/administrativeUnitCollectionResponse';
+import {createAdministrativeUnitCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createAdministrativeUnitCollectionResponseFromDiscriminatorValue';
+import {createAdministrativeUnitFromDiscriminatorValue} from '../../models/microsoft/graph/createAdministrativeUnitFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /directory/administrativeUnits  */
+/** Provides operations to manage the administrativeUnits property of the microsoft.graph.directory entity.  */
 export class AdministrativeUnitsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -45,13 +53,13 @@ export class AdministrativeUnitsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Conceptual container for user and group directory objects.
+     * Create new navigation property to administrativeUnits for directory
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -63,13 +71,13 @@ export class AdministrativeUnitsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Builds and executes requests for operations under /directory/administrativeUnits/microsoft.graph.delta()
+     * Provides operations to call the delta method.
      * @returns a deltaRequestBuilder
      */
     public delta() : DeltaRequestBuilder {
@@ -81,7 +89,7 @@ export class AdministrativeUnitsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AdministrativeUnitsResponse
+     * @returns a Promise of AdministrativeUnitCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -92,14 +100,18 @@ export class AdministrativeUnitsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnitsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AdministrativeUnitCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AdministrativeUnitsResponse>(requestInfo, AdministrativeUnitsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AdministrativeUnitCollectionResponse>(requestInfo, createAdministrativeUnitCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Conceptual container for user and group directory objects.
+     * Create new navigation property to administrativeUnits for directory
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -111,6 +123,10 @@ export class AdministrativeUnitsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, AdministrativeUnit, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AdministrativeUnit>(requestInfo, createAdministrativeUnitFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

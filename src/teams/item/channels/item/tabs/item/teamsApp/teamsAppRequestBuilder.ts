@@ -1,14 +1,13 @@
+import {createTeamsAppFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/createTeamsAppFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../../../models/microsoft/graph/oDataErrors/oDataError';
 import {TeamsApp} from '../../../../../../../models/microsoft/graph/teamsApp';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /teams/{team-id}/channels/{channel-id}/tabs/{teamsTab-id}/teamsApp  */
+/** Provides operations to manage the teamsApp property of the microsoft.graph.teamsTab entity.  */
 export class TeamsAppRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -27,7 +26,7 @@ export class TeamsAppRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The application that is linked to the tab.
+     * The application that is linked to the tab. This cannot be changed after tab creation.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +40,13 @@ export class TeamsAppRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The application that is linked to the tab.
+     * The application that is linked to the tab. This cannot be changed after tab creation.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +60,10 @@ export class TeamsAppRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TeamsApp>(requestInfo, TeamsApp, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<TeamsApp>(requestInfo, createTeamsAppFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

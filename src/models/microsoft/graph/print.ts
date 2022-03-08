@@ -1,3 +1,10 @@
+import {createPrintConnectorFromDiscriminatorValue} from './createPrintConnectorFromDiscriminatorValue';
+import {createPrinterFromDiscriminatorValue} from './createPrinterFromDiscriminatorValue';
+import {createPrinterShareFromDiscriminatorValue} from './createPrinterShareFromDiscriminatorValue';
+import {createPrintOperationFromDiscriminatorValue} from './createPrintOperationFromDiscriminatorValue';
+import {createPrintServiceFromDiscriminatorValue} from './createPrintServiceFromDiscriminatorValue';
+import {createPrintSettingsFromDiscriminatorValue} from './createPrintSettingsFromDiscriminatorValue';
+import {createPrintTaskDefinitionFromDiscriminatorValue} from './createPrintTaskDefinitionFromDiscriminatorValue';
 import {PrintConnector} from './printConnector';
 import {Printer} from './printer';
 import {PrinterShare} from './printerShare';
@@ -5,9 +12,10 @@ import {PrintOperation} from './printOperation';
 import {PrintService} from './printService';
 import {PrintSettings} from './printSettings';
 import {PrintTaskDefinition} from './printTaskDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class Print implements Parsable {
+/** Provides operations to manage the print singleton.  */
+export class Print implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The list of available print connectors.  */
@@ -25,17 +33,18 @@ export class Print implements Parsable {
     /** List of abstract definition for a task that can be triggered when various events occur within Universal Print.  */
     private _taskDefinitions?: PrintTaskDefinition[] | undefined;
     /**
-     * Instantiates a new Print and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the connectors property value. The list of available print connectors.
@@ -45,11 +54,46 @@ export class Print implements Parsable {
         return this._connectors;
     };
     /**
+     * Sets the connectors property value. The list of available print connectors.
+     * @param value Value to set for the connectors property.
+     */
+    public set connectors(value: PrintConnector[] | undefined) {
+        this._connectors = value;
+    };
+    /**
+     * Instantiates a new Print and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([
+            ["connectors", (o, n) => { (o as unknown as Print).connectors = n.getCollectionOfObjectValues<PrintConnector>(createPrintConnectorFromDiscriminatorValue); }],
+            ["operations", (o, n) => { (o as unknown as Print).operations = n.getCollectionOfObjectValues<PrintOperation>(createPrintOperationFromDiscriminatorValue); }],
+            ["printers", (o, n) => { (o as unknown as Print).printers = n.getCollectionOfObjectValues<Printer>(createPrinterFromDiscriminatorValue); }],
+            ["services", (o, n) => { (o as unknown as Print).services = n.getCollectionOfObjectValues<PrintService>(createPrintServiceFromDiscriminatorValue); }],
+            ["settings", (o, n) => { (o as unknown as Print).settings = n.getObjectValue<PrintSettings>(createPrintSettingsFromDiscriminatorValue); }],
+            ["shares", (o, n) => { (o as unknown as Print).shares = n.getCollectionOfObjectValues<PrinterShare>(createPrinterShareFromDiscriminatorValue); }],
+            ["taskDefinitions", (o, n) => { (o as unknown as Print).taskDefinitions = n.getCollectionOfObjectValues<PrintTaskDefinition>(createPrintTaskDefinitionFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the operations property value. The list of print long running operations.
      * @returns a printOperation
      */
     public get operations() {
         return this._operations;
+    };
+    /**
+     * Sets the operations property value. The list of print long running operations.
+     * @param value Value to set for the operations property.
+     */
+    public set operations(value: PrintOperation[] | undefined) {
+        this._operations = value;
     };
     /**
      * Gets the printers property value. The list of printers registered in the tenant.
@@ -59,47 +103,11 @@ export class Print implements Parsable {
         return this._printers;
     };
     /**
-     * Gets the services property value. The list of available Universal Print service endpoints.
-     * @returns a printService
+     * Sets the printers property value. The list of printers registered in the tenant.
+     * @param value Value to set for the printers property.
      */
-    public get services() {
-        return this._services;
-    };
-    /**
-     * Gets the settings property value. Tenant-wide settings for the Universal Print service.
-     * @returns a printSettings
-     */
-    public get settings() {
-        return this._settings;
-    };
-    /**
-     * Gets the shares property value. The list of printer shares registered in the tenant.
-     * @returns a printerShare
-     */
-    public get shares() {
-        return this._shares;
-    };
-    /**
-     * Gets the taskDefinitions property value. List of abstract definition for a task that can be triggered when various events occur within Universal Print.
-     * @returns a printTaskDefinition
-     */
-    public get taskDefinitions() {
-        return this._taskDefinitions;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["connectors", (o, n) => { (o as unknown as Print).connectors = n.getCollectionOfObjectValues<PrintConnector>(PrintConnector); }],
-            ["operations", (o, n) => { (o as unknown as Print).operations = n.getCollectionOfObjectValues<PrintOperation>(PrintOperation); }],
-            ["printers", (o, n) => { (o as unknown as Print).printers = n.getCollectionOfObjectValues<Printer>(Printer); }],
-            ["services", (o, n) => { (o as unknown as Print).services = n.getCollectionOfObjectValues<PrintService>(PrintService); }],
-            ["settings", (o, n) => { (o as unknown as Print).settings = n.getObjectValue<PrintSettings>(PrintSettings); }],
-            ["shares", (o, n) => { (o as unknown as Print).shares = n.getCollectionOfObjectValues<PrinterShare>(PrinterShare); }],
-            ["taskDefinitions", (o, n) => { (o as unknown as Print).taskDefinitions = n.getCollectionOfObjectValues<PrintTaskDefinition>(PrintTaskDefinition); }],
-        ]);
+    public set printers(value: Printer[] | undefined) {
+        this._printers = value;
     };
     /**
      * Serializes information the current object
@@ -117,32 +125,11 @@ export class Print implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the services property value. The list of available Universal Print service endpoints.
+     * @returns a printService
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the connectors property value. The list of available print connectors.
-     * @param value Value to set for the connectors property.
-     */
-    public set connectors(value: PrintConnector[] | undefined) {
-        this._connectors = value;
-    };
-    /**
-     * Sets the operations property value. The list of print long running operations.
-     * @param value Value to set for the operations property.
-     */
-    public set operations(value: PrintOperation[] | undefined) {
-        this._operations = value;
-    };
-    /**
-     * Sets the printers property value. The list of printers registered in the tenant.
-     * @param value Value to set for the printers property.
-     */
-    public set printers(value: Printer[] | undefined) {
-        this._printers = value;
+    public get services() {
+        return this._services;
     };
     /**
      * Sets the services property value. The list of available Universal Print service endpoints.
@@ -152,6 +139,13 @@ export class Print implements Parsable {
         this._services = value;
     };
     /**
+     * Gets the settings property value. Tenant-wide settings for the Universal Print service.
+     * @returns a printSettings
+     */
+    public get settings() {
+        return this._settings;
+    };
+    /**
      * Sets the settings property value. Tenant-wide settings for the Universal Print service.
      * @param value Value to set for the settings property.
      */
@@ -159,11 +153,25 @@ export class Print implements Parsable {
         this._settings = value;
     };
     /**
+     * Gets the shares property value. The list of printer shares registered in the tenant.
+     * @returns a printerShare
+     */
+    public get shares() {
+        return this._shares;
+    };
+    /**
      * Sets the shares property value. The list of printer shares registered in the tenant.
      * @param value Value to set for the shares property.
      */
     public set shares(value: PrinterShare[] | undefined) {
         this._shares = value;
+    };
+    /**
+     * Gets the taskDefinitions property value. List of abstract definition for a task that can be triggered when various events occur within Universal Print.
+     * @returns a printTaskDefinition
+     */
+    public get taskDefinitions() {
+        return this._taskDefinitions;
     };
     /**
      * Sets the taskDefinitions property value. List of abstract definition for a task that can be triggered when various events occur within Universal Print.

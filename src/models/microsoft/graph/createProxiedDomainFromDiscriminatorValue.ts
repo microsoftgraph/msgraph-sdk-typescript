@@ -1,0 +1,7 @@
+import {ProxiedDomain} from './proxiedDomain';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createProxiedDomainFromDiscriminatorValue(parseNode: ParseNode | undefined) : ProxiedDomain {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new ProxiedDomain();
+}

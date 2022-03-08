@@ -1,26 +1,28 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class VerifiedPublisher implements Parsable {
+/** Provides operations to manage the collection of application entities.  */
+export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
     /** The timestamp when the verified publisher was first added or most recently updated.  */
     private _addedDateTime?: Date | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.  */
+    /** The verified publisher name from the app publisher's Partner Center account.  */
     private _displayName?: string | undefined;
     /** The ID of the verified publisher from the app publisher's Partner Center account.  */
     private _verifiedPublisherId?: string | undefined;
-    /**
-     * Instantiates a new verifiedPublisher and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the addedDateTime property value. The timestamp when the verified publisher was first added or most recently updated.
      * @returns a Date
      */
     public get addedDateTime() {
         return this._addedDateTime;
+    };
+    /**
+     * Sets the addedDateTime property value. The timestamp when the verified publisher was first added or most recently updated.
+     * @param value Value to set for the addedDateTime property.
+     */
+    public set addedDateTime(value: Date | undefined) {
+        this._addedDateTime = value;
     };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,18 +32,31 @@ export class VerifiedPublisher implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new verifiedPublisher and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
+    };
+    /**
+     * Gets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the verifiedPublisherId property value. The ID of the verified publisher from the app publisher's Partner Center account.
-     * @returns a string
+     * Sets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
+     * @param value Value to set for the displayName property.
      */
-    public get verifiedPublisherId() {
-        return this._verifiedPublisherId;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -66,25 +81,11 @@ export class VerifiedPublisher implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the addedDateTime property value. The timestamp when the verified publisher was first added or most recently updated.
-     * @param value Value to set for the addedDateTime property.
+     * Gets the verifiedPublisherId property value. The ID of the verified publisher from the app publisher's Partner Center account.
+     * @returns a string
      */
-    public set addedDateTime(value: Date | undefined) {
-        this._addedDateTime = value;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
+    public get verifiedPublisherId() {
+        return this._verifiedPublisherId;
     };
     /**
      * Sets the verifiedPublisherId property value. The ID of the verified publisher from the app publisher's Partner Center account.

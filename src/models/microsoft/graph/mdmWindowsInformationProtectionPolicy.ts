@@ -1,6 +1,7 @@
 import {WindowsInformationProtection} from './windowsInformationProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceAppManagement singleton.  */
 export class MdmWindowsInformationProtectionPolicy extends WindowsInformationProtection implements Parsable {
     /**
      * Instantiates a new mdmWindowsInformationProtectionPolicy and sets the default values.

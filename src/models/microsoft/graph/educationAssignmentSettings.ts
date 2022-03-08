@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton.  */
 export class EducationAssignmentSettings extends Entity implements Parsable {
     /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.  */
     private _submissionAnimationDisabled?: boolean | undefined;
@@ -9,13 +10,6 @@ export class EducationAssignmentSettings extends Entity implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
-     * @returns a boolean
-     */
-    public get submissionAnimationDisabled() {
-        return this._submissionAnimationDisabled;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +28,13 @@ export class EducationAssignmentSettings extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeBooleanValue("submissionAnimationDisabled", this.submissionAnimationDisabled);
+    };
+    /**
+     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
+     * @returns a boolean
+     */
+    public get submissionAnimationDisabled() {
+        return this._submissionAnimationDisabled;
     };
     /**
      * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.

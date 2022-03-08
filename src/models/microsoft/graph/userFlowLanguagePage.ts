@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton.  */
 export class UserFlowLanguagePage extends Entity implements Parsable {
     /**
      * Instantiates a new userFlowLanguagePage and sets the default values.

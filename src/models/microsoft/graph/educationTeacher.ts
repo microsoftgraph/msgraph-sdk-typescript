@@ -1,18 +1,13 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class EducationTeacher implements Parsable {
+/** Provides operations to manage the educationRoot singleton.  */
+export class EducationTeacher implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** Id of the Teacher in external source system.  */
+    /** ID of the teacher in the source system.  */
     private _externalId?: string | undefined;
     /** Teacher number.  */
     private _teacherNumber?: string | undefined;
-    /**
-     * Instantiates a new educationTeacher and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
@@ -21,18 +16,31 @@ export class EducationTeacher implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the externalId property value. Id of the Teacher in external source system.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new educationTeacher and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
+    };
+    /**
+     * Gets the externalId property value. ID of the teacher in the source system.
      * @returns a string
      */
     public get externalId() {
         return this._externalId;
     };
     /**
-     * Gets the teacherNumber property value. Teacher number.
-     * @returns a string
+     * Sets the externalId property value. ID of the teacher in the source system.
+     * @param value Value to set for the externalId property.
      */
-    public get teacherNumber() {
-        return this._teacherNumber;
+    public set externalId(value: string | undefined) {
+        this._externalId = value;
     };
     /**
      * The deserialization information for the current model
@@ -55,18 +63,11 @@ export class EducationTeacher implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the teacherNumber property value. Teacher number.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the externalId property value. Id of the Teacher in external source system.
-     * @param value Value to set for the externalId property.
-     */
-    public set externalId(value: string | undefined) {
-        this._externalId = value;
+    public get teacherNumber() {
+        return this._teacherNumber;
     };
     /**
      * Sets the teacherNumber property value. Teacher number.

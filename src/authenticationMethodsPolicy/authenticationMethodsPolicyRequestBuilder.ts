@@ -1,9 +1,12 @@
 import {AuthenticationMethodsPolicy} from '../models/microsoft/graph/authenticationMethodsPolicy';
+import {createAuthenticationMethodsPolicyFromDiscriminatorValue} from '../models/microsoft/graph/createAuthenticationMethodsPolicyFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {AuthenticationMethodConfigurationsRequestBuilder} from './authenticationMethodConfigurations/authenticationMethodConfigurationsRequestBuilder';
-import {AuthenticationMethodConfigurationRequestBuilder} from './authenticationMethodConfigurations/item/authenticationMethodConfigurationRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AuthenticationMethodConfigurationItemRequestBuilder} from './authenticationMethodConfigurations/item/authenticationMethodConfigurationItemRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /authenticationMethodsPolicy  */
+/** Provides operations to manage the authenticationMethodsPolicy singleton.  */
 export class AuthenticationMethodsPolicyRequestBuilder {
     public get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -17,13 +20,13 @@ export class AuthenticationMethodsPolicyRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.authenticationMethodsPolicy.authenticationMethodConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a authenticationMethodConfigurationRequestBuilder
+     * @returns a authenticationMethodConfigurationItemRequestBuilder
      */
-    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationRequestBuilder {
+    public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authenticationMethodConfiguration_id"] = id
-        return new AuthenticationMethodConfigurationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AuthenticationMethodConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new AuthenticationMethodsPolicyRequestBuilder and sets the default values.
@@ -53,7 +56,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -71,7 +74,7 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -91,7 +94,11 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AuthenticationMethodsPolicy>(requestInfo, AuthenticationMethodsPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AuthenticationMethodsPolicy>(requestInfo, createAuthenticationMethodsPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update authenticationMethodsPolicy
@@ -105,6 +112,10 @@ export class AuthenticationMethodsPolicyRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

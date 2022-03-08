@@ -1,7 +1,9 @@
+import {createPrintServiceEndpointFromDiscriminatorValue} from './createPrintServiceEndpointFromDiscriminatorValue';
 import {Entity} from './entity';
 import {PrintServiceEndpoint} from './printServiceEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton.  */
 export class PrintService extends Entity implements Parsable {
     /** Endpoints that can be used to access the service. Read-only. Nullable.  */
     private _endpoints?: PrintServiceEndpoint[] | undefined;
@@ -19,12 +21,19 @@ export class PrintService extends Entity implements Parsable {
         return this._endpoints;
     };
     /**
+     * Sets the endpoints property value. Endpoints that can be used to access the service. Read-only. Nullable.
+     * @param value Value to set for the endpoints property.
+     */
+    public set endpoints(value: PrintServiceEndpoint[] | undefined) {
+        this._endpoints = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["endpoints", (o, n) => { (o as unknown as PrintService).endpoints = n.getCollectionOfObjectValues<PrintServiceEndpoint>(PrintServiceEndpoint); }],
+            ["endpoints", (o, n) => { (o as unknown as PrintService).endpoints = n.getCollectionOfObjectValues<PrintServiceEndpoint>(createPrintServiceEndpointFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -35,12 +44,5 @@ export class PrintService extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<PrintServiceEndpoint>("endpoints", this.endpoints);
-    };
-    /**
-     * Sets the endpoints property value. Endpoints that can be used to access the service. Read-only. Nullable.
-     * @param value Value to set for the endpoints property.
-     */
-    public set endpoints(value: PrintServiceEndpoint[] | undefined) {
-        this._endpoints = value;
     };
 }

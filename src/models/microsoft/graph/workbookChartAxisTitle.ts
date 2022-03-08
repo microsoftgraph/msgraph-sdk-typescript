@@ -1,7 +1,9 @@
+import {createWorkbookChartAxisTitleFormatFromDiscriminatorValue} from './createWorkbookChartAxisTitleFormatFromDiscriminatorValue';
 import {Entity} from './entity';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookChartAxisTitle extends Entity implements Parsable {
     /** Represents the formatting of chart axis title. Read-only.  */
     private _format?: WorkbookChartAxisTitleFormat | undefined;
@@ -23,18 +25,11 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
         return this._format;
     };
     /**
-     * Gets the text property value. Represents the axis title.
-     * @returns a string
+     * Sets the format property value. Represents the formatting of chart axis title. Read-only.
+     * @param value Value to set for the format property.
      */
-    public get text() {
-        return this._text;
-    };
-    /**
-     * Gets the visible property value. A boolean that specifies the visibility of an axis title.
-     * @returns a boolean
-     */
-    public get visible() {
-        return this._visible;
+    public set format(value: WorkbookChartAxisTitleFormat | undefined) {
+        this._format = value;
     };
     /**
      * The deserialization information for the current model
@@ -42,7 +37,7 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["format", (o, n) => { (o as unknown as WorkbookChartAxisTitle).format = n.getObjectValue<WorkbookChartAxisTitleFormat>(WorkbookChartAxisTitleFormat); }],
+            ["format", (o, n) => { (o as unknown as WorkbookChartAxisTitle).format = n.getObjectValue<WorkbookChartAxisTitleFormat>(createWorkbookChartAxisTitleFormatFromDiscriminatorValue); }],
             ["text", (o, n) => { (o as unknown as WorkbookChartAxisTitle).text = n.getStringValue(); }],
             ["visible", (o, n) => { (o as unknown as WorkbookChartAxisTitle).visible = n.getBooleanValue(); }],
         ]);
@@ -59,11 +54,11 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
         writer.writeBooleanValue("visible", this.visible);
     };
     /**
-     * Sets the format property value. Represents the formatting of chart axis title. Read-only.
-     * @param value Value to set for the format property.
+     * Gets the text property value. Represents the axis title.
+     * @returns a string
      */
-    public set format(value: WorkbookChartAxisTitleFormat | undefined) {
-        this._format = value;
+    public get text() {
+        return this._text;
     };
     /**
      * Sets the text property value. Represents the axis title.
@@ -71,6 +66,13 @@ export class WorkbookChartAxisTitle extends Entity implements Parsable {
      */
     public set text(value: string | undefined) {
         this._text = value;
+    };
+    /**
+     * Gets the visible property value. A boolean that specifies the visibility of an axis title.
+     * @returns a boolean
+     */
+    public get visible() {
+        return this._visible;
     };
     /**
      * Sets the visible property value. A boolean that specifies the visibility of an axis title.

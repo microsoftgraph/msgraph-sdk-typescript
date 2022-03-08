@@ -1,10 +1,13 @@
+import {createOutlookGeoCoordinatesFromDiscriminatorValue} from './createOutlookGeoCoordinatesFromDiscriminatorValue';
+import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddressFromDiscriminatorValue';
 import {LocationType} from './locationType';
 import {LocationUniqueIdType} from './locationUniqueIdType';
 import {OutlookGeoCoordinates} from './outlookGeoCoordinates';
 import {PhysicalAddress} from './physicalAddress';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class Location implements Parsable {
+/** Provides operations to manage the drive singleton.  */
+export class Location implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The street address of the location.  */
@@ -15,7 +18,7 @@ export class Location implements Parsable {
     private _displayName?: string | undefined;
     /** Optional email address of the location.  */
     private _locationEmailAddress?: string | undefined;
-    /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
+    /** The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
     private _locationType?: LocationType | undefined;
     /** Optional URI representing the location.  */
     private _locationUri?: string | undefined;
@@ -24,17 +27,18 @@ export class Location implements Parsable {
     /** For internal use only.  */
     private _uniqueIdType?: LocationUniqueIdType | undefined;
     /**
-     * Instantiates a new location and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the address property value. The street address of the location.
@@ -44,11 +48,31 @@ export class Location implements Parsable {
         return this._address;
     };
     /**
+     * Sets the address property value. The street address of the location.
+     * @param value Value to set for the address property.
+     */
+    public set address(value: PhysicalAddress | undefined) {
+        this._address = value;
+    };
+    /**
+     * Instantiates a new location and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
+    };
+    /**
      * Gets the coordinates property value. The geographic coordinates and elevation of the location.
      * @returns a outlookGeoCoordinates
      */
     public get coordinates() {
         return this._coordinates;
+    };
+    /**
+     * Sets the coordinates property value. The geographic coordinates and elevation of the location.
+     * @param value Value to set for the coordinates property.
+     */
+    public set coordinates(value: OutlookGeoCoordinates | undefined) {
+        this._coordinates = value;
     };
     /**
      * Gets the displayName property value. The name associated with the location.
@@ -58,6 +82,29 @@ export class Location implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The name associated with the location.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([
+            ["address", (o, n) => { (o as unknown as Location).address = n.getObjectValue<PhysicalAddress>(createPhysicalAddressFromDiscriminatorValue); }],
+            ["coordinates", (o, n) => { (o as unknown as Location).coordinates = n.getObjectValue<OutlookGeoCoordinates>(createOutlookGeoCoordinatesFromDiscriminatorValue); }],
+            ["displayName", (o, n) => { (o as unknown as Location).displayName = n.getStringValue(); }],
+            ["locationEmailAddress", (o, n) => { (o as unknown as Location).locationEmailAddress = n.getStringValue(); }],
+            ["locationType", (o, n) => { (o as unknown as Location).locationType = n.getEnumValue<LocationType>(LocationType); }],
+            ["locationUri", (o, n) => { (o as unknown as Location).locationUri = n.getStringValue(); }],
+            ["uniqueId", (o, n) => { (o as unknown as Location).uniqueId = n.getStringValue(); }],
+            ["uniqueIdType", (o, n) => { (o as unknown as Location).uniqueIdType = n.getEnumValue<LocationUniqueIdType>(LocationUniqueIdType); }],
+        ]);
+    };
+    /**
      * Gets the locationEmailAddress property value. Optional email address of the location.
      * @returns a string
      */
@@ -65,11 +112,25 @@ export class Location implements Parsable {
         return this._locationEmailAddress;
     };
     /**
-     * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Sets the locationEmailAddress property value. Optional email address of the location.
+     * @param value Value to set for the locationEmailAddress property.
+     */
+    public set locationEmailAddress(value: string | undefined) {
+        this._locationEmailAddress = value;
+    };
+    /**
+     * Gets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @returns a locationType
      */
     public get locationType() {
         return this._locationType;
+    };
+    /**
+     * Sets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * @param value Value to set for the locationType property.
+     */
+    public set locationType(value: LocationType | undefined) {
+        this._locationType = value;
     };
     /**
      * Gets the locationUri property value. Optional URI representing the location.
@@ -79,34 +140,11 @@ export class Location implements Parsable {
         return this._locationUri;
     };
     /**
-     * Gets the uniqueId property value. For internal use only.
-     * @returns a string
+     * Sets the locationUri property value. Optional URI representing the location.
+     * @param value Value to set for the locationUri property.
      */
-    public get uniqueId() {
-        return this._uniqueId;
-    };
-    /**
-     * Gets the uniqueIdType property value. For internal use only.
-     * @returns a locationUniqueIdType
-     */
-    public get uniqueIdType() {
-        return this._uniqueIdType;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["address", (o, n) => { (o as unknown as Location).address = n.getObjectValue<PhysicalAddress>(PhysicalAddress); }],
-            ["coordinates", (o, n) => { (o as unknown as Location).coordinates = n.getObjectValue<OutlookGeoCoordinates>(OutlookGeoCoordinates); }],
-            ["displayName", (o, n) => { (o as unknown as Location).displayName = n.getStringValue(); }],
-            ["locationEmailAddress", (o, n) => { (o as unknown as Location).locationEmailAddress = n.getStringValue(); }],
-            ["locationType", (o, n) => { (o as unknown as Location).locationType = n.getEnumValue<LocationType>(LocationType); }],
-            ["locationUri", (o, n) => { (o as unknown as Location).locationUri = n.getStringValue(); }],
-            ["uniqueId", (o, n) => { (o as unknown as Location).uniqueId = n.getStringValue(); }],
-            ["uniqueIdType", (o, n) => { (o as unknown as Location).uniqueIdType = n.getEnumValue<LocationUniqueIdType>(LocationUniqueIdType); }],
-        ]);
+    public set locationUri(value: string | undefined) {
+        this._locationUri = value;
     };
     /**
      * Serializes information the current object
@@ -125,53 +163,11 @@ export class Location implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the uniqueId property value. For internal use only.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the address property value. The street address of the location.
-     * @param value Value to set for the address property.
-     */
-    public set address(value: PhysicalAddress | undefined) {
-        this._address = value;
-    };
-    /**
-     * Sets the coordinates property value. The geographic coordinates and elevation of the location.
-     * @param value Value to set for the coordinates property.
-     */
-    public set coordinates(value: OutlookGeoCoordinates | undefined) {
-        this._coordinates = value;
-    };
-    /**
-     * Sets the displayName property value. The name associated with the location.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the locationEmailAddress property value. Optional email address of the location.
-     * @param value Value to set for the locationEmailAddress property.
-     */
-    public set locationEmailAddress(value: string | undefined) {
-        this._locationEmailAddress = value;
-    };
-    /**
-     * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
-     * @param value Value to set for the locationType property.
-     */
-    public set locationType(value: LocationType | undefined) {
-        this._locationType = value;
-    };
-    /**
-     * Sets the locationUri property value. Optional URI representing the location.
-     * @param value Value to set for the locationUri property.
-     */
-    public set locationUri(value: string | undefined) {
-        this._locationUri = value;
+    public get uniqueId() {
+        return this._uniqueId;
     };
     /**
      * Sets the uniqueId property value. For internal use only.
@@ -179,6 +175,13 @@ export class Location implements Parsable {
      */
     public set uniqueId(value: string | undefined) {
         this._uniqueId = value;
+    };
+    /**
+     * Gets the uniqueIdType property value. For internal use only.
+     * @returns a locationUniqueIdType
+     */
+    public get uniqueIdType() {
+        return this._uniqueIdType;
     };
     /**
      * Sets the uniqueIdType property value. For internal use only.

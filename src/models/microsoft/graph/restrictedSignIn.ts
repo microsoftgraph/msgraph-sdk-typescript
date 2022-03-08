@@ -1,6 +1,7 @@
 import {SignIn} from './signIn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton.  */
 export class RestrictedSignIn extends SignIn implements Parsable {
     private _targetTenantId?: string | undefined;
     /**
@@ -8,13 +9,6 @@ export class RestrictedSignIn extends SignIn implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the targetTenantId property value. 
-     * @returns a string
-     */
-    public get targetTenantId() {
-        return this._targetTenantId;
     };
     /**
      * The deserialization information for the current model
@@ -33,6 +27,13 @@ export class RestrictedSignIn extends SignIn implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("targetTenantId", this.targetTenantId);
+    };
+    /**
+     * Gets the targetTenantId property value. 
+     * @returns a string
+     */
+    public get targetTenantId() {
+        return this._targetTenantId;
     };
     /**
      * Sets the targetTenantId property value. 

@@ -1,6 +1,7 @@
 import {ScheduleEntity} from './scheduleEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class TimeOffItem extends ScheduleEntity implements Parsable {
     /** ID of the timeOffReason for this timeOffItem. Required.  */
     private _timeOffReasonId?: string | undefined;
@@ -9,13 +10,6 @@ export class TimeOffItem extends ScheduleEntity implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.
-     * @returns a string
-     */
-    public get timeOffReasonId() {
-        return this._timeOffReasonId;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +28,13 @@ export class TimeOffItem extends ScheduleEntity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
+    };
+    /**
+     * Gets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.
+     * @returns a string
+     */
+    public get timeOffReasonId() {
+        return this._timeOffReasonId;
     };
     /**
      * Sets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.

@@ -1,10 +1,11 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton.  */
 export class AppScope extends Entity implements Parsable {
-    /** Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.  */
+    /** Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. Read-only.  */
     private _displayName?: string | undefined;
-    /** Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.  */
+    /** Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. Read-only.  */
     private _type?: string | undefined;
     /**
      * Instantiates a new appScope and sets the default values.
@@ -13,18 +14,18 @@ export class AppScope extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
+     * Gets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. Read-only.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
-     * @returns a string
+     * Sets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. Read-only.
+     * @param value Value to set for the displayName property.
      */
-    public get type() {
-        return this._type;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -47,14 +48,14 @@ export class AppScope extends Entity implements Parsable {
         writer.writeStringValue("type", this.type);
     };
     /**
-     * Sets the displayName property value. Provides the display name of the app-specific resource represented by the app scope. Provided for display purposes since appScopeId is often an immutable, non-human-readable id. This property is read only.
-     * @param value Value to set for the displayName property.
+     * Gets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. Read-only.
+     * @returns a string
      */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
+    public get type() {
+        return this._type;
     };
     /**
-     * Sets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. This property is read only.
+     * Sets the type property value. Describes the type of app-specific resource represented by the app scope. Provided for display purposes, so a user interface can convey to the user the kind of app specific resource represented by the app scope. Read-only.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

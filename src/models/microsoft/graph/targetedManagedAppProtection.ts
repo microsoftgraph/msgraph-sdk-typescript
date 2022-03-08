@@ -1,12 +1,28 @@
+import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
 import {ManagedAppProtection} from './managedAppProtection';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceAppManagement singleton.  */
 export class TargetedManagedAppProtection extends ManagedAppProtection implements Parsable {
     /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed.  */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
     /** Indicates if the policy is deployed to any inclusion groups or not.  */
     private _isAssigned?: boolean | undefined;
+    /**
+     * Gets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     * @returns a targetedManagedAppPolicyAssignment
+     */
+    public get assignments() {
+        return this._assignments;
+    };
+    /**
+     * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     * @param value Value to set for the assignments property.
+     */
+    public set assignments(value: TargetedManagedAppPolicyAssignment[] | undefined) {
+        this._assignments = value;
+    };
     /**
      * Instantiates a new targetedManagedAppProtection and sets the default values.
      */
@@ -14,11 +30,14 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         super();
     };
     /**
-     * Gets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-     * @returns a targetedManagedAppPolicyAssignment
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
-    public get assignments() {
-        return this._assignments;
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["assignments", (o, n) => { (o as unknown as TargetedManagedAppProtection).assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue); }],
+            ["isAssigned", (o, n) => { (o as unknown as TargetedManagedAppProtection).isAssigned = n.getBooleanValue(); }],
+        ]);
     };
     /**
      * Gets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
@@ -28,14 +47,11 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         return this._isAssigned;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
+     * @param value Value to set for the isAssigned property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["assignments", (o, n) => { (o as unknown as TargetedManagedAppProtection).assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(TargetedManagedAppPolicyAssignment); }],
-            ["isAssigned", (o, n) => { (o as unknown as TargetedManagedAppProtection).isAssigned = n.getBooleanValue(); }],
-        ]);
+    public set isAssigned(value: boolean | undefined) {
+        this._isAssigned = value;
     };
     /**
      * Serializes information the current object
@@ -46,19 +62,5 @@ export class TargetedManagedAppProtection extends ManagedAppProtection implement
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>("assignments", this.assignments);
         writer.writeBooleanValue("isAssigned", this.isAssigned);
-    };
-    /**
-     * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-     * @param value Value to set for the assignments property.
-     */
-    public set assignments(value: TargetedManagedAppPolicyAssignment[] | undefined) {
-        this._assignments = value;
-    };
-    /**
-     * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
-     * @param value Value to set for the isAssigned property.
-     */
-    public set isAssigned(value: boolean | undefined) {
-        this._isAssigned = value;
     };
 }

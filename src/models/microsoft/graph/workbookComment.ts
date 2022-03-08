@@ -1,9 +1,11 @@
+import {createWorkbookCommentReplyFromDiscriminatorValue} from './createWorkbookCommentReplyFromDiscriminatorValue';
 import {Entity} from './entity';
 import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookComment extends Entity implements Parsable {
-    /** The content of the comment.  */
+    /** The content of comment.  */
     private _content?: string | undefined;
     /** Indicates the type for the comment.  */
     private _contentType?: string | undefined;
@@ -16,11 +18,18 @@ export class WorkbookComment extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. The content of the comment.
+     * Gets the content property value. The content of comment.
      * @returns a string
      */
     public get content() {
         return this._content;
+    };
+    /**
+     * Sets the content property value. The content of comment.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        this._content = value;
     };
     /**
      * Gets the contentType property value. Indicates the type for the comment.
@@ -30,11 +39,11 @@ export class WorkbookComment extends Entity implements Parsable {
         return this._contentType;
     };
     /**
-     * Gets the replies property value. Read-only. Nullable.
-     * @returns a workbookCommentReply
+     * Sets the contentType property value. Indicates the type for the comment.
+     * @param value Value to set for the contentType property.
      */
-    public get replies() {
-        return this._replies;
+    public set contentType(value: string | undefined) {
+        this._contentType = value;
     };
     /**
      * The deserialization information for the current model
@@ -44,8 +53,22 @@ export class WorkbookComment extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["content", (o, n) => { (o as unknown as WorkbookComment).content = n.getStringValue(); }],
             ["contentType", (o, n) => { (o as unknown as WorkbookComment).contentType = n.getStringValue(); }],
-            ["replies", (o, n) => { (o as unknown as WorkbookComment).replies = n.getCollectionOfObjectValues<WorkbookCommentReply>(WorkbookCommentReply); }],
+            ["replies", (o, n) => { (o as unknown as WorkbookComment).replies = n.getCollectionOfObjectValues<WorkbookCommentReply>(createWorkbookCommentReplyFromDiscriminatorValue); }],
         ]);
+    };
+    /**
+     * Gets the replies property value. Read-only. Nullable.
+     * @returns a workbookCommentReply
+     */
+    public get replies() {
+        return this._replies;
+    };
+    /**
+     * Sets the replies property value. Read-only. Nullable.
+     * @param value Value to set for the replies property.
+     */
+    public set replies(value: WorkbookCommentReply[] | undefined) {
+        this._replies = value;
     };
     /**
      * Serializes information the current object
@@ -57,26 +80,5 @@ export class WorkbookComment extends Entity implements Parsable {
         writer.writeStringValue("content", this.content);
         writer.writeStringValue("contentType", this.contentType);
         writer.writeCollectionOfObjectValues<WorkbookCommentReply>("replies", this.replies);
-    };
-    /**
-     * Sets the content property value. The content of the comment.
-     * @param value Value to set for the content property.
-     */
-    public set content(value: string | undefined) {
-        this._content = value;
-    };
-    /**
-     * Sets the contentType property value. Indicates the type for the comment.
-     * @param value Value to set for the contentType property.
-     */
-    public set contentType(value: string | undefined) {
-        this._contentType = value;
-    };
-    /**
-     * Sets the replies property value. Read-only. Nullable.
-     * @param value Value to set for the replies property.
-     */
-    public set replies(value: WorkbookCommentReply[] | undefined) {
-        this._replies = value;
     };
 }

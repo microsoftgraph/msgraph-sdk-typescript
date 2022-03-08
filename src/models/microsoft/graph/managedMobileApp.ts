@@ -1,7 +1,9 @@
+import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileAppIdentifierFromDiscriminatorValue';
 import {Entity} from './entity';
 import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceAppManagement singleton.  */
 export class ManagedMobileApp extends Entity implements Parsable {
     /** The identifier for an app with it's operating system type.  */
     private _mobileAppIdentifier?: MobileAppIdentifier | undefined;
@@ -14,6 +16,16 @@ export class ManagedMobileApp extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["mobileAppIdentifier", (o, n) => { (o as unknown as ManagedMobileApp).mobileAppIdentifier = n.getObjectValue<MobileAppIdentifier>(createMobileAppIdentifierFromDiscriminatorValue); }],
+            ["version", (o, n) => { (o as unknown as ManagedMobileApp).version = n.getStringValue(); }],
+        ]);
+    };
+    /**
      * Gets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
      * @returns a mobileAppIdentifier
      */
@@ -21,21 +33,11 @@ export class ManagedMobileApp extends Entity implements Parsable {
         return this._mobileAppIdentifier;
     };
     /**
-     * Gets the version property value. Version of the entity.
-     * @returns a string
+     * Sets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
+     * @param value Value to set for the mobileAppIdentifier property.
      */
-    public get version() {
-        return this._version;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["mobileAppIdentifier", (o, n) => { (o as unknown as ManagedMobileApp).mobileAppIdentifier = n.getObjectValue<MobileAppIdentifier>(MobileAppIdentifier); }],
-            ["version", (o, n) => { (o as unknown as ManagedMobileApp).version = n.getStringValue(); }],
-        ]);
+    public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
+        this._mobileAppIdentifier = value;
     };
     /**
      * Serializes information the current object
@@ -48,11 +50,11 @@ export class ManagedMobileApp extends Entity implements Parsable {
         writer.writeStringValue("version", this.version);
     };
     /**
-     * Sets the mobileAppIdentifier property value. The identifier for an app with it's operating system type.
-     * @param value Value to set for the mobileAppIdentifier property.
+     * Gets the version property value. Version of the entity.
+     * @returns a string
      */
-    public set mobileAppIdentifier(value: MobileAppIdentifier | undefined) {
-        this._mobileAppIdentifier = value;
+    public get version() {
+        return this._version;
     };
     /**
      * Sets the version property value. Version of the entity.

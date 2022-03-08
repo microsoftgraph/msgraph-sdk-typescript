@@ -1,3 +1,4 @@
+/** Provides operations to manage the drive singleton.  */
 export enum ScheduleEntityTheme {
     White = "white",
     Blue = "blue",

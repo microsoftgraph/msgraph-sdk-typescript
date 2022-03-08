@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class AuthenticationMethod extends Entity implements Parsable {
     /**
      * Instantiates a new authenticationMethod and sets the default values.

@@ -1,9 +1,17 @@
+import {createExtensionCollectionResponseFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createExtensionCollectionResponseFromDiscriminatorValue';
+import {createExtensionFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createExtensionFromDiscriminatorValue';
 import {Extension} from '../../../../../../models/microsoft/graph/extension';
-import {ExtensionsResponse} from './extensionsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ExtensionCollectionResponse} from '../../../../../../models/microsoft/graph/extensionCollectionResponse';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/contactFolders/{contactFolder-id}/contacts/{contact-id}/extensions  */
+/** Provides operations to manage the extensions property of the microsoft.graph.contact entity.  */
 export class ExtensionsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -24,7 +32,7 @@ export class ExtensionsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of open extensions defined for the contact. Nullable.
+     * The collection of open extensions defined for the contact. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -43,13 +51,13 @@ export class ExtensionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of open extensions defined for the contact. Nullable.
+     * Create new navigation property to extensions for me
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -61,18 +69,18 @@ export class ExtensionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of open extensions defined for the contact. Nullable.
+     * The collection of open extensions defined for the contact. Read-only. Nullable.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ExtensionsResponse
+     * @returns a Promise of ExtensionCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -82,14 +90,18 @@ export class ExtensionsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ExtensionCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ExtensionsResponse>(requestInfo, ExtensionsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ExtensionCollectionResponse>(requestInfo, createExtensionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The collection of open extensions defined for the contact. Nullable.
+     * Create new navigation property to extensions for me
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -101,6 +113,10 @@ export class ExtensionsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<Extension>(requestInfo, Extension, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Extension>(requestInfo, createExtensionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

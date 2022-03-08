@@ -1,26 +1,15 @@
+import {createNotebookFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createNotebookFromDiscriminatorValue';
 import {Notebook} from '../../../../../models/microsoft/graph/notebook';
-import {CopyNotebookRequestBuilder} from './copyNotebook/copyNotebookRequestBuilder';
-import {SectionGroupRequestBuilder} from './sectionGroups/item/sectionGroupRequestBuilder';
-import {SectionGroupsRequestBuilder} from './sectionGroups/sectionGroupsRequestBuilder';
-import {OnenoteSectionRequestBuilder} from './sections/item/onenoteSectionRequestBuilder';
-import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/onenote/sectionGroups/{sectionGroup-id}/parentNotebook  */
+/** Provides operations to manage the parentNotebook property of the microsoft.graph.sectionGroup entity.  */
 export class ParentNotebookRequestBuilder {
-    public get copyNotebook(): CopyNotebookRequestBuilder {
-        return new CopyNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
-    public get sectionGroups(): SectionGroupsRequestBuilder {
-        return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    public get sections(): SectionsRequestBuilder {
-        return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
@@ -40,21 +29,6 @@ export class ParentNotebookRequestBuilder {
      * The notebook that contains the section group. Read-only.
      * @param h Request headers
      * @param o Request options
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
-        return requestInfo;
-    };
-    /**
-     * The notebook that contains the section group. Read-only.
-     * @param h Request headers
-     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
@@ -66,40 +40,10 @@ export class ParentNotebookRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
-    };
-    /**
-     * The notebook that contains the section group. Read-only.
-     * @param body 
-     * @param h Request headers
-     * @param o Request options
-     * @returns a RequestInformation
-     */
-    public createPatchRequestInformation(body: Notebook | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
-        return requestInfo;
-    };
-    /**
-     * The notebook that contains the section group. Read-only.
-     * @param h Request headers
-     * @param o Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            h, o
-        );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The notebook that contains the section group. Read-only.
@@ -116,42 +60,10 @@ export class ParentNotebookRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Notebook>(requestInfo, Notebook, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * The notebook that contains the section group. Read-only.
-     * @param body 
-     * @param h Request headers
-     * @param o Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public patch(body: Notebook | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
-            body, h, o
-        );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.sectionGroups.item.parentNotebook.sectionGroups.item collection
-     * @param id Unique identifier of the item
-     * @returns a sectionGroupRequestBuilder
-     */
-    public sectionGroupsById(id: string) : SectionGroupRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sectionGroup_id1"] = id
-        return new SectionGroupRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.onenote.sectionGroups.item.parentNotebook.sections.item collection
-     * @param id Unique identifier of the item
-     * @returns a onenoteSectionRequestBuilder
-     */
-    public sectionsById(id: string) : OnenoteSectionRequestBuilder {
-        if(!id) throw new Error("id cannot be undefined");
-        const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["onenoteSection_id"] = id
-        return new OnenoteSectionRequestBuilder(urlTplParams, this.requestAdapter);
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Notebook>(requestInfo, createNotebookFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

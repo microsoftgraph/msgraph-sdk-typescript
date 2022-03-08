@@ -1,8 +1,11 @@
 import {AttendeeBase} from './attendeeBase';
+import {createResponseStatusFromDiscriminatorValue} from './createResponseStatusFromDiscriminatorValue';
+import {createTimeSlotFromDiscriminatorValue} from './createTimeSlotFromDiscriminatorValue';
 import {ResponseStatus} from './responseStatus';
 import {TimeSlot} from './timeSlot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class Attendee extends AttendeeBase implements Parsable {
     /** An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.  */
     private _proposedNewTime?: TimeSlot | undefined;
@@ -15,6 +18,16 @@ export class Attendee extends AttendeeBase implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["proposedNewTime", (o, n) => { (o as unknown as Attendee).proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); }],
+            ["status", (o, n) => { (o as unknown as Attendee).status = n.getObjectValue<ResponseStatus>(createResponseStatusFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
      * @returns a timeSlot
      */
@@ -22,21 +35,11 @@ export class Attendee extends AttendeeBase implements Parsable {
         return this._proposedNewTime;
     };
     /**
-     * Gets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
-     * @returns a responseStatus
+     * Sets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
+     * @param value Value to set for the proposedNewTime property.
      */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["proposedNewTime", (o, n) => { (o as unknown as Attendee).proposedNewTime = n.getObjectValue<TimeSlot>(TimeSlot); }],
-            ["status", (o, n) => { (o as unknown as Attendee).status = n.getObjectValue<ResponseStatus>(ResponseStatus); }],
-        ]);
+    public set proposedNewTime(value: TimeSlot | undefined) {
+        this._proposedNewTime = value;
     };
     /**
      * Serializes information the current object
@@ -49,11 +52,11 @@ export class Attendee extends AttendeeBase implements Parsable {
         writer.writeObjectValue<ResponseStatus>("status", this.status);
     };
     /**
-     * Sets the proposedNewTime property value. An alternate date/time proposed by the attendee for a meeting request to start and end. If the attendee hasn't proposed another time, then this property is not included in a response of a GET event.
-     * @param value Value to set for the proposedNewTime property.
+     * Gets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.
+     * @returns a responseStatus
      */
-    public set proposedNewTime(value: TimeSlot | undefined) {
-        this._proposedNewTime = value;
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. The attendee's response (none, accepted, declined, etc.) for the event and date-time that the response was sent.

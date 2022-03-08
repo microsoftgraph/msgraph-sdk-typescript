@@ -1,8 +1,11 @@
+import {createTeamsAppDefinitionFromDiscriminatorValue} from './createTeamsAppDefinitionFromDiscriminatorValue';
+import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscriminatorValue';
 import {Entity} from './entity';
 import {TeamsApp} from './teamsApp';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities.  */
 export class TeamsAppInstallation extends Entity implements Parsable {
     /** The app that is installed.  */
     private _teamsApp?: TeamsApp | undefined;
@@ -15,27 +18,13 @@ export class TeamsAppInstallation extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the teamsApp property value. The app that is installed.
-     * @returns a teamsApp
-     */
-    public get teamsApp() {
-        return this._teamsApp;
-    };
-    /**
-     * Gets the teamsAppDefinition property value. The details of this version of the app.
-     * @returns a teamsAppDefinition
-     */
-    public get teamsAppDefinition() {
-        return this._teamsAppDefinition;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["teamsApp", (o, n) => { (o as unknown as TeamsAppInstallation).teamsApp = n.getObjectValue<TeamsApp>(TeamsApp); }],
-            ["teamsAppDefinition", (o, n) => { (o as unknown as TeamsAppInstallation).teamsAppDefinition = n.getObjectValue<TeamsAppDefinition>(TeamsAppDefinition); }],
+            ["teamsApp", (o, n) => { (o as unknown as TeamsAppInstallation).teamsApp = n.getObjectValue<TeamsApp>(createTeamsAppFromDiscriminatorValue); }],
+            ["teamsAppDefinition", (o, n) => { (o as unknown as TeamsAppInstallation).teamsAppDefinition = n.getObjectValue<TeamsAppDefinition>(createTeamsAppDefinitionFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -49,11 +38,25 @@ export class TeamsAppInstallation extends Entity implements Parsable {
         writer.writeObjectValue<TeamsAppDefinition>("teamsAppDefinition", this.teamsAppDefinition);
     };
     /**
+     * Gets the teamsApp property value. The app that is installed.
+     * @returns a teamsApp
+     */
+    public get teamsApp() {
+        return this._teamsApp;
+    };
+    /**
      * Sets the teamsApp property value. The app that is installed.
      * @param value Value to set for the teamsApp property.
      */
     public set teamsApp(value: TeamsApp | undefined) {
         this._teamsApp = value;
+    };
+    /**
+     * Gets the teamsAppDefinition property value. The details of this version of the app.
+     * @returns a teamsAppDefinition
+     */
+    public get teamsAppDefinition() {
+        return this._teamsAppDefinition;
     };
     /**
      * Sets the teamsAppDefinition property value. The details of this version of the app.

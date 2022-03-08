@@ -1,13 +1,15 @@
+import {createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue} from './createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue';
 import {Entity} from './entity';
 import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSignUpAuthenticationFlowConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton.  */
 export class AuthenticationFlowsPolicy extends Entity implements Parsable {
-    /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only.  */
+    /** Inherited property. A description of the policy. Optional. Read-only.  */
     private _description?: string | undefined;
-    /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.  */
+    /** Inherited property. The human-readable name of the policy. Optional. Read-only.  */
     private _displayName?: string | undefined;
-    /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.  */
+    /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.  */
     private _selfServiceSignUp?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined;
     /**
      * Instantiates a new authenticationFlowsPolicy and sets the default values.
@@ -16,25 +18,32 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the description property value. Inherited property. A description of the policy. This property is not a key. Optional. Read-only.
+     * Gets the description property value. Inherited property. A description of the policy. Optional. Read-only.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Gets the displayName property value. Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.
+     * Sets the description property value. Inherited property. A description of the policy. Optional. Read-only.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
+    };
+    /**
+     * Gets the displayName property value. Inherited property. The human-readable name of the policy. Optional. Read-only.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
-     * @returns a selfServiceSignUpAuthenticationFlowConfiguration
+     * Sets the displayName property value. Inherited property. The human-readable name of the policy. Optional. Read-only.
+     * @param value Value to set for the displayName property.
      */
-    public get selfServiceSignUp() {
-        return this._selfServiceSignUp;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -44,8 +53,22 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["description", (o, n) => { (o as unknown as AuthenticationFlowsPolicy).description = n.getStringValue(); }],
             ["displayName", (o, n) => { (o as unknown as AuthenticationFlowsPolicy).displayName = n.getStringValue(); }],
-            ["selfServiceSignUp", (o, n) => { (o as unknown as AuthenticationFlowsPolicy).selfServiceSignUp = n.getObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>(SelfServiceSignUpAuthenticationFlowConfiguration); }],
+            ["selfServiceSignUp", (o, n) => { (o as unknown as AuthenticationFlowsPolicy).selfServiceSignUp = n.getObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>(createSelfServiceSignUpAuthenticationFlowConfigurationFromDiscriminatorValue); }],
         ]);
+    };
+    /**
+     * Gets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
+     * @returns a selfServiceSignUpAuthenticationFlowConfiguration
+     */
+    public get selfServiceSignUp() {
+        return this._selfServiceSignUp;
+    };
+    /**
+     * Sets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. Optional. Read-only.
+     * @param value Value to set for the selfServiceSignUp property.
+     */
+    public set selfServiceSignUp(value: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
+        this._selfServiceSignUp = value;
     };
     /**
      * Serializes information the current object
@@ -57,26 +80,5 @@ export class AuthenticationFlowsPolicy extends Entity implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<SelfServiceSignUpAuthenticationFlowConfiguration>("selfServiceSignUp", this.selfServiceSignUp);
-    };
-    /**
-     * Sets the description property value. Inherited property. A description of the policy. This property is not a key. Optional. Read-only.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the displayName property value. Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the selfServiceSignUp property value. Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.
-     * @param value Value to set for the selfServiceSignUp property.
-     */
-    public set selfServiceSignUp(value: SelfServiceSignUpAuthenticationFlowConfiguration | undefined) {
-        this._selfServiceSignUp = value;
     };
 }

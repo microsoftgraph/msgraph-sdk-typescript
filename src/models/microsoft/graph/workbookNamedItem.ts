@@ -1,8 +1,11 @@
+import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
+import {createWorkbookWorksheetFromDiscriminatorValue} from './createWorkbookWorksheetFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Json} from './json';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookNamedItem extends Entity implements Parsable {
     /** Represents the comment associated with this name.  */
     private _comment?: string | undefined;
@@ -10,7 +13,7 @@ export class WorkbookNamedItem extends Entity implements Parsable {
     private _name?: string | undefined;
     /** Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only.  */
     private _scope?: string | undefined;
-    /** Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.  */
+    /** Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.  */
     private _type?: string | undefined;
     /** Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only.  */
     private _value?: Json | undefined;
@@ -19,12 +22,6 @@ export class WorkbookNamedItem extends Entity implements Parsable {
     /** Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.  */
     private _worksheet?: WorkbookWorksheet | undefined;
     /**
-     * Instantiates a new workbookNamedItem and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the comment property value. Represents the comment associated with this name.
      * @returns a string
      */
@@ -32,46 +29,17 @@ export class WorkbookNamedItem extends Entity implements Parsable {
         return this._comment;
     };
     /**
-     * Gets the name property value. The name of the object. Read-only.
-     * @returns a string
+     * Sets the comment property value. Represents the comment associated with this name.
+     * @param value Value to set for the comment property.
      */
-    public get name() {
-        return this._name;
+    public set comment(value: string | undefined) {
+        this._comment = value;
     };
     /**
-     * Gets the scope property value. Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only.
-     * @returns a string
+     * Instantiates a new workbookNamedItem and sets the default values.
      */
-    public get scope() {
-        return this._scope;
-    };
-    /**
-     * Gets the type property value. Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.
-     * @returns a string
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Gets the value property value. Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only.
-     * @returns a Json
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * Gets the visible property value. Specifies whether the object is visible or not.
-     * @returns a boolean
-     */
-    public get visible() {
-        return this._visible;
-    };
-    /**
-     * Gets the worksheet property value. Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
-     * @returns a workbookWorksheet
-     */
-    public get worksheet() {
-        return this._worksheet;
+    public constructor() {
+        super();
     };
     /**
      * The deserialization information for the current model
@@ -83,10 +51,38 @@ export class WorkbookNamedItem extends Entity implements Parsable {
             ["name", (o, n) => { (o as unknown as WorkbookNamedItem).name = n.getStringValue(); }],
             ["scope", (o, n) => { (o as unknown as WorkbookNamedItem).scope = n.getStringValue(); }],
             ["type", (o, n) => { (o as unknown as WorkbookNamedItem).type = n.getStringValue(); }],
-            ["value", (o, n) => { (o as unknown as WorkbookNamedItem).value = n.getObjectValue<Json>(Json); }],
+            ["value", (o, n) => { (o as unknown as WorkbookNamedItem).value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); }],
             ["visible", (o, n) => { (o as unknown as WorkbookNamedItem).visible = n.getBooleanValue(); }],
-            ["worksheet", (o, n) => { (o as unknown as WorkbookNamedItem).worksheet = n.getObjectValue<WorkbookWorksheet>(WorkbookWorksheet); }],
+            ["worksheet", (o, n) => { (o as unknown as WorkbookNamedItem).worksheet = n.getObjectValue<WorkbookWorksheet>(createWorkbookWorksheetFromDiscriminatorValue); }],
         ]);
+    };
+    /**
+     * Gets the name property value. The name of the object. Read-only.
+     * @returns a string
+     */
+    public get name() {
+        return this._name;
+    };
+    /**
+     * Sets the name property value. The name of the object. Read-only.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        this._name = value;
+    };
+    /**
+     * Gets the scope property value. Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only.
+     * @returns a string
+     */
+    public get scope() {
+        return this._scope;
+    };
+    /**
+     * Sets the scope property value. Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only.
+     * @param value Value to set for the scope property.
+     */
+    public set scope(value: string | undefined) {
+        this._scope = value;
     };
     /**
      * Serializes information the current object
@@ -104,32 +100,25 @@ export class WorkbookNamedItem extends Entity implements Parsable {
         writer.writeObjectValue<WorkbookWorksheet>("worksheet", this.worksheet);
     };
     /**
-     * Sets the comment property value. Represents the comment associated with this name.
-     * @param value Value to set for the comment property.
+     * Gets the type property value. Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.
+     * @returns a string
      */
-    public set comment(value: string | undefined) {
-        this._comment = value;
+    public get type() {
+        return this._type;
     };
     /**
-     * Sets the name property value. The name of the object. Read-only.
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
-    };
-    /**
-     * Sets the scope property value. Indicates whether the name is scoped to the workbook or to a specific worksheet. Read-only.
-     * @param value Value to set for the scope property.
-     */
-    public set scope(value: string | undefined) {
-        this._scope = value;
-    };
-    /**
-     * Sets the type property value. Indicates what type of reference is associated with the name. Possible values are: String, Integer, Double, Boolean, Range. Read-only.
+     * Sets the type property value. Indicates what type of reference is associated with the name. The possible values are: String, Integer, Double, Boolean, Range. Read-only.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {
         this._type = value;
+    };
+    /**
+     * Gets the value property value. Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only.
+     * @returns a Json
+     */
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. Represents the formula that the name is defined to refer to. E.g. =Sheet14!$B$2:$H$12, =4.75, etc. Read-only.
@@ -139,11 +128,25 @@ export class WorkbookNamedItem extends Entity implements Parsable {
         this._value = value;
     };
     /**
+     * Gets the visible property value. Specifies whether the object is visible or not.
+     * @returns a boolean
+     */
+    public get visible() {
+        return this._visible;
+    };
+    /**
      * Sets the visible property value. Specifies whether the object is visible or not.
      * @param value Value to set for the visible property.
      */
     public set visible(value: boolean | undefined) {
         this._visible = value;
+    };
+    /**
+     * Gets the worksheet property value. Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.
+     * @returns a workbookWorksheet
+     */
+    public get worksheet() {
+        return this._worksheet;
     };
     /**
      * Sets the worksheet property value. Returns the worksheet on which the named item is scoped to. Available only if the item is scoped to the worksheet. Read-only.

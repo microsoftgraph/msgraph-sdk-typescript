@@ -1,26 +1,28 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class GeoCoordinates implements Parsable {
+/** Provides operations to manage the auditLogRoot singleton.  */
+export class GeoCoordinates implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only.  */
     private _altitude?: number | undefined;
-    /** Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.  */
+    /** Optional. The latitude, in decimal, for the item. Read-only.  */
     private _latitude?: number | undefined;
-    /** Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.  */
+    /** Optional. The longitude, in decimal, for the item. Read-only.  */
     private _longitude?: number | undefined;
-    /**
-     * Instantiates a new geoCoordinates and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the altitude property value. Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
@@ -30,18 +32,17 @@ export class GeoCoordinates implements Parsable {
         return this._altitude;
     };
     /**
-     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
-     * @returns a double
+     * Sets the altitude property value. Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
+     * @param value Value to set for the altitude property.
      */
-    public get latitude() {
-        return this._latitude;
+    public set altitude(value: number | undefined) {
+        this._altitude = value;
     };
     /**
-     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
-     * @returns a double
+     * Instantiates a new geoCoordinates and sets the default values.
      */
-    public get longitude() {
-        return this._longitude;
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
     };
     /**
      * The deserialization information for the current model
@@ -55,6 +56,34 @@ export class GeoCoordinates implements Parsable {
         ]);
     };
     /**
+     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
+     * @returns a double
+     */
+    public get latitude() {
+        return this._latitude;
+    };
+    /**
+     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
+     * @param value Value to set for the latitude property.
+     */
+    public set latitude(value: number | undefined) {
+        this._latitude = value;
+    };
+    /**
+     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
+     * @returns a double
+     */
+    public get longitude() {
+        return this._longitude;
+    };
+    /**
+     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
+     * @param value Value to set for the longitude property.
+     */
+    public set longitude(value: number | undefined) {
+        this._longitude = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -64,33 +93,5 @@ export class GeoCoordinates implements Parsable {
         writer.writeNumberValue("latitude", this.latitude);
         writer.writeNumberValue("longitude", this.longitude);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the altitude property value. Optional. The altitude (height), in feet,  above sea level for the item. Read-only.
-     * @param value Value to set for the altitude property.
-     */
-    public set altitude(value: number | undefined) {
-        this._altitude = value;
-    };
-    /**
-     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
-     * @param value Value to set for the latitude property.
-     */
-    public set latitude(value: number | undefined) {
-        this._latitude = value;
-    };
-    /**
-     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
-     * @param value Value to set for the longitude property.
-     */
-    public set longitude(value: number | undefined) {
-        this._longitude = value;
     };
 }

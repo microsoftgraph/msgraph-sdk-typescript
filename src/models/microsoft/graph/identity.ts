@@ -1,18 +1,13 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class Identity implements Parsable {
+/** Provides operations to manage the appCatalogs singleton.  */
+export class Identity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
-    /** The display name of the identity. This property is read-only.  */
+    /** The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.  */
     private _displayName?: string | undefined;
-    /** The identifier of the identity. This property is read-only.  */
+    /** Unique identifier for the identity.  */
     private _id?: string | undefined;
-    /**
-     * Instantiates a new identity and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
@@ -21,18 +16,31 @@ export class Identity implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the displayName property value. The display name of the identity. This property is read-only.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new identity and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
+    };
+    /**
+     * Gets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the id property value. The identifier of the identity. This property is read-only.
-     * @returns a string
+     * Sets the displayName property value. The identity's display name. Note that this may not always be available or up to date. For example, if a user changes their display name, the API may show the new value in a future response, but the items associated with the user won't show up as having changed when using delta.
+     * @param value Value to set for the displayName property.
      */
-    public get id() {
-        return this._id;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -45,6 +53,20 @@ export class Identity implements Parsable {
         ]);
     };
     /**
+     * Gets the id property value. Unique identifier for the identity.
+     * @returns a string
+     */
+    public get id() {
+        return this._id;
+    };
+    /**
+     * Sets the id property value. Unique identifier for the identity.
+     * @param value Value to set for the id property.
+     */
+    public set id(value: string | undefined) {
+        this._id = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -53,26 +75,5 @@ export class Identity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("id", this.id);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the displayName property value. The display name of the identity. This property is read-only.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the id property value. The identifier of the identity. This property is read-only.
-     * @param value Value to set for the id property.
-     */
-    public set id(value: string | undefined) {
-        this._id = value;
     };
 }

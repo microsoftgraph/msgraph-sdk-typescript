@@ -1,7 +1,9 @@
+import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDiscriminatorValue';
 import {DetailsInfo} from './detailsInfo';
 import {Identity} from './identity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton.  */
 export class ProvisioningSystem extends Identity implements Parsable {
     /** Details of the system.  */
     private _details?: DetailsInfo | undefined;
@@ -19,12 +21,19 @@ export class ProvisioningSystem extends Identity implements Parsable {
         return this._details;
     };
     /**
+     * Sets the details property value. Details of the system.
+     * @param value Value to set for the details property.
+     */
+    public set details(value: DetailsInfo | undefined) {
+        this._details = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["details", (o, n) => { (o as unknown as ProvisioningSystem).details = n.getObjectValue<DetailsInfo>(DetailsInfo); }],
+            ["details", (o, n) => { (o as unknown as ProvisioningSystem).details = n.getObjectValue<DetailsInfo>(createDetailsInfoFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -35,12 +44,5 @@ export class ProvisioningSystem extends Identity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<DetailsInfo>("details", this.details);
-    };
-    /**
-     * Sets the details property value. Details of the system.
-     * @param value Value to set for the details property.
-     */
-    public set details(value: DetailsInfo | undefined) {
-        this._details = value;
     };
 }

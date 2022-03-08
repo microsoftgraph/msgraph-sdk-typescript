@@ -1,9 +1,11 @@
 import {ApprovalStage} from './approvalStage';
+import {createApprovalStageFromDiscriminatorValue} from './createApprovalStageFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton.  */
 export class Approval extends Entity implements Parsable {
-    /** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.  */
+    /** A collection of stages in the approval decision.  */
     private _stages?: ApprovalStage[] | undefined;
     /**
      * Instantiates a new approval and sets the default values.
@@ -12,19 +14,12 @@ export class Approval extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the stages property value. Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
-     * @returns a approvalStage
-     */
-    public get stages() {
-        return this._stages;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["stages", (o, n) => { (o as unknown as Approval).stages = n.getCollectionOfObjectValues<ApprovalStage>(ApprovalStage); }],
+            ["stages", (o, n) => { (o as unknown as Approval).stages = n.getCollectionOfObjectValues<ApprovalStage>(createApprovalStageFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -37,7 +32,14 @@ export class Approval extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ApprovalStage>("stages", this.stages);
     };
     /**
-     * Sets the stages property value. Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
+     * Gets the stages property value. A collection of stages in the approval decision.
+     * @returns a approvalStage
+     */
+    public get stages() {
+        return this._stages;
+    };
+    /**
+     * Sets the stages property value. A collection of stages in the approval decision.
      * @param value Value to set for the stages property.
      */
     public set stages(value: ApprovalStage[] | undefined) {

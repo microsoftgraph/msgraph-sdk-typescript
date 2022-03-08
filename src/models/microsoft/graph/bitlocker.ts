@@ -1,7 +1,9 @@
 import {BitlockerRecoveryKey} from './bitlockerRecoveryKey';
+import {createBitlockerRecoveryKeyFromDiscriminatorValue} from './createBitlockerRecoveryKeyFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the informationProtection singleton.  */
 export class Bitlocker extends Entity implements Parsable {
     /** The recovery keys associated with the bitlocker entity.  */
     private _recoveryKeys?: BitlockerRecoveryKey[] | undefined;
@@ -12,6 +14,15 @@ export class Bitlocker extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["recoveryKeys", (o, n) => { (o as unknown as Bitlocker).recoveryKeys = n.getCollectionOfObjectValues<BitlockerRecoveryKey>(createBitlockerRecoveryKeyFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the recoveryKeys property value. The recovery keys associated with the bitlocker entity.
      * @returns a bitlockerRecoveryKey
      */
@@ -19,13 +30,11 @@ export class Bitlocker extends Entity implements Parsable {
         return this._recoveryKeys;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the recoveryKeys property value. The recovery keys associated with the bitlocker entity.
+     * @param value Value to set for the recoveryKeys property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["recoveryKeys", (o, n) => { (o as unknown as Bitlocker).recoveryKeys = n.getCollectionOfObjectValues<BitlockerRecoveryKey>(BitlockerRecoveryKey); }],
-        ]);
+    public set recoveryKeys(value: BitlockerRecoveryKey[] | undefined) {
+        this._recoveryKeys = value;
     };
     /**
      * Serializes information the current object
@@ -35,12 +44,5 @@ export class Bitlocker extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<BitlockerRecoveryKey>("recoveryKeys", this.recoveryKeys);
-    };
-    /**
-     * Sets the recoveryKeys property value. The recovery keys associated with the bitlocker entity.
-     * @param value Value to set for the recoveryKeys property.
-     */
-    public set recoveryKeys(value: BitlockerRecoveryKey[] | undefined) {
-        this._recoveryKeys = value;
     };
 }

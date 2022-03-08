@@ -1,14 +1,17 @@
-import {CertificateBasedAuthConfigurationResponse} from './certificateBasedAuthConfigurationResponse';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CertificateBasedAuthConfigurationCollectionResponse} from '../../../models/microsoft/graph/certificateBasedAuthConfigurationCollectionResponse';
+import {createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /organization/{organization-id}/certificateBasedAuthConfiguration  */
+/** Provides operations to manage the certificateBasedAuthConfiguration property of the microsoft.graph.organization entity.  */
 export class CertificateBasedAuthConfigurationRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -47,7 +50,7 @@ export class CertificateBasedAuthConfigurationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -58,7 +61,7 @@ export class CertificateBasedAuthConfigurationRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of CertificateBasedAuthConfigurationResponse
+     * @returns a Promise of CertificateBasedAuthConfigurationCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -69,10 +72,14 @@ export class CertificateBasedAuthConfigurationRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CertificateBasedAuthConfigurationResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CertificateBasedAuthConfigurationCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<CertificateBasedAuthConfigurationResponse>(requestInfo, CertificateBasedAuthConfigurationResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<CertificateBasedAuthConfigurationCollectionResponse>(requestInfo, createCertificateBasedAuthConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

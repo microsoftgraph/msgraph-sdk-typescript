@@ -1,7 +1,9 @@
+import {createGetPolicyNonComplianceReportResponseFromDiscriminatorValue} from './createGetPolicyNonComplianceReportResponseFromDiscriminatorValue';
 import {GetPolicyNonComplianceReportRequestBody} from './getPolicyNonComplianceReportRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {GetPolicyNonComplianceReportResponse} from './getPolicyNonComplianceReportResponse';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement/reports/microsoft.graph.getPolicyNonComplianceReport  */
+/** Provides operations to call the getPolicyNonComplianceReport method.  */
 export class GetPolicyNonComplianceReportRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -35,7 +37,7 @@ export class GetPolicyNonComplianceReportRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -46,13 +48,13 @@ export class GetPolicyNonComplianceReportRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ArrayBuffer
+     * @returns a Promise of GetPolicyNonComplianceReportResponse
      */
-    public post(body: GetPolicyNonComplianceReportRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public post(body: GetPolicyNonComplianceReportRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetPolicyNonComplianceReportResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetPolicyNonComplianceReportResponse>(requestInfo, createGetPolicyNonComplianceReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,8 +1,10 @@
+import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
 import {InstallIntent} from './installIntent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceAppManagement singleton.  */
 export class ManagedEBookAssignment extends Entity implements Parsable {
     /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */
     private _installIntent?: InstallIntent | undefined;
@@ -15,6 +17,16 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["installIntent", (o, n) => { (o as unknown as ManagedEBookAssignment).installIntent = n.getEnumValue<InstallIntent>(InstallIntent); }],
+            ["target", (o, n) => { (o as unknown as ManagedEBookAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
      * @returns a installIntent
      */
@@ -22,21 +34,11 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         return this._installIntent;
     };
     /**
-     * Gets the target property value. The assignment target for eBook.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * Sets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
+     * @param value Value to set for the installIntent property.
      */
-    public get target() {
-        return this._target;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["installIntent", (o, n) => { (o as unknown as ManagedEBookAssignment).installIntent = n.getEnumValue<InstallIntent>(InstallIntent); }],
-            ["target", (o, n) => { (o as unknown as ManagedEBookAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget); }],
-        ]);
+    public set installIntent(value: InstallIntent | undefined) {
+        this._installIntent = value;
     };
     /**
      * Serializes information the current object
@@ -49,11 +51,11 @@ export class ManagedEBookAssignment extends Entity implements Parsable {
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
     };
     /**
-     * Sets the installIntent property value. The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.
-     * @param value Value to set for the installIntent property.
+     * Gets the target property value. The assignment target for eBook.
+     * @returns a deviceAndAppManagementAssignmentTarget
      */
-    public set installIntent(value: InstallIntent | undefined) {
-        this._installIntent = value;
+    public get target() {
+        return this._target;
     };
     /**
      * Sets the target property value. The assignment target for eBook.

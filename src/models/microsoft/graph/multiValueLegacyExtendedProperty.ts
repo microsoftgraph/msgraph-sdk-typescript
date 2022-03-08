@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class MultiValueLegacyExtendedProperty extends Entity implements Parsable {
     /** A collection of property values.  */
     private _value?: string[] | undefined;
@@ -9,13 +10,6 @@ export class MultiValueLegacyExtendedProperty extends Entity implements Parsable
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the value property value. A collection of property values.
-     * @returns a string
-     */
-    public get value() {
-        return this._value;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +28,13 @@ export class MultiValueLegacyExtendedProperty extends Entity implements Parsable
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfPrimitiveValues<string>("value", this.value);
+    };
+    /**
+     * Gets the value property value. A collection of property values.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. A collection of property values.

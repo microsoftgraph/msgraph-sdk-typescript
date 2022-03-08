@@ -1,8 +1,8 @@
 import {UpdateRecordingStatusOperation} from '../../../../models/microsoft/graph/updateRecordingStatusOperation';
 import {UpdateRecordingStatusRequestBody} from './updateRecordingStatusRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /communications/calls/{call-id}/microsoft.graph.updateRecordingStatus  */
+/** Provides operations to call the updateRecordingStatus method.  */
 export class UpdateRecordingStatusRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -36,7 +36,7 @@ export class UpdateRecordingStatusRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -54,6 +54,6 @@ export class UpdateRecordingStatusRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperation>(requestInfo, UpdateRecordingStatusOperation, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UpdateRecordingStatusOperation>(requestInfo, createUpdateRecordingStatusOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

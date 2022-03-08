@@ -1,9 +1,12 @@
 import {AgreementFile} from '../../../models/microsoft/graph/agreementFile';
-import {AgreementFileLocalizationRequestBuilder} from './localizations/item/agreementFileLocalizationRequestBuilder';
+import {createAgreementFileFromDiscriminatorValue} from '../../../models/microsoft/graph/createAgreementFileFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/oDataError';
+import {AgreementFileLocalizationItemRequestBuilder} from './localizations/item/agreementFileLocalizationItemRequestBuilder';
 import {LocalizationsRequestBuilder} from './localizations/localizationsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /agreements/{agreement-id}/file  */
+/** Provides operations to manage the file property of the microsoft.graph.agreement entity.  */
 export class FileRequestBuilder {
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -28,7 +31,7 @@ export class FileRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Default PDF linked to this agreement.
+     * Delete navigation property file for agreements
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -38,7 +41,7 @@ export class FileRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -57,13 +60,13 @@ export class FileRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Default PDF linked to this agreement.
+     * Update the navigation property file in agreements
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -75,13 +78,13 @@ export class FileRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Default PDF linked to this agreement.
+     * Delete navigation property file for agreements
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -90,7 +93,11 @@ export class FileRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Default PDF linked to this agreement.
@@ -107,21 +114,25 @@ export class FileRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AgreementFile>(requestInfo, AgreementFile, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AgreementFile>(requestInfo, createAgreementFileFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.agreements.item.file.localizations.item collection
      * @param id Unique identifier of the item
-     * @returns a agreementFileLocalizationRequestBuilder
+     * @returns a agreementFileLocalizationItemRequestBuilder
      */
-    public localizationsById(id: string) : AgreementFileLocalizationRequestBuilder {
+    public localizationsById(id: string) : AgreementFileLocalizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["agreementFileLocalization_id"] = id
-        return new AgreementFileLocalizationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AgreementFileLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Default PDF linked to this agreement.
+     * Update the navigation property file in agreements
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -132,6 +143,10 @@ export class FileRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,14 +1,32 @@
 import {Alert} from './alert';
+import {createAlertFromDiscriminatorValue} from './createAlertFromDiscriminatorValue';
+import {createSecureScoreControlProfileFromDiscriminatorValue} from './createSecureScoreControlProfileFromDiscriminatorValue';
+import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDiscriminatorValue';
 import {Entity} from './entity';
 import {SecureScore} from './secureScore';
 import {SecureScoreControlProfile} from './secureScoreControlProfile';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the security singleton.  */
 export class Security extends Entity implements Parsable {
-    /** Notifications for suspicious or potential security issues in a customer’s tenant.  */
+    /** Read-only. Nullable.  */
     private _alerts?: Alert[] | undefined;
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
     private _secureScores?: SecureScore[] | undefined;
+    /**
+     * Gets the alerts property value. Read-only. Nullable.
+     * @returns a alert
+     */
+    public get alerts() {
+        return this._alerts;
+    };
+    /**
+     * Sets the alerts property value. Read-only. Nullable.
+     * @param value Value to set for the alerts property.
+     */
+    public set alerts(value: Alert[] | undefined) {
+        this._alerts = value;
+    };
     /**
      * Instantiates a new security and sets the default values.
      */
@@ -16,11 +34,15 @@ export class Security extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the alerts property value. Notifications for suspicious or potential security issues in a customer’s tenant.
-     * @returns a alert
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
-    public get alerts() {
-        return this._alerts;
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["alerts", (o, n) => { (o as unknown as Security).alerts = n.getCollectionOfObjectValues<Alert>(createAlertFromDiscriminatorValue); }],
+            ["secureScoreControlProfiles", (o, n) => { (o as unknown as Security).secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(createSecureScoreControlProfileFromDiscriminatorValue); }],
+            ["secureScores", (o, n) => { (o as unknown as Security).secureScores = n.getCollectionOfObjectValues<SecureScore>(createSecureScoreFromDiscriminatorValue); }],
+        ]);
     };
     /**
      * Gets the secureScoreControlProfiles property value. 
@@ -30,6 +52,13 @@ export class Security extends Entity implements Parsable {
         return this._secureScoreControlProfiles;
     };
     /**
+     * Sets the secureScoreControlProfiles property value. 
+     * @param value Value to set for the secureScoreControlProfiles property.
+     */
+    public set secureScoreControlProfiles(value: SecureScoreControlProfile[] | undefined) {
+        this._secureScoreControlProfiles = value;
+    };
+    /**
      * Gets the secureScores property value. 
      * @returns a secureScore
      */
@@ -37,15 +66,11 @@ export class Security extends Entity implements Parsable {
         return this._secureScores;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the secureScores property value. 
+     * @param value Value to set for the secureScores property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["alerts", (o, n) => { (o as unknown as Security).alerts = n.getCollectionOfObjectValues<Alert>(Alert); }],
-            ["secureScoreControlProfiles", (o, n) => { (o as unknown as Security).secureScoreControlProfiles = n.getCollectionOfObjectValues<SecureScoreControlProfile>(SecureScoreControlProfile); }],
-            ["secureScores", (o, n) => { (o as unknown as Security).secureScores = n.getCollectionOfObjectValues<SecureScore>(SecureScore); }],
-        ]);
+    public set secureScores(value: SecureScore[] | undefined) {
+        this._secureScores = value;
     };
     /**
      * Serializes information the current object
@@ -57,26 +82,5 @@ export class Security extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<Alert>("alerts", this.alerts);
         writer.writeCollectionOfObjectValues<SecureScoreControlProfile>("secureScoreControlProfiles", this.secureScoreControlProfiles);
         writer.writeCollectionOfObjectValues<SecureScore>("secureScores", this.secureScores);
-    };
-    /**
-     * Sets the alerts property value. Notifications for suspicious or potential security issues in a customer’s tenant.
-     * @param value Value to set for the alerts property.
-     */
-    public set alerts(value: Alert[] | undefined) {
-        this._alerts = value;
-    };
-    /**
-     * Sets the secureScoreControlProfiles property value. 
-     * @param value Value to set for the secureScoreControlProfiles property.
-     */
-    public set secureScoreControlProfiles(value: SecureScoreControlProfile[] | undefined) {
-        this._secureScoreControlProfiles = value;
-    };
-    /**
-     * Sets the secureScores property value. 
-     * @param value Value to set for the secureScores property.
-     */
-    public set secureScores(value: SecureScore[] | undefined) {
-        this._secureScores = value;
     };
 }

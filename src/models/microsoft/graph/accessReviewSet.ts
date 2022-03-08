@@ -1,10 +1,16 @@
+import {AccessReviewHistoryDefinition} from './accessReviewHistoryDefinition';
 import {AccessReviewScheduleDefinition} from './accessReviewScheduleDefinition';
+import {createAccessReviewHistoryDefinitionFromDiscriminatorValue} from './createAccessReviewHistoryDefinitionFromDiscriminatorValue';
+import {createAccessReviewScheduleDefinitionFromDiscriminatorValue} from './createAccessReviewScheduleDefinitionFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton.  */
 export class AccessReviewSet extends Entity implements Parsable {
     /** Represents the template and scheduling for an access review.  */
     private _definitions?: AccessReviewScheduleDefinition[] | undefined;
+    /** Represents a collection of access review history data and the scopes used to collect that data.  */
+    private _historyDefinitions?: AccessReviewHistoryDefinition[] | undefined;
     /**
      * Instantiates a new accessReviewSet and sets the default values.
      */
@@ -19,13 +25,35 @@ export class AccessReviewSet extends Entity implements Parsable {
         return this._definitions;
     };
     /**
+     * Sets the definitions property value. Represents the template and scheduling for an access review.
+     * @param value Value to set for the definitions property.
+     */
+    public set definitions(value: AccessReviewScheduleDefinition[] | undefined) {
+        this._definitions = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["definitions", (o, n) => { (o as unknown as AccessReviewSet).definitions = n.getCollectionOfObjectValues<AccessReviewScheduleDefinition>(AccessReviewScheduleDefinition); }],
+            ["definitions", (o, n) => { (o as unknown as AccessReviewSet).definitions = n.getCollectionOfObjectValues<AccessReviewScheduleDefinition>(createAccessReviewScheduleDefinitionFromDiscriminatorValue); }],
+            ["historyDefinitions", (o, n) => { (o as unknown as AccessReviewSet).historyDefinitions = n.getCollectionOfObjectValues<AccessReviewHistoryDefinition>(createAccessReviewHistoryDefinitionFromDiscriminatorValue); }],
         ]);
+    };
+    /**
+     * Gets the historyDefinitions property value. Represents a collection of access review history data and the scopes used to collect that data.
+     * @returns a accessReviewHistoryDefinition
+     */
+    public get historyDefinitions() {
+        return this._historyDefinitions;
+    };
+    /**
+     * Sets the historyDefinitions property value. Represents a collection of access review history data and the scopes used to collect that data.
+     * @param value Value to set for the historyDefinitions property.
+     */
+    public set historyDefinitions(value: AccessReviewHistoryDefinition[] | undefined) {
+        this._historyDefinitions = value;
     };
     /**
      * Serializes information the current object
@@ -35,12 +63,6 @@ export class AccessReviewSet extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AccessReviewScheduleDefinition>("definitions", this.definitions);
-    };
-    /**
-     * Sets the definitions property value. Represents the template and scheduling for an access review.
-     * @param value Value to set for the definitions property.
-     */
-    public set definitions(value: AccessReviewScheduleDefinition[] | undefined) {
-        this._definitions = value;
+        writer.writeCollectionOfObjectValues<AccessReviewHistoryDefinition>("historyDefinitions", this.historyDefinitions);
     };
 }

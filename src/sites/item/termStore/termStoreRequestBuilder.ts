@@ -1,11 +1,14 @@
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/oDataError';
+import {createStoreFromDiscriminatorValue} from '../../../models/microsoft/graph/termStore/createStoreFromDiscriminatorValue';
 import {Store} from '../../../models/microsoft/graph/termStore/store';
 import {GroupsRequestBuilder} from './groups/groupsRequestBuilder';
-import {GroupRequestBuilder} from './groups/item/groupRequestBuilder';
-import {SetRequestBuilder} from './sets/item/setRequestBuilder';
+import {GroupItemRequestBuilder} from './groups/item/groupItemRequestBuilder';
+import {SetItemRequestBuilder} from './sets/item/setItemRequestBuilder';
 import {SetsRequestBuilder} from './sets/setsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /sites/{site-id}/termStore  */
+/** Provides operations to manage the termStore property of the microsoft.graph.site entity.  */
 export class TermStoreRequestBuilder {
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -33,7 +36,7 @@ export class TermStoreRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The termStore under this site.
+     * Delete navigation property termStore for sites
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -43,12 +46,12 @@ export class TermStoreRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The termStore under this site.
+     * The default termStore under this site.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -62,13 +65,13 @@ export class TermStoreRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The termStore under this site.
+     * Update the navigation property termStore in sites
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -80,13 +83,13 @@ export class TermStoreRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The termStore under this site.
+     * Delete navigation property termStore for sites
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -95,10 +98,14 @@ export class TermStoreRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The termStore under this site.
+     * The default termStore under this site.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -112,21 +119,25 @@ export class TermStoreRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Store>(requestInfo, Store, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Store>(requestInfo, createStoreFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.groups.item collection
      * @param id Unique identifier of the item
-     * @returns a groupRequestBuilder
+     * @returns a groupItemRequestBuilder
      */
-    public groupsById(id: string) : GroupRequestBuilder {
+    public groupsById(id: string) : GroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["group_id"] = id
-        return new GroupRequestBuilder(urlTplParams, this.requestAdapter);
+        return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * The termStore under this site.
+     * Update the navigation property termStore in sites
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -137,17 +148,21 @@ export class TermStoreRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.termStore.sets.item collection
      * @param id Unique identifier of the item
-     * @returns a setRequestBuilder
+     * @returns a setItemRequestBuilder
      */
-    public setsById(id: string) : SetRequestBuilder {
+    public setsById(id: string) : SetItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["set_id"] = id
-        return new SetRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SetItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

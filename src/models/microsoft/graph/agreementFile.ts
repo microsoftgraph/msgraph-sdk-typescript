@@ -1,7 +1,9 @@
 import {AgreementFileLocalization} from './agreementFileLocalization';
 import {AgreementFileProperties} from './agreementFileProperties';
+import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities.  */
 export class AgreementFile extends AgreementFileProperties implements Parsable {
     /** The localized version of the terms of use agreement files attached to the agreement.  */
     private _localizations?: AgreementFileLocalization[] | undefined;
@@ -12,6 +14,15 @@ export class AgreementFile extends AgreementFileProperties implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["localizations", (o, n) => { (o as unknown as AgreementFile).localizations = n.getCollectionOfObjectValues<AgreementFileLocalization>(createAgreementFileLocalizationFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the localizations property value. The localized version of the terms of use agreement files attached to the agreement.
      * @returns a agreementFileLocalization
      */
@@ -19,13 +30,11 @@ export class AgreementFile extends AgreementFileProperties implements Parsable {
         return this._localizations;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the localizations property value. The localized version of the terms of use agreement files attached to the agreement.
+     * @param value Value to set for the localizations property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["localizations", (o, n) => { (o as unknown as AgreementFile).localizations = n.getCollectionOfObjectValues<AgreementFileLocalization>(AgreementFileLocalization); }],
-        ]);
+    public set localizations(value: AgreementFileLocalization[] | undefined) {
+        this._localizations = value;
     };
     /**
      * Serializes information the current object
@@ -35,12 +44,5 @@ export class AgreementFile extends AgreementFileProperties implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AgreementFileLocalization>("localizations", this.localizations);
-    };
-    /**
-     * Sets the localizations property value. The localized version of the terms of use agreement files attached to the agreement.
-     * @param value Value to set for the localizations property.
-     */
-    public set localizations(value: AgreementFileLocalization[] | undefined) {
-        this._localizations = value;
     };
 }
