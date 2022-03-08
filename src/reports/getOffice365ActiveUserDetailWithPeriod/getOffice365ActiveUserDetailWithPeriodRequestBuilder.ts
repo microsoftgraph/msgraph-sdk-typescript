@@ -1,7 +1,8 @@
+import {createReportFromDiscriminatorValue} from '../../models/microsoft/graph/createReportFromDiscriminatorValue';
 import {Report} from '../../models/microsoft/graph/report';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.getOffice365ActiveUserDetail(period='{period}')  */
+/** Provides operations to call the getOffice365ActiveUserDetail method.  */
 export class GetOffice365ActiveUserDetailWithPeriodRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -12,7 +13,7 @@ export class GetOffice365ActiveUserDetailWithPeriodRequestBuilder {
     /**
      * Instantiates a new GetOffice365ActiveUserDetailWithPeriodRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
-     * @param period Usage: period={period}
+     * @param period Usage: period='{period}'
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, period?: string | undefined) {
@@ -35,7 +36,7 @@ export class GetOffice365ActiveUserDetailWithPeriodRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -50,6 +51,6 @@ export class GetOffice365ActiveUserDetailWithPeriodRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, Report, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

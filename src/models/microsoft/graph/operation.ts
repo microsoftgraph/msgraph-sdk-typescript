@@ -2,12 +2,13 @@ import {Entity} from './entity';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class Operation extends Entity implements Parsable {
     /** The start time of the operation.  */
     private _createdDateTime?: Date | undefined;
     /** The time of the last action of the operation.  */
     private _lastActionDateTime?: Date | undefined;
-    /** Possible values are: notStarted, running, completed, failed. Read-only.  */
+    /** The current status of the operation: notStarted, running, completed, failed  */
     private _status?: OperationStatus | undefined;
     /**
      * Instantiates a new operation and sets the default values.
@@ -23,18 +24,11 @@ export class Operation extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
-     * Gets the lastActionDateTime property value. The time of the last action of the operation.
-     * @returns a Date
+     * Sets the createdDateTime property value. The start time of the operation.
+     * @param value Value to set for the createdDateTime property.
      */
-    public get lastActionDateTime() {
-        return this._lastActionDateTime;
-    };
-    /**
-     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
-     * @returns a operationStatus
-     */
-    public get status() {
-        return this._status;
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
     };
     /**
      * The deserialization information for the current model
@@ -48,6 +42,20 @@ export class Operation extends Entity implements Parsable {
         ]);
     };
     /**
+     * Gets the lastActionDateTime property value. The time of the last action of the operation.
+     * @returns a Date
+     */
+    public get lastActionDateTime() {
+        return this._lastActionDateTime;
+    };
+    /**
+     * Sets the lastActionDateTime property value. The time of the last action of the operation.
+     * @param value Value to set for the lastActionDateTime property.
+     */
+    public set lastActionDateTime(value: Date | undefined) {
+        this._lastActionDateTime = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -59,21 +67,14 @@ export class Operation extends Entity implements Parsable {
         writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
-     * Sets the createdDateTime property value. The start time of the operation.
-     * @param value Value to set for the createdDateTime property.
+     * Gets the status property value. The current status of the operation: notStarted, running, completed, failed
+     * @returns a operationStatus
      */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
+    public get status() {
+        return this._status;
     };
     /**
-     * Sets the lastActionDateTime property value. The time of the last action of the operation.
-     * @param value Value to set for the lastActionDateTime property.
-     */
-    public set lastActionDateTime(value: Date | undefined) {
-        this._lastActionDateTime = value;
-    };
-    /**
-     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * Sets the status property value. The current status of the operation: notStarted, running, completed, failed
      * @param value Value to set for the status property.
      */
     public set status(value: OperationStatus | undefined) {

@@ -1,7 +1,9 @@
+import {createServicePlanInfoFromDiscriminatorValue} from './createServicePlanInfoFromDiscriminatorValue';
 import {Entity} from './entity';
 import {ServicePlanInfo} from './servicePlanInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class LicenseDetails extends Entity implements Parsable {
     /** Information about the service plans assigned with the license. Read-only, Not nullable  */
     private _servicePlans?: ServicePlanInfo[] | undefined;
@@ -16,33 +18,12 @@ export class LicenseDetails extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the servicePlans property value. Information about the service plans assigned with the license. Read-only, Not nullable
-     * @returns a servicePlanInfo
-     */
-    public get servicePlans() {
-        return this._servicePlans;
-    };
-    /**
-     * Gets the skuId property value. Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
-     * @returns a string
-     */
-    public get skuId() {
-        return this._skuId;
-    };
-    /**
-     * Gets the skuPartNumber property value. Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
-     * @returns a string
-     */
-    public get skuPartNumber() {
-        return this._skuPartNumber;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["servicePlans", (o, n) => { (o as unknown as LicenseDetails).servicePlans = n.getCollectionOfObjectValues<ServicePlanInfo>(ServicePlanInfo); }],
+            ["servicePlans", (o, n) => { (o as unknown as LicenseDetails).servicePlans = n.getCollectionOfObjectValues<ServicePlanInfo>(createServicePlanInfoFromDiscriminatorValue); }],
             ["skuId", (o, n) => { (o as unknown as LicenseDetails).skuId = n.getStringValue(); }],
             ["skuPartNumber", (o, n) => { (o as unknown as LicenseDetails).skuPartNumber = n.getStringValue(); }],
         ]);
@@ -59,6 +40,13 @@ export class LicenseDetails extends Entity implements Parsable {
         writer.writeStringValue("skuPartNumber", this.skuPartNumber);
     };
     /**
+     * Gets the servicePlans property value. Information about the service plans assigned with the license. Read-only, Not nullable
+     * @returns a servicePlanInfo
+     */
+    public get servicePlans() {
+        return this._servicePlans;
+    };
+    /**
      * Sets the servicePlans property value. Information about the service plans assigned with the license. Read-only, Not nullable
      * @param value Value to set for the servicePlans property.
      */
@@ -66,11 +54,25 @@ export class LicenseDetails extends Entity implements Parsable {
         this._servicePlans = value;
     };
     /**
+     * Gets the skuId property value. Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
+     * @returns a string
+     */
+    public get skuId() {
+        return this._skuId;
+    };
+    /**
      * Sets the skuId property value. Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only
      * @param value Value to set for the skuId property.
      */
     public set skuId(value: string | undefined) {
         this._skuId = value;
+    };
+    /**
+     * Gets the skuPartNumber property value. Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only
+     * @returns a string
+     */
+    public get skuPartNumber() {
+        return this._skuPartNumber;
     };
     /**
      * Sets the skuPartNumber property value. Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only

@@ -1,7 +1,9 @@
 import {CommsOperation} from './commsOperation';
+import {createInvitationParticipantInfoFromDiscriminatorValue} from './createInvitationParticipantInfoFromDiscriminatorValue';
 import {InvitationParticipantInfo} from './invitationParticipantInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the invite method.  */
 export class InviteParticipantsOperation extends CommsOperation implements Parsable {
     /** The participants to invite.  */
     private _participants?: InvitationParticipantInfo[] | undefined;
@@ -12,6 +14,15 @@ export class InviteParticipantsOperation extends CommsOperation implements Parsa
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["participants", (o, n) => { (o as unknown as InviteParticipantsOperation).participants = n.getCollectionOfObjectValues<InvitationParticipantInfo>(createInvitationParticipantInfoFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the participants property value. The participants to invite.
      * @returns a invitationParticipantInfo
      */
@@ -19,13 +30,11 @@ export class InviteParticipantsOperation extends CommsOperation implements Parsa
         return this._participants;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the participants property value. The participants to invite.
+     * @param value Value to set for the participants property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["participants", (o, n) => { (o as unknown as InviteParticipantsOperation).participants = n.getCollectionOfObjectValues<InvitationParticipantInfo>(InvitationParticipantInfo); }],
-        ]);
+    public set participants(value: InvitationParticipantInfo[] | undefined) {
+        this._participants = value;
     };
     /**
      * Serializes information the current object
@@ -35,12 +44,5 @@ export class InviteParticipantsOperation extends CommsOperation implements Parsa
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<InvitationParticipantInfo>("participants", this.participants);
-    };
-    /**
-     * Sets the participants property value. The participants to invite.
-     * @param value Value to set for the participants property.
-     */
-    public set participants(value: InvitationParticipantInfo[] | undefined) {
-        this._participants = value;
     };
 }

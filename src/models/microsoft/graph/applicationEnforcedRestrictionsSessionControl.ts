@@ -1,6 +1,7 @@
 import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton.  */
 export class ApplicationEnforcedRestrictionsSessionControl extends ConditionalAccessSessionControl implements Parsable {
     /**
      * Instantiates a new applicationEnforcedRestrictionsSessionControl and sets the default values.

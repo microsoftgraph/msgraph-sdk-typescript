@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class ProfilePhoto extends Entity implements Parsable {
     /** The height of the photo. Read-only.  */
     private _height?: number | undefined;
@@ -13,20 +14,6 @@ export class ProfilePhoto extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the height property value. The height of the photo. Read-only.
-     * @returns a integer
-     */
-    public get height() {
-        return this._height;
-    };
-    /**
-     * Gets the width property value. The width of the photo. Read-only.
-     * @returns a integer
-     */
-    public get width() {
-        return this._width;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
@@ -35,6 +22,20 @@ export class ProfilePhoto extends Entity implements Parsable {
             ["height", (o, n) => { (o as unknown as ProfilePhoto).height = n.getNumberValue(); }],
             ["width", (o, n) => { (o as unknown as ProfilePhoto).width = n.getNumberValue(); }],
         ]);
+    };
+    /**
+     * Gets the height property value. The height of the photo. Read-only.
+     * @returns a integer
+     */
+    public get height() {
+        return this._height;
+    };
+    /**
+     * Sets the height property value. The height of the photo. Read-only.
+     * @param value Value to set for the height property.
+     */
+    public set height(value: number | undefined) {
+        this._height = value;
     };
     /**
      * Serializes information the current object
@@ -47,11 +48,11 @@ export class ProfilePhoto extends Entity implements Parsable {
         writer.writeNumberValue("width", this.width);
     };
     /**
-     * Sets the height property value. The height of the photo. Read-only.
-     * @param value Value to set for the height property.
+     * Gets the width property value. The width of the photo. Read-only.
+     * @returns a integer
      */
-    public set height(value: number | undefined) {
-        this._height = value;
+    public get width() {
+        return this._width;
     };
     /**
      * Sets the width property value. The width of the photo. Read-only.

@@ -1,7 +1,9 @@
 import {ApiAuthenticationConfigurationBase} from './apiAuthenticationConfigurationBase';
+import {createApiAuthenticationConfigurationBaseFromDiscriminatorValue} from './createApiAuthenticationConfigurationBaseFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton.  */
 export class IdentityApiConnector extends Entity implements Parsable {
     /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.  */
     private _authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
@@ -10,17 +12,24 @@ export class IdentityApiConnector extends Entity implements Parsable {
     /** The URL of the API endpoint to call.  */
     private _targetUrl?: string | undefined;
     /**
-     * Instantiates a new identityApiConnector and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the authenticationConfiguration property value. The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
      * @returns a apiAuthenticationConfigurationBase
      */
     public get authenticationConfiguration() {
         return this._authenticationConfiguration;
+    };
+    /**
+     * Sets the authenticationConfiguration property value. The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
+     * @param value Value to set for the authenticationConfiguration property.
+     */
+    public set authenticationConfiguration(value: ApiAuthenticationConfigurationBase | undefined) {
+        this._authenticationConfiguration = value;
+    };
+    /**
+     * Instantiates a new identityApiConnector and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the displayName property value. The name of the API connector.
@@ -30,11 +39,11 @@ export class IdentityApiConnector extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the targetUrl property value. The URL of the API endpoint to call.
-     * @returns a string
+     * Sets the displayName property value. The name of the API connector.
+     * @param value Value to set for the displayName property.
      */
-    public get targetUrl() {
-        return this._targetUrl;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -42,7 +51,7 @@ export class IdentityApiConnector extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["authenticationConfiguration", (o, n) => { (o as unknown as IdentityApiConnector).authenticationConfiguration = n.getObjectValue<ApiAuthenticationConfigurationBase>(ApiAuthenticationConfigurationBase); }],
+            ["authenticationConfiguration", (o, n) => { (o as unknown as IdentityApiConnector).authenticationConfiguration = n.getObjectValue<ApiAuthenticationConfigurationBase>(createApiAuthenticationConfigurationBaseFromDiscriminatorValue); }],
             ["displayName", (o, n) => { (o as unknown as IdentityApiConnector).displayName = n.getStringValue(); }],
             ["targetUrl", (o, n) => { (o as unknown as IdentityApiConnector).targetUrl = n.getStringValue(); }],
         ]);
@@ -59,18 +68,11 @@ export class IdentityApiConnector extends Entity implements Parsable {
         writer.writeStringValue("targetUrl", this.targetUrl);
     };
     /**
-     * Sets the authenticationConfiguration property value. The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.
-     * @param value Value to set for the authenticationConfiguration property.
+     * Gets the targetUrl property value. The URL of the API endpoint to call.
+     * @returns a string
      */
-    public set authenticationConfiguration(value: ApiAuthenticationConfigurationBase | undefined) {
-        this._authenticationConfiguration = value;
-    };
-    /**
-     * Sets the displayName property value. The name of the API connector.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
+    public get targetUrl() {
+        return this._targetUrl;
     };
     /**
      * Sets the targetUrl property value. The URL of the API endpoint to call.

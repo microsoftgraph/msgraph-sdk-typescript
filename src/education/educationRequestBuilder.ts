@@ -1,15 +1,17 @@
-import {Education} from '../models/microsoft/graph/education';
+import {createEducationRootFromDiscriminatorValue} from '../models/microsoft/graph/createEducationRootFromDiscriminatorValue';
 import {EducationRoot} from '../models/microsoft/graph/educationRoot';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassRequestBuilder} from './classes/item/educationClassRequestBuilder';
+import {EducationClassItemRequestBuilder} from './classes/item/educationClassItemRequestBuilder';
 import {MeRequestBuilder} from './me/meRequestBuilder';
-import {EducationSchoolRequestBuilder} from './schools/item/educationSchoolRequestBuilder';
+import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationUserRequestBuilder} from './users/item/educationUserRequestBuilder';
+import {EducationUserItemRequestBuilder} from './users/item/educationUserItemRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /education  */
+/** Provides operations to manage the educationRoot singleton.  */
 export class EducationRequestBuilder {
     public get classes(): ClassesRequestBuilder {
         return new ClassesRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -32,13 +34,13 @@ export class EducationRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.classes.item collection
      * @param id Unique identifier of the item
-     * @returns a educationClassRequestBuilder
+     * @returns a educationClassItemRequestBuilder
      */
-    public classesById(id: string) : EducationClassRequestBuilder {
+    public classesById(id: string) : EducationClassItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass_id"] = id
-        return new EducationClassRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationClassItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EducationRequestBuilder and sets the default values.
@@ -68,7 +70,7 @@ export class EducationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -80,13 +82,13 @@ export class EducationRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Education | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: EducationRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -106,7 +108,11 @@ export class EducationRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, EducationRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<EducationRoot>(requestInfo, createEducationRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update education
@@ -115,33 +121,37 @@ export class EducationRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Education | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.schools.item collection
      * @param id Unique identifier of the item
-     * @returns a educationSchoolRequestBuilder
+     * @returns a educationSchoolItemRequestBuilder
      */
-    public schoolsById(id: string) : EducationSchoolRequestBuilder {
+    public schoolsById(id: string) : EducationSchoolItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationSchool_id"] = id
-        return new EducationSchoolRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item collection
      * @param id Unique identifier of the item
-     * @returns a educationUserRequestBuilder
+     * @returns a educationUserItemRequestBuilder
      */
-    public usersById(id: string) : EducationUserRequestBuilder {
+    public usersById(id: string) : EducationUserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationUser_id"] = id
-        return new EducationUserRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationUserItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

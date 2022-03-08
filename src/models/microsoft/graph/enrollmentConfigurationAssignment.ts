@@ -1,7 +1,9 @@
+import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
 import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton.  */
 export class EnrollmentConfigurationAssignment extends Entity implements Parsable {
     /** Represents an assignment to managed devices in the tenant  */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
@@ -12,19 +14,12 @@ export class EnrollmentConfigurationAssignment extends Entity implements Parsabl
         super();
     };
     /**
-     * Gets the target property value. Represents an assignment to managed devices in the tenant
-     * @returns a deviceAndAppManagementAssignmentTarget
-     */
-    public get target() {
-        return this._target;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["target", (o, n) => { (o as unknown as EnrollmentConfigurationAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget); }],
+            ["target", (o, n) => { (o as unknown as EnrollmentConfigurationAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -35,6 +30,13 @@ export class EnrollmentConfigurationAssignment extends Entity implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
+    };
+    /**
+     * Gets the target property value. Represents an assignment to managed devices in the tenant
+     * @returns a deviceAndAppManagementAssignmentTarget
+     */
+    public get target() {
+        return this._target;
     };
     /**
      * Sets the target property value. Represents an assignment to managed devices in the tenant

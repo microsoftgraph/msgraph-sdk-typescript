@@ -1,11 +1,27 @@
+import {createItemActivityStatFromDiscriminatorValue} from './createItemActivityStatFromDiscriminatorValue';
 import {Entity} from './entity';
 import {ItemActivityStat} from './itemActivityStat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class ItemAnalytics extends Entity implements Parsable {
     private _allTime?: ItemActivityStat | undefined;
     private _itemActivityStats?: ItemActivityStat[] | undefined;
     private _lastSevenDays?: ItemActivityStat | undefined;
+    /**
+     * Gets the allTime property value. 
+     * @returns a itemActivityStat
+     */
+    public get allTime() {
+        return this._allTime;
+    };
+    /**
+     * Sets the allTime property value. 
+     * @param value Value to set for the allTime property.
+     */
+    public set allTime(value: ItemActivityStat | undefined) {
+        this._allTime = value;
+    };
     /**
      * Instantiates a new itemAnalytics and sets the default values.
      */
@@ -13,11 +29,15 @@ export class ItemAnalytics extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the allTime property value. 
-     * @returns a itemActivityStat
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
-    public get allTime() {
-        return this._allTime;
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["allTime", (o, n) => { (o as unknown as ItemAnalytics).allTime = n.getObjectValue<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); }],
+            ["itemActivityStats", (o, n) => { (o as unknown as ItemAnalytics).itemActivityStats = n.getCollectionOfObjectValues<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); }],
+            ["lastSevenDays", (o, n) => { (o as unknown as ItemAnalytics).lastSevenDays = n.getObjectValue<ItemActivityStat>(createItemActivityStatFromDiscriminatorValue); }],
+        ]);
     };
     /**
      * Gets the itemActivityStats property value. 
@@ -27,6 +47,13 @@ export class ItemAnalytics extends Entity implements Parsable {
         return this._itemActivityStats;
     };
     /**
+     * Sets the itemActivityStats property value. 
+     * @param value Value to set for the itemActivityStats property.
+     */
+    public set itemActivityStats(value: ItemActivityStat[] | undefined) {
+        this._itemActivityStats = value;
+    };
+    /**
      * Gets the lastSevenDays property value. 
      * @returns a itemActivityStat
      */
@@ -34,15 +61,11 @@ export class ItemAnalytics extends Entity implements Parsable {
         return this._lastSevenDays;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the lastSevenDays property value. 
+     * @param value Value to set for the lastSevenDays property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["allTime", (o, n) => { (o as unknown as ItemAnalytics).allTime = n.getObjectValue<ItemActivityStat>(ItemActivityStat); }],
-            ["itemActivityStats", (o, n) => { (o as unknown as ItemAnalytics).itemActivityStats = n.getCollectionOfObjectValues<ItemActivityStat>(ItemActivityStat); }],
-            ["lastSevenDays", (o, n) => { (o as unknown as ItemAnalytics).lastSevenDays = n.getObjectValue<ItemActivityStat>(ItemActivityStat); }],
-        ]);
+    public set lastSevenDays(value: ItemActivityStat | undefined) {
+        this._lastSevenDays = value;
     };
     /**
      * Serializes information the current object
@@ -54,26 +77,5 @@ export class ItemAnalytics extends Entity implements Parsable {
         writer.writeObjectValue<ItemActivityStat>("allTime", this.allTime);
         writer.writeCollectionOfObjectValues<ItemActivityStat>("itemActivityStats", this.itemActivityStats);
         writer.writeObjectValue<ItemActivityStat>("lastSevenDays", this.lastSevenDays);
-    };
-    /**
-     * Sets the allTime property value. 
-     * @param value Value to set for the allTime property.
-     */
-    public set allTime(value: ItemActivityStat | undefined) {
-        this._allTime = value;
-    };
-    /**
-     * Sets the itemActivityStats property value. 
-     * @param value Value to set for the itemActivityStats property.
-     */
-    public set itemActivityStats(value: ItemActivityStat[] | undefined) {
-        this._itemActivityStats = value;
-    };
-    /**
-     * Sets the lastSevenDays property value. 
-     * @param value Value to set for the lastSevenDays property.
-     */
-    public set lastSevenDays(value: ItemActivityStat | undefined) {
-        this._lastSevenDays = value;
     };
 }

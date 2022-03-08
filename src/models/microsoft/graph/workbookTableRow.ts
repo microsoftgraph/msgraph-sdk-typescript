@@ -1,7 +1,9 @@
+import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Json} from './json';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookTableRow extends Entity implements Parsable {
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.  */
     private _index?: number | undefined;
@@ -14,6 +16,16 @@ export class WorkbookTableRow extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["index", (o, n) => { (o as unknown as WorkbookTableRow).index = n.getNumberValue(); }],
+            ["values", (o, n) => { (o as unknown as WorkbookTableRow).values = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); }],
+        ]);
+    };
+    /**
      * Gets the index property value. Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.
      * @returns a integer
      */
@@ -21,21 +33,11 @@ export class WorkbookTableRow extends Entity implements Parsable {
         return this._index;
     };
     /**
-     * Gets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
-     * @returns a Json
+     * Sets the index property value. Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.
+     * @param value Value to set for the index property.
      */
-    public get values() {
-        return this._values;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["index", (o, n) => { (o as unknown as WorkbookTableRow).index = n.getNumberValue(); }],
-            ["values", (o, n) => { (o as unknown as WorkbookTableRow).values = n.getObjectValue<Json>(Json); }],
-        ]);
+    public set index(value: number | undefined) {
+        this._index = value;
     };
     /**
      * Serializes information the current object
@@ -48,11 +50,11 @@ export class WorkbookTableRow extends Entity implements Parsable {
         writer.writeObjectValue<Json>("values", this.values);
     };
     /**
-     * Sets the index property value. Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.
-     * @param value Value to set for the index property.
+     * Gets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.
+     * @returns a Json
      */
-    public set index(value: number | undefined) {
-        this._index = value;
+    public get values() {
+        return this._values;
     };
     /**
      * Sets the values property value. Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.

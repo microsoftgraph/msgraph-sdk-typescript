@@ -1,6 +1,7 @@
 import {PrintUsage} from './printUsage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the reportRoot singleton.  */
 export class PrintUsageByUser extends PrintUsage implements Parsable {
     /** The UPN of the user represented by these statistics.  */
     private _userPrincipalName?: string | undefined;
@@ -9,13 +10,6 @@ export class PrintUsageByUser extends PrintUsage implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the userPrincipalName property value. The UPN of the user represented by these statistics.
-     * @returns a string
-     */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
     };
     /**
      * The deserialization information for the current model
@@ -34,6 +28,13 @@ export class PrintUsageByUser extends PrintUsage implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
+    };
+    /**
+     * Gets the userPrincipalName property value. The UPN of the user represented by these statistics.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. The UPN of the user represented by these statistics.

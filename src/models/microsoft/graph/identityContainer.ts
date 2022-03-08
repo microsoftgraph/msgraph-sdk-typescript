@@ -1,15 +1,21 @@
 import {B2xIdentityUserFlow} from './b2xIdentityUserFlow';
 import {ConditionalAccessRoot} from './conditionalAccessRoot';
+import {createB2xIdentityUserFlowFromDiscriminatorValue} from './createB2xIdentityUserFlowFromDiscriminatorValue';
+import {createConditionalAccessRootFromDiscriminatorValue} from './createConditionalAccessRootFromDiscriminatorValue';
+import {createIdentityApiConnectorFromDiscriminatorValue} from './createIdentityApiConnectorFromDiscriminatorValue';
+import {createIdentityProviderBaseFromDiscriminatorValue} from './createIdentityProviderBaseFromDiscriminatorValue';
+import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIdentityUserFlowAttributeFromDiscriminatorValue';
 import {Entity} from './entity';
 import {IdentityApiConnector} from './identityApiConnector';
 import {IdentityProviderBase} from './identityProviderBase';
 import {IdentityUserFlowAttribute} from './identityUserFlowAttribute';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton.  */
 export class IdentityContainer extends Entity implements Parsable {
     /** Represents entry point for API connectors.  */
     private _apiConnectors?: IdentityApiConnector[] | undefined;
-    /** Represents entry point for B2X and self-service sign-up identity userflows.  */
+    /** Represents entry point for B2X/self-service sign-up identity userflows.  */
     private _b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
     /** the entry point for the Conditional Access (CA) object model.  */
     private _conditionalAccess?: ConditionalAccessRoot | undefined;
@@ -18,12 +24,6 @@ export class IdentityContainer extends Entity implements Parsable {
     /** Represents entry point for identity userflow attributes.  */
     private _userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
     /**
-     * Instantiates a new identityContainer and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the apiConnectors property value. Represents entry point for API connectors.
      * @returns a identityApiConnector
      */
@@ -31,11 +31,25 @@ export class IdentityContainer extends Entity implements Parsable {
         return this._apiConnectors;
     };
     /**
-     * Gets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
+     * Sets the apiConnectors property value. Represents entry point for API connectors.
+     * @param value Value to set for the apiConnectors property.
+     */
+    public set apiConnectors(value: IdentityApiConnector[] | undefined) {
+        this._apiConnectors = value;
+    };
+    /**
+     * Gets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
      * @returns a b2xIdentityUserFlow
      */
     public get b2xUserFlows() {
         return this._b2xUserFlows;
+    };
+    /**
+     * Sets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
+     * @param value Value to set for the b2xUserFlows property.
+     */
+    public set b2xUserFlows(value: B2xIdentityUserFlow[] | undefined) {
+        this._b2xUserFlows = value;
     };
     /**
      * Gets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
@@ -45,18 +59,17 @@ export class IdentityContainer extends Entity implements Parsable {
         return this._conditionalAccess;
     };
     /**
-     * Gets the identityProviders property value. Represents entry point for identity provider base.
-     * @returns a identityProviderBase
+     * Sets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
+     * @param value Value to set for the conditionalAccess property.
      */
-    public get identityProviders() {
-        return this._identityProviders;
+    public set conditionalAccess(value: ConditionalAccessRoot | undefined) {
+        this._conditionalAccess = value;
     };
     /**
-     * Gets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
-     * @returns a identityUserFlowAttribute
+     * Instantiates a new identityContainer and sets the default values.
      */
-    public get userFlowAttributes() {
-        return this._userFlowAttributes;
+    public constructor() {
+        super();
     };
     /**
      * The deserialization information for the current model
@@ -64,12 +77,26 @@ export class IdentityContainer extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["apiConnectors", (o, n) => { (o as unknown as IdentityContainer).apiConnectors = n.getCollectionOfObjectValues<IdentityApiConnector>(IdentityApiConnector); }],
-            ["b2xUserFlows", (o, n) => { (o as unknown as IdentityContainer).b2xUserFlows = n.getCollectionOfObjectValues<B2xIdentityUserFlow>(B2xIdentityUserFlow); }],
-            ["conditionalAccess", (o, n) => { (o as unknown as IdentityContainer).conditionalAccess = n.getObjectValue<ConditionalAccessRoot>(ConditionalAccessRoot); }],
-            ["identityProviders", (o, n) => { (o as unknown as IdentityContainer).identityProviders = n.getCollectionOfObjectValues<IdentityProviderBase>(IdentityProviderBase); }],
-            ["userFlowAttributes", (o, n) => { (o as unknown as IdentityContainer).userFlowAttributes = n.getCollectionOfObjectValues<IdentityUserFlowAttribute>(IdentityUserFlowAttribute); }],
+            ["apiConnectors", (o, n) => { (o as unknown as IdentityContainer).apiConnectors = n.getCollectionOfObjectValues<IdentityApiConnector>(createIdentityApiConnectorFromDiscriminatorValue); }],
+            ["b2xUserFlows", (o, n) => { (o as unknown as IdentityContainer).b2xUserFlows = n.getCollectionOfObjectValues<B2xIdentityUserFlow>(createB2xIdentityUserFlowFromDiscriminatorValue); }],
+            ["conditionalAccess", (o, n) => { (o as unknown as IdentityContainer).conditionalAccess = n.getObjectValue<ConditionalAccessRoot>(createConditionalAccessRootFromDiscriminatorValue); }],
+            ["identityProviders", (o, n) => { (o as unknown as IdentityContainer).identityProviders = n.getCollectionOfObjectValues<IdentityProviderBase>(createIdentityProviderBaseFromDiscriminatorValue); }],
+            ["userFlowAttributes", (o, n) => { (o as unknown as IdentityContainer).userFlowAttributes = n.getCollectionOfObjectValues<IdentityUserFlowAttribute>(createIdentityUserFlowAttributeFromDiscriminatorValue); }],
         ]);
+    };
+    /**
+     * Gets the identityProviders property value. Represents entry point for identity provider base.
+     * @returns a identityProviderBase
+     */
+    public get identityProviders() {
+        return this._identityProviders;
+    };
+    /**
+     * Sets the identityProviders property value. Represents entry point for identity provider base.
+     * @param value Value to set for the identityProviders property.
+     */
+    public set identityProviders(value: IdentityProviderBase[] | undefined) {
+        this._identityProviders = value;
     };
     /**
      * Serializes information the current object
@@ -85,32 +112,11 @@ export class IdentityContainer extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<IdentityUserFlowAttribute>("userFlowAttributes", this.userFlowAttributes);
     };
     /**
-     * Sets the apiConnectors property value. Represents entry point for API connectors.
-     * @param value Value to set for the apiConnectors property.
+     * Gets the userFlowAttributes property value. Represents entry point for identity userflow attributes.
+     * @returns a identityUserFlowAttribute
      */
-    public set apiConnectors(value: IdentityApiConnector[] | undefined) {
-        this._apiConnectors = value;
-    };
-    /**
-     * Sets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
-     * @param value Value to set for the b2xUserFlows property.
-     */
-    public set b2xUserFlows(value: B2xIdentityUserFlow[] | undefined) {
-        this._b2xUserFlows = value;
-    };
-    /**
-     * Sets the conditionalAccess property value. the entry point for the Conditional Access (CA) object model.
-     * @param value Value to set for the conditionalAccess property.
-     */
-    public set conditionalAccess(value: ConditionalAccessRoot | undefined) {
-        this._conditionalAccess = value;
-    };
-    /**
-     * Sets the identityProviders property value. Represents entry point for identity provider base.
-     * @param value Value to set for the identityProviders property.
-     */
-    public set identityProviders(value: IdentityProviderBase[] | undefined) {
-        this._identityProviders = value;
+    public get userFlowAttributes() {
+        return this._userFlowAttributes;
     };
     /**
      * Sets the userFlowAttributes property value. Represents entry point for identity userflow attributes.

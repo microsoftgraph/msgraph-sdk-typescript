@@ -1,12 +1,13 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton.  */
 export class AccessReviewReviewer extends Entity implements Parsable {
     /** The date when the reviewer was added for the access review.  */
     private _createdDateTime?: Date | undefined;
     /** Name of reviewer.  */
     private _displayName?: string | undefined;
-    /** User principal name of the user.  */
+    /** User principal name of the reviewer.  */
     private _userPrincipalName?: string | undefined;
     /**
      * Instantiates a new accessReviewReviewer and sets the default values.
@@ -22,6 +23,13 @@ export class AccessReviewReviewer extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
+     * Sets the createdDateTime property value. The date when the reviewer was added for the access review.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
+    };
+    /**
      * Gets the displayName property value. Name of reviewer.
      * @returns a string
      */
@@ -29,11 +37,11 @@ export class AccessReviewReviewer extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the userPrincipalName property value. User principal name of the user.
-     * @returns a string
+     * Sets the displayName property value. Name of reviewer.
+     * @param value Value to set for the displayName property.
      */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -58,21 +66,14 @@ export class AccessReviewReviewer extends Entity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Sets the createdDateTime property value. The date when the reviewer was added for the access review.
-     * @param value Value to set for the createdDateTime property.
+     * Gets the userPrincipalName property value. User principal name of the reviewer.
+     * @returns a string
      */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
-     * Sets the displayName property value. Name of reviewer.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the userPrincipalName property value. User principal name of the user.
+     * Sets the userPrincipalName property value. User principal name of the reviewer.
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {

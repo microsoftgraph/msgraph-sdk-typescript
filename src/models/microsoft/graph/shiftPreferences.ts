@@ -1,16 +1,12 @@
 import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {createShiftAvailabilityFromDiscriminatorValue} from './createShiftAvailabilityFromDiscriminatorValue';
 import {ShiftAvailability} from './shiftAvailability';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class ShiftPreferences extends ChangeTrackedEntity implements Parsable {
     /** Availability of the user to be scheduled for work and its recurrence pattern.  */
     private _availability?: ShiftAvailability[] | undefined;
-    /**
-     * Instantiates a new shiftPreferences and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
     /**
      * Gets the availability property value. Availability of the user to be scheduled for work and its recurrence pattern.
      * @returns a shiftAvailability
@@ -19,12 +15,25 @@ export class ShiftPreferences extends ChangeTrackedEntity implements Parsable {
         return this._availability;
     };
     /**
+     * Sets the availability property value. Availability of the user to be scheduled for work and its recurrence pattern.
+     * @param value Value to set for the availability property.
+     */
+    public set availability(value: ShiftAvailability[] | undefined) {
+        this._availability = value;
+    };
+    /**
+     * Instantiates a new shiftPreferences and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["availability", (o, n) => { (o as unknown as ShiftPreferences).availability = n.getCollectionOfObjectValues<ShiftAvailability>(ShiftAvailability); }],
+            ["availability", (o, n) => { (o as unknown as ShiftPreferences).availability = n.getCollectionOfObjectValues<ShiftAvailability>(createShiftAvailabilityFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -35,12 +44,5 @@ export class ShiftPreferences extends ChangeTrackedEntity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<ShiftAvailability>("availability", this.availability);
-    };
-    /**
-     * Sets the availability property value. Availability of the user to be scheduled for work and its recurrence pattern.
-     * @param value Value to set for the availability property.
-     */
-    public set availability(value: ShiftAvailability[] | undefined) {
-        this._availability = value;
     };
 }

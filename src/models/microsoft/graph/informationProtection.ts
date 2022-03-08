@@ -1,17 +1,14 @@
 import {Bitlocker} from './bitlocker';
+import {createBitlockerFromDiscriminatorValue} from './createBitlockerFromDiscriminatorValue';
+import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThreatAssessmentRequestFromDiscriminatorValue';
 import {Entity} from './entity';
 import {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the informationProtection singleton.  */
 export class InformationProtection extends Entity implements Parsable {
     private _bitlocker?: Bitlocker | undefined;
     private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
-    /**
-     * Instantiates a new informationProtection and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
     /**
      * Gets the bitlocker property value. 
      * @returns a bitlocker
@@ -20,11 +17,17 @@ export class InformationProtection extends Entity implements Parsable {
         return this._bitlocker;
     };
     /**
-     * Gets the threatAssessmentRequests property value. 
-     * @returns a threatAssessmentRequest
+     * Sets the bitlocker property value. 
+     * @param value Value to set for the bitlocker property.
      */
-    public get threatAssessmentRequests() {
-        return this._threatAssessmentRequests;
+    public set bitlocker(value: Bitlocker | undefined) {
+        this._bitlocker = value;
+    };
+    /**
+     * Instantiates a new informationProtection and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * The deserialization information for the current model
@@ -32,8 +35,8 @@ export class InformationProtection extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["bitlocker", (o, n) => { (o as unknown as InformationProtection).bitlocker = n.getObjectValue<Bitlocker>(Bitlocker); }],
-            ["threatAssessmentRequests", (o, n) => { (o as unknown as InformationProtection).threatAssessmentRequests = n.getCollectionOfObjectValues<ThreatAssessmentRequest>(ThreatAssessmentRequest); }],
+            ["bitlocker", (o, n) => { (o as unknown as InformationProtection).bitlocker = n.getObjectValue<Bitlocker>(createBitlockerFromDiscriminatorValue); }],
+            ["threatAssessmentRequests", (o, n) => { (o as unknown as InformationProtection).threatAssessmentRequests = n.getCollectionOfObjectValues<ThreatAssessmentRequest>(createThreatAssessmentRequestFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -47,11 +50,11 @@ export class InformationProtection extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ThreatAssessmentRequest>("threatAssessmentRequests", this.threatAssessmentRequests);
     };
     /**
-     * Sets the bitlocker property value. 
-     * @param value Value to set for the bitlocker property.
+     * Gets the threatAssessmentRequests property value. 
+     * @returns a threatAssessmentRequest
      */
-    public set bitlocker(value: Bitlocker | undefined) {
-        this._bitlocker = value;
+    public get threatAssessmentRequests() {
+        return this._threatAssessmentRequests;
     };
     /**
      * Sets the threatAssessmentRequests property value. 

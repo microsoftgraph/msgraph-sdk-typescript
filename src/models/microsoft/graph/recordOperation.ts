@@ -1,6 +1,7 @@
 import {CommsOperation} from './commsOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the recordResponse method.  */
 export class RecordOperation extends CommsOperation implements Parsable {
     /** The access token required to retrieve the recording.  */
     private _recordingAccessToken?: string | undefined;
@@ -13,20 +14,6 @@ export class RecordOperation extends CommsOperation implements Parsable {
         super();
     };
     /**
-     * Gets the recordingAccessToken property value. The access token required to retrieve the recording.
-     * @returns a string
-     */
-    public get recordingAccessToken() {
-        return this._recordingAccessToken;
-    };
-    /**
-     * Gets the recordingLocation property value. The location where the recording is located.
-     * @returns a string
-     */
-    public get recordingLocation() {
-        return this._recordingLocation;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
@@ -37,14 +24,11 @@ export class RecordOperation extends CommsOperation implements Parsable {
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the recordingAccessToken property value. The access token required to retrieve the recording.
+     * @returns a string
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("recordingAccessToken", this.recordingAccessToken);
-        writer.writeStringValue("recordingLocation", this.recordingLocation);
+    public get recordingAccessToken() {
+        return this._recordingAccessToken;
     };
     /**
      * Sets the recordingAccessToken property value. The access token required to retrieve the recording.
@@ -54,10 +38,27 @@ export class RecordOperation extends CommsOperation implements Parsable {
         this._recordingAccessToken = value;
     };
     /**
+     * Gets the recordingLocation property value. The location where the recording is located.
+     * @returns a string
+     */
+    public get recordingLocation() {
+        return this._recordingLocation;
+    };
+    /**
      * Sets the recordingLocation property value. The location where the recording is located.
      * @param value Value to set for the recordingLocation property.
      */
     public set recordingLocation(value: string | undefined) {
         this._recordingLocation = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeStringValue("recordingAccessToken", this.recordingAccessToken);
+        writer.writeStringValue("recordingLocation", this.recordingLocation);
     };
 }

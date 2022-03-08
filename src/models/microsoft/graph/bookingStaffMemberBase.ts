@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the solutionsRoot singleton.  */
 export class BookingStaffMemberBase extends Entity implements Parsable {
     /**
      * Instantiates a new bookingStaffMemberBase and sets the default values.

@@ -1,0 +1,7 @@
+import {ColumnLinkCollectionResponse} from './columnLinkCollectionResponse';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createColumnLinkCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ColumnLinkCollectionResponse {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new ColumnLinkCollectionResponse();
+}

@@ -1,12 +1,14 @@
-import {IdentityProtection} from '../models/microsoft/graph/identityProtection';
+import {createIdentityProtectionRootFromDiscriminatorValue} from '../models/microsoft/graph/createIdentityProtectionRootFromDiscriminatorValue';
 import {IdentityProtectionRoot} from '../models/microsoft/graph/identityProtectionRoot';
-import {RiskDetectionRequestBuilder} from './riskDetections/item/riskDetectionRequestBuilder';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
+import {RiskDetectionItemRequestBuilder} from './riskDetections/item/riskDetectionItemRequestBuilder';
 import {RiskDetectionsRequestBuilder} from './riskDetections/riskDetectionsRequestBuilder';
-import {RiskyUserRequestBuilder} from './riskyUsers/item/riskyUserRequestBuilder';
+import {RiskyUserItemRequestBuilder} from './riskyUsers/item/riskyUserItemRequestBuilder';
 import {RiskyUsersRequestBuilder} from './riskyUsers/riskyUsersRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identityProtection  */
+/** Provides operations to manage the identityProtectionRoot singleton.  */
 export class IdentityProtectionRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -48,7 +50,7 @@ export class IdentityProtectionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -60,13 +62,13 @@ export class IdentityProtectionRequestBuilder {
      * @param o Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: IdentityProtection | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: IdentityProtectionRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -86,7 +88,11 @@ export class IdentityProtectionRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<IdentityProtectionRoot>(requestInfo, IdentityProtectionRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<IdentityProtectionRoot>(requestInfo, createIdentityProtectionRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update identityProtection
@@ -95,33 +101,37 @@ export class IdentityProtectionRequestBuilder {
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: IdentityProtection | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IdentityProtectionRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskDetections.item collection
      * @param id Unique identifier of the item
-     * @returns a riskDetectionRequestBuilder
+     * @returns a riskDetectionItemRequestBuilder
      */
-    public riskDetectionsById(id: string) : RiskDetectionRequestBuilder {
+    public riskDetectionsById(id: string) : RiskDetectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskDetection_id"] = id
-        return new RiskDetectionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new RiskDetectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityProtection.riskyUsers.item collection
      * @param id Unique identifier of the item
-     * @returns a riskyUserRequestBuilder
+     * @returns a riskyUserItemRequestBuilder
      */
-    public riskyUsersById(id: string) : RiskyUserRequestBuilder {
+    public riskyUsersById(id: string) : RiskyUserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["riskyUser_id"] = id
-        return new RiskyUserRequestBuilder(urlTplParams, this.requestAdapter);
+        return new RiskyUserItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

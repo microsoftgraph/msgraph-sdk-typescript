@@ -1,10 +1,15 @@
 import {AgreementAcceptance} from './agreementAcceptance';
 import {AgreementFile} from './agreementFile';
 import {AgreementFileLocalization} from './agreementFileLocalization';
+import {createAgreementAcceptanceFromDiscriminatorValue} from './createAgreementAcceptanceFromDiscriminatorValue';
+import {createAgreementFileFromDiscriminatorValue} from './createAgreementFileFromDiscriminatorValue';
+import {createAgreementFileLocalizationFromDiscriminatorValue} from './createAgreementFileLocalizationFromDiscriminatorValue';
+import {createTermsExpirationFromDiscriminatorValue} from './createTermsExpirationFromDiscriminatorValue';
 import {Entity} from './entity';
 import {TermsExpiration} from './termsExpiration';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of agreement entities.  */
 export class Agreement extends Entity implements Parsable {
     /** Read-only. Information about acceptances of this agreement.  */
     private _acceptances?: AgreementAcceptance[] | undefined;
@@ -12,9 +17,9 @@ export class Agreement extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** Default PDF linked to this agreement.  */
     private _file?: AgreementFile | undefined;
-    /** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.  */
+    /** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.  */
     private _files?: AgreementFileLocalization[] | undefined;
-    /** This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.  */
+    /** Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.  */
     private _isPerDeviceAcceptanceRequired?: boolean | undefined;
     /** Indicates whether the user has to expand the agreement before accepting.  */
     private _isViewingBeforeAcceptanceRequired?: boolean | undefined;
@@ -23,17 +28,24 @@ export class Agreement extends Entity implements Parsable {
     /** The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.  */
     private _userReacceptRequiredFrequency?: Duration | undefined;
     /**
-     * Instantiates a new agreement and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the acceptances property value. Read-only. Information about acceptances of this agreement.
      * @returns a agreementAcceptance
      */
     public get acceptances() {
         return this._acceptances;
+    };
+    /**
+     * Sets the acceptances property value. Read-only. Information about acceptances of this agreement.
+     * @param value Value to set for the acceptances property.
+     */
+    public set acceptances(value: AgreementAcceptance[] | undefined) {
+        this._acceptances = value;
+    };
+    /**
+     * Instantiates a new agreement and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the displayName property value. Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement.
@@ -43,6 +55,13 @@ export class Agreement extends Entity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
      * Gets the file property value. Default PDF linked to this agreement.
      * @returns a agreementFile
      */
@@ -50,18 +69,55 @@ export class Agreement extends Entity implements Parsable {
         return this._file;
     };
     /**
-     * Gets the files property value. PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
+     * Sets the file property value. Default PDF linked to this agreement.
+     * @param value Value to set for the file property.
+     */
+    public set file(value: AgreementFile | undefined) {
+        this._file = value;
+    };
+    /**
+     * Gets the files property value. PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
      * @returns a agreementFileLocalization
      */
     public get files() {
         return this._files;
     };
     /**
-     * Gets the isPerDeviceAcceptanceRequired property value. This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.
+     * Sets the files property value. PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead.
+     * @param value Value to set for the files property.
+     */
+    public set files(value: AgreementFileLocalization[] | undefined) {
+        this._files = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["acceptances", (o, n) => { (o as unknown as Agreement).acceptances = n.getCollectionOfObjectValues<AgreementAcceptance>(createAgreementAcceptanceFromDiscriminatorValue); }],
+            ["displayName", (o, n) => { (o as unknown as Agreement).displayName = n.getStringValue(); }],
+            ["file", (o, n) => { (o as unknown as Agreement).file = n.getObjectValue<AgreementFile>(createAgreementFileFromDiscriminatorValue); }],
+            ["files", (o, n) => { (o as unknown as Agreement).files = n.getCollectionOfObjectValues<AgreementFileLocalization>(createAgreementFileLocalizationFromDiscriminatorValue); }],
+            ["isPerDeviceAcceptanceRequired", (o, n) => { (o as unknown as Agreement).isPerDeviceAcceptanceRequired = n.getBooleanValue(); }],
+            ["isViewingBeforeAcceptanceRequired", (o, n) => { (o as unknown as Agreement).isViewingBeforeAcceptanceRequired = n.getBooleanValue(); }],
+            ["termsExpiration", (o, n) => { (o as unknown as Agreement).termsExpiration = n.getObjectValue<TermsExpiration>(createTermsExpirationFromDiscriminatorValue); }],
+            ["userReacceptRequiredFrequency", (o, n) => { (o as unknown as Agreement).userReacceptRequiredFrequency = n.getDurationValue(); }],
+        ]);
+    };
+    /**
+     * Gets the isPerDeviceAcceptanceRequired property value. Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.
      * @returns a boolean
      */
     public get isPerDeviceAcceptanceRequired() {
         return this._isPerDeviceAcceptanceRequired;
+    };
+    /**
+     * Sets the isPerDeviceAcceptanceRequired property value. Indicates whether end users are required to accept this agreement on every device that they access it from. The end user is required to register their device in Azure AD, if they haven't already done so.
+     * @param value Value to set for the isPerDeviceAcceptanceRequired property.
+     */
+    public set isPerDeviceAcceptanceRequired(value: boolean | undefined) {
+        this._isPerDeviceAcceptanceRequired = value;
     };
     /**
      * Gets the isViewingBeforeAcceptanceRequired property value. Indicates whether the user has to expand the agreement before accepting.
@@ -71,34 +127,11 @@ export class Agreement extends Entity implements Parsable {
         return this._isViewingBeforeAcceptanceRequired;
     };
     /**
-     * Gets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.
-     * @returns a termsExpiration
+     * Sets the isViewingBeforeAcceptanceRequired property value. Indicates whether the user has to expand the agreement before accepting.
+     * @param value Value to set for the isViewingBeforeAcceptanceRequired property.
      */
-    public get termsExpiration() {
-        return this._termsExpiration;
-    };
-    /**
-     * Gets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
-     * @returns a Duration
-     */
-    public get userReacceptRequiredFrequency() {
-        return this._userReacceptRequiredFrequency;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["acceptances", (o, n) => { (o as unknown as Agreement).acceptances = n.getCollectionOfObjectValues<AgreementAcceptance>(AgreementAcceptance); }],
-            ["displayName", (o, n) => { (o as unknown as Agreement).displayName = n.getStringValue(); }],
-            ["file", (o, n) => { (o as unknown as Agreement).file = n.getObjectValue<AgreementFile>(AgreementFile); }],
-            ["files", (o, n) => { (o as unknown as Agreement).files = n.getCollectionOfObjectValues<AgreementFileLocalization>(AgreementFileLocalization); }],
-            ["isPerDeviceAcceptanceRequired", (o, n) => { (o as unknown as Agreement).isPerDeviceAcceptanceRequired = n.getBooleanValue(); }],
-            ["isViewingBeforeAcceptanceRequired", (o, n) => { (o as unknown as Agreement).isViewingBeforeAcceptanceRequired = n.getBooleanValue(); }],
-            ["termsExpiration", (o, n) => { (o as unknown as Agreement).termsExpiration = n.getObjectValue<TermsExpiration>(TermsExpiration); }],
-            ["userReacceptRequiredFrequency", (o, n) => { (o as unknown as Agreement).userReacceptRequiredFrequency = n.getDurationValue(); }],
-        ]);
+    public set isViewingBeforeAcceptanceRequired(value: boolean | undefined) {
+        this._isViewingBeforeAcceptanceRequired = value;
     };
     /**
      * Serializes information the current object
@@ -117,46 +150,11 @@ export class Agreement extends Entity implements Parsable {
         writer.writeDurationValue("userReacceptRequiredFrequency", this.userReacceptRequiredFrequency);
     };
     /**
-     * Sets the acceptances property value. Read-only. Information about acceptances of this agreement.
-     * @param value Value to set for the acceptances property.
+     * Gets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.
+     * @returns a termsExpiration
      */
-    public set acceptances(value: AgreementAcceptance[] | undefined) {
-        this._acceptances = value;
-    };
-    /**
-     * Sets the displayName property value. Display name of the agreement. The display name is used for internal tracking of the agreement but is not shown to end users who view the agreement.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the file property value. Default PDF linked to this agreement.
-     * @param value Value to set for the file property.
-     */
-    public set file(value: AgreementFile | undefined) {
-        this._file = value;
-    };
-    /**
-     * Sets the files property value. PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.
-     * @param value Value to set for the files property.
-     */
-    public set files(value: AgreementFileLocalization[] | undefined) {
-        this._files = value;
-    };
-    /**
-     * Sets the isPerDeviceAcceptanceRequired property value. This setting enables you to require end users to accept this agreement on every device that they are accessing it from. The end user will be required to register their device in Azure AD, if they haven't already done so.
-     * @param value Value to set for the isPerDeviceAcceptanceRequired property.
-     */
-    public set isPerDeviceAcceptanceRequired(value: boolean | undefined) {
-        this._isPerDeviceAcceptanceRequired = value;
-    };
-    /**
-     * Sets the isViewingBeforeAcceptanceRequired property value. Indicates whether the user has to expand the agreement before accepting.
-     * @param value Value to set for the isViewingBeforeAcceptanceRequired property.
-     */
-    public set isViewingBeforeAcceptanceRequired(value: boolean | undefined) {
-        this._isViewingBeforeAcceptanceRequired = value;
+    public get termsExpiration() {
+        return this._termsExpiration;
     };
     /**
      * Sets the termsExpiration property value. Expiration schedule and frequency of agreement for all users.
@@ -164,6 +162,13 @@ export class Agreement extends Entity implements Parsable {
      */
     public set termsExpiration(value: TermsExpiration | undefined) {
         this._termsExpiration = value;
+    };
+    /**
+     * Gets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.
+     * @returns a Duration
+     */
+    public get userReacceptRequiredFrequency() {
+        return this._userReacceptRequiredFrequency;
     };
     /**
      * Sets the userReacceptRequiredFrequency property value. The duration after which the user must re-accept the terms of use. The value is represented in ISO 8601 format for durations.

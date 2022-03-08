@@ -1,7 +1,9 @@
 import {AuthenticationMethod} from './authenticationMethod';
+import {createDeviceFromDiscriminatorValue} from './createDeviceFromDiscriminatorValue';
 import {Device} from './device';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMethod implements Parsable {
     /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.  */
     private _createdDateTime?: Date | undefined;
@@ -27,11 +29,25 @@ export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMe
         return this._createdDateTime;
     };
     /**
+     * Sets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
+    };
+    /**
      * Gets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
      * @returns a device
      */
     public get device() {
         return this._device;
+    };
+    /**
+     * Sets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * @param value Value to set for the device property.
+     */
+    public set device(value: Device | undefined) {
+        this._device = value;
     };
     /**
      * Gets the deviceTag property value. Tags containing app metadata.
@@ -41,11 +57,38 @@ export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMe
         return this._deviceTag;
     };
     /**
+     * Sets the deviceTag property value. Tags containing app metadata.
+     * @param value Value to set for the deviceTag property.
+     */
+    public set deviceTag(value: string | undefined) {
+        this._deviceTag = value;
+    };
+    /**
      * Gets the displayName property value. The name of the device on which this app is registered.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the device on which this app is registered.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["createdDateTime", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).createdDateTime = n.getDateValue(); }],
+            ["device", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).device = n.getObjectValue<Device>(createDeviceFromDiscriminatorValue); }],
+            ["deviceTag", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).deviceTag = n.getStringValue(); }],
+            ["displayName", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).displayName = n.getStringValue(); }],
+            ["phoneAppVersion", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).phoneAppVersion = n.getStringValue(); }],
+        ]);
     };
     /**
      * Gets the phoneAppVersion property value. Numerical version of this instance of the Authenticator app.
@@ -55,17 +98,11 @@ export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMe
         return this._phoneAppVersion;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the phoneAppVersion property value. Numerical version of this instance of the Authenticator app.
+     * @param value Value to set for the phoneAppVersion property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["createdDateTime", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).createdDateTime = n.getDateValue(); }],
-            ["device", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).device = n.getObjectValue<Device>(Device); }],
-            ["deviceTag", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).deviceTag = n.getStringValue(); }],
-            ["displayName", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).displayName = n.getStringValue(); }],
-            ["phoneAppVersion", (o, n) => { (o as unknown as MicrosoftAuthenticatorAuthenticationMethod).phoneAppVersion = n.getStringValue(); }],
-        ]);
+    public set phoneAppVersion(value: string | undefined) {
+        this._phoneAppVersion = value;
     };
     /**
      * Serializes information the current object
@@ -79,40 +116,5 @@ export class MicrosoftAuthenticatorAuthenticationMethod extends AuthenticationMe
         writer.writeStringValue("deviceTag", this.deviceTag);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("phoneAppVersion", this.phoneAppVersion);
-    };
-    /**
-     * Sets the createdDateTime property value. The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @param value Value to set for the createdDateTime property.
-     */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
-    };
-    /**
-     * Sets the device property value. The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
-     * @param value Value to set for the device property.
-     */
-    public set device(value: Device | undefined) {
-        this._device = value;
-    };
-    /**
-     * Sets the deviceTag property value. Tags containing app metadata.
-     * @param value Value to set for the deviceTag property.
-     */
-    public set deviceTag(value: string | undefined) {
-        this._deviceTag = value;
-    };
-    /**
-     * Sets the displayName property value. The name of the device on which this app is registered.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the phoneAppVersion property value. Numerical version of this instance of the Authenticator app.
-     * @param value Value to set for the phoneAppVersion property.
-     */
-    public set phoneAppVersion(value: string | undefined) {
-        this._phoneAppVersion = value;
     };
 }

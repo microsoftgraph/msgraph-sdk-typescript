@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton.  */
 export class EducationCategory extends Entity implements Parsable {
     /** Unique identifier for the category.  */
     private _displayName?: string | undefined;
@@ -16,6 +17,13 @@ export class EducationCategory extends Entity implements Parsable {
      */
     public get displayName() {
         return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Unique identifier for the category.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -34,12 +42,5 @@ export class EducationCategory extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-    };
-    /**
-     * Sets the displayName property value. Unique identifier for the category.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
     };
 }

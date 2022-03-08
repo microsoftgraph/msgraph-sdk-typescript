@@ -1,7 +1,9 @@
+import {createPrintOperationStatusFromDiscriminatorValue} from './createPrintOperationStatusFromDiscriminatorValue';
 import {Entity} from './entity';
 import {PrintOperationStatus} from './printOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton.  */
 export class PrintOperation extends Entity implements Parsable {
     /** The DateTimeOffset when the operation was created. Read-only.  */
     private _createdDateTime?: Date | undefined;
@@ -20,11 +22,11 @@ export class PrintOperation extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
-     * Gets the status property value. 
-     * @returns a printOperationStatus
+     * Sets the createdDateTime property value. The DateTimeOffset when the operation was created. Read-only.
+     * @param value Value to set for the createdDateTime property.
      */
-    public get status() {
-        return this._status;
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
     };
     /**
      * The deserialization information for the current model
@@ -33,7 +35,7 @@ export class PrintOperation extends Entity implements Parsable {
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["createdDateTime", (o, n) => { (o as unknown as PrintOperation).createdDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as PrintOperation).status = n.getObjectValue<PrintOperationStatus>(PrintOperationStatus); }],
+            ["status", (o, n) => { (o as unknown as PrintOperation).status = n.getObjectValue<PrintOperationStatus>(createPrintOperationStatusFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -47,11 +49,11 @@ export class PrintOperation extends Entity implements Parsable {
         writer.writeObjectValue<PrintOperationStatus>("status", this.status);
     };
     /**
-     * Sets the createdDateTime property value. The DateTimeOffset when the operation was created. Read-only.
-     * @param value Value to set for the createdDateTime property.
+     * Gets the status property value. 
+     * @returns a printOperationStatus
      */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. 

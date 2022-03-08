@@ -1,8 +1,11 @@
+import {createDriveItemFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createDriveItemFromDiscriminatorValue';
 import {DriveItem} from '../../../../../../models/microsoft/graph/driveItem';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/microsoft/graph/oDataErrors/oDataError';
 import {ContentRequestBuilder} from './content/contentRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /shares/{sharedDriveItem-id}/list/items/{listItem-id}/driveItem  */
+/** Provides operations to manage the driveItem property of the microsoft.graph.listItem entity.  */
 export class DriveItemRequestBuilder {
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -30,21 +33,6 @@ export class DriveItemRequestBuilder {
      * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
      * @param h Request headers
      * @param o Request options
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
-        return requestInfo;
-    };
-    /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
-     * @param h Request headers
-     * @param o Request options
      * @param q Request query parameters
      * @returns a RequestInformation
      */
@@ -56,40 +44,10 @@ export class DriveItemRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
-    };
-    /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
-     * @param body 
-     * @param h Request headers
-     * @param o Request options
-     * @returns a RequestInformation
-     */
-    public createPatchRequestInformation(body: DriveItem | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
-        return requestInfo;
-    };
-    /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
-     * @param h Request headers
-     * @param o Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            h, o
-        );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
@@ -106,20 +64,10 @@ export class DriveItemRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, DriveItem, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]
-     * @param body 
-     * @param h Request headers
-     * @param o Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public patch(body: DriveItem | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPatchRequestInformation(
-            body, h, o
-        );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DriveItem>(requestInfo, createDriveItemFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

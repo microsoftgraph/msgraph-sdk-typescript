@@ -1,15 +1,21 @@
+import {createEducationUserFromDiscriminatorValue} from '../../models/microsoft/graph/createEducationUserFromDiscriminatorValue';
 import {EducationUser} from '../../models/microsoft/graph/educationUser';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
-import {EducationAssignmentRequestBuilder} from './assignments/item/educationAssignmentRequestBuilder';
+import {EducationAssignmentItemRequestBuilder} from './assignments/item/educationAssignmentItemRequestBuilder';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationRubricRequestBuilder} from './rubrics/item/educationRubricRequestBuilder';
+import {EducationClassItemRequestBuilder as ie7e30cd639818b1dfde04248b6fb0fb5c3f60386eaaa62b5427a72b102a36e2a} from './classes/item/educationClassItemRequestBuilder';
+import {EducationRubricItemRequestBuilder} from './rubrics/item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
+import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
+import {EducationClassItemRequestBuilder as i6796735e057c116647da04efee5484e183fbcc453336f8f56d8136186955ac41} from './taughtClasses/item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /education/me  */
+/** Provides operations to manage the me property of the microsoft.graph.educationRoot entity.  */
 export class MeRequestBuilder {
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,13 +44,24 @@ export class MeRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.assignments.item collection
      * @param id Unique identifier of the item
-     * @returns a educationAssignmentRequestBuilder
+     * @returns a educationAssignmentItemRequestBuilder
      */
-    public assignmentsById(id: string) : EducationAssignmentRequestBuilder {
+    public assignmentsById(id: string) : EducationAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationAssignment_id"] = id
-        return new EducationAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.classes.item collection
+     * @param id Unique identifier of the item
+     * @returns a educationClassItemRequestBuilder
+     */
+    public classesById(id: string) : ie7e30cd639818b1dfde04248b6fb0fb5c3f60386eaaa62b5427a72b102a36e2a {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationClass_id"] = id
+        return new ie7e30cd639818b1dfde04248b6fb0fb5c3f60386eaaa62b5427a72b102a36e2a(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new MeRequestBuilder and sets the default values.
@@ -70,7 +87,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -89,7 +106,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -107,7 +124,7 @@ export class MeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -122,7 +139,11 @@ export class MeRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get me from education
@@ -139,7 +160,11 @@ export class MeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, EducationUser, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property me in education
@@ -153,17 +178,43 @@ export class MeRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.rubrics.item collection
      * @param id Unique identifier of the item
-     * @returns a educationRubricRequestBuilder
+     * @returns a educationRubricItemRequestBuilder
      */
-    public rubricsById(id: string) : EducationRubricRequestBuilder {
+    public rubricsById(id: string) : EducationRubricItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationRubric_id"] = id
-        return new EducationRubricRequestBuilder(urlTplParams, this.requestAdapter);
+        return new EducationRubricItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.schools.item collection
+     * @param id Unique identifier of the item
+     * @returns a educationSchoolItemRequestBuilder
+     */
+    public schoolsById(id: string) : EducationSchoolItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationSchool_id"] = id
+        return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.me.taughtClasses.item collection
+     * @param id Unique identifier of the item
+     * @returns a educationClassItemRequestBuilder
+     */
+    public taughtClassesById(id: string) : i6796735e057c116647da04efee5484e183fbcc453336f8f56d8136186955ac41 {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["educationClass_id"] = id
+        return new i6796735e057c116647da04efee5484e183fbcc453336f8f56d8136186955ac41(urlTplParams, this.requestAdapter);
     };
 }

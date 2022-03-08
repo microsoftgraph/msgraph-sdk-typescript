@@ -1,0 +1,7 @@
+import {CreateLinkRequestBody} from './createLinkRequestBody';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createCreateLinkRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CreateLinkRequestBody {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new CreateLinkRequestBody();
+}

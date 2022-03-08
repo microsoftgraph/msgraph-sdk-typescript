@@ -1,6 +1,7 @@
 import {RoleAssignment} from './roleAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton.  */
 export class DeviceAndAppManagementRoleAssignment extends RoleAssignment implements Parsable {
     /** The list of ids of role member security groups. These are IDs from Azure Active Directory.  */
     private _members?: string[] | undefined;
@@ -9,13 +10,6 @@ export class DeviceAndAppManagementRoleAssignment extends RoleAssignment impleme
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the members property value. The list of ids of role member security groups. These are IDs from Azure Active Directory.
-     * @returns a string
-     */
-    public get members() {
-        return this._members;
     };
     /**
      * The deserialization information for the current model
@@ -27,13 +21,11 @@ export class DeviceAndAppManagementRoleAssignment extends RoleAssignment impleme
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the members property value. The list of ids of role member security groups. These are IDs from Azure Active Directory.
+     * @returns a string
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeCollectionOfPrimitiveValues<string>("members", this.members);
+    public get members() {
+        return this._members;
     };
     /**
      * Sets the members property value. The list of ids of role member security groups. These are IDs from Azure Active Directory.
@@ -41,5 +33,14 @@ export class DeviceAndAppManagementRoleAssignment extends RoleAssignment impleme
      */
     public set members(value: string[] | undefined) {
         this._members = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeCollectionOfPrimitiveValues<string>("members", this.members);
     };
 }

@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class TeamsTemplate extends Entity implements Parsable {
     /**
      * Instantiates a new teamsTemplate and sets the default values.

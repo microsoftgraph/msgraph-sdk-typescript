@@ -1,6 +1,8 @@
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue} from './createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue';
+import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse} from './getMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.getMailboxUsageQuotaStatusMailboxCounts(period='{period}')  */
+/** Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method.  */
 export class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -11,7 +13,7 @@ export class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
     /**
      * Instantiates a new GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
-     * @param period Usage: period={period}
+     * @param period Usage: period='{period}'
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, period?: string | undefined) {
@@ -34,7 +36,7 @@ export class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -43,12 +45,12 @@ export class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ArrayBuffer
+     * @returns a Promise of GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse
      */
-    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse>(requestInfo, createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

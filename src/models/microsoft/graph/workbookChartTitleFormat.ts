@@ -1,8 +1,11 @@
+import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookChartFillFromDiscriminatorValue';
+import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookChartFontFromDiscriminatorValue';
 import {Entity} from './entity';
 import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookChartTitleFormat extends Entity implements Parsable {
     /** Represents the fill format of an object, which includes background formatting information. Read-only.  */
     private _fill?: WorkbookChartFill | undefined;
@@ -22,6 +25,13 @@ export class WorkbookChartTitleFormat extends Entity implements Parsable {
         return this._fill;
     };
     /**
+     * Sets the fill property value. Represents the fill format of an object, which includes background formatting information. Read-only.
+     * @param value Value to set for the fill property.
+     */
+    public set fill(value: WorkbookChartFill | undefined) {
+        this._fill = value;
+    };
+    /**
      * Gets the font property value. Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.
      * @returns a workbookChartFont
      */
@@ -29,13 +39,20 @@ export class WorkbookChartTitleFormat extends Entity implements Parsable {
         return this._font;
     };
     /**
+     * Sets the font property value. Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.
+     * @param value Value to set for the font property.
+     */
+    public set font(value: WorkbookChartFont | undefined) {
+        this._font = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["fill", (o, n) => { (o as unknown as WorkbookChartTitleFormat).fill = n.getObjectValue<WorkbookChartFill>(WorkbookChartFill); }],
-            ["font", (o, n) => { (o as unknown as WorkbookChartTitleFormat).font = n.getObjectValue<WorkbookChartFont>(WorkbookChartFont); }],
+            ["fill", (o, n) => { (o as unknown as WorkbookChartTitleFormat).fill = n.getObjectValue<WorkbookChartFill>(createWorkbookChartFillFromDiscriminatorValue); }],
+            ["font", (o, n) => { (o as unknown as WorkbookChartTitleFormat).font = n.getObjectValue<WorkbookChartFont>(createWorkbookChartFontFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -47,19 +64,5 @@ export class WorkbookChartTitleFormat extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<WorkbookChartFill>("fill", this.fill);
         writer.writeObjectValue<WorkbookChartFont>("font", this.font);
-    };
-    /**
-     * Sets the fill property value. Represents the fill format of an object, which includes background formatting information. Read-only.
-     * @param value Value to set for the fill property.
-     */
-    public set fill(value: WorkbookChartFill | undefined) {
-        this._fill = value;
-    };
-    /**
-     * Sets the font property value. Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.
-     * @param value Value to set for the font property.
-     */
-    public set font(value: WorkbookChartFont | undefined) {
-        this._font = value;
     };
 }

@@ -1,7 +1,9 @@
+import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
 import {KeyValuePair} from './keyValuePair';
 import {ManagedAppPolicy} from './managedAppPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceAppManagement singleton.  */
 export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable {
     /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service  */
     private _customSettings?: KeyValuePair[] | undefined;
@@ -19,12 +21,19 @@ export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsabl
         return this._customSettings;
     };
     /**
+     * Sets the customSettings property value. A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service
+     * @param value Value to set for the customSettings property.
+     */
+    public set customSettings(value: KeyValuePair[] | undefined) {
+        this._customSettings = value;
+    };
+    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["customSettings", (o, n) => { (o as unknown as ManagedAppConfiguration).customSettings = n.getCollectionOfObjectValues<KeyValuePair>(KeyValuePair); }],
+            ["customSettings", (o, n) => { (o as unknown as ManagedAppConfiguration).customSettings = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -35,12 +44,5 @@ export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", this.customSettings);
-    };
-    /**
-     * Sets the customSettings property value. A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service
-     * @param value Value to set for the customSettings property.
-     */
-    public set customSettings(value: KeyValuePair[] | undefined) {
-        this._customSettings = value;
     };
 }

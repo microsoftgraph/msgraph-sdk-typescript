@@ -4,10 +4,18 @@ import {AccessPackageAssignmentRequest} from './accessPackageAssignmentRequest';
 import {AccessPackageCatalog} from './accessPackageCatalog';
 import {Approval} from './approval';
 import {ConnectedOrganization} from './connectedOrganization';
+import {createAccessPackageAssignmentFromDiscriminatorValue} from './createAccessPackageAssignmentFromDiscriminatorValue';
+import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from './createAccessPackageAssignmentRequestFromDiscriminatorValue';
+import {createAccessPackageCatalogFromDiscriminatorValue} from './createAccessPackageCatalogFromDiscriminatorValue';
+import {createAccessPackageFromDiscriminatorValue} from './createAccessPackageFromDiscriminatorValue';
+import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
+import {createConnectedOrganizationFromDiscriminatorValue} from './createConnectedOrganizationFromDiscriminatorValue';
+import {createEntitlementManagementSettingsFromDiscriminatorValue} from './createEntitlementManagementSettingsFromDiscriminatorValue';
 import {EntitlementManagementSettings} from './entitlementManagementSettings';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton.  */
 export class EntitlementManagement extends Entity implements Parsable {
     private _accessPackageAssignmentApprovals?: Approval[] | undefined;
     /** Represents access package objects.  */
@@ -23,17 +31,18 @@ export class EntitlementManagement extends Entity implements Parsable {
     /** Represents the settings that control the behavior of Azure AD entitlement management.  */
     private _settings?: EntitlementManagementSettings | undefined;
     /**
-     * Instantiates a new entitlementManagement and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the accessPackageAssignmentApprovals property value. 
      * @returns a approval
      */
     public get accessPackageAssignmentApprovals() {
         return this._accessPackageAssignmentApprovals;
+    };
+    /**
+     * Sets the accessPackageAssignmentApprovals property value. 
+     * @param value Value to set for the accessPackageAssignmentApprovals property.
+     */
+    public set accessPackageAssignmentApprovals(value: Approval[] | undefined) {
+        this._accessPackageAssignmentApprovals = value;
     };
     /**
      * Gets the accessPackages property value. Represents access package objects.
@@ -43,11 +52,25 @@ export class EntitlementManagement extends Entity implements Parsable {
         return this._accessPackages;
     };
     /**
+     * Sets the accessPackages property value. Represents access package objects.
+     * @param value Value to set for the accessPackages property.
+     */
+    public set accessPackages(value: AccessPackage[] | undefined) {
+        this._accessPackages = value;
+    };
+    /**
      * Gets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
      * @returns a accessPackageAssignmentRequest
      */
     public get assignmentRequests() {
         return this._assignmentRequests;
+    };
+    /**
+     * Sets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
+     * @param value Value to set for the assignmentRequests property.
+     */
+    public set assignmentRequests(value: AccessPackageAssignmentRequest[] | undefined) {
+        this._assignmentRequests = value;
     };
     /**
      * Gets the assignments property value. Represents the grant of an access package to a subject (user or group).
@@ -57,11 +80,25 @@ export class EntitlementManagement extends Entity implements Parsable {
         return this._assignments;
     };
     /**
+     * Sets the assignments property value. Represents the grant of an access package to a subject (user or group).
+     * @param value Value to set for the assignments property.
+     */
+    public set assignments(value: AccessPackageAssignment[] | undefined) {
+        this._assignments = value;
+    };
+    /**
      * Gets the catalogs property value. Represents a group of access packages.
      * @returns a accessPackageCatalog
      */
     public get catalogs() {
         return this._catalogs;
+    };
+    /**
+     * Sets the catalogs property value. Represents a group of access packages.
+     * @param value Value to set for the catalogs property.
+     */
+    public set catalogs(value: AccessPackageCatalog[] | undefined) {
+        this._catalogs = value;
     };
     /**
      * Gets the connectedOrganizations property value. Represents references to a directory or domain of another organization whose users can request access.
@@ -71,11 +108,17 @@ export class EntitlementManagement extends Entity implements Parsable {
         return this._connectedOrganizations;
     };
     /**
-     * Gets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
-     * @returns a entitlementManagementSettings
+     * Sets the connectedOrganizations property value. Represents references to a directory or domain of another organization whose users can request access.
+     * @param value Value to set for the connectedOrganizations property.
      */
-    public get settings() {
-        return this._settings;
+    public set connectedOrganizations(value: ConnectedOrganization[] | undefined) {
+        this._connectedOrganizations = value;
+    };
+    /**
+     * Instantiates a new entitlementManagement and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * The deserialization information for the current model
@@ -83,13 +126,13 @@ export class EntitlementManagement extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["accessPackageAssignmentApprovals", (o, n) => { (o as unknown as EntitlementManagement).accessPackageAssignmentApprovals = n.getCollectionOfObjectValues<Approval>(Approval); }],
-            ["accessPackages", (o, n) => { (o as unknown as EntitlementManagement).accessPackages = n.getCollectionOfObjectValues<AccessPackage>(AccessPackage); }],
-            ["assignmentRequests", (o, n) => { (o as unknown as EntitlementManagement).assignmentRequests = n.getCollectionOfObjectValues<AccessPackageAssignmentRequest>(AccessPackageAssignmentRequest); }],
-            ["assignments", (o, n) => { (o as unknown as EntitlementManagement).assignments = n.getCollectionOfObjectValues<AccessPackageAssignment>(AccessPackageAssignment); }],
-            ["catalogs", (o, n) => { (o as unknown as EntitlementManagement).catalogs = n.getCollectionOfObjectValues<AccessPackageCatalog>(AccessPackageCatalog); }],
-            ["connectedOrganizations", (o, n) => { (o as unknown as EntitlementManagement).connectedOrganizations = n.getCollectionOfObjectValues<ConnectedOrganization>(ConnectedOrganization); }],
-            ["settings", (o, n) => { (o as unknown as EntitlementManagement).settings = n.getObjectValue<EntitlementManagementSettings>(EntitlementManagementSettings); }],
+            ["accessPackageAssignmentApprovals", (o, n) => { (o as unknown as EntitlementManagement).accessPackageAssignmentApprovals = n.getCollectionOfObjectValues<Approval>(createApprovalFromDiscriminatorValue); }],
+            ["accessPackages", (o, n) => { (o as unknown as EntitlementManagement).accessPackages = n.getCollectionOfObjectValues<AccessPackage>(createAccessPackageFromDiscriminatorValue); }],
+            ["assignmentRequests", (o, n) => { (o as unknown as EntitlementManagement).assignmentRequests = n.getCollectionOfObjectValues<AccessPackageAssignmentRequest>(createAccessPackageAssignmentRequestFromDiscriminatorValue); }],
+            ["assignments", (o, n) => { (o as unknown as EntitlementManagement).assignments = n.getCollectionOfObjectValues<AccessPackageAssignment>(createAccessPackageAssignmentFromDiscriminatorValue); }],
+            ["catalogs", (o, n) => { (o as unknown as EntitlementManagement).catalogs = n.getCollectionOfObjectValues<AccessPackageCatalog>(createAccessPackageCatalogFromDiscriminatorValue); }],
+            ["connectedOrganizations", (o, n) => { (o as unknown as EntitlementManagement).connectedOrganizations = n.getCollectionOfObjectValues<ConnectedOrganization>(createConnectedOrganizationFromDiscriminatorValue); }],
+            ["settings", (o, n) => { (o as unknown as EntitlementManagement).settings = n.getObjectValue<EntitlementManagementSettings>(createEntitlementManagementSettingsFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -108,46 +151,11 @@ export class EntitlementManagement extends Entity implements Parsable {
         writer.writeObjectValue<EntitlementManagementSettings>("settings", this.settings);
     };
     /**
-     * Sets the accessPackageAssignmentApprovals property value. 
-     * @param value Value to set for the accessPackageAssignmentApprovals property.
+     * Gets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.
+     * @returns a entitlementManagementSettings
      */
-    public set accessPackageAssignmentApprovals(value: Approval[] | undefined) {
-        this._accessPackageAssignmentApprovals = value;
-    };
-    /**
-     * Sets the accessPackages property value. Represents access package objects.
-     * @param value Value to set for the accessPackages property.
-     */
-    public set accessPackages(value: AccessPackage[] | undefined) {
-        this._accessPackages = value;
-    };
-    /**
-     * Sets the assignmentRequests property value. Represents access package assignment requests created by or on behalf of a user.
-     * @param value Value to set for the assignmentRequests property.
-     */
-    public set assignmentRequests(value: AccessPackageAssignmentRequest[] | undefined) {
-        this._assignmentRequests = value;
-    };
-    /**
-     * Sets the assignments property value. Represents the grant of an access package to a subject (user or group).
-     * @param value Value to set for the assignments property.
-     */
-    public set assignments(value: AccessPackageAssignment[] | undefined) {
-        this._assignments = value;
-    };
-    /**
-     * Sets the catalogs property value. Represents a group of access packages.
-     * @param value Value to set for the catalogs property.
-     */
-    public set catalogs(value: AccessPackageCatalog[] | undefined) {
-        this._catalogs = value;
-    };
-    /**
-     * Sets the connectedOrganizations property value. Represents references to a directory or domain of another organization whose users can request access.
-     * @param value Value to set for the connectedOrganizations property.
-     */
-    public set connectedOrganizations(value: ConnectedOrganization[] | undefined) {
-        this._connectedOrganizations = value;
+    public get settings() {
+        return this._settings;
     };
     /**
      * Sets the settings property value. Represents the settings that control the behavior of Azure AD entitlement management.

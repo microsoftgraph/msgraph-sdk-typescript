@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class OutlookItem extends Entity implements Parsable {
     /** The categories associated with the item  */
     private _categories?: string[] | undefined;
@@ -11,17 +12,18 @@ export class OutlookItem extends Entity implements Parsable {
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _lastModifiedDateTime?: Date | undefined;
     /**
-     * Instantiates a new outlookItem and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the categories property value. The categories associated with the item
      * @returns a string
      */
     public get categories() {
         return this._categories;
+    };
+    /**
+     * Sets the categories property value. The categories associated with the item
+     * @param value Value to set for the categories property.
+     */
+    public set categories(value: string[] | undefined) {
+        this._categories = value;
     };
     /**
      * Gets the changeKey property value. Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
@@ -31,6 +33,19 @@ export class OutlookItem extends Entity implements Parsable {
         return this._changeKey;
     };
     /**
+     * Sets the changeKey property value. Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
+     * @param value Value to set for the changeKey property.
+     */
+    public set changeKey(value: string | undefined) {
+        this._changeKey = value;
+    };
+    /**
+     * Instantiates a new outlookItem and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
@@ -38,11 +53,11 @@ export class OutlookItem extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
-     * Gets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @returns a Date
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the createdDateTime property.
      */
-    public get lastModifiedDateTime() {
-        return this._lastModifiedDateTime;
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
     };
     /**
      * The deserialization information for the current model
@@ -57,6 +72,20 @@ export class OutlookItem extends Entity implements Parsable {
         ]);
     };
     /**
+     * Gets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -67,33 +96,5 @@ export class OutlookItem extends Entity implements Parsable {
         writer.writeStringValue("changeKey", this.changeKey);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-    };
-    /**
-     * Sets the categories property value. The categories associated with the item
-     * @param value Value to set for the categories property.
-     */
-    public set categories(value: string[] | undefined) {
-        this._categories = value;
-    };
-    /**
-     * Sets the changeKey property value. Identifies the version of the item. Every time the item is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.
-     * @param value Value to set for the changeKey property.
-     */
-    public set changeKey(value: string | undefined) {
-        this._changeKey = value;
-    };
-    /**
-     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the createdDateTime property.
-     */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
     };
 }

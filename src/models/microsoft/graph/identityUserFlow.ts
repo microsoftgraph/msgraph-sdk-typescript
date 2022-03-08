@@ -2,6 +2,7 @@ import {Entity} from './entity';
 import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton.  */
 export class IdentityUserFlow extends Entity implements Parsable {
     private _userFlowType?: UserFlowType | undefined;
     private _userFlowTypeVersion?: number | undefined;
@@ -10,20 +11,6 @@ export class IdentityUserFlow extends Entity implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the userFlowType property value. 
-     * @returns a userFlowType
-     */
-    public get userFlowType() {
-        return this._userFlowType;
-    };
-    /**
-     * Gets the userFlowTypeVersion property value. 
-     * @returns a float
-     */
-    public get userFlowTypeVersion() {
-        return this._userFlowTypeVersion;
     };
     /**
      * The deserialization information for the current model
@@ -46,11 +33,25 @@ export class IdentityUserFlow extends Entity implements Parsable {
         writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
     };
     /**
+     * Gets the userFlowType property value. 
+     * @returns a userFlowType
+     */
+    public get userFlowType() {
+        return this._userFlowType;
+    };
+    /**
      * Sets the userFlowType property value. 
      * @param value Value to set for the userFlowType property.
      */
     public set userFlowType(value: UserFlowType | undefined) {
         this._userFlowType = value;
+    };
+    /**
+     * Gets the userFlowTypeVersion property value. 
+     * @returns a float
+     */
+    public get userFlowTypeVersion() {
+        return this._userFlowTypeVersion;
     };
     /**
      * Sets the userFlowTypeVersion property value. 

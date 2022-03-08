@@ -1,7 +1,9 @@
+import {createShiftPreferencesFromDiscriminatorValue} from './createShiftPreferencesFromDiscriminatorValue';
 import {Entity} from './entity';
 import {ShiftPreferences} from './shiftPreferences';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class UserSettings extends Entity implements Parsable {
     /** Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.  */
     private _contributionToContentDiscoveryAsOrganizationDisabled?: boolean | undefined;
@@ -23,6 +25,13 @@ export class UserSettings extends Entity implements Parsable {
         return this._contributionToContentDiscoveryAsOrganizationDisabled;
     };
     /**
+     * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
+     * @param value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
+     */
+    public set contributionToContentDiscoveryAsOrganizationDisabled(value: boolean | undefined) {
+        this._contributionToContentDiscoveryAsOrganizationDisabled = value;
+    };
+    /**
      * Gets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
      * @returns a boolean
      */
@@ -30,11 +39,11 @@ export class UserSettings extends Entity implements Parsable {
         return this._contributionToContentDiscoveryDisabled;
     };
     /**
-     * Gets the shiftPreferences property value. The shift preferences for the user.
-     * @returns a shiftPreferences
+     * Sets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
+     * @param value Value to set for the contributionToContentDiscoveryDisabled property.
      */
-    public get shiftPreferences() {
-        return this._shiftPreferences;
+    public set contributionToContentDiscoveryDisabled(value: boolean | undefined) {
+        this._contributionToContentDiscoveryDisabled = value;
     };
     /**
      * The deserialization information for the current model
@@ -44,7 +53,7 @@ export class UserSettings extends Entity implements Parsable {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
             ["contributionToContentDiscoveryAsOrganizationDisabled", (o, n) => { (o as unknown as UserSettings).contributionToContentDiscoveryAsOrganizationDisabled = n.getBooleanValue(); }],
             ["contributionToContentDiscoveryDisabled", (o, n) => { (o as unknown as UserSettings).contributionToContentDiscoveryDisabled = n.getBooleanValue(); }],
-            ["shiftPreferences", (o, n) => { (o as unknown as UserSettings).shiftPreferences = n.getObjectValue<ShiftPreferences>(ShiftPreferences); }],
+            ["shiftPreferences", (o, n) => { (o as unknown as UserSettings).shiftPreferences = n.getObjectValue<ShiftPreferences>(createShiftPreferencesFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -59,18 +68,11 @@ export class UserSettings extends Entity implements Parsable {
         writer.writeObjectValue<ShiftPreferences>("shiftPreferences", this.shiftPreferences);
     };
     /**
-     * Sets the contributionToContentDiscoveryAsOrganizationDisabled property value. Reflects the Office Delve organization level setting. When set to true, the organization doesn't have access to Office Delve. This setting is read-only and can only be changed by administrators in the SharePoint admin center.
-     * @param value Value to set for the contributionToContentDiscoveryAsOrganizationDisabled property.
+     * Gets the shiftPreferences property value. The shift preferences for the user.
+     * @returns a shiftPreferences
      */
-    public set contributionToContentDiscoveryAsOrganizationDisabled(value: boolean | undefined) {
-        this._contributionToContentDiscoveryAsOrganizationDisabled = value;
-    };
-    /**
-     * Sets the contributionToContentDiscoveryDisabled property value. When set to true, documents in the user's Office Delve are disabled. Users can control this setting in Office Delve.
-     * @param value Value to set for the contributionToContentDiscoveryDisabled property.
-     */
-    public set contributionToContentDiscoveryDisabled(value: boolean | undefined) {
-        this._contributionToContentDiscoveryDisabled = value;
+    public get shiftPreferences() {
+        return this._shiftPreferences;
     };
     /**
      * Sets the shiftPreferences property value. The shift preferences for the user.

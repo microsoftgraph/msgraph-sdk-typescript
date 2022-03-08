@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton.  */
 export class WindowsInformationProtectionNetworkLearningSummary extends Entity implements Parsable {
     /** Device Count  */
     private _deviceCount?: number | undefined;
@@ -20,11 +21,11 @@ export class WindowsInformationProtectionNetworkLearningSummary extends Entity i
         return this._deviceCount;
     };
     /**
-     * Gets the url property value. Website url
-     * @returns a string
+     * Sets the deviceCount property value. Device Count
+     * @param value Value to set for the deviceCount property.
      */
-    public get url() {
-        return this._url;
+    public set deviceCount(value: number | undefined) {
+        this._deviceCount = value;
     };
     /**
      * The deserialization information for the current model
@@ -47,11 +48,11 @@ export class WindowsInformationProtectionNetworkLearningSummary extends Entity i
         writer.writeStringValue("url", this.url);
     };
     /**
-     * Sets the deviceCount property value. Device Count
-     * @param value Value to set for the deviceCount property.
+     * Gets the url property value. Website url
+     * @returns a string
      */
-    public set deviceCount(value: number | undefined) {
-        this._deviceCount = value;
+    public get url() {
+        return this._url;
     };
     /**
      * Sets the url property value. Website url

@@ -1,33 +1,15 @@
 import {ContentType} from '../../../../../models/microsoft/graph/contentType';
-import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
-import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
-import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
-import {PublishRequestBuilder} from './publish/publishRequestBuilder';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createContentTypeFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createContentTypeFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /drive/list/contentTypes/{contentType-id}/base  */
+/** Provides operations to manage the base property of the microsoft.graph.contentType entity.  */
 export class BaseRequestBuilder {
-    public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
-        return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
-        return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get publish(): PublishRequestBuilder {
-        return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
-    public get unpublish(): UnpublishRequestBuilder {
-        return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
@@ -58,7 +40,7 @@ export class BaseRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -78,13 +60,10 @@ export class BaseRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, ContentType, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Builds and executes requests for operations under /drive/list/contentTypes/{contentType-id}/base/microsoft.graph.isPublished()
-     * @returns a isPublishedRequestBuilder
-     */
-    public isPublished() : IsPublishedRequestBuilder {
-        return new IsPublishedRequestBuilder(this.pathParameters, this.requestAdapter);
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "5XX": createODataErrorFromDiscriminatorValue,
+            "4XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }
