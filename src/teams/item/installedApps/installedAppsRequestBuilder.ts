@@ -1,9 +1,17 @@
+import {createTeamsAppInstallationCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createTeamsAppInstallationCollectionResponseFromDiscriminatorValue';
+import {createTeamsAppInstallationFromDiscriminatorValue} from '../../../models/microsoft/graph/createTeamsAppInstallationFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/oDataError';
 import {TeamsAppInstallation} from '../../../models/microsoft/graph/teamsAppInstallation';
-import {InstalledAppsResponse} from './installedAppsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TeamsAppInstallationCollectionResponse} from '../../../models/microsoft/graph/teamsAppInstallationCollectionResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /teams/{team-id}/installedApps  */
+/** Provides operations to manage the installedApps property of the microsoft.graph.team entity.  */
 export class InstalledAppsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,13 +52,13 @@ export class InstalledAppsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The apps installed in this team.
+     * Create new navigation property to installedApps for teams
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,7 +70,7 @@ export class InstalledAppsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +81,7 @@ export class InstalledAppsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of InstalledAppsResponse
+     * @returns a Promise of TeamsAppInstallationCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class InstalledAppsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<InstalledAppsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TeamsAppInstallationCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<InstalledAppsResponse>(requestInfo, InstalledAppsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<TeamsAppInstallationCollectionResponse>(requestInfo, createTeamsAppInstallationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The apps installed in this team.
+     * Create new navigation property to installedApps for teams
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class InstalledAppsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<TeamsAppInstallation>(requestInfo, TeamsAppInstallation, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<TeamsAppInstallation>(requestInfo, createTeamsAppInstallationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

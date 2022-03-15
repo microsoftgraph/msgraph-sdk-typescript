@@ -1,9 +1,12 @@
 import {AppConsentApprovalRoute} from '../../models/microsoft/graph/appConsentApprovalRoute';
+import {createAppConsentApprovalRouteFromDiscriminatorValue} from '../../models/microsoft/graph/createAppConsentApprovalRouteFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
 import {AppConsentRequestsRequestBuilder} from './appConsentRequests/appConsentRequestsRequestBuilder';
-import {AppConsentRequestRequestBuilder} from './appConsentRequests/item/appConsentRequestRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AppConsentRequestItemRequestBuilder} from './appConsentRequests/item/appConsentRequestItemRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identityGovernance/appConsent  */
+/** Provides operations to manage the appConsent property of the microsoft.graph.identityGovernance entity.  */
 export class AppConsentRequestBuilder {
     public get appConsentRequests(): AppConsentRequestsRequestBuilder {
         return new AppConsentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -17,13 +20,13 @@ export class AppConsentRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identityGovernance.appConsent.appConsentRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a appConsentRequestRequestBuilder
+     * @returns a appConsentRequestItemRequestBuilder
      */
-    public appConsentRequestsById(id: string) : AppConsentRequestRequestBuilder {
+    public appConsentRequestsById(id: string) : AppConsentRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["appConsentRequest_id"] = id
-        return new AppConsentRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AppConsentRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new AppConsentRequestBuilder and sets the default values.
@@ -49,7 +52,7 @@ export class AppConsentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -68,7 +71,7 @@ export class AppConsentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -86,7 +89,7 @@ export class AppConsentRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -101,7 +104,11 @@ export class AppConsentRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Get appConsent from identityGovernance
@@ -118,7 +125,11 @@ export class AppConsentRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AppConsentApprovalRoute>(requestInfo, AppConsentApprovalRoute, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AppConsentApprovalRoute>(requestInfo, createAppConsentApprovalRouteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property appConsent in identityGovernance
@@ -132,6 +143,10 @@ export class AppConsentRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

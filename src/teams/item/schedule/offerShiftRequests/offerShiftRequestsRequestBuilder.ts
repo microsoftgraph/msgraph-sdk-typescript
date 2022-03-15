@@ -1,9 +1,17 @@
+import {createOfferShiftRequestCollectionResponseFromDiscriminatorValue} from '../../../../models/microsoft/graph/createOfferShiftRequestCollectionResponseFromDiscriminatorValue';
+import {createOfferShiftRequestFromDiscriminatorValue} from '../../../../models/microsoft/graph/createOfferShiftRequestFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/oDataError';
 import {OfferShiftRequest} from '../../../../models/microsoft/graph/offerShiftRequest';
-import {OfferShiftRequestsResponse} from './offerShiftRequestsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {OfferShiftRequestCollectionResponse} from '../../../../models/microsoft/graph/offerShiftRequestCollectionResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /teams/{team-id}/schedule/offerShiftRequests  */
+/** Provides operations to manage the offerShiftRequests property of the microsoft.graph.schedule entity.  */
 export class OfferShiftRequestsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,7 +52,7 @@ export class OfferShiftRequestsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +70,7 @@ export class OfferShiftRequestsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +81,7 @@ export class OfferShiftRequestsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of OfferShiftRequestsResponse
+     * @returns a Promise of OfferShiftRequestCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,11 +92,15 @@ export class OfferShiftRequestsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OfferShiftRequestsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OfferShiftRequestCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<OfferShiftRequestsResponse>(requestInfo, OfferShiftRequestsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<OfferShiftRequestCollectionResponse>(requestInfo, createOfferShiftRequestCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to offerShiftRequests for teams
@@ -103,6 +115,10 @@ export class OfferShiftRequestsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<OfferShiftRequest>(requestInfo, OfferShiftRequest, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<OfferShiftRequest>(requestInfo, createOfferShiftRequestFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

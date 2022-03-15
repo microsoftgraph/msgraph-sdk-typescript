@@ -1,0 +1,7 @@
+import {ClearPresenceRequestBody} from './clearPresenceRequestBody';
+import {ParseNode} from '@microsoft/kiota-abstractions';
+
+export function createClearPresenceRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ClearPresenceRequestBody {
+    if(!parseNode) throw new Error("parseNode cannot be undefined");
+    return new ClearPresenceRequestBody();
+}

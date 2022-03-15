@@ -1,8 +1,11 @@
+import {createJsonFromDiscriminatorValue} from './createJsonFromDiscriminatorValue';
+import {createWorkbookChartPointFormatFromDiscriminatorValue} from './createWorkbookChartPointFormatFromDiscriminatorValue';
 import {Entity} from './entity';
 import {Json} from './json';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookChartPoint extends Entity implements Parsable {
     /** Encapsulates the format properties chart point. Read-only.  */
     private _format?: WorkbookChartPointFormat | undefined;
@@ -22,11 +25,11 @@ export class WorkbookChartPoint extends Entity implements Parsable {
         return this._format;
     };
     /**
-     * Gets the value property value. Returns the value of a chart point. Read-only.
-     * @returns a Json
+     * Sets the format property value. Encapsulates the format properties chart point. Read-only.
+     * @param value Value to set for the format property.
      */
-    public get value() {
-        return this._value;
+    public set format(value: WorkbookChartPointFormat | undefined) {
+        this._format = value;
     };
     /**
      * The deserialization information for the current model
@@ -34,8 +37,8 @@ export class WorkbookChartPoint extends Entity implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["format", (o, n) => { (o as unknown as WorkbookChartPoint).format = n.getObjectValue<WorkbookChartPointFormat>(WorkbookChartPointFormat); }],
-            ["value", (o, n) => { (o as unknown as WorkbookChartPoint).value = n.getObjectValue<Json>(Json); }],
+            ["format", (o, n) => { (o as unknown as WorkbookChartPoint).format = n.getObjectValue<WorkbookChartPointFormat>(createWorkbookChartPointFormatFromDiscriminatorValue); }],
+            ["value", (o, n) => { (o as unknown as WorkbookChartPoint).value = n.getObjectValue<Json>(createJsonFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -49,11 +52,11 @@ export class WorkbookChartPoint extends Entity implements Parsable {
         writer.writeObjectValue<Json>("value", this.value);
     };
     /**
-     * Sets the format property value. Encapsulates the format properties chart point. Read-only.
-     * @param value Value to set for the format property.
+     * Gets the value property value. Returns the value of a chart point. Read-only.
+     * @returns a Json
      */
-    public set format(value: WorkbookChartPointFormat | undefined) {
-        this._format = value;
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. Returns the value of a chart point. Read-only.

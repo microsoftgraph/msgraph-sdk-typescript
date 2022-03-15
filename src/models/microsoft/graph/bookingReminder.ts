@@ -1,21 +1,16 @@
 import {BookingReminderRecipients} from './bookingReminderRecipients';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class BookingReminder implements Parsable {
+/** Provides operations to manage the solutionsRoot singleton.  */
+export class BookingReminder implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The message in the reminder.  */
     private _message?: string | undefined;
     /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.  */
     private _offset?: Duration | undefined;
-    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.  */
+    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.  */
     private _recipients?: BookingReminderRecipients | undefined;
-    /**
-     * Instantiates a new bookingReminder and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
@@ -24,25 +19,17 @@ export class BookingReminder implements Parsable {
         return this._additionalData;
     };
     /**
-     * Gets the message property value. The message in the reminder.
-     * @returns a string
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
      */
-    public get message() {
-        return this._message;
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
     };
     /**
-     * Gets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
-     * @returns a Duration
+     * Instantiates a new bookingReminder and sets the default values.
      */
-    public get offset() {
-        return this._offset;
-    };
-    /**
-     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
-     * @returns a bookingReminderRecipients
-     */
-    public get recipients() {
-        return this._recipients;
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
     };
     /**
      * The deserialization information for the current model
@@ -56,22 +43,11 @@ export class BookingReminder implements Parsable {
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the message property value. The message in the reminder.
+     * @returns a string
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeStringValue("message", this.message);
-        writer.writeDurationValue("offset", this.offset);
-        writer.writeEnumValue<BookingReminderRecipients>("recipients", this.recipients);
-        writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get message() {
+        return this._message;
     };
     /**
      * Sets the message property value. The message in the reminder.
@@ -81,6 +57,13 @@ export class BookingReminder implements Parsable {
         this._message = value;
     };
     /**
+     * Gets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
+     * @returns a Duration
+     */
+    public get offset() {
+        return this._offset;
+    };
+    /**
      * Sets the offset property value. The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.
      * @param value Value to set for the offset property.
      */
@@ -88,10 +71,28 @@ export class BookingReminder implements Parsable {
         this._offset = value;
     };
     /**
-     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
+     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.
+     * @returns a bookingReminderRecipients
+     */
+    public get recipients() {
+        return this._recipients;
+    };
+    /**
+     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.
      * @param value Value to set for the recipients property.
      */
     public set recipients(value: BookingReminderRecipients | undefined) {
         this._recipients = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        writer.writeStringValue("message", this.message);
+        writer.writeDurationValue("offset", this.offset);
+        writer.writeEnumValue<BookingReminderRecipients>("recipients", this.recipients);
+        writer.writeAdditionalData(this.additionalData);
     };
 }

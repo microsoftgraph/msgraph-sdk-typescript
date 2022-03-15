@@ -1,7 +1,10 @@
 import {AppScope} from '../../../../../models/microsoft/graph/appScope';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createAppScopeFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createAppScopeFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /roleManagement/directory/roleAssignments/{unifiedRoleAssignment-id}/appScope  */
+/** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleAssignment entity.  */
 export class AppScopeRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -23,7 +26,7 @@ export class AppScopeRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Delete navigation property appScope for roleManagement
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -33,12 +36,12 @@ export class AppScopeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -52,13 +55,13 @@ export class AppScopeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Update the navigation property appScope in roleManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -70,13 +73,13 @@ export class AppScopeRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Delete navigation property appScope for roleManagement
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -85,10 +88,14 @@ export class AppScopeRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -102,10 +109,14 @@ export class AppScopeRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AppScope>(requestInfo, AppScope, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AppScope>(requestInfo, createAppScopeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Details of the app specific scope when the assignment scope is app specific. Containment entity.
+     * Update the navigation property appScope in roleManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -116,6 +127,10 @@ export class AppScopeRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,10 +1,18 @@
+import {createManagedAppRegistrationCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createManagedAppRegistrationCollectionResponseFromDiscriminatorValue';
+import {createManagedAppRegistrationFromDiscriminatorValue} from '../../models/microsoft/graph/createManagedAppRegistrationFromDiscriminatorValue';
 import {ManagedAppRegistration} from '../../models/microsoft/graph/managedAppRegistration';
+import {ManagedAppRegistrationCollectionResponse} from '../../models/microsoft/graph/managedAppRegistrationCollectionResponse';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetUserIdsWithFlaggedAppRegistrationRequestBuilder} from './getUserIdsWithFlaggedAppRegistration/getUserIdsWithFlaggedAppRegistrationRequestBuilder';
-import {ManagedAppRegistrationsResponse} from './managedAppRegistrationsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceAppManagement/managedAppRegistrations  */
+/** Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.  */
 export class ManagedAppRegistrationsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -45,13 +53,13 @@ export class ManagedAppRegistrationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The managed app registrations.
+     * Create new navigation property to managedAppRegistrations for deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -63,7 +71,7 @@ export class ManagedAppRegistrationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -74,7 +82,7 @@ export class ManagedAppRegistrationsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ManagedAppRegistrationsResponse
+     * @returns a Promise of ManagedAppRegistrationCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -85,21 +93,25 @@ export class ManagedAppRegistrationsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppRegistrationsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedAppRegistrationCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ManagedAppRegistrationsResponse>(requestInfo, ManagedAppRegistrationsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedAppRegistrationCollectionResponse>(requestInfo, createManagedAppRegistrationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Builds and executes requests for operations under /deviceAppManagement/managedAppRegistrations/microsoft.graph.getUserIdsWithFlaggedAppRegistration()
+     * Provides operations to call the getUserIdsWithFlaggedAppRegistration method.
      * @returns a getUserIdsWithFlaggedAppRegistrationRequestBuilder
      */
     public getUserIdsWithFlaggedAppRegistration() : GetUserIdsWithFlaggedAppRegistrationRequestBuilder {
         return new GetUserIdsWithFlaggedAppRegistrationRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * The managed app registrations.
+     * Create new navigation property to managedAppRegistrations for deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -111,6 +123,10 @@ export class ManagedAppRegistrationsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, ManagedAppRegistration, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedAppRegistration>(requestInfo, createManagedAppRegistrationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

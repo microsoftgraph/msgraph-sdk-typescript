@@ -1,9 +1,17 @@
+import {createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue';
+import {createManagedDeviceMobileAppConfigurationFromDiscriminatorValue} from '../../models/microsoft/graph/createManagedDeviceMobileAppConfigurationFromDiscriminatorValue';
 import {ManagedDeviceMobileAppConfiguration} from '../../models/microsoft/graph/managedDeviceMobileAppConfiguration';
-import {MobileAppConfigurationsResponse} from './mobileAppConfigurationsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ManagedDeviceMobileAppConfigurationCollectionResponse} from '../../models/microsoft/graph/managedDeviceMobileAppConfigurationCollectionResponse';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceAppManagement/mobileAppConfigurations  */
+/** Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.  */
 export class MobileAppConfigurationsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,13 +52,13 @@ export class MobileAppConfigurationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The Managed Device Mobile Application Configurations.
+     * Create new navigation property to mobileAppConfigurations for deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,7 +70,7 @@ export class MobileAppConfigurationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +81,7 @@ export class MobileAppConfigurationsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of MobileAppConfigurationsResponse
+     * @returns a Promise of ManagedDeviceMobileAppConfigurationCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class MobileAppConfigurationsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MobileAppConfigurationsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<MobileAppConfigurationsResponse>(requestInfo, MobileAppConfigurationsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationCollectionResponse>(requestInfo, createManagedDeviceMobileAppConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The Managed Device Mobile Application Configurations.
+     * Create new navigation property to mobileAppConfigurations for deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class MobileAppConfigurationsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, ManagedDeviceMobileAppConfiguration, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfiguration>(requestInfo, createManagedDeviceMobileAppConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton.  */
 export class DeviceManagementTroubleshootingEvent extends Entity implements Parsable {
     /** Id used for tracing the failure in the service.  */
     private _correlationId?: string | undefined;
@@ -20,11 +21,25 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         return this._correlationId;
     };
     /**
+     * Sets the correlationId property value. Id used for tracing the failure in the service.
+     * @param value Value to set for the correlationId property.
+     */
+    public set correlationId(value: string | undefined) {
+        this._correlationId = value;
+    };
+    /**
      * Gets the eventDateTime property value. Time when the event occurred .
      * @returns a Date
      */
     public get eventDateTime() {
         return this._eventDateTime;
+    };
+    /**
+     * Sets the eventDateTime property value. Time when the event occurred .
+     * @param value Value to set for the eventDateTime property.
+     */
+    public set eventDateTime(value: Date | undefined) {
+        this._eventDateTime = value;
     };
     /**
      * The deserialization information for the current model
@@ -45,19 +60,5 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         super.serialize(writer);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeDateValue("eventDateTime", this.eventDateTime);
-    };
-    /**
-     * Sets the correlationId property value. Id used for tracing the failure in the service.
-     * @param value Value to set for the correlationId property.
-     */
-    public set correlationId(value: string | undefined) {
-        this._correlationId = value;
-    };
-    /**
-     * Sets the eventDateTime property value. Time when the event occurred .
-     * @param value Value to set for the eventDateTime property.
-     */
-    public set eventDateTime(value: Date | undefined) {
-        this._eventDateTime = value;
     };
 }

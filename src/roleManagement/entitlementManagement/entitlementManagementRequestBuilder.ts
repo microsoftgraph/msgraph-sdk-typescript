@@ -1,11 +1,14 @@
+import {createRbacApplicationFromDiscriminatorValue} from '../../models/microsoft/graph/createRbacApplicationFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
 import {RbacApplication} from '../../models/microsoft/graph/rbacApplication';
-import {UnifiedRoleAssignmentRequestBuilder} from './roleAssignments/item/unifiedRoleAssignmentRequestBuilder';
+import {UnifiedRoleAssignmentItemRequestBuilder} from './roleAssignments/item/unifiedRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
-import {UnifiedRoleDefinitionRequestBuilder} from './roleDefinitions/item/unifiedRoleDefinitionRequestBuilder';
+import {UnifiedRoleDefinitionItemRequestBuilder} from './roleDefinitions/item/unifiedRoleDefinitionItemRequestBuilder';
 import {RoleDefinitionsRequestBuilder} from './roleDefinitions/roleDefinitionsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /roleManagement/entitlementManagement  */
+/** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.  */
 export class EntitlementManagementRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -33,7 +36,7 @@ export class EntitlementManagementRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Container for all entitlement management resources in Azure AD identity governance.
+     * Delete navigation property entitlementManagement for roleManagement
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -43,12 +46,12 @@ export class EntitlementManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Container for all entitlement management resources in Azure AD identity governance.
+     * Container for roles and assignments for entitlement management resources.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -62,13 +65,13 @@ export class EntitlementManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Container for all entitlement management resources in Azure AD identity governance.
+     * Update the navigation property entitlementManagement in roleManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -80,13 +83,13 @@ export class EntitlementManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Container for all entitlement management resources in Azure AD identity governance.
+     * Delete navigation property entitlementManagement for roleManagement
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -95,10 +98,14 @@ export class EntitlementManagementRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Container for all entitlement management resources in Azure AD identity governance.
+     * Container for roles and assignments for entitlement management resources.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -112,10 +119,14 @@ export class EntitlementManagementRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, RbacApplication, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<RbacApplication>(requestInfo, createRbacApplicationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Container for all entitlement management resources in Azure AD identity governance.
+     * Update the navigation property entitlementManagement in roleManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -126,28 +137,32 @@ export class EntitlementManagementRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleAssignmentRequestBuilder
+     * @returns a unifiedRoleAssignmentItemRequestBuilder
      */
-    public roleAssignmentsById(id: string) : UnifiedRoleAssignmentRequestBuilder {
+    public roleAssignmentsById(id: string) : UnifiedRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleAssignment_id"] = id
-        return new UnifiedRoleAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
+        return new UnifiedRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.roleManagement.entitlementManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a unifiedRoleDefinitionRequestBuilder
+     * @returns a unifiedRoleDefinitionItemRequestBuilder
      */
-    public roleDefinitionsById(id: string) : UnifiedRoleDefinitionRequestBuilder {
+    public roleDefinitionsById(id: string) : UnifiedRoleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleDefinition_id"] = id
-        return new UnifiedRoleDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new UnifiedRoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

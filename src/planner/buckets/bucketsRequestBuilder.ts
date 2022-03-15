@@ -1,9 +1,17 @@
+import {createPlannerBucketCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createPlannerBucketCollectionResponseFromDiscriminatorValue';
+import {createPlannerBucketFromDiscriminatorValue} from '../../models/microsoft/graph/createPlannerBucketFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
 import {PlannerBucket} from '../../models/microsoft/graph/plannerBucket';
-import {BucketsResponse} from './bucketsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PlannerBucketCollectionResponse} from '../../models/microsoft/graph/plannerBucketCollectionResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /planner/buckets  */
+/** Provides operations to manage the buckets property of the microsoft.graph.planner entity.  */
 export class BucketsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,13 +52,13 @@ export class BucketsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified buckets
+     * Create new navigation property to buckets for planner
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,7 +70,7 @@ export class BucketsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +81,7 @@ export class BucketsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of BucketsResponse
+     * @returns a Promise of PlannerBucketCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class BucketsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BucketsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerBucketCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<BucketsResponse>(requestInfo, BucketsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PlannerBucketCollectionResponse>(requestInfo, createPlannerBucketCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Read-only. Nullable. Returns a collection of the specified buckets
+     * Create new navigation property to buckets for planner
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class BucketsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<PlannerBucket>(requestInfo, PlannerBucket, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PlannerBucket>(requestInfo, createPlannerBucketFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

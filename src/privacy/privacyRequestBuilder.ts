@@ -1,9 +1,12 @@
+import {createPrivacyFromDiscriminatorValue} from '../models/microsoft/graph/createPrivacyFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {Privacy} from '../models/microsoft/graph/privacy';
-import {SubjectRightsRequestRequestBuilder} from './subjectRightsRequests/item/subjectRightsRequestRequestBuilder';
+import {SubjectRightsRequestItemRequestBuilder} from './subjectRightsRequests/item/subjectRightsRequestItemRequestBuilder';
 import {SubjectRightsRequestsRequestBuilder} from './subjectRightsRequests/subjectRightsRequestsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /privacy  */
+/** Provides operations to manage the privacy singleton.  */
 export class PrivacyRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -42,7 +45,7 @@ export class PrivacyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -60,7 +63,7 @@ export class PrivacyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -80,7 +83,11 @@ export class PrivacyRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, Privacy, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Privacy>(requestInfo, createPrivacyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update privacy
@@ -94,17 +101,21 @@ export class PrivacyRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.privacy.subjectRightsRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a subjectRightsRequestRequestBuilder
+     * @returns a subjectRightsRequestItemRequestBuilder
      */
-    public subjectRightsRequestsById(id: string) : SubjectRightsRequestRequestBuilder {
+    public subjectRightsRequestsById(id: string) : SubjectRightsRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["subjectRightsRequest_id"] = id
-        return new SubjectRightsRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SubjectRightsRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

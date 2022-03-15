@@ -1,9 +1,17 @@
+import {createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/microsoft/graph/createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue';
+import {createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue} from '../../../../models/microsoft/graph/createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue';
 import {ManagedDeviceMobileAppConfigurationDeviceStatus} from '../../../../models/microsoft/graph/managedDeviceMobileAppConfigurationDeviceStatus';
-import {DeviceStatusesResponse} from './deviceStatusesResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse} from '../../../../models/microsoft/graph/managedDeviceMobileAppConfigurationDeviceStatusCollectionResponse';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceAppManagement/mobileAppConfigurations/{managedDeviceMobileAppConfiguration-id}/deviceStatuses  */
+/** Provides operations to manage the deviceStatuses property of the microsoft.graph.managedDeviceMobileAppConfiguration entity.  */
 export class DeviceStatusesRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,13 +52,13 @@ export class DeviceStatusesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+     * Create new navigation property to deviceStatuses for deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,7 +70,7 @@ export class DeviceStatusesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +81,7 @@ export class DeviceStatusesRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of DeviceStatusesResponse
+     * @returns a Promise of ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class DeviceStatusesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceStatusesResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DeviceStatusesResponse>(requestInfo, DeviceStatusesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * List of ManagedDeviceMobileAppConfigurationDeviceStatus.
+     * Create new navigation property to deviceStatuses for deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class DeviceStatusesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationDeviceStatus>(requestInfo, ManagedDeviceMobileAppConfigurationDeviceStatus, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedDeviceMobileAppConfigurationDeviceStatus>(requestInfo, createManagedDeviceMobileAppConfigurationDeviceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

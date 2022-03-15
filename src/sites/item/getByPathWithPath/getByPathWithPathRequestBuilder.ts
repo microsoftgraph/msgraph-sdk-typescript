@@ -1,7 +1,7 @@
 import {Site} from '../../../models/microsoft/graph/site';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /sites/{site-id}/microsoft.graph.getByPath(path='{path}')  */
+/** Provides operations to call the getByPath method.  */
 export class GetByPathWithPathRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -11,7 +11,7 @@ export class GetByPathWithPathRequestBuilder {
     private readonly urlTemplate: string;
     /**
      * Instantiates a new GetByPathWithPathRequestBuilder and sets the default values.
-     * @param path Usage: path={path}
+     * @param path Usage: path='{path}'
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
@@ -35,7 +35,7 @@ export class GetByPathWithPathRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -50,6 +50,6 @@ export class GetByPathWithPathRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, Site, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

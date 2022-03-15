@@ -1,6 +1,7 @@
 import {Identity} from './identity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton.  */
 export class UserIdentity extends Identity implements Parsable {
     /** Indicates the client IP address used by user performing the activity (audit log only).  */
     private _ipAddress?: string | undefined;
@@ -13,20 +14,6 @@ export class UserIdentity extends Identity implements Parsable {
         super();
     };
     /**
-     * Gets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
-     * @returns a string
-     */
-    public get ipAddress() {
-        return this._ipAddress;
-    };
-    /**
-     * Gets the userPrincipalName property value. The userPrincipalName attribute of the user.
-     * @returns a string
-     */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
-    };
-    /**
      * The deserialization information for the current model
      * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
@@ -35,6 +22,20 @@ export class UserIdentity extends Identity implements Parsable {
             ["ipAddress", (o, n) => { (o as unknown as UserIdentity).ipAddress = n.getStringValue(); }],
             ["userPrincipalName", (o, n) => { (o as unknown as UserIdentity).userPrincipalName = n.getStringValue(); }],
         ]);
+    };
+    /**
+     * Gets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
+     * @returns a string
+     */
+    public get ipAddress() {
+        return this._ipAddress;
+    };
+    /**
+     * Sets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
+     * @param value Value to set for the ipAddress property.
+     */
+    public set ipAddress(value: string | undefined) {
+        this._ipAddress = value;
     };
     /**
      * Serializes information the current object
@@ -47,11 +48,11 @@ export class UserIdentity extends Identity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Sets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
-     * @param value Value to set for the ipAddress property.
+     * Gets the userPrincipalName property value. The userPrincipalName attribute of the user.
+     * @returns a string
      */
-    public set ipAddress(value: string | undefined) {
-        this._ipAddress = value;
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. The userPrincipalName attribute of the user.

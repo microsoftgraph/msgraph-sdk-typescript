@@ -1,8 +1,10 @@
+import {createTimeZoneBaseFromDiscriminatorValue} from './createTimeZoneBaseFromDiscriminatorValue';
 import {DayOfWeek} from './dayOfWeek';
 import {TimeZoneBase} from './timeZoneBase';
-import {Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
-export class WorkingHours implements Parsable {
+/** Provides operations to manage the drive singleton.  */
+export class WorkingHours implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The days of the week on which the user works.  */
@@ -14,17 +16,24 @@ export class WorkingHours implements Parsable {
     /** The time zone to which the working hours apply.  */
     private _timeZone?: TimeZoneBase | undefined;
     /**
-     * Instantiates a new workingHours and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new workingHours and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
     };
     /**
      * Gets the daysOfWeek property value. The days of the week on which the user works.
@@ -34,6 +43,13 @@ export class WorkingHours implements Parsable {
         return this._daysOfWeek;
     };
     /**
+     * Sets the daysOfWeek property value. The days of the week on which the user works.
+     * @param value Value to set for the daysOfWeek property.
+     */
+    public set daysOfWeek(value: DayOfWeek[] | undefined) {
+        this._daysOfWeek = value;
+    };
+    /**
      * Gets the endTime property value. The time of the day that the user stops working.
      * @returns a TimeOnly
      */
@@ -41,18 +57,11 @@ export class WorkingHours implements Parsable {
         return this._endTime;
     };
     /**
-     * Gets the startTime property value. The time of the day that the user starts working.
-     * @returns a TimeOnly
+     * Sets the endTime property value. The time of the day that the user stops working.
+     * @param value Value to set for the endTime property.
      */
-    public get startTime() {
-        return this._startTime;
-    };
-    /**
-     * Gets the timeZone property value. The time zone to which the working hours apply.
-     * @returns a timeZoneBase
-     */
-    public get timeZone() {
-        return this._timeZone;
+    public set endTime(value: TimeOnly | undefined) {
+        this._endTime = value;
     };
     /**
      * The deserialization information for the current model
@@ -63,7 +72,7 @@ export class WorkingHours implements Parsable {
             ["daysOfWeek", (o, n) => { (o as unknown as WorkingHours).daysOfWeek = n.getEnumValues<DayOfWeek>(DayOfWeek); }],
             ["endTime", (o, n) => { (o as unknown as WorkingHours).endTime = n.getTimeOnlyValue(); }],
             ["startTime", (o, n) => { (o as unknown as WorkingHours).startTime = n.getTimeOnlyValue(); }],
-            ["timeZone", (o, n) => { (o as unknown as WorkingHours).timeZone = n.getObjectValue<TimeZoneBase>(TimeZoneBase); }],
+            ["timeZone", (o, n) => { (o as unknown as WorkingHours).timeZone = n.getObjectValue<TimeZoneBase>(createTimeZoneBaseFromDiscriminatorValue); }],
         ]);
     };
     /**
@@ -79,25 +88,11 @@ export class WorkingHours implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the startTime property value. The time of the day that the user starts working.
+     * @returns a TimeOnly
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the daysOfWeek property value. The days of the week on which the user works.
-     * @param value Value to set for the daysOfWeek property.
-     */
-    public set daysOfWeek(value: DayOfWeek[] | undefined) {
-        this._daysOfWeek = value;
-    };
-    /**
-     * Sets the endTime property value. The time of the day that the user stops working.
-     * @param value Value to set for the endTime property.
-     */
-    public set endTime(value: TimeOnly | undefined) {
-        this._endTime = value;
+    public get startTime() {
+        return this._startTime;
     };
     /**
      * Sets the startTime property value. The time of the day that the user starts working.
@@ -105,6 +100,13 @@ export class WorkingHours implements Parsable {
      */
     public set startTime(value: TimeOnly | undefined) {
         this._startTime = value;
+    };
+    /**
+     * Gets the timeZone property value. The time zone to which the working hours apply.
+     * @returns a timeZoneBase
+     */
+    public get timeZone() {
+        return this._timeZone;
     };
     /**
      * Sets the timeZone property value. The time zone to which the working hours apply.

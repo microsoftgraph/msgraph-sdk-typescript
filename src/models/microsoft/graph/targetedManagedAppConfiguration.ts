@@ -1,9 +1,13 @@
+import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from './createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
+import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobileAppFromDiscriminatorValue';
+import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue';
 import {ManagedAppConfiguration} from './managedAppConfiguration';
 import {ManagedAppPolicyDeploymentSummary} from './managedAppPolicyDeploymentSummary';
 import {ManagedMobileApp} from './managedMobileApp';
 import {TargetedManagedAppPolicyAssignment} from './targetedManagedAppPolicyAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceAppManagement singleton.  */
 export class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements Parsable {
     /** List of apps to which the policy is deployed.  */
     private _apps?: ManagedMobileApp[] | undefined;
@@ -16,17 +20,18 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
     /** Indicates if the policy is deployed to any inclusion groups or not.  */
     private _isAssigned?: boolean | undefined;
     /**
-     * Instantiates a new targetedManagedAppConfiguration and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the apps property value. List of apps to which the policy is deployed.
      * @returns a managedMobileApp
      */
     public get apps() {
         return this._apps;
+    };
+    /**
+     * Sets the apps property value. List of apps to which the policy is deployed.
+     * @param value Value to set for the apps property.
+     */
+    public set apps(value: ManagedMobileApp[] | undefined) {
+        this._apps = value;
     };
     /**
      * Gets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
@@ -36,11 +41,31 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
         return this._assignments;
     };
     /**
+     * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
+     * @param value Value to set for the assignments property.
+     */
+    public set assignments(value: TargetedManagedAppPolicyAssignment[] | undefined) {
+        this._assignments = value;
+    };
+    /**
+     * Instantiates a new targetedManagedAppConfiguration and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
      * Gets the deployedAppCount property value. Count of apps to which the current policy is deployed.
      * @returns a integer
      */
     public get deployedAppCount() {
         return this._deployedAppCount;
+    };
+    /**
+     * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
+     * @param value Value to set for the deployedAppCount property.
+     */
+    public set deployedAppCount(value: number | undefined) {
+        this._deployedAppCount = value;
     };
     /**
      * Gets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
@@ -50,11 +75,11 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
         return this._deploymentSummary;
     };
     /**
-     * Gets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
-     * @returns a boolean
+     * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
+     * @param value Value to set for the deploymentSummary property.
      */
-    public get isAssigned() {
-        return this._isAssigned;
+    public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | undefined) {
+        this._deploymentSummary = value;
     };
     /**
      * The deserialization information for the current model
@@ -62,12 +87,26 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["apps", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp); }],
-            ["assignments", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(TargetedManagedAppPolicyAssignment); }],
+            ["apps", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); }],
+            ["assignments", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).assignments = n.getCollectionOfObjectValues<TargetedManagedAppPolicyAssignment>(createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue); }],
             ["deployedAppCount", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).deployedAppCount = n.getNumberValue(); }],
-            ["deploymentSummary", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).deploymentSummary = n.getObjectValue<ManagedAppPolicyDeploymentSummary>(ManagedAppPolicyDeploymentSummary); }],
+            ["deploymentSummary", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).deploymentSummary = n.getObjectValue<ManagedAppPolicyDeploymentSummary>(createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue); }],
             ["isAssigned", (o, n) => { (o as unknown as TargetedManagedAppConfiguration).isAssigned = n.getBooleanValue(); }],
         ]);
+    };
+    /**
+     * Gets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
+     * @returns a boolean
+     */
+    public get isAssigned() {
+        return this._isAssigned;
+    };
+    /**
+     * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
+     * @param value Value to set for the isAssigned property.
+     */
+    public set isAssigned(value: boolean | undefined) {
+        this._isAssigned = value;
     };
     /**
      * Serializes information the current object
@@ -81,40 +120,5 @@ export class TargetedManagedAppConfiguration extends ManagedAppConfiguration imp
         writer.writeNumberValue("deployedAppCount", this.deployedAppCount);
         writer.writeObjectValue<ManagedAppPolicyDeploymentSummary>("deploymentSummary", this.deploymentSummary);
         writer.writeBooleanValue("isAssigned", this.isAssigned);
-    };
-    /**
-     * Sets the apps property value. List of apps to which the policy is deployed.
-     * @param value Value to set for the apps property.
-     */
-    public set apps(value: ManagedMobileApp[] | undefined) {
-        this._apps = value;
-    };
-    /**
-     * Sets the assignments property value. Navigation property to list of inclusion and exclusion groups to which the policy is deployed.
-     * @param value Value to set for the assignments property.
-     */
-    public set assignments(value: TargetedManagedAppPolicyAssignment[] | undefined) {
-        this._assignments = value;
-    };
-    /**
-     * Sets the deployedAppCount property value. Count of apps to which the current policy is deployed.
-     * @param value Value to set for the deployedAppCount property.
-     */
-    public set deployedAppCount(value: number | undefined) {
-        this._deployedAppCount = value;
-    };
-    /**
-     * Sets the deploymentSummary property value. Navigation property to deployment summary of the configuration.
-     * @param value Value to set for the deploymentSummary property.
-     */
-    public set deploymentSummary(value: ManagedAppPolicyDeploymentSummary | undefined) {
-        this._deploymentSummary = value;
-    };
-    /**
-     * Sets the isAssigned property value. Indicates if the policy is deployed to any inclusion groups or not.
-     * @param value Value to set for the isAssigned property.
-     */
-    public set isAssigned(value: boolean | undefined) {
-        this._isAssigned = value;
     };
 }

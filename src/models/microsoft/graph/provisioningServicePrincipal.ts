@@ -1,6 +1,7 @@
 import {Identity} from './identity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton.  */
 export class ProvisioningServicePrincipal extends Identity implements Parsable {
     /**
      * Instantiates a new provisioningServicePrincipal and sets the default values.

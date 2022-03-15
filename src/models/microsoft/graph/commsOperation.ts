@@ -1,8 +1,10 @@
+import {createResultInfoFromDiscriminatorValue} from './createResultInfoFromDiscriminatorValue';
 import {Entity} from './entity';
 import {OperationStatus} from './operationStatus';
 import {ResultInfo} from './resultInfo';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton.  */
 export class CommsOperation extends Entity implements Parsable {
     /** Unique Client Context string. Max limit is 256 chars.  */
     private _clientContext?: string | undefined;
@@ -11,17 +13,35 @@ export class CommsOperation extends Entity implements Parsable {
     /** Possible values are: notStarted, running, completed, failed. Read-only.  */
     private _status?: OperationStatus | undefined;
     /**
+     * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
+     * @returns a string
+     */
+    public get clientContext() {
+        return this._clientContext;
+    };
+    /**
+     * Sets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
+     * @param value Value to set for the clientContext property.
+     */
+    public set clientContext(value: string | undefined) {
+        this._clientContext = value;
+    };
+    /**
      * Instantiates a new commsOperation and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
-     * @returns a string
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
      */
-    public get clientContext() {
-        return this._clientContext;
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["clientContext", (o, n) => { (o as unknown as CommsOperation).clientContext = n.getStringValue(); }],
+            ["resultInfo", (o, n) => { (o as unknown as CommsOperation).resultInfo = n.getObjectValue<ResultInfo>(createResultInfoFromDiscriminatorValue); }],
+            ["status", (o, n) => { (o as unknown as CommsOperation).status = n.getEnumValue<OperationStatus>(OperationStatus); }],
+        ]);
     };
     /**
      * Gets the resultInfo property value. The result information. Read-only.
@@ -31,22 +51,11 @@ export class CommsOperation extends Entity implements Parsable {
         return this._resultInfo;
     };
     /**
-     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
-     * @returns a operationStatus
+     * Sets the resultInfo property value. The result information. Read-only.
+     * @param value Value to set for the resultInfo property.
      */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["clientContext", (o, n) => { (o as unknown as CommsOperation).clientContext = n.getStringValue(); }],
-            ["resultInfo", (o, n) => { (o as unknown as CommsOperation).resultInfo = n.getObjectValue<ResultInfo>(ResultInfo); }],
-            ["status", (o, n) => { (o as unknown as CommsOperation).status = n.getEnumValue<OperationStatus>(OperationStatus); }],
-        ]);
+    public set resultInfo(value: ResultInfo | undefined) {
+        this._resultInfo = value;
     };
     /**
      * Serializes information the current object
@@ -60,18 +69,11 @@ export class CommsOperation extends Entity implements Parsable {
         writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
-     * Sets the clientContext property value. Unique Client Context string. Max limit is 256 chars.
-     * @param value Value to set for the clientContext property.
+     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
+     * @returns a operationStatus
      */
-    public set clientContext(value: string | undefined) {
-        this._clientContext = value;
-    };
-    /**
-     * Sets the resultInfo property value. The result information. Read-only.
-     * @param value Value to set for the resultInfo property.
-     */
-    public set resultInfo(value: ResultInfo | undefined) {
-        this._resultInfo = value;
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.

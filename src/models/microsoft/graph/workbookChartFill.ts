@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class WorkbookChartFill extends Entity implements Parsable {
     /**
      * Instantiates a new workbookChartFill and sets the default values.

@@ -1,23 +1,19 @@
+import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
 import {PublicError} from './publicError';
 import {SubjectRightsRequestStage} from './subjectRightsRequestStage';
 import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SubjectRightsRequestStageDetail implements Parsable {
+/** Provides operations to manage the privacy singleton.  */
+export class SubjectRightsRequestStageDetail implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** Describes the error, if any, for the current stage.  */
-    private _error?: PublicError | undefined;
+    private _error_escaped?: PublicError | undefined;
     /** The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.  */
     private _stage?: SubjectRightsRequestStage | undefined;
     /** Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.  */
     private _status?: SubjectRightsRequestStageStatus | undefined;
-    /**
-     * Instantiates a new subjectRightsRequestStageDetail and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
@@ -26,25 +22,31 @@ export class SubjectRightsRequestStageDetail implements Parsable {
         return this._additionalData;
     };
     /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new subjectRightsRequestStageDetail and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
+    };
+    /**
      * Gets the error property value. Describes the error, if any, for the current stage.
      * @returns a publicError
      */
-    public get error() {
-        return this._error;
+    public get error_escaped() {
+        return this._error_escaped;
     };
     /**
-     * Gets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
-     * @returns a subjectRightsRequestStage
+     * Sets the error property value. Describes the error, if any, for the current stage.
+     * @param value Value to set for the error_escaped property.
      */
-    public get stage() {
-        return this._stage;
-    };
-    /**
-     * Gets the status property value. Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
-     * @returns a subjectRightsRequestStageStatus
-     */
-    public get status() {
-        return this._status;
+    public set error_escaped(value: PublicError | undefined) {
+        this._error_escaped = value;
     };
     /**
      * The deserialization information for the current model
@@ -52,7 +54,7 @@ export class SubjectRightsRequestStageDetail implements Parsable {
      */
     public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
         return new Map<string, (item: T, node: ParseNode) => void>([
-            ["error", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).error = n.getObjectValue<PublicError>(PublicError); }],
+            ["error", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).error_escaped = n.getObjectValue<PublicError>(createPublicErrorFromDiscriminatorValue); }],
             ["stage", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).stage = n.getEnumValue<SubjectRightsRequestStage>(SubjectRightsRequestStage); }],
             ["status", (o, n) => { (o as unknown as SubjectRightsRequestStageDetail).status = n.getEnumValue<SubjectRightsRequestStageStatus>(SubjectRightsRequestStageStatus); }],
         ]);
@@ -63,24 +65,17 @@ export class SubjectRightsRequestStageDetail implements Parsable {
      */
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
-        writer.writeObjectValue<PublicError>("error", this.error);
+        writer.writeObjectValue<PublicError>("error", this.error_escaped);
         writer.writeEnumValue<SubjectRightsRequestStage>("stage", this.stage);
         writer.writeEnumValue<SubjectRightsRequestStageStatus>("status", this.status);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
+     * @returns a subjectRightsRequestStage
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the error property value. Describes the error, if any, for the current stage.
-     * @param value Value to set for the error property.
-     */
-    public set error(value: PublicError | undefined) {
-        this._error = value;
+    public get stage() {
+        return this._stage;
     };
     /**
      * Sets the stage property value. The stage of the subject rights request. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.
@@ -88,6 +83,13 @@ export class SubjectRightsRequestStageDetail implements Parsable {
      */
     public set stage(value: SubjectRightsRequestStage | undefined) {
         this._stage = value;
+    };
+    /**
+     * Gets the status property value. Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.
+     * @returns a subjectRightsRequestStageStatus
+     */
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. Status of the current stage. Possible values are: notStarted, current, completed, failed, unknownFutureValue.

@@ -1,10 +1,18 @@
+import {createIdentityProviderCollectionResponseFromDiscriminatorValue} from '../models/microsoft/graph/createIdentityProviderCollectionResponseFromDiscriminatorValue';
+import {createIdentityProviderFromDiscriminatorValue} from '../models/microsoft/graph/createIdentityProviderFromDiscriminatorValue';
 import {IdentityProvider} from '../models/microsoft/graph/identityProvider';
+import {IdentityProviderCollectionResponse} from '../models/microsoft/graph/identityProviderCollectionResponse';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {AvailableProviderTypesRequestBuilder} from './availableProviderTypes/availableProviderTypesRequestBuilder';
-import {IdentityProvidersResponse} from './identityProvidersResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identityProviders  */
+/** Provides operations to manage the collection of identityProvider entities.  */
 export class IdentityProvidersRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -12,7 +20,7 @@ export class IdentityProvidersRequestBuilder {
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
-     * Builds and executes requests for operations under /identityProviders/microsoft.graph.availableProviderTypes()
+     * Provides operations to call the availableProviderTypes method.
      * @returns a availableProviderTypesRequestBuilder
      */
     public availableProviderTypes() : AvailableProviderTypesRequestBuilder {
@@ -52,7 +60,7 @@ export class IdentityProvidersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -70,7 +78,7 @@ export class IdentityProvidersRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -81,7 +89,7 @@ export class IdentityProvidersRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of IdentityProvidersResponse
+     * @returns a Promise of IdentityProviderCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -92,11 +100,15 @@ export class IdentityProvidersRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProvidersResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IdentityProviderCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<IdentityProvidersResponse>(requestInfo, IdentityProvidersResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<IdentityProviderCollectionResponse>(requestInfo, createIdentityProviderCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Add new entity to identityProviders
@@ -111,6 +123,10 @@ export class IdentityProvidersRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<IdentityProvider>(requestInfo, IdentityProvider, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<IdentityProvider>(requestInfo, createIdentityProviderFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

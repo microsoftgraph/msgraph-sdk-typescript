@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton.  */
 export class PrintDocument extends Entity implements Parsable {
     /** The document's content (MIME) type. Read-only.  */
     private _contentType?: string | undefined;
@@ -22,6 +23,13 @@ export class PrintDocument extends Entity implements Parsable {
         return this._contentType;
     };
     /**
+     * Sets the contentType property value. The document's content (MIME) type. Read-only.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        this._contentType = value;
+    };
+    /**
      * Gets the displayName property value. The document's name. Read-only.
      * @returns a string
      */
@@ -29,11 +37,11 @@ export class PrintDocument extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the size property value. The document's size in bytes. Read-only.
-     * @returns a int64
+     * Sets the displayName property value. The document's name. Read-only.
+     * @param value Value to set for the displayName property.
      */
-    public get size() {
-        return this._size;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
@@ -58,18 +66,11 @@ export class PrintDocument extends Entity implements Parsable {
         writer.writeNumberValue("size", this.size);
     };
     /**
-     * Sets the contentType property value. The document's content (MIME) type. Read-only.
-     * @param value Value to set for the contentType property.
+     * Gets the size property value. The document's size in bytes. Read-only.
+     * @returns a integer
      */
-    public set contentType(value: string | undefined) {
-        this._contentType = value;
-    };
-    /**
-     * Sets the displayName property value. The document's name. Read-only.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
+    public get size() {
+        return this._size;
     };
     /**
      * Sets the size property value. The document's size in bytes. Read-only.

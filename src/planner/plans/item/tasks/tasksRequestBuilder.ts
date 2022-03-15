@@ -1,9 +1,17 @@
+import {createPlannerTaskCollectionResponseFromDiscriminatorValue} from '../../../../models/microsoft/graph/createPlannerTaskCollectionResponseFromDiscriminatorValue';
+import {createPlannerTaskFromDiscriminatorValue} from '../../../../models/microsoft/graph/createPlannerTaskFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/oDataError';
 import {PlannerTask} from '../../../../models/microsoft/graph/plannerTask';
-import {TasksResponse} from './tasksResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PlannerTaskCollectionResponse} from '../../../../models/microsoft/graph/plannerTaskCollectionResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /planner/plans/{plannerPlan-id}/tasks  */
+/** Provides operations to manage the tasks property of the microsoft.graph.plannerPlan entity.  */
 export class TasksRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -24,7 +32,7 @@ export class TasksRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Collection of tasks in the plan. Read-only. Nullable.
+     * Read-only. Nullable. Collection of tasks in the plan.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -44,13 +52,13 @@ export class TasksRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Collection of tasks in the plan. Read-only. Nullable.
+     * Create new navigation property to tasks for planner
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,18 +70,18 @@ export class TasksRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Collection of tasks in the plan. Read-only. Nullable.
+     * Read-only. Nullable. Collection of tasks in the plan.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of TasksResponse
+     * @returns a Promise of PlannerTaskCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class TasksRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TasksResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PlannerTaskCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TasksResponse>(requestInfo, TasksResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PlannerTaskCollectionResponse>(requestInfo, createPlannerTaskCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Collection of tasks in the plan. Read-only. Nullable.
+     * Create new navigation property to tasks for planner
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class TasksRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<PlannerTask>(requestInfo, PlannerTask, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<PlannerTask>(requestInfo, createPlannerTaskFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -2,6 +2,7 @@ import {ApplicationType} from './applicationType';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the deviceManagement singleton.  */
 export class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable {
     /** Application Name  */
     private _applicationName?: string | undefined;
@@ -10,17 +11,18 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
     /** Device Count  */
     private _deviceCount?: number | undefined;
     /**
-     * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the applicationName property value. Application Name
      * @returns a string
      */
     public get applicationName() {
         return this._applicationName;
+    };
+    /**
+     * Sets the applicationName property value. Application Name
+     * @param value Value to set for the applicationName property.
+     */
+    public set applicationName(value: string | undefined) {
+        this._applicationName = value;
     };
     /**
      * Gets the applicationType property value. Application Type. Possible values are: universal, desktop.
@@ -30,11 +32,31 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
         return this._applicationType;
     };
     /**
+     * Sets the applicationType property value. Application Type. Possible values are: universal, desktop.
+     * @param value Value to set for the applicationType property.
+     */
+    public set applicationType(value: ApplicationType | undefined) {
+        this._applicationType = value;
+    };
+    /**
+     * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
      * Gets the deviceCount property value. Device Count
      * @returns a integer
      */
     public get deviceCount() {
         return this._deviceCount;
+    };
+    /**
+     * Sets the deviceCount property value. Device Count
+     * @param value Value to set for the deviceCount property.
+     */
+    public set deviceCount(value: number | undefined) {
+        this._deviceCount = value;
     };
     /**
      * The deserialization information for the current model
@@ -57,26 +79,5 @@ export class WindowsInformationProtectionAppLearningSummary extends Entity imple
         writer.writeStringValue("applicationName", this.applicationName);
         writer.writeEnumValue<ApplicationType>("applicationType", this.applicationType);
         writer.writeNumberValue("deviceCount", this.deviceCount);
-    };
-    /**
-     * Sets the applicationName property value. Application Name
-     * @param value Value to set for the applicationName property.
-     */
-    public set applicationName(value: string | undefined) {
-        this._applicationName = value;
-    };
-    /**
-     * Sets the applicationType property value. Application Type. Possible values are: universal, desktop.
-     * @param value Value to set for the applicationType property.
-     */
-    public set applicationType(value: ApplicationType | undefined) {
-        this._applicationType = value;
-    };
-    /**
-     * Sets the deviceCount property value. Device Count
-     * @param value Value to set for the deviceCount property.
-     */
-    public set deviceCount(value: number | undefined) {
-        this._deviceCount = value;
     };
 }

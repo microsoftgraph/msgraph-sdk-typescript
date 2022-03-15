@@ -1,10 +1,18 @@
+import {createUserActivityCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createUserActivityCollectionResponseFromDiscriminatorValue';
+import {createUserActivityFromDiscriminatorValue} from '../../models/microsoft/graph/createUserActivityFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
 import {UserActivity} from '../../models/microsoft/graph/userActivity';
-import {ActivitiesResponse} from './activitiesResponse';
+import {UserActivityCollectionResponse} from '../../models/microsoft/graph/userActivityCollectionResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {RecentRequestBuilder} from './recent/recentRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/activities  */
+/** Provides operations to manage the activities property of the microsoft.graph.user entity.  */
 export class ActivitiesRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -45,13 +53,13 @@ export class ActivitiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The user's activities across devices. Read-only. Nullable.
+     * Create new navigation property to activities for me
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -63,7 +71,7 @@ export class ActivitiesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -74,7 +82,7 @@ export class ActivitiesRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ActivitiesResponse
+     * @returns a Promise of UserActivityCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -85,14 +93,18 @@ export class ActivitiesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ActivitiesResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UserActivityCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ActivitiesResponse>(requestInfo, ActivitiesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UserActivityCollectionResponse>(requestInfo, createUserActivityCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The user's activities across devices. Read-only. Nullable.
+     * Create new navigation property to activities for me
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -104,10 +116,14 @@ export class ActivitiesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<UserActivity>(requestInfo, UserActivity, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UserActivity>(requestInfo, createUserActivityFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Builds and executes requests for operations under /me/activities/microsoft.graph.recent()
+     * Provides operations to call the recent method.
      * @returns a recentRequestBuilder
      */
     public recent() : RecentRequestBuilder {

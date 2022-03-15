@@ -1,7 +1,9 @@
+import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
 import {IdentitySet} from './identitySet';
 import {OnenoteEntitySchemaObjectModel} from './onenoteEntitySchemaObjectModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel implements Parsable {
     /** Identity of the user, device, and application which created the item. Read-only.  */
     private _createdBy?: IdentitySet | undefined;
@@ -25,11 +27,37 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
         return this._createdBy;
     };
     /**
+     * Sets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * @param value Value to set for the createdBy property.
+     */
+    public set createdBy(value: IdentitySet | undefined) {
+        this._createdBy = value;
+    };
+    /**
      * Gets the displayName property value. The name of the notebook.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. The name of the notebook.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
+        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
+            ["createdBy", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).createdBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); }],
+            ["displayName", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).displayName = n.getStringValue(); }],
+            ["lastModifiedBy", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); }],
+            ["lastModifiedDateTime", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).lastModifiedDateTime = n.getDateValue(); }],
+        ]);
     };
     /**
      * Gets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
@@ -39,6 +67,13 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
         return this._lastModifiedBy;
     };
     /**
+     * Sets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        this._lastModifiedBy = value;
+    };
+    /**
      * Gets the lastModifiedDateTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
      * @returns a Date
      */
@@ -46,16 +81,11 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
         return this._lastModifiedDateTime;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the lastModifiedDateTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * @param value Value to set for the lastModifiedDateTime property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["createdBy", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).createdBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
-            ["displayName", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).displayName = n.getStringValue(); }],
-            ["lastModifiedBy", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).lastModifiedBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
-            ["lastModifiedDateTime", (o, n) => { (o as unknown as OnenoteEntityHierarchyModel).lastModifiedDateTime = n.getDateValue(); }],
-        ]);
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -68,33 +98,5 @@ export class OnenoteEntityHierarchyModel extends OnenoteEntitySchemaObjectModel 
         writer.writeStringValue("displayName", this.displayName);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-    };
-    /**
-     * Sets the createdBy property value. Identity of the user, device, and application which created the item. Read-only.
-     * @param value Value to set for the createdBy property.
-     */
-    public set createdBy(value: IdentitySet | undefined) {
-        this._createdBy = value;
-    };
-    /**
-     * Sets the displayName property value. The name of the notebook.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the lastModifiedBy property value. Identity of the user, device, and application which created the item. Read-only.
-     * @param value Value to set for the lastModifiedBy property.
-     */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
-        this._lastModifiedBy = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. The date and time when the notebook was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
     };
 }

@@ -1,12 +1,40 @@
+import {createDeviceFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createDeviceFromDiscriminatorValue';
 import {Device} from '../../../../../../models/microsoft/graph/device';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
+import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as i6273be064a7d23653d3a118d566f23273454933149baa8d66e9cd2bc461570d0} from './memberOf/item/directoryObjectItemRequestBuilder';
+import {MemberOfRequestBuilder} from './memberOf/memberOfRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as ib4b80f30cf7382fdcbe4f94259904c32c2e22ffde3c0ece465fef7e5cd59e9fe} from './registeredOwners/item/directoryObjectItemRequestBuilder';
+import {RegisteredOwnersRequestBuilder} from './registeredOwners/registeredOwnersRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as ib56123924933387f3d527a6a2ef453456206373b86589e8b7f9f9f216bf0b2d6} from './registeredUsers/item/directoryObjectItemRequestBuilder';
+import {RegisteredUsersRequestBuilder} from './registeredUsers/registeredUsersRequestBuilder';
+import {DirectoryObjectItemRequestBuilder as iad1f66921ef4a3afaec8e39c72e53b5d0304fd9392c239556849669b1de53a54} from './transitiveMemberOf/item/directoryObjectItemRequestBuilder';
+import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/authentication/microsoftAuthenticatorMethods/{microsoftAuthenticatorAuthenticationMethod-id}/device  */
+/** Provides operations to manage the device property of the microsoft.graph.microsoftAuthenticatorAuthenticationMethod entity.  */
 export class DeviceRequestBuilder {
+    public get extensions(): ExtensionsRequestBuilder {
+        return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    public get memberOf(): MemberOfRequestBuilder {
+        return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    public get registeredOwners(): RegisteredOwnersRequestBuilder {
+        return new RegisteredOwnersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    public get registeredUsers(): RegisteredUsersRequestBuilder {
+        return new RegisteredUsersRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
+        return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
@@ -23,7 +51,7 @@ export class DeviceRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * Delete navigation property device for users
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -33,7 +61,7 @@ export class DeviceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -52,13 +80,13 @@ export class DeviceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * Update the navigation property device in users
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -70,13 +98,13 @@ export class DeviceRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * Delete navigation property device for users
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -85,7 +113,22 @@ export class DeviceRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item.device.extensions.item collection
+     * @param id Unique identifier of the item
+     * @returns a extensionItemRequestBuilder
+     */
+    public extensionsById(id: string) : ExtensionItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["extension_id"] = id
+        return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
@@ -102,10 +145,25 @@ export class DeviceRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Device>(requestInfo, Device, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Device>(requestInfo, createDeviceFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item.device.memberOf.item collection
+     * @param id Unique identifier of the item
+     * @returns a directoryObjectItemRequestBuilder
+     */
+    public memberOfById(id: string) : i6273be064a7d23653d3a118d566f23273454933149baa8d66e9cd2bc461570d0 {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject_id"] = id
+        return new i6273be064a7d23653d3a118d566f23273454933149baa8d66e9cd2bc461570d0(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Update the navigation property device in users
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -116,6 +174,43 @@ export class DeviceRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item.device.registeredOwners.item collection
+     * @param id Unique identifier of the item
+     * @returns a directoryObjectItemRequestBuilder
+     */
+    public registeredOwnersById(id: string) : ib4b80f30cf7382fdcbe4f94259904c32c2e22ffde3c0ece465fef7e5cd59e9fe {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject_id"] = id
+        return new ib4b80f30cf7382fdcbe4f94259904c32c2e22ffde3c0ece465fef7e5cd59e9fe(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item.device.registeredUsers.item collection
+     * @param id Unique identifier of the item
+     * @returns a directoryObjectItemRequestBuilder
+     */
+    public registeredUsersById(id: string) : ib56123924933387f3d527a6a2ef453456206373b86589e8b7f9f9f216bf0b2d6 {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject_id"] = id
+        return new ib56123924933387f3d527a6a2ef453456206373b86589e8b7f9f9f216bf0b2d6(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item.device.transitiveMemberOf.item collection
+     * @param id Unique identifier of the item
+     * @returns a directoryObjectItemRequestBuilder
+     */
+    public transitiveMemberOfById(id: string) : iad1f66921ef4a3afaec8e39c72e53b5d0304fd9392c239556849669b1de53a54 {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["directoryObject_id"] = id
+        return new iad1f66921ef4a3afaec8e39c72e53b5d0304fd9392c239556849669b1de53a54(urlTplParams, this.requestAdapter);
     };
 }

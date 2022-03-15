@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class OnenoteEntityBaseModel extends Entity implements Parsable {
     /** The endpoint where you can get details about the page. Read-only.  */
     private _self?: string | undefined;
@@ -9,13 +10,6 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the self property value. The endpoint where you can get details about the page. Read-only.
-     * @returns a string
-     */
-    public get self() {
-        return this._self;
     };
     /**
      * The deserialization information for the current model
@@ -27,13 +21,11 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the self property value. The endpoint where you can get details about the page. Read-only.
+     * @returns a string
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("self", this.self);
+    public get self() {
+        return this._self;
     };
     /**
      * Sets the self property value. The endpoint where you can get details about the page. Read-only.
@@ -41,5 +33,14 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
      */
     public set self(value: string | undefined) {
         this._self = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeStringValue("self", this.self);
     };
 }

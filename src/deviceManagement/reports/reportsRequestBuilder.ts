@@ -1,6 +1,9 @@
+import {createDeviceManagementReportsFromDiscriminatorValue} from '../../models/microsoft/graph/createDeviceManagementReportsFromDiscriminatorValue';
 import {DeviceManagementReports} from '../../models/microsoft/graph/deviceManagementReports';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
 import {ExportJobsRequestBuilder} from './exportJobs/exportJobsRequestBuilder';
-import {DeviceManagementExportJobRequestBuilder} from './exportJobs/item/deviceManagementExportJobRequestBuilder';
+import {DeviceManagementExportJobItemRequestBuilder} from './exportJobs/item/deviceManagementExportJobItemRequestBuilder';
 import {GetCachedReportRequestBuilder} from './getCachedReport/getCachedReportRequestBuilder';
 import {GetCompliancePolicyNonComplianceReportRequestBuilder} from './getCompliancePolicyNonComplianceReport/getCompliancePolicyNonComplianceReportRequestBuilder';
 import {GetCompliancePolicyNonComplianceSummaryReportRequestBuilder} from './getCompliancePolicyNonComplianceSummaryReport/getCompliancePolicyNonComplianceSummaryReportRequestBuilder';
@@ -17,9 +20,9 @@ import {GetPolicyNonComplianceReportRequestBuilder} from './getPolicyNonComplian
 import {GetPolicyNonComplianceSummaryReportRequestBuilder} from './getPolicyNonComplianceSummaryReport/getPolicyNonComplianceSummaryReportRequestBuilder';
 import {GetReportFiltersRequestBuilder} from './getReportFilters/getReportFiltersRequestBuilder';
 import {GetSettingNonComplianceReportRequestBuilder} from './getSettingNonComplianceReport/getSettingNonComplianceReportRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement/reports  */
+/** Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.  */
 export class ReportsRequestBuilder {
     public get exportJobs(): ExportJobsRequestBuilder {
         return new ExportJobsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -92,7 +95,7 @@ export class ReportsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Reports singleton
+     * Delete navigation property reports for deviceManagement
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -102,7 +105,7 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -121,13 +124,13 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Reports singleton
+     * Update the navigation property reports in deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -139,13 +142,13 @@ export class ReportsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Reports singleton
+     * Delete navigation property reports for deviceManagement
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -154,18 +157,22 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.reports.exportJobs.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementExportJobRequestBuilder
+     * @returns a deviceManagementExportJobItemRequestBuilder
      */
-    public exportJobsById(id: string) : DeviceManagementExportJobRequestBuilder {
+    public exportJobsById(id: string) : DeviceManagementExportJobItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementExportJob_id"] = id
-        return new DeviceManagementExportJobRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceManagementExportJobItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Reports singleton
@@ -182,10 +189,14 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DeviceManagementReports>(requestInfo, DeviceManagementReports, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DeviceManagementReports>(requestInfo, createDeviceManagementReportsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Reports singleton
+     * Update the navigation property reports in deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -196,6 +207,10 @@ export class ReportsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

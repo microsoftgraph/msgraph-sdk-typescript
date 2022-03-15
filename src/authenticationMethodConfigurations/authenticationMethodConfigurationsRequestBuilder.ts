@@ -1,9 +1,17 @@
 import {AuthenticationMethodConfiguration} from '../models/microsoft/graph/authenticationMethodConfiguration';
-import {AuthenticationMethodConfigurationsResponse} from './authenticationMethodConfigurationsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {AuthenticationMethodConfigurationCollectionResponse} from '../models/microsoft/graph/authenticationMethodConfigurationCollectionResponse';
+import {createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue} from '../models/microsoft/graph/createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue';
+import {createAuthenticationMethodConfigurationFromDiscriminatorValue} from '../models/microsoft/graph/createAuthenticationMethodConfigurationFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /authenticationMethodConfigurations  */
+/** Provides operations to manage the collection of authenticationMethodConfiguration entities.  */
 export class AuthenticationMethodConfigurationsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,7 +52,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -62,7 +70,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +81,7 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AuthenticationMethodConfigurationsResponse
+     * @returns a Promise of AuthenticationMethodConfigurationCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,11 +92,15 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfigurationsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AuthenticationMethodConfigurationCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AuthenticationMethodConfigurationsResponse>(requestInfo, AuthenticationMethodConfigurationsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AuthenticationMethodConfigurationCollectionResponse>(requestInfo, createAuthenticationMethodConfigurationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Add new entity to authenticationMethodConfigurations
@@ -103,6 +115,10 @@ export class AuthenticationMethodConfigurationsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<AuthenticationMethodConfiguration>(requestInfo, AuthenticationMethodConfiguration, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AuthenticationMethodConfiguration>(requestInfo, createAuthenticationMethodConfigurationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,6 +1,7 @@
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the drive singleton.  */
 export class FieldValueSet extends Entity implements Parsable {
     /**
      * Instantiates a new fieldValueSet and sets the default values.

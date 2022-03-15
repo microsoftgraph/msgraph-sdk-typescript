@@ -1,9 +1,17 @@
+import {createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue';
+import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
 import {DeviceComplianceScheduledActionForRule} from '../../../../models/microsoft/graph/deviceComplianceScheduledActionForRule';
-import {ScheduledActionsForRuleResponse} from './scheduledActionsForRuleResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DeviceComplianceScheduledActionForRuleCollectionResponse} from '../../../../models/microsoft/graph/deviceComplianceScheduledActionForRuleCollectionResponse';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement/deviceCompliancePolicies/{deviceCompliancePolicy-id}/scheduledActionsForRule  */
+/** Provides operations to manage the scheduledActionsForRule property of the microsoft.graph.deviceCompliancePolicy entity.  */
 export class ScheduledActionsForRuleRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -24,7 +32,7 @@ export class ScheduledActionsForRuleRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The list of scheduled action for this rule
+     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -44,13 +52,13 @@ export class ScheduledActionsForRuleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The list of scheduled action for this rule
+     * Create new navigation property to scheduledActionsForRule for deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,18 +70,18 @@ export class ScheduledActionsForRuleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The list of scheduled action for this rule
+     * The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ScheduledActionsForRuleResponse
+     * @returns a Promise of DeviceComplianceScheduledActionForRuleCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class ScheduledActionsForRuleRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ScheduledActionsForRuleResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceScheduledActionForRuleCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ScheduledActionsForRuleResponse>(requestInfo, ScheduledActionsForRuleResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRuleCollectionResponse>(requestInfo, createDeviceComplianceScheduledActionForRuleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The list of scheduled action for this rule
+     * Create new navigation property to scheduledActionsForRule for deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class ScheduledActionsForRuleRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, DeviceComplianceScheduledActionForRule, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DeviceComplianceScheduledActionForRule>(requestInfo, createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

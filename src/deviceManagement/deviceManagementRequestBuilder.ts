@@ -1,63 +1,67 @@
+import {createDeviceManagementFromDiscriminatorValue} from '../models/microsoft/graph/createDeviceManagementFromDiscriminatorValue';
 import {DeviceManagement} from '../models/microsoft/graph/deviceManagement';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {ApplePushNotificationCertificateRequestBuilder} from './applePushNotificationCertificate/applePushNotificationCertificateRequestBuilder';
 import {ComplianceManagementPartnersRequestBuilder} from './complianceManagementPartners/complianceManagementPartnersRequestBuilder';
-import {ComplianceManagementPartnerRequestBuilder} from './complianceManagementPartners/item/complianceManagementPartnerRequestBuilder';
+import {ComplianceManagementPartnerItemRequestBuilder} from './complianceManagementPartners/item/complianceManagementPartnerItemRequestBuilder';
 import {ConditionalAccessSettingsRequestBuilder} from './conditionalAccessSettings/conditionalAccessSettingsRequestBuilder';
 import {DetectedAppsRequestBuilder} from './detectedApps/detectedAppsRequestBuilder';
-import {DetectedAppRequestBuilder} from './detectedApps/item/detectedAppRequestBuilder';
+import {DetectedAppItemRequestBuilder} from './detectedApps/item/detectedAppItemRequestBuilder';
 import {DeviceCategoriesRequestBuilder} from './deviceCategories/deviceCategoriesRequestBuilder';
-import {DeviceCategoryRequestBuilder} from './deviceCategories/item/deviceCategoryRequestBuilder';
+import {DeviceCategoryItemRequestBuilder} from './deviceCategories/item/deviceCategoryItemRequestBuilder';
 import {DeviceCompliancePoliciesRequestBuilder} from './deviceCompliancePolicies/deviceCompliancePoliciesRequestBuilder';
-import {DeviceCompliancePolicyRequestBuilder} from './deviceCompliancePolicies/item/deviceCompliancePolicyRequestBuilder';
+import {DeviceCompliancePolicyItemRequestBuilder} from './deviceCompliancePolicies/item/deviceCompliancePolicyItemRequestBuilder';
 import {DeviceCompliancePolicyDeviceStateSummaryRequestBuilder} from './deviceCompliancePolicyDeviceStateSummary/deviceCompliancePolicyDeviceStateSummaryRequestBuilder';
 import {DeviceCompliancePolicySettingStateSummariesRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/deviceCompliancePolicySettingStateSummariesRequestBuilder';
-import {DeviceCompliancePolicySettingStateSummaryRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/item/deviceCompliancePolicySettingStateSummaryRequestBuilder';
+import {DeviceCompliancePolicySettingStateSummaryItemRequestBuilder} from './deviceCompliancePolicySettingStateSummaries/item/deviceCompliancePolicySettingStateSummaryItemRequestBuilder';
 import {DeviceConfigurationDeviceStateSummariesRequestBuilder} from './deviceConfigurationDeviceStateSummaries/deviceConfigurationDeviceStateSummariesRequestBuilder';
 import {DeviceConfigurationsRequestBuilder} from './deviceConfigurations/deviceConfigurationsRequestBuilder';
-import {DeviceConfigurationRequestBuilder} from './deviceConfigurations/item/deviceConfigurationRequestBuilder';
+import {DeviceConfigurationItemRequestBuilder} from './deviceConfigurations/item/deviceConfigurationItemRequestBuilder';
 import {DeviceEnrollmentConfigurationsRequestBuilder} from './deviceEnrollmentConfigurations/deviceEnrollmentConfigurationsRequestBuilder';
-import {DeviceEnrollmentConfigurationRequestBuilder} from './deviceEnrollmentConfigurations/item/deviceEnrollmentConfigurationRequestBuilder';
+import {DeviceEnrollmentConfigurationItemRequestBuilder} from './deviceEnrollmentConfigurations/item/deviceEnrollmentConfigurationItemRequestBuilder';
 import {DeviceManagementPartnersRequestBuilder} from './deviceManagementPartners/deviceManagementPartnersRequestBuilder';
-import {DeviceManagementPartnerRequestBuilder} from './deviceManagementPartners/item/deviceManagementPartnerRequestBuilder';
+import {DeviceManagementPartnerItemRequestBuilder} from './deviceManagementPartners/item/deviceManagementPartnerItemRequestBuilder';
 import {ExchangeConnectorsRequestBuilder} from './exchangeConnectors/exchangeConnectorsRequestBuilder';
-import {DeviceManagementExchangeConnectorRequestBuilder} from './exchangeConnectors/item/deviceManagementExchangeConnectorRequestBuilder';
+import {DeviceManagementExchangeConnectorItemRequestBuilder} from './exchangeConnectors/item/deviceManagementExchangeConnectorItemRequestBuilder';
 import {GetEffectivePermissionsWithScopeRequestBuilder} from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
 import {ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/importedWindowsAutopilotDeviceIdentitiesRequestBuilder';
-import {ImportedWindowsAutopilotDeviceIdentityRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/item/importedWindowsAutopilotDeviceIdentityRequestBuilder';
+import {ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder} from './importedWindowsAutopilotDeviceIdentities/item/importedWindowsAutopilotDeviceIdentityItemRequestBuilder';
 import {IosUpdateStatusesRequestBuilder} from './iosUpdateStatuses/iosUpdateStatusesRequestBuilder';
-import {IosUpdateDeviceStatusRequestBuilder} from './iosUpdateStatuses/item/iosUpdateDeviceStatusRequestBuilder';
+import {IosUpdateDeviceStatusItemRequestBuilder} from './iosUpdateStatuses/item/iosUpdateDeviceStatusItemRequestBuilder';
 import {ManagedDeviceOverviewRequestBuilder} from './managedDeviceOverview/managedDeviceOverviewRequestBuilder';
-import {ManagedDeviceRequestBuilder} from './managedDevices/item/managedDeviceRequestBuilder';
+import {ManagedDeviceItemRequestBuilder} from './managedDevices/item/managedDeviceItemRequestBuilder';
 import {ManagedDevicesRequestBuilder} from './managedDevices/managedDevicesRequestBuilder';
-import {MobileThreatDefenseConnectorRequestBuilder} from './mobileThreatDefenseConnectors/item/mobileThreatDefenseConnectorRequestBuilder';
+import {MobileThreatDefenseConnectorItemRequestBuilder} from './mobileThreatDefenseConnectors/item/mobileThreatDefenseConnectorItemRequestBuilder';
 import {MobileThreatDefenseConnectorsRequestBuilder} from './mobileThreatDefenseConnectors/mobileThreatDefenseConnectorsRequestBuilder';
-import {NotificationMessageTemplateRequestBuilder} from './notificationMessageTemplates/item/notificationMessageTemplateRequestBuilder';
+import {NotificationMessageTemplateItemRequestBuilder} from './notificationMessageTemplates/item/notificationMessageTemplateItemRequestBuilder';
 import {NotificationMessageTemplatesRequestBuilder} from './notificationMessageTemplates/notificationMessageTemplatesRequestBuilder';
-import {RemoteAssistancePartnerRequestBuilder} from './remoteAssistancePartners/item/remoteAssistancePartnerRequestBuilder';
+import {RemoteAssistancePartnerItemRequestBuilder} from './remoteAssistancePartners/item/remoteAssistancePartnerItemRequestBuilder';
 import {RemoteAssistancePartnersRequestBuilder} from './remoteAssistancePartners/remoteAssistancePartnersRequestBuilder';
 import {ReportsRequestBuilder} from './reports/reportsRequestBuilder';
-import {ResourceOperationRequestBuilder} from './resourceOperations/item/resourceOperationRequestBuilder';
+import {ResourceOperationItemRequestBuilder} from './resourceOperations/item/resourceOperationItemRequestBuilder';
 import {ResourceOperationsRequestBuilder} from './resourceOperations/resourceOperationsRequestBuilder';
-import {DeviceAndAppManagementRoleAssignmentRequestBuilder} from './roleAssignments/item/deviceAndAppManagementRoleAssignmentRequestBuilder';
+import {DeviceAndAppManagementRoleAssignmentItemRequestBuilder} from './roleAssignments/item/deviceAndAppManagementRoleAssignmentItemRequestBuilder';
 import {RoleAssignmentsRequestBuilder} from './roleAssignments/roleAssignmentsRequestBuilder';
-import {RoleDefinitionRequestBuilder} from './roleDefinitions/item/roleDefinitionRequestBuilder';
+import {RoleDefinitionItemRequestBuilder} from './roleDefinitions/item/roleDefinitionItemRequestBuilder';
 import {RoleDefinitionsRequestBuilder} from './roleDefinitions/roleDefinitionsRequestBuilder';
 import {SoftwareUpdateStatusSummaryRequestBuilder} from './softwareUpdateStatusSummary/softwareUpdateStatusSummaryRequestBuilder';
-import {TelecomExpenseManagementPartnerRequestBuilder} from './telecomExpenseManagementPartners/item/telecomExpenseManagementPartnerRequestBuilder';
+import {TelecomExpenseManagementPartnerItemRequestBuilder} from './telecomExpenseManagementPartners/item/telecomExpenseManagementPartnerItemRequestBuilder';
 import {TelecomExpenseManagementPartnersRequestBuilder} from './telecomExpenseManagementPartners/telecomExpenseManagementPartnersRequestBuilder';
+import {TermsAndConditionsItemRequestBuilder} from './termsAndConditions/item/termsAndConditionsItemRequestBuilder';
 import {TermsAndConditionsRequestBuilder} from './termsAndConditions/termsAndConditionsRequestBuilder';
-import {DeviceManagementTroubleshootingEventRequestBuilder} from './troubleshootingEvents/item/deviceManagementTroubleshootingEventRequestBuilder';
+import {DeviceManagementTroubleshootingEventItemRequestBuilder} from './troubleshootingEvents/item/deviceManagementTroubleshootingEventItemRequestBuilder';
 import {TroubleshootingEventsRequestBuilder} from './troubleshootingEvents/troubleshootingEventsRequestBuilder';
 import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder} from './verifyWindowsEnrollmentAutoDiscoveryWithDomainName/verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder';
-import {WindowsAutopilotDeviceIdentityRequestBuilder} from './windowsAutopilotDeviceIdentities/item/windowsAutopilotDeviceIdentityRequestBuilder';
+import {WindowsAutopilotDeviceIdentityItemRequestBuilder} from './windowsAutopilotDeviceIdentities/item/windowsAutopilotDeviceIdentityItemRequestBuilder';
 import {WindowsAutopilotDeviceIdentitiesRequestBuilder} from './windowsAutopilotDeviceIdentities/windowsAutopilotDeviceIdentitiesRequestBuilder';
-import {WindowsInformationProtectionAppLearningSummaryRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/item/windowsInformationProtectionAppLearningSummaryRequestBuilder';
+import {WindowsInformationProtectionAppLearningSummaryItemRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/item/windowsInformationProtectionAppLearningSummaryItemRequestBuilder';
 import {WindowsInformationProtectionAppLearningSummariesRequestBuilder} from './windowsInformationProtectionAppLearningSummaries/windowsInformationProtectionAppLearningSummariesRequestBuilder';
-import {WindowsInformationProtectionNetworkLearningSummaryRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/item/windowsInformationProtectionNetworkLearningSummaryRequestBuilder';
+import {WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/item/windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder';
 import {WindowsInformationProtectionNetworkLearningSummariesRequestBuilder} from './windowsInformationProtectionNetworkLearningSummaries/windowsInformationProtectionNetworkLearningSummariesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement  */
+/** Provides operations to manage the deviceManagement singleton.  */
 export class DeviceManagementRequestBuilder {
     public get applePushNotificationCertificate(): ApplePushNotificationCertificateRequestBuilder {
         return new ApplePushNotificationCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -161,13 +165,13 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.complianceManagementPartners.item collection
      * @param id Unique identifier of the item
-     * @returns a complianceManagementPartnerRequestBuilder
+     * @returns a complianceManagementPartnerItemRequestBuilder
      */
-    public complianceManagementPartnersById(id: string) : ComplianceManagementPartnerRequestBuilder {
+    public complianceManagementPartnersById(id: string) : ComplianceManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["complianceManagementPartner_id"] = id
-        return new ComplianceManagementPartnerRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ComplianceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DeviceManagementRequestBuilder and sets the default values.
@@ -197,7 +201,7 @@ export class DeviceManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -215,7 +219,7 @@ export class DeviceManagementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -223,90 +227,90 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.detectedApps.item collection
      * @param id Unique identifier of the item
-     * @returns a detectedAppRequestBuilder
+     * @returns a detectedAppItemRequestBuilder
      */
-    public detectedAppsById(id: string) : DetectedAppRequestBuilder {
+    public detectedAppsById(id: string) : DetectedAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["detectedApp_id"] = id
-        return new DetectedAppRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DetectedAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCategories.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCategoryRequestBuilder
+     * @returns a deviceCategoryItemRequestBuilder
      */
-    public deviceCategoriesById(id: string) : DeviceCategoryRequestBuilder {
+    public deviceCategoriesById(id: string) : DeviceCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCategory_id"] = id
-        return new DeviceCategoryRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicies.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCompliancePolicyRequestBuilder
+     * @returns a deviceCompliancePolicyItemRequestBuilder
      */
-    public deviceCompliancePoliciesById(id: string) : DeviceCompliancePolicyRequestBuilder {
+    public deviceCompliancePoliciesById(id: string) : DeviceCompliancePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCompliancePolicy_id"] = id
-        return new DeviceCompliancePolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceCompliancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceCompliancePolicySettingStateSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceCompliancePolicySettingStateSummaryRequestBuilder
+     * @returns a deviceCompliancePolicySettingStateSummaryItemRequestBuilder
      */
-    public deviceCompliancePolicySettingStateSummariesById(id: string) : DeviceCompliancePolicySettingStateSummaryRequestBuilder {
+    public deviceCompliancePolicySettingStateSummariesById(id: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceCompliancePolicySettingStateSummary_id"] = id
-        return new DeviceCompliancePolicySettingStateSummaryRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceConfigurationRequestBuilder
+     * @returns a deviceConfigurationItemRequestBuilder
      */
-    public deviceConfigurationsById(id: string) : DeviceConfigurationRequestBuilder {
+    public deviceConfigurationsById(id: string) : DeviceConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceConfiguration_id"] = id
-        return new DeviceConfigurationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceEnrollmentConfigurations.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceEnrollmentConfigurationRequestBuilder
+     * @returns a deviceEnrollmentConfigurationItemRequestBuilder
      */
-    public deviceEnrollmentConfigurationsById(id: string) : DeviceEnrollmentConfigurationRequestBuilder {
+    public deviceEnrollmentConfigurationsById(id: string) : DeviceEnrollmentConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceEnrollmentConfiguration_id"] = id
-        return new DeviceEnrollmentConfigurationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceEnrollmentConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.deviceManagementPartners.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementPartnerRequestBuilder
+     * @returns a deviceManagementPartnerItemRequestBuilder
      */
-    public deviceManagementPartnersById(id: string) : DeviceManagementPartnerRequestBuilder {
+    public deviceManagementPartnersById(id: string) : DeviceManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementPartner_id"] = id
-        return new DeviceManagementPartnerRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.exchangeConnectors.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementExchangeConnectorRequestBuilder
+     * @returns a deviceManagementExchangeConnectorItemRequestBuilder
      */
-    public exchangeConnectorsById(id: string) : DeviceManagementExchangeConnectorRequestBuilder {
+    public exchangeConnectorsById(id: string) : DeviceManagementExchangeConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementExchangeConnector_id"] = id
-        return new DeviceManagementExchangeConnectorRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceManagementExchangeConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get deviceManagement
@@ -323,11 +327,15 @@ export class DeviceManagementRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DeviceManagement>(requestInfo, DeviceManagement, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DeviceManagement>(requestInfo, createDeviceManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Builds and executes requests for operations under /deviceManagement/microsoft.graph.getEffectivePermissions(scope='{scope}')
-     * @param scope Usage: scope={scope}
+     * Provides operations to call the getEffectivePermissions method.
+     * @param scope Usage: scope='{scope}'
      * @returns a getEffectivePermissionsWithScopeRequestBuilder
      */
     public getEffectivePermissionsWithScope(scope: string | undefined) : GetEffectivePermissionsWithScopeRequestBuilder {
@@ -337,57 +345,57 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.importedWindowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
-     * @returns a importedWindowsAutopilotDeviceIdentityRequestBuilder
+     * @returns a importedWindowsAutopilotDeviceIdentityItemRequestBuilder
      */
-    public importedWindowsAutopilotDeviceIdentitiesById(id: string) : ImportedWindowsAutopilotDeviceIdentityRequestBuilder {
+    public importedWindowsAutopilotDeviceIdentitiesById(id: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["importedWindowsAutopilotDeviceIdentity_id"] = id
-        return new ImportedWindowsAutopilotDeviceIdentityRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.iosUpdateStatuses.item collection
      * @param id Unique identifier of the item
-     * @returns a iosUpdateDeviceStatusRequestBuilder
+     * @returns a iosUpdateDeviceStatusItemRequestBuilder
      */
-    public iosUpdateStatusesById(id: string) : IosUpdateDeviceStatusRequestBuilder {
+    public iosUpdateStatusesById(id: string) : IosUpdateDeviceStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["iosUpdateDeviceStatus_id"] = id
-        return new IosUpdateDeviceStatusRequestBuilder(urlTplParams, this.requestAdapter);
+        return new IosUpdateDeviceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.managedDevices.item collection
      * @param id Unique identifier of the item
-     * @returns a managedDeviceRequestBuilder
+     * @returns a managedDeviceItemRequestBuilder
      */
-    public managedDevicesById(id: string) : ManagedDeviceRequestBuilder {
+    public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["managedDevice_id"] = id
-        return new ManagedDeviceRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.mobileThreatDefenseConnectors.item collection
      * @param id Unique identifier of the item
-     * @returns a mobileThreatDefenseConnectorRequestBuilder
+     * @returns a mobileThreatDefenseConnectorItemRequestBuilder
      */
-    public mobileThreatDefenseConnectorsById(id: string) : MobileThreatDefenseConnectorRequestBuilder {
+    public mobileThreatDefenseConnectorsById(id: string) : MobileThreatDefenseConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["mobileThreatDefenseConnector_id"] = id
-        return new MobileThreatDefenseConnectorRequestBuilder(urlTplParams, this.requestAdapter);
+        return new MobileThreatDefenseConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.notificationMessageTemplates.item collection
      * @param id Unique identifier of the item
-     * @returns a notificationMessageTemplateRequestBuilder
+     * @returns a notificationMessageTemplateItemRequestBuilder
      */
-    public notificationMessageTemplatesById(id: string) : NotificationMessageTemplateRequestBuilder {
+    public notificationMessageTemplatesById(id: string) : NotificationMessageTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["notificationMessageTemplate_id"] = id
-        return new NotificationMessageTemplateRequestBuilder(urlTplParams, this.requestAdapter);
+        return new NotificationMessageTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update deviceManagement
@@ -401,88 +409,92 @@ export class DeviceManagementRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.remoteAssistancePartners.item collection
      * @param id Unique identifier of the item
-     * @returns a remoteAssistancePartnerRequestBuilder
+     * @returns a remoteAssistancePartnerItemRequestBuilder
      */
-    public remoteAssistancePartnersById(id: string) : RemoteAssistancePartnerRequestBuilder {
+    public remoteAssistancePartnersById(id: string) : RemoteAssistancePartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["remoteAssistancePartner_id"] = id
-        return new RemoteAssistancePartnerRequestBuilder(urlTplParams, this.requestAdapter);
+        return new RemoteAssistancePartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.resourceOperations.item collection
      * @param id Unique identifier of the item
-     * @returns a resourceOperationRequestBuilder
+     * @returns a resourceOperationItemRequestBuilder
      */
-    public resourceOperationsById(id: string) : ResourceOperationRequestBuilder {
+    public resourceOperationsById(id: string) : ResourceOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["resourceOperation_id"] = id
-        return new ResourceOperationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ResourceOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleAssignments.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceAndAppManagementRoleAssignmentRequestBuilder
+     * @returns a deviceAndAppManagementRoleAssignmentItemRequestBuilder
      */
-    public roleAssignmentsById(id: string) : DeviceAndAppManagementRoleAssignmentRequestBuilder {
+    public roleAssignmentsById(id: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceAndAppManagementRoleAssignment_id"] = id
-        return new DeviceAndAppManagementRoleAssignmentRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceAndAppManagementRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.roleDefinitions.item collection
      * @param id Unique identifier of the item
-     * @returns a roleDefinitionRequestBuilder
+     * @returns a roleDefinitionItemRequestBuilder
      */
-    public roleDefinitionsById(id: string) : RoleDefinitionRequestBuilder {
+    public roleDefinitionsById(id: string) : RoleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["roleDefinition_id"] = id
-        return new RoleDefinitionRequestBuilder(urlTplParams, this.requestAdapter);
+        return new RoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.telecomExpenseManagementPartners.item collection
      * @param id Unique identifier of the item
-     * @returns a telecomExpenseManagementPartnerRequestBuilder
+     * @returns a telecomExpenseManagementPartnerItemRequestBuilder
      */
-    public telecomExpenseManagementPartnersById(id: string) : TelecomExpenseManagementPartnerRequestBuilder {
+    public telecomExpenseManagementPartnersById(id: string) : TelecomExpenseManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["telecomExpenseManagementPartner_id"] = id
-        return new TelecomExpenseManagementPartnerRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TelecomExpenseManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.termsAndConditions.item collection
      * @param id Unique identifier of the item
-     * @returns a termsAndConditionsRequestBuilder
+     * @returns a termsAndConditionsItemRequestBuilder
      */
-    public termsAndConditionsById(id: string) : TermsAndConditionsRequestBuilder {
+    public termsAndConditionsById(id: string) : TermsAndConditionsItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["termsAndConditions_id"] = id
-        return new TermsAndConditionsRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TermsAndConditionsItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.troubleshootingEvents.item collection
      * @param id Unique identifier of the item
-     * @returns a deviceManagementTroubleshootingEventRequestBuilder
+     * @returns a deviceManagementTroubleshootingEventItemRequestBuilder
      */
-    public troubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventRequestBuilder {
+    public troubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["deviceManagementTroubleshootingEvent_id"] = id
-        return new DeviceManagementTroubleshootingEventRequestBuilder(urlTplParams, this.requestAdapter);
+        return new DeviceManagementTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Builds and executes requests for operations under /deviceManagement/microsoft.graph.verifyWindowsEnrollmentAutoDiscovery(domainName='{domainName}')
-     * @param domainName Usage: domainName={domainName}
+     * Provides operations to call the verifyWindowsEnrollmentAutoDiscovery method.
+     * @param domainName Usage: domainName='{domainName}'
      * @returns a verifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder
      */
     public verifyWindowsEnrollmentAutoDiscoveryWithDomainName(domainName: string | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameRequestBuilder {
@@ -492,34 +504,34 @@ export class DeviceManagementRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsAutopilotDeviceIdentities.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsAutopilotDeviceIdentityRequestBuilder
+     * @returns a windowsAutopilotDeviceIdentityItemRequestBuilder
      */
-    public windowsAutopilotDeviceIdentitiesById(id: string) : WindowsAutopilotDeviceIdentityRequestBuilder {
+    public windowsAutopilotDeviceIdentitiesById(id: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsAutopilotDeviceIdentity_id"] = id
-        return new WindowsAutopilotDeviceIdentityRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsInformationProtectionAppLearningSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsInformationProtectionAppLearningSummaryRequestBuilder
+     * @returns a windowsInformationProtectionAppLearningSummaryItemRequestBuilder
      */
-    public windowsInformationProtectionAppLearningSummariesById(id: string) : WindowsInformationProtectionAppLearningSummaryRequestBuilder {
+    public windowsInformationProtectionAppLearningSummariesById(id: string) : WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsInformationProtectionAppLearningSummary_id"] = id
-        return new WindowsInformationProtectionAppLearningSummaryRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WindowsInformationProtectionAppLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceManagement.windowsInformationProtectionNetworkLearningSummaries.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsInformationProtectionNetworkLearningSummaryRequestBuilder
+     * @returns a windowsInformationProtectionNetworkLearningSummaryItemRequestBuilder
      */
-    public windowsInformationProtectionNetworkLearningSummariesById(id: string) : WindowsInformationProtectionNetworkLearningSummaryRequestBuilder {
+    public windowsInformationProtectionNetworkLearningSummariesById(id: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsInformationProtectionNetworkLearningSummary_id"] = id
-        return new WindowsInformationProtectionNetworkLearningSummaryRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

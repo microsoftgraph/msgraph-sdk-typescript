@@ -1,6 +1,7 @@
 import {PrintUsage} from './printUsage';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the reportRoot singleton.  */
 export class PrintUsageByPrinter extends PrintUsage implements Parsable {
     private _printerId?: string | undefined;
     /**
@@ -8,13 +9,6 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the printerId property value. 
-     * @returns a string
-     */
-    public get printerId() {
-        return this._printerId;
     };
     /**
      * The deserialization information for the current model
@@ -26,13 +20,11 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the printerId property value. 
+     * @returns a string
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeStringValue("printerId", this.printerId);
+    public get printerId() {
+        return this._printerId;
     };
     /**
      * Sets the printerId property value. 
@@ -40,5 +32,14 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
      */
     public set printerId(value: string | undefined) {
         this._printerId = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeStringValue("printerId", this.printerId);
     };
 }

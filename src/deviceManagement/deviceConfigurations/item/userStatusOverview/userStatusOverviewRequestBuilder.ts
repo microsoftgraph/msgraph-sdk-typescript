@@ -1,7 +1,10 @@
+import {createDeviceConfigurationUserOverviewFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceConfigurationUserOverviewFromDiscriminatorValue';
 import {DeviceConfigurationUserOverview} from '../../../../models/microsoft/graph/deviceConfigurationUserOverview';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement/deviceConfigurations/{deviceConfiguration-id}/userStatusOverview  */
+/** Provides operations to manage the userStatusOverview property of the microsoft.graph.deviceConfiguration entity.  */
 export class UserStatusOverviewRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -23,7 +26,7 @@ export class UserStatusOverviewRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Device Configuration users status overview
+     * Delete navigation property userStatusOverview for deviceManagement
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -33,7 +36,7 @@ export class UserStatusOverviewRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -52,13 +55,13 @@ export class UserStatusOverviewRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Device Configuration users status overview
+     * Update the navigation property userStatusOverview in deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -70,13 +73,13 @@ export class UserStatusOverviewRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Device Configuration users status overview
+     * Delete navigation property userStatusOverview for deviceManagement
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -85,7 +88,11 @@ export class UserStatusOverviewRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Device Configuration users status overview
@@ -102,10 +109,14 @@ export class UserStatusOverviewRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DeviceConfigurationUserOverview>(requestInfo, DeviceConfigurationUserOverview, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DeviceConfigurationUserOverview>(requestInfo, createDeviceConfigurationUserOverviewFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Device Configuration users status overview
+     * Update the navigation property userStatusOverview in deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -116,6 +127,10 @@ export class UserStatusOverviewRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

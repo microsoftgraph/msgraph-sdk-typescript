@@ -1,7 +1,10 @@
+import {createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue} from '../../../../models/microsoft/graph/createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue';
 import {ManagedAppPolicyDeploymentSummary} from '../../../../models/microsoft/graph/managedAppPolicyDeploymentSummary';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/oDataError';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceAppManagement/targetedManagedAppConfigurations/{targetedManagedAppConfiguration-id}/deploymentSummary  */
+/** Provides operations to manage the deploymentSummary property of the microsoft.graph.targetedManagedAppConfiguration entity.  */
 export class DeploymentSummaryRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -23,7 +26,7 @@ export class DeploymentSummaryRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Navigation property to deployment summary of the configuration.
+     * Delete navigation property deploymentSummary for deviceAppManagement
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -33,7 +36,7 @@ export class DeploymentSummaryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -52,13 +55,13 @@ export class DeploymentSummaryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Navigation property to deployment summary of the configuration.
+     * Update the navigation property deploymentSummary in deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -70,13 +73,13 @@ export class DeploymentSummaryRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Navigation property to deployment summary of the configuration.
+     * Delete navigation property deploymentSummary for deviceAppManagement
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -85,7 +88,11 @@ export class DeploymentSummaryRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Navigation property to deployment summary of the configuration.
@@ -102,10 +109,14 @@ export class DeploymentSummaryRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ManagedAppPolicyDeploymentSummary>(requestInfo, ManagedAppPolicyDeploymentSummary, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ManagedAppPolicyDeploymentSummary>(requestInfo, createManagedAppPolicyDeploymentSummaryFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Navigation property to deployment summary of the configuration.
+     * Update the navigation property deploymentSummary in deviceAppManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -116,6 +127,10 @@ export class DeploymentSummaryRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,27 +1,35 @@
 import {ExpirationPatternType} from './expirationPatternType';
-import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExpirationPattern implements Parsable {
+/** Provides operations to manage the identityGovernance singleton.  */
+export class ExpirationPattern implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Map<string, unknown>;
     /** The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.  */
     private _duration?: Duration | undefined;
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _endDateTime?: Date | undefined;
-    /** The requestor's desired expiration pattern type.  */
+    /** The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.  */
     private _type?: ExpirationPatternType | undefined;
-    /**
-     * Instantiates a new expirationPattern and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
      * @returns a Map<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Map<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new expirationPattern and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = new Map<string, unknown>();
     };
     /**
      * Gets the duration property value. The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.
@@ -31,6 +39,13 @@ export class ExpirationPattern implements Parsable {
         return this._duration;
     };
     /**
+     * Sets the duration property value. The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.
+     * @param value Value to set for the duration property.
+     */
+    public set duration(value: Duration | undefined) {
+        this._duration = value;
+    };
+    /**
      * Gets the endDateTime property value. Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
@@ -38,11 +53,11 @@ export class ExpirationPattern implements Parsable {
         return this._endDateTime;
     };
     /**
-     * Gets the type property value. The requestor's desired expiration pattern type.
-     * @returns a expirationPatternType
+     * Sets the endDateTime property value. Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the endDateTime property.
      */
-    public get type() {
-        return this._type;
+    public set endDateTime(value: Date | undefined) {
+        this._endDateTime = value;
     };
     /**
      * The deserialization information for the current model
@@ -67,28 +82,14 @@ export class ExpirationPattern implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
+     * @returns a expirationPatternType
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get type() {
+        return this._type;
     };
     /**
-     * Sets the duration property value. The requestor's desired duration of access represented in ISO 8601 format for durations. For example, PT3H refers to three hours.  If specified in a request, endDateTime should not be present and the type property should be set to afterDuration.
-     * @param value Value to set for the duration property.
-     */
-    public set duration(value: Duration | undefined) {
-        this._duration = value;
-    };
-    /**
-     * Sets the endDateTime property value. Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     * @param value Value to set for the endDateTime property.
-     */
-    public set endDateTime(value: Date | undefined) {
-        this._endDateTime = value;
-    };
-    /**
-     * Sets the type property value. The requestor's desired expiration pattern type.
+     * Sets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
      * @param value Value to set for the type property.
      */
     public set type(value: ExpirationPatternType | undefined) {

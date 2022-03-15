@@ -1,3 +1,4 @@
+/** Provides operations to manage the deviceManagement singleton.  */
 export enum DeviceEnrollmentType {
     Unknown = "unknown",
     UserEnrollment = "userEnrollment",

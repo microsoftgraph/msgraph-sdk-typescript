@@ -1,11 +1,14 @@
 import {ConditionalAccessRoot} from '../../models/microsoft/graph/conditionalAccessRoot';
-import {NamedLocationRequestBuilder} from './namedLocations/item/namedLocationRequestBuilder';
+import {createConditionalAccessRootFromDiscriminatorValue} from '../../models/microsoft/graph/createConditionalAccessRootFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
+import {NamedLocationItemRequestBuilder} from './namedLocations/item/namedLocationItemRequestBuilder';
 import {NamedLocationsRequestBuilder} from './namedLocations/namedLocationsRequestBuilder';
-import {ConditionalAccessPolicyRequestBuilder} from './policies/item/conditionalAccessPolicyRequestBuilder';
+import {ConditionalAccessPolicyItemRequestBuilder} from './policies/item/conditionalAccessPolicyItemRequestBuilder';
 import {PoliciesRequestBuilder} from './policies/policiesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identity/conditionalAccess  */
+/** Provides operations to manage the conditionalAccess property of the microsoft.graph.identityContainer entity.  */
 export class ConditionalAccessRequestBuilder {
     public get namedLocations(): NamedLocationsRequestBuilder {
         return new NamedLocationsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -33,7 +36,7 @@ export class ConditionalAccessRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * the entry point for the Conditional Access (CA) object model.
+     * Delete navigation property conditionalAccess for identity
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -43,7 +46,7 @@ export class ConditionalAccessRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -62,13 +65,13 @@ export class ConditionalAccessRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * the entry point for the Conditional Access (CA) object model.
+     * Update the navigation property conditionalAccess in identity
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -80,13 +83,13 @@ export class ConditionalAccessRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * the entry point for the Conditional Access (CA) object model.
+     * Delete navigation property conditionalAccess for identity
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -95,7 +98,11 @@ export class ConditionalAccessRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * the entry point for the Conditional Access (CA) object model.
@@ -112,21 +119,25 @@ export class ConditionalAccessRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, ConditionalAccessRoot, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ConditionalAccessRoot>(requestInfo, createConditionalAccessRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.conditionalAccess.namedLocations.item collection
      * @param id Unique identifier of the item
-     * @returns a namedLocationRequestBuilder
+     * @returns a namedLocationItemRequestBuilder
      */
-    public namedLocationsById(id: string) : NamedLocationRequestBuilder {
+    public namedLocationsById(id: string) : NamedLocationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["namedLocation_id"] = id
-        return new NamedLocationRequestBuilder(urlTplParams, this.requestAdapter);
+        return new NamedLocationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * the entry point for the Conditional Access (CA) object model.
+     * Update the navigation property conditionalAccess in identity
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -137,17 +148,21 @@ export class ConditionalAccessRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.conditionalAccess.policies.item collection
      * @param id Unique identifier of the item
-     * @returns a conditionalAccessPolicyRequestBuilder
+     * @returns a conditionalAccessPolicyItemRequestBuilder
      */
-    public policiesById(id: string) : ConditionalAccessPolicyRequestBuilder {
+    public policiesById(id: string) : ConditionalAccessPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["conditionalAccessPolicy_id"] = id
-        return new ConditionalAccessPolicyRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ConditionalAccessPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

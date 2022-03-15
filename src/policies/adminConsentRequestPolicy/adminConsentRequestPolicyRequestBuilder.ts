@@ -1,7 +1,10 @@
 import {AdminConsentRequestPolicy} from '../../models/microsoft/graph/adminConsentRequestPolicy';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createAdminConsentRequestPolicyFromDiscriminatorValue} from '../../models/microsoft/graph/createAdminConsentRequestPolicyFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/oDataError';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /policies/adminConsentRequestPolicy  */
+/** Provides operations to manage the adminConsentRequestPolicy property of the microsoft.graph.policyRoot entity.  */
 export class AdminConsentRequestPolicyRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -23,7 +26,7 @@ export class AdminConsentRequestPolicyRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The policy by which consent requests are created and managed for the entire tenant.
+     * Delete navigation property adminConsentRequestPolicy for policies
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -33,7 +36,7 @@ export class AdminConsentRequestPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -52,13 +55,13 @@ export class AdminConsentRequestPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The policy by which consent requests are created and managed for the entire tenant.
+     * Update the navigation property adminConsentRequestPolicy in policies
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -70,13 +73,13 @@ export class AdminConsentRequestPolicyRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The policy by which consent requests are created and managed for the entire tenant.
+     * Delete navigation property adminConsentRequestPolicy for policies
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -85,7 +88,11 @@ export class AdminConsentRequestPolicyRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The policy by which consent requests are created and managed for the entire tenant.
@@ -102,10 +109,14 @@ export class AdminConsentRequestPolicyRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AdminConsentRequestPolicy>(requestInfo, AdminConsentRequestPolicy, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AdminConsentRequestPolicy>(requestInfo, createAdminConsentRequestPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The policy by which consent requests are created and managed for the entire tenant.
+     * Update the navigation property adminConsentRequestPolicy in policies
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -116,6 +127,10 @@ export class AdminConsentRequestPolicyRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,7 @@
 import {Report} from '../../models/microsoft/graph/report';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')  */
+/** Provides operations to call the managedDeviceEnrollmentFailureDetails method.  */
 export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -11,22 +11,22 @@ export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithS
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithSkipTokenRequestBuilder and sets the default values.
-     * @param filter Usage: filter={filter}
+     * @param filter Usage: filter='{filter}'
      * @param pathParameters The raw url or the Url template parameters for the request.
      * @param requestAdapter The request adapter to use to execute the requests.
      * @param skip Usage: skip={skip}
-     * @param skipToken Usage: skipToken={skipToken}
+     * @param skipToken Usage: skipToken='{skipToken}'
      * @param top Usage: top={top}
      */
-    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, skip?: number | undefined, top?: number | undefined, filter?: string | undefined, skipToken?: string | undefined) {
+    public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, filter?: string | undefined, skip?: number | undefined, skipToken?: string | undefined, top?: number | undefined) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
         this.urlTemplate = "{+baseurl}/reports/microsoft.graph.managedDeviceEnrollmentFailureDetails(skip={skip},top={top},filter='{filter}',skipToken='{skipToken}')";
         const urlTplParams = getPathParameters(pathParameters);
-        urlTplParams["skip"] = skip
-        urlTplParams["top"] = top
         urlTplParams["filter"] = filter
+        urlTplParams["skip"] = skip
         urlTplParams["skipToken"] = skipToken
+        urlTplParams["top"] = top
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
@@ -41,7 +41,7 @@ export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithS
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -56,6 +56,6 @@ export class ManagedDeviceEnrollmentFailureDetailsWithSkipWithTopWithFilterWithS
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, Report, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

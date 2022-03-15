@@ -1,16 +1,19 @@
+import {createIdentityContainerFromDiscriminatorValue} from '../models/microsoft/graph/createIdentityContainerFromDiscriminatorValue';
 import {IdentityContainer} from '../models/microsoft/graph/identityContainer';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {ApiConnectorsRequestBuilder} from './apiConnectors/apiConnectorsRequestBuilder';
-import {IdentityApiConnectorRequestBuilder} from './apiConnectors/item/identityApiConnectorRequestBuilder';
+import {IdentityApiConnectorItemRequestBuilder} from './apiConnectors/item/identityApiConnectorItemRequestBuilder';
 import {B2xUserFlowsRequestBuilder} from './b2xUserFlows/b2xUserFlowsRequestBuilder';
-import {B2xIdentityUserFlowRequestBuilder} from './b2xUserFlows/item/b2xIdentityUserFlowRequestBuilder';
+import {B2xIdentityUserFlowItemRequestBuilder} from './b2xUserFlows/item/b2xIdentityUserFlowItemRequestBuilder';
 import {ConditionalAccessRequestBuilder} from './conditionalAccess/conditionalAccessRequestBuilder';
 import {IdentityProvidersRequestBuilder} from './identityProviders/identityProvidersRequestBuilder';
-import {IdentityProviderBaseRequestBuilder} from './identityProviders/item/identityProviderBaseRequestBuilder';
-import {IdentityUserFlowAttributeRequestBuilder} from './userFlowAttributes/item/identityUserFlowAttributeRequestBuilder';
+import {IdentityProviderBaseItemRequestBuilder} from './identityProviders/item/identityProviderBaseItemRequestBuilder';
+import {IdentityUserFlowAttributeItemRequestBuilder} from './userFlowAttributes/item/identityUserFlowAttributeItemRequestBuilder';
 import {UserFlowAttributesRequestBuilder} from './userFlowAttributes/userFlowAttributesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identity  */
+/** Provides operations to manage the identityContainer singleton.  */
 export class IdentityRequestBuilder {
     public get apiConnectors(): ApiConnectorsRequestBuilder {
         return new ApiConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -36,24 +39,24 @@ export class IdentityRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.apiConnectors.item collection
      * @param id Unique identifier of the item
-     * @returns a identityApiConnectorRequestBuilder
+     * @returns a identityApiConnectorItemRequestBuilder
      */
-    public apiConnectorsById(id: string) : IdentityApiConnectorRequestBuilder {
+    public apiConnectorsById(id: string) : IdentityApiConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityApiConnector_id"] = id
-        return new IdentityApiConnectorRequestBuilder(urlTplParams, this.requestAdapter);
+        return new IdentityApiConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.b2xUserFlows.item collection
      * @param id Unique identifier of the item
-     * @returns a b2xIdentityUserFlowRequestBuilder
+     * @returns a b2xIdentityUserFlowItemRequestBuilder
      */
-    public b2xUserFlowsById(id: string) : B2xIdentityUserFlowRequestBuilder {
+    public b2xUserFlowsById(id: string) : B2xIdentityUserFlowItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["b2xIdentityUserFlow_id"] = id
-        return new B2xIdentityUserFlowRequestBuilder(urlTplParams, this.requestAdapter);
+        return new B2xIdentityUserFlowItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new IdentityRequestBuilder and sets the default values.
@@ -83,7 +86,7 @@ export class IdentityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -101,7 +104,7 @@ export class IdentityRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -121,18 +124,22 @@ export class IdentityRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, IdentityContainer, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<IdentityContainer>(requestInfo, createIdentityContainerFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.identityProviders.item collection
      * @param id Unique identifier of the item
-     * @returns a identityProviderBaseRequestBuilder
+     * @returns a identityProviderBaseItemRequestBuilder
      */
-    public identityProvidersById(id: string) : IdentityProviderBaseRequestBuilder {
+    public identityProvidersById(id: string) : IdentityProviderBaseItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityProviderBase_id"] = id
-        return new IdentityProviderBaseRequestBuilder(urlTplParams, this.requestAdapter);
+        return new IdentityProviderBaseItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update identity
@@ -146,17 +153,21 @@ export class IdentityRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.identity.userFlowAttributes.item collection
      * @param id Unique identifier of the item
-     * @returns a identityUserFlowAttributeRequestBuilder
+     * @returns a identityUserFlowAttributeItemRequestBuilder
      */
-    public userFlowAttributesById(id: string) : IdentityUserFlowAttributeRequestBuilder {
+    public userFlowAttributesById(id: string) : IdentityUserFlowAttributeItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["identityUserFlowAttribute_id"] = id
-        return new IdentityUserFlowAttributeRequestBuilder(urlTplParams, this.requestAdapter);
+        return new IdentityUserFlowAttributeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

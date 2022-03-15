@@ -1,9 +1,17 @@
+import {createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue';
+import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../../../models/microsoft/graph/createResourceSpecificPermissionGrantFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/oDataError';
 import {ResourceSpecificPermissionGrant} from '../../../models/microsoft/graph/resourceSpecificPermissionGrant';
-import {PermissionGrantsResponse} from './permissionGrantsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ResourceSpecificPermissionGrantCollectionResponse} from '../../../models/microsoft/graph/resourceSpecificPermissionGrantCollectionResponse';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /groups/{group-id}/permissionGrants  */
+/** Provides operations to manage the permissionGrants property of the microsoft.graph.group entity.  */
 export class PermissionGrantsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -24,7 +32,7 @@ export class PermissionGrantsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The permissions that have been granted for a group to a specific application. Supports $expand.
+     * The permission that has been granted for a group to a specific application. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -44,13 +52,13 @@ export class PermissionGrantsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The permissions that have been granted for a group to a specific application. Supports $expand.
+     * Create new navigation property to permissionGrants for groups
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,18 +70,18 @@ export class PermissionGrantsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The permissions that have been granted for a group to a specific application. Supports $expand.
+     * The permission that has been granted for a group to a specific application. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of PermissionGrantsResponse
+     * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +92,18 @@ export class PermissionGrantsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PermissionGrantsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<PermissionGrantsResponse>(requestInfo, PermissionGrantsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ResourceSpecificPermissionGrantCollectionResponse>(requestInfo, createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The permissions that have been granted for a group to a specific application. Supports $expand.
+     * Create new navigation property to permissionGrants for groups
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +115,10 @@ export class PermissionGrantsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, ResourceSpecificPermissionGrant, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ResourceSpecificPermissionGrant>(requestInfo, createResourceSpecificPermissionGrantFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

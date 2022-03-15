@@ -2,12 +2,13 @@ import {EducationExternalSource} from './educationExternalSource';
 import {Entity} from './entity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton.  */
 export class EducationOrganization extends Entity implements Parsable {
     /** Organization description.  */
     private _description?: string | undefined;
     /** Organization display name.  */
     private _displayName?: string | undefined;
-    /** Where this user was created from. Possible values are: sis, lms, or manual.  */
+    /** Source where this organization was created from. Possible values are: sis, manual.  */
     private _externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from.  */
     private _externalSourceDetail?: string | undefined;
@@ -25,6 +26,13 @@ export class EducationOrganization extends Entity implements Parsable {
         return this._description;
     };
     /**
+     * Sets the description property value. Organization description.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
+    };
+    /**
      * Gets the displayName property value. Organization display name.
      * @returns a string
      */
@@ -32,11 +40,25 @@ export class EducationOrganization extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
+     * Sets the displayName property value. Organization display name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * Gets the externalSource property value. Source where this organization was created from. Possible values are: sis, manual.
      * @returns a educationExternalSource
      */
     public get externalSource() {
         return this._externalSource;
+    };
+    /**
+     * Sets the externalSource property value. Source where this organization was created from. Possible values are: sis, manual.
+     * @param value Value to set for the externalSource property.
+     */
+    public set externalSource(value: EducationExternalSource | undefined) {
+        this._externalSource = value;
     };
     /**
      * Gets the externalSourceDetail property value. The name of the external source this resources was generated from.
@@ -44,6 +66,13 @@ export class EducationOrganization extends Entity implements Parsable {
      */
     public get externalSourceDetail() {
         return this._externalSourceDetail;
+    };
+    /**
+     * Sets the externalSourceDetail property value. The name of the external source this resources was generated from.
+     * @param value Value to set for the externalSourceDetail property.
+     */
+    public set externalSourceDetail(value: string | undefined) {
+        this._externalSourceDetail = value;
     };
     /**
      * The deserialization information for the current model
@@ -68,33 +97,5 @@ export class EducationOrganization extends Entity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeEnumValue<EducationExternalSource>("externalSource", this.externalSource);
         writer.writeStringValue("externalSourceDetail", this.externalSourceDetail);
-    };
-    /**
-     * Sets the description property value. Organization description.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the displayName property value. Organization display name.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
-     * @param value Value to set for the externalSource property.
-     */
-    public set externalSource(value: EducationExternalSource | undefined) {
-        this._externalSource = value;
-    };
-    /**
-     * Sets the externalSourceDetail property value. The name of the external source this resources was generated from.
-     * @param value Value to set for the externalSourceDetail property.
-     */
-    public set externalSourceDetail(value: string | undefined) {
-        this._externalSourceDetail = value;
     };
 }

@@ -1,16 +1,19 @@
 import {CloudCommunications} from '../models/microsoft/graph/cloudCommunications';
+import {createCloudCommunicationsFromDiscriminatorValue} from '../models/microsoft/graph/createCloudCommunicationsFromDiscriminatorValue';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/oDataError';
 import {CallRecordsRequestBuilder} from './callRecords/callRecordsRequestBuilder';
-import {CallRecordRequestBuilder} from './callRecords/item/callRecordRequestBuilder';
+import {CallRecordItemRequestBuilder} from './callRecords/item/callRecordItemRequestBuilder';
 import {CallsRequestBuilder} from './calls/callsRequestBuilder';
-import {CallRequestBuilder} from './calls/item/callRequestBuilder';
+import {CallItemRequestBuilder} from './calls/item/callItemRequestBuilder';
 import {GetPresencesByUserIdRequestBuilder} from './getPresencesByUserId/getPresencesByUserIdRequestBuilder';
-import {OnlineMeetingRequestBuilder} from './onlineMeetings/item/onlineMeetingRequestBuilder';
+import {OnlineMeetingItemRequestBuilder} from './onlineMeetings/item/onlineMeetingItemRequestBuilder';
 import {OnlineMeetingsRequestBuilder} from './onlineMeetings/onlineMeetingsRequestBuilder';
-import {PresenceRequestBuilder} from './presences/item/presenceRequestBuilder';
+import {PresenceItemRequestBuilder} from './presences/item/presenceItemRequestBuilder';
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /communications  */
+/** Provides operations to manage the cloudCommunications singleton.  */
 export class CommunicationsRequestBuilder {
     public get callRecords(): CallRecordsRequestBuilder {
         return new CallRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -36,24 +39,24 @@ export class CommunicationsRequestBuilder {
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.callRecords.item collection
      * @param id Unique identifier of the item
-     * @returns a callRecordRequestBuilder
+     * @returns a callRecordItemRequestBuilder
      */
-    public callRecordsById(id: string) : CallRecordRequestBuilder {
+    public callRecordsById(id: string) : CallRecordItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["callRecord_id"] = id
-        return new CallRecordRequestBuilder(urlTplParams, this.requestAdapter);
+        return new CallRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.calls.item collection
      * @param id Unique identifier of the item
-     * @returns a callRequestBuilder
+     * @returns a callItemRequestBuilder
      */
-    public callsById(id: string) : CallRequestBuilder {
+    public callsById(id: string) : CallItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["call_id"] = id
-        return new CallRequestBuilder(urlTplParams, this.requestAdapter);
+        return new CallItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new CommunicationsRequestBuilder and sets the default values.
@@ -83,7 +86,7 @@ export class CommunicationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -101,7 +104,7 @@ export class CommunicationsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -121,18 +124,22 @@ export class CommunicationsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, CloudCommunications, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<CloudCommunications>(requestInfo, createCloudCommunicationsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.onlineMeetings.item collection
      * @param id Unique identifier of the item
-     * @returns a onlineMeetingRequestBuilder
+     * @returns a onlineMeetingItemRequestBuilder
      */
-    public onlineMeetingsById(id: string) : OnlineMeetingRequestBuilder {
+    public onlineMeetingsById(id: string) : OnlineMeetingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["onlineMeeting_id"] = id
-        return new OnlineMeetingRequestBuilder(urlTplParams, this.requestAdapter);
+        return new OnlineMeetingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update communications
@@ -146,17 +153,21 @@ export class CommunicationsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.communications.presences.item collection
      * @param id Unique identifier of the item
-     * @returns a presenceRequestBuilder
+     * @returns a presenceItemRequestBuilder
      */
-    public presencesById(id: string) : PresenceRequestBuilder {
+    public presencesById(id: string) : PresenceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["presence_id"] = id
-        return new PresenceRequestBuilder(urlTplParams, this.requestAdapter);
+        return new PresenceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

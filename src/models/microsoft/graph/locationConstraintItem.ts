@@ -1,6 +1,7 @@
 import {Location} from './location';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the findMeetingTimes method.  */
 export class LocationConstraintItem extends Location implements Parsable {
     /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.  */
     private _resolveAvailability?: boolean | undefined;
@@ -9,13 +10,6 @@ export class LocationConstraintItem extends Location implements Parsable {
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the resolveAvailability property value. If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
-     * @returns a boolean
-     */
-    public get resolveAvailability() {
-        return this._resolveAvailability;
     };
     /**
      * The deserialization information for the current model
@@ -27,13 +21,11 @@ export class LocationConstraintItem extends Location implements Parsable {
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the resolveAvailability property value. If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
+     * @returns a boolean
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeBooleanValue("resolveAvailability", this.resolveAvailability);
+    public get resolveAvailability() {
+        return this._resolveAvailability;
     };
     /**
      * Sets the resolveAvailability property value. If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.
@@ -41,5 +33,14 @@ export class LocationConstraintItem extends Location implements Parsable {
      */
     public set resolveAvailability(value: boolean | undefined) {
         this._resolveAvailability = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeBooleanValue("resolveAvailability", this.resolveAvailability);
     };
 }

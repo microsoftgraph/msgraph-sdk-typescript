@@ -1,3 +1,4 @@
+/** Provides operations to manage the drive singleton.  */
 export enum ResponseType {
     None = "none",
     Organizer = "organizer",

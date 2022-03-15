@@ -2,6 +2,7 @@ import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl
 import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton.  */
 export class PersistentBrowserSessionControl extends ConditionalAccessSessionControl implements Parsable {
     /** Possible values are: always, never.  */
     private _mode?: PersistentBrowserSessionMode | undefined;
@@ -10,13 +11,6 @@ export class PersistentBrowserSessionControl extends ConditionalAccessSessionCon
      */
     public constructor() {
         super();
-    };
-    /**
-     * Gets the mode property value. Possible values are: always, never.
-     * @returns a persistentBrowserSessionMode
-     */
-    public get mode() {
-        return this._mode;
     };
     /**
      * The deserialization information for the current model
@@ -28,13 +22,11 @@ export class PersistentBrowserSessionControl extends ConditionalAccessSessionCon
         ]);
     };
     /**
-     * Serializes information the current object
-     * @param writer Serialization writer to use to serialize this model
+     * Gets the mode property value. Possible values are: always, never.
+     * @returns a persistentBrowserSessionMode
      */
-    public serialize(writer: SerializationWriter) : void {
-        if(!writer) throw new Error("writer cannot be undefined");
-        super.serialize(writer);
-        writer.writeEnumValue<PersistentBrowserSessionMode>("mode", this.mode);
+    public get mode() {
+        return this._mode;
     };
     /**
      * Sets the mode property value. Possible values are: always, never.
@@ -42,5 +34,14 @@ export class PersistentBrowserSessionControl extends ConditionalAccessSessionCon
      */
     public set mode(value: PersistentBrowserSessionMode | undefined) {
         this._mode = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeEnumValue<PersistentBrowserSessionMode>("mode", this.mode);
     };
 }
