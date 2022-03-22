@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ColumnLink extends Entity implements Parsable {
@@ -11,6 +11,15 @@ export class ColumnLink extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "name": (o, n) => { (o as unknown as ColumnLink).name = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the name property value. The name of the column  in this content type.
      * @returns a string
      */
@@ -18,13 +27,11 @@ export class ColumnLink extends Entity implements Parsable {
         return this._name;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the name property value. The name of the column  in this content type.
+     * @param value Value to set for the name property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["name", (o, n) => { (o as unknown as ColumnLink).name = n.getStringValue(); }],
-        ]);
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Serializes information the current object
@@ -34,12 +41,5 @@ export class ColumnLink extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("name", this.name);
-    };
-    /**
-     * Sets the name property value. The name of the column  in this content type.
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
     };
 }

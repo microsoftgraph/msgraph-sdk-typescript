@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {WorkbookChartFill} from './workbookChartFill';
-import {WorkbookChartLineFormat} from './workbookChartLineFormat';
+import {createWorkbookChartFillFromDiscriminatorValue} from './createWorkbookChartFillFromDiscriminatorValue';
+import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkbookChartLineFormatFromDiscriminatorValue';
+import {Entity, WorkbookChartFill, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartSeriesFormat extends Entity implements Parsable {
@@ -22,6 +22,23 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
         return this._fill;
     };
     /**
+     * Sets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.
+     * @param value Value to set for the fill property.
+     */
+    public set fill(value: WorkbookChartFill | undefined) {
+        this._fill = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "fill": (o, n) => { (o as unknown as WorkbookChartSeriesFormat).fill = n.getObjectValue<WorkbookChartFill>(createWorkbookChartFillFromDiscriminatorValue); },
+            "line": (o, n) => { (o as unknown as WorkbookChartSeriesFormat).line = n.getObjectValue<WorkbookChartLineFormat>(createWorkbookChartLineFormatFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the line property value. Represents line formatting. Read-only.
      * @returns a workbookChartLineFormat
      */
@@ -29,14 +46,11 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
         return this._line;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the line property value. Represents line formatting. Read-only.
+     * @param value Value to set for the line property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["fill", (o, n) => { (o as unknown as WorkbookChartSeriesFormat).fill = n.getObjectValue<WorkbookChartFill>(WorkbookChartFill); }],
-            ["line", (o, n) => { (o as unknown as WorkbookChartSeriesFormat).line = n.getObjectValue<WorkbookChartLineFormat>(WorkbookChartLineFormat); }],
-        ]);
+    public set line(value: WorkbookChartLineFormat | undefined) {
+        this._line = value;
     };
     /**
      * Serializes information the current object
@@ -47,19 +61,5 @@ export class WorkbookChartSeriesFormat extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<WorkbookChartFill>("fill", this.fill);
         writer.writeObjectValue<WorkbookChartLineFormat>("line", this.line);
-    };
-    /**
-     * Sets the fill property value. Represents the fill format of a chart series, which includes background formating information. Read-only.
-     * @param value Value to set for the fill property.
-     */
-    public set fill(value: WorkbookChartFill | undefined) {
-        this._fill = value;
-    };
-    /**
-     * Sets the line property value. Represents line formatting. Read-only.
-     * @param value Value to set for the line property.
-     */
-    public set line(value: WorkbookChartLineFormat | undefined) {
-        this._line = value;
     };
 }

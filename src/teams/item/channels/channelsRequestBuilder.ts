@@ -1,10 +1,17 @@
-import {Channel} from '../../../models/microsoft/graph/channel';
-import {ChannelsResponse} from './channelsResponse';
+import {Channel, ChannelCollectionResponse} from '../../../models/microsoft/graph/';
+import {createChannelCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createChannelCollectionResponseFromDiscriminatorValue';
+import {createChannelFromDiscriminatorValue} from '../../../models/microsoft/graph/createChannelFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetAllMessagesRequestBuilder} from './getAllMessages/getAllMessagesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /teams/{team-id}/channels  */
+/** Provides operations to manage the channels property of the microsoft.graph.team entity.  */
 export class ChannelsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -25,7 +32,7 @@ export class ChannelsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * The collection of channels and messages associated with the team.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -45,13 +52,13 @@ export class ChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * Create new navigation property to channels for teams
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -63,18 +70,18 @@ export class ChannelsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * The collection of channels and messages associated with the team.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ChannelsResponse
+     * @returns a Promise of ChannelCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -85,21 +92,25 @@ export class ChannelsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChannelsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChannelCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ChannelsResponse>(requestInfo, ChannelsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ChannelCollectionResponse>(requestInfo, createChannelCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Builds and executes requests for operations under /teams/{team-id}/channels/microsoft.graph.getAllMessages()
+     * Provides operations to call the getAllMessages method.
      * @returns a getAllMessagesRequestBuilder
      */
     public getAllMessages() : GetAllMessagesRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * The collection of channels & messages associated with the team.
+     * Create new navigation property to channels for teams
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -111,6 +122,10 @@ export class ChannelsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<Channel>(requestInfo, Channel, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Channel>(requestInfo, createChannelFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

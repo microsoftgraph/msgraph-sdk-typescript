@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -20,17 +20,18 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
     /** Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner  */
     private _partnerUnsupportedOsVersionBlocked?: boolean | undefined;
     /**
-     * Instantiates a new mobileThreatDefenseConnector and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
      * @returns a boolean
      */
     public get androidDeviceBlockedOnMissingPartnerData() {
         return this._androidDeviceBlockedOnMissingPartnerData;
+    };
+    /**
+     * Sets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * @param value Value to set for the androidDeviceBlockedOnMissingPartnerData property.
+     */
+    public set androidDeviceBlockedOnMissingPartnerData(value: boolean | undefined) {
+        this._androidDeviceBlockedOnMissingPartnerData = value;
     };
     /**
      * Gets the androidEnabled property value. For Android, set whether data from the data sync partner should be used during compliance evaluations
@@ -40,11 +41,47 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         return this._androidEnabled;
     };
     /**
+     * Sets the androidEnabled property value. For Android, set whether data from the data sync partner should be used during compliance evaluations
+     * @param value Value to set for the androidEnabled property.
+     */
+    public set androidEnabled(value: boolean | undefined) {
+        this._androidEnabled = value;
+    };
+    /**
+     * Instantiates a new mobileThreatDefenseConnector and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "androidDeviceBlockedOnMissingPartnerData": (o, n) => { (o as unknown as MobileThreatDefenseConnector).androidDeviceBlockedOnMissingPartnerData = n.getBooleanValue(); },
+            "androidEnabled": (o, n) => { (o as unknown as MobileThreatDefenseConnector).androidEnabled = n.getBooleanValue(); },
+            "iosDeviceBlockedOnMissingPartnerData": (o, n) => { (o as unknown as MobileThreatDefenseConnector).iosDeviceBlockedOnMissingPartnerData = n.getBooleanValue(); },
+            "iosEnabled": (o, n) => { (o as unknown as MobileThreatDefenseConnector).iosEnabled = n.getBooleanValue(); },
+            "lastHeartbeatDateTime": (o, n) => { (o as unknown as MobileThreatDefenseConnector).lastHeartbeatDateTime = n.getDateValue(); },
+            "partnerState": (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerState = n.getEnumValue<MobileThreatPartnerTenantState>(MobileThreatPartnerTenantState); },
+            "partnerUnresponsivenessThresholdInDays": (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerUnresponsivenessThresholdInDays = n.getNumberValue(); },
+            "partnerUnsupportedOsVersionBlocked": (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerUnsupportedOsVersionBlocked = n.getBooleanValue(); },
+        };
+    };
+    /**
      * Gets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
      * @returns a boolean
      */
     public get iosDeviceBlockedOnMissingPartnerData() {
         return this._iosDeviceBlockedOnMissingPartnerData;
+    };
+    /**
+     * Sets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
+     * @param value Value to set for the iosDeviceBlockedOnMissingPartnerData property.
+     */
+    public set iosDeviceBlockedOnMissingPartnerData(value: boolean | undefined) {
+        this._iosDeviceBlockedOnMissingPartnerData = value;
     };
     /**
      * Gets the iosEnabled property value. For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
@@ -54,11 +91,25 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         return this._iosEnabled;
     };
     /**
+     * Sets the iosEnabled property value. For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
+     * @param value Value to set for the iosEnabled property.
+     */
+    public set iosEnabled(value: boolean | undefined) {
+        this._iosEnabled = value;
+    };
+    /**
      * Gets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Data Sync Partner
      * @returns a Date
      */
     public get lastHeartbeatDateTime() {
         return this._lastHeartbeatDateTime;
+    };
+    /**
+     * Sets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Data Sync Partner
+     * @param value Value to set for the lastHeartbeatDateTime property.
+     */
+    public set lastHeartbeatDateTime(value: Date | undefined) {
+        this._lastHeartbeatDateTime = value;
     };
     /**
      * Gets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
@@ -68,11 +119,25 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         return this._partnerState;
     };
     /**
+     * Sets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
+     * @param value Value to set for the partnerState property.
+     */
+    public set partnerState(value: MobileThreatPartnerTenantState | undefined) {
+        this._partnerState = value;
+    };
+    /**
      * Gets the partnerUnresponsivenessThresholdInDays property value. Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
      * @returns a integer
      */
     public get partnerUnresponsivenessThresholdInDays() {
         return this._partnerUnresponsivenessThresholdInDays;
+    };
+    /**
+     * Sets the partnerUnresponsivenessThresholdInDays property value. Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
+     * @param value Value to set for the partnerUnresponsivenessThresholdInDays property.
+     */
+    public set partnerUnresponsivenessThresholdInDays(value: number | undefined) {
+        this._partnerUnresponsivenessThresholdInDays = value;
     };
     /**
      * Gets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
@@ -82,20 +147,11 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         return this._partnerUnsupportedOsVersionBlocked;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
+     * @param value Value to set for the partnerUnsupportedOsVersionBlocked property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["androidDeviceBlockedOnMissingPartnerData", (o, n) => { (o as unknown as MobileThreatDefenseConnector).androidDeviceBlockedOnMissingPartnerData = n.getBooleanValue(); }],
-            ["androidEnabled", (o, n) => { (o as unknown as MobileThreatDefenseConnector).androidEnabled = n.getBooleanValue(); }],
-            ["iosDeviceBlockedOnMissingPartnerData", (o, n) => { (o as unknown as MobileThreatDefenseConnector).iosDeviceBlockedOnMissingPartnerData = n.getBooleanValue(); }],
-            ["iosEnabled", (o, n) => { (o as unknown as MobileThreatDefenseConnector).iosEnabled = n.getBooleanValue(); }],
-            ["lastHeartbeatDateTime", (o, n) => { (o as unknown as MobileThreatDefenseConnector).lastHeartbeatDateTime = n.getDateValue(); }],
-            ["partnerState", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerState = n.getEnumValue<MobileThreatPartnerTenantState>(MobileThreatPartnerTenantState); }],
-            ["partnerUnresponsivenessThresholdInDays", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerUnresponsivenessThresholdInDays = n.getNumberValue(); }],
-            ["partnerUnsupportedOsVersionBlocked", (o, n) => { (o as unknown as MobileThreatDefenseConnector).partnerUnsupportedOsVersionBlocked = n.getBooleanValue(); }],
-        ]);
+    public set partnerUnsupportedOsVersionBlocked(value: boolean | undefined) {
+        this._partnerUnsupportedOsVersionBlocked = value;
     };
     /**
      * Serializes information the current object
@@ -112,61 +168,5 @@ export class MobileThreatDefenseConnector extends Entity implements Parsable {
         writer.writeEnumValue<MobileThreatPartnerTenantState>("partnerState", this.partnerState);
         writer.writeNumberValue("partnerUnresponsivenessThresholdInDays", this.partnerUnresponsivenessThresholdInDays);
         writer.writeBooleanValue("partnerUnsupportedOsVersionBlocked", this.partnerUnsupportedOsVersionBlocked);
-    };
-    /**
-     * Sets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant
-     * @param value Value to set for the androidDeviceBlockedOnMissingPartnerData property.
-     */
-    public set androidDeviceBlockedOnMissingPartnerData(value: boolean | undefined) {
-        this._androidDeviceBlockedOnMissingPartnerData = value;
-    };
-    /**
-     * Sets the androidEnabled property value. For Android, set whether data from the data sync partner should be used during compliance evaluations
-     * @param value Value to set for the androidEnabled property.
-     */
-    public set androidEnabled(value: boolean | undefined) {
-        this._androidEnabled = value;
-    };
-    /**
-     * Sets the iosDeviceBlockedOnMissingPartnerData property value. For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant
-     * @param value Value to set for the iosDeviceBlockedOnMissingPartnerData property.
-     */
-    public set iosDeviceBlockedOnMissingPartnerData(value: boolean | undefined) {
-        this._iosDeviceBlockedOnMissingPartnerData = value;
-    };
-    /**
-     * Sets the iosEnabled property value. For IOS, get or set whether data from the data sync partner should be used during compliance evaluations
-     * @param value Value to set for the iosEnabled property.
-     */
-    public set iosEnabled(value: boolean | undefined) {
-        this._iosEnabled = value;
-    };
-    /**
-     * Sets the lastHeartbeatDateTime property value. DateTime of last Heartbeat recieved from the Data Sync Partner
-     * @param value Value to set for the lastHeartbeatDateTime property.
-     */
-    public set lastHeartbeatDateTime(value: Date | undefined) {
-        this._lastHeartbeatDateTime = value;
-    };
-    /**
-     * Sets the partnerState property value. Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.
-     * @param value Value to set for the partnerState property.
-     */
-    public set partnerState(value: MobileThreatPartnerTenantState | undefined) {
-        this._partnerState = value;
-    };
-    /**
-     * Sets the partnerUnresponsivenessThresholdInDays property value. Get or Set days the per tenant tolerance to unresponsiveness for this partner integration
-     * @param value Value to set for the partnerUnresponsivenessThresholdInDays property.
-     */
-    public set partnerUnresponsivenessThresholdInDays(value: number | undefined) {
-        this._partnerUnresponsivenessThresholdInDays = value;
-    };
-    /**
-     * Sets the partnerUnsupportedOsVersionBlocked property value. Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner
-     * @param value Value to set for the partnerUnsupportedOsVersionBlocked property.
-     */
-    public set partnerUnsupportedOsVersionBlocked(value: boolean | undefined) {
-        this._partnerUnsupportedOsVersionBlocked = value;
     };
 }

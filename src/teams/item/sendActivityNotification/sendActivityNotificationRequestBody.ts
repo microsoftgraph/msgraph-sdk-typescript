@@ -1,24 +1,20 @@
-import {ItemBody} from '../../../models/microsoft/graph/itemBody';
-import {KeyValuePair} from '../../../models/microsoft/graph/keyValuePair';
-import {TeamworkActivityTopic} from '../../../models/microsoft/graph/teamworkActivityTopic';
-import {TeamworkNotificationRecipient} from '../../../models/microsoft/graph/teamworkNotificationRecipient';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {ItemBody, KeyValuePair, TeamworkActivityTopic, TeamworkNotificationRecipient} from '../../../models/microsoft/graph/';
+import {createItemBodyFromDiscriminatorValue} from '../../../models/microsoft/graph/createItemBodyFromDiscriminatorValue';
+import {createKeyValuePairFromDiscriminatorValue} from '../../../models/microsoft/graph/createKeyValuePairFromDiscriminatorValue';
+import {createTeamworkActivityTopicFromDiscriminatorValue} from '../../../models/microsoft/graph/createTeamworkActivityTopicFromDiscriminatorValue';
+import {createTeamworkNotificationRecipientFromDiscriminatorValue} from '../../../models/microsoft/graph/createTeamworkNotificationRecipientFromDiscriminatorValue';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SendActivityNotificationRequestBody implements Parsable {
+/** Provides operations to call the sendActivityNotification method.  */
+export class SendActivityNotificationRequestBody implements AdditionalDataHolder, Parsable {
     private _activityType?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _chainId?: number | undefined;
     private _previewText?: ItemBody | undefined;
     private _recipient?: TeamworkNotificationRecipient | undefined;
     private _templateParameters?: KeyValuePair[] | undefined;
     private _topic?: TeamworkActivityTopic | undefined;
-    /**
-     * Instantiates a new sendActivityNotificationRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the activityType property value. 
      * @returns a string
@@ -27,11 +23,25 @@ export class SendActivityNotificationRequestBody implements Parsable {
         return this._activityType;
     };
     /**
+     * Sets the activityType property value. 
+     * @param value Value to set for the activityType property.
+     */
+    public set activityType(value: string | undefined) {
+        this._activityType = value;
+    };
+    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the chainId property value. 
@@ -41,11 +51,45 @@ export class SendActivityNotificationRequestBody implements Parsable {
         return this._chainId;
     };
     /**
+     * Sets the chainId property value. 
+     * @param value Value to set for the chainId property.
+     */
+    public set chainId(value: number | undefined) {
+        this._chainId = value;
+    };
+    /**
+     * Instantiates a new sendActivityNotificationRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "activityType": (o, n) => { (o as unknown as SendActivityNotificationRequestBody).activityType = n.getStringValue(); },
+            "chainId": (o, n) => { (o as unknown as SendActivityNotificationRequestBody).chainId = n.getNumberValue(); },
+            "previewText": (o, n) => { (o as unknown as SendActivityNotificationRequestBody).previewText = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
+            "recipient": (o, n) => { (o as unknown as SendActivityNotificationRequestBody).recipient = n.getObjectValue<TeamworkNotificationRecipient>(createTeamworkNotificationRecipientFromDiscriminatorValue); },
+            "templateParameters": (o, n) => { (o as unknown as SendActivityNotificationRequestBody).templateParameters = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+            "topic": (o, n) => { (o as unknown as SendActivityNotificationRequestBody).topic = n.getObjectValue<TeamworkActivityTopic>(createTeamworkActivityTopicFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the previewText property value. 
      * @returns a itemBody
      */
     public get previewText() {
         return this._previewText;
+    };
+    /**
+     * Sets the previewText property value. 
+     * @param value Value to set for the previewText property.
+     */
+    public set previewText(value: ItemBody | undefined) {
+        this._previewText = value;
     };
     /**
      * Gets the recipient property value. 
@@ -55,32 +99,11 @@ export class SendActivityNotificationRequestBody implements Parsable {
         return this._recipient;
     };
     /**
-     * Gets the templateParameters property value. 
-     * @returns a keyValuePair
+     * Sets the recipient property value. 
+     * @param value Value to set for the recipient property.
      */
-    public get templateParameters() {
-        return this._templateParameters;
-    };
-    /**
-     * Gets the topic property value. 
-     * @returns a teamworkActivityTopic
-     */
-    public get topic() {
-        return this._topic;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["activityType", (o, n) => { (o as unknown as SendActivityNotificationRequestBody).activityType = n.getStringValue(); }],
-            ["chainId", (o, n) => { (o as unknown as SendActivityNotificationRequestBody).chainId = n.getNumberValue(); }],
-            ["previewText", (o, n) => { (o as unknown as SendActivityNotificationRequestBody).previewText = n.getObjectValue<ItemBody>(ItemBody); }],
-            ["recipient", (o, n) => { (o as unknown as SendActivityNotificationRequestBody).recipient = n.getObjectValue<TeamworkNotificationRecipient>(TeamworkNotificationRecipient); }],
-            ["templateParameters", (o, n) => { (o as unknown as SendActivityNotificationRequestBody).templateParameters = n.getCollectionOfObjectValues<KeyValuePair>(KeyValuePair); }],
-            ["topic", (o, n) => { (o as unknown as SendActivityNotificationRequestBody).topic = n.getObjectValue<TeamworkActivityTopic>(TeamworkActivityTopic); }],
-        ]);
+    public set recipient(value: TeamworkNotificationRecipient | undefined) {
+        this._recipient = value;
     };
     /**
      * Serializes information the current object
@@ -97,39 +120,11 @@ export class SendActivityNotificationRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the activityType property value. 
-     * @param value Value to set for the activityType property.
+     * Gets the templateParameters property value. 
+     * @returns a keyValuePair
      */
-    public set activityType(value: string | undefined) {
-        this._activityType = value;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the chainId property value. 
-     * @param value Value to set for the chainId property.
-     */
-    public set chainId(value: number | undefined) {
-        this._chainId = value;
-    };
-    /**
-     * Sets the previewText property value. 
-     * @param value Value to set for the previewText property.
-     */
-    public set previewText(value: ItemBody | undefined) {
-        this._previewText = value;
-    };
-    /**
-     * Sets the recipient property value. 
-     * @param value Value to set for the recipient property.
-     */
-    public set recipient(value: TeamworkNotificationRecipient | undefined) {
-        this._recipient = value;
+    public get templateParameters() {
+        return this._templateParameters;
     };
     /**
      * Sets the templateParameters property value. 
@@ -137,6 +132,13 @@ export class SendActivityNotificationRequestBody implements Parsable {
      */
     public set templateParameters(value: KeyValuePair[] | undefined) {
         this._templateParameters = value;
+    };
+    /**
+     * Gets the topic property value. 
+     * @returns a teamworkActivityTopic
+     */
+    public get topic() {
+        return this._topic;
     };
     /**
      * Sets the topic property value. 

@@ -1,17 +1,24 @@
-import {ServiceUpdateMessage} from '../../../models/microsoft/graph/serviceUpdateMessage';
+import {ServiceUpdateMessage, ServiceUpdateMessageCollectionResponse} from '../../../models/microsoft/graph/';
+import {createServiceUpdateMessageCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createServiceUpdateMessageCollectionResponseFromDiscriminatorValue';
+import {createServiceUpdateMessageFromDiscriminatorValue} from '../../../models/microsoft/graph/createServiceUpdateMessageFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FavoriteRequestBuilder} from './favorite/favoriteRequestBuilder';
 import {MarkReadRequestBuilder} from './markRead/markReadRequestBuilder';
 import {MarkUnreadRequestBuilder} from './markUnread/markUnreadRequestBuilder';
-import {MessagesResponse} from './messagesResponse';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /admin/serviceAnnouncement/messages  */
+/** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.  */
 export class MessagesRequestBuilder {
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     public get favorite(): FavoriteRequestBuilder {
         return new FavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -68,13 +75,13 @@ export class MessagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Create new navigation property to messages for admin
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -86,7 +93,7 @@ export class MessagesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -97,7 +104,7 @@ export class MessagesRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of MessagesResponse
+     * @returns a Promise of ServiceUpdateMessageCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -108,14 +115,18 @@ export class MessagesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MessagesResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceUpdateMessageCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<MessagesResponse>(requestInfo, MessagesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ServiceUpdateMessageCollectionResponse>(requestInfo, createServiceUpdateMessageCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * Create new navigation property to messages for admin
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -127,6 +138,10 @@ export class MessagesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ServiceUpdateMessage>(requestInfo, ServiceUpdateMessage, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ServiceUpdateMessage>(requestInfo, createServiceUpdateMessageFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

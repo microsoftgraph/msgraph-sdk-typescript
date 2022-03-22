@@ -1,8 +1,8 @@
-import {GetMailTips} from './getMailTips';
-import {GetMailTipsRequestBody} from './getMailTipsRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createGetMailTipsResponseFromDiscriminatorValue} from './createGetMailTipsResponseFromDiscriminatorValue';
+import {GetMailTipsRequestBody, GetMailTipsResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/microsoft.graph.getMailTips  */
+/** Provides operations to call the getMailTips method.  */
 export class GetMailTipsRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -36,7 +36,7 @@ export class GetMailTipsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -47,13 +47,13 @@ export class GetMailTipsRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetMailTips
+     * @returns a Promise of GetMailTipsResponse
      */
-    public post(body: GetMailTipsRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailTips[] | undefined> {
+    public post(body: GetMailTipsRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailTipsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetMailTips>(requestInfo, GetMailTips, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetMailTipsResponse>(requestInfo, createGetMailTipsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

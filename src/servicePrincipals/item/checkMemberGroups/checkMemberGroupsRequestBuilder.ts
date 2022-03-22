@@ -1,7 +1,8 @@
-import {CheckMemberGroupsRequestBody} from './checkMemberGroupsRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createCheckMemberGroupsResponseFromDiscriminatorValue} from './createCheckMemberGroupsResponseFromDiscriminatorValue';
+import {CheckMemberGroupsRequestBody, CheckMemberGroupsResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /servicePrincipals/{servicePrincipal-id}/microsoft.graph.checkMemberGroups  */
+/** Provides operations to call the checkMemberGroups method.  */
 export class CheckMemberGroupsRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -35,7 +36,7 @@ export class CheckMemberGroupsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -46,13 +47,13 @@ export class CheckMemberGroupsRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of String
+     * @returns a Promise of CheckMemberGroupsResponse
      */
-    public post(body: CheckMemberGroupsRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string[] | undefined> {
+    public post(body: CheckMemberGroupsRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<CheckMemberGroupsResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendCollectionOfPrimitiveAsync<string>(requestInfo, "string", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<CheckMemberGroupsResponse>(requestInfo, createCheckMemberGroupsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

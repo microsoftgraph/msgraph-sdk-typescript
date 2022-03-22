@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TelecomExpenseManagementPartner extends Entity implements Parsable {
@@ -13,17 +13,24 @@ export class TelecomExpenseManagementPartner extends Entity implements Parsable 
     /** URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.  */
     private _url?: string | undefined;
     /**
-     * Instantiates a new telecomExpenseManagementPartner and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the appAuthorized property value. Whether the partner's AAD app has been authorized to access Intune.
      * @returns a boolean
      */
     public get appAuthorized() {
         return this._appAuthorized;
+    };
+    /**
+     * Sets the appAuthorized property value. Whether the partner's AAD app has been authorized to access Intune.
+     * @param value Value to set for the appAuthorized property.
+     */
+    public set appAuthorized(value: boolean | undefined) {
+        this._appAuthorized = value;
+    };
+    /**
+     * Instantiates a new telecomExpenseManagementPartner and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the displayName property value. Display name of the TEM partner.
@@ -33,11 +40,38 @@ export class TelecomExpenseManagementPartner extends Entity implements Parsable 
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. Display name of the TEM partner.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
      * Gets the enabled property value. Whether Intune's connection to the TEM service is currently enabled or disabled.
      * @returns a boolean
      */
     public get enabled() {
         return this._enabled;
+    };
+    /**
+     * Sets the enabled property value. Whether Intune's connection to the TEM service is currently enabled or disabled.
+     * @param value Value to set for the enabled property.
+     */
+    public set enabled(value: boolean | undefined) {
+        this._enabled = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "appAuthorized": (o, n) => { (o as unknown as TelecomExpenseManagementPartner).appAuthorized = n.getBooleanValue(); },
+            "displayName": (o, n) => { (o as unknown as TelecomExpenseManagementPartner).displayName = n.getStringValue(); },
+            "enabled": (o, n) => { (o as unknown as TelecomExpenseManagementPartner).enabled = n.getBooleanValue(); },
+            "lastConnectionDateTime": (o, n) => { (o as unknown as TelecomExpenseManagementPartner).lastConnectionDateTime = n.getDateValue(); },
+            "url": (o, n) => { (o as unknown as TelecomExpenseManagementPartner).url = n.getStringValue(); },
+        };
     };
     /**
      * Gets the lastConnectionDateTime property value. Timestamp of the last request sent to Intune by the TEM partner.
@@ -47,24 +81,11 @@ export class TelecomExpenseManagementPartner extends Entity implements Parsable 
         return this._lastConnectionDateTime;
     };
     /**
-     * Gets the url property value. URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
-     * @returns a string
+     * Sets the lastConnectionDateTime property value. Timestamp of the last request sent to Intune by the TEM partner.
+     * @param value Value to set for the lastConnectionDateTime property.
      */
-    public get url() {
-        return this._url;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["appAuthorized", (o, n) => { (o as unknown as TelecomExpenseManagementPartner).appAuthorized = n.getBooleanValue(); }],
-            ["displayName", (o, n) => { (o as unknown as TelecomExpenseManagementPartner).displayName = n.getStringValue(); }],
-            ["enabled", (o, n) => { (o as unknown as TelecomExpenseManagementPartner).enabled = n.getBooleanValue(); }],
-            ["lastConnectionDateTime", (o, n) => { (o as unknown as TelecomExpenseManagementPartner).lastConnectionDateTime = n.getDateValue(); }],
-            ["url", (o, n) => { (o as unknown as TelecomExpenseManagementPartner).url = n.getStringValue(); }],
-        ]);
+    public set lastConnectionDateTime(value: Date | undefined) {
+        this._lastConnectionDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -80,32 +101,11 @@ export class TelecomExpenseManagementPartner extends Entity implements Parsable 
         writer.writeStringValue("url", this.url);
     };
     /**
-     * Sets the appAuthorized property value. Whether the partner's AAD app has been authorized to access Intune.
-     * @param value Value to set for the appAuthorized property.
+     * Gets the url property value. URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.
+     * @returns a string
      */
-    public set appAuthorized(value: boolean | undefined) {
-        this._appAuthorized = value;
-    };
-    /**
-     * Sets the displayName property value. Display name of the TEM partner.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the enabled property value. Whether Intune's connection to the TEM service is currently enabled or disabled.
-     * @param value Value to set for the enabled property.
-     */
-    public set enabled(value: boolean | undefined) {
-        this._enabled = value;
-    };
-    /**
-     * Sets the lastConnectionDateTime property value. Timestamp of the last request sent to Intune by the TEM partner.
-     * @param value Value to set for the lastConnectionDateTime property.
-     */
-    public set lastConnectionDateTime(value: Date | undefined) {
-        this._lastConnectionDateTime = value;
+    public get url() {
+        return this._url;
     };
     /**
      * Sets the url property value. URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.

@@ -1,9 +1,16 @@
-import {ServiceAnnouncementAttachment} from '../../../../../models/microsoft/graph/serviceAnnouncementAttachment';
-import {AttachmentsResponse} from './attachmentsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ServiceAnnouncementAttachment, ServiceAnnouncementAttachmentCollectionResponse} from '../../../../../models/microsoft/graph/';
+import {createServiceAnnouncementAttachmentCollectionResponseFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createServiceAnnouncementAttachmentCollectionResponseFromDiscriminatorValue';
+import {createServiceAnnouncementAttachmentFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createServiceAnnouncementAttachmentFromDiscriminatorValue';
+import {ODataError} from '../../../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /admin/serviceAnnouncement/messages/{serviceUpdateMessage-id}/attachments  */
+/** Provides operations to manage the attachments property of the microsoft.graph.serviceUpdateMessage entity.  */
 export class AttachmentsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,13 +51,13 @@ export class AttachmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Create new navigation property to attachments for admin
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,7 +69,7 @@ export class AttachmentsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +80,7 @@ export class AttachmentsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of AttachmentsResponse
+     * @returns a Promise of ServiceAnnouncementAttachmentCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +91,18 @@ export class AttachmentsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AttachmentsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServiceAnnouncementAttachmentCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AttachmentsResponse>(requestInfo, AttachmentsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachmentCollectionResponse>(requestInfo, createServiceAnnouncementAttachmentCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * A collection of serviceAnnouncementAttachments.
+     * Create new navigation property to attachments for admin
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +114,10 @@ export class AttachmentsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, ServiceAnnouncementAttachment, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ServiceAnnouncementAttachment>(requestInfo, createServiceAnnouncementAttachmentFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

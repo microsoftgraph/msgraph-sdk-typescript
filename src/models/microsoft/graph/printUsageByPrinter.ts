@@ -1,4 +1,4 @@
-import {PrintUsage} from './printUsage';
+import {PrintUsage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinter extends PrintUsage implements Parsable {
@@ -10,6 +10,15 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "printerId": (o, n) => { (o as unknown as PrintUsageByPrinter).printerId = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the printerId property value. 
      * @returns a string
      */
@@ -17,13 +26,11 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
         return this._printerId;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the printerId property value. 
+     * @param value Value to set for the printerId property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["printerId", (o, n) => { (o as unknown as PrintUsageByPrinter).printerId = n.getStringValue(); }],
-        ]);
+    public set printerId(value: string | undefined) {
+        this._printerId = value;
     };
     /**
      * Serializes information the current object
@@ -33,12 +40,5 @@ export class PrintUsageByPrinter extends PrintUsage implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("printerId", this.printerId);
-    };
-    /**
-     * Sets the printerId property value. 
-     * @param value Value to set for the printerId property.
-     */
-    public set printerId(value: string | undefined) {
-        this._printerId = value;
     };
 }

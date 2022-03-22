@@ -1,37 +1,38 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ArchiveRequestBody implements Parsable {
+/** Provides operations to call the archive method.  */
+export class ArchiveRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _shouldSetSpoSiteReadOnlyForMembers?: boolean | undefined;
     /**
-     * Instantiates a new archiveRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the shouldSetSpoSiteReadOnlyForMembers property value. 
-     * @returns a boolean
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
      */
-    public get shouldSetSpoSiteReadOnlyForMembers() {
-        return this._shouldSetSpoSiteReadOnlyForMembers;
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new archiveRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["shouldSetSpoSiteReadOnlyForMembers", (o, n) => { (o as unknown as ArchiveRequestBody).shouldSetSpoSiteReadOnlyForMembers = n.getBooleanValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "shouldSetSpoSiteReadOnlyForMembers": (o, n) => { (o as unknown as ArchiveRequestBody).shouldSetSpoSiteReadOnlyForMembers = n.getBooleanValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -43,11 +44,11 @@ export class ArchiveRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the shouldSetSpoSiteReadOnlyForMembers property value. 
+     * @returns a boolean
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get shouldSetSpoSiteReadOnlyForMembers() {
+        return this._shouldSetSpoSiteReadOnlyForMembers;
     };
     /**
      * Sets the shouldSetSpoSiteReadOnlyForMembers property value. 

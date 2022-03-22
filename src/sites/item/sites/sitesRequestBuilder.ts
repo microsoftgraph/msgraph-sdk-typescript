@@ -1,9 +1,15 @@
-import {Site} from '../../../models/microsoft/graph/site';
-import {SitesResponse} from './sitesResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {SiteCollectionResponse} from '../../../models/microsoft/graph/';
+import {createSiteCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createSiteCollectionResponseFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /sites/{site-id}/sites  */
+/** Provides operations to manage the sites property of the microsoft.graph.site entity.  */
 export class SitesRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,26 +50,8 @@ export class SitesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
-        return requestInfo;
-    };
-    /**
-     * The collection of the sub-sites under this site.
-     * @param body 
-     * @param h Request headers
-     * @param o Request options
-     * @returns a RequestInformation
-     */
-    public createPostRequestInformation(body: Site | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -73,7 +61,7 @@ export class SitesRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of SitesResponse
+     * @returns a Promise of SiteCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,25 +72,14 @@ export class SitesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SitesResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<SiteCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<SitesResponse>(requestInfo, SitesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * The collection of the sub-sites under this site.
-     * @param body 
-     * @param h Request headers
-     * @param o Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Site
-     */
-    public post(body: Site | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInformation(
-            body, h, o
-        );
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, Site, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<SiteCollectionResponse>(requestInfo, createSiteCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

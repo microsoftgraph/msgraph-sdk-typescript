@@ -1,22 +1,40 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RemoveKeyRequestBody implements Parsable {
+/** Provides operations to call the removeKey method.  */
+export class RemoveKeyRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _keyId?: string | undefined;
     private _proof?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new removeKeyRequestBody and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "keyId": (o, n) => { (o as unknown as RemoveKeyRequestBody).keyId = n.getStringValue(); },
+            "proof": (o, n) => { (o as unknown as RemoveKeyRequestBody).proof = n.getStringValue(); },
+        };
     };
     /**
      * Gets the keyId property value. 
@@ -26,6 +44,13 @@ export class RemoveKeyRequestBody implements Parsable {
         return this._keyId;
     };
     /**
+     * Sets the keyId property value. 
+     * @param value Value to set for the keyId property.
+     */
+    public set keyId(value: string | undefined) {
+        this._keyId = value;
+    };
+    /**
      * Gets the proof property value. 
      * @returns a string
      */
@@ -33,14 +58,11 @@ export class RemoveKeyRequestBody implements Parsable {
         return this._proof;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the proof property value. 
+     * @param value Value to set for the proof property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["keyId", (o, n) => { (o as unknown as RemoveKeyRequestBody).keyId = n.getStringValue(); }],
-            ["proof", (o, n) => { (o as unknown as RemoveKeyRequestBody).proof = n.getStringValue(); }],
-        ]);
+    public set proof(value: string | undefined) {
+        this._proof = value;
     };
     /**
      * Serializes information the current object
@@ -51,26 +73,5 @@ export class RemoveKeyRequestBody implements Parsable {
         writer.writeStringValue("keyId", this.keyId);
         writer.writeStringValue("proof", this.proof);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the keyId property value. 
-     * @param value Value to set for the keyId property.
-     */
-    public set keyId(value: string | undefined) {
-        this._keyId = value;
-    };
-    /**
-     * Sets the proof property value. 
-     * @param value Value to set for the proof property.
-     */
-    public set proof(value: string | undefined) {
-        this._proof = value;
     };
 }

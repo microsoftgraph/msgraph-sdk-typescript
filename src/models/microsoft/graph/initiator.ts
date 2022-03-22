@@ -1,4 +1,4 @@
-import {Identity} from './identity';
+import {Identity} from './index';
 import {InitiatorType} from './initiatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -12,6 +12,15 @@ export class Initiator extends Identity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "initiatorType": (o, n) => { (o as unknown as Initiator).initiatorType = n.getEnumValue<InitiatorType>(InitiatorType); },
+        };
+    };
+    /**
      * Gets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
      * @returns a initiatorType
      */
@@ -19,13 +28,11 @@ export class Initiator extends Identity implements Parsable {
         return this._initiatorType;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
+     * @param value Value to set for the initiatorType property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["initiatorType", (o, n) => { (o as unknown as Initiator).initiatorType = n.getEnumValue<InitiatorType>(InitiatorType); }],
-        ]);
+    public set initiatorType(value: InitiatorType | undefined) {
+        this._initiatorType = value;
     };
     /**
      * Serializes information the current object
@@ -35,12 +42,5 @@ export class Initiator extends Identity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<InitiatorType>("initiatorType", this.initiatorType);
-    };
-    /**
-     * Sets the initiatorType property value. Type of initiator. Possible values are: user, application, system, unknownFutureValue.
-     * @param value Value to set for the initiatorType property.
-     */
-    public set initiatorType(value: InitiatorType | undefined) {
-        this._initiatorType = value;
     };
 }

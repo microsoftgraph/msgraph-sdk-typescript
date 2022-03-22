@@ -1,8 +1,9 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WindowsInformationProtectionDataRecoveryCertificate implements Parsable {
+/** Windows Information Protection DataRecoveryCertificate  */
+export class WindowsInformationProtectionDataRecoveryCertificate implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Data recovery Certificate  */
     private _certificate?: string | undefined;
     /** Data recovery Certificate description  */
@@ -12,17 +13,18 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
     /** Data recovery Certificate subject name  */
     private _subjectName?: string | undefined;
     /**
-     * Instantiates a new windowsInformationProtectionDataRecoveryCertificate and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the certificate property value. Data recovery Certificate
@@ -32,11 +34,31 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
         return this._certificate;
     };
     /**
+     * Sets the certificate property value. Data recovery Certificate
+     * @param value Value to set for the certificate property.
+     */
+    public set certificate(value: string | undefined) {
+        this._certificate = value;
+    };
+    /**
+     * Instantiates a new windowsInformationProtectionDataRecoveryCertificate and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the description property value. Data recovery Certificate description
      * @returns a string
      */
     public get description() {
         return this._description;
+    };
+    /**
+     * Sets the description property value. Data recovery Certificate description
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
     };
     /**
      * Gets the expirationDateTime property value. Data recovery Certificate expiration datetime
@@ -46,23 +68,23 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
         return this._expirationDateTime;
     };
     /**
-     * Gets the subjectName property value. Data recovery Certificate subject name
-     * @returns a string
+     * Sets the expirationDateTime property value. Data recovery Certificate expiration datetime
+     * @param value Value to set for the expirationDateTime property.
      */
-    public get subjectName() {
-        return this._subjectName;
+    public set expirationDateTime(value: Date | undefined) {
+        this._expirationDateTime = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["certificate", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).certificate = n.getStringValue(); }],
-            ["description", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).description = n.getStringValue(); }],
-            ["expirationDateTime", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).expirationDateTime = n.getDateValue(); }],
-            ["subjectName", (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).subjectName = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "certificate": (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).certificate = n.getStringValue(); },
+            "description": (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).description = n.getStringValue(); },
+            "expirationDateTime": (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).expirationDateTime = n.getDateValue(); },
+            "subjectName": (o, n) => { (o as unknown as WindowsInformationProtectionDataRecoveryCertificate).subjectName = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -77,32 +99,11 @@ export class WindowsInformationProtectionDataRecoveryCertificate implements Pars
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the subjectName property value. Data recovery Certificate subject name
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the certificate property value. Data recovery Certificate
-     * @param value Value to set for the certificate property.
-     */
-    public set certificate(value: string | undefined) {
-        this._certificate = value;
-    };
-    /**
-     * Sets the description property value. Data recovery Certificate description
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the expirationDateTime property value. Data recovery Certificate expiration datetime
-     * @param value Value to set for the expirationDateTime property.
-     */
-    public set expirationDateTime(value: Date | undefined) {
-        this._expirationDateTime = value;
+    public get subjectName() {
+        return this._subjectName;
     };
     /**
      * Sets the subjectName property value. Data recovery Certificate subject name

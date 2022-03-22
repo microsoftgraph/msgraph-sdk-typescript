@@ -1,7 +1,8 @@
-import {GetCachedReportRequestBody} from './getCachedReportRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createGetCachedReportResponseFromDiscriminatorValue} from './createGetCachedReportResponseFromDiscriminatorValue';
+import {GetCachedReportRequestBody, GetCachedReportResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement/reports/microsoft.graph.getCachedReport  */
+/** Provides operations to call the getCachedReport method.  */
 export class GetCachedReportRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -35,7 +36,7 @@ export class GetCachedReportRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -46,13 +47,13 @@ export class GetCachedReportRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ArrayBuffer
+     * @returns a Promise of GetCachedReportResponse
      */
-    public post(body: GetCachedReportRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
+    public post(body: GetCachedReportRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetCachedReportResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetCachedReportResponse>(requestInfo, createGetCachedReportResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

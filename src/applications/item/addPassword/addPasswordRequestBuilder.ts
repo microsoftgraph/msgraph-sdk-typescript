@@ -1,8 +1,9 @@
-import {PasswordCredential} from '../../../models/microsoft/graph/passwordCredential';
-import {PasswordCredentialRequestBody} from './passwordCredentialRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {PasswordCredential} from '../../../models/microsoft/graph/';
+import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/microsoft/graph/createPasswordCredentialFromDiscriminatorValue';
+import {PasswordCredentialRequestBody} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /applications/{application-id}/microsoft.graph.addPassword  */
+/** Provides operations to call the addPassword method.  */
 export class AddPasswordRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -36,7 +37,7 @@ export class AddPasswordRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -54,6 +55,6 @@ export class AddPasswordRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<PasswordCredential>(requestInfo, PasswordCredential, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PasswordCredential>(requestInfo, createPasswordCredentialFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

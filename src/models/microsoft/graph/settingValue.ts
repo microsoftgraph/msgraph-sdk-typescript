@@ -1,48 +1,55 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SettingValue implements Parsable {
+export class SettingValue implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
-    /** Name of the setting (as defined by the directorySettingTemplate).  */
+    private _additionalData: Record<string, unknown>;
+    /** Name of the setting (as defined by the groupSettingTemplate).  */
     private _name?: string | undefined;
     /** Value of the setting.  */
     private _value?: string | undefined;
     /**
-     * Instantiates a new settingValue and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the name property value. Name of the setting (as defined by the directorySettingTemplate).
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new settingValue and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "name": (o, n) => { (o as unknown as SettingValue).name = n.getStringValue(); },
+            "value": (o, n) => { (o as unknown as SettingValue).value = n.getStringValue(); },
+        };
+    };
+    /**
+     * Gets the name property value. Name of the setting (as defined by the groupSettingTemplate).
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Gets the value property value. Value of the setting.
-     * @returns a string
+     * Sets the name property value. Name of the setting (as defined by the groupSettingTemplate).
+     * @param value Value to set for the name property.
      */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["name", (o, n) => { (o as unknown as SettingValue).name = n.getStringValue(); }],
-            ["value", (o, n) => { (o as unknown as SettingValue).value = n.getStringValue(); }],
-        ]);
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Serializes information the current object
@@ -55,18 +62,11 @@ export class SettingValue implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the value property value. Value of the setting.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the name property value. Name of the setting (as defined by the directorySettingTemplate).
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. Value of the setting.

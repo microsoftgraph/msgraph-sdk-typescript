@@ -1,26 +1,29 @@
-import {Schedule} from '../../../models/microsoft/graph/schedule';
-import {OfferShiftRequestRequestBuilder} from './offerShiftRequests/item/offerShiftRequestRequestBuilder';
+import {Schedule} from '../../../models/microsoft/graph/';
+import {createScheduleFromDiscriminatorValue} from '../../../models/microsoft/graph/createScheduleFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {OfferShiftRequestItemRequestBuilder} from './offerShiftRequests/item/offerShiftRequestItemRequestBuilder';
 import {OfferShiftRequestsRequestBuilder} from './offerShiftRequests/offerShiftRequestsRequestBuilder';
-import {OpenShiftChangeRequestRequestBuilder} from './openShiftChangeRequests/item/openShiftChangeRequestRequestBuilder';
+import {OpenShiftChangeRequestItemRequestBuilder} from './openShiftChangeRequests/item/openShiftChangeRequestItemRequestBuilder';
 import {OpenShiftChangeRequestsRequestBuilder} from './openShiftChangeRequests/openShiftChangeRequestsRequestBuilder';
-import {OpenShiftRequestBuilder} from './openShifts/item/openShiftRequestBuilder';
+import {OpenShiftItemRequestBuilder} from './openShifts/item/openShiftItemRequestBuilder';
 import {OpenShiftsRequestBuilder} from './openShifts/openShiftsRequestBuilder';
-import {SchedulingGroupRequestBuilder} from './schedulingGroups/item/schedulingGroupRequestBuilder';
+import {SchedulingGroupItemRequestBuilder} from './schedulingGroups/item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
 import {ShareRequestBuilder} from './share/shareRequestBuilder';
-import {ShiftRequestBuilder} from './shifts/item/shiftRequestBuilder';
+import {ShiftItemRequestBuilder} from './shifts/item/shiftItemRequestBuilder';
 import {ShiftsRequestBuilder} from './shifts/shiftsRequestBuilder';
-import {SwapShiftsChangeRequestRequestBuilder} from './swapShiftsChangeRequests/item/swapShiftsChangeRequestRequestBuilder';
+import {SwapShiftsChangeRequestItemRequestBuilder} from './swapShiftsChangeRequests/item/swapShiftsChangeRequestItemRequestBuilder';
 import {SwapShiftsChangeRequestsRequestBuilder} from './swapShiftsChangeRequests/swapShiftsChangeRequestsRequestBuilder';
-import {TimeOffReasonRequestBuilder} from './timeOffReasons/item/timeOffReasonRequestBuilder';
+import {TimeOffReasonItemRequestBuilder} from './timeOffReasons/item/timeOffReasonItemRequestBuilder';
 import {TimeOffReasonsRequestBuilder} from './timeOffReasons/timeOffReasonsRequestBuilder';
-import {TimeOffRequestRequestBuilder} from './timeOffRequests/item/timeOffRequestRequestBuilder';
+import {TimeOffRequestItemRequestBuilder} from './timeOffRequests/item/timeOffRequestItemRequestBuilder';
 import {TimeOffRequestsRequestBuilder} from './timeOffRequests/timeOffRequestsRequestBuilder';
-import {TimeOffRequestBuilder} from './timesOff/item/timeOffRequestBuilder';
+import {TimeOffItemRequestBuilder} from './timesOff/item/timeOffItemRequestBuilder';
 import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /teams/{team-id}/schedule  */
+/** Provides operations to manage the schedule property of the microsoft.graph.team entity.  */
 export class ScheduleRequestBuilder {
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -72,7 +75,7 @@ export class ScheduleRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The schedule of shifts for this team.
+     * Delete navigation property schedule for teams
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -82,7 +85,7 @@ export class ScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -101,13 +104,13 @@ export class ScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The schedule of shifts for this team.
+     * Update the navigation property schedule in teams
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -119,13 +122,13 @@ export class ScheduleRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The schedule of shifts for this team.
+     * Delete navigation property schedule for teams
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -134,7 +137,11 @@ export class ScheduleRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * The schedule of shifts for this team.
@@ -151,43 +158,47 @@ export class ScheduleRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, Schedule, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Schedule>(requestInfo, createScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.offerShiftRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a offerShiftRequestRequestBuilder
+     * @returns a offerShiftRequestItemRequestBuilder
      */
-    public offerShiftRequestsById(id: string) : OfferShiftRequestRequestBuilder {
+    public offerShiftRequestsById(id: string) : OfferShiftRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["offerShiftRequest_id"] = id
-        return new OfferShiftRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new OfferShiftRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.openShiftChangeRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a openShiftChangeRequestRequestBuilder
+     * @returns a openShiftChangeRequestItemRequestBuilder
      */
-    public openShiftChangeRequestsById(id: string) : OpenShiftChangeRequestRequestBuilder {
+    public openShiftChangeRequestsById(id: string) : OpenShiftChangeRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["openShiftChangeRequest_id"] = id
-        return new OpenShiftChangeRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new OpenShiftChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.openShifts.item collection
      * @param id Unique identifier of the item
-     * @returns a openShiftRequestBuilder
+     * @returns a openShiftItemRequestBuilder
      */
-    public openShiftsById(id: string) : OpenShiftRequestBuilder {
+    public openShiftsById(id: string) : OpenShiftItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["openShift_id"] = id
-        return new OpenShiftRequestBuilder(urlTplParams, this.requestAdapter);
+        return new OpenShiftItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * The schedule of shifts for this team.
+     * Update the navigation property schedule in teams
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -198,72 +209,76 @@ export class ScheduleRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.schedulingGroups.item collection
      * @param id Unique identifier of the item
-     * @returns a schedulingGroupRequestBuilder
+     * @returns a schedulingGroupItemRequestBuilder
      */
-    public schedulingGroupsById(id: string) : SchedulingGroupRequestBuilder {
+    public schedulingGroupsById(id: string) : SchedulingGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["schedulingGroup_id"] = id
-        return new SchedulingGroupRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SchedulingGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.shifts.item collection
      * @param id Unique identifier of the item
-     * @returns a shiftRequestBuilder
+     * @returns a shiftItemRequestBuilder
      */
-    public shiftsById(id: string) : ShiftRequestBuilder {
+    public shiftsById(id: string) : ShiftItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["shift_id"] = id
-        return new ShiftRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ShiftItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.swapShiftsChangeRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a swapShiftsChangeRequestRequestBuilder
+     * @returns a swapShiftsChangeRequestItemRequestBuilder
      */
-    public swapShiftsChangeRequestsById(id: string) : SwapShiftsChangeRequestRequestBuilder {
+    public swapShiftsChangeRequestsById(id: string) : SwapShiftsChangeRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["swapShiftsChangeRequest_id"] = id
-        return new SwapShiftsChangeRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new SwapShiftsChangeRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.timeOffReasons.item collection
      * @param id Unique identifier of the item
-     * @returns a timeOffReasonRequestBuilder
+     * @returns a timeOffReasonItemRequestBuilder
      */
-    public timeOffReasonsById(id: string) : TimeOffReasonRequestBuilder {
+    public timeOffReasonsById(id: string) : TimeOffReasonItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["timeOffReason_id"] = id
-        return new TimeOffReasonRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TimeOffReasonItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.timeOffRequests.item collection
      * @param id Unique identifier of the item
-     * @returns a timeOffRequestRequestBuilder
+     * @returns a timeOffRequestItemRequestBuilder
      */
-    public timeOffRequestsById(id: string) : TimeOffRequestRequestBuilder {
+    public timeOffRequestsById(id: string) : TimeOffRequestItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["timeOffRequest_id"] = id
-        return new TimeOffRequestRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TimeOffRequestItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.teams.item.schedule.timesOff.item collection
      * @param id Unique identifier of the item
-     * @returns a timeOffRequestBuilder
+     * @returns a timeOffItemRequestBuilder
      */
-    public timesOffById(id: string) : TimeOffRequestBuilder {
+    public timesOffById(id: string) : TimeOffItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["timeOff_id"] = id
-        return new TimeOffRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TimeOffItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

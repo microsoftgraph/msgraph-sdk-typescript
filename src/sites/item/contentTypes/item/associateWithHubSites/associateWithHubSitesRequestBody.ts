@@ -1,22 +1,40 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssociateWithHubSitesRequestBody implements Parsable {
+/** Provides operations to call the associateWithHubSites method.  */
+export class AssociateWithHubSitesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _hubSiteUrls?: string[] | undefined;
     private _propagateToExistingLists?: boolean | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new associateWithHubSitesRequestBody and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "hubSiteUrls": (o, n) => { (o as unknown as AssociateWithHubSitesRequestBody).hubSiteUrls = n.getCollectionOfPrimitiveValues<string>(); },
+            "propagateToExistingLists": (o, n) => { (o as unknown as AssociateWithHubSitesRequestBody).propagateToExistingLists = n.getBooleanValue(); },
+        };
     };
     /**
      * Gets the hubSiteUrls property value. 
@@ -26,6 +44,13 @@ export class AssociateWithHubSitesRequestBody implements Parsable {
         return this._hubSiteUrls;
     };
     /**
+     * Sets the hubSiteUrls property value. 
+     * @param value Value to set for the hubSiteUrls property.
+     */
+    public set hubSiteUrls(value: string[] | undefined) {
+        this._hubSiteUrls = value;
+    };
+    /**
      * Gets the propagateToExistingLists property value. 
      * @returns a boolean
      */
@@ -33,14 +58,11 @@ export class AssociateWithHubSitesRequestBody implements Parsable {
         return this._propagateToExistingLists;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the propagateToExistingLists property value. 
+     * @param value Value to set for the propagateToExistingLists property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["hubSiteUrls", (o, n) => { (o as unknown as AssociateWithHubSitesRequestBody).hubSiteUrls = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["propagateToExistingLists", (o, n) => { (o as unknown as AssociateWithHubSitesRequestBody).propagateToExistingLists = n.getBooleanValue(); }],
-        ]);
+    public set propagateToExistingLists(value: boolean | undefined) {
+        this._propagateToExistingLists = value;
     };
     /**
      * Serializes information the current object
@@ -51,26 +73,5 @@ export class AssociateWithHubSitesRequestBody implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("hubSiteUrls", this.hubSiteUrls);
         writer.writeBooleanValue("propagateToExistingLists", this.propagateToExistingLists);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the hubSiteUrls property value. 
-     * @param value Value to set for the hubSiteUrls property.
-     */
-    public set hubSiteUrls(value: string[] | undefined) {
-        this._hubSiteUrls = value;
-    };
-    /**
-     * Sets the propagateToExistingLists property value. 
-     * @param value Value to set for the propagateToExistingLists property.
-     */
-    public set propagateToExistingLists(value: boolean | undefined) {
-        this._propagateToExistingLists = value;
     };
 }

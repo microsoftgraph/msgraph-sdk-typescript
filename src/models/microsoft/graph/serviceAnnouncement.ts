@@ -1,7 +1,7 @@
-import {Entity} from './entity';
-import {ServiceHealth} from './serviceHealth';
-import {ServiceHealthIssue} from './serviceHealthIssue';
-import {ServiceUpdateMessage} from './serviceUpdateMessage';
+import {createServiceHealthFromDiscriminatorValue} from './createServiceHealthFromDiscriminatorValue';
+import {createServiceHealthIssueFromDiscriminatorValue} from './createServiceHealthIssueFromDiscriminatorValue';
+import {createServiceUpdateMessageFromDiscriminatorValue} from './createServiceUpdateMessageFromDiscriminatorValue';
+import {Entity, ServiceHealth, ServiceHealthIssue, ServiceUpdateMessage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceAnnouncement extends Entity implements Parsable {
@@ -18,11 +18,29 @@ export class ServiceAnnouncement extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "healthOverviews": (o, n) => { (o as unknown as ServiceAnnouncement).healthOverviews = n.getCollectionOfObjectValues<ServiceHealth>(createServiceHealthFromDiscriminatorValue); },
+            "issues": (o, n) => { (o as unknown as ServiceAnnouncement).issues = n.getCollectionOfObjectValues<ServiceHealthIssue>(createServiceHealthIssueFromDiscriminatorValue); },
+            "messages": (o, n) => { (o as unknown as ServiceAnnouncement).messages = n.getCollectionOfObjectValues<ServiceUpdateMessage>(createServiceUpdateMessageFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the healthOverviews property value. A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @returns a serviceHealth
      */
     public get healthOverviews() {
         return this._healthOverviews;
+    };
+    /**
+     * Sets the healthOverviews property value. A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * @param value Value to set for the healthOverviews property.
+     */
+    public set healthOverviews(value: ServiceHealth[] | undefined) {
+        this._healthOverviews = value;
     };
     /**
      * Gets the issues property value. A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
@@ -32,6 +50,13 @@ export class ServiceAnnouncement extends Entity implements Parsable {
         return this._issues;
     };
     /**
+     * Sets the issues property value. A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * @param value Value to set for the issues property.
+     */
+    public set issues(value: ServiceHealthIssue[] | undefined) {
+        this._issues = value;
+    };
+    /**
      * Gets the messages property value. A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
      * @returns a serviceUpdateMessage
      */
@@ -39,15 +64,11 @@ export class ServiceAnnouncement extends Entity implements Parsable {
         return this._messages;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the messages property value. A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
+     * @param value Value to set for the messages property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["healthOverviews", (o, n) => { (o as unknown as ServiceAnnouncement).healthOverviews = n.getCollectionOfObjectValues<ServiceHealth>(ServiceHealth); }],
-            ["issues", (o, n) => { (o as unknown as ServiceAnnouncement).issues = n.getCollectionOfObjectValues<ServiceHealthIssue>(ServiceHealthIssue); }],
-            ["messages", (o, n) => { (o as unknown as ServiceAnnouncement).messages = n.getCollectionOfObjectValues<ServiceUpdateMessage>(ServiceUpdateMessage); }],
-        ]);
+    public set messages(value: ServiceUpdateMessage[] | undefined) {
+        this._messages = value;
     };
     /**
      * Serializes information the current object
@@ -59,26 +80,5 @@ export class ServiceAnnouncement extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ServiceHealth>("healthOverviews", this.healthOverviews);
         writer.writeCollectionOfObjectValues<ServiceHealthIssue>("issues", this.issues);
         writer.writeCollectionOfObjectValues<ServiceUpdateMessage>("messages", this.messages);
-    };
-    /**
-     * Sets the healthOverviews property value. A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.
-     * @param value Value to set for the healthOverviews property.
-     */
-    public set healthOverviews(value: ServiceHealth[] | undefined) {
-        this._healthOverviews = value;
-    };
-    /**
-     * Sets the issues property value. A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.
-     * @param value Value to set for the issues property.
-     */
-    public set issues(value: ServiceHealthIssue[] | undefined) {
-        this._issues = value;
-    };
-    /**
-     * Sets the messages property value. A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.
-     * @param value Value to set for the messages property.
-     */
-    public set messages(value: ServiceUpdateMessage[] | undefined) {
-        this._messages = value;
     };
 }

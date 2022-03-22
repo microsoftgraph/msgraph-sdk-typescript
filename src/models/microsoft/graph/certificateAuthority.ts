@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CertificateAuthority implements Parsable {
+export class CertificateAuthority implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Required. The base64 encoded string representing the public certificate.  */
     private _certificate?: string | undefined;
     /** The URL of the certificate revocation list.  */
@@ -16,17 +16,18 @@ export class CertificateAuthority implements Parsable {
     /** The subject key identifier of the certificate, calculated from the certificate value. Read-only.  */
     private _issuerSki?: string | undefined;
     /**
-     * Instantiates a new certificateAuthority and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the certificate property value. Required. The base64 encoded string representing the public certificate.
@@ -36,11 +37,31 @@ export class CertificateAuthority implements Parsable {
         return this._certificate;
     };
     /**
+     * Sets the certificate property value. Required. The base64 encoded string representing the public certificate.
+     * @param value Value to set for the certificate property.
+     */
+    public set certificate(value: string | undefined) {
+        this._certificate = value;
+    };
+    /**
      * Gets the certificateRevocationListUrl property value. The URL of the certificate revocation list.
      * @returns a string
      */
     public get certificateRevocationListUrl() {
         return this._certificateRevocationListUrl;
+    };
+    /**
+     * Sets the certificateRevocationListUrl property value. The URL of the certificate revocation list.
+     * @param value Value to set for the certificateRevocationListUrl property.
+     */
+    public set certificateRevocationListUrl(value: string | undefined) {
+        this._certificateRevocationListUrl = value;
+    };
+    /**
+     * Instantiates a new certificateAuthority and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the deltaCertificateRevocationListUrl property value. The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
@@ -50,11 +71,39 @@ export class CertificateAuthority implements Parsable {
         return this._deltaCertificateRevocationListUrl;
     };
     /**
+     * Sets the deltaCertificateRevocationListUrl property value. The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
+     * @param value Value to set for the deltaCertificateRevocationListUrl property.
+     */
+    public set deltaCertificateRevocationListUrl(value: string | undefined) {
+        this._deltaCertificateRevocationListUrl = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "certificate": (o, n) => { (o as unknown as CertificateAuthority).certificate = n.getStringValue(); },
+            "certificateRevocationListUrl": (o, n) => { (o as unknown as CertificateAuthority).certificateRevocationListUrl = n.getStringValue(); },
+            "deltaCertificateRevocationListUrl": (o, n) => { (o as unknown as CertificateAuthority).deltaCertificateRevocationListUrl = n.getStringValue(); },
+            "isRootAuthority": (o, n) => { (o as unknown as CertificateAuthority).isRootAuthority = n.getBooleanValue(); },
+            "issuer": (o, n) => { (o as unknown as CertificateAuthority).issuer = n.getStringValue(); },
+            "issuerSki": (o, n) => { (o as unknown as CertificateAuthority).issuerSki = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the isRootAuthority property value. Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
      * @returns a boolean
      */
     public get isRootAuthority() {
         return this._isRootAuthority;
+    };
+    /**
+     * Sets the isRootAuthority property value. Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
+     * @param value Value to set for the isRootAuthority property.
+     */
+    public set isRootAuthority(value: boolean | undefined) {
+        this._isRootAuthority = value;
     };
     /**
      * Gets the issuer property value. The issuer of the certificate, calculated from the certificate value. Read-only.
@@ -64,6 +113,13 @@ export class CertificateAuthority implements Parsable {
         return this._issuer;
     };
     /**
+     * Sets the issuer property value. The issuer of the certificate, calculated from the certificate value. Read-only.
+     * @param value Value to set for the issuer property.
+     */
+    public set issuer(value: string | undefined) {
+        this._issuer = value;
+    };
+    /**
      * Gets the issuerSki property value. The subject key identifier of the certificate, calculated from the certificate value. Read-only.
      * @returns a string
      */
@@ -71,18 +127,11 @@ export class CertificateAuthority implements Parsable {
         return this._issuerSki;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the issuerSki property value. The subject key identifier of the certificate, calculated from the certificate value. Read-only.
+     * @param value Value to set for the issuerSki property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["certificate", (o, n) => { (o as unknown as CertificateAuthority).certificate = n.getStringValue(); }],
-            ["certificateRevocationListUrl", (o, n) => { (o as unknown as CertificateAuthority).certificateRevocationListUrl = n.getStringValue(); }],
-            ["deltaCertificateRevocationListUrl", (o, n) => { (o as unknown as CertificateAuthority).deltaCertificateRevocationListUrl = n.getStringValue(); }],
-            ["isRootAuthority", (o, n) => { (o as unknown as CertificateAuthority).isRootAuthority = n.getBooleanValue(); }],
-            ["issuer", (o, n) => { (o as unknown as CertificateAuthority).issuer = n.getStringValue(); }],
-            ["issuerSki", (o, n) => { (o as unknown as CertificateAuthority).issuerSki = n.getStringValue(); }],
-        ]);
+    public set issuerSki(value: string | undefined) {
+        this._issuerSki = value;
     };
     /**
      * Serializes information the current object
@@ -97,54 +146,5 @@ export class CertificateAuthority implements Parsable {
         writer.writeStringValue("issuer", this.issuer);
         writer.writeStringValue("issuerSki", this.issuerSki);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the certificate property value. Required. The base64 encoded string representing the public certificate.
-     * @param value Value to set for the certificate property.
-     */
-    public set certificate(value: string | undefined) {
-        this._certificate = value;
-    };
-    /**
-     * Sets the certificateRevocationListUrl property value. The URL of the certificate revocation list.
-     * @param value Value to set for the certificateRevocationListUrl property.
-     */
-    public set certificateRevocationListUrl(value: string | undefined) {
-        this._certificateRevocationListUrl = value;
-    };
-    /**
-     * Sets the deltaCertificateRevocationListUrl property value. The URL contains the list of all revoked certificates since the last time a full certificate revocaton list was created.
-     * @param value Value to set for the deltaCertificateRevocationListUrl property.
-     */
-    public set deltaCertificateRevocationListUrl(value: string | undefined) {
-        this._deltaCertificateRevocationListUrl = value;
-    };
-    /**
-     * Sets the isRootAuthority property value. Required. true if the trusted certificate is a root authority, false if the trusted certificate is an intermediate authority.
-     * @param value Value to set for the isRootAuthority property.
-     */
-    public set isRootAuthority(value: boolean | undefined) {
-        this._isRootAuthority = value;
-    };
-    /**
-     * Sets the issuer property value. The issuer of the certificate, calculated from the certificate value. Read-only.
-     * @param value Value to set for the issuer property.
-     */
-    public set issuer(value: string | undefined) {
-        this._issuer = value;
-    };
-    /**
-     * Sets the issuerSki property value. The subject key identifier of the certificate, calculated from the certificate value. Read-only.
-     * @param value Value to set for the issuerSki property.
-     */
-    public set issuerSki(value: string | undefined) {
-        this._issuerSki = value;
     };
 }

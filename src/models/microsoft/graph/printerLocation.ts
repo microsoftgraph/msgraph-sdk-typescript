@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrinterLocation implements Parsable {
+export class PrinterLocation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The altitude, in meters, that the printer is located at.  */
     private _altitudeInMeters?: number | undefined;
     /** The building that the printer is located in.  */
@@ -37,17 +37,18 @@ export class PrinterLocation implements Parsable {
     private _subdivision?: string[] | undefined;
     private _subunit?: string[] | undefined;
     /**
-     * Instantiates a new printerLocation and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the altitudeInMeters property value. The altitude, in meters, that the printer is located at.
@@ -57,11 +58,25 @@ export class PrinterLocation implements Parsable {
         return this._altitudeInMeters;
     };
     /**
+     * Sets the altitudeInMeters property value. The altitude, in meters, that the printer is located at.
+     * @param value Value to set for the altitudeInMeters property.
+     */
+    public set altitudeInMeters(value: number | undefined) {
+        this._altitudeInMeters = value;
+    };
+    /**
      * Gets the building property value. The building that the printer is located in.
      * @returns a string
      */
     public get building() {
         return this._building;
+    };
+    /**
+     * Sets the building property value. The building that the printer is located in.
+     * @param value Value to set for the building property.
+     */
+    public set building(value: string | undefined) {
+        this._building = value;
     };
     /**
      * Gets the city property value. The city that the printer is located in.
@@ -71,11 +86,31 @@ export class PrinterLocation implements Parsable {
         return this._city;
     };
     /**
+     * Sets the city property value. The city that the printer is located in.
+     * @param value Value to set for the city property.
+     */
+    public set city(value: string | undefined) {
+        this._city = value;
+    };
+    /**
+     * Instantiates a new printerLocation and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the countryOrRegion property value. The country or region that the printer is located in.
      * @returns a string
      */
     public get countryOrRegion() {
         return this._countryOrRegion;
+    };
+    /**
+     * Sets the countryOrRegion property value. The country or region that the printer is located in.
+     * @param value Value to set for the countryOrRegion property.
+     */
+    public set countryOrRegion(value: string | undefined) {
+        this._countryOrRegion = value;
     };
     /**
      * Gets the floor property value. The floor that the printer is located on. Only numerical values are supported right now.
@@ -85,11 +120,50 @@ export class PrinterLocation implements Parsable {
         return this._floor;
     };
     /**
+     * Sets the floor property value. The floor that the printer is located on. Only numerical values are supported right now.
+     * @param value Value to set for the floor property.
+     */
+    public set floor(value: string | undefined) {
+        this._floor = value;
+    };
+    /**
      * Gets the floorDescription property value. The description of the floor that the printer is located on.
      * @returns a string
      */
     public get floorDescription() {
         return this._floorDescription;
+    };
+    /**
+     * Sets the floorDescription property value. The description of the floor that the printer is located on.
+     * @param value Value to set for the floorDescription property.
+     */
+    public set floorDescription(value: string | undefined) {
+        this._floorDescription = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "altitudeInMeters": (o, n) => { (o as unknown as PrinterLocation).altitudeInMeters = n.getNumberValue(); },
+            "building": (o, n) => { (o as unknown as PrinterLocation).building = n.getStringValue(); },
+            "city": (o, n) => { (o as unknown as PrinterLocation).city = n.getStringValue(); },
+            "countryOrRegion": (o, n) => { (o as unknown as PrinterLocation).countryOrRegion = n.getStringValue(); },
+            "floor": (o, n) => { (o as unknown as PrinterLocation).floor = n.getStringValue(); },
+            "floorDescription": (o, n) => { (o as unknown as PrinterLocation).floorDescription = n.getStringValue(); },
+            "latitude": (o, n) => { (o as unknown as PrinterLocation).latitude = n.getNumberValue(); },
+            "longitude": (o, n) => { (o as unknown as PrinterLocation).longitude = n.getNumberValue(); },
+            "organization": (o, n) => { (o as unknown as PrinterLocation).organization = n.getCollectionOfPrimitiveValues<string>(); },
+            "postalCode": (o, n) => { (o as unknown as PrinterLocation).postalCode = n.getStringValue(); },
+            "roomDescription": (o, n) => { (o as unknown as PrinterLocation).roomDescription = n.getStringValue(); },
+            "roomName": (o, n) => { (o as unknown as PrinterLocation).roomName = n.getStringValue(); },
+            "site": (o, n) => { (o as unknown as PrinterLocation).site = n.getStringValue(); },
+            "stateOrProvince": (o, n) => { (o as unknown as PrinterLocation).stateOrProvince = n.getStringValue(); },
+            "streetAddress": (o, n) => { (o as unknown as PrinterLocation).streetAddress = n.getStringValue(); },
+            "subdivision": (o, n) => { (o as unknown as PrinterLocation).subdivision = n.getCollectionOfPrimitiveValues<string>(); },
+            "subunit": (o, n) => { (o as unknown as PrinterLocation).subunit = n.getCollectionOfPrimitiveValues<string>(); },
+        };
     };
     /**
      * Gets the latitude property value. The latitude that the printer is located at.
@@ -99,11 +173,25 @@ export class PrinterLocation implements Parsable {
         return this._latitude;
     };
     /**
+     * Sets the latitude property value. The latitude that the printer is located at.
+     * @param value Value to set for the latitude property.
+     */
+    public set latitude(value: number | undefined) {
+        this._latitude = value;
+    };
+    /**
      * Gets the longitude property value. The longitude that the printer is located at.
      * @returns a double
      */
     public get longitude() {
         return this._longitude;
+    };
+    /**
+     * Sets the longitude property value. The longitude that the printer is located at.
+     * @param value Value to set for the longitude property.
+     */
+    public set longitude(value: number | undefined) {
+        this._longitude = value;
     };
     /**
      * Gets the organization property value. The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.
@@ -113,11 +201,25 @@ export class PrinterLocation implements Parsable {
         return this._organization;
     };
     /**
+     * Sets the organization property value. The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.
+     * @param value Value to set for the organization property.
+     */
+    public set organization(value: string[] | undefined) {
+        this._organization = value;
+    };
+    /**
      * Gets the postalCode property value. The postal code that the printer is located in.
      * @returns a string
      */
     public get postalCode() {
         return this._postalCode;
+    };
+    /**
+     * Sets the postalCode property value. The postal code that the printer is located in.
+     * @param value Value to set for the postalCode property.
+     */
+    public set postalCode(value: string | undefined) {
+        this._postalCode = value;
     };
     /**
      * Gets the roomDescription property value. The description of the room that the printer is located in.
@@ -127,6 +229,13 @@ export class PrinterLocation implements Parsable {
         return this._roomDescription;
     };
     /**
+     * Sets the roomDescription property value. The description of the room that the printer is located in.
+     * @param value Value to set for the roomDescription property.
+     */
+    public set roomDescription(value: string | undefined) {
+        this._roomDescription = value;
+    };
+    /**
      * Gets the roomName property value. The room that the printer is located in. Only numerical values are supported right now.
      * @returns a string
      */
@@ -134,64 +243,11 @@ export class PrinterLocation implements Parsable {
         return this._roomName;
     };
     /**
-     * Gets the site property value. The site that the printer is located in.
-     * @returns a string
+     * Sets the roomName property value. The room that the printer is located in. Only numerical values are supported right now.
+     * @param value Value to set for the roomName property.
      */
-    public get site() {
-        return this._site;
-    };
-    /**
-     * Gets the stateOrProvince property value. The state or province that the printer is located in.
-     * @returns a string
-     */
-    public get stateOrProvince() {
-        return this._stateOrProvince;
-    };
-    /**
-     * Gets the streetAddress property value. The street address where the printer is located.
-     * @returns a string
-     */
-    public get streetAddress() {
-        return this._streetAddress;
-    };
-    /**
-     * Gets the subdivision property value. The subdivision that the printer is located in. The elements should be in hierarchical order.
-     * @returns a string
-     */
-    public get subdivision() {
-        return this._subdivision;
-    };
-    /**
-     * Gets the subunit property value. 
-     * @returns a string
-     */
-    public get subunit() {
-        return this._subunit;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["altitudeInMeters", (o, n) => { (o as unknown as PrinterLocation).altitudeInMeters = n.getNumberValue(); }],
-            ["building", (o, n) => { (o as unknown as PrinterLocation).building = n.getStringValue(); }],
-            ["city", (o, n) => { (o as unknown as PrinterLocation).city = n.getStringValue(); }],
-            ["countryOrRegion", (o, n) => { (o as unknown as PrinterLocation).countryOrRegion = n.getStringValue(); }],
-            ["floor", (o, n) => { (o as unknown as PrinterLocation).floor = n.getStringValue(); }],
-            ["floorDescription", (o, n) => { (o as unknown as PrinterLocation).floorDescription = n.getStringValue(); }],
-            ["latitude", (o, n) => { (o as unknown as PrinterLocation).latitude = n.getNumberValue(); }],
-            ["longitude", (o, n) => { (o as unknown as PrinterLocation).longitude = n.getNumberValue(); }],
-            ["organization", (o, n) => { (o as unknown as PrinterLocation).organization = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["postalCode", (o, n) => { (o as unknown as PrinterLocation).postalCode = n.getStringValue(); }],
-            ["roomDescription", (o, n) => { (o as unknown as PrinterLocation).roomDescription = n.getStringValue(); }],
-            ["roomName", (o, n) => { (o as unknown as PrinterLocation).roomName = n.getStringValue(); }],
-            ["site", (o, n) => { (o as unknown as PrinterLocation).site = n.getStringValue(); }],
-            ["stateOrProvince", (o, n) => { (o as unknown as PrinterLocation).stateOrProvince = n.getStringValue(); }],
-            ["streetAddress", (o, n) => { (o as unknown as PrinterLocation).streetAddress = n.getStringValue(); }],
-            ["subdivision", (o, n) => { (o as unknown as PrinterLocation).subdivision = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["subunit", (o, n) => { (o as unknown as PrinterLocation).subunit = n.getCollectionOfPrimitiveValues<string>(); }],
-        ]);
+    public set roomName(value: string | undefined) {
+        this._roomName = value;
     };
     /**
      * Serializes information the current object
@@ -219,95 +275,11 @@ export class PrinterLocation implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the site property value. The site that the printer is located in.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the altitudeInMeters property value. The altitude, in meters, that the printer is located at.
-     * @param value Value to set for the altitudeInMeters property.
-     */
-    public set altitudeInMeters(value: number | undefined) {
-        this._altitudeInMeters = value;
-    };
-    /**
-     * Sets the building property value. The building that the printer is located in.
-     * @param value Value to set for the building property.
-     */
-    public set building(value: string | undefined) {
-        this._building = value;
-    };
-    /**
-     * Sets the city property value. The city that the printer is located in.
-     * @param value Value to set for the city property.
-     */
-    public set city(value: string | undefined) {
-        this._city = value;
-    };
-    /**
-     * Sets the countryOrRegion property value. The country or region that the printer is located in.
-     * @param value Value to set for the countryOrRegion property.
-     */
-    public set countryOrRegion(value: string | undefined) {
-        this._countryOrRegion = value;
-    };
-    /**
-     * Sets the floor property value. The floor that the printer is located on. Only numerical values are supported right now.
-     * @param value Value to set for the floor property.
-     */
-    public set floor(value: string | undefined) {
-        this._floor = value;
-    };
-    /**
-     * Sets the floorDescription property value. The description of the floor that the printer is located on.
-     * @param value Value to set for the floorDescription property.
-     */
-    public set floorDescription(value: string | undefined) {
-        this._floorDescription = value;
-    };
-    /**
-     * Sets the latitude property value. The latitude that the printer is located at.
-     * @param value Value to set for the latitude property.
-     */
-    public set latitude(value: number | undefined) {
-        this._latitude = value;
-    };
-    /**
-     * Sets the longitude property value. The longitude that the printer is located at.
-     * @param value Value to set for the longitude property.
-     */
-    public set longitude(value: number | undefined) {
-        this._longitude = value;
-    };
-    /**
-     * Sets the organization property value. The organizational hierarchy that the printer belongs to. The elements should be in hierarchical order.
-     * @param value Value to set for the organization property.
-     */
-    public set organization(value: string[] | undefined) {
-        this._organization = value;
-    };
-    /**
-     * Sets the postalCode property value. The postal code that the printer is located in.
-     * @param value Value to set for the postalCode property.
-     */
-    public set postalCode(value: string | undefined) {
-        this._postalCode = value;
-    };
-    /**
-     * Sets the roomDescription property value. The description of the room that the printer is located in.
-     * @param value Value to set for the roomDescription property.
-     */
-    public set roomDescription(value: string | undefined) {
-        this._roomDescription = value;
-    };
-    /**
-     * Sets the roomName property value. The room that the printer is located in. Only numerical values are supported right now.
-     * @param value Value to set for the roomName property.
-     */
-    public set roomName(value: string | undefined) {
-        this._roomName = value;
+    public get site() {
+        return this._site;
     };
     /**
      * Sets the site property value. The site that the printer is located in.
@@ -317,11 +289,25 @@ export class PrinterLocation implements Parsable {
         this._site = value;
     };
     /**
+     * Gets the stateOrProvince property value. The state or province that the printer is located in.
+     * @returns a string
+     */
+    public get stateOrProvince() {
+        return this._stateOrProvince;
+    };
+    /**
      * Sets the stateOrProvince property value. The state or province that the printer is located in.
      * @param value Value to set for the stateOrProvince property.
      */
     public set stateOrProvince(value: string | undefined) {
         this._stateOrProvince = value;
+    };
+    /**
+     * Gets the streetAddress property value. The street address where the printer is located.
+     * @returns a string
+     */
+    public get streetAddress() {
+        return this._streetAddress;
     };
     /**
      * Sets the streetAddress property value. The street address where the printer is located.
@@ -331,11 +317,25 @@ export class PrinterLocation implements Parsable {
         this._streetAddress = value;
     };
     /**
+     * Gets the subdivision property value. The subdivision that the printer is located in. The elements should be in hierarchical order.
+     * @returns a string
+     */
+    public get subdivision() {
+        return this._subdivision;
+    };
+    /**
      * Sets the subdivision property value. The subdivision that the printer is located in. The elements should be in hierarchical order.
      * @param value Value to set for the subdivision property.
      */
     public set subdivision(value: string[] | undefined) {
         this._subdivision = value;
+    };
+    /**
+     * Gets the subunit property value. 
+     * @returns a string
+     */
+    public get subunit() {
+        return this._subunit;
     };
     /**
      * Sets the subunit property value. 

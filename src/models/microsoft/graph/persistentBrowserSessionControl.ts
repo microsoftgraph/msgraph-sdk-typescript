@@ -1,4 +1,4 @@
-import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
+import {ConditionalAccessSessionControl} from './index';
 import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -12,6 +12,15 @@ export class PersistentBrowserSessionControl extends ConditionalAccessSessionCon
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "mode": (o, n) => { (o as unknown as PersistentBrowserSessionControl).mode = n.getEnumValue<PersistentBrowserSessionMode>(PersistentBrowserSessionMode); },
+        };
+    };
+    /**
      * Gets the mode property value. Possible values are: always, never.
      * @returns a persistentBrowserSessionMode
      */
@@ -19,13 +28,11 @@ export class PersistentBrowserSessionControl extends ConditionalAccessSessionCon
         return this._mode;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the mode property value. Possible values are: always, never.
+     * @param value Value to set for the mode property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["mode", (o, n) => { (o as unknown as PersistentBrowserSessionControl).mode = n.getEnumValue<PersistentBrowserSessionMode>(PersistentBrowserSessionMode); }],
-        ]);
+    public set mode(value: PersistentBrowserSessionMode | undefined) {
+        this._mode = value;
     };
     /**
      * Serializes information the current object
@@ -35,12 +42,5 @@ export class PersistentBrowserSessionControl extends ConditionalAccessSessionCon
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<PersistentBrowserSessionMode>("mode", this.mode);
-    };
-    /**
-     * Sets the mode property value. Possible values are: always, never.
-     * @param value Value to set for the mode property.
-     */
-    public set mode(value: PersistentBrowserSessionMode | undefined) {
-        this._mode = value;
     };
 }

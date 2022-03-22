@@ -1,4 +1,4 @@
-import {CommsOperation} from './commsOperation';
+import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecordOperation extends CommsOperation implements Parsable {
@@ -13,11 +13,28 @@ export class RecordOperation extends CommsOperation implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "recordingAccessToken": (o, n) => { (o as unknown as RecordOperation).recordingAccessToken = n.getStringValue(); },
+            "recordingLocation": (o, n) => { (o as unknown as RecordOperation).recordingLocation = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the recordingAccessToken property value. The access token required to retrieve the recording.
      * @returns a string
      */
     public get recordingAccessToken() {
         return this._recordingAccessToken;
+    };
+    /**
+     * Sets the recordingAccessToken property value. The access token required to retrieve the recording.
+     * @param value Value to set for the recordingAccessToken property.
+     */
+    public set recordingAccessToken(value: string | undefined) {
+        this._recordingAccessToken = value;
     };
     /**
      * Gets the recordingLocation property value. The location where the recording is located.
@@ -27,14 +44,11 @@ export class RecordOperation extends CommsOperation implements Parsable {
         return this._recordingLocation;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the recordingLocation property value. The location where the recording is located.
+     * @param value Value to set for the recordingLocation property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["recordingAccessToken", (o, n) => { (o as unknown as RecordOperation).recordingAccessToken = n.getStringValue(); }],
-            ["recordingLocation", (o, n) => { (o as unknown as RecordOperation).recordingLocation = n.getStringValue(); }],
-        ]);
+    public set recordingLocation(value: string | undefined) {
+        this._recordingLocation = value;
     };
     /**
      * Serializes information the current object
@@ -45,19 +59,5 @@ export class RecordOperation extends CommsOperation implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("recordingAccessToken", this.recordingAccessToken);
         writer.writeStringValue("recordingLocation", this.recordingLocation);
-    };
-    /**
-     * Sets the recordingAccessToken property value. The access token required to retrieve the recording.
-     * @param value Value to set for the recordingAccessToken property.
-     */
-    public set recordingAccessToken(value: string | undefined) {
-        this._recordingAccessToken = value;
-    };
-    /**
-     * Sets the recordingLocation property value. The location where the recording is located.
-     * @param value Value to set for the recordingLocation property.
-     */
-    public set recordingLocation(value: string | undefined) {
-        this._recordingLocation = value;
     };
 }

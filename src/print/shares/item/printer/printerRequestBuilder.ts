@@ -1,20 +1,15 @@
-import {Printer} from '../../../../models/microsoft/graph/printer';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {RestoreFactoryDefaultsRequestBuilder} from './restoreFactoryDefaults/restoreFactoryDefaultsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {Printer} from '../../../../models/microsoft/graph/';
+import {createPrinterFromDiscriminatorValue} from '../../../../models/microsoft/graph/createPrinterFromDiscriminatorValue';
+import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /print/shares/{printerShare-id}/printer  */
+/** Provides operations to manage the printer property of the microsoft.graph.printerShare entity.  */
 export class PrinterRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
-    public get restoreFactoryDefaults(): RestoreFactoryDefaultsRequestBuilder {
-        return new RestoreFactoryDefaultsRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
@@ -45,7 +40,7 @@ export class PrinterRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -65,6 +60,10 @@ export class PrinterRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Printer>(requestInfo, Printer, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Printer>(requestInfo, createPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

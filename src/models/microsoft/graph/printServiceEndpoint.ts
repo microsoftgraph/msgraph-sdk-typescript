@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintServiceEndpoint extends Entity implements Parsable {
@@ -20,21 +20,21 @@ export class PrintServiceEndpoint extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the uri property value. The URI that can be used to access the service.
-     * @returns a string
+     * Sets the displayName property value. A human-readable display name for the endpoint.
+     * @param value Value to set for the displayName property.
      */
-    public get uri() {
-        return this._uri;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as PrintServiceEndpoint).displayName = n.getStringValue(); }],
-            ["uri", (o, n) => { (o as unknown as PrintServiceEndpoint).uri = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as PrintServiceEndpoint).displayName = n.getStringValue(); },
+            "uri": (o, n) => { (o as unknown as PrintServiceEndpoint).uri = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -47,11 +47,11 @@ export class PrintServiceEndpoint extends Entity implements Parsable {
         writer.writeStringValue("uri", this.uri);
     };
     /**
-     * Sets the displayName property value. A human-readable display name for the endpoint.
-     * @param value Value to set for the displayName property.
+     * Gets the uri property value. The URI that can be used to access the service.
+     * @returns a string
      */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
+    public get uri() {
+        return this._uri;
     };
     /**
      * Sets the uri property value. The URI that can be used to access the service.

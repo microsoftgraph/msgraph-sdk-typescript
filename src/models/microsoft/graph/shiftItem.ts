@@ -1,5 +1,5 @@
-import {ScheduleEntity} from './scheduleEntity';
-import {ShiftActivity} from './shiftActivity';
+import {createShiftActivityFromDiscriminatorValue} from './createShiftActivityFromDiscriminatorValue';
+import {ScheduleEntity, ShiftActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftItem extends ScheduleEntity implements Parsable {
@@ -10,17 +10,24 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
     /** The shift notes for the shiftItem.  */
     private _notes?: string | undefined;
     /**
-     * Instantiates a new shiftItem and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
      * @returns a shiftActivity
      */
     public get activities() {
         return this._activities;
+    };
+    /**
+     * Sets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
+     * @param value Value to set for the activities property.
+     */
+    public set activities(value: ShiftActivity[] | undefined) {
+        this._activities = value;
+    };
+    /**
+     * Instantiates a new shiftItem and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the displayName property value. The shift label of the shiftItem.
@@ -30,6 +37,24 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The shift label of the shiftItem.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "activities": (o, n) => { (o as unknown as ShiftItem).activities = n.getCollectionOfObjectValues<ShiftActivity>(createShiftActivityFromDiscriminatorValue); },
+            "displayName": (o, n) => { (o as unknown as ShiftItem).displayName = n.getStringValue(); },
+            "notes": (o, n) => { (o as unknown as ShiftItem).notes = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the notes property value. The shift notes for the shiftItem.
      * @returns a string
      */
@@ -37,15 +62,11 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
         return this._notes;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the notes property value. The shift notes for the shiftItem.
+     * @param value Value to set for the notes property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["activities", (o, n) => { (o as unknown as ShiftItem).activities = n.getCollectionOfObjectValues<ShiftActivity>(ShiftActivity); }],
-            ["displayName", (o, n) => { (o as unknown as ShiftItem).displayName = n.getStringValue(); }],
-            ["notes", (o, n) => { (o as unknown as ShiftItem).notes = n.getStringValue(); }],
-        ]);
+    public set notes(value: string | undefined) {
+        this._notes = value;
     };
     /**
      * Serializes information the current object
@@ -57,26 +78,5 @@ export class ShiftItem extends ScheduleEntity implements Parsable {
         writer.writeCollectionOfObjectValues<ShiftActivity>("activities", this.activities);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("notes", this.notes);
-    };
-    /**
-     * Sets the activities property value. An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.
-     * @param value Value to set for the activities property.
-     */
-    public set activities(value: ShiftActivity[] | undefined) {
-        this._activities = value;
-    };
-    /**
-     * Sets the displayName property value. The shift label of the shiftItem.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the notes property value. The shift notes for the shiftItem.
-     * @param value Value to set for the notes property.
-     */
-    public set notes(value: string | undefined) {
-        this._notes = value;
     };
 }

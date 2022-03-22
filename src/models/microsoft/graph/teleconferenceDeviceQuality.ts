@@ -1,9 +1,10 @@
-import {TeleconferenceDeviceMediaQuality} from './teleconferenceDeviceMediaQuality';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createTeleconferenceDeviceMediaQualityFromDiscriminatorValue} from './createTeleconferenceDeviceMediaQualityFromDiscriminatorValue';
+import {TeleconferenceDeviceMediaQuality} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeleconferenceDeviceQuality implements Parsable {
+export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.  */
     private _callChainId?: string | undefined;
     /** A geo-region where the service is deployed, such as ProdNoam.  */
@@ -25,17 +26,18 @@ export class TeleconferenceDeviceQuality implements Parsable {
     /** A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.  */
     private _participantId?: string | undefined;
     /**
-     * Instantiates a new teleconferenceDeviceQuality and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the callChainId property value. A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
@@ -45,11 +47,25 @@ export class TeleconferenceDeviceQuality implements Parsable {
         return this._callChainId;
     };
     /**
+     * Sets the callChainId property value. A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
+     * @param value Value to set for the callChainId property.
+     */
+    public set callChainId(value: string | undefined) {
+        this._callChainId = value;
+    };
+    /**
      * Gets the cloudServiceDeploymentEnvironment property value. A geo-region where the service is deployed, such as ProdNoam.
      * @returns a string
      */
     public get cloudServiceDeploymentEnvironment() {
         return this._cloudServiceDeploymentEnvironment;
+    };
+    /**
+     * Sets the cloudServiceDeploymentEnvironment property value. A geo-region where the service is deployed, such as ProdNoam.
+     * @param value Value to set for the cloudServiceDeploymentEnvironment property.
+     */
+    public set cloudServiceDeploymentEnvironment(value: string | undefined) {
+        this._cloudServiceDeploymentEnvironment = value;
     };
     /**
      * Gets the cloudServiceDeploymentId property value. A unique deployment identifier assigned by Azure.
@@ -59,11 +75,25 @@ export class TeleconferenceDeviceQuality implements Parsable {
         return this._cloudServiceDeploymentId;
     };
     /**
+     * Sets the cloudServiceDeploymentId property value. A unique deployment identifier assigned by Azure.
+     * @param value Value to set for the cloudServiceDeploymentId property.
+     */
+    public set cloudServiceDeploymentId(value: string | undefined) {
+        this._cloudServiceDeploymentId = value;
+    };
+    /**
      * Gets the cloudServiceInstanceName property value. The Azure deployed cloud service instance name, such as FrontEnd_IN_3.
      * @returns a string
      */
     public get cloudServiceInstanceName() {
         return this._cloudServiceInstanceName;
+    };
+    /**
+     * Sets the cloudServiceInstanceName property value. The Azure deployed cloud service instance name, such as FrontEnd_IN_3.
+     * @param value Value to set for the cloudServiceInstanceName property.
+     */
+    public set cloudServiceInstanceName(value: string | undefined) {
+        this._cloudServiceInstanceName = value;
     };
     /**
      * Gets the cloudServiceName property value. The Azure deployed cloud service name, such as contoso.cloudapp.net.
@@ -73,11 +103,31 @@ export class TeleconferenceDeviceQuality implements Parsable {
         return this._cloudServiceName;
     };
     /**
+     * Sets the cloudServiceName property value. The Azure deployed cloud service name, such as contoso.cloudapp.net.
+     * @param value Value to set for the cloudServiceName property.
+     */
+    public set cloudServiceName(value: string | undefined) {
+        this._cloudServiceName = value;
+    };
+    /**
+     * Instantiates a new teleconferenceDeviceQuality and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the deviceDescription property value. Any additional description, such as VTC Bldg 30/21.
      * @returns a string
      */
     public get deviceDescription() {
         return this._deviceDescription;
+    };
+    /**
+     * Sets the deviceDescription property value. Any additional description, such as VTC Bldg 30/21.
+     * @param value Value to set for the deviceDescription property.
+     */
+    public set deviceDescription(value: string | undefined) {
+        this._deviceDescription = value;
     };
     /**
      * Gets the deviceName property value. The user media agent name, such as Cisco SX80.
@@ -87,11 +137,43 @@ export class TeleconferenceDeviceQuality implements Parsable {
         return this._deviceName;
     };
     /**
+     * Sets the deviceName property value. The user media agent name, such as Cisco SX80.
+     * @param value Value to set for the deviceName property.
+     */
+    public set deviceName(value: string | undefined) {
+        this._deviceName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "callChainId": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).callChainId = n.getStringValue(); },
+            "cloudServiceDeploymentEnvironment": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceDeploymentEnvironment = n.getStringValue(); },
+            "cloudServiceDeploymentId": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceDeploymentId = n.getStringValue(); },
+            "cloudServiceInstanceName": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceInstanceName = n.getStringValue(); },
+            "cloudServiceName": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceName = n.getStringValue(); },
+            "deviceDescription": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).deviceDescription = n.getStringValue(); },
+            "deviceName": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).deviceName = n.getStringValue(); },
+            "mediaLegId": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).mediaLegId = n.getStringValue(); },
+            "mediaQualityList": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).mediaQualityList = n.getCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>(createTeleconferenceDeviceMediaQualityFromDiscriminatorValue); },
+            "participantId": (o, n) => { (o as unknown as TeleconferenceDeviceQuality).participantId = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the mediaLegId property value. A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
      * @returns a string
      */
     public get mediaLegId() {
         return this._mediaLegId;
+    };
+    /**
+     * Sets the mediaLegId property value. A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
+     * @param value Value to set for the mediaLegId property.
+     */
+    public set mediaLegId(value: string | undefined) {
+        this._mediaLegId = value;
     };
     /**
      * Gets the mediaQualityList property value. The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality.
@@ -101,6 +183,13 @@ export class TeleconferenceDeviceQuality implements Parsable {
         return this._mediaQualityList;
     };
     /**
+     * Sets the mediaQualityList property value. The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality.
+     * @param value Value to set for the mediaQualityList property.
+     */
+    public set mediaQualityList(value: TeleconferenceDeviceMediaQuality[] | undefined) {
+        this._mediaQualityList = value;
+    };
+    /**
      * Gets the participantId property value. A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
      * @returns a string
      */
@@ -108,22 +197,11 @@ export class TeleconferenceDeviceQuality implements Parsable {
         return this._participantId;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the participantId property value. A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
+     * @param value Value to set for the participantId property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["callChainId", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).callChainId = n.getStringValue(); }],
-            ["cloudServiceDeploymentEnvironment", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceDeploymentEnvironment = n.getStringValue(); }],
-            ["cloudServiceDeploymentId", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceDeploymentId = n.getStringValue(); }],
-            ["cloudServiceInstanceName", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceInstanceName = n.getStringValue(); }],
-            ["cloudServiceName", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).cloudServiceName = n.getStringValue(); }],
-            ["deviceDescription", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).deviceDescription = n.getStringValue(); }],
-            ["deviceName", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).deviceName = n.getStringValue(); }],
-            ["mediaLegId", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).mediaLegId = n.getStringValue(); }],
-            ["mediaQualityList", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).mediaQualityList = n.getCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>(TeleconferenceDeviceMediaQuality); }],
-            ["participantId", (o, n) => { (o as unknown as TeleconferenceDeviceQuality).participantId = n.getStringValue(); }],
-        ]);
+    public set participantId(value: string | undefined) {
+        this._participantId = value;
     };
     /**
      * Serializes information the current object
@@ -142,82 +220,5 @@ export class TeleconferenceDeviceQuality implements Parsable {
         writer.writeCollectionOfObjectValues<TeleconferenceDeviceMediaQuality>("mediaQualityList", this.mediaQualityList);
         writer.writeStringValue("participantId", this.participantId);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the callChainId property value. A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.
-     * @param value Value to set for the callChainId property.
-     */
-    public set callChainId(value: string | undefined) {
-        this._callChainId = value;
-    };
-    /**
-     * Sets the cloudServiceDeploymentEnvironment property value. A geo-region where the service is deployed, such as ProdNoam.
-     * @param value Value to set for the cloudServiceDeploymentEnvironment property.
-     */
-    public set cloudServiceDeploymentEnvironment(value: string | undefined) {
-        this._cloudServiceDeploymentEnvironment = value;
-    };
-    /**
-     * Sets the cloudServiceDeploymentId property value. A unique deployment identifier assigned by Azure.
-     * @param value Value to set for the cloudServiceDeploymentId property.
-     */
-    public set cloudServiceDeploymentId(value: string | undefined) {
-        this._cloudServiceDeploymentId = value;
-    };
-    /**
-     * Sets the cloudServiceInstanceName property value. The Azure deployed cloud service instance name, such as FrontEnd_IN_3.
-     * @param value Value to set for the cloudServiceInstanceName property.
-     */
-    public set cloudServiceInstanceName(value: string | undefined) {
-        this._cloudServiceInstanceName = value;
-    };
-    /**
-     * Sets the cloudServiceName property value. The Azure deployed cloud service name, such as contoso.cloudapp.net.
-     * @param value Value to set for the cloudServiceName property.
-     */
-    public set cloudServiceName(value: string | undefined) {
-        this._cloudServiceName = value;
-    };
-    /**
-     * Sets the deviceDescription property value. Any additional description, such as VTC Bldg 30/21.
-     * @param value Value to set for the deviceDescription property.
-     */
-    public set deviceDescription(value: string | undefined) {
-        this._deviceDescription = value;
-    };
-    /**
-     * Sets the deviceName property value. The user media agent name, such as Cisco SX80.
-     * @param value Value to set for the deviceName property.
-     */
-    public set deviceName(value: string | undefined) {
-        this._deviceName = value;
-    };
-    /**
-     * Sets the mediaLegId property value. A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.
-     * @param value Value to set for the mediaLegId property.
-     */
-    public set mediaLegId(value: string | undefined) {
-        this._mediaLegId = value;
-    };
-    /**
-     * Sets the mediaQualityList property value. The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality.
-     * @param value Value to set for the mediaQualityList property.
-     */
-    public set mediaQualityList(value: TeleconferenceDeviceMediaQuality[] | undefined) {
-        this._mediaQualityList = value;
-    };
-    /**
-     * Sets the participantId property value. A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.
-     * @param value Value to set for the participantId property.
-     */
-    public set participantId(value: string | undefined) {
-        this._participantId = value;
     };
 }

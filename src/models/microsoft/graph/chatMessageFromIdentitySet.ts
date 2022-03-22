@@ -1,4 +1,4 @@
-import {IdentitySet} from './identitySet';
+import {IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageFromIdentitySet extends IdentitySet implements Parsable {
@@ -10,11 +10,11 @@ export class ChatMessageFromIdentitySet extends IdentitySet implements Parsable 
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+        };
     };
     /**
      * Serializes information the current object

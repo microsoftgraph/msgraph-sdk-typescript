@@ -1,22 +1,40 @@
-import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/microsoft/graph/importedWindowsAutopilotDeviceIdentity';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/microsoft/graph/';
+import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/microsoft/graph/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ImportRequestBody implements Parsable {
+/** Provides operations to call the import method.  */
+export class ImportRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new importRequestBody and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "importedWindowsAutopilotDeviceIdentities": (o, n) => { (o as unknown as ImportRequestBody).importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
+        };
     };
     /**
      * Gets the importedWindowsAutopilotDeviceIdentities property value. 
@@ -26,13 +44,11 @@ export class ImportRequestBody implements Parsable {
         return this._importedWindowsAutopilotDeviceIdentities;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the importedWindowsAutopilotDeviceIdentities property value. 
+     * @param value Value to set for the importedWindowsAutopilotDeviceIdentities property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["importedWindowsAutopilotDeviceIdentities", (o, n) => { (o as unknown as ImportRequestBody).importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(ImportedWindowsAutopilotDeviceIdentity); }],
-        ]);
+    public set importedWindowsAutopilotDeviceIdentities(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {
+        this._importedWindowsAutopilotDeviceIdentities = value;
     };
     /**
      * Serializes information the current object
@@ -42,19 +58,5 @@ export class ImportRequestBody implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>("importedWindowsAutopilotDeviceIdentities", this.importedWindowsAutopilotDeviceIdentities);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the importedWindowsAutopilotDeviceIdentities property value. 
-     * @param value Value to set for the importedWindowsAutopilotDeviceIdentities property.
-     */
-    public set importedWindowsAutopilotDeviceIdentities(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {
-        this._importedWindowsAutopilotDeviceIdentities = value;
     };
 }

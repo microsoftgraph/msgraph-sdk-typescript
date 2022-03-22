@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
+import {createWorkbookChartTitleFormatFromDiscriminatorValue} from './createWorkbookChartTitleFormatFromDiscriminatorValue';
+import {Entity, WorkbookChartTitleFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartTitle extends Entity implements Parsable {
@@ -25,6 +25,25 @@ export class WorkbookChartTitle extends Entity implements Parsable {
         return this._format;
     };
     /**
+     * Sets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.
+     * @param value Value to set for the format property.
+     */
+    public set format(value: WorkbookChartTitleFormat | undefined) {
+        this._format = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "format": (o, n) => { (o as unknown as WorkbookChartTitle).format = n.getObjectValue<WorkbookChartTitleFormat>(createWorkbookChartTitleFormatFromDiscriminatorValue); },
+            "overlay": (o, n) => { (o as unknown as WorkbookChartTitle).overlay = n.getBooleanValue(); },
+            "text": (o, n) => { (o as unknown as WorkbookChartTitle).text = n.getStringValue(); },
+            "visible": (o, n) => { (o as unknown as WorkbookChartTitle).visible = n.getBooleanValue(); },
+        };
+    };
+    /**
      * Gets the overlay property value. Boolean value representing if the chart title will overlay the chart or not.
      * @returns a boolean
      */
@@ -32,30 +51,11 @@ export class WorkbookChartTitle extends Entity implements Parsable {
         return this._overlay;
     };
     /**
-     * Gets the text property value. Represents the title text of a chart.
-     * @returns a string
+     * Sets the overlay property value. Boolean value representing if the chart title will overlay the chart or not.
+     * @param value Value to set for the overlay property.
      */
-    public get text() {
-        return this._text;
-    };
-    /**
-     * Gets the visible property value. A boolean value the represents the visibility of a chart title object.
-     * @returns a boolean
-     */
-    public get visible() {
-        return this._visible;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["format", (o, n) => { (o as unknown as WorkbookChartTitle).format = n.getObjectValue<WorkbookChartTitleFormat>(WorkbookChartTitleFormat); }],
-            ["overlay", (o, n) => { (o as unknown as WorkbookChartTitle).overlay = n.getBooleanValue(); }],
-            ["text", (o, n) => { (o as unknown as WorkbookChartTitle).text = n.getStringValue(); }],
-            ["visible", (o, n) => { (o as unknown as WorkbookChartTitle).visible = n.getBooleanValue(); }],
-        ]);
+    public set overlay(value: boolean | undefined) {
+        this._overlay = value;
     };
     /**
      * Serializes information the current object
@@ -70,18 +70,11 @@ export class WorkbookChartTitle extends Entity implements Parsable {
         writer.writeBooleanValue("visible", this.visible);
     };
     /**
-     * Sets the format property value. Represents the formatting of a chart title, which includes fill and font formatting. Read-only.
-     * @param value Value to set for the format property.
+     * Gets the text property value. Represents the title text of a chart.
+     * @returns a string
      */
-    public set format(value: WorkbookChartTitleFormat | undefined) {
-        this._format = value;
-    };
-    /**
-     * Sets the overlay property value. Boolean value representing if the chart title will overlay the chart or not.
-     * @param value Value to set for the overlay property.
-     */
-    public set overlay(value: boolean | undefined) {
-        this._overlay = value;
+    public get text() {
+        return this._text;
     };
     /**
      * Sets the text property value. Represents the title text of a chart.
@@ -89,6 +82,13 @@ export class WorkbookChartTitle extends Entity implements Parsable {
      */
     public set text(value: string | undefined) {
         this._text = value;
+    };
+    /**
+     * Gets the visible property value. A boolean value the represents the visibility of a chart title object.
+     * @returns a boolean
+     */
+    public get visible() {
+        return this._visible;
     };
     /**
      * Sets the visible property value. A boolean value the represents the visibility of a chart title object.

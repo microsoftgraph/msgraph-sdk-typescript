@@ -1,6 +1,6 @@
-import {ServiceAnnouncementBase} from './serviceAnnouncementBase';
+import {createServiceHealthIssuePostFromDiscriminatorValue} from './createServiceHealthIssuePostFromDiscriminatorValue';
+import {ServiceAnnouncementBase, ServiceHealthIssuePost} from './index';
 import {ServiceHealthClassificationType} from './serviceHealthClassificationType';
-import {ServiceHealthIssuePost} from './serviceHealthIssuePost';
 import {ServiceHealthOrigin} from './serviceHealthOrigin';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -22,20 +22,27 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
     private _posts?: ServiceHealthIssuePost[] | undefined;
     /** Indicates the service affected by the issue.  */
     private _service?: string | undefined;
-    /** The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.  */
+    /** The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. See more in the table below.  */
     private _status?: ServiceHealthStatus | undefined;
-    /**
-     * Instantiates a new serviceHealthIssue and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
     /**
      * Gets the classification property value. The type of service health issue. Possible values are: advisory, incident, unknownFutureValue.
      * @returns a serviceHealthClassificationType
      */
     public get classification() {
         return this._classification;
+    };
+    /**
+     * Sets the classification property value. The type of service health issue. Possible values are: advisory, incident, unknownFutureValue.
+     * @param value Value to set for the classification property.
+     */
+    public set classification(value: ServiceHealthClassificationType | undefined) {
+        this._classification = value;
+    };
+    /**
+     * Instantiates a new serviceHealthIssue and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the feature property value. The feature name of the service issue.
@@ -45,11 +52,42 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         return this._feature;
     };
     /**
+     * Sets the feature property value. The feature name of the service issue.
+     * @param value Value to set for the feature property.
+     */
+    public set feature(value: string | undefined) {
+        this._feature = value;
+    };
+    /**
      * Gets the featureGroup property value. The feature group name of the service issue.
      * @returns a string
      */
     public get featureGroup() {
         return this._featureGroup;
+    };
+    /**
+     * Sets the featureGroup property value. The feature group name of the service issue.
+     * @param value Value to set for the featureGroup property.
+     */
+    public set featureGroup(value: string | undefined) {
+        this._featureGroup = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "classification": (o, n) => { (o as unknown as ServiceHealthIssue).classification = n.getEnumValue<ServiceHealthClassificationType>(ServiceHealthClassificationType); },
+            "feature": (o, n) => { (o as unknown as ServiceHealthIssue).feature = n.getStringValue(); },
+            "featureGroup": (o, n) => { (o as unknown as ServiceHealthIssue).featureGroup = n.getStringValue(); },
+            "impactDescription": (o, n) => { (o as unknown as ServiceHealthIssue).impactDescription = n.getStringValue(); },
+            "isResolved": (o, n) => { (o as unknown as ServiceHealthIssue).isResolved = n.getBooleanValue(); },
+            "origin": (o, n) => { (o as unknown as ServiceHealthIssue).origin = n.getEnumValue<ServiceHealthOrigin>(ServiceHealthOrigin); },
+            "posts": (o, n) => { (o as unknown as ServiceHealthIssue).posts = n.getCollectionOfObjectValues<ServiceHealthIssuePost>(createServiceHealthIssuePostFromDiscriminatorValue); },
+            "service": (o, n) => { (o as unknown as ServiceHealthIssue).service = n.getStringValue(); },
+            "status": (o, n) => { (o as unknown as ServiceHealthIssue).status = n.getEnumValue<ServiceHealthStatus>(ServiceHealthStatus); },
+        };
     };
     /**
      * Gets the impactDescription property value. The description of the service issue impact.
@@ -59,11 +97,25 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         return this._impactDescription;
     };
     /**
+     * Sets the impactDescription property value. The description of the service issue impact.
+     * @param value Value to set for the impactDescription property.
+     */
+    public set impactDescription(value: string | undefined) {
+        this._impactDescription = value;
+    };
+    /**
      * Gets the isResolved property value. Indicates whether the issue is resolved.
      * @returns a boolean
      */
     public get isResolved() {
         return this._isResolved;
+    };
+    /**
+     * Sets the isResolved property value. Indicates whether the issue is resolved.
+     * @param value Value to set for the isResolved property.
+     */
+    public set isResolved(value: boolean | undefined) {
+        this._isResolved = value;
     };
     /**
      * Gets the origin property value. Indicates the origin of the service issue. Possible values are: microsoft, thirdParty, customer, unknownFutureValue.
@@ -73,6 +125,13 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         return this._origin;
     };
     /**
+     * Sets the origin property value. Indicates the origin of the service issue. Possible values are: microsoft, thirdParty, customer, unknownFutureValue.
+     * @param value Value to set for the origin property.
+     */
+    public set origin(value: ServiceHealthOrigin | undefined) {
+        this._origin = value;
+    };
+    /**
      * Gets the posts property value. Collection of historical posts for the service issue.
      * @returns a serviceHealthIssuePost
      */
@@ -80,35 +139,11 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         return this._posts;
     };
     /**
-     * Gets the service property value. Indicates the service affected by the issue.
-     * @returns a string
+     * Sets the posts property value. Collection of historical posts for the service issue.
+     * @param value Value to set for the posts property.
      */
-    public get service() {
-        return this._service;
-    };
-    /**
-     * Gets the status property value. The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
-     * @returns a serviceHealthStatus
-     */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["classification", (o, n) => { (o as unknown as ServiceHealthIssue).classification = n.getEnumValue<ServiceHealthClassificationType>(ServiceHealthClassificationType); }],
-            ["feature", (o, n) => { (o as unknown as ServiceHealthIssue).feature = n.getStringValue(); }],
-            ["featureGroup", (o, n) => { (o as unknown as ServiceHealthIssue).featureGroup = n.getStringValue(); }],
-            ["impactDescription", (o, n) => { (o as unknown as ServiceHealthIssue).impactDescription = n.getStringValue(); }],
-            ["isResolved", (o, n) => { (o as unknown as ServiceHealthIssue).isResolved = n.getBooleanValue(); }],
-            ["origin", (o, n) => { (o as unknown as ServiceHealthIssue).origin = n.getEnumValue<ServiceHealthOrigin>(ServiceHealthOrigin); }],
-            ["posts", (o, n) => { (o as unknown as ServiceHealthIssue).posts = n.getCollectionOfObjectValues<ServiceHealthIssuePost>(ServiceHealthIssuePost); }],
-            ["service", (o, n) => { (o as unknown as ServiceHealthIssue).service = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as ServiceHealthIssue).status = n.getEnumValue<ServiceHealthStatus>(ServiceHealthStatus); }],
-        ]);
+    public set posts(value: ServiceHealthIssuePost[] | undefined) {
+        this._posts = value;
     };
     /**
      * Serializes information the current object
@@ -128,53 +163,11 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
     };
     /**
-     * Sets the classification property value. The type of service health issue. Possible values are: advisory, incident, unknownFutureValue.
-     * @param value Value to set for the classification property.
+     * Gets the service property value. Indicates the service affected by the issue.
+     * @returns a string
      */
-    public set classification(value: ServiceHealthClassificationType | undefined) {
-        this._classification = value;
-    };
-    /**
-     * Sets the feature property value. The feature name of the service issue.
-     * @param value Value to set for the feature property.
-     */
-    public set feature(value: string | undefined) {
-        this._feature = value;
-    };
-    /**
-     * Sets the featureGroup property value. The feature group name of the service issue.
-     * @param value Value to set for the featureGroup property.
-     */
-    public set featureGroup(value: string | undefined) {
-        this._featureGroup = value;
-    };
-    /**
-     * Sets the impactDescription property value. The description of the service issue impact.
-     * @param value Value to set for the impactDescription property.
-     */
-    public set impactDescription(value: string | undefined) {
-        this._impactDescription = value;
-    };
-    /**
-     * Sets the isResolved property value. Indicates whether the issue is resolved.
-     * @param value Value to set for the isResolved property.
-     */
-    public set isResolved(value: boolean | undefined) {
-        this._isResolved = value;
-    };
-    /**
-     * Sets the origin property value. Indicates the origin of the service issue. Possible values are: microsoft, thirdParty, customer, unknownFutureValue.
-     * @param value Value to set for the origin property.
-     */
-    public set origin(value: ServiceHealthOrigin | undefined) {
-        this._origin = value;
-    };
-    /**
-     * Sets the posts property value. Collection of historical posts for the service issue.
-     * @param value Value to set for the posts property.
-     */
-    public set posts(value: ServiceHealthIssuePost[] | undefined) {
-        this._posts = value;
+    public get service() {
+        return this._service;
     };
     /**
      * Sets the service property value. Indicates the service affected by the issue.
@@ -184,7 +177,14 @@ export class ServiceHealthIssue extends ServiceAnnouncementBase implements Parsa
         this._service = value;
     };
     /**
-     * Sets the status property value. The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * Gets the status property value. The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. See more in the table below.
+     * @returns a serviceHealthStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. The status of the service issue. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. See more in the table below.
      * @param value Value to set for the status property.
      */
     public set status(value: ServiceHealthStatus | undefined) {

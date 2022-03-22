@@ -1,4 +1,4 @@
-import {SignIn} from './signIn';
+import {SignIn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RestrictedSignIn extends SignIn implements Parsable {
@@ -10,20 +10,13 @@ export class RestrictedSignIn extends SignIn implements Parsable {
         super();
     };
     /**
-     * Gets the targetTenantId property value. 
-     * @returns a string
-     */
-    public get targetTenantId() {
-        return this._targetTenantId;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["targetTenantId", (o, n) => { (o as unknown as RestrictedSignIn).targetTenantId = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "targetTenantId": (o, n) => { (o as unknown as RestrictedSignIn).targetTenantId = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -33,6 +26,13 @@ export class RestrictedSignIn extends SignIn implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("targetTenantId", this.targetTenantId);
+    };
+    /**
+     * Gets the targetTenantId property value. 
+     * @returns a string
+     */
+    public get targetTenantId() {
+        return this._targetTenantId;
     };
     /**
      * Sets the targetTenantId property value. 

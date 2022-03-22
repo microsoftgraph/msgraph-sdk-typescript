@@ -1,21 +1,23 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MuteRequestBody implements Parsable {
+/** Provides operations to call the mute method.  */
+export class MuteRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _clientContext?: string | undefined;
     /**
-     * Instantiates a new muteRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the clientContext property value. 
@@ -25,13 +27,26 @@ export class MuteRequestBody implements Parsable {
         return this._clientContext;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the clientContext property value. 
+     * @param value Value to set for the clientContext property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["clientContext", (o, n) => { (o as unknown as MuteRequestBody).clientContext = n.getStringValue(); }],
-        ]);
+    public set clientContext(value: string | undefined) {
+        this._clientContext = value;
+    };
+    /**
+     * Instantiates a new muteRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "clientContext": (o, n) => { (o as unknown as MuteRequestBody).clientContext = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -41,19 +56,5 @@ export class MuteRequestBody implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("clientContext", this.clientContext);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the clientContext property value. 
-     * @param value Value to set for the clientContext property.
-     */
-    public set clientContext(value: string | undefined) {
-        this._clientContext = value;
     };
 }

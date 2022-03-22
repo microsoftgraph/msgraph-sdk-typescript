@@ -1,48 +1,55 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class KeyValue implements Parsable {
+export class KeyValue implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
-    /** Key.  */
+    private _additionalData: Record<string, unknown>;
+    /** Key for the key-value pair.  */
     private _key?: string | undefined;
-    /** Value.  */
+    /** Value for the key-value pair.  */
     private _value?: string | undefined;
     /**
-     * Instantiates a new keyValue and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the key property value. Key.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new keyValue and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "key": (o, n) => { (o as unknown as KeyValue).key = n.getStringValue(); },
+            "value": (o, n) => { (o as unknown as KeyValue).value = n.getStringValue(); },
+        };
+    };
+    /**
+     * Gets the key property value. Key for the key-value pair.
      * @returns a string
      */
     public get key() {
         return this._key;
     };
     /**
-     * Gets the value property value. Value.
-     * @returns a string
+     * Sets the key property value. Key for the key-value pair.
+     * @param value Value to set for the key property.
      */
-    public get value() {
-        return this._value;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["key", (o, n) => { (o as unknown as KeyValue).key = n.getStringValue(); }],
-            ["value", (o, n) => { (o as unknown as KeyValue).value = n.getStringValue(); }],
-        ]);
+    public set key(value: string | undefined) {
+        this._key = value;
     };
     /**
      * Serializes information the current object
@@ -55,21 +62,14 @@ export class KeyValue implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the value property value. Value for the key-value pair.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get value() {
+        return this._value;
     };
     /**
-     * Sets the key property value. Key.
-     * @param value Value to set for the key property.
-     */
-    public set key(value: string | undefined) {
-        this._key = value;
-    };
-    /**
-     * Sets the value property value. Value.
+     * Sets the value property value. Value for the key-value pair.
      * @param value Value to set for the value property.
      */
     public set value(value: string | undefined) {

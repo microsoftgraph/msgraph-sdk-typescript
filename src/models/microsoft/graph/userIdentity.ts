@@ -1,4 +1,4 @@
-import {Identity} from './identity';
+import {Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserIdentity extends Identity implements Parsable {
@@ -13,6 +13,16 @@ export class UserIdentity extends Identity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "ipAddress": (o, n) => { (o as unknown as UserIdentity).ipAddress = n.getStringValue(); },
+            "userPrincipalName": (o, n) => { (o as unknown as UserIdentity).userPrincipalName = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
      * @returns a string
      */
@@ -20,21 +30,11 @@ export class UserIdentity extends Identity implements Parsable {
         return this._ipAddress;
     };
     /**
-     * Gets the userPrincipalName property value. The userPrincipalName attribute of the user.
-     * @returns a string
+     * Sets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
+     * @param value Value to set for the ipAddress property.
      */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["ipAddress", (o, n) => { (o as unknown as UserIdentity).ipAddress = n.getStringValue(); }],
-            ["userPrincipalName", (o, n) => { (o as unknown as UserIdentity).userPrincipalName = n.getStringValue(); }],
-        ]);
+    public set ipAddress(value: string | undefined) {
+        this._ipAddress = value;
     };
     /**
      * Serializes information the current object
@@ -47,11 +47,11 @@ export class UserIdentity extends Identity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Sets the ipAddress property value. Indicates the client IP address used by user performing the activity (audit log only).
-     * @param value Value to set for the ipAddress property.
+     * Gets the userPrincipalName property value. The userPrincipalName attribute of the user.
+     * @returns a string
      */
-    public set ipAddress(value: string | undefined) {
-        this._ipAddress = value;
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. The userPrincipalName attribute of the user.

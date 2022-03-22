@@ -1,8 +1,8 @@
-import {Add} from './add';
-import {AddRequestBody} from './addRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createAddResponseFromDiscriminatorValue} from './createAddResponseFromDiscriminatorValue';
+import {AddRequestBody, AddResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /teams/{team-id}/channels/{channel-id}/members/microsoft.graph.add  */
+/** Provides operations to call the add method.  */
 export class AddRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -36,7 +36,7 @@ export class AddRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -47,13 +47,13 @@ export class AddRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Add
+     * @returns a Promise of AddResponse
      */
-    public post(body: AddRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Add[] | undefined> {
+    public post(body: AddRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AddResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<Add>(requestInfo, Add, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AddResponse>(requestInfo, createAddResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

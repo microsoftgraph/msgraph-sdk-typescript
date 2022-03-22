@@ -1,23 +1,40 @@
-import {PendingContentUpdate} from './pendingContentUpdate';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createPendingContentUpdateFromDiscriminatorValue} from './createPendingContentUpdateFromDiscriminatorValue';
+import {PendingContentUpdate} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PendingOperations implements Parsable {
+export class PendingOperations implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A property that indicates that an operation that might update the binary content of a file is pending completion.  */
     private _pendingContentUpdate?: PendingContentUpdate | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new pendingOperations and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "pendingContentUpdate": (o, n) => { (o as unknown as PendingOperations).pendingContentUpdate = n.getObjectValue<PendingContentUpdate>(createPendingContentUpdateFromDiscriminatorValue); },
+        };
     };
     /**
      * Gets the pendingContentUpdate property value. A property that indicates that an operation that might update the binary content of a file is pending completion.
@@ -27,13 +44,11 @@ export class PendingOperations implements Parsable {
         return this._pendingContentUpdate;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the pendingContentUpdate property value. A property that indicates that an operation that might update the binary content of a file is pending completion.
+     * @param value Value to set for the pendingContentUpdate property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["pendingContentUpdate", (o, n) => { (o as unknown as PendingOperations).pendingContentUpdate = n.getObjectValue<PendingContentUpdate>(PendingContentUpdate); }],
-        ]);
+    public set pendingContentUpdate(value: PendingContentUpdate | undefined) {
+        this._pendingContentUpdate = value;
     };
     /**
      * Serializes information the current object
@@ -43,19 +58,5 @@ export class PendingOperations implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<PendingContentUpdate>("pendingContentUpdate", this.pendingContentUpdate);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the pendingContentUpdate property value. A property that indicates that an operation that might update the binary content of a file is pending completion.
-     * @param value Value to set for the pendingContentUpdate property.
-     */
-    public set pendingContentUpdate(value: PendingContentUpdate | undefined) {
-        this._pendingContentUpdate = value;
     };
 }

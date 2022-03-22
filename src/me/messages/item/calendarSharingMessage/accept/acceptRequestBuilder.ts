@@ -1,7 +1,8 @@
-import {Calendar} from '../../../../../models/microsoft/graph/calendar';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {Calendar} from '../../../../../models/microsoft/graph/';
+import {createCalendarFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createCalendarFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/messages/{message-id}/microsoft.graph.calendarSharingMessage/microsoft.graph.accept  */
+/** Provides operations to call the accept method.  */
 export class AcceptRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -33,7 +34,7 @@ export class AcceptRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -48,6 +49,6 @@ export class AcceptRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, Calendar, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Calendar>(requestInfo, createCalendarFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

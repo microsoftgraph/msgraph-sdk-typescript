@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsRecord extends Entity implements Parsable {
@@ -19,11 +19,31 @@ export class DomainDnsRecord extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "isOptional": (o, n) => { (o as unknown as DomainDnsRecord).isOptional = n.getBooleanValue(); },
+            "label": (o, n) => { (o as unknown as DomainDnsRecord).label = n.getStringValue(); },
+            "recordType": (o, n) => { (o as unknown as DomainDnsRecord).recordType = n.getStringValue(); },
+            "supportedService": (o, n) => { (o as unknown as DomainDnsRecord).supportedService = n.getStringValue(); },
+            "ttl": (o, n) => { (o as unknown as DomainDnsRecord).ttl = n.getNumberValue(); },
+        };
+    };
+    /**
      * Gets the isOptional property value. If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
      * @returns a boolean
      */
     public get isOptional() {
         return this._isOptional;
+    };
+    /**
+     * Sets the isOptional property value. If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
+     * @param value Value to set for the isOptional property.
+     */
+    public set isOptional(value: boolean | undefined) {
+        this._isOptional = value;
     };
     /**
      * Gets the label property value. Value used when configuring the name of the DNS record at the DNS host.
@@ -33,6 +53,13 @@ export class DomainDnsRecord extends Entity implements Parsable {
         return this._label;
     };
     /**
+     * Sets the label property value. Value used when configuring the name of the DNS record at the DNS host.
+     * @param value Value to set for the label property.
+     */
+    public set label(value: string | undefined) {
+        this._label = value;
+    };
+    /**
      * Gets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey
      * @returns a string
      */
@@ -40,31 +67,11 @@ export class DomainDnsRecord extends Entity implements Parsable {
         return this._recordType;
     };
     /**
-     * Gets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune
-     * @returns a string
+     * Sets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey
+     * @param value Value to set for the recordType property.
      */
-    public get supportedService() {
-        return this._supportedService;
-    };
-    /**
-     * Gets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable
-     * @returns a integer
-     */
-    public get ttl() {
-        return this._ttl;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["isOptional", (o, n) => { (o as unknown as DomainDnsRecord).isOptional = n.getBooleanValue(); }],
-            ["label", (o, n) => { (o as unknown as DomainDnsRecord).label = n.getStringValue(); }],
-            ["recordType", (o, n) => { (o as unknown as DomainDnsRecord).recordType = n.getStringValue(); }],
-            ["supportedService", (o, n) => { (o as unknown as DomainDnsRecord).supportedService = n.getStringValue(); }],
-            ["ttl", (o, n) => { (o as unknown as DomainDnsRecord).ttl = n.getNumberValue(); }],
-        ]);
+    public set recordType(value: string | undefined) {
+        this._recordType = value;
     };
     /**
      * Serializes information the current object
@@ -80,25 +87,11 @@ export class DomainDnsRecord extends Entity implements Parsable {
         writer.writeNumberValue("ttl", this.ttl);
     };
     /**
-     * Sets the isOptional property value. If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.
-     * @param value Value to set for the isOptional property.
+     * Gets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune
+     * @returns a string
      */
-    public set isOptional(value: boolean | undefined) {
-        this._isOptional = value;
-    };
-    /**
-     * Sets the label property value. Value used when configuring the name of the DNS record at the DNS host.
-     * @param value Value to set for the label property.
-     */
-    public set label(value: string | undefined) {
-        this._label = value;
-    };
-    /**
-     * Sets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey
-     * @param value Value to set for the recordType property.
-     */
-    public set recordType(value: string | undefined) {
-        this._recordType = value;
+    public get supportedService() {
+        return this._supportedService;
     };
     /**
      * Sets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune
@@ -106,6 +99,13 @@ export class DomainDnsRecord extends Entity implements Parsable {
      */
     public set supportedService(value: string | undefined) {
         this._supportedService = value;
+    };
+    /**
+     * Gets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable
+     * @returns a integer
+     */
+    public get ttl() {
+        return this._ttl;
     };
     /**
      * Sets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable

@@ -1,7 +1,8 @@
-import {Entity} from '../entity';
+import {Entity} from '../';
+import {createSetFromDiscriminatorValue} from './createSetFromDiscriminatorValue';
+import {createTermFromDiscriminatorValue} from './createTermFromDiscriminatorValue';
+import {Set, Term} from './index';
 import {RelationType} from './relationType';
-import {Set} from './set';
-import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Relation extends Entity implements Parsable {
@@ -27,6 +28,25 @@ export class Relation extends Entity implements Parsable {
         return this._fromTerm;
     };
     /**
+     * Sets the fromTerm property value. The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
+     * @param value Value to set for the fromTerm property.
+     */
+    public set fromTerm(value: Term | undefined) {
+        this._fromTerm = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "fromTerm": (o, n) => { (o as unknown as Relation).fromTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
+            "relationship": (o, n) => { (o as unknown as Relation).relationship = n.getEnumValue<RelationType>(RelationType); },
+            "set": (o, n) => { (o as unknown as Relation).set = n.getObjectValue<Set>(createSetFromDiscriminatorValue); },
+            "toTerm": (o, n) => { (o as unknown as Relation).toTerm = n.getObjectValue<Term>(createTermFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the relationship property value. The type of relation. Possible values are: pin, reuse.
      * @returns a relationType
      */
@@ -34,30 +54,11 @@ export class Relation extends Entity implements Parsable {
         return this._relationship;
     };
     /**
-     * Gets the set property value. The [set] in which the relation is relevant.
-     * @returns a set
+     * Sets the relationship property value. The type of relation. Possible values are: pin, reuse.
+     * @param value Value to set for the relationship property.
      */
-    public get set() {
-        return this._set;
-    };
-    /**
-     * Gets the toTerm property value. The to [term] of the relation. The term to which the relationship is defined.
-     * @returns a term
-     */
-    public get toTerm() {
-        return this._toTerm;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["fromTerm", (o, n) => { (o as unknown as Relation).fromTerm = n.getObjectValue<Term>(Term); }],
-            ["relationship", (o, n) => { (o as unknown as Relation).relationship = n.getEnumValue<RelationType>(RelationType); }],
-            ["set", (o, n) => { (o as unknown as Relation).set = n.getObjectValue<Set>(Set); }],
-            ["toTerm", (o, n) => { (o as unknown as Relation).toTerm = n.getObjectValue<Term>(Term); }],
-        ]);
+    public set relationship(value: RelationType | undefined) {
+        this._relationship = value;
     };
     /**
      * Serializes information the current object
@@ -72,18 +73,11 @@ export class Relation extends Entity implements Parsable {
         writer.writeObjectValue<Term>("toTerm", this.toTerm);
     };
     /**
-     * Sets the fromTerm property value. The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
-     * @param value Value to set for the fromTerm property.
+     * Gets the set property value. The [set] in which the relation is relevant.
+     * @returns a set
      */
-    public set fromTerm(value: Term | undefined) {
-        this._fromTerm = value;
-    };
-    /**
-     * Sets the relationship property value. The type of relation. Possible values are: pin, reuse.
-     * @param value Value to set for the relationship property.
-     */
-    public set relationship(value: RelationType | undefined) {
-        this._relationship = value;
+    public get set() {
+        return this._set;
     };
     /**
      * Sets the set property value. The [set] in which the relation is relevant.
@@ -91,6 +85,13 @@ export class Relation extends Entity implements Parsable {
      */
     public set set(value: Set | undefined) {
         this._set = value;
+    };
+    /**
+     * Gets the toTerm property value. The to [term] of the relation. The term to which the relationship is defined.
+     * @returns a term
+     */
+    public get toTerm() {
+        return this._toTerm;
     };
     /**
      * Sets the toTerm property value. The to [term] of the relation. The term to which the relationship is defined.

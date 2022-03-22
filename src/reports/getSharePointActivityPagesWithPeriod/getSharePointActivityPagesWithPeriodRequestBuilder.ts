@@ -1,7 +1,8 @@
-import {Report} from '../../models/microsoft/graph/report';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {Report} from '../../models/microsoft/graph/';
+import {createReportFromDiscriminatorValue} from '../../models/microsoft/graph/createReportFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.getSharePointActivityPages(period='{period}')  */
+/** Provides operations to call the getSharePointActivityPages method.  */
 export class GetSharePointActivityPagesWithPeriodRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -12,7 +13,7 @@ export class GetSharePointActivityPagesWithPeriodRequestBuilder {
     /**
      * Instantiates a new GetSharePointActivityPagesWithPeriodRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
-     * @param period Usage: period={period}
+     * @param period Usage: period='{period}'
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter, period?: string | undefined) {
@@ -35,7 +36,7 @@ export class GetSharePointActivityPagesWithPeriodRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -50,6 +51,6 @@ export class GetSharePointActivityPagesWithPeriodRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, Report, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,23 +1,41 @@
-import {ResourceAction} from './resourceAction';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createResourceActionFromDiscriminatorValue} from './createResourceActionFromDiscriminatorValue';
+import {ResourceAction} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RolePermission implements Parsable {
+/** Contains the set of ResourceActions determining the allowed and not allowed permissions for each role.  */
+export class RolePermission implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Resource Actions each containing a set of allowed and not allowed permissions.  */
     private _resourceActions?: ResourceAction[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new rolePermission and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "resourceActions": (o, n) => { (o as unknown as RolePermission).resourceActions = n.getCollectionOfObjectValues<ResourceAction>(createResourceActionFromDiscriminatorValue); },
+        };
     };
     /**
      * Gets the resourceActions property value. Resource Actions each containing a set of allowed and not allowed permissions.
@@ -27,13 +45,11 @@ export class RolePermission implements Parsable {
         return this._resourceActions;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the resourceActions property value. Resource Actions each containing a set of allowed and not allowed permissions.
+     * @param value Value to set for the resourceActions property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["resourceActions", (o, n) => { (o as unknown as RolePermission).resourceActions = n.getCollectionOfObjectValues<ResourceAction>(ResourceAction); }],
-        ]);
+    public set resourceActions(value: ResourceAction[] | undefined) {
+        this._resourceActions = value;
     };
     /**
      * Serializes information the current object
@@ -43,19 +59,5 @@ export class RolePermission implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<ResourceAction>("resourceActions", this.resourceActions);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the resourceActions property value. Resource Actions each containing a set of allowed and not allowed permissions.
-     * @param value Value to set for the resourceActions property.
-     */
-    public set resourceActions(value: ResourceAction[] | undefined) {
-        this._resourceActions = value;
     };
 }

@@ -1,14 +1,13 @@
-import {DirectoryObject} from '../../../../../models/microsoft/graph/directoryObject';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {DirectoryObject} from '../../../../../models/microsoft/graph/';
+import {createDirectoryObjectFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createDirectoryObjectFromDiscriminatorValue';
+import {ODataError} from '../../../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /roleManagement/entitlementManagement/roleAssignments/{unifiedRoleAssignment-id}/principal  */
+/** Provides operations to manage the principal property of the microsoft.graph.unifiedRoleAssignment entity.  */
 export class PrincipalRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -27,7 +26,7 @@ export class PrincipalRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * Referencing the assigned principal. Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +40,13 @@ export class PrincipalRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The assigned principal. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. Supports $expand.
+     * Referencing the assigned principal. Read-only. Supports $expand.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +60,10 @@ export class PrincipalRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, DirectoryObject, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

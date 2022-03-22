@@ -1,7 +1,8 @@
-import {BaseItemVersion} from './baseItemVersion';
+import {BaseItemVersion} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItemVersion extends BaseItemVersion implements Parsable {
+    /** The content stream for this version of the item.  */
     private _content?: string | undefined;
     /** Indicates the size of the content stream for this version of the item.  */
     private _size?: number | undefined;
@@ -12,28 +13,28 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. 
+     * Gets the content property value. The content stream for this version of the item.
      * @returns a binary
      */
     public get content() {
         return this._content;
     };
     /**
-     * Gets the size property value. Indicates the size of the content stream for this version of the item.
-     * @returns a int64
+     * Sets the content property value. The content stream for this version of the item.
+     * @param value Value to set for the content property.
      */
-    public get size() {
-        return this._size;
+    public set content(value: string | undefined) {
+        this._content = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["content", (o, n) => { (o as unknown as DriveItemVersion).content = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as DriveItemVersion).size = n.getNumberValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "content": (o, n) => { (o as unknown as DriveItemVersion).content = n.getStringValue(); },
+            "size": (o, n) => { (o as unknown as DriveItemVersion).size = n.getNumberValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -46,11 +47,11 @@ export class DriveItemVersion extends BaseItemVersion implements Parsable {
         writer.writeNumberValue("size", this.size);
     };
     /**
-     * Sets the content property value. 
-     * @param value Value to set for the content property.
+     * Gets the size property value. Indicates the size of the content stream for this version of the item.
+     * @returns a int64
      */
-    public set content(value: string | undefined) {
-        this._content = value;
+    public get size() {
+        return this._size;
     };
     /**
      * Sets the size property value. Indicates the size of the content stream for this version of the item.

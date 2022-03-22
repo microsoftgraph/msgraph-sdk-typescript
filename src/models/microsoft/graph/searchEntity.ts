@@ -1,6 +1,7 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the searchEntity singleton.  */
 export class SearchEntity extends Entity implements Parsable {
     /**
      * Instantiates a new searchEntity and sets the default values.
@@ -10,11 +11,11 @@ export class SearchEntity extends Entity implements Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+        };
     };
     /**
      * Serializes information the current object

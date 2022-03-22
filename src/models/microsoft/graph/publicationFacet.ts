@@ -1,24 +1,41 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PublicationFacet implements Parsable {
+export class PublicationFacet implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The state of publication for this document. Either published or checkout. Read-only.  */
     private _level?: string | undefined;
     /** The unique identifier for the version that is visible to the current caller. Read-only.  */
     private _versionId?: string | undefined;
     /**
-     * Instantiates a new publicationFacet and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new publicationFacet and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "level": (o, n) => { (o as unknown as PublicationFacet).level = n.getStringValue(); },
+            "versionId": (o, n) => { (o as unknown as PublicationFacet).versionId = n.getStringValue(); },
+        };
     };
     /**
      * Gets the level property value. The state of publication for this document. Either published or checkout. Read-only.
@@ -28,21 +45,11 @@ export class PublicationFacet implements Parsable {
         return this._level;
     };
     /**
-     * Gets the versionId property value. The unique identifier for the version that is visible to the current caller. Read-only.
-     * @returns a string
+     * Sets the level property value. The state of publication for this document. Either published or checkout. Read-only.
+     * @param value Value to set for the level property.
      */
-    public get versionId() {
-        return this._versionId;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["level", (o, n) => { (o as unknown as PublicationFacet).level = n.getStringValue(); }],
-            ["versionId", (o, n) => { (o as unknown as PublicationFacet).versionId = n.getStringValue(); }],
-        ]);
+    public set level(value: string | undefined) {
+        this._level = value;
     };
     /**
      * Serializes information the current object
@@ -55,18 +62,11 @@ export class PublicationFacet implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the versionId property value. The unique identifier for the version that is visible to the current caller. Read-only.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the level property value. The state of publication for this document. Either published or checkout. Read-only.
-     * @param value Value to set for the level property.
-     */
-    public set level(value: string | undefined) {
-        this._level = value;
+    public get versionId() {
+        return this._versionId;
     };
     /**
      * Sets the versionId property value. The unique identifier for the version that is visible to the current caller. Read-only.

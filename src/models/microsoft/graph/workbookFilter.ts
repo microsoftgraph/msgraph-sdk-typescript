@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookFilterCriteria} from './workbookFilterCriteria';
+import {createWorkbookFilterCriteriaFromDiscriminatorValue} from './createWorkbookFilterCriteriaFromDiscriminatorValue';
+import {Entity, WorkbookFilterCriteria} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFilter extends Entity implements Parsable {
@@ -19,13 +19,20 @@ export class WorkbookFilter extends Entity implements Parsable {
         return this._criteria;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the criteria property value. The currently applied filter on the given column. Read-only.
+     * @param value Value to set for the criteria property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["criteria", (o, n) => { (o as unknown as WorkbookFilter).criteria = n.getObjectValue<WorkbookFilterCriteria>(WorkbookFilterCriteria); }],
-        ]);
+    public set criteria(value: WorkbookFilterCriteria | undefined) {
+        this._criteria = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "criteria": (o, n) => { (o as unknown as WorkbookFilter).criteria = n.getObjectValue<WorkbookFilterCriteria>(createWorkbookFilterCriteriaFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -35,12 +42,5 @@ export class WorkbookFilter extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<WorkbookFilterCriteria>("criteria", this.criteria);
-    };
-    /**
-     * Sets the criteria property value. The currently applied filter on the given column. Read-only.
-     * @param value Value to set for the criteria property.
-     */
-    public set criteria(value: WorkbookFilterCriteria | undefined) {
-        this._criteria = value;
     };
 }

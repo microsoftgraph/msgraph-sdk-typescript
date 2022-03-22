@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PasswordCredential implements Parsable {
+export class PasswordCredential implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Do not use.  */
     private _customKeyIdentifier?: string | undefined;
     /** Friendly name for the password. Optional.  */
@@ -18,17 +18,24 @@ export class PasswordCredential implements Parsable {
     /** The date and time at which the password becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.  */
     private _startDateTime?: Date | undefined;
     /**
-     * Instantiates a new passwordCredential and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new passwordCredential and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the customKeyIdentifier property value. Do not use.
@@ -38,11 +45,25 @@ export class PasswordCredential implements Parsable {
         return this._customKeyIdentifier;
     };
     /**
+     * Sets the customKeyIdentifier property value. Do not use.
+     * @param value Value to set for the customKeyIdentifier property.
+     */
+    public set customKeyIdentifier(value: string | undefined) {
+        this._customKeyIdentifier = value;
+    };
+    /**
      * Gets the displayName property value. Friendly name for the password. Optional.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Friendly name for the password. Optional.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * Gets the endDateTime property value. The date and time at which the password expires represented using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
@@ -52,11 +73,40 @@ export class PasswordCredential implements Parsable {
         return this._endDateTime;
     };
     /**
+     * Sets the endDateTime property value. The date and time at which the password expires represented using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+     * @param value Value to set for the endDateTime property.
+     */
+    public set endDateTime(value: Date | undefined) {
+        this._endDateTime = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "customKeyIdentifier": (o, n) => { (o as unknown as PasswordCredential).customKeyIdentifier = n.getStringValue(); },
+            "displayName": (o, n) => { (o as unknown as PasswordCredential).displayName = n.getStringValue(); },
+            "endDateTime": (o, n) => { (o as unknown as PasswordCredential).endDateTime = n.getDateValue(); },
+            "hint": (o, n) => { (o as unknown as PasswordCredential).hint = n.getStringValue(); },
+            "keyId": (o, n) => { (o as unknown as PasswordCredential).keyId = n.getStringValue(); },
+            "secretText": (o, n) => { (o as unknown as PasswordCredential).secretText = n.getStringValue(); },
+            "startDateTime": (o, n) => { (o as unknown as PasswordCredential).startDateTime = n.getDateValue(); },
+        };
+    };
+    /**
      * Gets the hint property value. Contains the first three characters of the password. Read-only.
      * @returns a string
      */
     public get hint() {
         return this._hint;
+    };
+    /**
+     * Sets the hint property value. Contains the first three characters of the password. Read-only.
+     * @param value Value to set for the hint property.
+     */
+    public set hint(value: string | undefined) {
+        this._hint = value;
     };
     /**
      * Gets the keyId property value. The unique identifier for the password.
@@ -66,6 +116,13 @@ export class PasswordCredential implements Parsable {
         return this._keyId;
     };
     /**
+     * Sets the keyId property value. The unique identifier for the password.
+     * @param value Value to set for the keyId property.
+     */
+    public set keyId(value: string | undefined) {
+        this._keyId = value;
+    };
+    /**
      * Gets the secretText property value. Read-only; Contains the strong passwords generated by Azure AD that are 16-64 characters in length. The generated password value is only returned during the initial POST request to addPassword. There is no way to retrieve this password in the future.
      * @returns a string
      */
@@ -73,26 +130,11 @@ export class PasswordCredential implements Parsable {
         return this._secretText;
     };
     /**
-     * Gets the startDateTime property value. The date and time at which the password becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
-     * @returns a Date
+     * Sets the secretText property value. Read-only; Contains the strong passwords generated by Azure AD that are 16-64 characters in length. The generated password value is only returned during the initial POST request to addPassword. There is no way to retrieve this password in the future.
+     * @param value Value to set for the secretText property.
      */
-    public get startDateTime() {
-        return this._startDateTime;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["customKeyIdentifier", (o, n) => { (o as unknown as PasswordCredential).customKeyIdentifier = n.getStringValue(); }],
-            ["displayName", (o, n) => { (o as unknown as PasswordCredential).displayName = n.getStringValue(); }],
-            ["endDateTime", (o, n) => { (o as unknown as PasswordCredential).endDateTime = n.getDateValue(); }],
-            ["hint", (o, n) => { (o as unknown as PasswordCredential).hint = n.getStringValue(); }],
-            ["keyId", (o, n) => { (o as unknown as PasswordCredential).keyId = n.getStringValue(); }],
-            ["secretText", (o, n) => { (o as unknown as PasswordCredential).secretText = n.getStringValue(); }],
-            ["startDateTime", (o, n) => { (o as unknown as PasswordCredential).startDateTime = n.getDateValue(); }],
-        ]);
+    public set secretText(value: string | undefined) {
+        this._secretText = value;
     };
     /**
      * Serializes information the current object
@@ -110,53 +152,11 @@ export class PasswordCredential implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the startDateTime property value. The date and time at which the password becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
+     * @returns a Date
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the customKeyIdentifier property value. Do not use.
-     * @param value Value to set for the customKeyIdentifier property.
-     */
-    public set customKeyIdentifier(value: string | undefined) {
-        this._customKeyIdentifier = value;
-    };
-    /**
-     * Sets the displayName property value. Friendly name for the password. Optional.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the endDateTime property value. The date and time at which the password expires represented using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.
-     * @param value Value to set for the endDateTime property.
-     */
-    public set endDateTime(value: Date | undefined) {
-        this._endDateTime = value;
-    };
-    /**
-     * Sets the hint property value. Contains the first three characters of the password. Read-only.
-     * @param value Value to set for the hint property.
-     */
-    public set hint(value: string | undefined) {
-        this._hint = value;
-    };
-    /**
-     * Sets the keyId property value. The unique identifier for the password.
-     * @param value Value to set for the keyId property.
-     */
-    public set keyId(value: string | undefined) {
-        this._keyId = value;
-    };
-    /**
-     * Sets the secretText property value. Read-only; Contains the strong passwords generated by Azure AD that are 16-64 characters in length. The generated password value is only returned during the initial POST request to addPassword. There is no way to retrieve this password in the future.
-     * @param value Value to set for the secretText property.
-     */
-    public set secretText(value: string | undefined) {
-        this._secretText = value;
+    public get startDateTime() {
+        return this._startDateTime;
     };
     /**
      * Sets the startDateTime property value. The date and time at which the password becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Optional.

@@ -1,39 +1,41 @@
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
+import {DeviceAndAppManagementAssignmentTarget} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ComplianceManagementPartnerAssignment implements Parsable {
+/** User group targeting for Compliance Management Partner  */
+export class ComplianceManagementPartnerAssignment implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Group assignment target.  */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
-     * Instantiates a new complianceManagementPartnerAssignment and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the target property value. Group assignment target.
-     * @returns a deviceAndAppManagementAssignmentTarget
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
      */
-    public get target() {
-        return this._target;
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new complianceManagementPartnerAssignment and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["target", (o, n) => { (o as unknown as ComplianceManagementPartnerAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "target": (o, n) => { (o as unknown as ComplianceManagementPartnerAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -45,11 +47,11 @@ export class ComplianceManagementPartnerAssignment implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the target property value. Group assignment target.
+     * @returns a deviceAndAppManagementAssignmentTarget
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get target() {
+        return this._target;
     };
     /**
      * Sets the target property value. Group assignment target.

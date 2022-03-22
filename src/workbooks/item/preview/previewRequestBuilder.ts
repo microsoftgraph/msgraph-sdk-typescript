@@ -1,8 +1,9 @@
-import {ItemPreviewInfo} from '../../../models/microsoft/graph/itemPreviewInfo';
-import {PreviewRequestBody} from './previewRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ItemPreviewInfo} from '../../../models/microsoft/graph/';
+import {createItemPreviewInfoFromDiscriminatorValue} from '../../../models/microsoft/graph/createItemPreviewInfoFromDiscriminatorValue';
+import {PreviewRequestBody} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /workbooks/{driveItem-id}/microsoft.graph.preview  */
+/** Provides operations to call the preview method.  */
 export class PreviewRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -36,7 +37,7 @@ export class PreviewRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -47,13 +48,13 @@ export class PreviewRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of PreviewResponse
+     * @returns a Promise of ItemPreviewInfo
      */
     public post(body: PreviewRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ItemPreviewInfo | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<ItemPreviewInfo>(requestInfo, ItemPreviewInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ItemPreviewInfo>(requestInfo, createItemPreviewInfoFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

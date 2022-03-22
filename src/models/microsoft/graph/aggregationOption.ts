@@ -1,26 +1,28 @@
-import {BucketAggregationDefinition} from './bucketAggregationDefinition';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createBucketAggregationDefinitionFromDiscriminatorValue} from './createBucketAggregationDefinitionFromDiscriminatorValue';
+import {BucketAggregationDefinition} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AggregationOption implements Parsable {
+export class AggregationOption implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _bucketDefinition?: BucketAggregationDefinition | undefined;
     /** Computes aggregation on the field while the field exists in current entity type. Required.  */
     private _field?: string | undefined;
     /** The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.  */
     private _size?: number | undefined;
     /**
-     * Instantiates a new aggregationOption and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the bucketDefinition property value. 
@@ -30,6 +32,19 @@ export class AggregationOption implements Parsable {
         return this._bucketDefinition;
     };
     /**
+     * Sets the bucketDefinition property value. 
+     * @param value Value to set for the bucketDefinition property.
+     */
+    public set bucketDefinition(value: BucketAggregationDefinition | undefined) {
+        this._bucketDefinition = value;
+    };
+    /**
+     * Instantiates a new aggregationOption and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the field property value. Computes aggregation on the field while the field exists in current entity type. Required.
      * @returns a string
      */
@@ -37,22 +52,22 @@ export class AggregationOption implements Parsable {
         return this._field;
     };
     /**
-     * Gets the size property value. The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
-     * @returns a integer
+     * Sets the field property value. Computes aggregation on the field while the field exists in current entity type. Required.
+     * @param value Value to set for the field property.
      */
-    public get size() {
-        return this._size;
+    public set field(value: string | undefined) {
+        this._field = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["bucketDefinition", (o, n) => { (o as unknown as AggregationOption).bucketDefinition = n.getObjectValue<BucketAggregationDefinition>(BucketAggregationDefinition); }],
-            ["field", (o, n) => { (o as unknown as AggregationOption).field = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as AggregationOption).size = n.getNumberValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "bucketDefinition": (o, n) => { (o as unknown as AggregationOption).bucketDefinition = n.getObjectValue<BucketAggregationDefinition>(createBucketAggregationDefinitionFromDiscriminatorValue); },
+            "field": (o, n) => { (o as unknown as AggregationOption).field = n.getStringValue(); },
+            "size": (o, n) => { (o as unknown as AggregationOption).size = n.getNumberValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -66,25 +81,11 @@ export class AggregationOption implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the size property value. The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.
+     * @returns a integer
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the bucketDefinition property value. 
-     * @param value Value to set for the bucketDefinition property.
-     */
-    public set bucketDefinition(value: BucketAggregationDefinition | undefined) {
-        this._bucketDefinition = value;
-    };
-    /**
-     * Sets the field property value. Computes aggregation on the field while the field exists in current entity type. Required.
-     * @param value Value to set for the field property.
-     */
-    public set field(value: string | undefined) {
-        this._field = value;
+    public get size() {
+        return this._size;
     };
     /**
      * Sets the size property value. The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.

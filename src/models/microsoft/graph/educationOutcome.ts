@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {IdentitySet} from './identitySet';
+import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDiscriminatorValue';
+import {Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationOutcome extends Entity implements Parsable {
@@ -14,11 +14,28 @@ export class EducationOutcome extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "lastModifiedBy": (o, n) => { (o as unknown as EducationOutcome).lastModifiedBy = n.getObjectValue<IdentitySet>(createIdentitySetFromDiscriminatorValue); },
+            "lastModifiedDateTime": (o, n) => { (o as unknown as EducationOutcome).lastModifiedDateTime = n.getDateValue(); },
+        };
+    };
+    /**
      * Gets the lastModifiedBy property value. The individual who updated the resource.
      * @returns a identitySet
      */
     public get lastModifiedBy() {
         return this._lastModifiedBy;
+    };
+    /**
+     * Sets the lastModifiedBy property value. The individual who updated the resource.
+     * @param value Value to set for the lastModifiedBy property.
+     */
+    public set lastModifiedBy(value: IdentitySet | undefined) {
+        this._lastModifiedBy = value;
     };
     /**
      * Gets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
@@ -28,14 +45,11 @@ export class EducationOutcome extends Entity implements Parsable {
         return this._lastModifiedDateTime;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
+     * @param value Value to set for the lastModifiedDateTime property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["lastModifiedBy", (o, n) => { (o as unknown as EducationOutcome).lastModifiedBy = n.getObjectValue<IdentitySet>(IdentitySet); }],
-            ["lastModifiedDateTime", (o, n) => { (o as unknown as EducationOutcome).lastModifiedDateTime = n.getDateValue(); }],
-        ]);
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -46,19 +60,5 @@ export class EducationOutcome extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<IdentitySet>("lastModifiedBy", this.lastModifiedBy);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-    };
-    /**
-     * Sets the lastModifiedBy property value. The individual who updated the resource.
-     * @param value Value to set for the lastModifiedBy property.
-     */
-    public set lastModifiedBy(value: IdentitySet | undefined) {
-        this._lastModifiedBy = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2021 is 2021-01-01T00:00:00Z.
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
     };
 }

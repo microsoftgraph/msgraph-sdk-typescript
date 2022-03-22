@@ -1,22 +1,39 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class InvestigationSecurityState implements Parsable {
+export class InvestigationSecurityState implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _name?: string | undefined;
     private _status?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new investigationSecurityState and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "name": (o, n) => { (o as unknown as InvestigationSecurityState).name = n.getStringValue(); },
+            "status": (o, n) => { (o as unknown as InvestigationSecurityState).status = n.getStringValue(); },
+        };
     };
     /**
      * Gets the name property value. 
@@ -26,21 +43,11 @@ export class InvestigationSecurityState implements Parsable {
         return this._name;
     };
     /**
-     * Gets the status property value. 
-     * @returns a string
+     * Sets the name property value. 
+     * @param value Value to set for the name property.
      */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["name", (o, n) => { (o as unknown as InvestigationSecurityState).name = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as InvestigationSecurityState).status = n.getStringValue(); }],
-        ]);
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Serializes information the current object
@@ -53,18 +60,11 @@ export class InvestigationSecurityState implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the status property value. 
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the name property value. 
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. 

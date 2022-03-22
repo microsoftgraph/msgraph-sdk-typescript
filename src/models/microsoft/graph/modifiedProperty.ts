@@ -1,58 +1,86 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ModifiedProperty implements Parsable {
+export class ModifiedProperty implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
-    /** Name of property that was modified.  */
+    private _additionalData: Record<string, unknown>;
+    /** Indicates the property name of the target attribute that was changed.  */
     private _displayName?: string | undefined;
-    /** New property value.  */
+    /** Indicates the updated value for the propery.  */
     private _newValue?: string | undefined;
-    /** Old property value.  */
+    /** Indicates the previous value (before the update) for the property.  */
     private _oldValue?: string | undefined;
     /**
-     * Instantiates a new modifiedProperty and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the displayName property value. Name of property that was modified.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new modifiedProperty and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * Gets the displayName property value. Indicates the property name of the target attribute that was changed.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Gets the newValue property value. New property value.
+     * Sets the displayName property value. Indicates the property name of the target attribute that was changed.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "displayName": (o, n) => { (o as unknown as ModifiedProperty).displayName = n.getStringValue(); },
+            "newValue": (o, n) => { (o as unknown as ModifiedProperty).newValue = n.getStringValue(); },
+            "oldValue": (o, n) => { (o as unknown as ModifiedProperty).oldValue = n.getStringValue(); },
+        };
+    };
+    /**
+     * Gets the newValue property value. Indicates the updated value for the propery.
      * @returns a string
      */
     public get newValue() {
         return this._newValue;
     };
     /**
-     * Gets the oldValue property value. Old property value.
+     * Sets the newValue property value. Indicates the updated value for the propery.
+     * @param value Value to set for the newValue property.
+     */
+    public set newValue(value: string | undefined) {
+        this._newValue = value;
+    };
+    /**
+     * Gets the oldValue property value. Indicates the previous value (before the update) for the property.
      * @returns a string
      */
     public get oldValue() {
         return this._oldValue;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the oldValue property value. Indicates the previous value (before the update) for the property.
+     * @param value Value to set for the oldValue property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["displayName", (o, n) => { (o as unknown as ModifiedProperty).displayName = n.getStringValue(); }],
-            ["newValue", (o, n) => { (o as unknown as ModifiedProperty).newValue = n.getStringValue(); }],
-            ["oldValue", (o, n) => { (o as unknown as ModifiedProperty).oldValue = n.getStringValue(); }],
-        ]);
+    public set oldValue(value: string | undefined) {
+        this._oldValue = value;
     };
     /**
      * Serializes information the current object
@@ -64,33 +92,5 @@ export class ModifiedProperty implements Parsable {
         writer.writeStringValue("newValue", this.newValue);
         writer.writeStringValue("oldValue", this.oldValue);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the displayName property value. Name of property that was modified.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the newValue property value. New property value.
-     * @param value Value to set for the newValue property.
-     */
-    public set newValue(value: string | undefined) {
-        this._newValue = value;
-    };
-    /**
-     * Sets the oldValue property value. Old property value.
-     * @param value Value to set for the oldValue property.
-     */
-    public set oldValue(value: string | undefined) {
-        this._oldValue = value;
     };
 }

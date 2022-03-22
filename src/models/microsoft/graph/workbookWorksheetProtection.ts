@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
+import {createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue} from './createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue';
+import {Entity, WorkbookWorksheetProtectionOptions} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookWorksheetProtection extends Entity implements Parsable {
@@ -14,11 +14,28 @@ export class WorkbookWorksheetProtection extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "options": (o, n) => { (o as unknown as WorkbookWorksheetProtection).options = n.getObjectValue<WorkbookWorksheetProtectionOptions>(createWorkbookWorksheetProtectionOptionsFromDiscriminatorValue); },
+            "protected": (o, n) => { (o as unknown as WorkbookWorksheetProtection).protected = n.getBooleanValue(); },
+        };
+    };
+    /**
      * Gets the options property value. Sheet protection options. Read-only.
      * @returns a workbookWorksheetProtectionOptions
      */
     public get options() {
         return this._options;
+    };
+    /**
+     * Sets the options property value. Sheet protection options. Read-only.
+     * @param value Value to set for the options property.
+     */
+    public set options(value: WorkbookWorksheetProtectionOptions | undefined) {
+        this._options = value;
     };
     /**
      * Gets the protected property value. Indicates if the worksheet is protected.  Read-only.
@@ -28,14 +45,11 @@ export class WorkbookWorksheetProtection extends Entity implements Parsable {
         return this._protected;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the protected property value. Indicates if the worksheet is protected.  Read-only.
+     * @param value Value to set for the protected property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["options", (o, n) => { (o as unknown as WorkbookWorksheetProtection).options = n.getObjectValue<WorkbookWorksheetProtectionOptions>(WorkbookWorksheetProtectionOptions); }],
-            ["protected", (o, n) => { (o as unknown as WorkbookWorksheetProtection).protected = n.getBooleanValue(); }],
-        ]);
+    public set protected(value: boolean | undefined) {
+        this._protected = value;
     };
     /**
      * Serializes information the current object
@@ -46,19 +60,5 @@ export class WorkbookWorksheetProtection extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<WorkbookWorksheetProtectionOptions>("options", this.options);
         writer.writeBooleanValue("protected", this.protected);
-    };
-    /**
-     * Sets the options property value. Sheet protection options. Read-only.
-     * @param value Value to set for the options property.
-     */
-    public set options(value: WorkbookWorksheetProtectionOptions | undefined) {
-        this._options = value;
-    };
-    /**
-     * Sets the protected property value. Indicates if the worksheet is protected.  Read-only.
-     * @param value Value to set for the protected property.
-     */
-    public set protected(value: boolean | undefined) {
-        this._protected = value;
     };
 }

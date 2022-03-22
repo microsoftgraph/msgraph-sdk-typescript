@@ -1,23 +1,25 @@
 import {RejectReason} from '../../../../models/microsoft/graph/rejectReason';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RejectRequestBody implements Parsable {
+/** Provides operations to call the reject method.  */
+export class RejectRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _callbackUri?: string | undefined;
     private _reason?: RejectReason | undefined;
     /**
-     * Instantiates a new rejectRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the callbackUri property value. 
@@ -27,6 +29,29 @@ export class RejectRequestBody implements Parsable {
         return this._callbackUri;
     };
     /**
+     * Sets the callbackUri property value. 
+     * @param value Value to set for the callbackUri property.
+     */
+    public set callbackUri(value: string | undefined) {
+        this._callbackUri = value;
+    };
+    /**
+     * Instantiates a new rejectRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "callbackUri": (o, n) => { (o as unknown as RejectRequestBody).callbackUri = n.getStringValue(); },
+            "reason": (o, n) => { (o as unknown as RejectRequestBody).reason = n.getEnumValue<RejectReason>(RejectReason); },
+        };
+    };
+    /**
      * Gets the reason property value. 
      * @returns a rejectReason
      */
@@ -34,14 +59,11 @@ export class RejectRequestBody implements Parsable {
         return this._reason;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the reason property value. 
+     * @param value Value to set for the reason property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["callbackUri", (o, n) => { (o as unknown as RejectRequestBody).callbackUri = n.getStringValue(); }],
-            ["reason", (o, n) => { (o as unknown as RejectRequestBody).reason = n.getEnumValue<RejectReason>(RejectReason); }],
-        ]);
+    public set reason(value: RejectReason | undefined) {
+        this._reason = value;
     };
     /**
      * Serializes information the current object
@@ -52,26 +74,5 @@ export class RejectRequestBody implements Parsable {
         writer.writeStringValue("callbackUri", this.callbackUri);
         writer.writeEnumValue<RejectReason>("reason", this.reason);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the callbackUri property value. 
-     * @param value Value to set for the callbackUri property.
-     */
-    public set callbackUri(value: string | undefined) {
-        this._callbackUri = value;
-    };
-    /**
-     * Sets the reason property value. 
-     * @param value Value to set for the reason property.
-     */
-    public set reason(value: RejectReason | undefined) {
-        this._reason = value;
     };
 }

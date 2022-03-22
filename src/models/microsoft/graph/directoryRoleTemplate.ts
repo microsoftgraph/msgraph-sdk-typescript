@@ -1,4 +1,4 @@
-import {DirectoryObject} from './directoryObject';
+import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
@@ -20,6 +20,13 @@ export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
         return this._description;
     };
     /**
+     * Sets the description property value. The description to set for the directory role. Read-only.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
+    };
+    /**
      * Gets the displayName property value. The display name to set for the directory role. Read-only.
      * @returns a string
      */
@@ -27,14 +34,21 @@ export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
         return this._displayName;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the displayName property value. The display name to set for the directory role. Read-only.
+     * @param value Value to set for the displayName property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["description", (o, n) => { (o as unknown as DirectoryRoleTemplate).description = n.getStringValue(); }],
-            ["displayName", (o, n) => { (o as unknown as DirectoryRoleTemplate).displayName = n.getStringValue(); }],
-        ]);
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "description": (o, n) => { (o as unknown as DirectoryRoleTemplate).description = n.getStringValue(); },
+            "displayName": (o, n) => { (o as unknown as DirectoryRoleTemplate).displayName = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -45,19 +59,5 @@ export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("displayName", this.displayName);
-    };
-    /**
-     * Sets the description property value. The description to set for the directory role. Read-only.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the displayName property value. The display name to set for the directory role. Read-only.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
     };
 }

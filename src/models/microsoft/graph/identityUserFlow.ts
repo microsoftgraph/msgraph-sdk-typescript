@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -12,28 +12,14 @@ export class IdentityUserFlow extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the userFlowType property value. 
-     * @returns a userFlowType
-     */
-    public get userFlowType() {
-        return this._userFlowType;
-    };
-    /**
-     * Gets the userFlowTypeVersion property value. 
-     * @returns a float
-     */
-    public get userFlowTypeVersion() {
-        return this._userFlowTypeVersion;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["userFlowType", (o, n) => { (o as unknown as IdentityUserFlow).userFlowType = n.getEnumValue<UserFlowType>(UserFlowType); }],
-            ["userFlowTypeVersion", (o, n) => { (o as unknown as IdentityUserFlow).userFlowTypeVersion = n.getNumberValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "userFlowType": (o, n) => { (o as unknown as IdentityUserFlow).userFlowType = n.getEnumValue<UserFlowType>(UserFlowType); },
+            "userFlowTypeVersion": (o, n) => { (o as unknown as IdentityUserFlow).userFlowTypeVersion = n.getNumberValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -46,11 +32,25 @@ export class IdentityUserFlow extends Entity implements Parsable {
         writer.writeNumberValue("userFlowTypeVersion", this.userFlowTypeVersion);
     };
     /**
+     * Gets the userFlowType property value. 
+     * @returns a userFlowType
+     */
+    public get userFlowType() {
+        return this._userFlowType;
+    };
+    /**
      * Sets the userFlowType property value. 
      * @param value Value to set for the userFlowType property.
      */
     public set userFlowType(value: UserFlowType | undefined) {
         this._userFlowType = value;
+    };
+    /**
+     * Gets the userFlowTypeVersion property value. 
+     * @returns a float
+     */
+    public get userFlowTypeVersion() {
+        return this._userFlowTypeVersion;
     };
     /**
      * Sets the userFlowTypeVersion property value. 

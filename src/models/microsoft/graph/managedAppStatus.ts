@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppStatus extends Entity implements Parsable {
@@ -20,21 +20,21 @@ export class ManagedAppStatus extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the version property value. Version of the entity.
-     * @returns a string
+     * Sets the displayName property value. Friendly name of the status report.
+     * @param value Value to set for the displayName property.
      */
-    public get version() {
-        return this._version;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as ManagedAppStatus).displayName = n.getStringValue(); }],
-            ["version", (o, n) => { (o as unknown as ManagedAppStatus).version = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as ManagedAppStatus).displayName = n.getStringValue(); },
+            "version": (o, n) => { (o as unknown as ManagedAppStatus).version = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -47,11 +47,11 @@ export class ManagedAppStatus extends Entity implements Parsable {
         writer.writeStringValue("version", this.version);
     };
     /**
-     * Sets the displayName property value. Friendly name of the status report.
-     * @param value Value to set for the displayName property.
+     * Gets the version property value. Version of the entity.
+     * @returns a string
      */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
+    public get version() {
+        return this._version;
     };
     /**
      * Sets the version property value. Version of the entity.

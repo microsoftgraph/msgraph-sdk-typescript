@@ -1,4 +1,4 @@
-import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl';
+import {ConditionalAccessSessionControl} from './index';
 import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -14,28 +14,14 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
         super();
     };
     /**
-     * Gets the type property value. Possible values are: days, hours.
-     * @returns a signinFrequencyType
-     */
-    public get type() {
-        return this._type;
-    };
-    /**
-     * Gets the value property value. The number of days or hours.
-     * @returns a integer
-     */
-    public get value() {
-        return this._value;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["type", (o, n) => { (o as unknown as SignInFrequencySessionControl).type = n.getEnumValue<SigninFrequencyType>(SigninFrequencyType); }],
-            ["value", (o, n) => { (o as unknown as SignInFrequencySessionControl).value = n.getNumberValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "type": (o, n) => { (o as unknown as SignInFrequencySessionControl).type = n.getEnumValue<SigninFrequencyType>(SigninFrequencyType); },
+            "value": (o, n) => { (o as unknown as SignInFrequencySessionControl).value = n.getNumberValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -48,11 +34,25 @@ export class SignInFrequencySessionControl extends ConditionalAccessSessionContr
         writer.writeNumberValue("value", this.value);
     };
     /**
+     * Gets the type property value. Possible values are: days, hours.
+     * @returns a signinFrequencyType
+     */
+    public get type() {
+        return this._type;
+    };
+    /**
      * Sets the type property value. Possible values are: days, hours.
      * @param value Value to set for the type property.
      */
     public set type(value: SigninFrequencyType | undefined) {
         this._type = value;
+    };
+    /**
+     * Gets the value property value. The number of days or hours.
+     * @returns a integer
+     */
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. The number of days or hours.

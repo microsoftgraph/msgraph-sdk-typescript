@@ -1,8 +1,9 @@
-import {OnlineMeeting} from '../../../models/microsoft/graph/onlineMeeting';
-import {CreateOrGetRequestBody} from './createOrGetRequestBody';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {OnlineMeeting} from '../../../models/microsoft/graph/';
+import {createOnlineMeetingFromDiscriminatorValue} from '../../../models/microsoft/graph/createOnlineMeetingFromDiscriminatorValue';
+import {CreateOrGetRequestBody} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/onlineMeetings/microsoft.graph.createOrGet  */
+/** Provides operations to call the createOrGet method.  */
 export class CreateOrGetRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -36,7 +37,7 @@ export class CreateOrGetRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -47,13 +48,13 @@ export class CreateOrGetRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of CreateOrGetResponse
+     * @returns a Promise of OnlineMeeting
      */
     public post(body: CreateOrGetRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnlineMeeting | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, OnlineMeeting, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnlineMeeting>(requestInfo, createOnlineMeetingFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

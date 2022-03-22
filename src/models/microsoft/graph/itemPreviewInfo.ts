@@ -1,23 +1,41 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ItemPreviewInfo implements Parsable {
+export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _getUrl?: string | undefined;
     private _postParameters?: string | undefined;
     private _postUrl?: string | undefined;
     /**
-     * Instantiates a new itemPreviewInfo and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new itemPreviewInfo and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "getUrl": (o, n) => { (o as unknown as ItemPreviewInfo).getUrl = n.getStringValue(); },
+            "postParameters": (o, n) => { (o as unknown as ItemPreviewInfo).postParameters = n.getStringValue(); },
+            "postUrl": (o, n) => { (o as unknown as ItemPreviewInfo).postUrl = n.getStringValue(); },
+        };
     };
     /**
      * Gets the getUrl property value. 
@@ -27,11 +45,25 @@ export class ItemPreviewInfo implements Parsable {
         return this._getUrl;
     };
     /**
+     * Sets the getUrl property value. 
+     * @param value Value to set for the getUrl property.
+     */
+    public set getUrl(value: string | undefined) {
+        this._getUrl = value;
+    };
+    /**
      * Gets the postParameters property value. 
      * @returns a string
      */
     public get postParameters() {
         return this._postParameters;
+    };
+    /**
+     * Sets the postParameters property value. 
+     * @param value Value to set for the postParameters property.
+     */
+    public set postParameters(value: string | undefined) {
+        this._postParameters = value;
     };
     /**
      * Gets the postUrl property value. 
@@ -41,15 +73,11 @@ export class ItemPreviewInfo implements Parsable {
         return this._postUrl;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the postUrl property value. 
+     * @param value Value to set for the postUrl property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["getUrl", (o, n) => { (o as unknown as ItemPreviewInfo).getUrl = n.getStringValue(); }],
-            ["postParameters", (o, n) => { (o as unknown as ItemPreviewInfo).postParameters = n.getStringValue(); }],
-            ["postUrl", (o, n) => { (o as unknown as ItemPreviewInfo).postUrl = n.getStringValue(); }],
-        ]);
+    public set postUrl(value: string | undefined) {
+        this._postUrl = value;
     };
     /**
      * Serializes information the current object
@@ -61,33 +89,5 @@ export class ItemPreviewInfo implements Parsable {
         writer.writeStringValue("postParameters", this.postParameters);
         writer.writeStringValue("postUrl", this.postUrl);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the getUrl property value. 
-     * @param value Value to set for the getUrl property.
-     */
-    public set getUrl(value: string | undefined) {
-        this._getUrl = value;
-    };
-    /**
-     * Sets the postParameters property value. 
-     * @param value Value to set for the postParameters property.
-     */
-    public set postParameters(value: string | undefined) {
-        this._postParameters = value;
-    };
-    /**
-     * Sets the postUrl property value. 
-     * @param value Value to set for the postUrl property.
-     */
-    public set postUrl(value: string | undefined) {
-        this._postUrl = value;
     };
 }

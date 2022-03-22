@@ -1,3 +1,4 @@
+/** Provides operations to manage the drive singleton.  */
 export enum DayOfWeek {
     Sunday = "sunday",
     Monday = "monday",

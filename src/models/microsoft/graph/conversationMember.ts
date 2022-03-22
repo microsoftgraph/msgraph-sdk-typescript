@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConversationMember extends Entity implements Parsable {
@@ -22,6 +22,24 @@ export class ConversationMember extends Entity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The display name of the user.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as ConversationMember).displayName = n.getStringValue(); },
+            "roles": (o, n) => { (o as unknown as ConversationMember).roles = n.getCollectionOfPrimitiveValues<string>(); },
+            "visibleHistoryStartDateTime": (o, n) => { (o as unknown as ConversationMember).visibleHistoryStartDateTime = n.getDateValue(); },
+        };
+    };
+    /**
      * Gets the roles property value. The roles for that user.
      * @returns a string
      */
@@ -29,22 +47,11 @@ export class ConversationMember extends Entity implements Parsable {
         return this._roles;
     };
     /**
-     * Gets the visibleHistoryStartDateTime property value. The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.
-     * @returns a Date
+     * Sets the roles property value. The roles for that user.
+     * @param value Value to set for the roles property.
      */
-    public get visibleHistoryStartDateTime() {
-        return this._visibleHistoryStartDateTime;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as ConversationMember).displayName = n.getStringValue(); }],
-            ["roles", (o, n) => { (o as unknown as ConversationMember).roles = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["visibleHistoryStartDateTime", (o, n) => { (o as unknown as ConversationMember).visibleHistoryStartDateTime = n.getDateValue(); }],
-        ]);
+    public set roles(value: string[] | undefined) {
+        this._roles = value;
     };
     /**
      * Serializes information the current object
@@ -58,18 +65,11 @@ export class ConversationMember extends Entity implements Parsable {
         writer.writeDateValue("visibleHistoryStartDateTime", this.visibleHistoryStartDateTime);
     };
     /**
-     * Sets the displayName property value. The display name of the user.
-     * @param value Value to set for the displayName property.
+     * Gets the visibleHistoryStartDateTime property value. The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.
+     * @returns a Date
      */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the roles property value. The roles for that user.
-     * @param value Value to set for the roles property.
-     */
-    public set roles(value: string[] | undefined) {
-        this._roles = value;
+    public get visibleHistoryStartDateTime() {
+        return this._visibleHistoryStartDateTime;
     };
     /**
      * Sets the visibleHistoryStartDateTime property value. The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.

@@ -1,21 +1,16 @@
-import {OptionalClaim} from './optionalClaim';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createOptionalClaimFromDiscriminatorValue} from './createOptionalClaimFromDiscriminatorValue';
+import {OptionalClaim} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class OptionalClaims implements Parsable {
+export class OptionalClaims implements AdditionalDataHolder, Parsable {
     /** The optional claims returned in the JWT access token.  */
     private _accessToken?: OptionalClaim[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The optional claims returned in the JWT ID token.  */
     private _idToken?: OptionalClaim[] | undefined;
     /** The optional claims returned in the SAML token.  */
     private _saml2Token?: OptionalClaim[] | undefined;
-    /**
-     * Instantiates a new optionalClaims and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
     /**
      * Gets the accessToken property value. The optional claims returned in the JWT access token.
      * @returns a optionalClaim
@@ -24,11 +19,42 @@ export class OptionalClaims implements Parsable {
         return this._accessToken;
     };
     /**
+     * Sets the accessToken property value. The optional claims returned in the JWT access token.
+     * @param value Value to set for the accessToken property.
+     */
+    public set accessToken(value: OptionalClaim[] | undefined) {
+        this._accessToken = value;
+    };
+    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new optionalClaims and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "accessToken": (o, n) => { (o as unknown as OptionalClaims).accessToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+            "idToken": (o, n) => { (o as unknown as OptionalClaims).idToken = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+            "saml2Token": (o, n) => { (o as unknown as OptionalClaims).saml2Token = n.getCollectionOfObjectValues<OptionalClaim>(createOptionalClaimFromDiscriminatorValue); },
+        };
     };
     /**
      * Gets the idToken property value. The optional claims returned in the JWT ID token.
@@ -38,6 +64,13 @@ export class OptionalClaims implements Parsable {
         return this._idToken;
     };
     /**
+     * Sets the idToken property value. The optional claims returned in the JWT ID token.
+     * @param value Value to set for the idToken property.
+     */
+    public set idToken(value: OptionalClaim[] | undefined) {
+        this._idToken = value;
+    };
+    /**
      * Gets the saml2Token property value. The optional claims returned in the SAML token.
      * @returns a optionalClaim
      */
@@ -45,15 +78,11 @@ export class OptionalClaims implements Parsable {
         return this._saml2Token;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the saml2Token property value. The optional claims returned in the SAML token.
+     * @param value Value to set for the saml2Token property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["accessToken", (o, n) => { (o as unknown as OptionalClaims).accessToken = n.getCollectionOfObjectValues<OptionalClaim>(OptionalClaim); }],
-            ["idToken", (o, n) => { (o as unknown as OptionalClaims).idToken = n.getCollectionOfObjectValues<OptionalClaim>(OptionalClaim); }],
-            ["saml2Token", (o, n) => { (o as unknown as OptionalClaims).saml2Token = n.getCollectionOfObjectValues<OptionalClaim>(OptionalClaim); }],
-        ]);
+    public set saml2Token(value: OptionalClaim[] | undefined) {
+        this._saml2Token = value;
     };
     /**
      * Serializes information the current object
@@ -65,33 +94,5 @@ export class OptionalClaims implements Parsable {
         writer.writeCollectionOfObjectValues<OptionalClaim>("idToken", this.idToken);
         writer.writeCollectionOfObjectValues<OptionalClaim>("saml2Token", this.saml2Token);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the accessToken property value. The optional claims returned in the JWT access token.
-     * @param value Value to set for the accessToken property.
-     */
-    public set accessToken(value: OptionalClaim[] | undefined) {
-        this._accessToken = value;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the idToken property value. The optional claims returned in the JWT ID token.
-     * @param value Value to set for the idToken property.
-     */
-    public set idToken(value: OptionalClaim[] | undefined) {
-        this._idToken = value;
-    };
-    /**
-     * Sets the saml2Token property value. The optional claims returned in the SAML token.
-     * @param value Value to set for the saml2Token property.
-     */
-    public set saml2Token(value: OptionalClaim[] | undefined) {
-        this._saml2Token = value;
     };
 }

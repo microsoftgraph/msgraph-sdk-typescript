@@ -1,9 +1,9 @@
 import {AttachmentType} from './attachmentType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AttachmentItem implements Parsable {
+export class AttachmentItem implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The type of attachment. Possible values are: file, item, reference. Required.  */
     private _attachmentType?: AttachmentType | undefined;
     /** The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional.  */
@@ -17,17 +17,18 @@ export class AttachmentItem implements Parsable {
     /** The length of the attachment in bytes. Required.  */
     private _size?: number | undefined;
     /**
-     * Instantiates a new attachmentItem and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the attachmentType property value. The type of attachment. Possible values are: file, item, reference. Required.
@@ -37,11 +38,31 @@ export class AttachmentItem implements Parsable {
         return this._attachmentType;
     };
     /**
+     * Sets the attachmentType property value. The type of attachment. Possible values are: file, item, reference. Required.
+     * @param value Value to set for the attachmentType property.
+     */
+    public set attachmentType(value: AttachmentType | undefined) {
+        this._attachmentType = value;
+    };
+    /**
+     * Instantiates a new attachmentItem and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the contentId property value. The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional.
      * @returns a string
      */
     public get contentId() {
         return this._contentId;
+    };
+    /**
+     * Sets the contentId property value. The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional.
+     * @param value Value to set for the contentId property.
+     */
+    public set contentId(value: string | undefined) {
+        this._contentId = value;
     };
     /**
      * Gets the contentType property value. The nature of the data in the attachment. Optional.
@@ -51,11 +72,39 @@ export class AttachmentItem implements Parsable {
         return this._contentType;
     };
     /**
+     * Sets the contentType property value. The nature of the data in the attachment. Optional.
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        this._contentType = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "attachmentType": (o, n) => { (o as unknown as AttachmentItem).attachmentType = n.getEnumValue<AttachmentType>(AttachmentType); },
+            "contentId": (o, n) => { (o as unknown as AttachmentItem).contentId = n.getStringValue(); },
+            "contentType": (o, n) => { (o as unknown as AttachmentItem).contentType = n.getStringValue(); },
+            "isInline": (o, n) => { (o as unknown as AttachmentItem).isInline = n.getBooleanValue(); },
+            "name": (o, n) => { (o as unknown as AttachmentItem).name = n.getStringValue(); },
+            "size": (o, n) => { (o as unknown as AttachmentItem).size = n.getNumberValue(); },
+        };
+    };
+    /**
      * Gets the isInline property value. true if the attachment is an inline attachment; otherwise, false. Optional.
      * @returns a boolean
      */
     public get isInline() {
         return this._isInline;
+    };
+    /**
+     * Sets the isInline property value. true if the attachment is an inline attachment; otherwise, false. Optional.
+     * @param value Value to set for the isInline property.
+     */
+    public set isInline(value: boolean | undefined) {
+        this._isInline = value;
     };
     /**
      * Gets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
@@ -65,25 +114,11 @@ export class AttachmentItem implements Parsable {
         return this._name;
     };
     /**
-     * Gets the size property value. The length of the attachment in bytes. Required.
-     * @returns a int64
+     * Sets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
+     * @param value Value to set for the name property.
      */
-    public get size() {
-        return this._size;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["attachmentType", (o, n) => { (o as unknown as AttachmentItem).attachmentType = n.getEnumValue<AttachmentType>(AttachmentType); }],
-            ["contentId", (o, n) => { (o as unknown as AttachmentItem).contentId = n.getStringValue(); }],
-            ["contentType", (o, n) => { (o as unknown as AttachmentItem).contentType = n.getStringValue(); }],
-            ["isInline", (o, n) => { (o as unknown as AttachmentItem).isInline = n.getBooleanValue(); }],
-            ["name", (o, n) => { (o as unknown as AttachmentItem).name = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as AttachmentItem).size = n.getNumberValue(); }],
-        ]);
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Serializes information the current object
@@ -100,46 +135,11 @@ export class AttachmentItem implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the size property value. The length of the attachment in bytes. Required.
+     * @returns a int64
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the attachmentType property value. The type of attachment. Possible values are: file, item, reference. Required.
-     * @param value Value to set for the attachmentType property.
-     */
-    public set attachmentType(value: AttachmentType | undefined) {
-        this._attachmentType = value;
-    };
-    /**
-     * Sets the contentId property value. The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional.
-     * @param value Value to set for the contentId property.
-     */
-    public set contentId(value: string | undefined) {
-        this._contentId = value;
-    };
-    /**
-     * Sets the contentType property value. The nature of the data in the attachment. Optional.
-     * @param value Value to set for the contentType property.
-     */
-    public set contentType(value: string | undefined) {
-        this._contentType = value;
-    };
-    /**
-     * Sets the isInline property value. true if the attachment is an inline attachment; otherwise, false. Optional.
-     * @param value Value to set for the isInline property.
-     */
-    public set isInline(value: boolean | undefined) {
-        this._isInline = value;
-    };
-    /**
-     * Sets the name property value. The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
+    public get size() {
+        return this._size;
     };
     /**
      * Sets the size property value. The length of the attachment in bytes. Required.

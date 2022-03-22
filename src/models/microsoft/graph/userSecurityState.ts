@@ -1,15 +1,15 @@
 import {EmailRole} from './emailRole';
 import {LogonType} from './logonType';
 import {UserAccountSecurityType} from './userAccountSecurityType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UserSecurityState implements Parsable {
+export class UserSecurityState implements AdditionalDataHolder, Parsable {
     /** AAD User object identifier (GUID) - represents the physical/multi-account user entity.  */
     private _aadUserId?: string | undefined;
     /** Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).  */
     private _accountName?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** NetBIOS/Active Directory domain of user account (that is, domain/account format).  */
     private _domainName?: string | undefined;
     /** For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.  */
@@ -35,17 +35,18 @@ export class UserSecurityState implements Parsable {
     /** User sign-in name - internet format: (user account name)@(user account DNS domain name).  */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new userSecurityState and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the aadUserId property value. AAD User object identifier (GUID) - represents the physical/multi-account user entity.
      * @returns a string
      */
     public get aadUserId() {
         return this._aadUserId;
+    };
+    /**
+     * Sets the aadUserId property value. AAD User object identifier (GUID) - represents the physical/multi-account user entity.
+     * @param value Value to set for the aadUserId property.
+     */
+    public set aadUserId(value: string | undefined) {
+        this._aadUserId = value;
     };
     /**
      * Gets the accountName property value. Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
@@ -55,11 +56,31 @@ export class UserSecurityState implements Parsable {
         return this._accountName;
     };
     /**
+     * Sets the accountName property value. Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
+     * @param value Value to set for the accountName property.
+     */
+    public set accountName(value: string | undefined) {
+        this._accountName = value;
+    };
+    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new userSecurityState and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the domainName property value. NetBIOS/Active Directory domain of user account (that is, domain/account format).
@@ -69,11 +90,47 @@ export class UserSecurityState implements Parsable {
         return this._domainName;
     };
     /**
+     * Sets the domainName property value. NetBIOS/Active Directory domain of user account (that is, domain/account format).
+     * @param value Value to set for the domainName property.
+     */
+    public set domainName(value: string | undefined) {
+        this._domainName = value;
+    };
+    /**
      * Gets the emailRole property value. For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
      * @returns a emailRole
      */
     public get emailRole() {
         return this._emailRole;
+    };
+    /**
+     * Sets the emailRole property value. For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
+     * @param value Value to set for the emailRole property.
+     */
+    public set emailRole(value: EmailRole | undefined) {
+        this._emailRole = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "aadUserId": (o, n) => { (o as unknown as UserSecurityState).aadUserId = n.getStringValue(); },
+            "accountName": (o, n) => { (o as unknown as UserSecurityState).accountName = n.getStringValue(); },
+            "domainName": (o, n) => { (o as unknown as UserSecurityState).domainName = n.getStringValue(); },
+            "emailRole": (o, n) => { (o as unknown as UserSecurityState).emailRole = n.getEnumValue<EmailRole>(EmailRole); },
+            "isVpn": (o, n) => { (o as unknown as UserSecurityState).isVpn = n.getBooleanValue(); },
+            "logonDateTime": (o, n) => { (o as unknown as UserSecurityState).logonDateTime = n.getDateValue(); },
+            "logonId": (o, n) => { (o as unknown as UserSecurityState).logonId = n.getStringValue(); },
+            "logonIp": (o, n) => { (o as unknown as UserSecurityState).logonIp = n.getStringValue(); },
+            "logonLocation": (o, n) => { (o as unknown as UserSecurityState).logonLocation = n.getStringValue(); },
+            "logonType": (o, n) => { (o as unknown as UserSecurityState).logonType = n.getEnumValue<LogonType>(LogonType); },
+            "onPremisesSecurityIdentifier": (o, n) => { (o as unknown as UserSecurityState).onPremisesSecurityIdentifier = n.getStringValue(); },
+            "riskScore": (o, n) => { (o as unknown as UserSecurityState).riskScore = n.getStringValue(); },
+            "userAccountType": (o, n) => { (o as unknown as UserSecurityState).userAccountType = n.getEnumValue<UserAccountSecurityType>(UserAccountSecurityType); },
+            "userPrincipalName": (o, n) => { (o as unknown as UserSecurityState).userPrincipalName = n.getStringValue(); },
+        };
     };
     /**
      * Gets the isVpn property value. Indicates whether the user logged on through a VPN.
@@ -83,11 +140,25 @@ export class UserSecurityState implements Parsable {
         return this._isVpn;
     };
     /**
+     * Sets the isVpn property value. Indicates whether the user logged on through a VPN.
+     * @param value Value to set for the isVpn property.
+     */
+    public set isVpn(value: boolean | undefined) {
+        this._isVpn = value;
+    };
+    /**
      * Gets the logonDateTime property value. Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get logonDateTime() {
         return this._logonDateTime;
+    };
+    /**
+     * Sets the logonDateTime property value. Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * @param value Value to set for the logonDateTime property.
+     */
+    public set logonDateTime(value: Date | undefined) {
+        this._logonDateTime = value;
     };
     /**
      * Gets the logonId property value. User sign-in ID.
@@ -97,11 +168,25 @@ export class UserSecurityState implements Parsable {
         return this._logonId;
     };
     /**
+     * Sets the logonId property value. User sign-in ID.
+     * @param value Value to set for the logonId property.
+     */
+    public set logonId(value: string | undefined) {
+        this._logonId = value;
+    };
+    /**
      * Gets the logonIp property value. IP Address the sign-in request originated from.
      * @returns a string
      */
     public get logonIp() {
         return this._logonIp;
+    };
+    /**
+     * Sets the logonIp property value. IP Address the sign-in request originated from.
+     * @param value Value to set for the logonIp property.
+     */
+    public set logonIp(value: string | undefined) {
+        this._logonIp = value;
     };
     /**
      * Gets the logonLocation property value. Location (by IP address mapping) associated with a user sign-in event by this user.
@@ -111,11 +196,25 @@ export class UserSecurityState implements Parsable {
         return this._logonLocation;
     };
     /**
+     * Sets the logonLocation property value. Location (by IP address mapping) associated with a user sign-in event by this user.
+     * @param value Value to set for the logonLocation property.
+     */
+    public set logonLocation(value: string | undefined) {
+        this._logonLocation = value;
+    };
+    /**
      * Gets the logonType property value. Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
      * @returns a logonType
      */
     public get logonType() {
         return this._logonType;
+    };
+    /**
+     * Sets the logonType property value. Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
+     * @param value Value to set for the logonType property.
+     */
+    public set logonType(value: LogonType | undefined) {
+        this._logonType = value;
     };
     /**
      * Gets the onPremisesSecurityIdentifier property value. Active Directory (on-premises) Security Identifier (SID) of the user.
@@ -125,6 +224,13 @@ export class UserSecurityState implements Parsable {
         return this._onPremisesSecurityIdentifier;
     };
     /**
+     * Sets the onPremisesSecurityIdentifier property value. Active Directory (on-premises) Security Identifier (SID) of the user.
+     * @param value Value to set for the onPremisesSecurityIdentifier property.
+     */
+    public set onPremisesSecurityIdentifier(value: string | undefined) {
+        this._onPremisesSecurityIdentifier = value;
+    };
+    /**
      * Gets the riskScore property value. Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
      * @returns a string
      */
@@ -132,40 +238,11 @@ export class UserSecurityState implements Parsable {
         return this._riskScore;
     };
     /**
-     * Gets the userAccountType property value. User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
-     * @returns a userAccountSecurityType
+     * Sets the riskScore property value. Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
+     * @param value Value to set for the riskScore property.
      */
-    public get userAccountType() {
-        return this._userAccountType;
-    };
-    /**
-     * Gets the userPrincipalName property value. User sign-in name - internet format: (user account name)@(user account DNS domain name).
-     * @returns a string
-     */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["aadUserId", (o, n) => { (o as unknown as UserSecurityState).aadUserId = n.getStringValue(); }],
-            ["accountName", (o, n) => { (o as unknown as UserSecurityState).accountName = n.getStringValue(); }],
-            ["domainName", (o, n) => { (o as unknown as UserSecurityState).domainName = n.getStringValue(); }],
-            ["emailRole", (o, n) => { (o as unknown as UserSecurityState).emailRole = n.getEnumValue<EmailRole>(EmailRole); }],
-            ["isVpn", (o, n) => { (o as unknown as UserSecurityState).isVpn = n.getBooleanValue(); }],
-            ["logonDateTime", (o, n) => { (o as unknown as UserSecurityState).logonDateTime = n.getDateValue(); }],
-            ["logonId", (o, n) => { (o as unknown as UserSecurityState).logonId = n.getStringValue(); }],
-            ["logonIp", (o, n) => { (o as unknown as UserSecurityState).logonIp = n.getStringValue(); }],
-            ["logonLocation", (o, n) => { (o as unknown as UserSecurityState).logonLocation = n.getStringValue(); }],
-            ["logonType", (o, n) => { (o as unknown as UserSecurityState).logonType = n.getEnumValue<LogonType>(LogonType); }],
-            ["onPremisesSecurityIdentifier", (o, n) => { (o as unknown as UserSecurityState).onPremisesSecurityIdentifier = n.getStringValue(); }],
-            ["riskScore", (o, n) => { (o as unknown as UserSecurityState).riskScore = n.getStringValue(); }],
-            ["userAccountType", (o, n) => { (o as unknown as UserSecurityState).userAccountType = n.getEnumValue<UserAccountSecurityType>(UserAccountSecurityType); }],
-            ["userPrincipalName", (o, n) => { (o as unknown as UserSecurityState).userPrincipalName = n.getStringValue(); }],
-        ]);
+    public set riskScore(value: string | undefined) {
+        this._riskScore = value;
     };
     /**
      * Serializes information the current object
@@ -190,95 +267,11 @@ export class UserSecurityState implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the aadUserId property value. AAD User object identifier (GUID) - represents the physical/multi-account user entity.
-     * @param value Value to set for the aadUserId property.
+     * Gets the userAccountType property value. User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
+     * @returns a userAccountSecurityType
      */
-    public set aadUserId(value: string | undefined) {
-        this._aadUserId = value;
-    };
-    /**
-     * Sets the accountName property value. Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).
-     * @param value Value to set for the accountName property.
-     */
-    public set accountName(value: string | undefined) {
-        this._accountName = value;
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the domainName property value. NetBIOS/Active Directory domain of user account (that is, domain/account format).
-     * @param value Value to set for the domainName property.
-     */
-    public set domainName(value: string | undefined) {
-        this._domainName = value;
-    };
-    /**
-     * Sets the emailRole property value. For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.
-     * @param value Value to set for the emailRole property.
-     */
-    public set emailRole(value: EmailRole | undefined) {
-        this._emailRole = value;
-    };
-    /**
-     * Sets the isVpn property value. Indicates whether the user logged on through a VPN.
-     * @param value Value to set for the isVpn property.
-     */
-    public set isVpn(value: boolean | undefined) {
-        this._isVpn = value;
-    };
-    /**
-     * Sets the logonDateTime property value. Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
-     * @param value Value to set for the logonDateTime property.
-     */
-    public set logonDateTime(value: Date | undefined) {
-        this._logonDateTime = value;
-    };
-    /**
-     * Sets the logonId property value. User sign-in ID.
-     * @param value Value to set for the logonId property.
-     */
-    public set logonId(value: string | undefined) {
-        this._logonId = value;
-    };
-    /**
-     * Sets the logonIp property value. IP Address the sign-in request originated from.
-     * @param value Value to set for the logonIp property.
-     */
-    public set logonIp(value: string | undefined) {
-        this._logonIp = value;
-    };
-    /**
-     * Sets the logonLocation property value. Location (by IP address mapping) associated with a user sign-in event by this user.
-     * @param value Value to set for the logonLocation property.
-     */
-    public set logonLocation(value: string | undefined) {
-        this._logonLocation = value;
-    };
-    /**
-     * Sets the logonType property value. Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.
-     * @param value Value to set for the logonType property.
-     */
-    public set logonType(value: LogonType | undefined) {
-        this._logonType = value;
-    };
-    /**
-     * Sets the onPremisesSecurityIdentifier property value. Active Directory (on-premises) Security Identifier (SID) of the user.
-     * @param value Value to set for the onPremisesSecurityIdentifier property.
-     */
-    public set onPremisesSecurityIdentifier(value: string | undefined) {
-        this._onPremisesSecurityIdentifier = value;
-    };
-    /**
-     * Sets the riskScore property value. Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.
-     * @param value Value to set for the riskScore property.
-     */
-    public set riskScore(value: string | undefined) {
-        this._riskScore = value;
+    public get userAccountType() {
+        return this._userAccountType;
     };
     /**
      * Sets the userAccountType property value. User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.
@@ -286,6 +279,13 @@ export class UserSecurityState implements Parsable {
      */
     public set userAccountType(value: UserAccountSecurityType | undefined) {
         this._userAccountType = value;
+    };
+    /**
+     * Gets the userPrincipalName property value. User sign-in name - internet format: (user account name)@(user account DNS domain name).
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. User sign-in name - internet format: (user account name)@(user account DNS domain name).

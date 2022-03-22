@@ -1,37 +1,38 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class DeleteUserFromSharedAppleDeviceRequestBody implements Parsable {
+/** Provides operations to call the deleteUserFromSharedAppleDevice method.  */
+export class DeleteUserFromSharedAppleDeviceRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new deleteUserFromSharedAppleDeviceRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the userPrincipalName property value. 
-     * @returns a string
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
      */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new deleteUserFromSharedAppleDeviceRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["userPrincipalName", (o, n) => { (o as unknown as DeleteUserFromSharedAppleDeviceRequestBody).userPrincipalName = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "userPrincipalName": (o, n) => { (o as unknown as DeleteUserFromSharedAppleDeviceRequestBody).userPrincipalName = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -43,11 +44,11 @@ export class DeleteUserFromSharedAppleDeviceRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the userPrincipalName property value. 
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. 

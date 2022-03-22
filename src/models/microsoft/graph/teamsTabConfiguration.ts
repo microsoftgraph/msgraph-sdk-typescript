@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TeamsTabConfiguration implements Parsable {
+export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Url used for rendering tab contents in Teams. Required.  */
     private _contentUrl?: string | undefined;
     /** Identifier for the entity hosted by the tab provider.  */
@@ -12,17 +12,24 @@ export class TeamsTabConfiguration implements Parsable {
     /** Url for showing tab contents outside of Teams.  */
     private _websiteUrl?: string | undefined;
     /**
-     * Instantiates a new teamsTabConfiguration and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new teamsTabConfiguration and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the contentUrl property value. Url used for rendering tab contents in Teams. Required.
@@ -32,11 +39,37 @@ export class TeamsTabConfiguration implements Parsable {
         return this._contentUrl;
     };
     /**
+     * Sets the contentUrl property value. Url used for rendering tab contents in Teams. Required.
+     * @param value Value to set for the contentUrl property.
+     */
+    public set contentUrl(value: string | undefined) {
+        this._contentUrl = value;
+    };
+    /**
      * Gets the entityId property value. Identifier for the entity hosted by the tab provider.
      * @returns a string
      */
     public get entityId() {
         return this._entityId;
+    };
+    /**
+     * Sets the entityId property value. Identifier for the entity hosted by the tab provider.
+     * @param value Value to set for the entityId property.
+     */
+    public set entityId(value: string | undefined) {
+        this._entityId = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "contentUrl": (o, n) => { (o as unknown as TeamsTabConfiguration).contentUrl = n.getStringValue(); },
+            "entityId": (o, n) => { (o as unknown as TeamsTabConfiguration).entityId = n.getStringValue(); },
+            "removeUrl": (o, n) => { (o as unknown as TeamsTabConfiguration).removeUrl = n.getStringValue(); },
+            "websiteUrl": (o, n) => { (o as unknown as TeamsTabConfiguration).websiteUrl = n.getStringValue(); },
+        };
     };
     /**
      * Gets the removeUrl property value. Url called by Teams client when a Tab is removed using the Teams Client.
@@ -46,23 +79,11 @@ export class TeamsTabConfiguration implements Parsable {
         return this._removeUrl;
     };
     /**
-     * Gets the websiteUrl property value. Url for showing tab contents outside of Teams.
-     * @returns a string
+     * Sets the removeUrl property value. Url called by Teams client when a Tab is removed using the Teams Client.
+     * @param value Value to set for the removeUrl property.
      */
-    public get websiteUrl() {
-        return this._websiteUrl;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["contentUrl", (o, n) => { (o as unknown as TeamsTabConfiguration).contentUrl = n.getStringValue(); }],
-            ["entityId", (o, n) => { (o as unknown as TeamsTabConfiguration).entityId = n.getStringValue(); }],
-            ["removeUrl", (o, n) => { (o as unknown as TeamsTabConfiguration).removeUrl = n.getStringValue(); }],
-            ["websiteUrl", (o, n) => { (o as unknown as TeamsTabConfiguration).websiteUrl = n.getStringValue(); }],
-        ]);
+    public set removeUrl(value: string | undefined) {
+        this._removeUrl = value;
     };
     /**
      * Serializes information the current object
@@ -77,32 +98,11 @@ export class TeamsTabConfiguration implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the websiteUrl property value. Url for showing tab contents outside of Teams.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the contentUrl property value. Url used for rendering tab contents in Teams. Required.
-     * @param value Value to set for the contentUrl property.
-     */
-    public set contentUrl(value: string | undefined) {
-        this._contentUrl = value;
-    };
-    /**
-     * Sets the entityId property value. Identifier for the entity hosted by the tab provider.
-     * @param value Value to set for the entityId property.
-     */
-    public set entityId(value: string | undefined) {
-        this._entityId = value;
-    };
-    /**
-     * Sets the removeUrl property value. Url called by Teams client when a Tab is removed using the Teams Client.
-     * @param value Value to set for the removeUrl property.
-     */
-    public set removeUrl(value: string | undefined) {
-        this._removeUrl = value;
+    public get websiteUrl() {
+        return this._websiteUrl;
     };
     /**
      * Sets the websiteUrl property value. Url for showing tab contents outside of Teams.

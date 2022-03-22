@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentSettings extends Entity implements Parsable {
@@ -11,20 +11,13 @@ export class EducationAssignmentSettings extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
-     * @returns a boolean
-     */
-    public get submissionAnimationDisabled() {
-        return this._submissionAnimationDisabled;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["submissionAnimationDisabled", (o, n) => { (o as unknown as EducationAssignmentSettings).submissionAnimationDisabled = n.getBooleanValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "submissionAnimationDisabled": (o, n) => { (o as unknown as EducationAssignmentSettings).submissionAnimationDisabled = n.getBooleanValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -34,6 +27,13 @@ export class EducationAssignmentSettings extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeBooleanValue("submissionAnimationDisabled", this.submissionAnimationDisabled);
+    };
+    /**
+     * Gets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.
+     * @returns a boolean
+     */
+    public get submissionAnimationDisabled() {
+        return this._submissionAnimationDisabled;
     };
     /**
      * Sets the submissionAnimationDisabled property value. Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.

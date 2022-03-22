@@ -1,14 +1,13 @@
-import {User} from '../../../models/microsoft/graph/user';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {User} from '../../../models/microsoft/graph/';
+import {createUserFromDiscriminatorValue} from '../../../models/microsoft/graph/createUserFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /invitations/{invitation-id}/invitedUser  */
+/** Provides operations to manage the invitedUser property of the microsoft.graph.invitation entity.  */
 export class InvitedUserRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -41,7 +40,7 @@ export class InvitedUserRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -61,6 +60,10 @@ export class InvitedUserRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<User>(requestInfo, User, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<User>(requestInfo, createUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

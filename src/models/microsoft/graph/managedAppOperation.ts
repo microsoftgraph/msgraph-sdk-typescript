@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppOperation extends Entity implements Parsable {
@@ -24,6 +24,25 @@ export class ManagedAppOperation extends Entity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The operation name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as ManagedAppOperation).displayName = n.getStringValue(); },
+            "lastModifiedDateTime": (o, n) => { (o as unknown as ManagedAppOperation).lastModifiedDateTime = n.getDateValue(); },
+            "state": (o, n) => { (o as unknown as ManagedAppOperation).state = n.getStringValue(); },
+            "version": (o, n) => { (o as unknown as ManagedAppOperation).version = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the lastModifiedDateTime property value. The last time the app operation was modified.
      * @returns a Date
      */
@@ -31,30 +50,11 @@ export class ManagedAppOperation extends Entity implements Parsable {
         return this._lastModifiedDateTime;
     };
     /**
-     * Gets the state property value. The current state of the operation
-     * @returns a string
+     * Sets the lastModifiedDateTime property value. The last time the app operation was modified.
+     * @param value Value to set for the lastModifiedDateTime property.
      */
-    public get state() {
-        return this._state;
-    };
-    /**
-     * Gets the version property value. Version of the entity.
-     * @returns a string
-     */
-    public get version() {
-        return this._version;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as ManagedAppOperation).displayName = n.getStringValue(); }],
-            ["lastModifiedDateTime", (o, n) => { (o as unknown as ManagedAppOperation).lastModifiedDateTime = n.getDateValue(); }],
-            ["state", (o, n) => { (o as unknown as ManagedAppOperation).state = n.getStringValue(); }],
-            ["version", (o, n) => { (o as unknown as ManagedAppOperation).version = n.getStringValue(); }],
-        ]);
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -69,18 +69,11 @@ export class ManagedAppOperation extends Entity implements Parsable {
         writer.writeStringValue("version", this.version);
     };
     /**
-     * Sets the displayName property value. The operation name.
-     * @param value Value to set for the displayName property.
+     * Gets the state property value. The current state of the operation
+     * @returns a string
      */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. The last time the app operation was modified.
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
+    public get state() {
+        return this._state;
     };
     /**
      * Sets the state property value. The current state of the operation
@@ -88,6 +81,13 @@ export class ManagedAppOperation extends Entity implements Parsable {
      */
     public set state(value: string | undefined) {
         this._state = value;
+    };
+    /**
+     * Gets the version property value. Version of the entity.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
     };
     /**
      * Sets the version property value. Version of the entity.

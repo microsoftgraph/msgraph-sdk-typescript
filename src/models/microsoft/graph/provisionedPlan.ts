@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ProvisionedPlan implements Parsable {
+export class ProvisionedPlan implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** For example, 'Enabled'.  */
     private _capabilityStatus?: string | undefined;
     /** For example, 'Success'.  */
@@ -10,17 +10,18 @@ export class ProvisionedPlan implements Parsable {
     /** The name of the service; for example, 'AccessControlS2S'  */
     private _service?: string | undefined;
     /**
-     * Instantiates a new provisionedPlan and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the capabilityStatus property value. For example, 'Enabled'.
@@ -30,6 +31,30 @@ export class ProvisionedPlan implements Parsable {
         return this._capabilityStatus;
     };
     /**
+     * Sets the capabilityStatus property value. For example, 'Enabled'.
+     * @param value Value to set for the capabilityStatus property.
+     */
+    public set capabilityStatus(value: string | undefined) {
+        this._capabilityStatus = value;
+    };
+    /**
+     * Instantiates a new provisionedPlan and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "capabilityStatus": (o, n) => { (o as unknown as ProvisionedPlan).capabilityStatus = n.getStringValue(); },
+            "provisioningStatus": (o, n) => { (o as unknown as ProvisionedPlan).provisioningStatus = n.getStringValue(); },
+            "service": (o, n) => { (o as unknown as ProvisionedPlan).service = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the provisioningStatus property value. For example, 'Success'.
      * @returns a string
      */
@@ -37,22 +62,11 @@ export class ProvisionedPlan implements Parsable {
         return this._provisioningStatus;
     };
     /**
-     * Gets the service property value. The name of the service; for example, 'AccessControlS2S'
-     * @returns a string
+     * Sets the provisioningStatus property value. For example, 'Success'.
+     * @param value Value to set for the provisioningStatus property.
      */
-    public get service() {
-        return this._service;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["capabilityStatus", (o, n) => { (o as unknown as ProvisionedPlan).capabilityStatus = n.getStringValue(); }],
-            ["provisioningStatus", (o, n) => { (o as unknown as ProvisionedPlan).provisioningStatus = n.getStringValue(); }],
-            ["service", (o, n) => { (o as unknown as ProvisionedPlan).service = n.getStringValue(); }],
-        ]);
+    public set provisioningStatus(value: string | undefined) {
+        this._provisioningStatus = value;
     };
     /**
      * Serializes information the current object
@@ -66,25 +80,11 @@ export class ProvisionedPlan implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the service property value. The name of the service; for example, 'AccessControlS2S'
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the capabilityStatus property value. For example, 'Enabled'.
-     * @param value Value to set for the capabilityStatus property.
-     */
-    public set capabilityStatus(value: string | undefined) {
-        this._capabilityStatus = value;
-    };
-    /**
-     * Sets the provisioningStatus property value. For example, 'Success'.
-     * @param value Value to set for the provisioningStatus property.
-     */
-    public set provisioningStatus(value: string | undefined) {
-        this._provisioningStatus = value;
+    public get service() {
+        return this._service;
     };
     /**
      * Sets the service property value. The name of the service; for example, 'AccessControlS2S'

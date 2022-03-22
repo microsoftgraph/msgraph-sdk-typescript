@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityProviderBase extends Entity implements Parsable {
@@ -18,13 +18,20 @@ export class IdentityProviderBase extends Entity implements Parsable {
         return this._displayName;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the displayName property value. The display name of the identity provider.
+     * @param value Value to set for the displayName property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as IdentityProviderBase).displayName = n.getStringValue(); }],
-        ]);
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as IdentityProviderBase).displayName = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -34,12 +41,5 @@ export class IdentityProviderBase extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
-    };
-    /**
-     * Sets the displayName property value. The display name of the identity provider.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
     };
 }

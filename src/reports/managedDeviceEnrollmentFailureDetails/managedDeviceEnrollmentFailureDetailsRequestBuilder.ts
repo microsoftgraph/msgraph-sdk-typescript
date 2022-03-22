@@ -1,7 +1,8 @@
-import {Report} from '../../models/microsoft/graph/report';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {Report} from '../../models/microsoft/graph/';
+import {createReportFromDiscriminatorValue} from '../../models/microsoft/graph/createReportFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /reports/microsoft.graph.managedDeviceEnrollmentFailureDetails()  */
+/** Provides operations to call the managedDeviceEnrollmentFailureDetails method.  */
 export class ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -33,7 +34,7 @@ export class ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -42,12 +43,12 @@ export class ManagedDeviceEnrollmentFailureDetailsRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of ManagedDeviceEnrollmentFailureDetailsResponse
+     * @returns a Promise of Report
      */
     public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Report | undefined> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendAsync<Report>(requestInfo, Report, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<Report>(requestInfo, createReportFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

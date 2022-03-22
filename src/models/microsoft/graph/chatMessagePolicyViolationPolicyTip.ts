@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessagePolicyViolationPolicyTip implements Parsable {
+export class ChatMessagePolicyViolationPolicyTip implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn't say in chats)  */
     private _complianceUrl?: string | undefined;
     /** Explanatory text shown to the sender of the message.  */
@@ -10,17 +10,18 @@ export class ChatMessagePolicyViolationPolicyTip implements Parsable {
     /** The list of improper data in the message that was detected by the data loss prevention app. Each DLP app defines its own conditions, examples include 'Credit Card Number' and 'Social Security Number'.  */
     private _matchedConditionDescriptions?: string[] | undefined;
     /**
-     * Instantiates a new chatMessagePolicyViolationPolicyTip and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the complianceUrl property value. The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn't say in chats)
@@ -30,11 +31,42 @@ export class ChatMessagePolicyViolationPolicyTip implements Parsable {
         return this._complianceUrl;
     };
     /**
+     * Sets the complianceUrl property value. The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn't say in chats)
+     * @param value Value to set for the complianceUrl property.
+     */
+    public set complianceUrl(value: string | undefined) {
+        this._complianceUrl = value;
+    };
+    /**
+     * Instantiates a new chatMessagePolicyViolationPolicyTip and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the generalText property value. Explanatory text shown to the sender of the message.
      * @returns a string
      */
     public get generalText() {
         return this._generalText;
+    };
+    /**
+     * Sets the generalText property value. Explanatory text shown to the sender of the message.
+     * @param value Value to set for the generalText property.
+     */
+    public set generalText(value: string | undefined) {
+        this._generalText = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "complianceUrl": (o, n) => { (o as unknown as ChatMessagePolicyViolationPolicyTip).complianceUrl = n.getStringValue(); },
+            "generalText": (o, n) => { (o as unknown as ChatMessagePolicyViolationPolicyTip).generalText = n.getStringValue(); },
+            "matchedConditionDescriptions": (o, n) => { (o as unknown as ChatMessagePolicyViolationPolicyTip).matchedConditionDescriptions = n.getCollectionOfPrimitiveValues<string>(); },
+        };
     };
     /**
      * Gets the matchedConditionDescriptions property value. The list of improper data in the message that was detected by the data loss prevention app. Each DLP app defines its own conditions, examples include 'Credit Card Number' and 'Social Security Number'.
@@ -44,15 +76,11 @@ export class ChatMessagePolicyViolationPolicyTip implements Parsable {
         return this._matchedConditionDescriptions;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the matchedConditionDescriptions property value. The list of improper data in the message that was detected by the data loss prevention app. Each DLP app defines its own conditions, examples include 'Credit Card Number' and 'Social Security Number'.
+     * @param value Value to set for the matchedConditionDescriptions property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["complianceUrl", (o, n) => { (o as unknown as ChatMessagePolicyViolationPolicyTip).complianceUrl = n.getStringValue(); }],
-            ["generalText", (o, n) => { (o as unknown as ChatMessagePolicyViolationPolicyTip).generalText = n.getStringValue(); }],
-            ["matchedConditionDescriptions", (o, n) => { (o as unknown as ChatMessagePolicyViolationPolicyTip).matchedConditionDescriptions = n.getCollectionOfPrimitiveValues<string>(); }],
-        ]);
+    public set matchedConditionDescriptions(value: string[] | undefined) {
+        this._matchedConditionDescriptions = value;
     };
     /**
      * Serializes information the current object
@@ -64,33 +92,5 @@ export class ChatMessagePolicyViolationPolicyTip implements Parsable {
         writer.writeStringValue("generalText", this.generalText);
         writer.writeCollectionOfPrimitiveValues<string>("matchedConditionDescriptions", this.matchedConditionDescriptions);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the complianceUrl property value. The URL a user can visit to read about the data loss prevention policies for the organization. (ie, policies about what users shouldn't say in chats)
-     * @param value Value to set for the complianceUrl property.
-     */
-    public set complianceUrl(value: string | undefined) {
-        this._complianceUrl = value;
-    };
-    /**
-     * Sets the generalText property value. Explanatory text shown to the sender of the message.
-     * @param value Value to set for the generalText property.
-     */
-    public set generalText(value: string | undefined) {
-        this._generalText = value;
-    };
-    /**
-     * Sets the matchedConditionDescriptions property value. The list of improper data in the message that was detected by the data loss prevention app. Each DLP app defines its own conditions, examples include 'Credit Card Number' and 'Social Security Number'.
-     * @param value Value to set for the matchedConditionDescriptions property.
-     */
-    public set matchedConditionDescriptions(value: string[] | undefined) {
-        this._matchedConditionDescriptions = value;
     };
 }

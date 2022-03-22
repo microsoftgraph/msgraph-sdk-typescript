@@ -1,6 +1,8 @@
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createAvailableProviderTypesResponseFromDiscriminatorValue} from './createAvailableProviderTypesResponseFromDiscriminatorValue';
+import {AvailableProviderTypesResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identityProviders/microsoft.graph.availableProviderTypes()  */
+/** Provides operations to call the availableProviderTypes method.  */
 export class AvailableProviderTypesRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -32,7 +34,7 @@ export class AvailableProviderTypesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -41,12 +43,12 @@ export class AvailableProviderTypesRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of String
+     * @returns a Promise of AvailableProviderTypesResponse
      */
-    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<string[] | undefined> {
+    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AvailableProviderTypesResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionOfPrimitiveAsync<string>(requestInfo, "string", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<AvailableProviderTypesResponse>(requestInfo, createAvailableProviderTypesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

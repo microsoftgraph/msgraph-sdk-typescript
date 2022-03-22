@@ -1,49 +1,70 @@
 import {ConditionalAccessDevicePlatform} from './conditionalAccessDevicePlatform';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ConditionalAccessPlatforms implements Parsable {
+export class ConditionalAccessPlatforms implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
-    /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.  */
+    private _additionalData: Record<string, unknown>;
+    /** Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.  */
     private _excludePlatforms?: ConditionalAccessDevicePlatform[] | undefined;
-    /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.  */
+    /** Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.  */
     private _includePlatforms?: ConditionalAccessDevicePlatform[] | undefined;
     /**
-     * Instantiates a new conditionalAccessPlatforms and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new conditionalAccessPlatforms and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * Gets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
      * @returns a conditionalAccessDevicePlatform
      */
     public get excludePlatforms() {
         return this._excludePlatforms;
     };
     /**
-     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
+     * Sets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     * @param value Value to set for the excludePlatforms property.
+     */
+    public set excludePlatforms(value: ConditionalAccessDevicePlatform[] | undefined) {
+        this._excludePlatforms = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "excludePlatforms": (o, n) => { (o as unknown as ConditionalAccessPlatforms).excludePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); },
+            "includePlatforms": (o, n) => { (o as unknown as ConditionalAccessPlatforms).includePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); },
+        };
+    };
+    /**
+     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
      * @returns a conditionalAccessDevicePlatform
      */
     public get includePlatforms() {
         return this._includePlatforms;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     * @param value Value to set for the includePlatforms property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["excludePlatforms", (o, n) => { (o as unknown as ConditionalAccessPlatforms).excludePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); }],
-            ["includePlatforms", (o, n) => { (o as unknown as ConditionalAccessPlatforms).includePlatforms = n.getEnumValues<ConditionalAccessDevicePlatform>(ConditionalAccessDevicePlatform); }],
-        ]);
+    public set includePlatforms(value: ConditionalAccessDevicePlatform[] | undefined) {
+        this._includePlatforms = value;
     };
     /**
      * Serializes information the current object
@@ -54,26 +75,5 @@ export class ConditionalAccessPlatforms implements Parsable {
         this.excludePlatforms && writer.writeEnumValue<ConditionalAccessDevicePlatform>("excludePlatforms", ...this.excludePlatforms);
         this.includePlatforms && writer.writeEnumValue<ConditionalAccessDevicePlatform>("includePlatforms", ...this.includePlatforms);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
-     * @param value Value to set for the excludePlatforms property.
-     */
-    public set excludePlatforms(value: ConditionalAccessDevicePlatform[] | undefined) {
-        this._excludePlatforms = value;
-    };
-    /**
-     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue.
-     * @param value Value to set for the includePlatforms property.
-     */
-    public set includePlatforms(value: ConditionalAccessDevicePlatform[] | undefined) {
-        this._includePlatforms = value;
     };
 }

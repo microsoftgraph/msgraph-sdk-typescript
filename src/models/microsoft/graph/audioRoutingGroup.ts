@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -16,11 +16,29 @@ export class AudioRoutingGroup extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "receivers": (o, n) => { (o as unknown as AudioRoutingGroup).receivers = n.getCollectionOfPrimitiveValues<string>(); },
+            "routingMode": (o, n) => { (o as unknown as AudioRoutingGroup).routingMode = n.getEnumValue<RoutingMode>(RoutingMode); },
+            "sources": (o, n) => { (o as unknown as AudioRoutingGroup).sources = n.getCollectionOfPrimitiveValues<string>(); },
+        };
+    };
+    /**
      * Gets the receivers property value. List of receiving participant ids.
      * @returns a string
      */
     public get receivers() {
         return this._receivers;
+    };
+    /**
+     * Sets the receivers property value. List of receiving participant ids.
+     * @param value Value to set for the receivers property.
+     */
+    public set receivers(value: string[] | undefined) {
+        this._receivers = value;
     };
     /**
      * Gets the routingMode property value. Routing group mode.  Possible values are: oneToOne, multicast.
@@ -30,22 +48,11 @@ export class AudioRoutingGroup extends Entity implements Parsable {
         return this._routingMode;
     };
     /**
-     * Gets the sources property value. List of source participant ids.
-     * @returns a string
+     * Sets the routingMode property value. Routing group mode.  Possible values are: oneToOne, multicast.
+     * @param value Value to set for the routingMode property.
      */
-    public get sources() {
-        return this._sources;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["receivers", (o, n) => { (o as unknown as AudioRoutingGroup).receivers = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["routingMode", (o, n) => { (o as unknown as AudioRoutingGroup).routingMode = n.getEnumValue<RoutingMode>(RoutingMode); }],
-            ["sources", (o, n) => { (o as unknown as AudioRoutingGroup).sources = n.getCollectionOfPrimitiveValues<string>(); }],
-        ]);
+    public set routingMode(value: RoutingMode | undefined) {
+        this._routingMode = value;
     };
     /**
      * Serializes information the current object
@@ -59,18 +66,11 @@ export class AudioRoutingGroup extends Entity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("sources", this.sources);
     };
     /**
-     * Sets the receivers property value. List of receiving participant ids.
-     * @param value Value to set for the receivers property.
+     * Gets the sources property value. List of source participant ids.
+     * @returns a string
      */
-    public set receivers(value: string[] | undefined) {
-        this._receivers = value;
-    };
-    /**
-     * Sets the routingMode property value. Routing group mode.  Possible values are: oneToOne, multicast.
-     * @param value Value to set for the routingMode property.
-     */
-    public set routingMode(value: RoutingMode | undefined) {
-        this._routingMode = value;
+    public get sources() {
+        return this._sources;
     };
     /**
      * Sets the sources property value. List of source participant ids.

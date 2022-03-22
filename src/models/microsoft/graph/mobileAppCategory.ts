@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileAppCategory extends Entity implements Parsable {
@@ -20,6 +20,23 @@ export class MobileAppCategory extends Entity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The name of the app category.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as MobileAppCategory).displayName = n.getStringValue(); },
+            "lastModifiedDateTime": (o, n) => { (o as unknown as MobileAppCategory).lastModifiedDateTime = n.getDateValue(); },
+        };
+    };
+    /**
      * Gets the lastModifiedDateTime property value. The date and time the mobileAppCategory was last modified.
      * @returns a Date
      */
@@ -27,14 +44,11 @@ export class MobileAppCategory extends Entity implements Parsable {
         return this._lastModifiedDateTime;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the lastModifiedDateTime property value. The date and time the mobileAppCategory was last modified.
+     * @param value Value to set for the lastModifiedDateTime property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as MobileAppCategory).displayName = n.getStringValue(); }],
-            ["lastModifiedDateTime", (o, n) => { (o as unknown as MobileAppCategory).lastModifiedDateTime = n.getDateValue(); }],
-        ]);
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -45,19 +59,5 @@ export class MobileAppCategory extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeStringValue("displayName", this.displayName);
         writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
-    };
-    /**
-     * Sets the displayName property value. The name of the app category.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. The date and time the mobileAppCategory was last modified.
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
     };
 }

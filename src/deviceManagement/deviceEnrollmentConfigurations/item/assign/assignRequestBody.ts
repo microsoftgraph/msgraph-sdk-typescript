@@ -1,22 +1,31 @@
-import {EnrollmentConfigurationAssignment} from '../../../../models/microsoft/graph/enrollmentConfigurationAssignment';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {EnrollmentConfigurationAssignment} from '../../../../models/microsoft/graph/';
+import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/microsoft/graph/createEnrollmentConfigurationAssignmentFromDiscriminatorValue';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssignRequestBody implements Parsable {
+/** Provides operations to call the assign method.  */
+export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _enrollmentConfigurationAssignments?: EnrollmentConfigurationAssignment[] | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new assignRequestBody and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
-     */
-    public get additionalData() {
-        return this._additionalData;
+        this._additionalData = {};
     };
     /**
      * Gets the enrollmentConfigurationAssignments property value. 
@@ -26,13 +35,20 @@ export class AssignRequestBody implements Parsable {
         return this._enrollmentConfigurationAssignments;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the enrollmentConfigurationAssignments property value. 
+     * @param value Value to set for the enrollmentConfigurationAssignments property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["enrollmentConfigurationAssignments", (o, n) => { (o as unknown as AssignRequestBody).enrollmentConfigurationAssignments = n.getCollectionOfObjectValues<EnrollmentConfigurationAssignment>(EnrollmentConfigurationAssignment); }],
-        ]);
+    public set enrollmentConfigurationAssignments(value: EnrollmentConfigurationAssignment[] | undefined) {
+        this._enrollmentConfigurationAssignments = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "enrollmentConfigurationAssignments": (o, n) => { (o as unknown as AssignRequestBody).enrollmentConfigurationAssignments = n.getCollectionOfObjectValues<EnrollmentConfigurationAssignment>(createEnrollmentConfigurationAssignmentFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -42,19 +58,5 @@ export class AssignRequestBody implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeCollectionOfObjectValues<EnrollmentConfigurationAssignment>("enrollmentConfigurationAssignments", this.enrollmentConfigurationAssignments);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the enrollmentConfigurationAssignments property value. 
-     * @param value Value to set for the enrollmentConfigurationAssignments property.
-     */
-    public set enrollmentConfigurationAssignments(value: EnrollmentConfigurationAssignment[] | undefined) {
-        this._enrollmentConfigurationAssignments = value;
     };
 }

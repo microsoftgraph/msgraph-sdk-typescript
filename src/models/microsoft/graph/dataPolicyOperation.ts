@@ -1,5 +1,5 @@
 import {DataPolicyOperationStatus} from './dataPolicyOperationStatus';
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DataPolicyOperation extends Entity implements Parsable {
@@ -16,17 +16,38 @@ export class DataPolicyOperation extends Entity implements Parsable {
     /** The id for the user on whom the operation is performed.  */
     private _userId?: string | undefined;
     /**
+     * Gets the completedDateTime property value. Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes.
+     * @returns a Date
+     */
+    public get completedDateTime() {
+        return this._completedDateTime;
+    };
+    /**
+     * Sets the completedDateTime property value. Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes.
+     * @param value Value to set for the completedDateTime property.
+     */
+    public set completedDateTime(value: Date | undefined) {
+        this._completedDateTime = value;
+    };
+    /**
      * Instantiates a new dataPolicyOperation and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the completedDateTime property value. Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes.
-     * @returns a Date
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get completedDateTime() {
-        return this._completedDateTime;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "completedDateTime": (o, n) => { (o as unknown as DataPolicyOperation).completedDateTime = n.getDateValue(); },
+            "progress": (o, n) => { (o as unknown as DataPolicyOperation).progress = n.getNumberValue(); },
+            "status": (o, n) => { (o as unknown as DataPolicyOperation).status = n.getEnumValue<DataPolicyOperationStatus>(DataPolicyOperationStatus); },
+            "storageLocation": (o, n) => { (o as unknown as DataPolicyOperation).storageLocation = n.getStringValue(); },
+            "submittedDateTime": (o, n) => { (o as unknown as DataPolicyOperation).submittedDateTime = n.getDateValue(); },
+            "userId": (o, n) => { (o as unknown as DataPolicyOperation).userId = n.getStringValue(); },
+        };
     };
     /**
      * Gets the progress property value. Specifies the progress of an operation.
@@ -36,46 +57,11 @@ export class DataPolicyOperation extends Entity implements Parsable {
         return this._progress;
     };
     /**
-     * Gets the status property value. Possible values are: notStarted, running, complete, failed, unknownFutureValue.
-     * @returns a dataPolicyOperationStatus
+     * Sets the progress property value. Specifies the progress of an operation.
+     * @param value Value to set for the progress property.
      */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * Gets the storageLocation property value. The URL location to where data is being exported for export requests.
-     * @returns a string
-     */
-    public get storageLocation() {
-        return this._storageLocation;
-    };
-    /**
-     * Gets the submittedDateTime property value. Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @returns a Date
-     */
-    public get submittedDateTime() {
-        return this._submittedDateTime;
-    };
-    /**
-     * Gets the userId property value. The id for the user on whom the operation is performed.
-     * @returns a string
-     */
-    public get userId() {
-        return this._userId;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["completedDateTime", (o, n) => { (o as unknown as DataPolicyOperation).completedDateTime = n.getDateValue(); }],
-            ["progress", (o, n) => { (o as unknown as DataPolicyOperation).progress = n.getNumberValue(); }],
-            ["status", (o, n) => { (o as unknown as DataPolicyOperation).status = n.getEnumValue<DataPolicyOperationStatus>(DataPolicyOperationStatus); }],
-            ["storageLocation", (o, n) => { (o as unknown as DataPolicyOperation).storageLocation = n.getStringValue(); }],
-            ["submittedDateTime", (o, n) => { (o as unknown as DataPolicyOperation).submittedDateTime = n.getDateValue(); }],
-            ["userId", (o, n) => { (o as unknown as DataPolicyOperation).userId = n.getStringValue(); }],
-        ]);
+    public set progress(value: number | undefined) {
+        this._progress = value;
     };
     /**
      * Serializes information the current object
@@ -92,18 +78,11 @@ export class DataPolicyOperation extends Entity implements Parsable {
         writer.writeStringValue("userId", this.userId);
     };
     /**
-     * Sets the completedDateTime property value. Represents when the request for this data policy operation was completed, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Null until the operation completes.
-     * @param value Value to set for the completedDateTime property.
+     * Gets the status property value. Possible values are: notStarted, running, complete, failed, unknownFutureValue.
+     * @returns a dataPolicyOperationStatus
      */
-    public set completedDateTime(value: Date | undefined) {
-        this._completedDateTime = value;
-    };
-    /**
-     * Sets the progress property value. Specifies the progress of an operation.
-     * @param value Value to set for the progress property.
-     */
-    public set progress(value: number | undefined) {
-        this._progress = value;
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. Possible values are: notStarted, running, complete, failed, unknownFutureValue.
@@ -113,6 +92,13 @@ export class DataPolicyOperation extends Entity implements Parsable {
         this._status = value;
     };
     /**
+     * Gets the storageLocation property value. The URL location to where data is being exported for export requests.
+     * @returns a string
+     */
+    public get storageLocation() {
+        return this._storageLocation;
+    };
+    /**
      * Sets the storageLocation property value. The URL location to where data is being exported for export requests.
      * @param value Value to set for the storageLocation property.
      */
@@ -120,11 +106,25 @@ export class DataPolicyOperation extends Entity implements Parsable {
         this._storageLocation = value;
     };
     /**
+     * Gets the submittedDateTime property value. Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @returns a Date
+     */
+    public get submittedDateTime() {
+        return this._submittedDateTime;
+    };
+    /**
      * Sets the submittedDateTime property value. Represents when the request for this data operation was submitted, in UTC time, using the ISO 8601 format. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the submittedDateTime property.
      */
     public set submittedDateTime(value: Date | undefined) {
         this._submittedDateTime = value;
+    };
+    /**
+     * Gets the userId property value. The id for the user on whom the operation is performed.
+     * @returns a string
+     */
+    public get userId() {
+        return this._userId;
     };
     /**
      * Sets the userId property value. The id for the user on whom the operation is performed.

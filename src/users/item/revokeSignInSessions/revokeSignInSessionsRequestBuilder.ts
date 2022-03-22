@@ -1,6 +1,8 @@
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createRevokeSignInSessionsResponseFromDiscriminatorValue} from './createRevokeSignInSessionsResponseFromDiscriminatorValue';
+import {RevokeSignInSessionsResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/microsoft.graph.revokeSignInSessions  */
+/** Provides operations to call the revokeSignInSessions method.  */
 export class RevokeSignInSessionsRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -32,7 +34,7 @@ export class RevokeSignInSessionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -41,12 +43,12 @@ export class RevokeSignInSessionsRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Boolean
+     * @returns a Promise of RevokeSignInSessionsResponse
      */
-    public post(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<boolean | undefined> {
+    public post(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<RevokeSignInSessionsResponse | undefined> {
         const requestInfo = this.createPostRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendPrimitiveAsync<boolean>(requestInfo, "boolean", responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<RevokeSignInSessionsResponse>(requestInfo, createRevokeSignInSessionsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }
