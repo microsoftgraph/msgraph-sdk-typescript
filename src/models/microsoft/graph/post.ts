@@ -1,14 +1,15 @@
-import {Attachment} from './attachment';
-import {Extension} from './extension';
-import {ItemBody} from './itemBody';
-import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProperty';
-import {OutlookItem} from './outlookItem';
-import {Recipient} from './recipient';
-import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
+import {createAttachmentFromDiscriminatorValue} from './createAttachmentFromDiscriminatorValue';
+import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
+import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
+import {createMultiValueLegacyExtendedPropertyFromDiscriminatorValue} from './createMultiValueLegacyExtendedPropertyFromDiscriminatorValue';
+import {createPostFromDiscriminatorValue} from './createPostFromDiscriminatorValue';
+import {createRecipientFromDiscriminatorValue} from './createRecipientFromDiscriminatorValue';
+import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './createSingleValueLegacyExtendedPropertyFromDiscriminatorValue';
+import {Attachment, Extension, ItemBody, MultiValueLegacyExtendedProperty, OutlookItem, Recipient, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Post extends OutlookItem implements Parsable {
-    /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.  */
+    /** Read-only. Nullable. Supports $expand.  */
     private _attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null.  */
     private _body?: ItemBody | undefined;
@@ -21,7 +22,7 @@ export class Post extends OutlookItem implements Parsable {
     private _from?: Recipient | undefined;
     /** Indicates whether the post has at least one attachment. This is a default property.  */
     private _hasAttachments?: boolean | undefined;
-    /** The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.  */
+    /** Read-only. Supports $expand.  */
     private _inReplyTo?: Post | undefined;
     /** The collection of multi-value extended properties defined for the post. Read-only. Nullable.  */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
@@ -34,17 +35,18 @@ export class Post extends OutlookItem implements Parsable {
     /** The collection of single-value extended properties defined for the post. Read-only. Nullable.  */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
-     * Instantiates a new post and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * Gets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
+     * Gets the attachments property value. Read-only. Nullable. Supports $expand.
      * @returns a attachment
      */
     public get attachments() {
         return this._attachments;
+    };
+    /**
+     * Sets the attachments property value. Read-only. Nullable. Supports $expand.
+     * @param value Value to set for the attachments property.
+     */
+    public set attachments(value: Attachment[] | undefined) {
+        this._attachments = value;
     };
     /**
      * Gets the body property value. The contents of the post. This is a default property. This property can be null.
@@ -54,11 +56,31 @@ export class Post extends OutlookItem implements Parsable {
         return this._body;
     };
     /**
+     * Sets the body property value. The contents of the post. This is a default property. This property can be null.
+     * @param value Value to set for the body property.
+     */
+    public set body(value: ItemBody | undefined) {
+        this._body = value;
+    };
+    /**
+     * Instantiates a new post and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
      * Gets the conversationId property value. Unique ID of the conversation. Read-only.
      * @returns a string
      */
     public get conversationId() {
         return this._conversationId;
+    };
+    /**
+     * Sets the conversationId property value. Unique ID of the conversation. Read-only.
+     * @param value Value to set for the conversationId property.
+     */
+    public set conversationId(value: string | undefined) {
+        this._conversationId = value;
     };
     /**
      * Gets the conversationThreadId property value. Unique ID of the conversation thread. Read-only.
@@ -68,11 +90,25 @@ export class Post extends OutlookItem implements Parsable {
         return this._conversationThreadId;
     };
     /**
+     * Sets the conversationThreadId property value. Unique ID of the conversation thread. Read-only.
+     * @param value Value to set for the conversationThreadId property.
+     */
+    public set conversationThreadId(value: string | undefined) {
+        this._conversationThreadId = value;
+    };
+    /**
      * Gets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
      * @returns a extension
      */
     public get extensions() {
         return this._extensions;
+    };
+    /**
+     * Sets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
+     * @param value Value to set for the extensions property.
+     */
+    public set extensions(value: Extension[] | undefined) {
+        this._extensions = value;
     };
     /**
      * Gets the from property value. 
@@ -82,6 +118,34 @@ export class Post extends OutlookItem implements Parsable {
         return this._from;
     };
     /**
+     * Sets the from property value. 
+     * @param value Value to set for the from property.
+     */
+    public set from(value: Recipient | undefined) {
+        this._from = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "attachments": (o, n) => { (o as unknown as Post).attachments = n.getCollectionOfObjectValues<Attachment>(createAttachmentFromDiscriminatorValue); },
+            "body": (o, n) => { (o as unknown as Post).body = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
+            "conversationId": (o, n) => { (o as unknown as Post).conversationId = n.getStringValue(); },
+            "conversationThreadId": (o, n) => { (o as unknown as Post).conversationThreadId = n.getStringValue(); },
+            "extensions": (o, n) => { (o as unknown as Post).extensions = n.getCollectionOfObjectValues<Extension>(createExtensionFromDiscriminatorValue); },
+            "from": (o, n) => { (o as unknown as Post).from = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
+            "hasAttachments": (o, n) => { (o as unknown as Post).hasAttachments = n.getBooleanValue(); },
+            "inReplyTo": (o, n) => { (o as unknown as Post).inReplyTo = n.getObjectValue<Post>(createPostFromDiscriminatorValue); },
+            "multiValueExtendedProperties": (o, n) => { (o as unknown as Post).multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(createMultiValueLegacyExtendedPropertyFromDiscriminatorValue); },
+            "newParticipants": (o, n) => { (o as unknown as Post).newParticipants = n.getCollectionOfObjectValues<Recipient>(createRecipientFromDiscriminatorValue); },
+            "receivedDateTime": (o, n) => { (o as unknown as Post).receivedDateTime = n.getDateValue(); },
+            "sender": (o, n) => { (o as unknown as Post).sender = n.getObjectValue<Recipient>(createRecipientFromDiscriminatorValue); },
+            "singleValueExtendedProperties": (o, n) => { (o as unknown as Post).singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(createSingleValueLegacyExtendedPropertyFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the hasAttachments property value. Indicates whether the post has at least one attachment. This is a default property.
      * @returns a boolean
      */
@@ -89,11 +153,25 @@ export class Post extends OutlookItem implements Parsable {
         return this._hasAttachments;
     };
     /**
-     * Gets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
+     * Sets the hasAttachments property value. Indicates whether the post has at least one attachment. This is a default property.
+     * @param value Value to set for the hasAttachments property.
+     */
+    public set hasAttachments(value: boolean | undefined) {
+        this._hasAttachments = value;
+    };
+    /**
+     * Gets the inReplyTo property value. Read-only. Supports $expand.
      * @returns a post
      */
     public get inReplyTo() {
         return this._inReplyTo;
+    };
+    /**
+     * Sets the inReplyTo property value. Read-only. Supports $expand.
+     * @param value Value to set for the inReplyTo property.
+     */
+    public set inReplyTo(value: Post | undefined) {
+        this._inReplyTo = value;
     };
     /**
      * Gets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the post. Read-only. Nullable.
@@ -103,11 +181,25 @@ export class Post extends OutlookItem implements Parsable {
         return this._multiValueExtendedProperties;
     };
     /**
+     * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the post. Read-only. Nullable.
+     * @param value Value to set for the multiValueExtendedProperties property.
+     */
+    public set multiValueExtendedProperties(value: MultiValueLegacyExtendedProperty[] | undefined) {
+        this._multiValueExtendedProperties = value;
+    };
+    /**
      * Gets the newParticipants property value. Conversation participants that were added to the thread as part of this post.
      * @returns a recipient
      */
     public get newParticipants() {
         return this._newParticipants;
+    };
+    /**
+     * Sets the newParticipants property value. Conversation participants that were added to the thread as part of this post.
+     * @param value Value to set for the newParticipants property.
+     */
+    public set newParticipants(value: Recipient[] | undefined) {
+        this._newParticipants = value;
     };
     /**
      * Gets the receivedDateTime property value. Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -117,6 +209,13 @@ export class Post extends OutlookItem implements Parsable {
         return this._receivedDateTime;
     };
     /**
+     * Sets the receivedDateTime property value. Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the receivedDateTime property.
+     */
+    public set receivedDateTime(value: Date | undefined) {
+        this._receivedDateTime = value;
+    };
+    /**
      * Gets the sender property value. Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.
      * @returns a recipient
      */
@@ -124,32 +223,11 @@ export class Post extends OutlookItem implements Parsable {
         return this._sender;
     };
     /**
-     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the post. Read-only. Nullable.
-     * @returns a singleValueLegacyExtendedProperty
+     * Sets the sender property value. Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.
+     * @param value Value to set for the sender property.
      */
-    public get singleValueExtendedProperties() {
-        return this._singleValueExtendedProperties;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["attachments", (o, n) => { (o as unknown as Post).attachments = n.getCollectionOfObjectValues<Attachment>(Attachment); }],
-            ["body", (o, n) => { (o as unknown as Post).body = n.getObjectValue<ItemBody>(ItemBody); }],
-            ["conversationId", (o, n) => { (o as unknown as Post).conversationId = n.getStringValue(); }],
-            ["conversationThreadId", (o, n) => { (o as unknown as Post).conversationThreadId = n.getStringValue(); }],
-            ["extensions", (o, n) => { (o as unknown as Post).extensions = n.getCollectionOfObjectValues<Extension>(Extension); }],
-            ["from", (o, n) => { (o as unknown as Post).from = n.getObjectValue<Recipient>(Recipient); }],
-            ["hasAttachments", (o, n) => { (o as unknown as Post).hasAttachments = n.getBooleanValue(); }],
-            ["inReplyTo", (o, n) => { (o as unknown as Post).inReplyTo = n.getObjectValue<Post>(Post); }],
-            ["multiValueExtendedProperties", (o, n) => { (o as unknown as Post).multiValueExtendedProperties = n.getCollectionOfObjectValues<MultiValueLegacyExtendedProperty>(MultiValueLegacyExtendedProperty); }],
-            ["newParticipants", (o, n) => { (o as unknown as Post).newParticipants = n.getCollectionOfObjectValues<Recipient>(Recipient); }],
-            ["receivedDateTime", (o, n) => { (o as unknown as Post).receivedDateTime = n.getDateValue(); }],
-            ["sender", (o, n) => { (o as unknown as Post).sender = n.getObjectValue<Recipient>(Recipient); }],
-            ["singleValueExtendedProperties", (o, n) => { (o as unknown as Post).singleValueExtendedProperties = n.getCollectionOfObjectValues<SingleValueLegacyExtendedProperty>(SingleValueLegacyExtendedProperty); }],
-        ]);
+    public set sender(value: Recipient | undefined) {
+        this._sender = value;
     };
     /**
      * Serializes information the current object
@@ -173,88 +251,11 @@ export class Post extends OutlookItem implements Parsable {
         writer.writeCollectionOfObjectValues<SingleValueLegacyExtendedProperty>("singleValueExtendedProperties", this.singleValueExtendedProperties);
     };
     /**
-     * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
-     * @param value Value to set for the attachments property.
+     * Gets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the post. Read-only. Nullable.
+     * @returns a singleValueLegacyExtendedProperty
      */
-    public set attachments(value: Attachment[] | undefined) {
-        this._attachments = value;
-    };
-    /**
-     * Sets the body property value. The contents of the post. This is a default property. This property can be null.
-     * @param value Value to set for the body property.
-     */
-    public set body(value: ItemBody | undefined) {
-        this._body = value;
-    };
-    /**
-     * Sets the conversationId property value. Unique ID of the conversation. Read-only.
-     * @param value Value to set for the conversationId property.
-     */
-    public set conversationId(value: string | undefined) {
-        this._conversationId = value;
-    };
-    /**
-     * Sets the conversationThreadId property value. Unique ID of the conversation thread. Read-only.
-     * @param value Value to set for the conversationThreadId property.
-     */
-    public set conversationThreadId(value: string | undefined) {
-        this._conversationThreadId = value;
-    };
-    /**
-     * Sets the extensions property value. The collection of open extensions defined for the post. Read-only. Nullable. Supports $expand.
-     * @param value Value to set for the extensions property.
-     */
-    public set extensions(value: Extension[] | undefined) {
-        this._extensions = value;
-    };
-    /**
-     * Sets the from property value. 
-     * @param value Value to set for the from property.
-     */
-    public set from(value: Recipient | undefined) {
-        this._from = value;
-    };
-    /**
-     * Sets the hasAttachments property value. Indicates whether the post has at least one attachment. This is a default property.
-     * @param value Value to set for the hasAttachments property.
-     */
-    public set hasAttachments(value: boolean | undefined) {
-        this._hasAttachments = value;
-    };
-    /**
-     * Sets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
-     * @param value Value to set for the inReplyTo property.
-     */
-    public set inReplyTo(value: Post | undefined) {
-        this._inReplyTo = value;
-    };
-    /**
-     * Sets the multiValueExtendedProperties property value. The collection of multi-value extended properties defined for the post. Read-only. Nullable.
-     * @param value Value to set for the multiValueExtendedProperties property.
-     */
-    public set multiValueExtendedProperties(value: MultiValueLegacyExtendedProperty[] | undefined) {
-        this._multiValueExtendedProperties = value;
-    };
-    /**
-     * Sets the newParticipants property value. Conversation participants that were added to the thread as part of this post.
-     * @param value Value to set for the newParticipants property.
-     */
-    public set newParticipants(value: Recipient[] | undefined) {
-        this._newParticipants = value;
-    };
-    /**
-     * Sets the receivedDateTime property value. Specifies when the post was received. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the receivedDateTime property.
-     */
-    public set receivedDateTime(value: Date | undefined) {
-        this._receivedDateTime = value;
-    };
-    /**
-     * Sets the sender property value. Contains the address of the sender. The value of Sender is assumed to be the address of the authenticated user in the case when Sender is not specified. This is a default property.
-     * @param value Value to set for the sender property.
-     */
-    public set sender(value: Recipient | undefined) {
-        this._sender = value;
+    public get singleValueExtendedProperties() {
+        return this._singleValueExtendedProperties;
     };
     /**
      * Sets the singleValueExtendedProperties property value. The collection of single-value extended properties defined for the post. Read-only. Nullable.

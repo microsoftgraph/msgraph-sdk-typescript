@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceUserOverview extends Entity implements Parsable {
@@ -17,17 +17,24 @@ export class DeviceComplianceUserOverview extends Entity implements Parsable {
     /** Number of succeeded Users  */
     private _successCount?: number | undefined;
     /**
-     * Instantiates a new deviceComplianceUserOverview and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the configurationVersion property value. Version of the policy for that overview
      * @returns a integer
      */
     public get configurationVersion() {
         return this._configurationVersion;
+    };
+    /**
+     * Sets the configurationVersion property value. Version of the policy for that overview
+     * @param value Value to set for the configurationVersion property.
+     */
+    public set configurationVersion(value: number | undefined) {
+        this._configurationVersion = value;
+    };
+    /**
+     * Instantiates a new deviceComplianceUserOverview and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the errorCount property value. Number of error Users
@@ -37,11 +44,40 @@ export class DeviceComplianceUserOverview extends Entity implements Parsable {
         return this._errorCount;
     };
     /**
+     * Sets the errorCount property value. Number of error Users
+     * @param value Value to set for the errorCount property.
+     */
+    public set errorCount(value: number | undefined) {
+        this._errorCount = value;
+    };
+    /**
      * Gets the failedCount property value. Number of failed Users
      * @returns a integer
      */
     public get failedCount() {
         return this._failedCount;
+    };
+    /**
+     * Sets the failedCount property value. Number of failed Users
+     * @param value Value to set for the failedCount property.
+     */
+    public set failedCount(value: number | undefined) {
+        this._failedCount = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "configurationVersion": (o, n) => { (o as unknown as DeviceComplianceUserOverview).configurationVersion = n.getNumberValue(); },
+            "errorCount": (o, n) => { (o as unknown as DeviceComplianceUserOverview).errorCount = n.getNumberValue(); },
+            "failedCount": (o, n) => { (o as unknown as DeviceComplianceUserOverview).failedCount = n.getNumberValue(); },
+            "lastUpdateDateTime": (o, n) => { (o as unknown as DeviceComplianceUserOverview).lastUpdateDateTime = n.getDateValue(); },
+            "notApplicableCount": (o, n) => { (o as unknown as DeviceComplianceUserOverview).notApplicableCount = n.getNumberValue(); },
+            "pendingCount": (o, n) => { (o as unknown as DeviceComplianceUserOverview).pendingCount = n.getNumberValue(); },
+            "successCount": (o, n) => { (o as unknown as DeviceComplianceUserOverview).successCount = n.getNumberValue(); },
+        };
     };
     /**
      * Gets the lastUpdateDateTime property value. Last update time
@@ -51,11 +87,25 @@ export class DeviceComplianceUserOverview extends Entity implements Parsable {
         return this._lastUpdateDateTime;
     };
     /**
+     * Sets the lastUpdateDateTime property value. Last update time
+     * @param value Value to set for the lastUpdateDateTime property.
+     */
+    public set lastUpdateDateTime(value: Date | undefined) {
+        this._lastUpdateDateTime = value;
+    };
+    /**
      * Gets the notApplicableCount property value. Number of not applicable users
      * @returns a integer
      */
     public get notApplicableCount() {
         return this._notApplicableCount;
+    };
+    /**
+     * Sets the notApplicableCount property value. Number of not applicable users
+     * @param value Value to set for the notApplicableCount property.
+     */
+    public set notApplicableCount(value: number | undefined) {
+        this._notApplicableCount = value;
     };
     /**
      * Gets the pendingCount property value. Number of pending Users
@@ -65,26 +115,11 @@ export class DeviceComplianceUserOverview extends Entity implements Parsable {
         return this._pendingCount;
     };
     /**
-     * Gets the successCount property value. Number of succeeded Users
-     * @returns a integer
+     * Sets the pendingCount property value. Number of pending Users
+     * @param value Value to set for the pendingCount property.
      */
-    public get successCount() {
-        return this._successCount;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["configurationVersion", (o, n) => { (o as unknown as DeviceComplianceUserOverview).configurationVersion = n.getNumberValue(); }],
-            ["errorCount", (o, n) => { (o as unknown as DeviceComplianceUserOverview).errorCount = n.getNumberValue(); }],
-            ["failedCount", (o, n) => { (o as unknown as DeviceComplianceUserOverview).failedCount = n.getNumberValue(); }],
-            ["lastUpdateDateTime", (o, n) => { (o as unknown as DeviceComplianceUserOverview).lastUpdateDateTime = n.getDateValue(); }],
-            ["notApplicableCount", (o, n) => { (o as unknown as DeviceComplianceUserOverview).notApplicableCount = n.getNumberValue(); }],
-            ["pendingCount", (o, n) => { (o as unknown as DeviceComplianceUserOverview).pendingCount = n.getNumberValue(); }],
-            ["successCount", (o, n) => { (o as unknown as DeviceComplianceUserOverview).successCount = n.getNumberValue(); }],
-        ]);
+    public set pendingCount(value: number | undefined) {
+        this._pendingCount = value;
     };
     /**
      * Serializes information the current object
@@ -102,46 +137,11 @@ export class DeviceComplianceUserOverview extends Entity implements Parsable {
         writer.writeNumberValue("successCount", this.successCount);
     };
     /**
-     * Sets the configurationVersion property value. Version of the policy for that overview
-     * @param value Value to set for the configurationVersion property.
+     * Gets the successCount property value. Number of succeeded Users
+     * @returns a integer
      */
-    public set configurationVersion(value: number | undefined) {
-        this._configurationVersion = value;
-    };
-    /**
-     * Sets the errorCount property value. Number of error Users
-     * @param value Value to set for the errorCount property.
-     */
-    public set errorCount(value: number | undefined) {
-        this._errorCount = value;
-    };
-    /**
-     * Sets the failedCount property value. Number of failed Users
-     * @param value Value to set for the failedCount property.
-     */
-    public set failedCount(value: number | undefined) {
-        this._failedCount = value;
-    };
-    /**
-     * Sets the lastUpdateDateTime property value. Last update time
-     * @param value Value to set for the lastUpdateDateTime property.
-     */
-    public set lastUpdateDateTime(value: Date | undefined) {
-        this._lastUpdateDateTime = value;
-    };
-    /**
-     * Sets the notApplicableCount property value. Number of not applicable users
-     * @param value Value to set for the notApplicableCount property.
-     */
-    public set notApplicableCount(value: number | undefined) {
-        this._notApplicableCount = value;
-    };
-    /**
-     * Sets the pendingCount property value. Number of pending Users
-     * @param value Value to set for the pendingCount property.
-     */
-    public set pendingCount(value: number | undefined) {
-        this._pendingCount = value;
+    public get successCount() {
+        return this._successCount;
     };
     /**
      * Sets the successCount property value. Number of succeeded Users

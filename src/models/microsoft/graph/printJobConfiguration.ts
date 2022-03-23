@@ -1,18 +1,19 @@
-import {IntegerRange} from './integerRange';
+import {createIntegerRangeFromDiscriminatorValue} from './createIntegerRangeFromDiscriminatorValue';
+import {createPrintMarginFromDiscriminatorValue} from './createPrintMarginFromDiscriminatorValue';
+import {IntegerRange, PrintMargin} from './index';
 import {PrintColorMode} from './printColorMode';
 import {PrintDuplexMode} from './printDuplexMode';
 import {PrinterFeedOrientation} from './printerFeedOrientation';
 import {PrintFinishing} from './printFinishing';
-import {PrintMargin} from './printMargin';
 import {PrintMultipageLayout} from './printMultipageLayout';
 import {PrintOrientation} from './printOrientation';
 import {PrintQuality} from './printQuality';
 import {PrintScaling} from './printScaling';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintJobConfiguration implements Parsable {
+export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document.  */
     private _collate?: boolean | undefined;
     /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.  */
@@ -32,7 +33,7 @@ export class PrintJobConfiguration implements Parsable {
     private _inputBin?: string | undefined;
     /** The margin settings to use when printing.  */
     private _margin?: PrintMargin | undefined;
-    /** The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.  */
+    /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.  */
     private _mediaSize?: string | undefined;
     /** The default media (such as paper) type to print the document on.  */
     private _mediaType?: string | undefined;
@@ -51,17 +52,18 @@ export class PrintJobConfiguration implements Parsable {
     /** Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.  */
     private _scaling?: PrintScaling | undefined;
     /**
-     * Instantiates a new printJobConfiguration and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
@@ -71,11 +73,31 @@ export class PrintJobConfiguration implements Parsable {
         return this._collate;
     };
     /**
+     * Sets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
+     * @param value Value to set for the collate property.
+     */
+    public set collate(value: boolean | undefined) {
+        this._collate = value;
+    };
+    /**
      * Gets the colorMode property value. The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
      * @returns a printColorMode
      */
     public get colorMode() {
         return this._colorMode;
+    };
+    /**
+     * Sets the colorMode property value. The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
+     * @param value Value to set for the colorMode property.
+     */
+    public set colorMode(value: PrintColorMode | undefined) {
+        this._colorMode = value;
+    };
+    /**
+     * Instantiates a new printJobConfiguration and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the copies property value. The number of copies that should be printed. Read-only.
@@ -85,11 +107,25 @@ export class PrintJobConfiguration implements Parsable {
         return this._copies;
     };
     /**
+     * Sets the copies property value. The number of copies that should be printed. Read-only.
+     * @param value Value to set for the copies property.
+     */
+    public set copies(value: number | undefined) {
+        this._copies = value;
+    };
+    /**
      * Gets the dpi property value. The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.
      * @returns a integer
      */
     public get dpi() {
         return this._dpi;
+    };
+    /**
+     * Sets the dpi property value. The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.
+     * @param value Value to set for the dpi property.
+     */
+    public set dpi(value: number | undefined) {
+        this._dpi = value;
     };
     /**
      * Gets the duplexMode property value. The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
@@ -99,11 +135,25 @@ export class PrintJobConfiguration implements Parsable {
         return this._duplexMode;
     };
     /**
+     * Sets the duplexMode property value. The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
+     * @param value Value to set for the duplexMode property.
+     */
+    public set duplexMode(value: PrintDuplexMode | undefined) {
+        this._duplexMode = value;
+    };
+    /**
      * Gets the feedOrientation property value. The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
      * @returns a printerFeedOrientation
      */
     public get feedOrientation() {
         return this._feedOrientation;
+    };
+    /**
+     * Sets the feedOrientation property value. The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
+     * @param value Value to set for the feedOrientation property.
+     */
+    public set feedOrientation(value: PrinterFeedOrientation | undefined) {
+        this._feedOrientation = value;
     };
     /**
      * Gets the finishings property value. Finishing processes to use when printing.
@@ -113,11 +163,52 @@ export class PrintJobConfiguration implements Parsable {
         return this._finishings;
     };
     /**
+     * Sets the finishings property value. Finishing processes to use when printing.
+     * @param value Value to set for the finishings property.
+     */
+    public set finishings(value: PrintFinishing[] | undefined) {
+        this._finishings = value;
+    };
+    /**
      * Gets the fitPdfToPage property value. 
      * @returns a boolean
      */
     public get fitPdfToPage() {
         return this._fitPdfToPage;
+    };
+    /**
+     * Sets the fitPdfToPage property value. 
+     * @param value Value to set for the fitPdfToPage property.
+     */
+    public set fitPdfToPage(value: boolean | undefined) {
+        this._fitPdfToPage = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "collate": (o, n) => { (o as unknown as PrintJobConfiguration).collate = n.getBooleanValue(); },
+            "colorMode": (o, n) => { (o as unknown as PrintJobConfiguration).colorMode = n.getEnumValue<PrintColorMode>(PrintColorMode); },
+            "copies": (o, n) => { (o as unknown as PrintJobConfiguration).copies = n.getNumberValue(); },
+            "dpi": (o, n) => { (o as unknown as PrintJobConfiguration).dpi = n.getNumberValue(); },
+            "duplexMode": (o, n) => { (o as unknown as PrintJobConfiguration).duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); },
+            "feedOrientation": (o, n) => { (o as unknown as PrintJobConfiguration).feedOrientation = n.getEnumValue<PrinterFeedOrientation>(PrinterFeedOrientation); },
+            "finishings": (o, n) => { (o as unknown as PrintJobConfiguration).finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); },
+            "fitPdfToPage": (o, n) => { (o as unknown as PrintJobConfiguration).fitPdfToPage = n.getBooleanValue(); },
+            "inputBin": (o, n) => { (o as unknown as PrintJobConfiguration).inputBin = n.getStringValue(); },
+            "margin": (o, n) => { (o as unknown as PrintJobConfiguration).margin = n.getObjectValue<PrintMargin>(createPrintMarginFromDiscriminatorValue); },
+            "mediaSize": (o, n) => { (o as unknown as PrintJobConfiguration).mediaSize = n.getStringValue(); },
+            "mediaType": (o, n) => { (o as unknown as PrintJobConfiguration).mediaType = n.getStringValue(); },
+            "multipageLayout": (o, n) => { (o as unknown as PrintJobConfiguration).multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); },
+            "orientation": (o, n) => { (o as unknown as PrintJobConfiguration).orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); },
+            "outputBin": (o, n) => { (o as unknown as PrintJobConfiguration).outputBin = n.getStringValue(); },
+            "pageRanges": (o, n) => { (o as unknown as PrintJobConfiguration).pageRanges = n.getCollectionOfObjectValues<IntegerRange>(createIntegerRangeFromDiscriminatorValue); },
+            "pagesPerSheet": (o, n) => { (o as unknown as PrintJobConfiguration).pagesPerSheet = n.getNumberValue(); },
+            "quality": (o, n) => { (o as unknown as PrintJobConfiguration).quality = n.getEnumValue<PrintQuality>(PrintQuality); },
+            "scaling": (o, n) => { (o as unknown as PrintJobConfiguration).scaling = n.getEnumValue<PrintScaling>(PrintScaling); },
+        };
     };
     /**
      * Gets the inputBin property value. The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.
@@ -127,6 +218,13 @@ export class PrintJobConfiguration implements Parsable {
         return this._inputBin;
     };
     /**
+     * Sets the inputBin property value. The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.
+     * @param value Value to set for the inputBin property.
+     */
+    public set inputBin(value: string | undefined) {
+        this._inputBin = value;
+    };
+    /**
      * Gets the margin property value. The margin settings to use when printing.
      * @returns a printMargin
      */
@@ -134,11 +232,25 @@ export class PrintJobConfiguration implements Parsable {
         return this._margin;
     };
     /**
-     * Gets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
+     * Sets the margin property value. The margin settings to use when printing.
+     * @param value Value to set for the margin property.
+     */
+    public set margin(value: PrintMargin | undefined) {
+        this._margin = value;
+    };
+    /**
+     * Gets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
      * @returns a string
      */
     public get mediaSize() {
         return this._mediaSize;
+    };
+    /**
+     * Sets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * @param value Value to set for the mediaSize property.
+     */
+    public set mediaSize(value: string | undefined) {
+        this._mediaSize = value;
     };
     /**
      * Gets the mediaType property value. The default media (such as paper) type to print the document on.
@@ -148,11 +260,25 @@ export class PrintJobConfiguration implements Parsable {
         return this._mediaType;
     };
     /**
+     * Sets the mediaType property value. The default media (such as paper) type to print the document on.
+     * @param value Value to set for the mediaType property.
+     */
+    public set mediaType(value: string | undefined) {
+        this._mediaType = value;
+    };
+    /**
      * Gets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
      * @returns a printMultipageLayout
      */
     public get multipageLayout() {
         return this._multipageLayout;
+    };
+    /**
+     * Sets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
+     * @param value Value to set for the multipageLayout property.
+     */
+    public set multipageLayout(value: PrintMultipageLayout | undefined) {
+        this._multipageLayout = value;
     };
     /**
      * Gets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
@@ -162,11 +288,25 @@ export class PrintJobConfiguration implements Parsable {
         return this._orientation;
     };
     /**
+     * Sets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
+     * @param value Value to set for the orientation property.
+     */
+    public set orientation(value: PrintOrientation | undefined) {
+        this._orientation = value;
+    };
+    /**
      * Gets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
      * @returns a string
      */
     public get outputBin() {
         return this._outputBin;
+    };
+    /**
+     * Sets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
+     * @param value Value to set for the outputBin property.
+     */
+    public set outputBin(value: string | undefined) {
+        this._outputBin = value;
     };
     /**
      * Gets the pageRanges property value. The page ranges to print. Read-only.
@@ -176,11 +316,25 @@ export class PrintJobConfiguration implements Parsable {
         return this._pageRanges;
     };
     /**
+     * Sets the pageRanges property value. The page ranges to print. Read-only.
+     * @param value Value to set for the pageRanges property.
+     */
+    public set pageRanges(value: IntegerRange[] | undefined) {
+        this._pageRanges = value;
+    };
+    /**
      * Gets the pagesPerSheet property value. The number of document pages to print on each sheet.
      * @returns a integer
      */
     public get pagesPerSheet() {
         return this._pagesPerSheet;
+    };
+    /**
+     * Sets the pagesPerSheet property value. The number of document pages to print on each sheet.
+     * @param value Value to set for the pagesPerSheet property.
+     */
+    public set pagesPerSheet(value: number | undefined) {
+        this._pagesPerSheet = value;
     };
     /**
      * Gets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
@@ -190,6 +344,13 @@ export class PrintJobConfiguration implements Parsable {
         return this._quality;
     };
     /**
+     * Sets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
+     * @param value Value to set for the quality property.
+     */
+    public set quality(value: PrintQuality | undefined) {
+        this._quality = value;
+    };
+    /**
      * Gets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
      * @returns a printScaling
      */
@@ -197,31 +358,11 @@ export class PrintJobConfiguration implements Parsable {
         return this._scaling;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
+     * @param value Value to set for the scaling property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["collate", (o, n) => { (o as unknown as PrintJobConfiguration).collate = n.getBooleanValue(); }],
-            ["colorMode", (o, n) => { (o as unknown as PrintJobConfiguration).colorMode = n.getEnumValue<PrintColorMode>(PrintColorMode); }],
-            ["copies", (o, n) => { (o as unknown as PrintJobConfiguration).copies = n.getNumberValue(); }],
-            ["dpi", (o, n) => { (o as unknown as PrintJobConfiguration).dpi = n.getNumberValue(); }],
-            ["duplexMode", (o, n) => { (o as unknown as PrintJobConfiguration).duplexMode = n.getEnumValue<PrintDuplexMode>(PrintDuplexMode); }],
-            ["feedOrientation", (o, n) => { (o as unknown as PrintJobConfiguration).feedOrientation = n.getEnumValue<PrinterFeedOrientation>(PrinterFeedOrientation); }],
-            ["finishings", (o, n) => { (o as unknown as PrintJobConfiguration).finishings = n.getEnumValues<PrintFinishing>(PrintFinishing); }],
-            ["fitPdfToPage", (o, n) => { (o as unknown as PrintJobConfiguration).fitPdfToPage = n.getBooleanValue(); }],
-            ["inputBin", (o, n) => { (o as unknown as PrintJobConfiguration).inputBin = n.getStringValue(); }],
-            ["margin", (o, n) => { (o as unknown as PrintJobConfiguration).margin = n.getObjectValue<PrintMargin>(PrintMargin); }],
-            ["mediaSize", (o, n) => { (o as unknown as PrintJobConfiguration).mediaSize = n.getStringValue(); }],
-            ["mediaType", (o, n) => { (o as unknown as PrintJobConfiguration).mediaType = n.getStringValue(); }],
-            ["multipageLayout", (o, n) => { (o as unknown as PrintJobConfiguration).multipageLayout = n.getEnumValue<PrintMultipageLayout>(PrintMultipageLayout); }],
-            ["orientation", (o, n) => { (o as unknown as PrintJobConfiguration).orientation = n.getEnumValue<PrintOrientation>(PrintOrientation); }],
-            ["outputBin", (o, n) => { (o as unknown as PrintJobConfiguration).outputBin = n.getStringValue(); }],
-            ["pageRanges", (o, n) => { (o as unknown as PrintJobConfiguration).pageRanges = n.getCollectionOfObjectValues<IntegerRange>(IntegerRange); }],
-            ["pagesPerSheet", (o, n) => { (o as unknown as PrintJobConfiguration).pagesPerSheet = n.getNumberValue(); }],
-            ["quality", (o, n) => { (o as unknown as PrintJobConfiguration).quality = n.getEnumValue<PrintQuality>(PrintQuality); }],
-            ["scaling", (o, n) => { (o as unknown as PrintJobConfiguration).scaling = n.getEnumValue<PrintScaling>(PrintScaling); }],
-        ]);
+    public set scaling(value: PrintScaling | undefined) {
+        this._scaling = value;
     };
     /**
      * Serializes information the current object
@@ -249,145 +390,5 @@ export class PrintJobConfiguration implements Parsable {
         writer.writeEnumValue<PrintQuality>("quality", this.quality);
         writer.writeEnumValue<PrintScaling>("scaling", this.scaling);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the collate property value. Whether the printer should collate pages wehen printing multiple copies of a multi-page document.
-     * @param value Value to set for the collate property.
-     */
-    public set collate(value: boolean | undefined) {
-        this._collate = value;
-    };
-    /**
-     * Sets the colorMode property value. The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.
-     * @param value Value to set for the colorMode property.
-     */
-    public set colorMode(value: PrintColorMode | undefined) {
-        this._colorMode = value;
-    };
-    /**
-     * Sets the copies property value. The number of copies that should be printed. Read-only.
-     * @param value Value to set for the copies property.
-     */
-    public set copies(value: number | undefined) {
-        this._copies = value;
-    };
-    /**
-     * Sets the dpi property value. The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.
-     * @param value Value to set for the dpi property.
-     */
-    public set dpi(value: number | undefined) {
-        this._dpi = value;
-    };
-    /**
-     * Sets the duplexMode property value. The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.
-     * @param value Value to set for the duplexMode property.
-     */
-    public set duplexMode(value: PrintDuplexMode | undefined) {
-        this._duplexMode = value;
-    };
-    /**
-     * Sets the feedOrientation property value. The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.
-     * @param value Value to set for the feedOrientation property.
-     */
-    public set feedOrientation(value: PrinterFeedOrientation | undefined) {
-        this._feedOrientation = value;
-    };
-    /**
-     * Sets the finishings property value. Finishing processes to use when printing.
-     * @param value Value to set for the finishings property.
-     */
-    public set finishings(value: PrintFinishing[] | undefined) {
-        this._finishings = value;
-    };
-    /**
-     * Sets the fitPdfToPage property value. 
-     * @param value Value to set for the fitPdfToPage property.
-     */
-    public set fitPdfToPage(value: boolean | undefined) {
-        this._fitPdfToPage = value;
-    };
-    /**
-     * Sets the inputBin property value. The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.
-     * @param value Value to set for the inputBin property.
-     */
-    public set inputBin(value: string | undefined) {
-        this._inputBin = value;
-    };
-    /**
-     * Sets the margin property value. The margin settings to use when printing.
-     * @param value Value to set for the margin property.
-     */
-    public set margin(value: PrintMargin | undefined) {
-        this._margin = value;
-    };
-    /**
-     * Sets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
-     * @param value Value to set for the mediaSize property.
-     */
-    public set mediaSize(value: string | undefined) {
-        this._mediaSize = value;
-    };
-    /**
-     * Sets the mediaType property value. The default media (such as paper) type to print the document on.
-     * @param value Value to set for the mediaType property.
-     */
-    public set mediaType(value: string | undefined) {
-        this._mediaType = value;
-    };
-    /**
-     * Sets the multipageLayout property value. The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.
-     * @param value Value to set for the multipageLayout property.
-     */
-    public set multipageLayout(value: PrintMultipageLayout | undefined) {
-        this._multipageLayout = value;
-    };
-    /**
-     * Sets the orientation property value. The orientation setting the printer should use when printing the job. Valid values are described in the following table.
-     * @param value Value to set for the orientation property.
-     */
-    public set orientation(value: PrintOrientation | undefined) {
-        this._orientation = value;
-    };
-    /**
-     * Sets the outputBin property value. The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.
-     * @param value Value to set for the outputBin property.
-     */
-    public set outputBin(value: string | undefined) {
-        this._outputBin = value;
-    };
-    /**
-     * Sets the pageRanges property value. The page ranges to print. Read-only.
-     * @param value Value to set for the pageRanges property.
-     */
-    public set pageRanges(value: IntegerRange[] | undefined) {
-        this._pageRanges = value;
-    };
-    /**
-     * Sets the pagesPerSheet property value. The number of document pages to print on each sheet.
-     * @param value Value to set for the pagesPerSheet property.
-     */
-    public set pagesPerSheet(value: number | undefined) {
-        this._pagesPerSheet = value;
-    };
-    /**
-     * Sets the quality property value. The print quality to use when printing the job. Valid values are described in the table below. Read-only.
-     * @param value Value to set for the quality property.
-     */
-    public set quality(value: PrintQuality | undefined) {
-        this._quality = value;
-    };
-    /**
-     * Sets the scaling property value. Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.
-     * @param value Value to set for the scaling property.
-     */
-    public set scaling(value: PrintScaling | undefined) {
-        this._scaling = value;
     };
 }

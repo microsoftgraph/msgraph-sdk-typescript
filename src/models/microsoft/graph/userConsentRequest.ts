@@ -1,5 +1,5 @@
-import {Approval} from './approval';
-import {Request} from './request';
+import {createApprovalFromDiscriminatorValue} from './createApprovalFromDiscriminatorValue';
+import {Approval, Request} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserConsentRequest extends Request implements Parsable {
@@ -8,17 +8,34 @@ export class UserConsentRequest extends Request implements Parsable {
     /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.  */
     private _reason?: string | undefined;
     /**
+     * Gets the approval property value. Approval decisions associated with a request.
+     * @returns a approval
+     */
+    public get approval() {
+        return this._approval;
+    };
+    /**
+     * Sets the approval property value. Approval decisions associated with a request.
+     * @param value Value to set for the approval property.
+     */
+    public set approval(value: Approval | undefined) {
+        this._approval = value;
+    };
+    /**
      * Instantiates a new userConsentRequest and sets the default values.
      */
     public constructor() {
         super();
     };
     /**
-     * Gets the approval property value. Approval decisions associated with a request.
-     * @returns a approval
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get approval() {
-        return this._approval;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "approval": (o, n) => { (o as unknown as UserConsentRequest).approval = n.getObjectValue<Approval>(createApprovalFromDiscriminatorValue); },
+            "reason": (o, n) => { (o as unknown as UserConsentRequest).reason = n.getStringValue(); },
+        };
     };
     /**
      * Gets the reason property value. The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
@@ -28,14 +45,11 @@ export class UserConsentRequest extends Request implements Parsable {
         return this._reason;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the reason property value. The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
+     * @param value Value to set for the reason property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["approval", (o, n) => { (o as unknown as UserConsentRequest).approval = n.getObjectValue<Approval>(Approval); }],
-            ["reason", (o, n) => { (o as unknown as UserConsentRequest).reason = n.getStringValue(); }],
-        ]);
+    public set reason(value: string | undefined) {
+        this._reason = value;
     };
     /**
      * Serializes information the current object
@@ -46,19 +60,5 @@ export class UserConsentRequest extends Request implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<Approval>("approval", this.approval);
         writer.writeStringValue("reason", this.reason);
-    };
-    /**
-     * Sets the approval property value. Approval decisions associated with a request.
-     * @param value Value to set for the approval property.
-     */
-    public set approval(value: Approval | undefined) {
-        this._approval = value;
-    };
-    /**
-     * Sets the reason property value. The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.
-     * @param value Value to set for the reason property.
-     */
-    public set reason(value: string | undefined) {
-        this._reason = value;
     };
 }

@@ -1,9 +1,9 @@
 import {SettingSourceType} from './settingSourceType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SettingSource implements Parsable {
+export class SettingSource implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Not yet documented  */
     private _displayName?: string | undefined;
     /** Not yet documented  */
@@ -11,17 +11,24 @@ export class SettingSource implements Parsable {
     /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent.  */
     private _sourceType?: SettingSourceType | undefined;
     /**
-     * Instantiates a new settingSource and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new settingSource and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the displayName property value. Not yet documented
@@ -31,6 +38,24 @@ export class SettingSource implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. Not yet documented
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "displayName": (o, n) => { (o as unknown as SettingSource).displayName = n.getStringValue(); },
+            "id": (o, n) => { (o as unknown as SettingSource).id = n.getStringValue(); },
+            "sourceType": (o, n) => { (o as unknown as SettingSource).sourceType = n.getEnumValue<SettingSourceType>(SettingSourceType); },
+        };
+    };
+    /**
      * Gets the id property value. Not yet documented
      * @returns a string
      */
@@ -38,22 +63,11 @@ export class SettingSource implements Parsable {
         return this._id;
     };
     /**
-     * Gets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
-     * @returns a settingSourceType
+     * Sets the id property value. Not yet documented
+     * @param value Value to set for the id property.
      */
-    public get sourceType() {
-        return this._sourceType;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["displayName", (o, n) => { (o as unknown as SettingSource).displayName = n.getStringValue(); }],
-            ["id", (o, n) => { (o as unknown as SettingSource).id = n.getStringValue(); }],
-            ["sourceType", (o, n) => { (o as unknown as SettingSource).sourceType = n.getEnumValue<SettingSourceType>(SettingSourceType); }],
-        ]);
+    public set id(value: string | undefined) {
+        this._id = value;
     };
     /**
      * Serializes information the current object
@@ -67,25 +81,11 @@ export class SettingSource implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.
+     * @returns a settingSourceType
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the displayName property value. Not yet documented
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the id property value. Not yet documented
-     * @param value Value to set for the id property.
-     */
-    public set id(value: string | undefined) {
-        this._id = value;
+    public get sourceType() {
+        return this._sourceType;
     };
     /**
      * Sets the sourceType property value. Not yet documented. Possible values are: deviceConfiguration, deviceIntent.

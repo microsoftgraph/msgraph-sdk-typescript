@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementTroubleshootingEvent extends Entity implements Parsable {
@@ -20,6 +20,13 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         return this._correlationId;
     };
     /**
+     * Sets the correlationId property value. Id used for tracing the failure in the service.
+     * @param value Value to set for the correlationId property.
+     */
+    public set correlationId(value: string | undefined) {
+        this._correlationId = value;
+    };
+    /**
      * Gets the eventDateTime property value. Time when the event occurred .
      * @returns a Date
      */
@@ -27,14 +34,21 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         return this._eventDateTime;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the eventDateTime property value. Time when the event occurred .
+     * @param value Value to set for the eventDateTime property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["correlationId", (o, n) => { (o as unknown as DeviceManagementTroubleshootingEvent).correlationId = n.getStringValue(); }],
-            ["eventDateTime", (o, n) => { (o as unknown as DeviceManagementTroubleshootingEvent).eventDateTime = n.getDateValue(); }],
-        ]);
+    public set eventDateTime(value: Date | undefined) {
+        this._eventDateTime = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "correlationId": (o, n) => { (o as unknown as DeviceManagementTroubleshootingEvent).correlationId = n.getStringValue(); },
+            "eventDateTime": (o, n) => { (o as unknown as DeviceManagementTroubleshootingEvent).eventDateTime = n.getDateValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -45,19 +59,5 @@ export class DeviceManagementTroubleshootingEvent extends Entity implements Pars
         super.serialize(writer);
         writer.writeStringValue("correlationId", this.correlationId);
         writer.writeDateValue("eventDateTime", this.eventDateTime);
-    };
-    /**
-     * Sets the correlationId property value. Id used for tracing the failure in the service.
-     * @param value Value to set for the correlationId property.
-     */
-    public set correlationId(value: string | undefined) {
-        this._correlationId = value;
-    };
-    /**
-     * Sets the eventDateTime property value. Time when the event occurred .
-     * @param value Value to set for the eventDateTime property.
-     */
-    public set eventDateTime(value: Date | undefined) {
-        this._eventDateTime = value;
     };
 }

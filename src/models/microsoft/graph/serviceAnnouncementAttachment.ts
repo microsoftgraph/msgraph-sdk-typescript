@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceAnnouncementAttachment extends Entity implements Parsable {
@@ -22,11 +22,38 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         return this._content;
     };
     /**
+     * Sets the content property value. The attachment content.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        this._content = value;
+    };
+    /**
      * Gets the contentType property value. 
      * @returns a string
      */
     public get contentType() {
         return this._contentType;
+    };
+    /**
+     * Sets the contentType property value. 
+     * @param value Value to set for the contentType property.
+     */
+    public set contentType(value: string | undefined) {
+        this._contentType = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "content": (o, n) => { (o as unknown as ServiceAnnouncementAttachment).content = n.getStringValue(); },
+            "contentType": (o, n) => { (o as unknown as ServiceAnnouncementAttachment).contentType = n.getStringValue(); },
+            "lastModifiedDateTime": (o, n) => { (o as unknown as ServiceAnnouncementAttachment).lastModifiedDateTime = n.getDateValue(); },
+            "name": (o, n) => { (o as unknown as ServiceAnnouncementAttachment).name = n.getStringValue(); },
+            "size": (o, n) => { (o as unknown as ServiceAnnouncementAttachment).size = n.getNumberValue(); },
+        };
     };
     /**
      * Gets the lastModifiedDateTime property value. 
@@ -36,6 +63,13 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         return this._lastModifiedDateTime;
     };
     /**
+     * Sets the lastModifiedDateTime property value. 
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
+    };
+    /**
      * Gets the name property value. 
      * @returns a string
      */
@@ -43,24 +77,11 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         return this._name;
     };
     /**
-     * Gets the size property value. 
-     * @returns a integer
+     * Sets the name property value. 
+     * @param value Value to set for the name property.
      */
-    public get size() {
-        return this._size;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["content", (o, n) => { (o as unknown as ServiceAnnouncementAttachment).content = n.getStringValue(); }],
-            ["contentType", (o, n) => { (o as unknown as ServiceAnnouncementAttachment).contentType = n.getStringValue(); }],
-            ["lastModifiedDateTime", (o, n) => { (o as unknown as ServiceAnnouncementAttachment).lastModifiedDateTime = n.getDateValue(); }],
-            ["name", (o, n) => { (o as unknown as ServiceAnnouncementAttachment).name = n.getStringValue(); }],
-            ["size", (o, n) => { (o as unknown as ServiceAnnouncementAttachment).size = n.getNumberValue(); }],
-        ]);
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Serializes information the current object
@@ -76,32 +97,11 @@ export class ServiceAnnouncementAttachment extends Entity implements Parsable {
         writer.writeNumberValue("size", this.size);
     };
     /**
-     * Sets the content property value. The attachment content.
-     * @param value Value to set for the content property.
+     * Gets the size property value. 
+     * @returns a integer
      */
-    public set content(value: string | undefined) {
-        this._content = value;
-    };
-    /**
-     * Sets the contentType property value. 
-     * @param value Value to set for the contentType property.
-     */
-    public set contentType(value: string | undefined) {
-        this._contentType = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. 
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
-    };
-    /**
-     * Sets the name property value. 
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
+    public get size() {
+        return this._size;
     };
     /**
      * Sets the size property value. 

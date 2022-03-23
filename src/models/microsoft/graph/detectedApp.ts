@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {ManagedDevice} from './managedDevice';
+import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFromDiscriminatorValue';
+import {Entity, ManagedDevice} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DetectedApp extends Entity implements Parsable {
@@ -27,11 +27,38 @@ export class DetectedApp extends Entity implements Parsable {
         return this._deviceCount;
     };
     /**
+     * Sets the deviceCount property value. The number of devices that have installed this application
+     * @param value Value to set for the deviceCount property.
+     */
+    public set deviceCount(value: number | undefined) {
+        this._deviceCount = value;
+    };
+    /**
      * Gets the displayName property value. Name of the discovered application. Read-only
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Name of the discovered application. Read-only
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "deviceCount": (o, n) => { (o as unknown as DetectedApp).deviceCount = n.getNumberValue(); },
+            "displayName": (o, n) => { (o as unknown as DetectedApp).displayName = n.getStringValue(); },
+            "managedDevices": (o, n) => { (o as unknown as DetectedApp).managedDevices = n.getCollectionOfObjectValues<ManagedDevice>(createManagedDeviceFromDiscriminatorValue); },
+            "sizeInByte": (o, n) => { (o as unknown as DetectedApp).sizeInByte = n.getNumberValue(); },
+            "version": (o, n) => { (o as unknown as DetectedApp).version = n.getStringValue(); },
+        };
     };
     /**
      * Gets the managedDevices property value. The devices that have the discovered application installed
@@ -41,31 +68,11 @@ export class DetectedApp extends Entity implements Parsable {
         return this._managedDevices;
     };
     /**
-     * Gets the sizeInByte property value. Discovered application size in bytes. Read-only
-     * @returns a int64
+     * Sets the managedDevices property value. The devices that have the discovered application installed
+     * @param value Value to set for the managedDevices property.
      */
-    public get sizeInByte() {
-        return this._sizeInByte;
-    };
-    /**
-     * Gets the version property value. Version of the discovered application. Read-only
-     * @returns a string
-     */
-    public get version() {
-        return this._version;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["deviceCount", (o, n) => { (o as unknown as DetectedApp).deviceCount = n.getNumberValue(); }],
-            ["displayName", (o, n) => { (o as unknown as DetectedApp).displayName = n.getStringValue(); }],
-            ["managedDevices", (o, n) => { (o as unknown as DetectedApp).managedDevices = n.getCollectionOfObjectValues<ManagedDevice>(ManagedDevice); }],
-            ["sizeInByte", (o, n) => { (o as unknown as DetectedApp).sizeInByte = n.getNumberValue(); }],
-            ["version", (o, n) => { (o as unknown as DetectedApp).version = n.getStringValue(); }],
-        ]);
+    public set managedDevices(value: ManagedDevice[] | undefined) {
+        this._managedDevices = value;
     };
     /**
      * Serializes information the current object
@@ -81,25 +88,11 @@ export class DetectedApp extends Entity implements Parsable {
         writer.writeStringValue("version", this.version);
     };
     /**
-     * Sets the deviceCount property value. The number of devices that have installed this application
-     * @param value Value to set for the deviceCount property.
+     * Gets the sizeInByte property value. Discovered application size in bytes. Read-only
+     * @returns a int64
      */
-    public set deviceCount(value: number | undefined) {
-        this._deviceCount = value;
-    };
-    /**
-     * Sets the displayName property value. Name of the discovered application. Read-only
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the managedDevices property value. The devices that have the discovered application installed
-     * @param value Value to set for the managedDevices property.
-     */
-    public set managedDevices(value: ManagedDevice[] | undefined) {
-        this._managedDevices = value;
+    public get sizeInByte() {
+        return this._sizeInByte;
     };
     /**
      * Sets the sizeInByte property value. Discovered application size in bytes. Read-only
@@ -107,6 +100,13 @@ export class DetectedApp extends Entity implements Parsable {
      */
     public set sizeInByte(value: number | undefined) {
         this._sizeInByte = value;
+    };
+    /**
+     * Gets the version property value. Version of the discovered application. Read-only
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
     };
     /**
      * Sets the version property value. Version of the discovered application. Read-only

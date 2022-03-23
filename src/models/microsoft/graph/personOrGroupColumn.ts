@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PersonOrGroupColumn implements Parsable {
+export class PersonOrGroupColumn implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether multiple values can be selected from the source.  */
     private _allowMultipleSelection?: boolean | undefined;
     /** Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.  */
@@ -10,17 +10,18 @@ export class PersonOrGroupColumn implements Parsable {
     /** How to display the information about the person or group chosen. See below.  */
     private _displayAs?: string | undefined;
     /**
-     * Instantiates a new personOrGroupColumn and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the allowMultipleSelection property value. Indicates whether multiple values can be selected from the source.
@@ -30,11 +31,31 @@ export class PersonOrGroupColumn implements Parsable {
         return this._allowMultipleSelection;
     };
     /**
+     * Sets the allowMultipleSelection property value. Indicates whether multiple values can be selected from the source.
+     * @param value Value to set for the allowMultipleSelection property.
+     */
+    public set allowMultipleSelection(value: boolean | undefined) {
+        this._allowMultipleSelection = value;
+    };
+    /**
      * Gets the chooseFromType property value. Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
      * @returns a string
      */
     public get chooseFromType() {
         return this._chooseFromType;
+    };
+    /**
+     * Sets the chooseFromType property value. Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
+     * @param value Value to set for the chooseFromType property.
+     */
+    public set chooseFromType(value: string | undefined) {
+        this._chooseFromType = value;
+    };
+    /**
+     * Instantiates a new personOrGroupColumn and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the displayAs property value. How to display the information about the person or group chosen. See below.
@@ -44,15 +65,22 @@ export class PersonOrGroupColumn implements Parsable {
         return this._displayAs;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the displayAs property value. How to display the information about the person or group chosen. See below.
+     * @param value Value to set for the displayAs property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["allowMultipleSelection", (o, n) => { (o as unknown as PersonOrGroupColumn).allowMultipleSelection = n.getBooleanValue(); }],
-            ["chooseFromType", (o, n) => { (o as unknown as PersonOrGroupColumn).chooseFromType = n.getStringValue(); }],
-            ["displayAs", (o, n) => { (o as unknown as PersonOrGroupColumn).displayAs = n.getStringValue(); }],
-        ]);
+    public set displayAs(value: string | undefined) {
+        this._displayAs = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "allowMultipleSelection": (o, n) => { (o as unknown as PersonOrGroupColumn).allowMultipleSelection = n.getBooleanValue(); },
+            "chooseFromType": (o, n) => { (o as unknown as PersonOrGroupColumn).chooseFromType = n.getStringValue(); },
+            "displayAs": (o, n) => { (o as unknown as PersonOrGroupColumn).displayAs = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -64,33 +92,5 @@ export class PersonOrGroupColumn implements Parsable {
         writer.writeStringValue("chooseFromType", this.chooseFromType);
         writer.writeStringValue("displayAs", this.displayAs);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the allowMultipleSelection property value. Indicates whether multiple values can be selected from the source.
-     * @param value Value to set for the allowMultipleSelection property.
-     */
-    public set allowMultipleSelection(value: boolean | undefined) {
-        this._allowMultipleSelection = value;
-    };
-    /**
-     * Sets the chooseFromType property value. Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.
-     * @param value Value to set for the chooseFromType property.
-     */
-    public set chooseFromType(value: string | undefined) {
-        this._chooseFromType = value;
-    };
-    /**
-     * Sets the displayAs property value. How to display the information about the person or group chosen. See below.
-     * @param value Value to set for the displayAs property.
-     */
-    public set displayAs(value: string | undefined) {
-        this._displayAs = value;
     };
 }

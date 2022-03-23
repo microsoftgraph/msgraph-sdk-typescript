@@ -1,24 +1,31 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocalizedDescription implements Parsable {
+export class LocalizedDescription implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The description in the localized language.  */
     private _description?: string | undefined;
     /** The language tag for the label.  */
     private _languageTag?: string | undefined;
     /**
-     * Instantiates a new localizedDescription and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new localizedDescription and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the description property value. The description in the localized language.
@@ -28,6 +35,23 @@ export class LocalizedDescription implements Parsable {
         return this._description;
     };
     /**
+     * Sets the description property value. The description in the localized language.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "description": (o, n) => { (o as unknown as LocalizedDescription).description = n.getStringValue(); },
+            "languageTag": (o, n) => { (o as unknown as LocalizedDescription).languageTag = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the languageTag property value. The language tag for the label.
      * @returns a string
      */
@@ -35,14 +59,11 @@ export class LocalizedDescription implements Parsable {
         return this._languageTag;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the languageTag property value. The language tag for the label.
+     * @param value Value to set for the languageTag property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["description", (o, n) => { (o as unknown as LocalizedDescription).description = n.getStringValue(); }],
-            ["languageTag", (o, n) => { (o as unknown as LocalizedDescription).languageTag = n.getStringValue(); }],
-        ]);
+    public set languageTag(value: string | undefined) {
+        this._languageTag = value;
     };
     /**
      * Serializes information the current object
@@ -53,26 +74,5 @@ export class LocalizedDescription implements Parsable {
         writer.writeStringValue("description", this.description);
         writer.writeStringValue("languageTag", this.languageTag);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the description property value. The description in the localized language.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the languageTag property value. The language tag for the label.
-     * @param value Value to set for the languageTag property.
-     */
-    public set languageTag(value: string | undefined) {
-        this._languageTag = value;
     };
 }

@@ -1,4 +1,4 @@
-import {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
+import {OnenoteEntityBaseModel} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable {
@@ -20,6 +20,13 @@ export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
         return this._content;
     };
     /**
+     * Sets the content property value. The content stream
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        this._content = value;
+    };
+    /**
      * Gets the contentUrl property value. The URL for downloading the content
      * @returns a string
      */
@@ -27,14 +34,21 @@ export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
         return this._contentUrl;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the contentUrl property value. The URL for downloading the content
+     * @param value Value to set for the contentUrl property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["content", (o, n) => { (o as unknown as OnenoteResource).content = n.getStringValue(); }],
-            ["contentUrl", (o, n) => { (o as unknown as OnenoteResource).contentUrl = n.getStringValue(); }],
-        ]);
+    public set contentUrl(value: string | undefined) {
+        this._contentUrl = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "content": (o, n) => { (o as unknown as OnenoteResource).content = n.getStringValue(); },
+            "contentUrl": (o, n) => { (o as unknown as OnenoteResource).contentUrl = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -45,19 +59,5 @@ export class OnenoteResource extends OnenoteEntityBaseModel implements Parsable 
         super.serialize(writer);
         writer.writeStringValue("content", this.content);
         writer.writeStringValue("contentUrl", this.contentUrl);
-    };
-    /**
-     * Sets the content property value. The content stream
-     * @param value Value to set for the content property.
-     */
-    public set content(value: string | undefined) {
-        this._content = value;
-    };
-    /**
-     * Sets the contentUrl property value. The URL for downloading the content
-     * @param value Value to set for the contentUrl property.
-     */
-    public set contentUrl(value: string | undefined) {
-        this._contentUrl = value;
     };
 }

@@ -1,14 +1,13 @@
-import {UnifiedRoleDefinition} from '../../../../../models/microsoft/graph/unifiedRoleDefinition';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {UnifiedRoleDefinition} from '../../../../../models/microsoft/graph/';
+import {createUnifiedRoleDefinitionFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createUnifiedRoleDefinitionFromDiscriminatorValue';
+import {ODataError} from '../../../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /roleManagement/directory/roleAssignments/{unifiedRoleAssignment-id}/roleDefinition  */
+/** Provides operations to manage the roleDefinition property of the microsoft.graph.unifiedRoleAssignment entity.  */
 export class RoleDefinitionRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -27,7 +26,7 @@ export class RoleDefinitionRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +40,13 @@ export class RoleDefinitionRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.id will be auto expanded. Supports $expand.
+     * The roleDefinition the assignment is for.  Supports $expand. roleDefinition.Id will be auto expanded.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +60,10 @@ export class RoleDefinitionRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, UnifiedRoleDefinition, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<UnifiedRoleDefinition>(requestInfo, createUnifiedRoleDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

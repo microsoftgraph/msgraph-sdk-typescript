@@ -1,4 +1,4 @@
-import {ScheduleChangeRequest} from './scheduleChangeRequest';
+import {ScheduleChangeRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequest extends ScheduleChangeRequest implements Parsable {
@@ -11,6 +11,15 @@ export class OpenShiftChangeRequest extends ScheduleChangeRequest implements Par
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "openShiftId": (o, n) => { (o as unknown as OpenShiftChangeRequest).openShiftId = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the openShiftId property value. ID for the open shift.
      * @returns a string
      */
@@ -18,13 +27,11 @@ export class OpenShiftChangeRequest extends ScheduleChangeRequest implements Par
         return this._openShiftId;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the openShiftId property value. ID for the open shift.
+     * @param value Value to set for the openShiftId property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["openShiftId", (o, n) => { (o as unknown as OpenShiftChangeRequest).openShiftId = n.getStringValue(); }],
-        ]);
+    public set openShiftId(value: string | undefined) {
+        this._openShiftId = value;
     };
     /**
      * Serializes information the current object
@@ -34,12 +41,5 @@ export class OpenShiftChangeRequest extends ScheduleChangeRequest implements Par
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("openShiftId", this.openShiftId);
-    };
-    /**
-     * Sets the openShiftId property value. ID for the open shift.
-     * @param value Value to set for the openShiftId property.
-     */
-    public set openShiftId(value: string | undefined) {
-        this._openShiftId = value;
     };
 }

@@ -1,13 +1,16 @@
-import {ServiceAnnouncement} from '../../models/microsoft/graph/serviceAnnouncement';
+import {ServiceAnnouncement} from '../../models/microsoft/graph/';
+import {createServiceAnnouncementFromDiscriminatorValue} from '../../models/microsoft/graph/createServiceAnnouncementFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {HealthOverviewsRequestBuilder} from './healthOverviews/healthOverviewsRequestBuilder';
-import {ServiceHealthRequestBuilder} from './healthOverviews/item/serviceHealthRequestBuilder';
+import {ServiceHealthItemRequestBuilder} from './healthOverviews/item/serviceHealthItemRequestBuilder';
 import {IssuesRequestBuilder} from './issues/issuesRequestBuilder';
-import {ServiceHealthIssueRequestBuilder} from './issues/item/serviceHealthIssueRequestBuilder';
-import {ServiceUpdateMessageRequestBuilder} from './messages/item/serviceUpdateMessageRequestBuilder';
+import {ServiceHealthIssueItemRequestBuilder} from './issues/item/serviceHealthIssueItemRequestBuilder';
+import {ServiceUpdateMessageItemRequestBuilder} from './messages/item/serviceUpdateMessageItemRequestBuilder';
 import {MessagesRequestBuilder} from './messages/messagesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /admin/serviceAnnouncement  */
+/** Provides operations to manage the serviceAnnouncement property of the microsoft.graph.admin entity.  */
 export class ServiceAnnouncementRequestBuilder {
     public get healthOverviews(): HealthOverviewsRequestBuilder {
         return new HealthOverviewsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -38,7 +41,7 @@ export class ServiceAnnouncementRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * A container for service communications resources. Read-only.
+     * Delete navigation property serviceAnnouncement for admin
      * @param h Request headers
      * @param o Request options
      * @returns a RequestInformation
@@ -48,7 +51,7 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -67,13 +70,13 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * A container for service communications resources. Read-only.
+     * Update the navigation property serviceAnnouncement in admin
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -85,13 +88,13 @@ export class ServiceAnnouncementRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * A container for service communications resources. Read-only.
+     * Delete navigation property serviceAnnouncement for admin
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
@@ -100,7 +103,11 @@ export class ServiceAnnouncementRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * A container for service communications resources. Read-only.
@@ -117,43 +124,47 @@ export class ServiceAnnouncementRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, ServiceAnnouncement, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ServiceAnnouncement>(requestInfo, createServiceAnnouncementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.healthOverviews.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthRequestBuilder
+     * @returns a serviceHealthItemRequestBuilder
      */
-    public healthOverviewsById(id: string) : ServiceHealthRequestBuilder {
+    public healthOverviewsById(id: string) : ServiceHealthItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealth_id"] = id
-        return new ServiceHealthRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ServiceHealthItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.issues.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceHealthIssueRequestBuilder
+     * @returns a serviceHealthIssueItemRequestBuilder
      */
-    public issuesById(id: string) : ServiceHealthIssueRequestBuilder {
+    public issuesById(id: string) : ServiceHealthIssueItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceHealthIssue_id"] = id
-        return new ServiceHealthIssueRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ServiceHealthIssueItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.admin.serviceAnnouncement.messages.item collection
      * @param id Unique identifier of the item
-     * @returns a serviceUpdateMessageRequestBuilder
+     * @returns a serviceUpdateMessageItemRequestBuilder
      */
-    public messagesById(id: string) : ServiceUpdateMessageRequestBuilder {
+    public messagesById(id: string) : ServiceUpdateMessageItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["serviceUpdateMessage_id"] = id
-        return new ServiceUpdateMessageRequestBuilder(urlTplParams, this.requestAdapter);
+        return new ServiceUpdateMessageItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * A container for service communications resources. Read-only.
+     * Update the navigation property serviceAnnouncement in admin
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -164,6 +175,10 @@ export class ServiceAnnouncementRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

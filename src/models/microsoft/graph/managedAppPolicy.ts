@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppPolicy extends Entity implements Parsable {
@@ -26,11 +26,25 @@ export class ManagedAppPolicy extends Entity implements Parsable {
         return this._createdDateTime;
     };
     /**
+     * Sets the createdDateTime property value. The date and time the policy was created.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
+    };
+    /**
      * Gets the description property value. The policy's description.
      * @returns a string
      */
     public get description() {
         return this._description;
+    };
+    /**
+     * Sets the description property value. The policy's description.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
     };
     /**
      * Gets the displayName property value. Policy display name.
@@ -40,6 +54,26 @@ export class ManagedAppPolicy extends Entity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. Policy display name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "createdDateTime": (o, n) => { (o as unknown as ManagedAppPolicy).createdDateTime = n.getDateValue(); },
+            "description": (o, n) => { (o as unknown as ManagedAppPolicy).description = n.getStringValue(); },
+            "displayName": (o, n) => { (o as unknown as ManagedAppPolicy).displayName = n.getStringValue(); },
+            "lastModifiedDateTime": (o, n) => { (o as unknown as ManagedAppPolicy).lastModifiedDateTime = n.getDateValue(); },
+            "version": (o, n) => { (o as unknown as ManagedAppPolicy).version = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the lastModifiedDateTime property value. Last time the policy was modified.
      * @returns a Date
      */
@@ -47,24 +81,11 @@ export class ManagedAppPolicy extends Entity implements Parsable {
         return this._lastModifiedDateTime;
     };
     /**
-     * Gets the version property value. Version of the entity.
-     * @returns a string
+     * Sets the lastModifiedDateTime property value. Last time the policy was modified.
+     * @param value Value to set for the lastModifiedDateTime property.
      */
-    public get version() {
-        return this._version;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["createdDateTime", (o, n) => { (o as unknown as ManagedAppPolicy).createdDateTime = n.getDateValue(); }],
-            ["description", (o, n) => { (o as unknown as ManagedAppPolicy).description = n.getStringValue(); }],
-            ["displayName", (o, n) => { (o as unknown as ManagedAppPolicy).displayName = n.getStringValue(); }],
-            ["lastModifiedDateTime", (o, n) => { (o as unknown as ManagedAppPolicy).lastModifiedDateTime = n.getDateValue(); }],
-            ["version", (o, n) => { (o as unknown as ManagedAppPolicy).version = n.getStringValue(); }],
-        ]);
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -80,32 +101,11 @@ export class ManagedAppPolicy extends Entity implements Parsable {
         writer.writeStringValue("version", this.version);
     };
     /**
-     * Sets the createdDateTime property value. The date and time the policy was created.
-     * @param value Value to set for the createdDateTime property.
+     * Gets the version property value. Version of the entity.
+     * @returns a string
      */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
-    };
-    /**
-     * Sets the description property value. The policy's description.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the displayName property value. Policy display name.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the lastModifiedDateTime property value. Last time the policy was modified.
-     * @param value Value to set for the lastModifiedDateTime property.
-     */
-    public set lastModifiedDateTime(value: Date | undefined) {
-        this._lastModifiedDateTime = value;
+    public get version() {
+        return this._version;
     };
     /**
      * Sets the version property value. Version of the entity.

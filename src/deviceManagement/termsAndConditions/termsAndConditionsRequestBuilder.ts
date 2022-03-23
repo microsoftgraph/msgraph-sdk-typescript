@@ -1,9 +1,16 @@
-import {TermsAndConditions} from '../../models/microsoft/graph/termsAndConditions';
-import {TermsAndConditionsResponse} from './termsAndConditionsResponse';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {TermsAndConditions, TermsAndConditionsCollectionResponse} from '../../models/microsoft/graph/';
+import {createTermsAndConditionsCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createTermsAndConditionsCollectionResponseFromDiscriminatorValue';
+import {createTermsAndConditionsFromDiscriminatorValue} from '../../models/microsoft/graph/createTermsAndConditionsFromDiscriminatorValue';
+import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CountRequestBuilder} from './count/countRequestBuilder';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /deviceManagement/termsAndConditions  */
+/** Provides operations to manage the termsAndConditions property of the microsoft.graph.deviceManagement entity.  */
 export class TermsAndConditionsRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
@@ -44,13 +51,13 @@ export class TermsAndConditionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The terms and conditions associated with device management of the company.
+     * Create new navigation property to termsAndConditions for deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -62,7 +69,7 @@ export class TermsAndConditionsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -73,7 +80,7 @@ export class TermsAndConditionsRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of TermsAndConditionsResponse
+     * @returns a Promise of TermsAndConditionsCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -84,14 +91,18 @@ export class TermsAndConditionsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<TermsAndConditionsResponse>(requestInfo, TermsAndConditionsResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<TermsAndConditionsCollectionResponse>(requestInfo, createTermsAndConditionsCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * The terms and conditions associated with device management of the company.
+     * Create new navigation property to termsAndConditions for deviceManagement
      * @param body 
      * @param h Request headers
      * @param o Request options
@@ -103,6 +114,10 @@ export class TermsAndConditionsRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<TermsAndConditions>(requestInfo, TermsAndConditions, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<TermsAndConditions>(requestInfo, createTermsAndConditionsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

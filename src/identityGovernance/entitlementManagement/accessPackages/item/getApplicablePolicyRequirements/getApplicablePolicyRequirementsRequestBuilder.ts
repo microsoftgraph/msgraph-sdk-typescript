@@ -1,7 +1,8 @@
-import {GetApplicablePolicyRequirements} from './getApplicablePolicyRequirements';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue} from './createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue';
+import {GetApplicablePolicyRequirementsResponse} from './index';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /identityGovernance/entitlementManagement/accessPackages/{accessPackage-id}/microsoft.graph.getApplicablePolicyRequirements  */
+/** Provides operations to call the getApplicablePolicyRequirements method.  */
 export class GetApplicablePolicyRequirementsRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -33,7 +34,7 @@ export class GetApplicablePolicyRequirementsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -42,12 +43,12 @@ export class GetApplicablePolicyRequirementsRequestBuilder {
      * @param h Request headers
      * @param o Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetApplicablePolicyRequirements
+     * @returns a Promise of GetApplicablePolicyRequirementsResponse
      */
-    public post(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetApplicablePolicyRequirements[] | undefined> {
+    public post(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetApplicablePolicyRequirementsResponse | undefined> {
         const requestInfo = this.createPostRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendCollectionAsync<GetApplicablePolicyRequirements>(requestInfo, GetApplicablePolicyRequirements, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetApplicablePolicyRequirementsResponse>(requestInfo, createGetApplicablePolicyRequirementsResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

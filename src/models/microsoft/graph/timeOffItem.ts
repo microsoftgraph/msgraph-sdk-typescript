@@ -1,4 +1,4 @@
-import {ScheduleEntity} from './scheduleEntity';
+import {ScheduleEntity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffItem extends ScheduleEntity implements Parsable {
@@ -11,20 +11,13 @@ export class TimeOffItem extends ScheduleEntity implements Parsable {
         super();
     };
     /**
-     * Gets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.
-     * @returns a string
-     */
-    public get timeOffReasonId() {
-        return this._timeOffReasonId;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["timeOffReasonId", (o, n) => { (o as unknown as TimeOffItem).timeOffReasonId = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "timeOffReasonId": (o, n) => { (o as unknown as TimeOffItem).timeOffReasonId = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -34,6 +27,13 @@ export class TimeOffItem extends ScheduleEntity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("timeOffReasonId", this.timeOffReasonId);
+    };
+    /**
+     * Gets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.
+     * @returns a string
+     */
+    public get timeOffReasonId() {
+        return this._timeOffReasonId;
     };
     /**
      * Sets the timeOffReasonId property value. ID of the timeOffReason for this timeOffItem. Required.

@@ -1,14 +1,13 @@
-import {ColumnDefinition} from '../../../../../../models/microsoft/graph/columnDefinition';
-import {RefRequestBuilder} from './ref/refRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ColumnDefinition} from '../../../../../../models/microsoft/graph/';
+import {createColumnDefinitionFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createColumnDefinitionFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /drives/{drive-id}/list/columns/{columnDefinition-id}/sourceColumn  */
+/** Provides operations to manage the sourceColumn property of the microsoft.graph.columnDefinition entity.  */
 export class SourceColumnRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
-    public get ref(): RefRequestBuilder {
-        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
-    }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
@@ -27,7 +26,7 @@ export class SourceColumnRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * The source column for content type column.
+     * The source column for the content type column.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -41,13 +40,13 @@ export class SourceColumnRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * The source column for content type column.
+     * The source column for the content type column.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -61,6 +60,10 @@ export class SourceColumnRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<ColumnDefinition>(requestInfo, ColumnDefinition, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<ColumnDefinition>(requestInfo, createColumnDefinitionFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

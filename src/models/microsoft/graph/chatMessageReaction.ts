@@ -1,26 +1,34 @@
-import {ChatMessageReactionIdentitySet} from './chatMessageReactionIdentitySet';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createChatMessageReactionIdentitySetFromDiscriminatorValue} from './createChatMessageReactionIdentitySetFromDiscriminatorValue';
+import {ChatMessageReactionIdentitySet} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ChatMessageReaction implements Parsable {
+export class ChatMessageReaction implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
     private _createdDateTime?: Date | undefined;
     /** Supported values are like, angry, sad, laugh, heart, surprised.  */
     private _reactionType?: string | undefined;
     private _user?: ChatMessageReactionIdentitySet | undefined;
     /**
-     * Instantiates a new chatMessageReaction and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new chatMessageReaction and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
@@ -30,6 +38,24 @@ export class ChatMessageReaction implements Parsable {
         return this._createdDateTime;
     };
     /**
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "createdDateTime": (o, n) => { (o as unknown as ChatMessageReaction).createdDateTime = n.getDateValue(); },
+            "reactionType": (o, n) => { (o as unknown as ChatMessageReaction).reactionType = n.getStringValue(); },
+            "user": (o, n) => { (o as unknown as ChatMessageReaction).user = n.getObjectValue<ChatMessageReactionIdentitySet>(createChatMessageReactionIdentitySetFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the reactionType property value. Supported values are like, angry, sad, laugh, heart, surprised.
      * @returns a string
      */
@@ -37,22 +63,11 @@ export class ChatMessageReaction implements Parsable {
         return this._reactionType;
     };
     /**
-     * Gets the user property value. 
-     * @returns a chatMessageReactionIdentitySet
+     * Sets the reactionType property value. Supported values are like, angry, sad, laugh, heart, surprised.
+     * @param value Value to set for the reactionType property.
      */
-    public get user() {
-        return this._user;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["createdDateTime", (o, n) => { (o as unknown as ChatMessageReaction).createdDateTime = n.getDateValue(); }],
-            ["reactionType", (o, n) => { (o as unknown as ChatMessageReaction).reactionType = n.getStringValue(); }],
-            ["user", (o, n) => { (o as unknown as ChatMessageReaction).user = n.getObjectValue<ChatMessageReactionIdentitySet>(ChatMessageReactionIdentitySet); }],
-        ]);
+    public set reactionType(value: string | undefined) {
+        this._reactionType = value;
     };
     /**
      * Serializes information the current object
@@ -66,25 +81,11 @@ export class ChatMessageReaction implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the user property value. 
+     * @returns a chatMessageReactionIdentitySet
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
-     * @param value Value to set for the createdDateTime property.
-     */
-    public set createdDateTime(value: Date | undefined) {
-        this._createdDateTime = value;
-    };
-    /**
-     * Sets the reactionType property value. Supported values are like, angry, sad, laugh, heart, surprised.
-     * @param value Value to set for the reactionType property.
-     */
-    public set reactionType(value: string | undefined) {
-        this._reactionType = value;
+    public get user() {
+        return this._user;
     };
     /**
      * Sets the user property value. 

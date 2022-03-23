@@ -1,5 +1,5 @@
-import {KeyValuePair} from './keyValuePair';
-import {ManagedAppPolicy} from './managedAppPolicy';
+import {createKeyValuePairFromDiscriminatorValue} from './createKeyValuePairFromDiscriminatorValue';
+import {KeyValuePair, ManagedAppPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable {
@@ -19,13 +19,20 @@ export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsabl
         return this._customSettings;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the customSettings property value. A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service
+     * @param value Value to set for the customSettings property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["customSettings", (o, n) => { (o as unknown as ManagedAppConfiguration).customSettings = n.getCollectionOfObjectValues<KeyValuePair>(KeyValuePair); }],
-        ]);
+    public set customSettings(value: KeyValuePair[] | undefined) {
+        this._customSettings = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "customSettings": (o, n) => { (o as unknown as ManagedAppConfiguration).customSettings = n.getCollectionOfObjectValues<KeyValuePair>(createKeyValuePairFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -35,12 +42,5 @@ export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<KeyValuePair>("customSettings", this.customSettings);
-    };
-    /**
-     * Sets the customSettings property value. A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service
-     * @param value Value to set for the customSettings property.
-     */
-    public set customSettings(value: KeyValuePair[] | undefined) {
-        this._customSettings = value;
     };
 }

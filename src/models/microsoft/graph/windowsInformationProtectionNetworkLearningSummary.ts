@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionNetworkLearningSummary extends Entity implements Parsable {
@@ -20,21 +20,21 @@ export class WindowsInformationProtectionNetworkLearningSummary extends Entity i
         return this._deviceCount;
     };
     /**
-     * Gets the url property value. Website url
-     * @returns a string
+     * Sets the deviceCount property value. Device Count
+     * @param value Value to set for the deviceCount property.
      */
-    public get url() {
-        return this._url;
+    public set deviceCount(value: number | undefined) {
+        this._deviceCount = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["deviceCount", (o, n) => { (o as unknown as WindowsInformationProtectionNetworkLearningSummary).deviceCount = n.getNumberValue(); }],
-            ["url", (o, n) => { (o as unknown as WindowsInformationProtectionNetworkLearningSummary).url = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "deviceCount": (o, n) => { (o as unknown as WindowsInformationProtectionNetworkLearningSummary).deviceCount = n.getNumberValue(); },
+            "url": (o, n) => { (o as unknown as WindowsInformationProtectionNetworkLearningSummary).url = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -47,11 +47,11 @@ export class WindowsInformationProtectionNetworkLearningSummary extends Entity i
         writer.writeStringValue("url", this.url);
     };
     /**
-     * Sets the deviceCount property value. Device Count
-     * @param value Value to set for the deviceCount property.
+     * Gets the url property value. Website url
+     * @returns a string
      */
-    public set deviceCount(value: number | undefined) {
-        this._deviceCount = value;
+    public get url() {
+        return this._url;
     };
     /**
      * Sets the url property value. Website url

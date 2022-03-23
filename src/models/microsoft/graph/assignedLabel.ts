@@ -1,24 +1,31 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class AssignedLabel implements Parsable {
+export class AssignedLabel implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The display name of the label. Read-only.  */
     private _displayName?: string | undefined;
     /** The unique identifier of the label.  */
     private _labelId?: string | undefined;
     /**
-     * Instantiates a new assignedLabel and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new assignedLabel and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the displayName property value. The display name of the label. Read-only.
@@ -28,6 +35,23 @@ export class AssignedLabel implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The display name of the label. Read-only.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "displayName": (o, n) => { (o as unknown as AssignedLabel).displayName = n.getStringValue(); },
+            "labelId": (o, n) => { (o as unknown as AssignedLabel).labelId = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the labelId property value. The unique identifier of the label.
      * @returns a string
      */
@@ -35,14 +59,11 @@ export class AssignedLabel implements Parsable {
         return this._labelId;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the labelId property value. The unique identifier of the label.
+     * @param value Value to set for the labelId property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["displayName", (o, n) => { (o as unknown as AssignedLabel).displayName = n.getStringValue(); }],
-            ["labelId", (o, n) => { (o as unknown as AssignedLabel).labelId = n.getStringValue(); }],
-        ]);
+    public set labelId(value: string | undefined) {
+        this._labelId = value;
     };
     /**
      * Serializes information the current object
@@ -53,26 +74,5 @@ export class AssignedLabel implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeStringValue("labelId", this.labelId);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the displayName property value. The display name of the label. Read-only.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the labelId property value. The unique identifier of the label.
-     * @param value Value to set for the labelId property.
-     */
-    public set labelId(value: string | undefined) {
-        this._labelId = value;
     };
 }

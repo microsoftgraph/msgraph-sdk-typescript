@@ -1,24 +1,26 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class UpdateDevicePropertiesRequestBody implements Parsable {
+/** Provides operations to call the updateDeviceProperties method.  */
+export class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _addressableUserName?: string | undefined;
     private _displayName?: string | undefined;
     private _groupTag?: string | undefined;
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new updateDevicePropertiesRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the addressableUserName property value. 
@@ -28,11 +30,43 @@ export class UpdateDevicePropertiesRequestBody implements Parsable {
         return this._addressableUserName;
     };
     /**
+     * Sets the addressableUserName property value. 
+     * @param value Value to set for the addressableUserName property.
+     */
+    public set addressableUserName(value: string | undefined) {
+        this._addressableUserName = value;
+    };
+    /**
+     * Instantiates a new updateDevicePropertiesRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the displayName property value. 
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. 
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "addressableUserName": (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).addressableUserName = n.getStringValue(); },
+            "displayName": (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).displayName = n.getStringValue(); },
+            "groupTag": (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).groupTag = n.getStringValue(); },
+            "userPrincipalName": (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).userPrincipalName = n.getStringValue(); },
+        };
     };
     /**
      * Gets the groupTag property value. 
@@ -42,23 +76,11 @@ export class UpdateDevicePropertiesRequestBody implements Parsable {
         return this._groupTag;
     };
     /**
-     * Gets the userPrincipalName property value. 
-     * @returns a string
+     * Sets the groupTag property value. 
+     * @param value Value to set for the groupTag property.
      */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["addressableUserName", (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).addressableUserName = n.getStringValue(); }],
-            ["displayName", (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).displayName = n.getStringValue(); }],
-            ["groupTag", (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).groupTag = n.getStringValue(); }],
-            ["userPrincipalName", (o, n) => { (o as unknown as UpdateDevicePropertiesRequestBody).userPrincipalName = n.getStringValue(); }],
-        ]);
+    public set groupTag(value: string | undefined) {
+        this._groupTag = value;
     };
     /**
      * Serializes information the current object
@@ -73,32 +95,11 @@ export class UpdateDevicePropertiesRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the userPrincipalName property value. 
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the addressableUserName property value. 
-     * @param value Value to set for the addressableUserName property.
-     */
-    public set addressableUserName(value: string | undefined) {
-        this._addressableUserName = value;
-    };
-    /**
-     * Sets the displayName property value. 
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the groupTag property value. 
-     * @param value Value to set for the groupTag property.
-     */
-    public set groupTag(value: string | undefined) {
-        this._groupTag = value;
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. 

@@ -1,5 +1,5 @@
-import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAssignmentTarget';
-import {Entity} from './entity';
+import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from './createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue';
+import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationAssignment extends Entity implements Parsable {
@@ -12,20 +12,13 @@ export class DeviceConfigurationAssignment extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the target property value. The assignment target for the device configuration.
-     * @returns a deviceAndAppManagementAssignmentTarget
-     */
-    public get target() {
-        return this._target;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["target", (o, n) => { (o as unknown as DeviceConfigurationAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(DeviceAndAppManagementAssignmentTarget); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "target": (o, n) => { (o as unknown as DeviceConfigurationAssignment).target = n.getObjectValue<DeviceAndAppManagementAssignmentTarget>(createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -35,6 +28,13 @@ export class DeviceConfigurationAssignment extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<DeviceAndAppManagementAssignmentTarget>("target", this.target);
+    };
+    /**
+     * Gets the target property value. The assignment target for the device configuration.
+     * @returns a deviceAndAppManagementAssignmentTarget
+     */
+    public get target() {
+        return this._target;
     };
     /**
      * Sets the target property value. The assignment target for the device configuration.

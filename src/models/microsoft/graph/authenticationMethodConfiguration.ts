@@ -1,5 +1,5 @@
 import {AuthenticationMethodState} from './authenticationMethodState';
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodConfiguration extends Entity implements Parsable {
@@ -12,20 +12,13 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
         super();
     };
     /**
-     * Gets the state property value. The state of the policy. Possible values are: enabled, disabled.
-     * @returns a authenticationMethodState
-     */
-    public get state() {
-        return this._state;
-    };
-    /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["state", (o, n) => { (o as unknown as AuthenticationMethodConfiguration).state = n.getEnumValue<AuthenticationMethodState>(AuthenticationMethodState); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "state": (o, n) => { (o as unknown as AuthenticationMethodConfiguration).state = n.getEnumValue<AuthenticationMethodState>(AuthenticationMethodState); },
+        };
     };
     /**
      * Serializes information the current object
@@ -35,6 +28,13 @@ export class AuthenticationMethodConfiguration extends Entity implements Parsabl
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeEnumValue<AuthenticationMethodState>("state", this.state);
+    };
+    /**
+     * Gets the state property value. The state of the policy. Possible values are: enabled, disabled.
+     * @returns a authenticationMethodState
+     */
+    public get state() {
+        return this._state;
     };
     /**
      * Sets the state property value. The state of the policy. Possible values are: enabled, disabled.

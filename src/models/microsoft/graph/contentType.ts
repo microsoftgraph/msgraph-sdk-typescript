@@ -1,20 +1,21 @@
-import {ColumnDefinition} from './columnDefinition';
-import {ColumnLink} from './columnLink';
-import {ContentTypeOrder} from './contentTypeOrder';
-import {DocumentSet} from './documentSet';
-import {DocumentSetContent} from './documentSetContent';
-import {Entity} from './entity';
-import {ItemReference} from './itemReference';
+import {createColumnDefinitionFromDiscriminatorValue} from './createColumnDefinitionFromDiscriminatorValue';
+import {createColumnLinkFromDiscriminatorValue} from './createColumnLinkFromDiscriminatorValue';
+import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDiscriminatorValue';
+import {createContentTypeOrderFromDiscriminatorValue} from './createContentTypeOrderFromDiscriminatorValue';
+import {createDocumentSetContentFromDiscriminatorValue} from './createDocumentSetContentFromDiscriminatorValue';
+import {createDocumentSetFromDiscriminatorValue} from './createDocumentSetFromDiscriminatorValue';
+import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFromDiscriminatorValue';
+import {ColumnDefinition, ColumnLink, ContentTypeOrder, DocumentSet, DocumentSetContent, Entity, ItemReference} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ContentType extends Entity implements Parsable {
-    /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.  */
+    /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.  */
     private _associatedHubsUrls?: string[] | undefined;
     /** Parent contentType from which this content type is derived.  */
     private _base?: ContentType | undefined;
     /** The collection of content types that are ancestors of this content type.  */
     private _baseTypes?: ContentType[] | undefined;
-    /** The collection of columns that are required by this content type  */
+    /** The collection of columns that are required by this content type.  */
     private _columnLinks?: ColumnLink[] | undefined;
     /** Column order information in a content type.  */
     private _columnPositions?: ColumnDefinition[] | undefined;
@@ -42,22 +43,23 @@ export class ContentType extends Entity implements Parsable {
     private _parentId?: string | undefined;
     /** If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.  */
     private _propagateChanges?: boolean | undefined;
-    /** If true, the content type cannot be modified unless this value is first set to false.  */
+    /** If true, the content type can't be modified unless this value is first set to false.  */
     private _readOnly?: boolean | undefined;
-    /** If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.  */
+    /** If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.  */
     private _sealed?: boolean | undefined;
     /**
-     * Instantiates a new contentType and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
-     * Gets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
+     * Gets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
      * @returns a string
      */
     public get associatedHubsUrls() {
         return this._associatedHubsUrls;
+    };
+    /**
+     * Sets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
+     * @param value Value to set for the associatedHubsUrls property.
+     */
+    public set associatedHubsUrls(value: string[] | undefined) {
+        this._associatedHubsUrls = value;
     };
     /**
      * Gets the base property value. Parent contentType from which this content type is derived.
@@ -67,6 +69,13 @@ export class ContentType extends Entity implements Parsable {
         return this._base;
     };
     /**
+     * Sets the base property value. Parent contentType from which this content type is derived.
+     * @param value Value to set for the base property.
+     */
+    public set base(value: ContentType | undefined) {
+        this._base = value;
+    };
+    /**
      * Gets the baseTypes property value. The collection of content types that are ancestors of this content type.
      * @returns a contentType
      */
@@ -74,11 +83,25 @@ export class ContentType extends Entity implements Parsable {
         return this._baseTypes;
     };
     /**
-     * Gets the columnLinks property value. The collection of columns that are required by this content type
+     * Sets the baseTypes property value. The collection of content types that are ancestors of this content type.
+     * @param value Value to set for the baseTypes property.
+     */
+    public set baseTypes(value: ContentType[] | undefined) {
+        this._baseTypes = value;
+    };
+    /**
+     * Gets the columnLinks property value. The collection of columns that are required by this content type.
      * @returns a columnLink
      */
     public get columnLinks() {
         return this._columnLinks;
+    };
+    /**
+     * Sets the columnLinks property value. The collection of columns that are required by this content type.
+     * @param value Value to set for the columnLinks property.
+     */
+    public set columnLinks(value: ColumnLink[] | undefined) {
+        this._columnLinks = value;
     };
     /**
      * Gets the columnPositions property value. Column order information in a content type.
@@ -88,11 +111,31 @@ export class ContentType extends Entity implements Parsable {
         return this._columnPositions;
     };
     /**
+     * Sets the columnPositions property value. Column order information in a content type.
+     * @param value Value to set for the columnPositions property.
+     */
+    public set columnPositions(value: ColumnDefinition[] | undefined) {
+        this._columnPositions = value;
+    };
+    /**
      * Gets the columns property value. The collection of column definitions for this contentType.
      * @returns a columnDefinition
      */
     public get columns() {
         return this._columns;
+    };
+    /**
+     * Sets the columns property value. The collection of column definitions for this contentType.
+     * @param value Value to set for the columns property.
+     */
+    public set columns(value: ColumnDefinition[] | undefined) {
+        this._columns = value;
+    };
+    /**
+     * Instantiates a new contentType and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the description property value. The descriptive text for the item.
@@ -102,11 +145,25 @@ export class ContentType extends Entity implements Parsable {
         return this._description;
     };
     /**
+     * Sets the description property value. The descriptive text for the item.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
+    };
+    /**
      * Gets the documentSet property value. Document Set metadata.
      * @returns a documentSet
      */
     public get documentSet() {
         return this._documentSet;
+    };
+    /**
+     * Sets the documentSet property value. Document Set metadata.
+     * @param value Value to set for the documentSet property.
+     */
+    public set documentSet(value: DocumentSet | undefined) {
+        this._documentSet = value;
     };
     /**
      * Gets the documentTemplate property value. Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
@@ -116,11 +173,52 @@ export class ContentType extends Entity implements Parsable {
         return this._documentTemplate;
     };
     /**
+     * Sets the documentTemplate property value. Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
+     * @param value Value to set for the documentTemplate property.
+     */
+    public set documentTemplate(value: DocumentSetContent | undefined) {
+        this._documentTemplate = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "associatedHubsUrls": (o, n) => { (o as unknown as ContentType).associatedHubsUrls = n.getCollectionOfPrimitiveValues<string>(); },
+            "base": (o, n) => { (o as unknown as ContentType).base = n.getObjectValue<ContentType>(createContentTypeFromDiscriminatorValue); },
+            "baseTypes": (o, n) => { (o as unknown as ContentType).baseTypes = n.getCollectionOfObjectValues<ContentType>(createContentTypeFromDiscriminatorValue); },
+            "columnLinks": (o, n) => { (o as unknown as ContentType).columnLinks = n.getCollectionOfObjectValues<ColumnLink>(createColumnLinkFromDiscriminatorValue); },
+            "columnPositions": (o, n) => { (o as unknown as ContentType).columnPositions = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
+            "columns": (o, n) => { (o as unknown as ContentType).columns = n.getCollectionOfObjectValues<ColumnDefinition>(createColumnDefinitionFromDiscriminatorValue); },
+            "description": (o, n) => { (o as unknown as ContentType).description = n.getStringValue(); },
+            "documentSet": (o, n) => { (o as unknown as ContentType).documentSet = n.getObjectValue<DocumentSet>(createDocumentSetFromDiscriminatorValue); },
+            "documentTemplate": (o, n) => { (o as unknown as ContentType).documentTemplate = n.getObjectValue<DocumentSetContent>(createDocumentSetContentFromDiscriminatorValue); },
+            "group": (o, n) => { (o as unknown as ContentType).group = n.getStringValue(); },
+            "hidden": (o, n) => { (o as unknown as ContentType).hidden = n.getBooleanValue(); },
+            "inheritedFrom": (o, n) => { (o as unknown as ContentType).inheritedFrom = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
+            "isBuiltIn": (o, n) => { (o as unknown as ContentType).isBuiltIn = n.getBooleanValue(); },
+            "name": (o, n) => { (o as unknown as ContentType).name = n.getStringValue(); },
+            "order": (o, n) => { (o as unknown as ContentType).order = n.getObjectValue<ContentTypeOrder>(createContentTypeOrderFromDiscriminatorValue); },
+            "parentId": (o, n) => { (o as unknown as ContentType).parentId = n.getStringValue(); },
+            "propagateChanges": (o, n) => { (o as unknown as ContentType).propagateChanges = n.getBooleanValue(); },
+            "readOnly": (o, n) => { (o as unknown as ContentType).readOnly = n.getBooleanValue(); },
+            "sealed": (o, n) => { (o as unknown as ContentType).sealed = n.getBooleanValue(); },
+        };
+    };
+    /**
      * Gets the group property value. The name of the group this content type belongs to. Helps organize related content types.
      * @returns a string
      */
     public get group() {
         return this._group;
+    };
+    /**
+     * Sets the group property value. The name of the group this content type belongs to. Helps organize related content types.
+     * @param value Value to set for the group property.
+     */
+    public set group(value: string | undefined) {
+        this._group = value;
     };
     /**
      * Gets the hidden property value. Indicates whether the content type is hidden in the list's 'New' menu.
@@ -130,11 +228,25 @@ export class ContentType extends Entity implements Parsable {
         return this._hidden;
     };
     /**
+     * Sets the hidden property value. Indicates whether the content type is hidden in the list's 'New' menu.
+     * @param value Value to set for the hidden property.
+     */
+    public set hidden(value: boolean | undefined) {
+        this._hidden = value;
+    };
+    /**
      * Gets the inheritedFrom property value. If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
      * @returns a itemReference
      */
     public get inheritedFrom() {
         return this._inheritedFrom;
+    };
+    /**
+     * Sets the inheritedFrom property value. If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
+     * @param value Value to set for the inheritedFrom property.
+     */
+    public set inheritedFrom(value: ItemReference | undefined) {
+        this._inheritedFrom = value;
     };
     /**
      * Gets the isBuiltIn property value. Specifies if a content type is a built-in content type.
@@ -144,11 +256,25 @@ export class ContentType extends Entity implements Parsable {
         return this._isBuiltIn;
     };
     /**
+     * Sets the isBuiltIn property value. Specifies if a content type is a built-in content type.
+     * @param value Value to set for the isBuiltIn property.
+     */
+    public set isBuiltIn(value: boolean | undefined) {
+        this._isBuiltIn = value;
+    };
+    /**
      * Gets the name property value. The name of the content type.
      * @returns a string
      */
     public get name() {
         return this._name;
+    };
+    /**
+     * Sets the name property value. The name of the content type.
+     * @param value Value to set for the name property.
+     */
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Gets the order property value. Specifies the order in which the content type appears in the selection UI.
@@ -158,11 +284,25 @@ export class ContentType extends Entity implements Parsable {
         return this._order;
     };
     /**
+     * Sets the order property value. Specifies the order in which the content type appears in the selection UI.
+     * @param value Value to set for the order property.
+     */
+    public set order(value: ContentTypeOrder | undefined) {
+        this._order = value;
+    };
+    /**
      * Gets the parentId property value. The unique identifier of the content type.
      * @returns a string
      */
     public get parentId() {
         return this._parentId;
+    };
+    /**
+     * Sets the parentId property value. The unique identifier of the content type.
+     * @param value Value to set for the parentId property.
+     */
+    public set parentId(value: string | undefined) {
+        this._parentId = value;
     };
     /**
      * Gets the propagateChanges property value. If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.
@@ -172,45 +312,39 @@ export class ContentType extends Entity implements Parsable {
         return this._propagateChanges;
     };
     /**
-     * Gets the readOnly property value. If true, the content type cannot be modified unless this value is first set to false.
+     * Sets the propagateChanges property value. If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.
+     * @param value Value to set for the propagateChanges property.
+     */
+    public set propagateChanges(value: boolean | undefined) {
+        this._propagateChanges = value;
+    };
+    /**
+     * Gets the readOnly property value. If true, the content type can't be modified unless this value is first set to false.
      * @returns a boolean
      */
     public get readOnly() {
         return this._readOnly;
     };
     /**
-     * Gets the sealed property value. If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
+     * Sets the readOnly property value. If true, the content type can't be modified unless this value is first set to false.
+     * @param value Value to set for the readOnly property.
+     */
+    public set readOnly(value: boolean | undefined) {
+        this._readOnly = value;
+    };
+    /**
+     * Gets the sealed property value. If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
      * @returns a boolean
      */
     public get sealed() {
         return this._sealed;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the sealed property value. If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
+     * @param value Value to set for the sealed property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["associatedHubsUrls", (o, n) => { (o as unknown as ContentType).associatedHubsUrls = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["base", (o, n) => { (o as unknown as ContentType).base = n.getObjectValue<ContentType>(ContentType); }],
-            ["baseTypes", (o, n) => { (o as unknown as ContentType).baseTypes = n.getCollectionOfObjectValues<ContentType>(ContentType); }],
-            ["columnLinks", (o, n) => { (o as unknown as ContentType).columnLinks = n.getCollectionOfObjectValues<ColumnLink>(ColumnLink); }],
-            ["columnPositions", (o, n) => { (o as unknown as ContentType).columnPositions = n.getCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition); }],
-            ["columns", (o, n) => { (o as unknown as ContentType).columns = n.getCollectionOfObjectValues<ColumnDefinition>(ColumnDefinition); }],
-            ["description", (o, n) => { (o as unknown as ContentType).description = n.getStringValue(); }],
-            ["documentSet", (o, n) => { (o as unknown as ContentType).documentSet = n.getObjectValue<DocumentSet>(DocumentSet); }],
-            ["documentTemplate", (o, n) => { (o as unknown as ContentType).documentTemplate = n.getObjectValue<DocumentSetContent>(DocumentSetContent); }],
-            ["group", (o, n) => { (o as unknown as ContentType).group = n.getStringValue(); }],
-            ["hidden", (o, n) => { (o as unknown as ContentType).hidden = n.getBooleanValue(); }],
-            ["inheritedFrom", (o, n) => { (o as unknown as ContentType).inheritedFrom = n.getObjectValue<ItemReference>(ItemReference); }],
-            ["isBuiltIn", (o, n) => { (o as unknown as ContentType).isBuiltIn = n.getBooleanValue(); }],
-            ["name", (o, n) => { (o as unknown as ContentType).name = n.getStringValue(); }],
-            ["order", (o, n) => { (o as unknown as ContentType).order = n.getObjectValue<ContentTypeOrder>(ContentTypeOrder); }],
-            ["parentId", (o, n) => { (o as unknown as ContentType).parentId = n.getStringValue(); }],
-            ["propagateChanges", (o, n) => { (o as unknown as ContentType).propagateChanges = n.getBooleanValue(); }],
-            ["readOnly", (o, n) => { (o as unknown as ContentType).readOnly = n.getBooleanValue(); }],
-            ["sealed", (o, n) => { (o as unknown as ContentType).sealed = n.getBooleanValue(); }],
-        ]);
+    public set sealed(value: boolean | undefined) {
+        this._sealed = value;
     };
     /**
      * Serializes information the current object
@@ -238,138 +372,5 @@ export class ContentType extends Entity implements Parsable {
         writer.writeBooleanValue("propagateChanges", this.propagateChanges);
         writer.writeBooleanValue("readOnly", this.readOnly);
         writer.writeBooleanValue("sealed", this.sealed);
-    };
-    /**
-     * Sets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
-     * @param value Value to set for the associatedHubsUrls property.
-     */
-    public set associatedHubsUrls(value: string[] | undefined) {
-        this._associatedHubsUrls = value;
-    };
-    /**
-     * Sets the base property value. Parent contentType from which this content type is derived.
-     * @param value Value to set for the base property.
-     */
-    public set base(value: ContentType | undefined) {
-        this._base = value;
-    };
-    /**
-     * Sets the baseTypes property value. The collection of content types that are ancestors of this content type.
-     * @param value Value to set for the baseTypes property.
-     */
-    public set baseTypes(value: ContentType[] | undefined) {
-        this._baseTypes = value;
-    };
-    /**
-     * Sets the columnLinks property value. The collection of columns that are required by this content type
-     * @param value Value to set for the columnLinks property.
-     */
-    public set columnLinks(value: ColumnLink[] | undefined) {
-        this._columnLinks = value;
-    };
-    /**
-     * Sets the columnPositions property value. Column order information in a content type.
-     * @param value Value to set for the columnPositions property.
-     */
-    public set columnPositions(value: ColumnDefinition[] | undefined) {
-        this._columnPositions = value;
-    };
-    /**
-     * Sets the columns property value. The collection of column definitions for this contentType.
-     * @param value Value to set for the columns property.
-     */
-    public set columns(value: ColumnDefinition[] | undefined) {
-        this._columns = value;
-    };
-    /**
-     * Sets the description property value. The descriptive text for the item.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
-    };
-    /**
-     * Sets the documentSet property value. Document Set metadata.
-     * @param value Value to set for the documentSet property.
-     */
-    public set documentSet(value: DocumentSet | undefined) {
-        this._documentSet = value;
-    };
-    /**
-     * Sets the documentTemplate property value. Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.
-     * @param value Value to set for the documentTemplate property.
-     */
-    public set documentTemplate(value: DocumentSetContent | undefined) {
-        this._documentTemplate = value;
-    };
-    /**
-     * Sets the group property value. The name of the group this content type belongs to. Helps organize related content types.
-     * @param value Value to set for the group property.
-     */
-    public set group(value: string | undefined) {
-        this._group = value;
-    };
-    /**
-     * Sets the hidden property value. Indicates whether the content type is hidden in the list's 'New' menu.
-     * @param value Value to set for the hidden property.
-     */
-    public set hidden(value: boolean | undefined) {
-        this._hidden = value;
-    };
-    /**
-     * Sets the inheritedFrom property value. If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.
-     * @param value Value to set for the inheritedFrom property.
-     */
-    public set inheritedFrom(value: ItemReference | undefined) {
-        this._inheritedFrom = value;
-    };
-    /**
-     * Sets the isBuiltIn property value. Specifies if a content type is a built-in content type.
-     * @param value Value to set for the isBuiltIn property.
-     */
-    public set isBuiltIn(value: boolean | undefined) {
-        this._isBuiltIn = value;
-    };
-    /**
-     * Sets the name property value. The name of the content type.
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
-    };
-    /**
-     * Sets the order property value. Specifies the order in which the content type appears in the selection UI.
-     * @param value Value to set for the order property.
-     */
-    public set order(value: ContentTypeOrder | undefined) {
-        this._order = value;
-    };
-    /**
-     * Sets the parentId property value. The unique identifier of the content type.
-     * @param value Value to set for the parentId property.
-     */
-    public set parentId(value: string | undefined) {
-        this._parentId = value;
-    };
-    /**
-     * Sets the propagateChanges property value. If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.
-     * @param value Value to set for the propagateChanges property.
-     */
-    public set propagateChanges(value: boolean | undefined) {
-        this._propagateChanges = value;
-    };
-    /**
-     * Sets the readOnly property value. If true, the content type cannot be modified unless this value is first set to false.
-     * @param value Value to set for the readOnly property.
-     */
-    public set readOnly(value: boolean | undefined) {
-        this._readOnly = value;
-    };
-    /**
-     * Sets the sealed property value. If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
-     * @param value Value to set for the sealed property.
-     */
-    public set sealed(value: boolean | undefined) {
-        this._sealed = value;
     };
 }

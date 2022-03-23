@@ -1,23 +1,32 @@
-import {ItemReference} from '../../../../../models/microsoft/graph/itemReference';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {ItemReference} from '../../../../../models/microsoft/graph/';
+import {createItemReferenceFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createItemReferenceFromDiscriminatorValue';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class CopyToDefaultContentLocationRequestBody implements Parsable {
+/** Provides operations to call the copyToDefaultContentLocation method.  */
+export class CopyToDefaultContentLocationRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _destinationFileName?: string | undefined;
     private _sourceFile?: ItemReference | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new copyToDefaultContentLocationRequestBody and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
-     */
-    public get additionalData() {
-        return this._additionalData;
+        this._additionalData = {};
     };
     /**
      * Gets the destinationFileName property value. 
@@ -27,21 +36,21 @@ export class CopyToDefaultContentLocationRequestBody implements Parsable {
         return this._destinationFileName;
     };
     /**
-     * Gets the sourceFile property value. 
-     * @returns a itemReference
+     * Sets the destinationFileName property value. 
+     * @param value Value to set for the destinationFileName property.
      */
-    public get sourceFile() {
-        return this._sourceFile;
+    public set destinationFileName(value: string | undefined) {
+        this._destinationFileName = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["destinationFileName", (o, n) => { (o as unknown as CopyToDefaultContentLocationRequestBody).destinationFileName = n.getStringValue(); }],
-            ["sourceFile", (o, n) => { (o as unknown as CopyToDefaultContentLocationRequestBody).sourceFile = n.getObjectValue<ItemReference>(ItemReference); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "destinationFileName": (o, n) => { (o as unknown as CopyToDefaultContentLocationRequestBody).destinationFileName = n.getStringValue(); },
+            "sourceFile": (o, n) => { (o as unknown as CopyToDefaultContentLocationRequestBody).sourceFile = n.getObjectValue<ItemReference>(createItemReferenceFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -54,18 +63,11 @@ export class CopyToDefaultContentLocationRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the sourceFile property value. 
+     * @returns a itemReference
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the destinationFileName property value. 
-     * @param value Value to set for the destinationFileName property.
-     */
-    public set destinationFileName(value: string | undefined) {
-        this._destinationFileName = value;
+    public get sourceFile() {
+        return this._sourceFile;
     };
     /**
      * Sets the sourceFile property value. 

@@ -1,10 +1,11 @@
-import {PatternedRecurrence} from './patternedRecurrence';
-import {TimeRange} from './timeRange';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
+import {createTimeRangeFromDiscriminatorValue} from './createTimeRangeFromDiscriminatorValue';
+import {PatternedRecurrence, TimeRange} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ShiftAvailability implements Parsable {
+export class ShiftAvailability implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specifies the pattern for recurrence  */
     private _recurrence?: PatternedRecurrence | undefined;
     /** The time slot(s) preferred by the user.  */
@@ -12,17 +13,35 @@ export class ShiftAvailability implements Parsable {
     /** Specifies the time zone for the indicated time.  */
     private _timeZone?: string | undefined;
     /**
-     * Instantiates a new shiftAvailability and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new shiftAvailability and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "recurrence": (o, n) => { (o as unknown as ShiftAvailability).recurrence = n.getObjectValue<PatternedRecurrence>(createPatternedRecurrenceFromDiscriminatorValue); },
+            "timeSlots": (o, n) => { (o as unknown as ShiftAvailability).timeSlots = n.getCollectionOfObjectValues<TimeRange>(createTimeRangeFromDiscriminatorValue); },
+            "timeZone": (o, n) => { (o as unknown as ShiftAvailability).timeZone = n.getStringValue(); },
+        };
     };
     /**
      * Gets the recurrence property value. Specifies the pattern for recurrence
@@ -32,29 +51,11 @@ export class ShiftAvailability implements Parsable {
         return this._recurrence;
     };
     /**
-     * Gets the timeSlots property value. The time slot(s) preferred by the user.
-     * @returns a timeRange
+     * Sets the recurrence property value. Specifies the pattern for recurrence
+     * @param value Value to set for the recurrence property.
      */
-    public get timeSlots() {
-        return this._timeSlots;
-    };
-    /**
-     * Gets the timeZone property value. Specifies the time zone for the indicated time.
-     * @returns a string
-     */
-    public get timeZone() {
-        return this._timeZone;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["recurrence", (o, n) => { (o as unknown as ShiftAvailability).recurrence = n.getObjectValue<PatternedRecurrence>(PatternedRecurrence); }],
-            ["timeSlots", (o, n) => { (o as unknown as ShiftAvailability).timeSlots = n.getCollectionOfObjectValues<TimeRange>(TimeRange); }],
-            ["timeZone", (o, n) => { (o as unknown as ShiftAvailability).timeZone = n.getStringValue(); }],
-        ]);
+    public set recurrence(value: PatternedRecurrence | undefined) {
+        this._recurrence = value;
     };
     /**
      * Serializes information the current object
@@ -68,18 +69,11 @@ export class ShiftAvailability implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the timeSlots property value. The time slot(s) preferred by the user.
+     * @returns a timeRange
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the recurrence property value. Specifies the pattern for recurrence
-     * @param value Value to set for the recurrence property.
-     */
-    public set recurrence(value: PatternedRecurrence | undefined) {
-        this._recurrence = value;
+    public get timeSlots() {
+        return this._timeSlots;
     };
     /**
      * Sets the timeSlots property value. The time slot(s) preferred by the user.
@@ -87,6 +81,13 @@ export class ShiftAvailability implements Parsable {
      */
     public set timeSlots(value: TimeRange[] | undefined) {
         this._timeSlots = value;
+    };
+    /**
+     * Gets the timeZone property value. Specifies the time zone for the indicated time.
+     * @returns a string
+     */
+    public get timeZone() {
+        return this._timeZone;
     };
     /**
      * Sets the timeZone property value. Specifies the time zone for the indicated time.

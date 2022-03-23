@@ -1,25 +1,33 @@
-import {AdministrativeUnit} from './administrativeUnit';
-import {DirectoryObject} from './directoryObject';
-import {Entity} from './entity';
+import {createAdministrativeUnitFromDiscriminatorValue} from './createAdministrativeUnitFromDiscriminatorValue';
+import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
+import {AdministrativeUnit, DirectoryObject, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the directory singleton.  */
 export class Directory extends Entity implements Parsable {
     /** Conceptual container for user and group directory objects.  */
     private _administrativeUnits?: AdministrativeUnit[] | undefined;
     /** Recently deleted items. Read-only. Nullable.  */
     private _deletedItems?: DirectoryObject[] | undefined;
     /**
-     * Instantiates a new directory and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the administrativeUnits property value. Conceptual container for user and group directory objects.
      * @returns a administrativeUnit
      */
     public get administrativeUnits() {
         return this._administrativeUnits;
+    };
+    /**
+     * Sets the administrativeUnits property value. Conceptual container for user and group directory objects.
+     * @param value Value to set for the administrativeUnits property.
+     */
+    public set administrativeUnits(value: AdministrativeUnit[] | undefined) {
+        this._administrativeUnits = value;
+    };
+    /**
+     * Instantiates a new directory and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the deletedItems property value. Recently deleted items. Read-only. Nullable.
@@ -29,14 +37,21 @@ export class Directory extends Entity implements Parsable {
         return this._deletedItems;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the deletedItems property value. Recently deleted items. Read-only. Nullable.
+     * @param value Value to set for the deletedItems property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["administrativeUnits", (o, n) => { (o as unknown as Directory).administrativeUnits = n.getCollectionOfObjectValues<AdministrativeUnit>(AdministrativeUnit); }],
-            ["deletedItems", (o, n) => { (o as unknown as Directory).deletedItems = n.getCollectionOfObjectValues<DirectoryObject>(DirectoryObject); }],
-        ]);
+    public set deletedItems(value: DirectoryObject[] | undefined) {
+        this._deletedItems = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "administrativeUnits": (o, n) => { (o as unknown as Directory).administrativeUnits = n.getCollectionOfObjectValues<AdministrativeUnit>(createAdministrativeUnitFromDiscriminatorValue); },
+            "deletedItems": (o, n) => { (o as unknown as Directory).deletedItems = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -47,19 +62,5 @@ export class Directory extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<AdministrativeUnit>("administrativeUnits", this.administrativeUnits);
         writer.writeCollectionOfObjectValues<DirectoryObject>("deletedItems", this.deletedItems);
-    };
-    /**
-     * Sets the administrativeUnits property value. Conceptual container for user and group directory objects.
-     * @param value Value to set for the administrativeUnits property.
-     */
-    public set administrativeUnits(value: AdministrativeUnit[] | undefined) {
-        this._administrativeUnits = value;
-    };
-    /**
-     * Sets the deletedItems property value. Recently deleted items. Read-only. Nullable.
-     * @param value Value to set for the deletedItems property.
-     */
-    public set deletedItems(value: DirectoryObject[] | undefined) {
-        this._deletedItems = value;
     };
 }

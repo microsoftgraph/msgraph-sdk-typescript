@@ -1,25 +1,42 @@
 import {FailureStage} from './failureStage';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class FailureInfo implements Parsable {
+export class FailureInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Classification of why a call or portion of a call failed.  */
     private _reason?: string | undefined;
     /** The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.  */
     private _stage?: FailureStage | undefined;
     /**
-     * Instantiates a new failureInfo and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new failureInfo and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "reason": (o, n) => { (o as unknown as FailureInfo).reason = n.getStringValue(); },
+            "stage": (o, n) => { (o as unknown as FailureInfo).stage = n.getEnumValue<FailureStage>(FailureStage); },
+        };
     };
     /**
      * Gets the reason property value. Classification of why a call or portion of a call failed.
@@ -29,21 +46,11 @@ export class FailureInfo implements Parsable {
         return this._reason;
     };
     /**
-     * Gets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.
-     * @returns a failureStage
+     * Sets the reason property value. Classification of why a call or portion of a call failed.
+     * @param value Value to set for the reason property.
      */
-    public get stage() {
-        return this._stage;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["reason", (o, n) => { (o as unknown as FailureInfo).reason = n.getStringValue(); }],
-            ["stage", (o, n) => { (o as unknown as FailureInfo).stage = n.getEnumValue<FailureStage>(FailureStage); }],
-        ]);
+    public set reason(value: string | undefined) {
+        this._reason = value;
     };
     /**
      * Serializes information the current object
@@ -56,18 +63,11 @@ export class FailureInfo implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.
+     * @returns a failureStage
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the reason property value. Classification of why a call or portion of a call failed.
-     * @param value Value to set for the reason property.
-     */
-    public set reason(value: string | undefined) {
-        this._reason = value;
+    public get stage() {
+        return this._stage;
     };
     /**
      * Sets the stage property value. The stage when the failure occurred. Possible values are: unknown, callSetup, midcall, unknownFutureValue.

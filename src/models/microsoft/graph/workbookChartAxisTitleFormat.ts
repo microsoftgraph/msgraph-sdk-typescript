@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookChartFont} from './workbookChartFont';
+import {createWorkbookChartFontFromDiscriminatorValue} from './createWorkbookChartFontFromDiscriminatorValue';
+import {Entity, WorkbookChartFont} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
@@ -19,13 +19,20 @@ export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
         return this._font;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the font property value. Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.
+     * @param value Value to set for the font property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["font", (o, n) => { (o as unknown as WorkbookChartAxisTitleFormat).font = n.getObjectValue<WorkbookChartFont>(WorkbookChartFont); }],
-        ]);
+    public set font(value: WorkbookChartFont | undefined) {
+        this._font = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "font": (o, n) => { (o as unknown as WorkbookChartAxisTitleFormat).font = n.getObjectValue<WorkbookChartFont>(createWorkbookChartFontFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -35,12 +42,5 @@ export class WorkbookChartAxisTitleFormat extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeObjectValue<WorkbookChartFont>("font", this.font);
-    };
-    /**
-     * Sets the font property value. Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only.
-     * @param value Value to set for the font property.
-     */
-    public set font(value: WorkbookChartFont | undefined) {
-        this._font = value;
     };
 }

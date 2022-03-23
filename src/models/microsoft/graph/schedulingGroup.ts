@@ -1,4 +1,4 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {ChangeTrackedEntity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
@@ -22,6 +22,24 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The display name for the schedulingGroup. Required.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as SchedulingGroup).displayName = n.getStringValue(); },
+            "isActive": (o, n) => { (o as unknown as SchedulingGroup).isActive = n.getBooleanValue(); },
+            "userIds": (o, n) => { (o as unknown as SchedulingGroup).userIds = n.getCollectionOfPrimitiveValues<string>(); },
+        };
+    };
+    /**
      * Gets the isActive property value. Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
      * @returns a boolean
      */
@@ -29,22 +47,11 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
         return this._isActive;
     };
     /**
-     * Gets the userIds property value. The list of user IDs that are a member of the schedulingGroup. Required.
-     * @returns a string
+     * Sets the isActive property value. Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
+     * @param value Value to set for the isActive property.
      */
-    public get userIds() {
-        return this._userIds;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as SchedulingGroup).displayName = n.getStringValue(); }],
-            ["isActive", (o, n) => { (o as unknown as SchedulingGroup).isActive = n.getBooleanValue(); }],
-            ["userIds", (o, n) => { (o as unknown as SchedulingGroup).userIds = n.getCollectionOfPrimitiveValues<string>(); }],
-        ]);
+    public set isActive(value: boolean | undefined) {
+        this._isActive = value;
     };
     /**
      * Serializes information the current object
@@ -58,18 +65,11 @@ export class SchedulingGroup extends ChangeTrackedEntity implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("userIds", this.userIds);
     };
     /**
-     * Sets the displayName property value. The display name for the schedulingGroup. Required.
-     * @param value Value to set for the displayName property.
+     * Gets the userIds property value. The list of user IDs that are a member of the schedulingGroup. Required.
+     * @returns a string
      */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the isActive property value. Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.
-     * @param value Value to set for the isActive property.
-     */
-    public set isActive(value: boolean | undefined) {
-        this._isActive = value;
+    public get userIds() {
+        return this._userIds;
     };
     /**
      * Sets the userIds property value. The list of user IDs that are a member of the schedulingGroup. Required.

@@ -1,13 +1,20 @@
-import {DirectoryRole} from '../models/microsoft/graph/directoryRole';
+import {DirectoryRole, DirectoryRoleCollectionResponse} from '../models/microsoft/graph/';
+import {createDirectoryRoleCollectionResponseFromDiscriminatorValue} from '../models/microsoft/graph/createDirectoryRoleCollectionResponseFromDiscriminatorValue';
+import {createDirectoryRoleFromDiscriminatorValue} from '../models/microsoft/graph/createDirectoryRoleFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
-import {DirectoryRolesResponse} from './directoryRolesResponse';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /directoryRoles  */
+/** Provides operations to manage the collection of directoryRole entities.  */
 export class DirectoryRolesRequestBuilder {
+    public get count(): CountRequestBuilder {
+        return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -56,7 +63,7 @@ export class DirectoryRolesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -74,13 +81,13 @@ export class DirectoryRolesRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
     /**
-     * Builds and executes requests for operations under /directoryRoles/microsoft.graph.delta()
+     * Provides operations to call the delta method.
      * @returns a deltaRequestBuilder
      */
     public delta() : DeltaRequestBuilder {
@@ -92,7 +99,7 @@ export class DirectoryRolesRequestBuilder {
      * @param o Request options
      * @param q Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of DirectoryRolesResponse
+     * @returns a Promise of DirectoryRoleCollectionResponse
      */
     public get(q?: {
                     count?: boolean,
@@ -102,11 +109,15 @@ export class DirectoryRolesRequestBuilder {
                     search?: string,
                     select?: string[],
                     skip?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryRolesResponse | undefined> {
+                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryRoleCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<DirectoryRolesResponse>(requestInfo, DirectoryRolesResponse, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DirectoryRoleCollectionResponse>(requestInfo, createDirectoryRoleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Add new entity to directoryRoles
@@ -121,6 +132,10 @@ export class DirectoryRolesRequestBuilder {
         const requestInfo = this.createPostRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, DirectoryRole, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<DirectoryRole>(requestInfo, createDirectoryRoleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

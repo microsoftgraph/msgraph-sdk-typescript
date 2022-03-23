@@ -1,32 +1,39 @@
 import {MediaDirection} from './mediaDirection';
 import {Modality} from './modality';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class MediaStream implements Parsable {
+export class MediaStream implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.  */
     private _direction?: MediaDirection | undefined;
     /** The media stream label.  */
     private _label?: string | undefined;
     /** The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.  */
     private _mediaType?: Modality | undefined;
-    /** Indicates whether the media is muted by the server.  */
+    /** If the media is muted by the server.  */
     private _serverMuted?: boolean | undefined;
     /** The source ID.  */
     private _sourceId?: string | undefined;
     /**
-     * Instantiates a new mediaStream and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new mediaStream and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
@@ -36,11 +43,38 @@ export class MediaStream implements Parsable {
         return this._direction;
     };
     /**
+     * Sets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
+     * @param value Value to set for the direction property.
+     */
+    public set direction(value: MediaDirection | undefined) {
+        this._direction = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "direction": (o, n) => { (o as unknown as MediaStream).direction = n.getEnumValue<MediaDirection>(MediaDirection); },
+            "label": (o, n) => { (o as unknown as MediaStream).label = n.getStringValue(); },
+            "mediaType": (o, n) => { (o as unknown as MediaStream).mediaType = n.getEnumValue<Modality>(Modality); },
+            "serverMuted": (o, n) => { (o as unknown as MediaStream).serverMuted = n.getBooleanValue(); },
+            "sourceId": (o, n) => { (o as unknown as MediaStream).sourceId = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the label property value. The media stream label.
      * @returns a string
      */
     public get label() {
         return this._label;
+    };
+    /**
+     * Sets the label property value. The media stream label.
+     * @param value Value to set for the label property.
+     */
+    public set label(value: string | undefined) {
+        this._label = value;
     };
     /**
      * Gets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
@@ -50,31 +84,11 @@ export class MediaStream implements Parsable {
         return this._mediaType;
     };
     /**
-     * Gets the serverMuted property value. Indicates whether the media is muted by the server.
-     * @returns a boolean
+     * Sets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
+     * @param value Value to set for the mediaType property.
      */
-    public get serverMuted() {
-        return this._serverMuted;
-    };
-    /**
-     * Gets the sourceId property value. The source ID.
-     * @returns a string
-     */
-    public get sourceId() {
-        return this._sourceId;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["direction", (o, n) => { (o as unknown as MediaStream).direction = n.getEnumValue<MediaDirection>(MediaDirection); }],
-            ["label", (o, n) => { (o as unknown as MediaStream).label = n.getStringValue(); }],
-            ["mediaType", (o, n) => { (o as unknown as MediaStream).mediaType = n.getEnumValue<Modality>(Modality); }],
-            ["serverMuted", (o, n) => { (o as unknown as MediaStream).serverMuted = n.getBooleanValue(); }],
-            ["sourceId", (o, n) => { (o as unknown as MediaStream).sourceId = n.getStringValue(); }],
-        ]);
+    public set mediaType(value: Modality | undefined) {
+        this._mediaType = value;
     };
     /**
      * Serializes information the current object
@@ -90,39 +104,25 @@ export class MediaStream implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the serverMuted property value. If the media is muted by the server.
+     * @returns a boolean
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get serverMuted() {
+        return this._serverMuted;
     };
     /**
-     * Sets the direction property value. The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.
-     * @param value Value to set for the direction property.
-     */
-    public set direction(value: MediaDirection | undefined) {
-        this._direction = value;
-    };
-    /**
-     * Sets the label property value. The media stream label.
-     * @param value Value to set for the label property.
-     */
-    public set label(value: string | undefined) {
-        this._label = value;
-    };
-    /**
-     * Sets the mediaType property value. The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.
-     * @param value Value to set for the mediaType property.
-     */
-    public set mediaType(value: Modality | undefined) {
-        this._mediaType = value;
-    };
-    /**
-     * Sets the serverMuted property value. Indicates whether the media is muted by the server.
+     * Sets the serverMuted property value. If the media is muted by the server.
      * @param value Value to set for the serverMuted property.
      */
     public set serverMuted(value: boolean | undefined) {
         this._serverMuted = value;
+    };
+    /**
+     * Gets the sourceId property value. The source ID.
+     * @returns a string
+     */
+    public get sourceId() {
+        return this._sourceId;
     };
     /**
      * Sets the sourceId property value. The source ID.

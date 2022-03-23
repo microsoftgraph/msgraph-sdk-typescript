@@ -1,32 +1,56 @@
 import {RiskDetail} from './riskDetail';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RiskUserActivity implements Parsable {
+export class RiskUserActivity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
-    /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.  */
+    private _additionalData: Record<string, unknown>;
+    /** Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.  */
     private _detail?: RiskDetail | undefined;
     /** The type of risk event detected.  */
     private _riskEventTypes?: string[] | undefined;
     /**
-     * Instantiates a new riskUserActivity and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new riskUserActivity and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * Gets the detail property value. Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      * @returns a riskDetail
      */
     public get detail() {
         return this._detail;
+    };
+    /**
+     * Sets the detail property value. Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+     * @param value Value to set for the detail property.
+     */
+    public set detail(value: RiskDetail | undefined) {
+        this._detail = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "detail": (o, n) => { (o as unknown as RiskUserActivity).detail = n.getEnumValue<RiskDetail>(RiskDetail); },
+            "riskEventTypes": (o, n) => { (o as unknown as RiskUserActivity).riskEventTypes = n.getCollectionOfPrimitiveValues<string>(); },
+        };
     };
     /**
      * Gets the riskEventTypes property value. The type of risk event detected.
@@ -36,14 +60,11 @@ export class RiskUserActivity implements Parsable {
         return this._riskEventTypes;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the riskEventTypes property value. The type of risk event detected.
+     * @param value Value to set for the riskEventTypes property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["detail", (o, n) => { (o as unknown as RiskUserActivity).detail = n.getEnumValue<RiskDetail>(RiskDetail); }],
-            ["riskEventTypes", (o, n) => { (o as unknown as RiskUserActivity).riskEventTypes = n.getCollectionOfPrimitiveValues<string>(); }],
-        ]);
+    public set riskEventTypes(value: string[] | undefined) {
+        this._riskEventTypes = value;
     };
     /**
      * Serializes information the current object
@@ -54,26 +75,5 @@ export class RiskUserActivity implements Parsable {
         writer.writeEnumValue<RiskDetail>("detail", this.detail);
         writer.writeCollectionOfPrimitiveValues<string>("riskEventTypes", this.riskEventTypes);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the detail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
-     * @param value Value to set for the detail property.
-     */
-    public set detail(value: RiskDetail | undefined) {
-        this._detail = value;
-    };
-    /**
-     * Sets the riskEventTypes property value. The type of risk event detected.
-     * @param value Value to set for the riskEventTypes property.
-     */
-    public set riskEventTypes(value: string[] | undefined) {
-        this._riskEventTypes = value;
     };
 }

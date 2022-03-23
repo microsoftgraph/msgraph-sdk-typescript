@@ -1,49 +1,42 @@
 import {ExternalItemContentType} from './externalItemContentType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ExternalItemContent implements Parsable {
+export class ExternalItemContent implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
-    /** The type of content in the value property. Possible values are text and html. Required.  */
+    private _additionalData: Record<string, unknown>;
+    /** The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.  */
     private _type?: ExternalItemContentType | undefined;
     /** The content for the externalItem. Required.  */
     private _value?: string | undefined;
     /**
-     * Instantiates a new externalItemContent and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the type property value. The type of content in the value property. Possible values are text and html. Required.
-     * @returns a externalItemContentType
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
      */
-    public get type() {
-        return this._type;
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
-     * Gets the value property value. The content for the externalItem. Required.
-     * @returns a string
+     * Instantiates a new externalItemContent and sets the default values.
      */
-    public get value() {
-        return this._value;
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["type", (o, n) => { (o as unknown as ExternalItemContent).type = n.getEnumValue<ExternalItemContentType>(ExternalItemContentType); }],
-            ["value", (o, n) => { (o as unknown as ExternalItemContent).value = n.getStringValue(); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "type": (o, n) => { (o as unknown as ExternalItemContent).type = n.getEnumValue<ExternalItemContentType>(ExternalItemContentType); },
+            "value": (o, n) => { (o as unknown as ExternalItemContent).value = n.getStringValue(); },
+        };
     };
     /**
      * Serializes information the current object
@@ -56,18 +49,25 @@ export class ExternalItemContent implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
+     * @returns a externalItemContentType
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get type() {
+        return this._type;
     };
     /**
-     * Sets the type property value. The type of content in the value property. Possible values are text and html. Required.
+     * Sets the type property value. The type of content in the value property. Possible values are: text, html, unknownFutureValue. These are the content types that the indexer supports, and not the file extension types allowed.
      * @param value Value to set for the type property.
      */
     public set type(value: ExternalItemContentType | undefined) {
         this._type = value;
+    };
+    /**
+     * Gets the value property value. The content for the externalItem. Required.
+     * @returns a string
+     */
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. The content for the externalItem. Required.

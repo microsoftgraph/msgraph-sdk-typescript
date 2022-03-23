@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class LocalizedLabel implements Parsable {
+export class LocalizedLabel implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Indicates whether the label is the default label.  */
     private _isDefault?: boolean | undefined;
     /** The language tag for the label.  */
@@ -10,17 +10,35 @@ export class LocalizedLabel implements Parsable {
     /** The name of the label.  */
     private _name?: string | undefined;
     /**
-     * Instantiates a new localizedLabel and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new localizedLabel and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "isDefault": (o, n) => { (o as unknown as LocalizedLabel).isDefault = n.getBooleanValue(); },
+            "languageTag": (o, n) => { (o as unknown as LocalizedLabel).languageTag = n.getStringValue(); },
+            "name": (o, n) => { (o as unknown as LocalizedLabel).name = n.getStringValue(); },
+        };
     };
     /**
      * Gets the isDefault property value. Indicates whether the label is the default label.
@@ -30,11 +48,25 @@ export class LocalizedLabel implements Parsable {
         return this._isDefault;
     };
     /**
+     * Sets the isDefault property value. Indicates whether the label is the default label.
+     * @param value Value to set for the isDefault property.
+     */
+    public set isDefault(value: boolean | undefined) {
+        this._isDefault = value;
+    };
+    /**
      * Gets the languageTag property value. The language tag for the label.
      * @returns a string
      */
     public get languageTag() {
         return this._languageTag;
+    };
+    /**
+     * Sets the languageTag property value. The language tag for the label.
+     * @param value Value to set for the languageTag property.
+     */
+    public set languageTag(value: string | undefined) {
+        this._languageTag = value;
     };
     /**
      * Gets the name property value. The name of the label.
@@ -44,15 +76,11 @@ export class LocalizedLabel implements Parsable {
         return this._name;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the name property value. The name of the label.
+     * @param value Value to set for the name property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["isDefault", (o, n) => { (o as unknown as LocalizedLabel).isDefault = n.getBooleanValue(); }],
-            ["languageTag", (o, n) => { (o as unknown as LocalizedLabel).languageTag = n.getStringValue(); }],
-            ["name", (o, n) => { (o as unknown as LocalizedLabel).name = n.getStringValue(); }],
-        ]);
+    public set name(value: string | undefined) {
+        this._name = value;
     };
     /**
      * Serializes information the current object
@@ -64,33 +92,5 @@ export class LocalizedLabel implements Parsable {
         writer.writeStringValue("languageTag", this.languageTag);
         writer.writeStringValue("name", this.name);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the isDefault property value. Indicates whether the label is the default label.
-     * @param value Value to set for the isDefault property.
-     */
-    public set isDefault(value: boolean | undefined) {
-        this._isDefault = value;
-    };
-    /**
-     * Sets the languageTag property value. The language tag for the label.
-     * @param value Value to set for the languageTag property.
-     */
-    public set languageTag(value: string | undefined) {
-        this._languageTag = value;
-    };
-    /**
-     * Sets the name property value. The name of the label.
-     * @param value Value to set for the name property.
-     */
-    public set name(value: string | undefined) {
-        this._name = value;
     };
 }

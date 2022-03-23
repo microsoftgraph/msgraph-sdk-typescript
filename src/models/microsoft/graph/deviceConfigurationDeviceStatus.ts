@@ -1,5 +1,5 @@
 import {ComplianceStatus} from './complianceStatus';
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationDeviceStatus extends Entity implements Parsable {
@@ -18,17 +18,24 @@ export class DeviceConfigurationDeviceStatus extends Entity implements Parsable 
     /** UserPrincipalName.  */
     private _userPrincipalName?: string | undefined;
     /**
-     * Instantiates a new deviceConfigurationDeviceStatus and sets the default values.
-     */
-    public constructor() {
-        super();
-    };
-    /**
      * Gets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires
      * @returns a Date
      */
     public get complianceGracePeriodExpirationDateTime() {
         return this._complianceGracePeriodExpirationDateTime;
+    };
+    /**
+     * Sets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires
+     * @param value Value to set for the complianceGracePeriodExpirationDateTime property.
+     */
+    public set complianceGracePeriodExpirationDateTime(value: Date | undefined) {
+        this._complianceGracePeriodExpirationDateTime = value;
+    };
+    /**
+     * Instantiates a new deviceConfigurationDeviceStatus and sets the default values.
+     */
+    public constructor() {
+        super();
     };
     /**
      * Gets the deviceDisplayName property value. Device name of the DevicePolicyStatus.
@@ -38,11 +45,40 @@ export class DeviceConfigurationDeviceStatus extends Entity implements Parsable 
         return this._deviceDisplayName;
     };
     /**
+     * Sets the deviceDisplayName property value. Device name of the DevicePolicyStatus.
+     * @param value Value to set for the deviceDisplayName property.
+     */
+    public set deviceDisplayName(value: string | undefined) {
+        this._deviceDisplayName = value;
+    };
+    /**
      * Gets the deviceModel property value. The device model that is being reported
      * @returns a string
      */
     public get deviceModel() {
         return this._deviceModel;
+    };
+    /**
+     * Sets the deviceModel property value. The device model that is being reported
+     * @param value Value to set for the deviceModel property.
+     */
+    public set deviceModel(value: string | undefined) {
+        this._deviceModel = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "complianceGracePeriodExpirationDateTime": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).complianceGracePeriodExpirationDateTime = n.getDateValue(); },
+            "deviceDisplayName": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).deviceDisplayName = n.getStringValue(); },
+            "deviceModel": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).deviceModel = n.getStringValue(); },
+            "lastReportedDateTime": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).lastReportedDateTime = n.getDateValue(); },
+            "status": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).status = n.getEnumValue<ComplianceStatus>(ComplianceStatus); },
+            "userName": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).userName = n.getStringValue(); },
+            "userPrincipalName": (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).userPrincipalName = n.getStringValue(); },
+        };
     };
     /**
      * Gets the lastReportedDateTime property value. Last modified date time of the policy report.
@@ -52,40 +88,11 @@ export class DeviceConfigurationDeviceStatus extends Entity implements Parsable 
         return this._lastReportedDateTime;
     };
     /**
-     * Gets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
-     * @returns a complianceStatus
+     * Sets the lastReportedDateTime property value. Last modified date time of the policy report.
+     * @param value Value to set for the lastReportedDateTime property.
      */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * Gets the userName property value. The User Name that is being reported
-     * @returns a string
-     */
-    public get userName() {
-        return this._userName;
-    };
-    /**
-     * Gets the userPrincipalName property value. UserPrincipalName.
-     * @returns a string
-     */
-    public get userPrincipalName() {
-        return this._userPrincipalName;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["complianceGracePeriodExpirationDateTime", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).complianceGracePeriodExpirationDateTime = n.getDateValue(); }],
-            ["deviceDisplayName", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).deviceDisplayName = n.getStringValue(); }],
-            ["deviceModel", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).deviceModel = n.getStringValue(); }],
-            ["lastReportedDateTime", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).lastReportedDateTime = n.getDateValue(); }],
-            ["status", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).status = n.getEnumValue<ComplianceStatus>(ComplianceStatus); }],
-            ["userName", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).userName = n.getStringValue(); }],
-            ["userPrincipalName", (o, n) => { (o as unknown as DeviceConfigurationDeviceStatus).userPrincipalName = n.getStringValue(); }],
-        ]);
+    public set lastReportedDateTime(value: Date | undefined) {
+        this._lastReportedDateTime = value;
     };
     /**
      * Serializes information the current object
@@ -103,32 +110,11 @@ export class DeviceConfigurationDeviceStatus extends Entity implements Parsable 
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Sets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires
-     * @param value Value to set for the complianceGracePeriodExpirationDateTime property.
+     * Gets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
+     * @returns a complianceStatus
      */
-    public set complianceGracePeriodExpirationDateTime(value: Date | undefined) {
-        this._complianceGracePeriodExpirationDateTime = value;
-    };
-    /**
-     * Sets the deviceDisplayName property value. Device name of the DevicePolicyStatus.
-     * @param value Value to set for the deviceDisplayName property.
-     */
-    public set deviceDisplayName(value: string | undefined) {
-        this._deviceDisplayName = value;
-    };
-    /**
-     * Sets the deviceModel property value. The device model that is being reported
-     * @param value Value to set for the deviceModel property.
-     */
-    public set deviceModel(value: string | undefined) {
-        this._deviceModel = value;
-    };
-    /**
-     * Sets the lastReportedDateTime property value. Last modified date time of the policy report.
-     * @param value Value to set for the lastReportedDateTime property.
-     */
-    public set lastReportedDateTime(value: Date | undefined) {
-        this._lastReportedDateTime = value;
+    public get status() {
+        return this._status;
     };
     /**
      * Sets the status property value. Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.
@@ -138,11 +124,25 @@ export class DeviceConfigurationDeviceStatus extends Entity implements Parsable 
         this._status = value;
     };
     /**
+     * Gets the userName property value. The User Name that is being reported
+     * @returns a string
+     */
+    public get userName() {
+        return this._userName;
+    };
+    /**
      * Sets the userName property value. The User Name that is being reported
      * @param value Value to set for the userName property.
      */
     public set userName(value: string | undefined) {
         this._userName = value;
+    };
+    /**
+     * Gets the userPrincipalName property value. UserPrincipalName.
+     * @returns a string
+     */
+    public get userPrincipalName() {
+        return this._userPrincipalName;
     };
     /**
      * Sets the userPrincipalName property value. UserPrincipalName.

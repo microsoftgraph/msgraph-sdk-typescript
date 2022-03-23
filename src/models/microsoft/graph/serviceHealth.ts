@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {ServiceHealthIssue} from './serviceHealthIssue';
+import {createServiceHealthIssueFromDiscriminatorValue} from './createServiceHealthIssueFromDiscriminatorValue';
+import {Entity, ServiceHealthIssue} from './index';
 import {ServiceHealthStatus} from './serviceHealthStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -8,13 +8,24 @@ export class ServiceHealth extends Entity implements Parsable {
     private _issues?: ServiceHealthIssue[] | undefined;
     /** The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.  */
     private _service?: string | undefined;
-    /** Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.  */
+    /** Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.  */
     private _status?: ServiceHealthStatus | undefined;
     /**
      * Instantiates a new serviceHealth and sets the default values.
      */
     public constructor() {
         super();
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "issues": (o, n) => { (o as unknown as ServiceHealth).issues = n.getCollectionOfObjectValues<ServiceHealthIssue>(createServiceHealthIssueFromDiscriminatorValue); },
+            "service": (o, n) => { (o as unknown as ServiceHealth).service = n.getStringValue(); },
+            "status": (o, n) => { (o as unknown as ServiceHealth).status = n.getEnumValue<ServiceHealthStatus>(ServiceHealthStatus); },
+        };
     };
     /**
      * Gets the issues property value. A collection of issues that happened on the service, with detailed information for each issue.
@@ -24,29 +35,11 @@ export class ServiceHealth extends Entity implements Parsable {
         return this._issues;
     };
     /**
-     * Gets the service property value. The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.
-     * @returns a string
+     * Sets the issues property value. A collection of issues that happened on the service, with detailed information for each issue.
+     * @param value Value to set for the issues property.
      */
-    public get service() {
-        return this._service;
-    };
-    /**
-     * Gets the status property value. Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
-     * @returns a serviceHealthStatus
-     */
-    public get status() {
-        return this._status;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["issues", (o, n) => { (o as unknown as ServiceHealth).issues = n.getCollectionOfObjectValues<ServiceHealthIssue>(ServiceHealthIssue); }],
-            ["service", (o, n) => { (o as unknown as ServiceHealth).service = n.getStringValue(); }],
-            ["status", (o, n) => { (o as unknown as ServiceHealth).status = n.getEnumValue<ServiceHealthStatus>(ServiceHealthStatus); }],
-        ]);
+    public set issues(value: ServiceHealthIssue[] | undefined) {
+        this._issues = value;
     };
     /**
      * Serializes information the current object
@@ -60,11 +53,11 @@ export class ServiceHealth extends Entity implements Parsable {
         writer.writeEnumValue<ServiceHealthStatus>("status", this.status);
     };
     /**
-     * Sets the issues property value. A collection of issues that happened on the service, with detailed information for each issue.
-     * @param value Value to set for the issues property.
+     * Gets the service property value. The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.
+     * @returns a string
      */
-    public set issues(value: ServiceHealthIssue[] | undefined) {
-        this._issues = value;
+    public get service() {
+        return this._service;
     };
     /**
      * Sets the service property value. The service name. Use the list healthOverviews operation to get exact string names for services subscribed by the tenant.
@@ -74,7 +67,14 @@ export class ServiceHealth extends Entity implements Parsable {
         this._service = value;
     };
     /**
-     * Sets the status property value. Show the overall service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * Gets the status property value. Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
+     * @returns a serviceHealthStatus
+     */
+    public get status() {
+        return this._status;
+    };
+    /**
+     * Sets the status property value. Show the overral service health status. Possible values are: serviceOperational, investigating, restoringService, verifyingService, serviceRestored, postIncidentReviewPublished, serviceDegradation, serviceInterruption, extendedRecovery, falsePositive, investigationSuspended, resolved, mitigatedExternal, mitigated, resolvedExternal, confirmed, reported, unknownFutureValue. For more details, see serviceHealthStatus values.
      * @param value Value to set for the status property.
      */
     public set status(value: ServiceHealthStatus | undefined) {

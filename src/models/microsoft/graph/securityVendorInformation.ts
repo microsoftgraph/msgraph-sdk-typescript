@@ -1,8 +1,8 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SecurityVendorInformation implements Parsable {
+export class SecurityVendorInformation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.  */
     private _provider?: string | undefined;
     /** Version of the provider or subprovider, if it exists, that generated the alert. Required  */
@@ -12,17 +12,36 @@ export class SecurityVendorInformation implements Parsable {
     /** Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required  */
     private _vendor?: string | undefined;
     /**
-     * Instantiates a new securityVendorInformation and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new securityVendorInformation and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "provider": (o, n) => { (o as unknown as SecurityVendorInformation).provider = n.getStringValue(); },
+            "providerVersion": (o, n) => { (o as unknown as SecurityVendorInformation).providerVersion = n.getStringValue(); },
+            "subProvider": (o, n) => { (o as unknown as SecurityVendorInformation).subProvider = n.getStringValue(); },
+            "vendor": (o, n) => { (o as unknown as SecurityVendorInformation).vendor = n.getStringValue(); },
+        };
     };
     /**
      * Gets the provider property value. Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
@@ -32,6 +51,13 @@ export class SecurityVendorInformation implements Parsable {
         return this._provider;
     };
     /**
+     * Sets the provider property value. Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
+     * @param value Value to set for the provider property.
+     */
+    public set provider(value: string | undefined) {
+        this._provider = value;
+    };
+    /**
      * Gets the providerVersion property value. Version of the provider or subprovider, if it exists, that generated the alert. Required
      * @returns a string
      */
@@ -39,30 +65,11 @@ export class SecurityVendorInformation implements Parsable {
         return this._providerVersion;
     };
     /**
-     * Gets the subProvider property value. Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
-     * @returns a string
+     * Sets the providerVersion property value. Version of the provider or subprovider, if it exists, that generated the alert. Required
+     * @param value Value to set for the providerVersion property.
      */
-    public get subProvider() {
-        return this._subProvider;
-    };
-    /**
-     * Gets the vendor property value. Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
-     * @returns a string
-     */
-    public get vendor() {
-        return this._vendor;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["provider", (o, n) => { (o as unknown as SecurityVendorInformation).provider = n.getStringValue(); }],
-            ["providerVersion", (o, n) => { (o as unknown as SecurityVendorInformation).providerVersion = n.getStringValue(); }],
-            ["subProvider", (o, n) => { (o as unknown as SecurityVendorInformation).subProvider = n.getStringValue(); }],
-            ["vendor", (o, n) => { (o as unknown as SecurityVendorInformation).vendor = n.getStringValue(); }],
-        ]);
+    public set providerVersion(value: string | undefined) {
+        this._providerVersion = value;
     };
     /**
      * Serializes information the current object
@@ -77,25 +84,11 @@ export class SecurityVendorInformation implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the subProvider property value. Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
+     * @returns a string
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the provider property value. Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.
-     * @param value Value to set for the provider property.
-     */
-    public set provider(value: string | undefined) {
-        this._provider = value;
-    };
-    /**
-     * Sets the providerVersion property value. Version of the provider or subprovider, if it exists, that generated the alert. Required
-     * @param value Value to set for the providerVersion property.
-     */
-    public set providerVersion(value: string | undefined) {
-        this._providerVersion = value;
+    public get subProvider() {
+        return this._subProvider;
     };
     /**
      * Sets the subProvider property value. Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.
@@ -103,6 +96,13 @@ export class SecurityVendorInformation implements Parsable {
      */
     public set subProvider(value: string | undefined) {
         this._subProvider = value;
+    };
+    /**
+     * Gets the vendor property value. Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required
+     * @returns a string
+     */
+    public get vendor() {
+        return this._vendor;
     };
     /**
      * Sets the vendor property value. Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required

@@ -1,4 +1,4 @@
-import {ShiftItem} from './shiftItem';
+import {ShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftItem extends ShiftItem implements Parsable {
@@ -11,6 +11,15 @@ export class OpenShiftItem extends ShiftItem implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "openSlotCount": (o, n) => { (o as unknown as OpenShiftItem).openSlotCount = n.getNumberValue(); },
+        };
+    };
+    /**
      * Gets the openSlotCount property value. Count of the number of slots for the given open shift.
      * @returns a integer
      */
@@ -18,13 +27,11 @@ export class OpenShiftItem extends ShiftItem implements Parsable {
         return this._openSlotCount;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the openSlotCount property value. Count of the number of slots for the given open shift.
+     * @param value Value to set for the openSlotCount property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["openSlotCount", (o, n) => { (o as unknown as OpenShiftItem).openSlotCount = n.getNumberValue(); }],
-        ]);
+    public set openSlotCount(value: number | undefined) {
+        this._openSlotCount = value;
     };
     /**
      * Serializes information the current object
@@ -34,12 +41,5 @@ export class OpenShiftItem extends ShiftItem implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeNumberValue("openSlotCount", this.openSlotCount);
-    };
-    /**
-     * Sets the openSlotCount property value. Count of the number of slots for the given open shift.
-     * @param value Value to set for the openSlotCount property.
-     */
-    public set openSlotCount(value: number | undefined) {
-        this._openSlotCount = value;
     };
 }

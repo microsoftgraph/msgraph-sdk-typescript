@@ -1,25 +1,32 @@
 import {PrintTaskProcessingState} from './printTaskProcessingState';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class PrintTaskStatus implements Parsable {
+export class PrintTaskStatus implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** A human-readable description of the current processing state of the printTask.  */
     private _description?: string | undefined;
     /** The current processing state of the printTask. Valid values are described in the following table.  */
     private _state?: PrintTaskProcessingState | undefined;
     /**
-     * Instantiates a new printTaskStatus and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new printTaskStatus and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the description property value. A human-readable description of the current processing state of the printTask.
@@ -29,21 +36,21 @@ export class PrintTaskStatus implements Parsable {
         return this._description;
     };
     /**
-     * Gets the state property value. The current processing state of the printTask. Valid values are described in the following table.
-     * @returns a printTaskProcessingState
+     * Sets the description property value. A human-readable description of the current processing state of the printTask.
+     * @param value Value to set for the description property.
      */
-    public get state() {
-        return this._state;
+    public set description(value: string | undefined) {
+        this._description = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["description", (o, n) => { (o as unknown as PrintTaskStatus).description = n.getStringValue(); }],
-            ["state", (o, n) => { (o as unknown as PrintTaskStatus).state = n.getEnumValue<PrintTaskProcessingState>(PrintTaskProcessingState); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "description": (o, n) => { (o as unknown as PrintTaskStatus).description = n.getStringValue(); },
+            "state": (o, n) => { (o as unknown as PrintTaskStatus).state = n.getEnumValue<PrintTaskProcessingState>(PrintTaskProcessingState); },
+        };
     };
     /**
      * Serializes information the current object
@@ -56,18 +63,11 @@ export class PrintTaskStatus implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the state property value. The current processing state of the printTask. Valid values are described in the following table.
+     * @returns a printTaskProcessingState
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the description property value. A human-readable description of the current processing state of the printTask.
-     * @param value Value to set for the description property.
-     */
-    public set description(value: string | undefined) {
-        this._description = value;
+    public get state() {
+        return this._state;
     };
     /**
      * Sets the state property value. The current processing state of the printTask. Valid values are described in the following table.

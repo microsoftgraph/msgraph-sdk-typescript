@@ -1,6 +1,6 @@
-import {Entity} from './entity';
-import {UnifiedRoleAssignment} from './unifiedRoleAssignment';
-import {UnifiedRoleDefinition} from './unifiedRoleDefinition';
+import {createUnifiedRoleAssignmentFromDiscriminatorValue} from './createUnifiedRoleAssignmentFromDiscriminatorValue';
+import {createUnifiedRoleDefinitionFromDiscriminatorValue} from './createUnifiedRoleDefinitionFromDiscriminatorValue';
+import {Entity, UnifiedRoleAssignment, UnifiedRoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RbacApplication extends Entity implements Parsable {
@@ -15,11 +15,28 @@ export class RbacApplication extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "roleAssignments": (o, n) => { (o as unknown as RbacApplication).roleAssignments = n.getCollectionOfObjectValues<UnifiedRoleAssignment>(createUnifiedRoleAssignmentFromDiscriminatorValue); },
+            "roleDefinitions": (o, n) => { (o as unknown as RbacApplication).roleDefinitions = n.getCollectionOfObjectValues<UnifiedRoleDefinition>(createUnifiedRoleDefinitionFromDiscriminatorValue); },
+        };
+    };
+    /**
      * Gets the roleAssignments property value. Resource to grant access to users or groups.
      * @returns a unifiedRoleAssignment
      */
     public get roleAssignments() {
         return this._roleAssignments;
+    };
+    /**
+     * Sets the roleAssignments property value. Resource to grant access to users or groups.
+     * @param value Value to set for the roleAssignments property.
+     */
+    public set roleAssignments(value: UnifiedRoleAssignment[] | undefined) {
+        this._roleAssignments = value;
     };
     /**
      * Gets the roleDefinitions property value. Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
@@ -29,14 +46,11 @@ export class RbacApplication extends Entity implements Parsable {
         return this._roleDefinitions;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the roleDefinitions property value. Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
+     * @param value Value to set for the roleDefinitions property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["roleAssignments", (o, n) => { (o as unknown as RbacApplication).roleAssignments = n.getCollectionOfObjectValues<UnifiedRoleAssignment>(UnifiedRoleAssignment); }],
-            ["roleDefinitions", (o, n) => { (o as unknown as RbacApplication).roleDefinitions = n.getCollectionOfObjectValues<UnifiedRoleDefinition>(UnifiedRoleDefinition); }],
-        ]);
+    public set roleDefinitions(value: UnifiedRoleDefinition[] | undefined) {
+        this._roleDefinitions = value;
     };
     /**
      * Serializes information the current object
@@ -47,19 +61,5 @@ export class RbacApplication extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeCollectionOfObjectValues<UnifiedRoleAssignment>("roleAssignments", this.roleAssignments);
         writer.writeCollectionOfObjectValues<UnifiedRoleDefinition>("roleDefinitions", this.roleDefinitions);
-    };
-    /**
-     * Sets the roleAssignments property value. Resource to grant access to users or groups.
-     * @param value Value to set for the roleAssignments property.
-     */
-    public set roleAssignments(value: UnifiedRoleAssignment[] | undefined) {
-        this._roleAssignments = value;
-    };
-    /**
-     * Sets the roleDefinitions property value. Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.
-     * @param value Value to set for the roleDefinitions property.
-     */
-    public set roleDefinitions(value: UnifiedRoleDefinition[] | undefined) {
-        this._roleDefinitions = value;
     };
 }

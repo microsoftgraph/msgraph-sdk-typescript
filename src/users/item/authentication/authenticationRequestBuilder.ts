@@ -1,15 +1,18 @@
-import {Authentication} from '../../../models/microsoft/graph/authentication';
+import {Authentication} from '../../../models/microsoft/graph/';
+import {createAuthenticationFromDiscriminatorValue} from '../../../models/microsoft/graph/createAuthenticationFromDiscriminatorValue';
+import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {Fido2MethodsRequestBuilder} from './fido2Methods/fido2MethodsRequestBuilder';
-import {Fido2AuthenticationMethodRequestBuilder} from './fido2Methods/item/fido2AuthenticationMethodRequestBuilder';
-import {AuthenticationMethodRequestBuilder} from './methods/item/authenticationMethodRequestBuilder';
+import {Fido2AuthenticationMethodItemRequestBuilder} from './fido2Methods/item/fido2AuthenticationMethodItemRequestBuilder';
+import {AuthenticationMethodItemRequestBuilder} from './methods/item/authenticationMethodItemRequestBuilder';
 import {MethodsRequestBuilder} from './methods/methodsRequestBuilder';
-import {MicrosoftAuthenticatorAuthenticationMethodRequestBuilder} from './microsoftAuthenticatorMethods/item/microsoftAuthenticatorAuthenticationMethodRequestBuilder';
+import {MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder} from './microsoftAuthenticatorMethods/item/microsoftAuthenticatorAuthenticationMethodItemRequestBuilder';
 import {MicrosoftAuthenticatorMethodsRequestBuilder} from './microsoftAuthenticatorMethods/microsoftAuthenticatorMethodsRequestBuilder';
-import {WindowsHelloForBusinessAuthenticationMethodRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodRequestBuilder';
+import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './windowsHelloForBusinessMethods/item/windowsHelloForBusinessAuthenticationMethodItemRequestBuilder';
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /users/{user-id}/authentication  */
+/** Provides operations to manage the authentication property of the microsoft.graph.user entity.  */
 export class AuthenticationRequestBuilder {
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -53,7 +56,7 @@ export class AuthenticationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
     };
@@ -72,7 +75,7 @@ export class AuthenticationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -90,7 +93,7 @@ export class AuthenticationRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -105,18 +108,22 @@ export class AuthenticationRequestBuilder {
         const requestInfo = this.createDeleteRequestInformation(
             h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.fido2Methods.item collection
      * @param id Unique identifier of the item
-     * @returns a fido2AuthenticationMethodRequestBuilder
+     * @returns a fido2AuthenticationMethodItemRequestBuilder
      */
-    public fido2MethodsById(id: string) : Fido2AuthenticationMethodRequestBuilder {
+    public fido2MethodsById(id: string) : Fido2AuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["fido2AuthenticationMethod_id"] = id
-        return new Fido2AuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
+        return new Fido2AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get authentication from users
@@ -133,29 +140,33 @@ export class AuthenticationRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, Authentication, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<Authentication>(requestInfo, createAuthenticationFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.methods.item collection
      * @param id Unique identifier of the item
-     * @returns a authenticationMethodRequestBuilder
+     * @returns a authenticationMethodItemRequestBuilder
      */
-    public methodsById(id: string) : AuthenticationMethodRequestBuilder {
+    public methodsById(id: string) : AuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["authenticationMethod_id"] = id
-        return new AuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
+        return new AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.microsoftAuthenticatorMethods.item collection
      * @param id Unique identifier of the item
-     * @returns a microsoftAuthenticatorAuthenticationMethodRequestBuilder
+     * @returns a microsoftAuthenticatorAuthenticationMethodItemRequestBuilder
      */
-    public microsoftAuthenticatorMethodsById(id: string) : MicrosoftAuthenticatorAuthenticationMethodRequestBuilder {
+    public microsoftAuthenticatorMethodsById(id: string) : MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["microsoftAuthenticatorAuthenticationMethod_id"] = id
-        return new MicrosoftAuthenticatorAuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
+        return new MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property authentication in users
@@ -169,17 +180,21 @@ export class AuthenticationRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.users.item.authentication.windowsHelloForBusinessMethods.item collection
      * @param id Unique identifier of the item
-     * @returns a windowsHelloForBusinessAuthenticationMethodRequestBuilder
+     * @returns a windowsHelloForBusinessAuthenticationMethodItemRequestBuilder
      */
-    public windowsHelloForBusinessMethodsById(id: string) : WindowsHelloForBusinessAuthenticationMethodRequestBuilder {
+    public windowsHelloForBusinessMethodsById(id: string) : WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["windowsHelloForBusinessAuthenticationMethod_id"] = id
-        return new WindowsHelloForBusinessAuthenticationMethodRequestBuilder(urlTplParams, this.requestAdapter);
+        return new WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

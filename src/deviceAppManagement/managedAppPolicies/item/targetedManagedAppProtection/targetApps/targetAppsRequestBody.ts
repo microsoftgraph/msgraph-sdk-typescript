@@ -1,24 +1,27 @@
-import {ManagedMobileApp} from '../../../../../models/microsoft/graph/managedMobileApp';
+import {ManagedMobileApp} from '../../../../../models/microsoft/graph/';
+import {createManagedMobileAppFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createManagedMobileAppFromDiscriminatorValue';
 import {TargetedManagedAppGroupType} from '../../../../../models/microsoft/graph/targetedManagedAppGroupType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TargetAppsRequestBody implements Parsable {
+/** Provides operations to call the targetApps method.  */
+export class TargetAppsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _appGroupType?: TargetedManagedAppGroupType | undefined;
     private _apps?: ManagedMobileApp[] | undefined;
     /**
-     * Instantiates a new targetAppsRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the appGroupType property value. 
@@ -28,6 +31,13 @@ export class TargetAppsRequestBody implements Parsable {
         return this._appGroupType;
     };
     /**
+     * Sets the appGroupType property value. 
+     * @param value Value to set for the appGroupType property.
+     */
+    public set appGroupType(value: TargetedManagedAppGroupType | undefined) {
+        this._appGroupType = value;
+    };
+    /**
      * Gets the apps property value. 
      * @returns a managedMobileApp
      */
@@ -35,14 +45,27 @@ export class TargetAppsRequestBody implements Parsable {
         return this._apps;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the apps property value. 
+     * @param value Value to set for the apps property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["appGroupType", (o, n) => { (o as unknown as TargetAppsRequestBody).appGroupType = n.getEnumValue<TargetedManagedAppGroupType>(TargetedManagedAppGroupType); }],
-            ["apps", (o, n) => { (o as unknown as TargetAppsRequestBody).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(ManagedMobileApp); }],
-        ]);
+    public set apps(value: ManagedMobileApp[] | undefined) {
+        this._apps = value;
+    };
+    /**
+     * Instantiates a new targetAppsRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "appGroupType": (o, n) => { (o as unknown as TargetAppsRequestBody).appGroupType = n.getEnumValue<TargetedManagedAppGroupType>(TargetedManagedAppGroupType); },
+            "apps": (o, n) => { (o as unknown as TargetAppsRequestBody).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -53,26 +76,5 @@ export class TargetAppsRequestBody implements Parsable {
         writer.writeEnumValue<TargetedManagedAppGroupType>("appGroupType", this.appGroupType);
         writer.writeCollectionOfObjectValues<ManagedMobileApp>("apps", this.apps);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the appGroupType property value. 
-     * @param value Value to set for the appGroupType property.
-     */
-    public set appGroupType(value: TargetedManagedAppGroupType | undefined) {
-        this._appGroupType = value;
-    };
-    /**
-     * Sets the apps property value. 
-     * @param value Value to set for the apps property.
-     */
-    public set apps(value: ManagedMobileApp[] | undefined) {
-        this._apps = value;
     };
 }

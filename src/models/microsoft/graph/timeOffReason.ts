@@ -1,4 +1,4 @@
-import {ChangeTrackedEntity} from './changeTrackedEntity';
+import {ChangeTrackedEntity} from './index';
 import {TimeOffReasonIconType} from './timeOffReasonIconType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
@@ -23,11 +23,36 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
         return this._displayName;
     };
     /**
+     * Sets the displayName property value. The name of the timeOffReason. Required.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "displayName": (o, n) => { (o as unknown as TimeOffReason).displayName = n.getStringValue(); },
+            "iconType": (o, n) => { (o as unknown as TimeOffReason).iconType = n.getEnumValue<TimeOffReasonIconType>(TimeOffReasonIconType); },
+            "isActive": (o, n) => { (o as unknown as TimeOffReason).isActive = n.getBooleanValue(); },
+        };
+    };
+    /**
      * Gets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
      * @returns a timeOffReasonIconType
      */
     public get iconType() {
         return this._iconType;
+    };
+    /**
+     * Sets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
+     * @param value Value to set for the iconType property.
+     */
+    public set iconType(value: TimeOffReasonIconType | undefined) {
+        this._iconType = value;
     };
     /**
      * Gets the isActive property value. Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
@@ -37,15 +62,11 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
         return this._isActive;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the isActive property value. Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
+     * @param value Value to set for the isActive property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["displayName", (o, n) => { (o as unknown as TimeOffReason).displayName = n.getStringValue(); }],
-            ["iconType", (o, n) => { (o as unknown as TimeOffReason).iconType = n.getEnumValue<TimeOffReasonIconType>(TimeOffReasonIconType); }],
-            ["isActive", (o, n) => { (o as unknown as TimeOffReason).isActive = n.getBooleanValue(); }],
-        ]);
+    public set isActive(value: boolean | undefined) {
+        this._isActive = value;
     };
     /**
      * Serializes information the current object
@@ -57,26 +78,5 @@ export class TimeOffReason extends ChangeTrackedEntity implements Parsable {
         writer.writeStringValue("displayName", this.displayName);
         writer.writeEnumValue<TimeOffReasonIconType>("iconType", this.iconType);
         writer.writeBooleanValue("isActive", this.isActive);
-    };
-    /**
-     * Sets the displayName property value. The name of the timeOffReason. Required.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the iconType property value. Supported icon types: none; car; calendar; running; plane; firstAid; doctor; notWorking; clock; juryDuty; globe; cup; phone; weather; umbrella; piggyBank; dog; cake; trafficCone; pin; sunny. Required.
-     * @param value Value to set for the iconType property.
-     */
-    public set iconType(value: TimeOffReasonIconType | undefined) {
-        this._iconType = value;
-    };
-    /**
-     * Sets the isActive property value. Indicates whether the timeOffReason can be used when creating new entities or updating existing ones. Required.
-     * @param value Value to set for the isActive property.
-     */
-    public set isActive(value: boolean | undefined) {
-        this._isActive = value;
     };
 }

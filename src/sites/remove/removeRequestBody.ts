@@ -1,38 +1,40 @@
-import {Site} from '../../models/microsoft/graph/site';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {Site} from '../../models/microsoft/graph/';
+import {createSiteFromDiscriminatorValue} from '../../models/microsoft/graph/createSiteFromDiscriminatorValue';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class RemoveRequestBody implements Parsable {
+/** Provides operations to call the remove method.  */
+export class RemoveRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _value?: Site[] | undefined;
     /**
-     * Instantiates a new removeRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
     };
     /**
-     * Gets the value property value. 
-     * @returns a site
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
      */
-    public get value() {
-        return this._value;
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new removeRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["value", (o, n) => { (o as unknown as RemoveRequestBody).value = n.getCollectionOfObjectValues<Site>(Site); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "value": (o, n) => { (o as unknown as RemoveRequestBody).value = n.getCollectionOfObjectValues<Site>(createSiteFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -44,11 +46,11 @@ export class RemoveRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the value property value. 
+     * @returns a site
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get value() {
+        return this._value;
     };
     /**
      * Sets the value property value. 

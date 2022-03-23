@@ -1,9 +1,12 @@
-import {AppCatalogs} from '../models/microsoft/graph/appCatalogs';
-import {TeamsAppRequestBuilder} from './teamsApps/item/teamsAppRequestBuilder';
+import {AppCatalogs} from '../models/microsoft/graph/';
+import {createAppCatalogsFromDiscriminatorValue} from '../models/microsoft/graph/createAppCatalogsFromDiscriminatorValue';
+import {ODataError} from '../models/microsoft/graph/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {TeamsAppItemRequestBuilder} from './teamsApps/item/teamsAppItemRequestBuilder';
 import {TeamsAppsRequestBuilder} from './teamsApps/teamsAppsRequestBuilder';
-import {getPathParameters, HttpMethod, Parsable, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /appCatalogs  */
+/** Provides operations to manage the appCatalogs singleton.  */
 export class AppCatalogsRequestBuilder {
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -42,7 +45,7 @@ export class AppCatalogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         q && requestInfo.setQueryStringParametersFromRawObject(q);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -60,7 +63,7 @@ export class AppCatalogsRequestBuilder {
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        requestInfo.headers = h;
+        if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         o && requestInfo.addRequestOptions(...o);
         return requestInfo;
@@ -80,7 +83,11 @@ export class AppCatalogsRequestBuilder {
         const requestInfo = this.createGetRequestInformation(
             q, h, o
         );
-        return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, AppCatalogs, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendAsync<AppCatalogs>(requestInfo, createAppCatalogsFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update appCatalogs
@@ -94,17 +101,21 @@ export class AppCatalogsRequestBuilder {
         const requestInfo = this.createPatchRequestInformation(
             body, h, o
         );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler) ?? Promise.reject(new Error('http core is null'));
+        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
+            "4XX": createODataErrorFromDiscriminatorValue,
+            "5XX": createODataErrorFromDiscriminatorValue,
+        };
+        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.appCatalogs.teamsApps.item collection
      * @param id Unique identifier of the item
-     * @returns a teamsAppRequestBuilder
+     * @returns a teamsAppItemRequestBuilder
      */
-    public teamsAppsById(id: string) : TeamsAppRequestBuilder {
+    public teamsAppsById(id: string) : TeamsAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["teamsApp_id"] = id
-        return new TeamsAppRequestBuilder(urlTplParams, this.requestAdapter);
+        return new TeamsAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -1,4 +1,4 @@
-import {Entity} from './entity';
+import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteEntityBaseModel extends Entity implements Parsable {
@@ -11,6 +11,15 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
         super();
     };
     /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "self": (o, n) => { (o as unknown as OnenoteEntityBaseModel).self = n.getStringValue(); },
+        };
+    };
+    /**
      * Gets the self property value. The endpoint where you can get details about the page. Read-only.
      * @returns a string
      */
@@ -18,13 +27,11 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
         return this._self;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the self property value. The endpoint where you can get details about the page. Read-only.
+     * @param value Value to set for the self property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["self", (o, n) => { (o as unknown as OnenoteEntityBaseModel).self = n.getStringValue(); }],
-        ]);
+    public set self(value: string | undefined) {
+        this._self = value;
     };
     /**
      * Serializes information the current object
@@ -34,12 +41,5 @@ export class OnenoteEntityBaseModel extends Entity implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("self", this.self);
-    };
-    /**
-     * Sets the self property value. The endpoint where you can get details about the page. Read-only.
-     * @param value Value to set for the self property.
-     */
-    public set self(value: string | undefined) {
-        this._self = value;
     };
 }

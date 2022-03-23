@@ -1,22 +1,38 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class WindowsDeviceAccount implements Parsable {
+export class WindowsDeviceAccount implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Not yet documented  */
     private _password?: string | undefined;
+    /**
+     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @returns a Record<string, unknown>
+     */
+    public get additionalData() {
+        return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
     /**
      * Instantiates a new windowsDeviceAccount and sets the default values.
      */
     public constructor() {
-        this._additionalData = new Map<string, unknown>();
+        this._additionalData = {};
     };
     /**
-     * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public get additionalData() {
-        return this._additionalData;
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "password": (o, n) => { (o as unknown as WindowsDeviceAccount).password = n.getStringValue(); },
+        };
     };
     /**
      * Gets the password property value. Not yet documented
@@ -26,13 +42,11 @@ export class WindowsDeviceAccount implements Parsable {
         return this._password;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the password property value. Not yet documented
+     * @param value Value to set for the password property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["password", (o, n) => { (o as unknown as WindowsDeviceAccount).password = n.getStringValue(); }],
-        ]);
+    public set password(value: string | undefined) {
+        this._password = value;
     };
     /**
      * Serializes information the current object
@@ -42,19 +56,5 @@ export class WindowsDeviceAccount implements Parsable {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("password", this.password);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the password property value. Not yet documented
-     * @param value Value to set for the password property.
-     */
-    public set password(value: string | undefined) {
-        this._password = value;
     };
 }

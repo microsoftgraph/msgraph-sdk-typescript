@@ -1,27 +1,28 @@
 import {WebsiteType} from './websiteType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class Website implements Parsable {
+export class Website implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The URL of the website.  */
     private _address?: string | undefined;
     /** The display name of the web site.  */
     private _displayName?: string | undefined;
-    /** Possible values are: other, home, work, blog, profile.  */
+    /** The possible values are: other, home, work, blog, profile.  */
     private _type?: WebsiteType | undefined;
     /**
-     * Instantiates a new website and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the address property value. The URL of the website.
@@ -31,6 +32,19 @@ export class Website implements Parsable {
         return this._address;
     };
     /**
+     * Sets the address property value. The URL of the website.
+     * @param value Value to set for the address property.
+     */
+    public set address(value: string | undefined) {
+        this._address = value;
+    };
+    /**
+     * Instantiates a new website and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
      * Gets the displayName property value. The display name of the web site.
      * @returns a string
      */
@@ -38,22 +52,22 @@ export class Website implements Parsable {
         return this._displayName;
     };
     /**
-     * Gets the type property value. Possible values are: other, home, work, blog, profile.
-     * @returns a websiteType
+     * Sets the displayName property value. The display name of the web site.
+     * @param value Value to set for the displayName property.
      */
-    public get type() {
-        return this._type;
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
     };
     /**
      * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["address", (o, n) => { (o as unknown as Website).address = n.getStringValue(); }],
-            ["displayName", (o, n) => { (o as unknown as Website).displayName = n.getStringValue(); }],
-            ["type", (o, n) => { (o as unknown as Website).type = n.getEnumValue<WebsiteType>(WebsiteType); }],
-        ]);
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "address": (o, n) => { (o as unknown as Website).address = n.getStringValue(); },
+            "displayName": (o, n) => { (o as unknown as Website).displayName = n.getStringValue(); },
+            "type": (o, n) => { (o as unknown as Website).type = n.getEnumValue<WebsiteType>(WebsiteType); },
+        };
     };
     /**
      * Serializes information the current object
@@ -67,28 +81,14 @@ export class Website implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the type property value. The possible values are: other, home, work, blog, profile.
+     * @returns a websiteType
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
+    public get type() {
+        return this._type;
     };
     /**
-     * Sets the address property value. The URL of the website.
-     * @param value Value to set for the address property.
-     */
-    public set address(value: string | undefined) {
-        this._address = value;
-    };
-    /**
-     * Sets the displayName property value. The display name of the web site.
-     * @param value Value to set for the displayName property.
-     */
-    public set displayName(value: string | undefined) {
-        this._displayName = value;
-    };
-    /**
-     * Sets the type property value. Possible values are: other, home, work, blog, profile.
+     * Sets the type property value. The possible values are: other, home, work, blog, profile.
      * @param value Value to set for the type property.
      */
     public set type(value: WebsiteType | undefined) {

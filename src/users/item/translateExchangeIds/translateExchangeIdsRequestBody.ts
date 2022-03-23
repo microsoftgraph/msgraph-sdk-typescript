@@ -1,24 +1,43 @@
 import {ExchangeIdFormat} from '../../../models/microsoft/graph/exchangeIdFormat';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class TranslateExchangeIdsRequestBody implements Parsable {
+/** Provides operations to call the translateExchangeIds method.  */
+export class TranslateExchangeIdsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _inputIds?: string[] | undefined;
     private _sourceIdType?: ExchangeIdFormat | undefined;
     private _targetIdType?: ExchangeIdFormat | undefined;
     /**
-     * Instantiates a new translateExchangeIdsRequestBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new translateExchangeIdsRequestBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "inputIds": (o, n) => { (o as unknown as TranslateExchangeIdsRequestBody).inputIds = n.getCollectionOfPrimitiveValues<string>(); },
+            "sourceIdType": (o, n) => { (o as unknown as TranslateExchangeIdsRequestBody).sourceIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); },
+            "targetIdType": (o, n) => { (o as unknown as TranslateExchangeIdsRequestBody).targetIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); },
+        };
     };
     /**
      * Gets the inputIds property value. 
@@ -28,29 +47,11 @@ export class TranslateExchangeIdsRequestBody implements Parsable {
         return this._inputIds;
     };
     /**
-     * Gets the sourceIdType property value. 
-     * @returns a exchangeIdFormat
+     * Sets the inputIds property value. 
+     * @param value Value to set for the InputIds property.
      */
-    public get sourceIdType() {
-        return this._sourceIdType;
-    };
-    /**
-     * Gets the targetIdType property value. 
-     * @returns a exchangeIdFormat
-     */
-    public get targetIdType() {
-        return this._targetIdType;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["inputIds", (o, n) => { (o as unknown as TranslateExchangeIdsRequestBody).inputIds = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["sourceIdType", (o, n) => { (o as unknown as TranslateExchangeIdsRequestBody).sourceIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); }],
-            ["targetIdType", (o, n) => { (o as unknown as TranslateExchangeIdsRequestBody).targetIdType = n.getEnumValue<ExchangeIdFormat>(ExchangeIdFormat); }],
-        ]);
+    public set inputIds(value: string[] | undefined) {
+        this._inputIds = value;
     };
     /**
      * Serializes information the current object
@@ -64,18 +65,11 @@ export class TranslateExchangeIdsRequestBody implements Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
+     * Gets the sourceIdType property value. 
+     * @returns a exchangeIdFormat
      */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the inputIds property value. 
-     * @param value Value to set for the InputIds property.
-     */
-    public set inputIds(value: string[] | undefined) {
-        this._inputIds = value;
+    public get sourceIdType() {
+        return this._sourceIdType;
     };
     /**
      * Sets the sourceIdType property value. 
@@ -83,6 +77,13 @@ export class TranslateExchangeIdsRequestBody implements Parsable {
      */
     public set sourceIdType(value: ExchangeIdFormat | undefined) {
         this._sourceIdType = value;
+    };
+    /**
+     * Gets the targetIdType property value. 
+     * @returns a exchangeIdFormat
+     */
+    public get targetIdType() {
+        return this._targetIdType;
     };
     /**
      * Sets the targetIdType property value. 

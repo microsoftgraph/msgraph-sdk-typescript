@@ -1,8 +1,8 @@
-import {OfferShiftRequest} from './offerShiftRequest';
+import {OfferShiftRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsable {
-    /** Shift ID for the recipient user with whom the request is to swap.  */
+    /** ShiftId for the recipient user with whom the request is to swap.  */
     private _recipientShiftId?: string | undefined;
     /**
      * Instantiates a new swapShiftsChangeRequest and sets the default values.
@@ -11,20 +11,27 @@ export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsab
         super();
     };
     /**
-     * Gets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "recipientShiftId": (o, n) => { (o as unknown as SwapShiftsChangeRequest).recipientShiftId = n.getStringValue(); },
+        };
+    };
+    /**
+     * Gets the recipientShiftId property value. ShiftId for the recipient user with whom the request is to swap.
      * @returns a string
      */
     public get recipientShiftId() {
         return this._recipientShiftId;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the recipientShiftId property value. ShiftId for the recipient user with whom the request is to swap.
+     * @param value Value to set for the recipientShiftId property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["recipientShiftId", (o, n) => { (o as unknown as SwapShiftsChangeRequest).recipientShiftId = n.getStringValue(); }],
-        ]);
+    public set recipientShiftId(value: string | undefined) {
+        this._recipientShiftId = value;
     };
     /**
      * Serializes information the current object
@@ -34,12 +41,5 @@ export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsab
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
         writer.writeStringValue("recipientShiftId", this.recipientShiftId);
-    };
-    /**
-     * Sets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
-     * @param value Value to set for the recipientShiftId property.
-     */
-    public set recipientShiftId(value: string | undefined) {
-        this._recipientShiftId = value;
     };
 }

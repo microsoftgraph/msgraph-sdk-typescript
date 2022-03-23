@@ -1,9 +1,9 @@
 import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ScoredEmailAddress implements Parsable {
+export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The email address.  */
     private _address?: string | undefined;
     private _itemId?: string | undefined;
@@ -11,17 +11,18 @@ export class ScoredEmailAddress implements Parsable {
     private _relevanceScore?: number | undefined;
     private _selectionLikelihood?: SelectionLikelihoodInfo | undefined;
     /**
-     * Instantiates a new scoredEmailAddress and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the address property value. The email address.
@@ -31,11 +32,43 @@ export class ScoredEmailAddress implements Parsable {
         return this._address;
     };
     /**
+     * Sets the address property value. The email address.
+     * @param value Value to set for the address property.
+     */
+    public set address(value: string | undefined) {
+        this._address = value;
+    };
+    /**
+     * Instantiates a new scoredEmailAddress and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "address": (o, n) => { (o as unknown as ScoredEmailAddress).address = n.getStringValue(); },
+            "itemId": (o, n) => { (o as unknown as ScoredEmailAddress).itemId = n.getStringValue(); },
+            "relevanceScore": (o, n) => { (o as unknown as ScoredEmailAddress).relevanceScore = n.getNumberValue(); },
+            "selectionLikelihood": (o, n) => { (o as unknown as ScoredEmailAddress).selectionLikelihood = n.getEnumValue<SelectionLikelihoodInfo>(SelectionLikelihoodInfo); },
+        };
+    };
+    /**
      * Gets the itemId property value. 
      * @returns a string
      */
     public get itemId() {
         return this._itemId;
+    };
+    /**
+     * Sets the itemId property value. 
+     * @param value Value to set for the itemId property.
+     */
+    public set itemId(value: string | undefined) {
+        this._itemId = value;
     };
     /**
      * Gets the relevanceScore property value. The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
@@ -45,6 +78,13 @@ export class ScoredEmailAddress implements Parsable {
         return this._relevanceScore;
     };
     /**
+     * Sets the relevanceScore property value. The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
+     * @param value Value to set for the relevanceScore property.
+     */
+    public set relevanceScore(value: number | undefined) {
+        this._relevanceScore = value;
+    };
+    /**
      * Gets the selectionLikelihood property value. 
      * @returns a selectionLikelihoodInfo
      */
@@ -52,16 +92,11 @@ export class ScoredEmailAddress implements Parsable {
         return this._selectionLikelihood;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the selectionLikelihood property value. 
+     * @param value Value to set for the selectionLikelihood property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["address", (o, n) => { (o as unknown as ScoredEmailAddress).address = n.getStringValue(); }],
-            ["itemId", (o, n) => { (o as unknown as ScoredEmailAddress).itemId = n.getStringValue(); }],
-            ["relevanceScore", (o, n) => { (o as unknown as ScoredEmailAddress).relevanceScore = n.getNumberValue(); }],
-            ["selectionLikelihood", (o, n) => { (o as unknown as ScoredEmailAddress).selectionLikelihood = n.getEnumValue<SelectionLikelihoodInfo>(SelectionLikelihoodInfo); }],
-        ]);
+    public set selectionLikelihood(value: SelectionLikelihoodInfo | undefined) {
+        this._selectionLikelihood = value;
     };
     /**
      * Serializes information the current object
@@ -74,40 +109,5 @@ export class ScoredEmailAddress implements Parsable {
         writer.writeNumberValue("relevanceScore", this.relevanceScore);
         writer.writeEnumValue<SelectionLikelihoodInfo>("selectionLikelihood", this.selectionLikelihood);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the address property value. The email address.
-     * @param value Value to set for the address property.
-     */
-    public set address(value: string | undefined) {
-        this._address = value;
-    };
-    /**
-     * Sets the itemId property value. 
-     * @param value Value to set for the itemId property.
-     */
-    public set itemId(value: string | undefined) {
-        this._itemId = value;
-    };
-    /**
-     * Sets the relevanceScore property value. The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.
-     * @param value Value to set for the relevanceScore property.
-     */
-    public set relevanceScore(value: number | undefined) {
-        this._relevanceScore = value;
-    };
-    /**
-     * Sets the selectionLikelihood property value. 
-     * @param value Value to set for the selectionLikelihood property.
-     */
-    public set selectionLikelihood(value: SelectionLikelihoodInfo | undefined) {
-        this._selectionLikelihood = value;
     };
 }

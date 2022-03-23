@@ -1,24 +1,26 @@
-import {BookingBusiness} from './bookingBusiness';
-import {BookingCurrency} from './bookingCurrency';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {createBookingBusinessFromDiscriminatorValue} from './createBookingBusinessFromDiscriminatorValue';
+import {createBookingCurrencyFromDiscriminatorValue} from './createBookingCurrencyFromDiscriminatorValue';
+import {BookingBusiness, BookingCurrency} from './index';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class SolutionsRoot implements Parsable {
+export class SolutionsRoot implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     private _bookingBusinesses?: BookingBusiness[] | undefined;
     private _bookingCurrencies?: BookingCurrency[] | undefined;
     /**
-     * Instantiates a new SolutionsRoot and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the bookingBusinesses property value. 
@@ -28,6 +30,13 @@ export class SolutionsRoot implements Parsable {
         return this._bookingBusinesses;
     };
     /**
+     * Sets the bookingBusinesses property value. 
+     * @param value Value to set for the bookingBusinesses property.
+     */
+    public set bookingBusinesses(value: BookingBusiness[] | undefined) {
+        this._bookingBusinesses = value;
+    };
+    /**
      * Gets the bookingCurrencies property value. 
      * @returns a bookingCurrency
      */
@@ -35,14 +44,27 @@ export class SolutionsRoot implements Parsable {
         return this._bookingCurrencies;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the bookingCurrencies property value. 
+     * @param value Value to set for the bookingCurrencies property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["bookingBusinesses", (o, n) => { (o as unknown as SolutionsRoot).bookingBusinesses = n.getCollectionOfObjectValues<BookingBusiness>(BookingBusiness); }],
-            ["bookingCurrencies", (o, n) => { (o as unknown as SolutionsRoot).bookingCurrencies = n.getCollectionOfObjectValues<BookingCurrency>(BookingCurrency); }],
-        ]);
+    public set bookingCurrencies(value: BookingCurrency[] | undefined) {
+        this._bookingCurrencies = value;
+    };
+    /**
+     * Instantiates a new SolutionsRoot and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "bookingBusinesses": (o, n) => { (o as unknown as SolutionsRoot).bookingBusinesses = n.getCollectionOfObjectValues<BookingBusiness>(createBookingBusinessFromDiscriminatorValue); },
+            "bookingCurrencies": (o, n) => { (o as unknown as SolutionsRoot).bookingCurrencies = n.getCollectionOfObjectValues<BookingCurrency>(createBookingCurrencyFromDiscriminatorValue); },
+        };
     };
     /**
      * Serializes information the current object
@@ -53,26 +75,5 @@ export class SolutionsRoot implements Parsable {
         writer.writeCollectionOfObjectValues<BookingBusiness>("bookingBusinesses", this.bookingBusinesses);
         writer.writeCollectionOfObjectValues<BookingCurrency>("bookingCurrencies", this.bookingCurrencies);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the bookingBusinesses property value. 
-     * @param value Value to set for the bookingBusinesses property.
-     */
-    public set bookingBusinesses(value: BookingBusiness[] | undefined) {
-        this._bookingBusinesses = value;
-    };
-    /**
-     * Sets the bookingCurrencies property value. 
-     * @param value Value to set for the bookingCurrencies property.
-     */
-    public set bookingCurrencies(value: BookingCurrency[] | undefined) {
-        this._bookingCurrencies = value;
     };
 }

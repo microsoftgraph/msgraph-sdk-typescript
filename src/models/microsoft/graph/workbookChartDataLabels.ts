@@ -1,5 +1,5 @@
-import {Entity} from './entity';
-import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
+import {createWorkbookChartDataLabelFormatFromDiscriminatorValue} from './createWorkbookChartDataLabelFormatFromDiscriminatorValue';
+import {Entity, WorkbookChartDataLabelFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartDataLabels extends Entity implements Parsable {
@@ -35,11 +35,42 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
         return this._format;
     };
     /**
+     * Sets the format property value. Represents the format of chart data labels, which includes fill and font formatting. Read-only.
+     * @param value Value to set for the format property.
+     */
+    public set format(value: WorkbookChartDataLabelFormat | undefined) {
+        this._format = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {...super.getFieldDeserializers<T>(),
+            "format": (o, n) => { (o as unknown as WorkbookChartDataLabels).format = n.getObjectValue<WorkbookChartDataLabelFormat>(createWorkbookChartDataLabelFormatFromDiscriminatorValue); },
+            "position": (o, n) => { (o as unknown as WorkbookChartDataLabels).position = n.getStringValue(); },
+            "separator": (o, n) => { (o as unknown as WorkbookChartDataLabels).separator = n.getStringValue(); },
+            "showBubbleSize": (o, n) => { (o as unknown as WorkbookChartDataLabels).showBubbleSize = n.getBooleanValue(); },
+            "showCategoryName": (o, n) => { (o as unknown as WorkbookChartDataLabels).showCategoryName = n.getBooleanValue(); },
+            "showLegendKey": (o, n) => { (o as unknown as WorkbookChartDataLabels).showLegendKey = n.getBooleanValue(); },
+            "showPercentage": (o, n) => { (o as unknown as WorkbookChartDataLabels).showPercentage = n.getBooleanValue(); },
+            "showSeriesName": (o, n) => { (o as unknown as WorkbookChartDataLabels).showSeriesName = n.getBooleanValue(); },
+            "showValue": (o, n) => { (o as unknown as WorkbookChartDataLabels).showValue = n.getBooleanValue(); },
+        };
+    };
+    /**
      * Gets the position property value. DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout.
      * @returns a string
      */
     public get position() {
         return this._position;
+    };
+    /**
+     * Sets the position property value. DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout.
+     * @param value Value to set for the position property.
+     */
+    public set position(value: string | undefined) {
+        this._position = value;
     };
     /**
      * Gets the separator property value. String representing the separator used for the data labels on a chart.
@@ -49,63 +80,11 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
         return this._separator;
     };
     /**
-     * Gets the showBubbleSize property value. Boolean value representing if the data label bubble size is visible or not.
-     * @returns a boolean
+     * Sets the separator property value. String representing the separator used for the data labels on a chart.
+     * @param value Value to set for the separator property.
      */
-    public get showBubbleSize() {
-        return this._showBubbleSize;
-    };
-    /**
-     * Gets the showCategoryName property value. Boolean value representing if the data label category name is visible or not.
-     * @returns a boolean
-     */
-    public get showCategoryName() {
-        return this._showCategoryName;
-    };
-    /**
-     * Gets the showLegendKey property value. Boolean value representing if the data label legend key is visible or not.
-     * @returns a boolean
-     */
-    public get showLegendKey() {
-        return this._showLegendKey;
-    };
-    /**
-     * Gets the showPercentage property value. Boolean value representing if the data label percentage is visible or not.
-     * @returns a boolean
-     */
-    public get showPercentage() {
-        return this._showPercentage;
-    };
-    /**
-     * Gets the showSeriesName property value. Boolean value representing if the data label series name is visible or not.
-     * @returns a boolean
-     */
-    public get showSeriesName() {
-        return this._showSeriesName;
-    };
-    /**
-     * Gets the showValue property value. Boolean value representing if the data label value is visible or not.
-     * @returns a boolean
-     */
-    public get showValue() {
-        return this._showValue;
-    };
-    /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
-     */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([...super.getFieldDeserializers<T>(),
-            ["format", (o, n) => { (o as unknown as WorkbookChartDataLabels).format = n.getObjectValue<WorkbookChartDataLabelFormat>(WorkbookChartDataLabelFormat); }],
-            ["position", (o, n) => { (o as unknown as WorkbookChartDataLabels).position = n.getStringValue(); }],
-            ["separator", (o, n) => { (o as unknown as WorkbookChartDataLabels).separator = n.getStringValue(); }],
-            ["showBubbleSize", (o, n) => { (o as unknown as WorkbookChartDataLabels).showBubbleSize = n.getBooleanValue(); }],
-            ["showCategoryName", (o, n) => { (o as unknown as WorkbookChartDataLabels).showCategoryName = n.getBooleanValue(); }],
-            ["showLegendKey", (o, n) => { (o as unknown as WorkbookChartDataLabels).showLegendKey = n.getBooleanValue(); }],
-            ["showPercentage", (o, n) => { (o as unknown as WorkbookChartDataLabels).showPercentage = n.getBooleanValue(); }],
-            ["showSeriesName", (o, n) => { (o as unknown as WorkbookChartDataLabels).showSeriesName = n.getBooleanValue(); }],
-            ["showValue", (o, n) => { (o as unknown as WorkbookChartDataLabels).showValue = n.getBooleanValue(); }],
-        ]);
+    public set separator(value: string | undefined) {
+        this._separator = value;
     };
     /**
      * Serializes information the current object
@@ -125,25 +104,11 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
         writer.writeBooleanValue("showValue", this.showValue);
     };
     /**
-     * Sets the format property value. Represents the format of chart data labels, which includes fill and font formatting. Read-only.
-     * @param value Value to set for the format property.
+     * Gets the showBubbleSize property value. Boolean value representing if the data label bubble size is visible or not.
+     * @returns a boolean
      */
-    public set format(value: WorkbookChartDataLabelFormat | undefined) {
-        this._format = value;
-    };
-    /**
-     * Sets the position property value. DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout.
-     * @param value Value to set for the position property.
-     */
-    public set position(value: string | undefined) {
-        this._position = value;
-    };
-    /**
-     * Sets the separator property value. String representing the separator used for the data labels on a chart.
-     * @param value Value to set for the separator property.
-     */
-    public set separator(value: string | undefined) {
-        this._separator = value;
+    public get showBubbleSize() {
+        return this._showBubbleSize;
     };
     /**
      * Sets the showBubbleSize property value. Boolean value representing if the data label bubble size is visible or not.
@@ -153,11 +118,25 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
         this._showBubbleSize = value;
     };
     /**
+     * Gets the showCategoryName property value. Boolean value representing if the data label category name is visible or not.
+     * @returns a boolean
+     */
+    public get showCategoryName() {
+        return this._showCategoryName;
+    };
+    /**
      * Sets the showCategoryName property value. Boolean value representing if the data label category name is visible or not.
      * @param value Value to set for the showCategoryName property.
      */
     public set showCategoryName(value: boolean | undefined) {
         this._showCategoryName = value;
+    };
+    /**
+     * Gets the showLegendKey property value. Boolean value representing if the data label legend key is visible or not.
+     * @returns a boolean
+     */
+    public get showLegendKey() {
+        return this._showLegendKey;
     };
     /**
      * Sets the showLegendKey property value. Boolean value representing if the data label legend key is visible or not.
@@ -167,6 +146,13 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
         this._showLegendKey = value;
     };
     /**
+     * Gets the showPercentage property value. Boolean value representing if the data label percentage is visible or not.
+     * @returns a boolean
+     */
+    public get showPercentage() {
+        return this._showPercentage;
+    };
+    /**
      * Sets the showPercentage property value. Boolean value representing if the data label percentage is visible or not.
      * @param value Value to set for the showPercentage property.
      */
@@ -174,11 +160,25 @@ export class WorkbookChartDataLabels extends Entity implements Parsable {
         this._showPercentage = value;
     };
     /**
+     * Gets the showSeriesName property value. Boolean value representing if the data label series name is visible or not.
+     * @returns a boolean
+     */
+    public get showSeriesName() {
+        return this._showSeriesName;
+    };
+    /**
      * Sets the showSeriesName property value. Boolean value representing if the data label series name is visible or not.
      * @param value Value to set for the showSeriesName property.
      */
     public set showSeriesName(value: boolean | undefined) {
         this._showSeriesName = value;
+    };
+    /**
+     * Gets the showValue property value. Boolean value representing if the data label value is visible or not.
+     * @returns a boolean
+     */
+    public get showValue() {
+        return this._showValue;
     };
     /**
      * Sets the showValue property value. Boolean value representing if the data label value is visible or not.

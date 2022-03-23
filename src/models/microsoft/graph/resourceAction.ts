@@ -1,24 +1,26 @@
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ResourceAction implements Parsable {
+/** Set of allowed and not allowed actions for a resource.  */
+export class ResourceAction implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** Allowed Actions  */
     private _allowedResourceActions?: string[] | undefined;
     /** Not Allowed Actions.  */
     private _notAllowedResourceActions?: string[] | undefined;
     /**
-     * Instantiates a new resourceAction and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
     };
     /**
      * Gets the allowedResourceActions property value. Allowed Actions
@@ -28,6 +30,29 @@ export class ResourceAction implements Parsable {
         return this._allowedResourceActions;
     };
     /**
+     * Sets the allowedResourceActions property value. Allowed Actions
+     * @param value Value to set for the allowedResourceActions property.
+     */
+    public set allowedResourceActions(value: string[] | undefined) {
+        this._allowedResourceActions = value;
+    };
+    /**
+     * Instantiates a new resourceAction and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "allowedResourceActions": (o, n) => { (o as unknown as ResourceAction).allowedResourceActions = n.getCollectionOfPrimitiveValues<string>(); },
+            "notAllowedResourceActions": (o, n) => { (o as unknown as ResourceAction).notAllowedResourceActions = n.getCollectionOfPrimitiveValues<string>(); },
+        };
+    };
+    /**
      * Gets the notAllowedResourceActions property value. Not Allowed Actions.
      * @returns a string
      */
@@ -35,14 +60,11 @@ export class ResourceAction implements Parsable {
         return this._notAllowedResourceActions;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the notAllowedResourceActions property value. Not Allowed Actions.
+     * @param value Value to set for the notAllowedResourceActions property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["allowedResourceActions", (o, n) => { (o as unknown as ResourceAction).allowedResourceActions = n.getCollectionOfPrimitiveValues<string>(); }],
-            ["notAllowedResourceActions", (o, n) => { (o as unknown as ResourceAction).notAllowedResourceActions = n.getCollectionOfPrimitiveValues<string>(); }],
-        ]);
+    public set notAllowedResourceActions(value: string[] | undefined) {
+        this._notAllowedResourceActions = value;
     };
     /**
      * Serializes information the current object
@@ -53,26 +75,5 @@ export class ResourceAction implements Parsable {
         writer.writeCollectionOfPrimitiveValues<string>("allowedResourceActions", this.allowedResourceActions);
         writer.writeCollectionOfPrimitiveValues<string>("notAllowedResourceActions", this.notAllowedResourceActions);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the allowedResourceActions property value. Allowed Actions
-     * @param value Value to set for the allowedResourceActions property.
-     */
-    public set allowedResourceActions(value: string[] | undefined) {
-        this._allowedResourceActions = value;
-    };
-    /**
-     * Sets the notAllowedResourceActions property value. Not Allowed Actions.
-     * @param value Value to set for the notAllowedResourceActions property.
-     */
-    public set notAllowedResourceActions(value: string[] | undefined) {
-        this._notAllowedResourceActions = value;
     };
 }

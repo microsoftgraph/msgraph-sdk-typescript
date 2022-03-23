@@ -1,25 +1,32 @@
 import {BodyType} from './bodyType';
-import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-export class ItemBody implements Parsable {
+export class ItemBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
-    private _additionalData: Map<string, unknown>;
+    private _additionalData: Record<string, unknown>;
     /** The content of the item.  */
     private _content?: string | undefined;
     /** The type of the content. Possible values are text and html.  */
     private _contentType?: BodyType | undefined;
     /**
-     * Instantiates a new itemBody and sets the default values.
-     */
-    public constructor() {
-        this._additionalData = new Map<string, unknown>();
-    };
-    /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @returns a Map<string, unknown>
+     * @returns a Record<string, unknown>
      */
     public get additionalData() {
         return this._additionalData;
+    };
+    /**
+     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
+     * @param value Value to set for the AdditionalData property.
+     */
+    public set additionalData(value: Record<string, unknown>) {
+        this._additionalData = value;
+    };
+    /**
+     * Instantiates a new itemBody and sets the default values.
+     */
+    public constructor() {
+        this._additionalData = {};
     };
     /**
      * Gets the content property value. The content of the item.
@@ -29,6 +36,13 @@ export class ItemBody implements Parsable {
         return this._content;
     };
     /**
+     * Sets the content property value. The content of the item.
+     * @param value Value to set for the content property.
+     */
+    public set content(value: string | undefined) {
+        this._content = value;
+    };
+    /**
      * Gets the contentType property value. The type of the content. Possible values are text and html.
      * @returns a bodyType
      */
@@ -36,14 +50,21 @@ export class ItemBody implements Parsable {
         return this._contentType;
     };
     /**
-     * The deserialization information for the current model
-     * @returns a Map<string, (item: T, node: ParseNode) => void>
+     * Sets the contentType property value. The type of the content. Possible values are text and html.
+     * @param value Value to set for the contentType property.
      */
-    public getFieldDeserializers<T>() : Map<string, (item: T, node: ParseNode) => void> {
-        return new Map<string, (item: T, node: ParseNode) => void>([
-            ["content", (o, n) => { (o as unknown as ItemBody).content = n.getStringValue(); }],
-            ["contentType", (o, n) => { (o as unknown as ItemBody).contentType = n.getEnumValue<BodyType>(BodyType); }],
-        ]);
+    public set contentType(value: BodyType | undefined) {
+        this._contentType = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     */
+    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+        return {
+            "content": (o, n) => { (o as unknown as ItemBody).content = n.getStringValue(); },
+            "contentType": (o, n) => { (o as unknown as ItemBody).contentType = n.getEnumValue<BodyType>(BodyType); },
+        };
     };
     /**
      * Serializes information the current object
@@ -54,26 +75,5 @@ export class ItemBody implements Parsable {
         writer.writeStringValue("content", this.content);
         writer.writeEnumValue<BodyType>("contentType", this.contentType);
         writer.writeAdditionalData(this.additionalData);
-    };
-    /**
-     * Sets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
-     * @param value Value to set for the AdditionalData property.
-     */
-    public set additionalData(value: Map<string, unknown>) {
-        this._additionalData = value;
-    };
-    /**
-     * Sets the content property value. The content of the item.
-     * @param value Value to set for the content property.
-     */
-    public set content(value: string | undefined) {
-        this._content = value;
-    };
-    /**
-     * Sets the contentType property value. The type of the content. Possible values are text and html.
-     * @param value Value to set for the contentType property.
-     */
-    public set contentType(value: BodyType | undefined) {
-        this._contentType = value;
     };
 }
