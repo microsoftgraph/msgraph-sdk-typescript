@@ -16,20 +16,12 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [14.x, 16x]
         # Single version should work for compilation testing
 
     steps:
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v3
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v2.4.0
-      with:
-        always-auth: true
-        registry-url: 'https://npm.pkg.github.com'
-        scope: '@microsoft'
-        node-version: ${{ matrix.node-version }}
-        cache: 'npm'
+      uses: actions/setup-node@v3
     - run: npm ci
-      env:
-        NODE_AUTH_TOKEN: ${{ secrets.KIOTA_FEED_TOKEN }}
     - run: npm run build
