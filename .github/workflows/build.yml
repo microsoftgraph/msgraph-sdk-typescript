@@ -22,6 +22,6 @@ jobs:
     steps:
     - uses: actions/checkout@v2.3.4
     - name: Use Node.js ${{ matrix.node-version }}
-      uses: actions/setup-node@v3
+      uses: actions/setup-node@v2.4.0
     - run: npm ci
     - run: npm run build -- --max_old_space_size=4096
