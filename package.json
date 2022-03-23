@@ -11,7 +11,9 @@
         "@microsoft/kiota-serialization-text": "^1.0.0-preview.1",
         "tslib": "^2.3.1"
     },
-    "files": ["lib"],
+    "files": [
+        "lib"
+    ],
     "scripts": {
         "build": "tsc -p tsconfig.json",
         "run": "node ./lib/main.js"

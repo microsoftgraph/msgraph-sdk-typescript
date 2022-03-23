@@ -6,7 +6,8 @@
         "moduleResolution": "node",
         "downlevelIteration": true,
         "allowSyntheticDefaultImports": true,
-        "outDir": "lib"
+        "outDir": "lib",
+        "declaration": true
 	},
 	"include": ["src/"],
 	"exclude": ["node_modules"],
