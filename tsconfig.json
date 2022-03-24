@@ -1,5 +1,6 @@
 {
 	"compilerOptions": {
+        "importHelpers": true,
 		"module": "CommonJS",
 		"esModuleInterop": true,
 		"target": "ES2015",
@@ -9,7 +10,7 @@
         "outDir": "lib",
         "declaration": true
 	},
-	"include": ["src/"],
+	"include": ["src/", "tests/"],
 	"exclude": ["node_modules"],
 	"lib": ["es2015", "es2016", "es2017", "es2018", "es2019", "es2020"]
 }
