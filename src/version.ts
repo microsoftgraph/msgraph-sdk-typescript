@@ -1,0 +1,1 @@
+export const sdkVersion = "graph-sdk-js/1.0.0-preview.1";

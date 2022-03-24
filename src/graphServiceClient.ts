@@ -1,6 +1,14 @@
+/**
+ * -------------------------------------------------------------------------------------------
+ * Copyright (c) Microsoft Corporation.  All Rights Reserved.  Licensed under the MIT License.
+ * See License in the project root for license information.
+ * -------------------------------------------------------------------------------------------
+ */
+
 import { FetchRequestAdapter, HttpClient } from "@microsoft/kiota-http-fetchlibrary";
 import { GraphBaseServiceClient } from "./graphBaseServiceClient";
-import {ClientOptions, getDefaultMiddlewareChain, GraphBaseClient, GraphClientError, GraphRequest, GRAPH_API_VERSION, GRAPH_BASE_URL, updateAndReturnAllAllowedHosts} from "@microsoft/microsoft-graph-client"
+import {ClientOptions, getDefaultMiddlewareChain, GraphBaseClient, GraphClientError, GraphRequest, GraphSDKConfig, GRAPH_API_VERSION, GRAPH_BASE_URL, updateAndReturnAllAllowedHosts} from "@microsoft/microsoft-graph-client"
+import { sdkVersion } from "./version";
 
 /**
  * @public
@@ -19,8 +27,11 @@ export class GraphServiceClient extends GraphBaseServiceClient implements GraphB
 		}
         const allowedHosts = updateAndReturnAllAllowedHosts(clientOptions.authProvider, clientOptions.customHosts);
 
+        const graphSDKConfig: GraphSDKConfig = {
+            sdkTelemetryVersion: sdkVersion,
+        }
 		if (!clientOptions.middleware) {
-			httpClient = new HttpClient(undefined, ...[].concat(getDefaultMiddlewareChain(clientOptions, allowedHosts)));
+			httpClient = new HttpClient(undefined, ...[].concat(getDefaultMiddlewareChain(clientOptions, allowedHosts, graphSDKConfig)));
 		} else {
 			httpClient = new HttpClient(clientOptions.customFetch, ...[].concat(clientOptions.middleware));
 		}
