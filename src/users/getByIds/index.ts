@@ -1,2 +1,2 @@
-export * from './getByIdsResponse'
 export * from './getByIdsRequestBody'
+export * from './getByIdsResponse'
