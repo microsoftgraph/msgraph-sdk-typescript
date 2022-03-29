@@ -63,6 +63,7 @@ export class User extends DirectoryObject implements Parsable {
     private _assignedLicenses?: AssignedLicense[] | undefined;
     /** The plans that are assigned to the user. Read-only. Not nullable. Returned only on $select. Supports $filter (eq and not).  */
     private _assignedPlans?: AssignedPlan[] | undefined;
+    /** The authentication methods that are supported for the user.  */
     private _authentication?: Authentication | undefined;
     /** The birthday of the user. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned only on $select.  */
     private _birthday?: Date | undefined;
@@ -383,14 +384,14 @@ export class User extends DirectoryObject implements Parsable {
         this._assignedPlans = value;
     };
     /**
-     * Gets the authentication property value. 
+     * Gets the authentication property value. The authentication methods that are supported for the user.
      * @returns a authentication
      */
     public get authentication() {
         return this._authentication;
     };
     /**
-     * Sets the authentication property value. 
+     * Sets the authentication property value. The authentication methods that are supported for the user.
      * @param value Value to set for the authentication property.
      */
     public set authentication(value: Authentication | undefined) {

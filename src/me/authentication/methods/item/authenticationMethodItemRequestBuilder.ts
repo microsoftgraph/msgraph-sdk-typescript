@@ -41,7 +41,7 @@ export class AuthenticationMethodItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get methods from me
+     * Represents all authentication methods registered to a user.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -95,7 +95,7 @@ export class AuthenticationMethodItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get methods from me
+     * Represents all authentication methods registered to a user.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

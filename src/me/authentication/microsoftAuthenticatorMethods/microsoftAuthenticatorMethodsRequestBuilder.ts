@@ -31,7 +31,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get microsoftAuthenticatorMethods from me
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -75,7 +75,7 @@ export class MicrosoftAuthenticatorMethodsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get microsoftAuthenticatorMethods from me
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

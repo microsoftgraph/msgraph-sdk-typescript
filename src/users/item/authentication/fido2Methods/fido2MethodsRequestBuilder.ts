@@ -31,7 +31,7 @@ export class Fido2MethodsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get fido2Methods from users
+     * Represents the FIDO2 security keys registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -75,7 +75,7 @@ export class Fido2MethodsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get fido2Methods from users
+     * Represents the FIDO2 security keys registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

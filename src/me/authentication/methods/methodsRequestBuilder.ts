@@ -31,7 +31,7 @@ export class MethodsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get methods from me
+     * Represents all authentication methods registered to a user.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -75,7 +75,7 @@ export class MethodsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get methods from me
+     * Represents all authentication methods registered to a user.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

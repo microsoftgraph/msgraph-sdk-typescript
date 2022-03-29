@@ -61,7 +61,7 @@ export class AuthenticationRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get authentication from users
+     * The authentication methods that are supported for the user.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -126,7 +126,7 @@ export class AuthenticationRequestBuilder {
         return new Fido2AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get authentication from users
+     * The authentication methods that are supported for the user.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

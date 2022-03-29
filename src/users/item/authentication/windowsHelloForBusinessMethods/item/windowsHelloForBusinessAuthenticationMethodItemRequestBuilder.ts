@@ -45,7 +45,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get windowsHelloForBusinessMethods from users
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -99,7 +99,7 @@ export class WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get windowsHelloForBusinessMethods from users
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

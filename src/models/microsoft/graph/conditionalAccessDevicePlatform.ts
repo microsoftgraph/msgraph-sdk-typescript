@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton.  */
+/** Provides operations to manage the policyRoot singleton.  */
 export enum ConditionalAccessDevicePlatform {
     Android = "android",
     IOS = "iOS",
@@ -7,4 +7,5 @@ export enum ConditionalAccessDevicePlatform {
     MacOS = "macOS",
     All = "all",
     UnknownFutureValue = "unknownFutureValue",
+    Linux = "linux",
 }

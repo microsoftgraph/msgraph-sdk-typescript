@@ -6,9 +6,13 @@ import {AuthenticationMethod, Entity, Fido2AuthenticationMethod, MicrosoftAuthen
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Authentication extends Entity implements Parsable {
+    /** Represents the FIDO2 security keys registered to a user for authentication.  */
     private _fido2Methods?: Fido2AuthenticationMethod[] | undefined;
+    /** Represents all authentication methods registered to a user.  */
     private _methods?: AuthenticationMethod[] | undefined;
+    /** The details of the Microsoft Authenticator app registered to a user for authentication.  */
     private _microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
+    /** Represents the Windows Hello for Business authentication method registered to a user for authentication.  */
     private _windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new authentication and sets the default values.
@@ -17,14 +21,14 @@ export class Authentication extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the fido2Methods property value. 
+     * Gets the fido2Methods property value. Represents the FIDO2 security keys registered to a user for authentication.
      * @returns a fido2AuthenticationMethod
      */
     public get fido2Methods() {
         return this._fido2Methods;
     };
     /**
-     * Sets the fido2Methods property value. 
+     * Sets the fido2Methods property value. Represents the FIDO2 security keys registered to a user for authentication.
      * @param value Value to set for the fido2Methods property.
      */
     public set fido2Methods(value: Fido2AuthenticationMethod[] | undefined) {
@@ -43,28 +47,28 @@ export class Authentication extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the methods property value. 
+     * Gets the methods property value. Represents all authentication methods registered to a user.
      * @returns a authenticationMethod
      */
     public get methods() {
         return this._methods;
     };
     /**
-     * Sets the methods property value. 
+     * Sets the methods property value. Represents all authentication methods registered to a user.
      * @param value Value to set for the methods property.
      */
     public set methods(value: AuthenticationMethod[] | undefined) {
         this._methods = value;
     };
     /**
-     * Gets the microsoftAuthenticatorMethods property value. 
+     * Gets the microsoftAuthenticatorMethods property value. The details of the Microsoft Authenticator app registered to a user for authentication.
      * @returns a microsoftAuthenticatorAuthenticationMethod
      */
     public get microsoftAuthenticatorMethods() {
         return this._microsoftAuthenticatorMethods;
     };
     /**
-     * Sets the microsoftAuthenticatorMethods property value. 
+     * Sets the microsoftAuthenticatorMethods property value. The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param value Value to set for the microsoftAuthenticatorMethods property.
      */
     public set microsoftAuthenticatorMethods(value: MicrosoftAuthenticatorAuthenticationMethod[] | undefined) {
@@ -83,14 +87,14 @@ export class Authentication extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<WindowsHelloForBusinessAuthenticationMethod>("windowsHelloForBusinessMethods", this.windowsHelloForBusinessMethods);
     };
     /**
-     * Gets the windowsHelloForBusinessMethods property value. 
+     * Gets the windowsHelloForBusinessMethods property value. Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @returns a windowsHelloForBusinessAuthenticationMethod
      */
     public get windowsHelloForBusinessMethods() {
         return this._windowsHelloForBusinessMethods;
     };
     /**
-     * Sets the windowsHelloForBusinessMethods property value. 
+     * Sets the windowsHelloForBusinessMethods property value. Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param value Value to set for the windowsHelloForBusinessMethods property.
      */
     public set windowsHelloForBusinessMethods(value: WindowsHelloForBusinessAuthenticationMethod[] | undefined) {

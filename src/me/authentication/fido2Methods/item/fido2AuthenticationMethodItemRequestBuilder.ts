@@ -41,7 +41,7 @@ export class Fido2AuthenticationMethodItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get fido2Methods from me
+     * Represents the FIDO2 security keys registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -95,7 +95,7 @@ export class Fido2AuthenticationMethodItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get fido2Methods from me
+     * Represents the FIDO2 security keys registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

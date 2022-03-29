@@ -45,7 +45,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get microsoftAuthenticatorMethods from users
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -99,7 +99,7 @@ export class MicrosoftAuthenticatorAuthenticationMethodItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get microsoftAuthenticatorMethods from users
+     * The details of the Microsoft Authenticator app registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

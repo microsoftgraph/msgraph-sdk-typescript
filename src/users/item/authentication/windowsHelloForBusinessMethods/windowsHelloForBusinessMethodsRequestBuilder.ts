@@ -31,7 +31,7 @@ export class WindowsHelloForBusinessMethodsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get windowsHelloForBusinessMethods from users
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters
@@ -75,7 +75,7 @@ export class WindowsHelloForBusinessMethodsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get windowsHelloForBusinessMethods from users
+     * Represents the Windows Hello for Business authentication method registered to a user for authentication.
      * @param h Request headers
      * @param o Request options
      * @param q Request query parameters

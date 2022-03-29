@@ -14,7 +14,7 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
     /** Specifies whether to push welcome page changes to inherited content types.  */
     private _propagateWelcomePageChanges?: boolean | undefined;
     private _sharedColumns?: ColumnDefinition[] | undefined;
-    /** Add the name of the document set to each file name.  */
+    /** Indicates whether to add the name of the document set to each file name.  */
     private _shouldPrefixNameToFile?: boolean | undefined;
     private _welcomePageColumns?: ColumnDefinition[] | undefined;
     /** Welcome page absolute URL.  */
@@ -126,14 +126,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         this._sharedColumns = value;
     };
     /**
-     * Gets the shouldPrefixNameToFile property value. Add the name of the document set to each file name.
+     * Gets the shouldPrefixNameToFile property value. Indicates whether to add the name of the document set to each file name.
      * @returns a boolean
      */
     public get shouldPrefixNameToFile() {
         return this._shouldPrefixNameToFile;
     };
     /**
-     * Sets the shouldPrefixNameToFile property value. Add the name of the document set to each file name.
+     * Sets the shouldPrefixNameToFile property value. Indicates whether to add the name of the document set to each file name.
      * @param value Value to set for the shouldPrefixNameToFile property.
      */
     public set shouldPrefixNameToFile(value: boolean | undefined) {
