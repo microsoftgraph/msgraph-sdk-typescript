@@ -9,10 +9,12 @@ Get started with the Microsoft Graph SDK for Typescript by integrating the [Micr
 ## 1. Installation
 
 ```typescript
-npm install @microsoft/msgraph-sdk-typescript
+npm install @microsoft/msgraph-sdk-javascript
 ```
 
 ## 2. Getting started
+
+> Note: we are working to add the getting started information for Typescript to our public documentation, in the meantime the following sample should help you getting started.
 
 ### 2.1 Register your application
 
@@ -24,43 +26,30 @@ An instance of the **GraphServiceClient** class handles building client. To crea
 
 For an example of how to get an authentication provider, see [choose a Microsoft Graph authentication provider](https://docs.microsoft.com/graph/sdks/choose-authentication-providers?tabs=typescript).
 
-> Note: we are working to add the getting started information for Typescript to our public documentation, in the meantime the following sample should help you getting started.
-
-```typescript
-const authProvider = new AzureIdentityAuthenticationProvider(new ClientSecretCredential("tenantId", "clientId", "clientSecret"));
-const requestAdapter = new FetchRequestAdapter(authProvider);  
-
-```
-
 ### 2.3 Get a Graph Service Client Adapter object
 
 You must get a **GraphServiceClient** object to make requests against the service.
 
 ```typescript
-const graphServiceClient = new GraphServiceClient(requestAdapter);
+const graphServiceClient = GraphServiceClient.init({authProvider});
 ```
 
 ## 3. Make requests against the service
 
 After you have a **GraphServiceClient** that is authenticated, you can begin making calls against the service. The requests against the service look like our [REST API](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0).
 
-### 3.1 Get the user's rooms
+### 3.1 Get application's owners
 
-To retrieve the user's rooms:
+To retrieve the applications's owners:
 
 ```typescript
-const graphServiceClient = new GraphServiceClient(requestAdapter);
+const graphServiceClient = GraphServiceClient.init({authProvider});
 
 const result = async () => {
-	await graphServiceClient.me.findRooms().get();
+	await graphServiceClient.applicationsById("application-id").owners.get()
 }
 ```
-
-## 4. Getting results that span across multiple pages
-
-Items in a collection response can span across multiple pages. To get the complete set of items in the collection, your application must make additional calls to get the subsequent pages until no more next link is provided in the response.
-
-## 5. Documentation
+## 4. Documentation
 
 For more detailed documentation, see:
 
@@ -70,18 +59,18 @@ For more detailed documentation, see:
 * [Known issues](https://github.com/MicrosoftGraph/msgraph-sdk-typescript/issues)
 * [Contributions](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/CONTRIBUTING.md)
 
-## 6. Issues
+## 5. Issues
 
 For known issues, see [issues](https://github.com/MicrosoftGraph/msgraph-sdk-typescript/issues).
 
-## 7. Contributions
+## 6. Contributions
 
 The Microsoft Graph SDK is open for contribution. To contribute to this project, see [Contributing](https://github.com/microsoftgraph/msgraph-sdk-typescript/blob/main/CONTRIBUTING.md).
 
-## 8. License
+## 7. License
 
 Copyright (c) Microsoft Corporation. All Rights Reserved. Licensed under the [MIT license](LICENSE).
 
-## 9. Third-party notices
+## 8. Third-party notices
 
 [Third-party notices](THIRD%20PARTY%20NOTICES)
