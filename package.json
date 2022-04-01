@@ -17,7 +17,8 @@
     ],
     "scripts": {
         "build": "tsc -p tsconfig.json",
-        "run": "node ./lib/main.js"
+        "run": "node ./lib/main.js",
+        "test": "mocha lib/cjs/tests/*.js"
     },
     "repository": {
         "type": "git",
