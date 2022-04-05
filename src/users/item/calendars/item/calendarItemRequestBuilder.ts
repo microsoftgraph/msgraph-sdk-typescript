@@ -1,7 +1,7 @@
-import {Calendar} from '../../../../models/microsoft/graph/';
-import {createCalendarFromDiscriminatorValue} from '../../../../models/microsoft/graph/createCalendarFromDiscriminatorValue';
-import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Calendar} from '../../../../models/';
+import {createCalendarFromDiscriminatorValue} from '../../../../models/createCalendarFromDiscriminatorValue';
+import {ODataError} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AllowedCalendarSharingRolesWithUserRequestBuilder} from './allowedCalendarSharingRolesWithUser/allowedCalendarSharingRolesWithUserRequestBuilder';
 import {CalendarPermissionsRequestBuilder} from './calendarPermissions/calendarPermissionsRequestBuilder';
 import {CalendarPermissionItemRequestBuilder} from './calendarPermissions/item/calendarPermissionItemRequestBuilder';
@@ -18,18 +18,23 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the calendars property of the microsoft.graph.user entity.  */
 export class CalendarItemRequestBuilder {
+    /** The calendarPermissions property  */
     public get calendarPermissions(): CalendarPermissionsRequestBuilder {
         return new CalendarPermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendarView property  */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The events property  */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getSchedule property  */
     public get getSchedule(): GetScheduleRequestBuilder {
         return new GetScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The multiValueExtendedProperties property  */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -37,6 +42,7 @@ export class CalendarItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The singleValueExtendedProperties property  */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -88,46 +94,46 @@ export class CalendarItemRequestBuilder {
     };
     /**
      * Delete navigation property calendars for users
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The user's calendars. Read-only. Nullable.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property calendars in users
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Calendar | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Calendar | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -135,18 +141,18 @@ export class CalendarItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property calendars for users
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -167,17 +173,17 @@ export class CalendarItemRequestBuilder {
     };
     /**
      * The user's calendars. Read-only. Nullable.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Calendar
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Calendar | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -199,14 +205,14 @@ export class CalendarItemRequestBuilder {
     /**
      * Update the navigation property calendars in users
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Calendar | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Calendar | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

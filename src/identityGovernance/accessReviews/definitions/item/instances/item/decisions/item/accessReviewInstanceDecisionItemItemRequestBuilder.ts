@@ -1,7 +1,7 @@
-import {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/microsoft/graph/';
-import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../models/microsoft/graph/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AccessReviewInstanceDecisionItem} from '../../../../../../../../models/';
+import {createAccessReviewInstanceDecisionItemFromDiscriminatorValue} from '../../../../../../../../models/createAccessReviewInstanceDecisionItemFromDiscriminatorValue';
+import {ODataError} from '../../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the decisions property of the microsoft.graph.accessReviewInstance entity.  */
@@ -27,47 +27,47 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
     };
     /**
      * Delete navigation property decisions for identityGovernance
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property decisions in identityGovernance
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: AccessReviewInstanceDecisionItem | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: AccessReviewInstanceDecisionItem | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -75,18 +75,18 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property decisions for identityGovernance
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -96,18 +96,18 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
     };
     /**
      * Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessReviewInstanceDecisionItem
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessReviewInstanceDecisionItem | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -118,14 +118,14 @@ export class AccessReviewInstanceDecisionItemItemRequestBuilder {
     /**
      * Update the navigation property decisions in identityGovernance
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AccessReviewInstanceDecisionItem | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessReviewInstanceDecisionItem | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

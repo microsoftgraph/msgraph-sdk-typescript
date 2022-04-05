@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ArchiveRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The shouldSetSpoSiteReadOnlyForMembers property  */
     private _shouldSetSpoSiteReadOnlyForMembers?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,14 +45,14 @@ export class ArchiveRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the shouldSetSpoSiteReadOnlyForMembers property value. 
+     * Gets the shouldSetSpoSiteReadOnlyForMembers property value. The shouldSetSpoSiteReadOnlyForMembers property
      * @returns a boolean
      */
     public get shouldSetSpoSiteReadOnlyForMembers() {
         return this._shouldSetSpoSiteReadOnlyForMembers;
     };
     /**
-     * Sets the shouldSetSpoSiteReadOnlyForMembers property value. 
+     * Sets the shouldSetSpoSiteReadOnlyForMembers property value. The shouldSetSpoSiteReadOnlyForMembers property
      * @param value Value to set for the shouldSetSpoSiteReadOnlyForMembers property.
      */
     public set shouldSetSpoSiteReadOnlyForMembers(value: boolean | undefined) {

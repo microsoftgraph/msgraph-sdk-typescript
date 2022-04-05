@@ -1,11 +1,12 @@
-import {Post} from '../../../../../../../models/microsoft/graph/';
-import {createPostFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/createPostFromDiscriminatorValue';
+import {Post} from '../../../../../../../models/';
+import {createPostFromDiscriminatorValue} from '../../../../../../../models/createPostFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the reply method.  */
 export class ReplyRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The Post property  */
     private _post?: Post | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -37,14 +38,14 @@ export class ReplyRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the post property value. 
+     * Gets the post property value. The Post property
      * @returns a post
      */
     public get post() {
         return this._post;
     };
     /**
-     * Sets the post property value. 
+     * Sets the post property value. The Post property
      * @param value Value to set for the Post property.
      */
     public set post(value: Post | undefined) {

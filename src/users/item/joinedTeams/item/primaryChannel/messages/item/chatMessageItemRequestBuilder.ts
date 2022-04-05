@@ -1,7 +1,7 @@
-import {ChatMessage} from '../../../../../../../models/microsoft/graph/';
-import {createChatMessageFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/createChatMessageFromDiscriminatorValue';
-import {ODataError} from '../../../../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ChatMessage} from '../../../../../../../models/';
+import {createChatMessageFromDiscriminatorValue} from '../../../../../../../models/createChatMessageFromDiscriminatorValue';
+import {ODataError} from '../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {HostedContentsRequestBuilder} from './hostedContents/hostedContentsRequestBuilder';
 import {ChatMessageHostedContentItemRequestBuilder} from './hostedContents/item/chatMessageHostedContentItemRequestBuilder';
 import {ChatMessageItemRequestBuilder as i945e3d88fcea1084f7212274f13b5d87c7c35cf3153a53bb5b6f2466459c2016} from './replies/item/chatMessageItemRequestBuilder';
@@ -10,11 +10,13 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the messages property of the microsoft.graph.channel entity.  */
 export class ChatMessageItemRequestBuilder {
+    /** The hostedContents property  */
     public get hostedContents(): HostedContentsRequestBuilder {
         return new HostedContentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The replies property  */
     public get replies(): RepliesRequestBuilder {
         return new RepliesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -37,47 +39,47 @@ export class ChatMessageItemRequestBuilder {
     };
     /**
      * Delete navigation property messages for users
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * A collection of all the messages in the channel. A navigation property. Nullable.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property messages in users
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ChatMessage | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ChatMessage | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -85,18 +87,18 @@ export class ChatMessageItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property messages for users
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -106,18 +108,18 @@ export class ChatMessageItemRequestBuilder {
     };
     /**
      * A collection of all the messages in the channel. A navigation property. Nullable.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ChatMessage
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ChatMessage | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -139,14 +141,14 @@ export class ChatMessageItemRequestBuilder {
     /**
      * Update the navigation property messages in users
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ChatMessage | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ChatMessage | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

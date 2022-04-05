@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ChangePasswordRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The currentPassword property  */
     private _currentPassword?: string | undefined;
+    /** The newPassword property  */
     private _newPassword?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,14 +29,14 @@ export class ChangePasswordRequestBody implements AdditionalDataHolder, Parsable
         this._additionalData = {};
     };
     /**
-     * Gets the currentPassword property value. 
+     * Gets the currentPassword property value. The currentPassword property
      * @returns a string
      */
     public get currentPassword() {
         return this._currentPassword;
     };
     /**
-     * Sets the currentPassword property value. 
+     * Sets the currentPassword property value. The currentPassword property
      * @param value Value to set for the currentPassword property.
      */
     public set currentPassword(value: string | undefined) {
@@ -51,14 +53,14 @@ export class ChangePasswordRequestBody implements AdditionalDataHolder, Parsable
         };
     };
     /**
-     * Gets the newPassword property value. 
+     * Gets the newPassword property value. The newPassword property
      * @returns a string
      */
     public get newPassword() {
         return this._newPassword;
     };
     /**
-     * Sets the newPassword property value. 
+     * Sets the newPassword property value. The newPassword property
      * @param value Value to set for the newPassword property.
      */
     public set newPassword(value: string | undefined) {

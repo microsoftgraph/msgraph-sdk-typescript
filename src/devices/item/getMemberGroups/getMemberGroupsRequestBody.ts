@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetMemberGroupsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The securityEnabledOnly property  */
     private _securityEnabledOnly?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +36,14 @@ export class GetMemberGroupsRequestBody implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the securityEnabledOnly property value. 
+     * Gets the securityEnabledOnly property value. The securityEnabledOnly property
      * @returns a boolean
      */
     public get securityEnabledOnly() {
         return this._securityEnabledOnly;
     };
     /**
-     * Sets the securityEnabledOnly property value. 
+     * Sets the securityEnabledOnly property value. The securityEnabledOnly property
      * @param value Value to set for the securityEnabledOnly property.
      */
     public set securityEnabledOnly(value: boolean | undefined) {

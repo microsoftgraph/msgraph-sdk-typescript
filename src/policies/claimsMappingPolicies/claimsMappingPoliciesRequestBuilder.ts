@@ -1,13 +1,14 @@
-import {ClaimsMappingPolicy, ClaimsMappingPolicyCollectionResponse} from '../../models/microsoft/graph/';
-import {createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
-import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../models/microsoft/graph/createClaimsMappingPolicyFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ClaimsMappingPolicy, ClaimsMappingPolicyCollectionResponse} from '../../models/';
+import {createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue} from '../../models/createClaimsMappingPolicyCollectionResponseFromDiscriminatorValue';
+import {createClaimsMappingPolicyFromDiscriminatorValue} from '../../models/createClaimsMappingPolicyFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the claimsMappingPolicies property of the microsoft.graph.policyRoot entity.  */
 export class ClaimsMappingPoliciesRequestBuilder {
+    /** The count property  */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -32,12 +33,12 @@ export class ClaimsMappingPoliciesRequestBuilder {
     };
     /**
      * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -46,24 +47,24 @@ export class ClaimsMappingPoliciesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Create new navigation property to claimsMappingPolicies for policies
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ClaimsMappingPolicy | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ClaimsMappingPolicy | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -71,18 +72,18 @@ export class ClaimsMappingPoliciesRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicyCollectionResponse
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -91,9 +92,9 @@ export class ClaimsMappingPoliciesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicyCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -104,15 +105,15 @@ export class ClaimsMappingPoliciesRequestBuilder {
     /**
      * Create new navigation property to claimsMappingPolicies for policies
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ClaimsMappingPolicy
      */
-    public post(body: ClaimsMappingPolicy | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicy | undefined> {
+    public post(body: ClaimsMappingPolicy | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ClaimsMappingPolicy | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

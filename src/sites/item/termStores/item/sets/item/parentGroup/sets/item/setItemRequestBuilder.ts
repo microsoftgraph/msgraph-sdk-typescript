@@ -1,7 +1,7 @@
-import {ODataError} from '../../../../../../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Set} from '../../../../../../../../../models/microsoft/graph/termStore/';
-import {createSetFromDiscriminatorValue} from '../../../../../../../../../models/microsoft/graph/termStore/createSetFromDiscriminatorValue';
+import {ODataError} from '../../../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Set} from '../../../../../../../../../models/termStore/';
+import {createSetFromDiscriminatorValue} from '../../../../../../../../../models/termStore/createSetFromDiscriminatorValue';
 import {ChildrenRequestBuilder} from './children/childrenRequestBuilder';
 import {TermItemRequestBuilder as i284c829eb4598faaf9449f30e9abd6fb6c5a3aae29b77b965de19cd88ff03f73} from './children/item/termItemRequestBuilder';
 import {RelationItemRequestBuilder} from './relations/item/relationItemRequestBuilder';
@@ -12,16 +12,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the sets property of the microsoft.graph.termStore.group entity.  */
 export class SetItemRequestBuilder {
+    /** The children property  */
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The relations property  */
     public get relations(): RelationsRequestBuilder {
         return new RelationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The terms property  */
     public get terms(): TermsRequestBuilder {
         return new TermsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -53,47 +56,47 @@ export class SetItemRequestBuilder {
     };
     /**
      * Delete navigation property sets for sites
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * All sets under the group in a term [store].
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property sets in sites
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Set | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Set | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -101,18 +104,18 @@ export class SetItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property sets for sites
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -122,18 +125,18 @@ export class SetItemRequestBuilder {
     };
     /**
      * All sets under the group in a term [store].
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Set
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Set | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -144,14 +147,14 @@ export class SetItemRequestBuilder {
     /**
      * Update the navigation property sets in sites
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Set | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Set | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

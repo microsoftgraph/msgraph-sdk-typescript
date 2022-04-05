@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CancelRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The Comment property  */
     private _comment?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -20,14 +21,14 @@ export class CancelRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the comment property value. 
+     * Gets the comment property value. The Comment property
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. 
+     * Sets the comment property value. The Comment property
      * @param value Value to set for the Comment property.
      */
     public set comment(value: string | undefined) {

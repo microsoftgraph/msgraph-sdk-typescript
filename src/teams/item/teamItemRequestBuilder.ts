@@ -1,7 +1,7 @@
-import {Team} from '../../models/microsoft/graph/';
-import {createTeamFromDiscriminatorValue} from '../../models/microsoft/graph/createTeamFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Team} from '../../models/';
+import {createTeamFromDiscriminatorValue} from '../../models/createTeamFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ArchiveRequestBuilder} from './archive/archiveRequestBuilder';
 import {ChannelsRequestBuilder} from './channels/channelsRequestBuilder';
 import {ChannelItemRequestBuilder} from './channels/item/channelItemRequestBuilder';
@@ -23,46 +23,59 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of team entities.  */
 export class TeamItemRequestBuilder {
+    /** The archive property  */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The channels property  */
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The clone property  */
     public get clone(): CloneRequestBuilder {
         return new CloneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The completeMigration property  */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The group property  */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The installedApps property  */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The members property  */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The operations property  */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The primaryChannel property  */
     public get primaryChannel(): PrimaryChannelRequestBuilder {
         return new PrimaryChannelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The schedule property  */
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The sendActivityNotification property  */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The template property  */
     public get template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The unarchive property  */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -94,47 +107,47 @@ export class TeamItemRequestBuilder {
     };
     /**
      * Delete entity from teams
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get entity from teams by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update entity in teams
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Team | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Team | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -142,18 +155,18 @@ export class TeamItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete entity from teams
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -163,18 +176,18 @@ export class TeamItemRequestBuilder {
     };
     /**
      * Get entity from teams by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Team | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -218,14 +231,14 @@ export class TeamItemRequestBuilder {
     /**
      * Update entity in teams
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Team | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Team | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

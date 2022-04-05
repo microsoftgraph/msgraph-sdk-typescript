@@ -1,13 +1,14 @@
-import {DeviceComplianceDeviceStatus, DeviceComplianceDeviceStatusCollectionResponse} from '../../../../models/microsoft/graph/';
-import {createDeviceComplianceDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceComplianceDeviceStatusCollectionResponseFromDiscriminatorValue';
-import {createDeviceComplianceDeviceStatusFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceComplianceDeviceStatusFromDiscriminatorValue';
-import {ODataError} from '../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {DeviceComplianceDeviceStatus, DeviceComplianceDeviceStatusCollectionResponse} from '../../../../models/';
+import {createDeviceComplianceDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceComplianceDeviceStatusCollectionResponseFromDiscriminatorValue';
+import {createDeviceComplianceDeviceStatusFromDiscriminatorValue} from '../../../../models/createDeviceComplianceDeviceStatusFromDiscriminatorValue';
+import {ODataError} from '../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the deviceStatuses property of the microsoft.graph.deviceCompliancePolicy entity.  */
 export class DeviceStatusesRequestBuilder {
+    /** The count property  */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -32,12 +33,12 @@ export class DeviceStatusesRequestBuilder {
     };
     /**
      * List of DeviceComplianceDeviceStatus.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -46,24 +47,24 @@ export class DeviceStatusesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Create new navigation property to deviceStatuses for deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: DeviceComplianceDeviceStatus | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: DeviceComplianceDeviceStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -71,18 +72,18 @@ export class DeviceStatusesRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * List of DeviceComplianceDeviceStatus.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceDeviceStatusCollectionResponse
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -91,9 +92,9 @@ export class DeviceStatusesRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceDeviceStatusCollectionResponse | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceDeviceStatusCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -104,15 +105,15 @@ export class DeviceStatusesRequestBuilder {
     /**
      * Create new navigation property to deviceStatuses for deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceComplianceDeviceStatus
      */
-    public post(body: DeviceComplianceDeviceStatus | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceDeviceStatus | undefined> {
+    public post(body: DeviceComplianceDeviceStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceComplianceDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

@@ -4,11 +4,17 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CreateLinkRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The expirationDateTime property  */
     private _expirationDateTime?: Date | undefined;
+    /** The message property  */
     private _message?: string | undefined;
+    /** The password property  */
     private _password?: string | undefined;
+    /** The retainInheritedPermissions property  */
     private _retainInheritedPermissions?: boolean | undefined;
+    /** The scope property  */
     private _scope?: string | undefined;
+    /** The type property  */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -31,14 +37,14 @@ export class CreateLinkRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the expirationDateTime property value. 
+     * Gets the expirationDateTime property value. The expirationDateTime property
      * @returns a Date
      */
     public get expirationDateTime() {
         return this._expirationDateTime;
     };
     /**
-     * Sets the expirationDateTime property value. 
+     * Sets the expirationDateTime property value. The expirationDateTime property
      * @param value Value to set for the expirationDateTime property.
      */
     public set expirationDateTime(value: Date | undefined) {
@@ -59,56 +65,56 @@ export class CreateLinkRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the message property value. 
+     * Gets the message property value. The message property
      * @returns a string
      */
     public get message() {
         return this._message;
     };
     /**
-     * Sets the message property value. 
+     * Sets the message property value. The message property
      * @param value Value to set for the message property.
      */
     public set message(value: string | undefined) {
         this._message = value;
     };
     /**
-     * Gets the password property value. 
+     * Gets the password property value. The password property
      * @returns a string
      */
     public get password() {
         return this._password;
     };
     /**
-     * Sets the password property value. 
+     * Sets the password property value. The password property
      * @param value Value to set for the password property.
      */
     public set password(value: string | undefined) {
         this._password = value;
     };
     /**
-     * Gets the retainInheritedPermissions property value. 
+     * Gets the retainInheritedPermissions property value. The retainInheritedPermissions property
      * @returns a boolean
      */
     public get retainInheritedPermissions() {
         return this._retainInheritedPermissions;
     };
     /**
-     * Sets the retainInheritedPermissions property value. 
+     * Sets the retainInheritedPermissions property value. The retainInheritedPermissions property
      * @param value Value to set for the retainInheritedPermissions property.
      */
     public set retainInheritedPermissions(value: boolean | undefined) {
         this._retainInheritedPermissions = value;
     };
     /**
-     * Gets the scope property value. 
+     * Gets the scope property value. The scope property
      * @returns a string
      */
     public get scope() {
         return this._scope;
     };
     /**
-     * Sets the scope property value. 
+     * Sets the scope property value. The scope property
      * @param value Value to set for the scope property.
      */
     public set scope(value: string | undefined) {
@@ -129,14 +135,14 @@ export class CreateLinkRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. 
+     * Gets the type property value. The type property
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. 
+     * Sets the type property value. The type property
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

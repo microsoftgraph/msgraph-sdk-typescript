@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class WipeManagedAppRegistrationsByDeviceTagRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The deviceTag property  */
     private _deviceTag?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +27,14 @@ export class WipeManagedAppRegistrationsByDeviceTagRequestBody implements Additi
         this._additionalData = {};
     };
     /**
-     * Gets the deviceTag property value. 
+     * Gets the deviceTag property value. The deviceTag property
      * @returns a string
      */
     public get deviceTag() {
         return this._deviceTag;
     };
     /**
-     * Sets the deviceTag property value. 
+     * Sets the deviceTag property value. The deviceTag property
      * @param value Value to set for the deviceTag property.
      */
     public set deviceTag(value: string | undefined) {

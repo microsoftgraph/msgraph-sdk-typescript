@@ -1,12 +1,14 @@
-import {AssignedLicense} from '../../../models/microsoft/graph/';
-import {createAssignedLicenseFromDiscriminatorValue} from '../../../models/microsoft/graph/createAssignedLicenseFromDiscriminatorValue';
+import {AssignedLicense} from '../../../models/';
+import {createAssignedLicenseFromDiscriminatorValue} from '../../../models/createAssignedLicenseFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assignLicense method.  */
 export class AssignLicenseRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The addLicenses property  */
     private _addLicenses?: AssignedLicense[] | undefined;
+    /** The removeLicenses property  */
     private _removeLicenses?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -23,14 +25,14 @@ export class AssignLicenseRequestBody implements AdditionalDataHolder, Parsable 
         this._additionalData = value;
     };
     /**
-     * Gets the addLicenses property value. 
+     * Gets the addLicenses property value. The addLicenses property
      * @returns a assignedLicense
      */
     public get addLicenses() {
         return this._addLicenses;
     };
     /**
-     * Sets the addLicenses property value. 
+     * Sets the addLicenses property value. The addLicenses property
      * @param value Value to set for the addLicenses property.
      */
     public set addLicenses(value: AssignedLicense[] | undefined) {
@@ -53,14 +55,14 @@ export class AssignLicenseRequestBody implements AdditionalDataHolder, Parsable 
         };
     };
     /**
-     * Gets the removeLicenses property value. 
+     * Gets the removeLicenses property value. The removeLicenses property
      * @returns a string
      */
     public get removeLicenses() {
         return this._removeLicenses;
     };
     /**
-     * Sets the removeLicenses property value. 
+     * Sets the removeLicenses property value. The removeLicenses property
      * @param value Value to set for the removeLicenses property.
      */
     public set removeLicenses(value: string[] | undefined) {

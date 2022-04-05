@@ -1,11 +1,12 @@
-import {DeviceComplianceScheduledActionForRule} from '../../../../models/microsoft/graph/';
-import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
+import {DeviceComplianceScheduledActionForRule} from '../../../../models/';
+import {createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue} from '../../../../models/createDeviceComplianceScheduledActionForRuleFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the scheduleActionsForRules method.  */
 export class ScheduleActionsForRulesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The deviceComplianceScheduledActionForRules property  */
     private _deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +29,14 @@ export class ScheduleActionsForRulesRequestBody implements AdditionalDataHolder,
         this._additionalData = {};
     };
     /**
-     * Gets the deviceComplianceScheduledActionForRules property value. 
+     * Gets the deviceComplianceScheduledActionForRules property value. The deviceComplianceScheduledActionForRules property
      * @returns a deviceComplianceScheduledActionForRule
      */
     public get deviceComplianceScheduledActionForRules() {
         return this._deviceComplianceScheduledActionForRules;
     };
     /**
-     * Sets the deviceComplianceScheduledActionForRules property value. 
+     * Sets the deviceComplianceScheduledActionForRules property value. The deviceComplianceScheduledActionForRules property
      * @param value Value to set for the deviceComplianceScheduledActionForRules property.
      */
     public set deviceComplianceScheduledActionForRules(value: DeviceComplianceScheduledActionForRule[] | undefined) {

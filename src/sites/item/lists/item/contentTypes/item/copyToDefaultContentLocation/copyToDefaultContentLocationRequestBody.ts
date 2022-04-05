@@ -1,12 +1,14 @@
-import {ItemReference} from '../../../../../../../models/microsoft/graph/';
-import {createItemReferenceFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/createItemReferenceFromDiscriminatorValue';
+import {ItemReference} from '../../../../../../../models/';
+import {createItemReferenceFromDiscriminatorValue} from '../../../../../../../models/createItemReferenceFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToDefaultContentLocation method.  */
 export class CopyToDefaultContentLocationRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The destinationFileName property  */
     private _destinationFileName?: string | undefined;
+    /** The sourceFile property  */
     private _sourceFile?: ItemReference | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,14 +31,14 @@ export class CopyToDefaultContentLocationRequestBody implements AdditionalDataHo
         this._additionalData = {};
     };
     /**
-     * Gets the destinationFileName property value. 
+     * Gets the destinationFileName property value. The destinationFileName property
      * @returns a string
      */
     public get destinationFileName() {
         return this._destinationFileName;
     };
     /**
-     * Sets the destinationFileName property value. 
+     * Sets the destinationFileName property value. The destinationFileName property
      * @param value Value to set for the destinationFileName property.
      */
     public set destinationFileName(value: string | undefined) {
@@ -63,14 +65,14 @@ export class CopyToDefaultContentLocationRequestBody implements AdditionalDataHo
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceFile property value. 
+     * Gets the sourceFile property value. The sourceFile property
      * @returns a itemReference
      */
     public get sourceFile() {
         return this._sourceFile;
     };
     /**
-     * Sets the sourceFile property value. 
+     * Sets the sourceFile property value. The sourceFile property
      * @param value Value to set for the sourceFile property.
      */
     public set sourceFile(value: ItemReference | undefined) {

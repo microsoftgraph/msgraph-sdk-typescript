@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MarkUnreadRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The messageIds property  */
     private _messageIds?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +36,14 @@ export class MarkUnreadRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the messageIds property value. 
+     * Gets the messageIds property value. The messageIds property
      * @returns a string
      */
     public get messageIds() {
         return this._messageIds;
     };
     /**
-     * Sets the messageIds property value. 
+     * Sets the messageIds property value. The messageIds property
      * @param value Value to set for the messageIds property.
      */
     public set messageIds(value: string[] | undefined) {

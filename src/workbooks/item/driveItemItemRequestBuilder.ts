@@ -1,7 +1,7 @@
-import {DriveItem} from '../../models/microsoft/graph/';
-import {createDriveItemFromDiscriminatorValue} from '../../models/microsoft/graph/createDriveItemFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {DriveItem} from '../../models/';
+import {createDriveItemFromDiscriminatorValue} from '../../models/createDriveItemFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {CheckinRequestBuilder} from './checkin/checkinRequestBuilder';
 import {CheckoutRequestBuilder} from './checkout/checkoutRequestBuilder';
@@ -35,66 +35,85 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of driveItem entities.  */
 export class DriveItemItemRequestBuilder {
+    /** The analytics property  */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkin property  */
     public get checkin(): CheckinRequestBuilder {
         return new CheckinRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkout property  */
     public get checkout(): CheckoutRequestBuilder {
         return new CheckoutRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The children property  */
     public get children(): ChildrenRequestBuilder {
         return new ChildrenRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The content property  */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The copy property  */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The createLink property  */
     public get createLink(): CreateLinkRequestBuilder {
         return new CreateLinkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The createUploadSession property  */
     public get createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The follow property  */
     public get follow(): FollowRequestBuilder {
         return new FollowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The invite property  */
     public get invite(): InviteRequestBuilder {
         return new InviteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The listItem property  */
     public get listItem(): ListItemRequestBuilder {
         return new ListItemRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The permissions property  */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The preview property  */
     public get preview(): PreviewRequestBuilder {
         return new PreviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The restore property  */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The subscriptions property  */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The thumbnails property  */
     public get thumbnails(): ThumbnailsRequestBuilder {
         return new ThumbnailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The unfollow property  */
     public get unfollow(): UnfollowRequestBuilder {
         return new UnfollowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The validatePermission property  */
     public get validatePermission(): ValidatePermissionRequestBuilder {
         return new ValidatePermissionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The versions property  */
     public get versions(): VersionsRequestBuilder {
         return new VersionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -124,47 +143,47 @@ export class DriveItemItemRequestBuilder {
     };
     /**
      * Delete entity from workbooks
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get entity from workbooks by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update entity in workbooks
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: DriveItem | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: DriveItem | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -172,18 +191,18 @@ export class DriveItemItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete entity from workbooks
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -209,18 +228,18 @@ export class DriveItemItemRequestBuilder {
     };
     /**
      * Get entity from workbooks by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DriveItem
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DriveItem | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -251,14 +270,14 @@ export class DriveItemItemRequestBuilder {
     /**
      * Update entity in workbooks
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DriveItem | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DriveItem | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

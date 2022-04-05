@@ -1,8 +1,8 @@
-import {ResourceSpecificPermissionGrant, ResourceSpecificPermissionGrantCollectionResponse} from '../models/microsoft/graph/';
-import {createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue} from '../models/microsoft/graph/createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue';
-import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../models/microsoft/graph/createResourceSpecificPermissionGrantFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ResourceSpecificPermissionGrant, ResourceSpecificPermissionGrantCollectionResponse} from '../models/';
+import {createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue} from '../models/createResourceSpecificPermissionGrantCollectionResponseFromDiscriminatorValue';
+import {createResourceSpecificPermissionGrantFromDiscriminatorValue} from '../models/createResourceSpecificPermissionGrantFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
 import {GetByIdsRequestBuilder} from './getByIds/getByIdsRequestBuilder';
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
@@ -10,9 +10,11 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of resourceSpecificPermissionGrant entities.  */
 export class PermissionGrantsRequestBuilder {
+    /** The getAvailableExtensionProperties property  */
     public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getByIds property  */
     public get getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -22,6 +24,7 @@ export class PermissionGrantsRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The validateProperties property  */
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -40,35 +43,35 @@ export class PermissionGrantsRequestBuilder {
     };
     /**
      * Get entities from permissionGrants
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     filter?: string,
                     orderby?: string[],
                     search?: string,
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Add new entity to permissionGrants
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ResourceSpecificPermissionGrant | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ResourceSpecificPermissionGrant | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -76,26 +79,26 @@ export class PermissionGrantsRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get entities from permissionGrants
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceSpecificPermissionGrantCollectionResponse
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     filter?: string,
                     orderby?: string[],
                     search?: string,
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceSpecificPermissionGrantCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -106,15 +109,15 @@ export class PermissionGrantsRequestBuilder {
     /**
      * Add new entity to permissionGrants
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ResourceSpecificPermissionGrant
      */
-    public post(body: ResourceSpecificPermissionGrant | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceSpecificPermissionGrant | undefined> {
+    public post(body: ResourceSpecificPermissionGrant | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ResourceSpecificPermissionGrant | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

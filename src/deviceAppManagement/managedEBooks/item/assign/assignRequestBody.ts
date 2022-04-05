@@ -1,11 +1,12 @@
-import {ManagedEBookAssignment} from '../../../../models/microsoft/graph/';
-import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../models/microsoft/graph/createManagedEBookAssignmentFromDiscriminatorValue';
+import {ManagedEBookAssignment} from '../../../../models/';
+import {createManagedEBookAssignmentFromDiscriminatorValue} from '../../../../models/createManagedEBookAssignmentFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method.  */
 export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The managedEBookAssignments property  */
     private _managedEBookAssignments?: ManagedEBookAssignment[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -37,14 +38,14 @@ export class AssignRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the managedEBookAssignments property value. 
+     * Gets the managedEBookAssignments property value. The managedEBookAssignments property
      * @returns a managedEBookAssignment
      */
     public get managedEBookAssignments() {
         return this._managedEBookAssignments;
     };
     /**
-     * Sets the managedEBookAssignments property value. 
+     * Sets the managedEBookAssignments property value. The managedEBookAssignments property
      * @param value Value to set for the managedEBookAssignments property.
      */
     public set managedEBookAssignments(value: ManagedEBookAssignment[] | undefined) {

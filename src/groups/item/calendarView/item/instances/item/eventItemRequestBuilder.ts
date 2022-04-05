@@ -1,7 +1,7 @@
-import {Event} from '../../../../../../models/microsoft/graph/';
-import {createEventFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createEventFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Event} from '../../../../../../models/';
+import {createEventFromDiscriminatorValue} from '../../../../../../models/createEventFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptRequestBuilder} from './accept/acceptRequestBuilder';
 import {AttachmentsRequestBuilder} from './attachments/attachmentsRequestBuilder';
 import {AttachmentItemRequestBuilder} from './attachments/item/attachmentItemRequestBuilder';
@@ -22,30 +22,39 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the instances property of the microsoft.graph.event entity.  */
 export class EventItemRequestBuilder {
+    /** The accept property  */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The attachments property  */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendar property  */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The cancel property  */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The decline property  */
     public get decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The dismissReminder property  */
     public get dismissReminder(): DismissReminderRequestBuilder {
         return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The extensions property  */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The forward property  */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The multiValueExtendedProperties property  */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -53,12 +62,15 @@ export class EventItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The singleValueExtendedProperties property  */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The snoozeReminder property  */
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The tentativelyAccept property  */
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -90,46 +102,46 @@ export class EventItemRequestBuilder {
     };
     /**
      * Delete navigation property instances for groups
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property instances in groups
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Event | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Event | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -137,18 +149,18 @@ export class EventItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property instances for groups
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -169,17 +181,17 @@ export class EventItemRequestBuilder {
     };
     /**
      * The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Event
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Event | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -201,14 +213,14 @@ export class EventItemRequestBuilder {
     /**
      * Update the navigation property instances in groups
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Event | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Event | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

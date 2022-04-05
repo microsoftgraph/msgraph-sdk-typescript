@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class DismissRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The userIds property  */
     private _userIds?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,14 +45,14 @@ export class DismissRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the userIds property value. 
+     * Gets the userIds property value. The userIds property
      * @returns a string
      */
     public get userIds() {
         return this._userIds;
     };
     /**
-     * Sets the userIds property value. 
+     * Sets the userIds property value. The userIds property
      * @param value Value to set for the userIds property.
      */
     public set userIds(value: string[] | undefined) {

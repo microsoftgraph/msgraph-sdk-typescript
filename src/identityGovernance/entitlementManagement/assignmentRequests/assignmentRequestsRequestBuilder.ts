@@ -1,14 +1,15 @@
-import {AccessPackageAssignmentRequest, AccessPackageAssignmentRequestCollectionResponse} from '../../../models/microsoft/graph/';
-import {createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue} from '../../../models/microsoft/graph/createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue';
-import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from '../../../models/microsoft/graph/createAccessPackageAssignmentRequestFromDiscriminatorValue';
-import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {AccessPackageAssignmentRequest, AccessPackageAssignmentRequestCollectionResponse} from '../../../models/';
+import {createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentRequestCollectionResponseFromDiscriminatorValue';
+import {createAccessPackageAssignmentRequestFromDiscriminatorValue} from '../../../models/createAccessPackageAssignmentRequestFromDiscriminatorValue';
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the assignmentRequests property of the microsoft.graph.entitlementManagement entity.  */
 export class AssignmentRequestsRequestBuilder {
+    /** The count property  */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -33,12 +34,12 @@ export class AssignmentRequestsRequestBuilder {
     };
     /**
      * Represents access package assignment requests created by or on behalf of a user.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -47,24 +48,24 @@ export class AssignmentRequestsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Create new navigation property to assignmentRequests for identityGovernance
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: AccessPackageAssignmentRequest | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: AccessPackageAssignmentRequest | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -72,7 +73,7 @@ export class AssignmentRequestsRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -86,13 +87,13 @@ export class AssignmentRequestsRequestBuilder {
     };
     /**
      * Represents access package assignment requests created by or on behalf of a user.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequestCollectionResponse
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -101,9 +102,9 @@ export class AssignmentRequestsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequestCollectionResponse | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequestCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -114,15 +115,15 @@ export class AssignmentRequestsRequestBuilder {
     /**
      * Create new navigation property to assignmentRequests for identityGovernance
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AccessPackageAssignmentRequest
      */
-    public post(body: AccessPackageAssignmentRequest | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequest | undefined> {
+    public post(body: AccessPackageAssignmentRequest | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<AccessPackageAssignmentRequest | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

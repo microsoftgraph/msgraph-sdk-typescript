@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MoveRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The DestinationId property  */
     private _destinationId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +27,14 @@ export class MoveRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the destinationId property value. 
+     * Gets the destinationId property value. The DestinationId property
      * @returns a string
      */
     public get destinationId() {
         return this._destinationId;
     };
     /**
-     * Sets the destinationId property value. 
+     * Sets the destinationId property value. The DestinationId property
      * @param value Value to set for the DestinationId property.
      */
     public set destinationId(value: string | undefined) {

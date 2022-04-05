@@ -1,5 +1,5 @@
-import {MuteParticipantOperation} from '../../../../../../models/microsoft/graph/';
-import {createMuteParticipantOperationFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createMuteParticipantOperationFromDiscriminatorValue';
+import {MuteParticipantOperation} from '../../../../../../models/';
+import {createMuteParticipantOperationFromDiscriminatorValue} from '../../../../../../models/createMuteParticipantOperationFromDiscriminatorValue';
 import {MuteRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -27,11 +27,11 @@ export class MuteRequestBuilder {
     /**
      * Invoke action mute
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: MuteRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: MuteRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -39,21 +39,21 @@ export class MuteRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Invoke action mute
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MuteParticipantOperation
      */
-    public post(body: MuteRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MuteParticipantOperation | undefined> {
+    public post(body: MuteRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MuteParticipantOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         return this.requestAdapter?.sendAsync<MuteParticipantOperation>(requestInfo, createMuteParticipantOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };

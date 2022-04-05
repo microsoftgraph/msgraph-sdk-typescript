@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class PreviewRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The page property  */
     private _page?: string | undefined;
+    /** The zoom property  */
     private _zoom?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -37,14 +39,14 @@ export class PreviewRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the page property value. 
+     * Gets the page property value. The page property
      * @returns a string
      */
     public get page() {
         return this._page;
     };
     /**
-     * Sets the page property value. 
+     * Sets the page property value. The page property
      * @param value Value to set for the page property.
      */
     public set page(value: string | undefined) {
@@ -61,14 +63,14 @@ export class PreviewRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the zoom property value. 
+     * Gets the zoom property value. The zoom property
      * @returns a double
      */
     public get zoom() {
         return this._zoom;
     };
     /**
-     * Sets the zoom property value. 
+     * Sets the zoom property value. The zoom property
      * @param value Value to set for the zoom property.
      */
     public set zoom(value: number | undefined) {

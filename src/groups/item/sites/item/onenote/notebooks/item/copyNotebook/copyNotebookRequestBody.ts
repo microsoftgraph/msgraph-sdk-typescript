@@ -4,10 +4,15 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CopyNotebookRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The groupId property  */
     private _groupId?: string | undefined;
+    /** The notebookFolder property  */
     private _notebookFolder?: string | undefined;
+    /** The renameAs property  */
     private _renameAs?: string | undefined;
+    /** The siteCollectionId property  */
     private _siteCollectionId?: string | undefined;
+    /** The siteId property  */
     private _siteId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -43,42 +48,42 @@ export class CopyNotebookRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the groupId property value. 
+     * Gets the groupId property value. The groupId property
      * @returns a string
      */
     public get groupId() {
         return this._groupId;
     };
     /**
-     * Sets the groupId property value. 
+     * Sets the groupId property value. The groupId property
      * @param value Value to set for the groupId property.
      */
     public set groupId(value: string | undefined) {
         this._groupId = value;
     };
     /**
-     * Gets the notebookFolder property value. 
+     * Gets the notebookFolder property value. The notebookFolder property
      * @returns a string
      */
     public get notebookFolder() {
         return this._notebookFolder;
     };
     /**
-     * Sets the notebookFolder property value. 
+     * Sets the notebookFolder property value. The notebookFolder property
      * @param value Value to set for the notebookFolder property.
      */
     public set notebookFolder(value: string | undefined) {
         this._notebookFolder = value;
     };
     /**
-     * Gets the renameAs property value. 
+     * Gets the renameAs property value. The renameAs property
      * @returns a string
      */
     public get renameAs() {
         return this._renameAs;
     };
     /**
-     * Sets the renameAs property value. 
+     * Sets the renameAs property value. The renameAs property
      * @param value Value to set for the renameAs property.
      */
     public set renameAs(value: string | undefined) {
@@ -98,28 +103,28 @@ export class CopyNotebookRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the siteCollectionId property value. 
+     * Gets the siteCollectionId property value. The siteCollectionId property
      * @returns a string
      */
     public get siteCollectionId() {
         return this._siteCollectionId;
     };
     /**
-     * Sets the siteCollectionId property value. 
+     * Sets the siteCollectionId property value. The siteCollectionId property
      * @param value Value to set for the siteCollectionId property.
      */
     public set siteCollectionId(value: string | undefined) {
         this._siteCollectionId = value;
     };
     /**
-     * Gets the siteId property value. 
+     * Gets the siteId property value. The siteId property
      * @returns a string
      */
     public get siteId() {
         return this._siteId;
     };
     /**
-     * Sets the siteId property value. 
+     * Sets the siteId property value. The siteId property
      * @param value Value to set for the siteId property.
      */
     public set siteId(value: string | undefined) {

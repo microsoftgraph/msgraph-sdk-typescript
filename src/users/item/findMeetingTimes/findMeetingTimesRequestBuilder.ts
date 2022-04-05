@@ -1,5 +1,5 @@
-import {MeetingTimeSuggestionsResult} from '../../../models/microsoft/graph/';
-import {createMeetingTimeSuggestionsResultFromDiscriminatorValue} from '../../../models/microsoft/graph/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
+import {MeetingTimeSuggestionsResult} from '../../../models/';
+import {createMeetingTimeSuggestionsResultFromDiscriminatorValue} from '../../../models/createMeetingTimeSuggestionsResultFromDiscriminatorValue';
 import {FindMeetingTimesRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -27,11 +27,11 @@ export class FindMeetingTimesRequestBuilder {
     /**
      * Invoke action findMeetingTimes
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: FindMeetingTimesRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: FindMeetingTimesRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -39,21 +39,21 @@ export class FindMeetingTimesRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Invoke action findMeetingTimes
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MeetingTimeSuggestionsResult
      */
-    public post(body: FindMeetingTimesRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingTimeSuggestionsResult | undefined> {
+    public post(body: FindMeetingTimesRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MeetingTimeSuggestionsResult | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         return this.requestAdapter?.sendAsync<MeetingTimeSuggestionsResult>(requestInfo, createMeetingTimeSuggestionsResultFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };

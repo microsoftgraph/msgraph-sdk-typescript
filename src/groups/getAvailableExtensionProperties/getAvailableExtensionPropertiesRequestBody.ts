@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetAvailableExtensionPropertiesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The isSyncedFromOnPremises property  */
     private _isSyncedFromOnPremises?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +36,14 @@ export class GetAvailableExtensionPropertiesRequestBody implements AdditionalDat
         };
     };
     /**
-     * Gets the isSyncedFromOnPremises property value. 
+     * Gets the isSyncedFromOnPremises property value. The isSyncedFromOnPremises property
      * @returns a boolean
      */
     public get isSyncedFromOnPremises() {
         return this._isSyncedFromOnPremises;
     };
     /**
-     * Sets the isSyncedFromOnPremises property value. 
+     * Sets the isSyncedFromOnPremises property value. The isSyncedFromOnPremises property
      * @param value Value to set for the isSyncedFromOnPremises property.
      */
     public set isSyncedFromOnPremises(value: boolean | undefined) {

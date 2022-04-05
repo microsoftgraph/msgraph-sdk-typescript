@@ -1,7 +1,7 @@
-import {BookingBusiness} from '../../../models/microsoft/graph/';
-import {createBookingBusinessFromDiscriminatorValue} from '../../../models/microsoft/graph/createBookingBusinessFromDiscriminatorValue';
-import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {BookingBusiness} from '../../../models/';
+import {createBookingBusinessFromDiscriminatorValue} from '../../../models/createBookingBusinessFromDiscriminatorValue';
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AppointmentsRequestBuilder} from './appointments/appointmentsRequestBuilder';
 import {BookingAppointmentItemRequestBuilder as i549df13af914f5d18415b6b2e317bb0de2c91be54aaca79fb0e27b0aa2649626} from './appointments/item/bookingAppointmentItemRequestBuilder';
 import {CalendarViewRequestBuilder} from './calendarView/calendarViewRequestBuilder';
@@ -20,31 +20,39 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.  */
 export class BookingBusinessItemRequestBuilder {
+    /** The appointments property  */
     public get appointments(): AppointmentsRequestBuilder {
         return new AppointmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendarView property  */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The customers property  */
     public get customers(): CustomersRequestBuilder {
         return new CustomersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The customQuestions property  */
     public get customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The publish property  */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The services property  */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The staffMembers property  */
     public get staffMembers(): StaffMembersRequestBuilder {
         return new StaffMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The unpublish property  */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -87,47 +95,47 @@ export class BookingBusinessItemRequestBuilder {
     };
     /**
      * Delete navigation property bookingBusinesses for solutions
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get bookingBusinesses from solutions
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property bookingBusinesses in solutions
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: BookingBusiness | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: BookingBusiness | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -135,7 +143,7 @@ export class BookingBusinessItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -162,13 +170,13 @@ export class BookingBusinessItemRequestBuilder {
     };
     /**
      * Delete navigation property bookingBusinesses for solutions
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -178,18 +186,18 @@ export class BookingBusinessItemRequestBuilder {
     };
     /**
      * Get bookingBusinesses from solutions
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BookingBusiness
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BookingBusiness | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -200,14 +208,14 @@ export class BookingBusinessItemRequestBuilder {
     /**
      * Update the navigation property bookingBusinesses in solutions
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: BookingBusiness | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: BookingBusiness | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

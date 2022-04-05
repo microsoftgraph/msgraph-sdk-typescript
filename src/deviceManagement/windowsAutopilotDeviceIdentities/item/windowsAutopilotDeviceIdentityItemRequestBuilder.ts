@@ -1,7 +1,7 @@
-import {WindowsAutopilotDeviceIdentity} from '../../../models/microsoft/graph/';
-import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/microsoft/graph/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
-import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {WindowsAutopilotDeviceIdentity} from '../../../models/';
+import {createWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/createWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignUserToDeviceRequestBuilder} from './assignUserToDevice/assignUserToDeviceRequestBuilder';
 import {UnassignUserFromDeviceRequestBuilder} from './unassignUserFromDevice/unassignUserFromDeviceRequestBuilder';
 import {UpdateDevicePropertiesRequestBuilder} from './updateDeviceProperties/updateDevicePropertiesRequestBuilder';
@@ -9,6 +9,7 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.  */
 export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
+    /** The assignUserToDevice property  */
     public get assignUserToDevice(): AssignUserToDeviceRequestBuilder {
         return new AssignUserToDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -16,9 +17,11 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The unassignUserFromDevice property  */
     public get unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
         return new UnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The updateDeviceProperties property  */
     public get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
         return new UpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -39,47 +42,47 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
     };
     /**
      * Delete navigation property windowsAutopilotDeviceIdentities for deviceManagement
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The Windows autopilot device identities contained collection.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property windowsAutopilotDeviceIdentities in deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: WindowsAutopilotDeviceIdentity | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: WindowsAutopilotDeviceIdentity | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -87,18 +90,18 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property windowsAutopilotDeviceIdentities for deviceManagement
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -108,18 +111,18 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
     };
     /**
      * The Windows autopilot device identities contained collection.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of WindowsAutopilotDeviceIdentity
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<WindowsAutopilotDeviceIdentity | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -130,14 +133,14 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
     /**
      * Update the navigation property windowsAutopilotDeviceIdentities in deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: WindowsAutopilotDeviceIdentity | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WindowsAutopilotDeviceIdentity | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

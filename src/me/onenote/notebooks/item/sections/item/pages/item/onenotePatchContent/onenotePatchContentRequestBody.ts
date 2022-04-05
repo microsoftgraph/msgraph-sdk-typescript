@@ -1,11 +1,12 @@
-import {OnenotePatchContentCommand} from '../../../../../../../../../models/microsoft/graph/';
-import {createOnenotePatchContentCommandFromDiscriminatorValue} from '../../../../../../../../../models/microsoft/graph/createOnenotePatchContentCommandFromDiscriminatorValue';
+import {OnenotePatchContentCommand} from '../../../../../../../../../models/';
+import {createOnenotePatchContentCommandFromDiscriminatorValue} from '../../../../../../../../../models/createOnenotePatchContentCommandFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the onenotePatchContent method.  */
 export class OnenotePatchContentRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The commands property  */
     private _commands?: OnenotePatchContentCommand[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +23,14 @@ export class OnenotePatchContentRequestBody implements AdditionalDataHolder, Par
         this._additionalData = value;
     };
     /**
-     * Gets the commands property value. 
+     * Gets the commands property value. The commands property
      * @returns a onenotePatchContentCommand
      */
     public get commands() {
         return this._commands;
     };
     /**
-     * Sets the commands property value. 
+     * Sets the commands property value. The commands property
      * @param value Value to set for the commands property.
      */
     public set commands(value: OnenotePatchContentCommand[] | undefined) {

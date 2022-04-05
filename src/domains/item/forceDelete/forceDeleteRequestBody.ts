@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ForceDeleteRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The disableUserAccounts property  */
     private _disableUserAccounts?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +27,14 @@ export class ForceDeleteRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the disableUserAccounts property value. 
+     * Gets the disableUserAccounts property value. The disableUserAccounts property
      * @returns a boolean
      */
     public get disableUserAccounts() {
         return this._disableUserAccounts;
     };
     /**
-     * Sets the disableUserAccounts property value. 
+     * Sets the disableUserAccounts property value. The disableUserAccounts property
      * @param value Value to set for the disableUserAccounts property.
      */
     public set disableUserAccounts(value: boolean | undefined) {

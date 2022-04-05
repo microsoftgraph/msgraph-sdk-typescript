@@ -1,17 +1,23 @@
-import {ChatInfo, MeetingParticipants} from '../../../models/microsoft/graph/';
-import {createChatInfoFromDiscriminatorValue} from '../../../models/microsoft/graph/createChatInfoFromDiscriminatorValue';
-import {createMeetingParticipantsFromDiscriminatorValue} from '../../../models/microsoft/graph/createMeetingParticipantsFromDiscriminatorValue';
+import {ChatInfo, MeetingParticipants} from '../../../models/';
+import {createChatInfoFromDiscriminatorValue} from '../../../models/createChatInfoFromDiscriminatorValue';
+import {createMeetingParticipantsFromDiscriminatorValue} from '../../../models/createMeetingParticipantsFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createOrGet method.  */
 export class CreateOrGetRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The chatInfo property  */
     private _chatInfo?: ChatInfo | undefined;
+    /** The endDateTime property  */
     private _endDateTime?: Date | undefined;
+    /** The externalId property  */
     private _externalId?: string | undefined;
+    /** The participants property  */
     private _participants?: MeetingParticipants | undefined;
+    /** The startDateTime property  */
     private _startDateTime?: Date | undefined;
+    /** The subject property  */
     private _subject?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +34,14 @@ export class CreateOrGetRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the chatInfo property value. 
+     * Gets the chatInfo property value. The chatInfo property
      * @returns a chatInfo
      */
     public get chatInfo() {
         return this._chatInfo;
     };
     /**
-     * Sets the chatInfo property value. 
+     * Sets the chatInfo property value. The chatInfo property
      * @param value Value to set for the chatInfo property.
      */
     public set chatInfo(value: ChatInfo | undefined) {
@@ -48,28 +54,28 @@ export class CreateOrGetRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the endDateTime property value. 
+     * Gets the endDateTime property value. The endDateTime property
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. 
+     * Sets the endDateTime property value. The endDateTime property
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
         this._endDateTime = value;
     };
     /**
-     * Gets the externalId property value. 
+     * Gets the externalId property value. The externalId property
      * @returns a string
      */
     public get externalId() {
         return this._externalId;
     };
     /**
-     * Sets the externalId property value. 
+     * Sets the externalId property value. The externalId property
      * @param value Value to set for the externalId property.
      */
     public set externalId(value: string | undefined) {
@@ -90,14 +96,14 @@ export class CreateOrGetRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the participants property value. 
+     * Gets the participants property value. The participants property
      * @returns a meetingParticipants
      */
     public get participants() {
         return this._participants;
     };
     /**
-     * Sets the participants property value. 
+     * Sets the participants property value. The participants property
      * @param value Value to set for the participants property.
      */
     public set participants(value: MeetingParticipants | undefined) {
@@ -118,28 +124,28 @@ export class CreateOrGetRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startDateTime property value. 
+     * Gets the startDateTime property value. The startDateTime property
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. 
+     * Sets the startDateTime property value. The startDateTime property
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {
         this._startDateTime = value;
     };
     /**
-     * Gets the subject property value. 
+     * Gets the subject property value. The subject property
      * @returns a string
      */
     public get subject() {
         return this._subject;
     };
     /**
-     * Sets the subject property value. 
+     * Sets the subject property value. The subject property
      * @param value Value to set for the subject property.
      */
     public set subject(value: string | undefined) {

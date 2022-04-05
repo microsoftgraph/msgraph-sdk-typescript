@@ -1,11 +1,12 @@
-import {ContentType} from '../../../models/microsoft/graph/';
-import {createContentTypeFromDiscriminatorValue} from '../../../models/microsoft/graph/createContentTypeFromDiscriminatorValue';
+import {ContentType} from '../../../models/';
+import {createContentTypeFromDiscriminatorValue} from '../../../models/createContentTypeFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getApplicableContentTypesForList method.  */
 export class GetApplicableContentTypesForListWithListIdResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The value property  */
     private _value?: ContentType[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -46,14 +47,14 @@ export class GetApplicableContentTypesForListWithListIdResponse implements Addit
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @returns a contentType
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
     public set value(value: ContentType[] | undefined) {

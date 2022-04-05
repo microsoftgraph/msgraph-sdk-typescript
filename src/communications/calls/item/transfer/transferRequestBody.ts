@@ -1,13 +1,15 @@
-import {InvitationParticipantInfo, ParticipantInfo} from '../../../../models/microsoft/graph/';
-import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/microsoft/graph/createInvitationParticipantInfoFromDiscriminatorValue';
-import {createParticipantInfoFromDiscriminatorValue} from '../../../../models/microsoft/graph/createParticipantInfoFromDiscriminatorValue';
+import {InvitationParticipantInfo, ParticipantInfo} from '../../../../models/';
+import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/createInvitationParticipantInfoFromDiscriminatorValue';
+import {createParticipantInfoFromDiscriminatorValue} from '../../../../models/createParticipantInfoFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the transfer method.  */
 export class TransferRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The transferee property  */
     private _transferee?: ParticipantInfo | undefined;
+    /** The transferTarget property  */
     private _transferTarget?: InvitationParticipantInfo | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -50,28 +52,28 @@ export class TransferRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the transferee property value. 
+     * Gets the transferee property value. The transferee property
      * @returns a participantInfo
      */
     public get transferee() {
         return this._transferee;
     };
     /**
-     * Sets the transferee property value. 
+     * Sets the transferee property value. The transferee property
      * @param value Value to set for the transferee property.
      */
     public set transferee(value: ParticipantInfo | undefined) {
         this._transferee = value;
     };
     /**
-     * Gets the transferTarget property value. 
+     * Gets the transferTarget property value. The transferTarget property
      * @returns a invitationParticipantInfo
      */
     public get transferTarget() {
         return this._transferTarget;
     };
     /**
-     * Sets the transferTarget property value. 
+     * Sets the transferTarget property value. The transferTarget property
      * @param value Value to set for the transferTarget property.
      */
     public set transferTarget(value: InvitationParticipantInfo | undefined) {

@@ -1,12 +1,15 @@
-import {ExchangeIdFormat} from '../../models/microsoft/graph/exchangeIdFormat';
+import {ExchangeIdFormat} from '../../models/exchangeIdFormat';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the translateExchangeIds method.  */
 export class TranslateExchangeIdsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The InputIds property  */
     private _inputIds?: string[] | undefined;
+    /** The SourceIdType property  */
     private _sourceIdType?: ExchangeIdFormat | undefined;
+    /** The TargetIdType property  */
     private _targetIdType?: ExchangeIdFormat | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -40,14 +43,14 @@ export class TranslateExchangeIdsRequestBody implements AdditionalDataHolder, Pa
         };
     };
     /**
-     * Gets the inputIds property value. 
+     * Gets the inputIds property value. The InputIds property
      * @returns a string
      */
     public get inputIds() {
         return this._inputIds;
     };
     /**
-     * Sets the inputIds property value. 
+     * Sets the inputIds property value. The InputIds property
      * @param value Value to set for the InputIds property.
      */
     public set inputIds(value: string[] | undefined) {
@@ -65,28 +68,28 @@ export class TranslateExchangeIdsRequestBody implements AdditionalDataHolder, Pa
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sourceIdType property value. 
+     * Gets the sourceIdType property value. The SourceIdType property
      * @returns a exchangeIdFormat
      */
     public get sourceIdType() {
         return this._sourceIdType;
     };
     /**
-     * Sets the sourceIdType property value. 
+     * Sets the sourceIdType property value. The SourceIdType property
      * @param value Value to set for the SourceIdType property.
      */
     public set sourceIdType(value: ExchangeIdFormat | undefined) {
         this._sourceIdType = value;
     };
     /**
-     * Gets the targetIdType property value. 
+     * Gets the targetIdType property value. The TargetIdType property
      * @returns a exchangeIdFormat
      */
     public get targetIdType() {
         return this._targetIdType;
     };
     /**
-     * Sets the targetIdType property value. 
+     * Sets the targetIdType property value. The TargetIdType property
      * @param value Value to set for the TargetIdType property.
      */
     public set targetIdType(value: ExchangeIdFormat | undefined) {

@@ -4,9 +4,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The addressableUserName property  */
     private _addressableUserName?: string | undefined;
+    /** The displayName property  */
     private _displayName?: string | undefined;
+    /** The groupTag property  */
     private _groupTag?: string | undefined;
+    /** The userPrincipalName property  */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -23,14 +27,14 @@ export class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, 
         this._additionalData = value;
     };
     /**
-     * Gets the addressableUserName property value. 
+     * Gets the addressableUserName property value. The addressableUserName property
      * @returns a string
      */
     public get addressableUserName() {
         return this._addressableUserName;
     };
     /**
-     * Sets the addressableUserName property value. 
+     * Sets the addressableUserName property value. The addressableUserName property
      * @param value Value to set for the addressableUserName property.
      */
     public set addressableUserName(value: string | undefined) {
@@ -43,14 +47,14 @@ export class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, 
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. 
+     * Gets the displayName property value. The displayName property
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. 
+     * Sets the displayName property value. The displayName property
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -69,14 +73,14 @@ export class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, 
         };
     };
     /**
-     * Gets the groupTag property value. 
+     * Gets the groupTag property value. The groupTag property
      * @returns a string
      */
     public get groupTag() {
         return this._groupTag;
     };
     /**
-     * Sets the groupTag property value. 
+     * Sets the groupTag property value. The groupTag property
      * @param value Value to set for the groupTag property.
      */
     public set groupTag(value: string | undefined) {
@@ -95,14 +99,14 @@ export class UpdateDevicePropertiesRequestBody implements AdditionalDataHolder, 
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the userPrincipalName property value. 
+     * Gets the userPrincipalName property value. The userPrincipalName property
      * @returns a string
      */
     public get userPrincipalName() {
         return this._userPrincipalName;
     };
     /**
-     * Sets the userPrincipalName property value. 
+     * Sets the userPrincipalName property value. The userPrincipalName property
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {

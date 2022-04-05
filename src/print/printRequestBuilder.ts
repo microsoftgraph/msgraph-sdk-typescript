@@ -1,7 +1,7 @@
-import {Print} from '../models/microsoft/graph/';
-import {createPrintFromDiscriminatorValue} from '../models/microsoft/graph/createPrintFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Print} from '../models/';
+import {createPrintFromDiscriminatorValue} from '../models/createPrintFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ConnectorsRequestBuilder} from './connectors/connectorsRequestBuilder';
 import {PrintConnectorItemRequestBuilder} from './connectors/item/printConnectorItemRequestBuilder';
 import {PrintOperationItemRequestBuilder} from './operations/item/printOperationItemRequestBuilder';
@@ -18,25 +18,31 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the print singleton.  */
 export class PrintRequestBuilder {
+    /** The connectors property  */
     public get connectors(): ConnectorsRequestBuilder {
         return new ConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The operations property  */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The printers property  */
     public get printers(): PrintersRequestBuilder {
         return new PrintersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The services property  */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The shares property  */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The taskDefinitions property  */
     public get taskDefinitions(): TaskDefinitionsRequestBuilder {
         return new TaskDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -68,32 +74,32 @@ export class PrintRequestBuilder {
     };
     /**
      * Get print
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update print
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Print | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Print | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -101,23 +107,23 @@ export class PrintRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get print
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Print
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Print | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -139,14 +145,14 @@ export class PrintRequestBuilder {
     /**
      * Update print
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Print | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Print | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

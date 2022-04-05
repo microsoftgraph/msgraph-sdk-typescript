@@ -1,7 +1,7 @@
-import {EntitlementManagement} from '../../models/microsoft/graph/';
-import {createEntitlementManagementFromDiscriminatorValue} from '../../models/microsoft/graph/createEntitlementManagementFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {EntitlementManagement} from '../../models/';
+import {createEntitlementManagementFromDiscriminatorValue} from '../../models/createEntitlementManagementFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AccessPackageAssignmentApprovalsRequestBuilder} from './accessPackageAssignmentApprovals/accessPackageAssignmentApprovalsRequestBuilder';
 import {ApprovalItemRequestBuilder} from './accessPackageAssignmentApprovals/item/approvalItemRequestBuilder';
 import {AccessPackagesRequestBuilder} from './accessPackages/accessPackagesRequestBuilder';
@@ -21,24 +21,31 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the entitlementManagement property of the microsoft.graph.identityGovernance entity.  */
 export class EntitlementManagementRequestBuilder {
+    /** The accessPackageAssignmentApprovals property  */
     public get accessPackageAssignmentApprovals(): AccessPackageAssignmentApprovalsRequestBuilder {
         return new AccessPackageAssignmentApprovalsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The accessPackages property  */
     public get accessPackages(): AccessPackagesRequestBuilder {
         return new AccessPackagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The assignmentPolicies property  */
     public get assignmentPolicies(): AssignmentPoliciesRequestBuilder {
         return new AssignmentPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The assignmentRequests property  */
     public get assignmentRequests(): AssignmentRequestsRequestBuilder {
         return new AssignmentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The assignments property  */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The catalogs property  */
     public get catalogs(): CatalogsRequestBuilder {
         return new CatalogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The connectedOrganizations property  */
     public get connectedOrganizations(): ConnectedOrganizationsRequestBuilder {
         return new ConnectedOrganizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -46,6 +53,7 @@ export class EntitlementManagementRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The settings property  */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -143,47 +151,47 @@ export class EntitlementManagementRequestBuilder {
     };
     /**
      * Delete navigation property entitlementManagement for identityGovernance
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get entitlementManagement from identityGovernance
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property entitlementManagement in identityGovernance
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: EntitlementManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: EntitlementManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -191,18 +199,18 @@ export class EntitlementManagementRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property entitlementManagement for identityGovernance
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -212,18 +220,18 @@ export class EntitlementManagementRequestBuilder {
     };
     /**
      * Get entitlementManagement from identityGovernance
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EntitlementManagement
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagement | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EntitlementManagement | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -234,14 +242,14 @@ export class EntitlementManagementRequestBuilder {
     /**
      * Update the navigation property entitlementManagement in identityGovernance
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EntitlementManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EntitlementManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

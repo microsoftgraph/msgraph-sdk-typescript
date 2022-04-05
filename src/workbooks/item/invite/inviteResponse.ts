@@ -1,11 +1,12 @@
-import {Permission} from '../../../models/microsoft/graph/';
-import {createPermissionFromDiscriminatorValue} from '../../../models/microsoft/graph/createPermissionFromDiscriminatorValue';
+import {Permission} from '../../../models/';
+import {createPermissionFromDiscriminatorValue} from '../../../models/createPermissionFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the invite method.  */
 export class InviteResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The value property  */
     private _value?: Permission[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -46,14 +47,14 @@ export class InviteResponse implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @returns a permission
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
     public set value(value: Permission[] | undefined) {

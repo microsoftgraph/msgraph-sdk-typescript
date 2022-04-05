@@ -1,13 +1,16 @@
-import {InvitationParticipantInfo} from '../../../../models/microsoft/graph/';
-import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/microsoft/graph/createInvitationParticipantInfoFromDiscriminatorValue';
+import {InvitationParticipantInfo} from '../../../../models/';
+import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/createInvitationParticipantInfoFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the redirect method.  */
 export class RedirectRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The callbackUri property  */
     private _callbackUri?: string | undefined;
+    /** The targets property  */
     private _targets?: InvitationParticipantInfo[] | undefined;
+    /** The timeout property  */
     private _timeout?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -24,14 +27,14 @@ export class RedirectRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the callbackUri property value. 
+     * Gets the callbackUri property value. The callbackUri property
      * @returns a string
      */
     public get callbackUri() {
         return this._callbackUri;
     };
     /**
-     * Sets the callbackUri property value. 
+     * Sets the callbackUri property value. The callbackUri property
      * @param value Value to set for the callbackUri property.
      */
     public set callbackUri(value: string | undefined) {
@@ -66,28 +69,28 @@ export class RedirectRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the targets property value. 
+     * Gets the targets property value. The targets property
      * @returns a invitationParticipantInfo
      */
     public get targets() {
         return this._targets;
     };
     /**
-     * Sets the targets property value. 
+     * Sets the targets property value. The targets property
      * @param value Value to set for the targets property.
      */
     public set targets(value: InvitationParticipantInfo[] | undefined) {
         this._targets = value;
     };
     /**
-     * Gets the timeout property value. 
+     * Gets the timeout property value. The timeout property
      * @returns a integer
      */
     public get timeout() {
         return this._timeout;
     };
     /**
-     * Sets the timeout property value. 
+     * Sets the timeout property value. The timeout property
      * @param value Value to set for the timeout property.
      */
     public set timeout(value: number | undefined) {

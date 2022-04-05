@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CheckMemberGroupsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The groupIds property  */
     private _groupIds?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +36,14 @@ export class CheckMemberGroupsRequestBody implements AdditionalDataHolder, Parsa
         };
     };
     /**
-     * Gets the groupIds property value. 
+     * Gets the groupIds property value. The groupIds property
      * @returns a string
      */
     public get groupIds() {
         return this._groupIds;
     };
     /**
-     * Sets the groupIds property value. 
+     * Sets the groupIds property value. The groupIds property
      * @param value Value to set for the groupIds property.
      */
     public set groupIds(value: string[] | undefined) {

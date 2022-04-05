@@ -1,8 +1,8 @@
-import {ServicePrincipal, ServicePrincipalCollectionResponse} from '../models/microsoft/graph/';
-import {createServicePrincipalCollectionResponseFromDiscriminatorValue} from '../models/microsoft/graph/createServicePrincipalCollectionResponseFromDiscriminatorValue';
-import {createServicePrincipalFromDiscriminatorValue} from '../models/microsoft/graph/createServicePrincipalFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ServicePrincipal, ServicePrincipalCollectionResponse} from '../models/';
+import {createServicePrincipalCollectionResponseFromDiscriminatorValue} from '../models/createServicePrincipalCollectionResponseFromDiscriminatorValue';
+import {createServicePrincipalFromDiscriminatorValue} from '../models/createServicePrincipalFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {DeltaRequestBuilder} from './delta/deltaRequestBuilder';
 import {GetAvailableExtensionPropertiesRequestBuilder} from './getAvailableExtensionProperties/getAvailableExtensionPropertiesRequestBuilder';
@@ -12,12 +12,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of servicePrincipal entities.  */
 export class ServicePrincipalsRequestBuilder {
+    /** The count property  */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getAvailableExtensionProperties property  */
     public get getAvailableExtensionProperties(): GetAvailableExtensionPropertiesRequestBuilder {
         return new GetAvailableExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getByIds property  */
     public get getByIds(): GetByIdsRequestBuilder {
         return new GetByIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -27,6 +30,7 @@ export class ServicePrincipalsRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The validateProperties property  */
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -45,12 +49,12 @@ export class ServicePrincipalsRequestBuilder {
     };
     /**
      * Get entities from servicePrincipals
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -59,24 +63,24 @@ export class ServicePrincipalsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Add new entity to servicePrincipals
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: ServicePrincipal | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: ServicePrincipal | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -84,7 +88,7 @@ export class ServicePrincipalsRequestBuilder {
         requestInfo.httpMethod = HttpMethod.POST;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -96,13 +100,13 @@ export class ServicePrincipalsRequestBuilder {
     };
     /**
      * Get entities from servicePrincipals
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipalCollectionResponse
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     count?: boolean,
                     expand?: string[],
                     filter?: string,
@@ -111,9 +115,9 @@ export class ServicePrincipalsRequestBuilder {
                     select?: string[],
                     skip?: number,
                     top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalCollectionResponse | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipalCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -124,15 +128,15 @@ export class ServicePrincipalsRequestBuilder {
     /**
      * Add new entity to servicePrincipals
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
      */
-    public post(body: ServicePrincipal | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
+    public post(body: ServicePrincipal | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

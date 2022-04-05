@@ -1,11 +1,12 @@
-import {DriveItemUploadableProperties} from '../../../models/microsoft/graph/';
-import {createDriveItemUploadablePropertiesFromDiscriminatorValue} from '../../../models/microsoft/graph/createDriveItemUploadablePropertiesFromDiscriminatorValue';
+import {DriveItemUploadableProperties} from '../../../models/';
+import {createDriveItemUploadablePropertiesFromDiscriminatorValue} from '../../../models/createDriveItemUploadablePropertiesFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createUploadSession method.  */
 export class CreateUploadSessionRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The item property  */
     private _item?: DriveItemUploadableProperties | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -37,14 +38,14 @@ export class CreateUploadSessionRequestBody implements AdditionalDataHolder, Par
         };
     };
     /**
-     * Gets the item property value. 
+     * Gets the item property value. The item property
      * @returns a driveItemUploadableProperties
      */
     public get item() {
         return this._item;
     };
     /**
-     * Sets the item property value. 
+     * Sets the item property value. The item property
      * @param value Value to set for the item property.
      */
     public set item(value: DriveItemUploadableProperties | undefined) {

@@ -1,11 +1,13 @@
-import {RecordingStatus} from '../../../../models/microsoft/graph/recordingStatus';
+import {RecordingStatus} from '../../../../models/recordingStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateRecordingStatus method.  */
 export class UpdateRecordingStatusRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The clientContext property  */
     private _clientContext?: string | undefined;
+    /** The status property  */
     private _status?: RecordingStatus | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +24,14 @@ export class UpdateRecordingStatusRequestBody implements AdditionalDataHolder, P
         this._additionalData = value;
     };
     /**
-     * Gets the clientContext property value. 
+     * Gets the clientContext property value. The clientContext property
      * @returns a string
      */
     public get clientContext() {
         return this._clientContext;
     };
     /**
-     * Sets the clientContext property value. 
+     * Sets the clientContext property value. The clientContext property
      * @param value Value to set for the clientContext property.
      */
     public set clientContext(value: string | undefined) {
@@ -62,14 +64,14 @@ export class UpdateRecordingStatusRequestBody implements AdditionalDataHolder, P
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the status property value. 
+     * Gets the status property value. The status property
      * @returns a recordingStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. 
+     * Sets the status property value. The status property
      * @param value Value to set for the status property.
      */
     public set status(value: RecordingStatus | undefined) {

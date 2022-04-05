@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class WindowsDefenderScanRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The quickScan property  */
     private _quickScan?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +36,14 @@ export class WindowsDefenderScanRequestBody implements AdditionalDataHolder, Par
         };
     };
     /**
-     * Gets the quickScan property value. 
+     * Gets the quickScan property value. The quickScan property
      * @returns a boolean
      */
     public get quickScan() {
         return this._quickScan;
     };
     /**
-     * Sets the quickScan property value. 
+     * Sets the quickScan property value. The quickScan property
      * @param value Value to set for the quickScan property.
      */
     public set quickScan(value: boolean | undefined) {

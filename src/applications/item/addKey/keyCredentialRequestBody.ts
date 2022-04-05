@@ -1,14 +1,17 @@
-import {KeyCredential, PasswordCredential} from '../../../models/microsoft/graph/';
-import {createKeyCredentialFromDiscriminatorValue} from '../../../models/microsoft/graph/createKeyCredentialFromDiscriminatorValue';
-import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/microsoft/graph/createPasswordCredentialFromDiscriminatorValue';
+import {KeyCredential, PasswordCredential} from '../../../models/';
+import {createKeyCredentialFromDiscriminatorValue} from '../../../models/createKeyCredentialFromDiscriminatorValue';
+import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addKey method.  */
 export class KeyCredentialRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The keyCredential property  */
     private _keyCredential?: KeyCredential | undefined;
+    /** The passwordCredential property  */
     private _passwordCredential?: PasswordCredential | undefined;
+    /** The proof property  */
     private _proof?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -42,42 +45,42 @@ export class KeyCredentialRequestBody implements AdditionalDataHolder, Parsable 
         };
     };
     /**
-     * Gets the keyCredential property value. 
+     * Gets the keyCredential property value. The keyCredential property
      * @returns a keyCredential
      */
     public get keyCredential() {
         return this._keyCredential;
     };
     /**
-     * Sets the keyCredential property value. 
+     * Sets the keyCredential property value. The keyCredential property
      * @param value Value to set for the keyCredential property.
      */
     public set keyCredential(value: KeyCredential | undefined) {
         this._keyCredential = value;
     };
     /**
-     * Gets the passwordCredential property value. 
+     * Gets the passwordCredential property value. The passwordCredential property
      * @returns a passwordCredential
      */
     public get passwordCredential() {
         return this._passwordCredential;
     };
     /**
-     * Sets the passwordCredential property value. 
+     * Sets the passwordCredential property value. The passwordCredential property
      * @param value Value to set for the passwordCredential property.
      */
     public set passwordCredential(value: PasswordCredential | undefined) {
         this._passwordCredential = value;
     };
     /**
-     * Gets the proof property value. 
+     * Gets the proof property value. The proof property
      * @returns a string
      */
     public get proof() {
         return this._proof;
     };
     /**
-     * Sets the proof property value. 
+     * Sets the proof property value. The proof property
      * @param value Value to set for the proof property.
      */
     public set proof(value: string | undefined) {

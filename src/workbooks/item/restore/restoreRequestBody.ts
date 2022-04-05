@@ -1,12 +1,14 @@
-import {ItemReference} from '../../../models/microsoft/graph/';
-import {createItemReferenceFromDiscriminatorValue} from '../../../models/microsoft/graph/createItemReferenceFromDiscriminatorValue';
+import {ItemReference} from '../../../models/';
+import {createItemReferenceFromDiscriminatorValue} from '../../../models/createItemReferenceFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the restore method.  */
 export class RestoreRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The name property  */
     private _name?: string | undefined;
+    /** The parentReference property  */
     private _parentReference?: ItemReference | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -39,28 +41,28 @@ export class RestoreRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the name property value. 
+     * Gets the name property value. The name property
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. 
+     * Sets the name property value. The name property
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
         this._name = value;
     };
     /**
-     * Gets the parentReference property value. 
+     * Gets the parentReference property value. The parentReference property
      * @returns a itemReference
      */
     public get parentReference() {
         return this._parentReference;
     };
     /**
-     * Sets the parentReference property value. 
+     * Sets the parentReference property value. The parentReference property
      * @param value Value to set for the parentReference property.
      */
     public set parentReference(value: ItemReference | undefined) {

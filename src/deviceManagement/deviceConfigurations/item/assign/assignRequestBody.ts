@@ -1,11 +1,12 @@
-import {DeviceConfigurationAssignment} from '../../../../models/microsoft/graph/';
-import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/microsoft/graph/createDeviceConfigurationAssignmentFromDiscriminatorValue';
+import {DeviceConfigurationAssignment} from '../../../../models/';
+import {createDeviceConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationAssignmentFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method.  */
 export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The assignments property  */
     private _assignments?: DeviceConfigurationAssignment[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +23,14 @@ export class AssignRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the assignments property value. 
+     * Gets the assignments property value. The assignments property
      * @returns a deviceConfigurationAssignment
      */
     public get assignments() {
         return this._assignments;
     };
     /**
-     * Sets the assignments property value. 
+     * Sets the assignments property value. The assignments property
      * @param value Value to set for the assignments property.
      */
     public set assignments(value: DeviceConfigurationAssignment[] | undefined) {

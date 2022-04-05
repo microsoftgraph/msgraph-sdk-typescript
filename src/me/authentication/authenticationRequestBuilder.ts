@@ -1,7 +1,7 @@
-import {Authentication} from '../../models/microsoft/graph/';
-import {createAuthenticationFromDiscriminatorValue} from '../../models/microsoft/graph/createAuthenticationFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Authentication} from '../../models/';
+import {createAuthenticationFromDiscriminatorValue} from '../../models/createAuthenticationFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {Fido2MethodsRequestBuilder} from './fido2Methods/fido2MethodsRequestBuilder';
 import {Fido2AuthenticationMethodItemRequestBuilder} from './fido2Methods/item/fido2AuthenticationMethodItemRequestBuilder';
 import {AuthenticationMethodItemRequestBuilder} from './methods/item/authenticationMethodItemRequestBuilder';
@@ -14,12 +14,15 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the authentication property of the microsoft.graph.user entity.  */
 export class AuthenticationRequestBuilder {
+    /** The fido2Methods property  */
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The methods property  */
     public get methods(): MethodsRequestBuilder {
         return new MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The microsoftAuthenticatorMethods property  */
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -29,6 +32,7 @@ export class AuthenticationRequestBuilder {
     private readonly requestAdapter: RequestAdapter;
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The windowsHelloForBusinessMethods property  */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -47,47 +51,47 @@ export class AuthenticationRequestBuilder {
     };
     /**
      * Delete navigation property authentication for me
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
         if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
-     * Get authentication from me
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * The authentication methods that are supported for the user.
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property authentication in me
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Authentication | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Authentication | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
@@ -95,18 +99,18 @@ export class AuthenticationRequestBuilder {
         requestInfo.httpMethod = HttpMethod.PATCH;
         if(h) requestInfo.headers = h;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property authentication for me
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -126,19 +130,19 @@ export class AuthenticationRequestBuilder {
         return new Fido2AuthenticationMethodItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get authentication from me
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * The authentication methods that are supported for the user.
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Authentication
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Authentication | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -171,14 +175,14 @@ export class AuthenticationRequestBuilder {
     /**
      * Update the navigation property authentication in me
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Authentication | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Authentication | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

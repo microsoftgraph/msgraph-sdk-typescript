@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SelfSignedCertificateRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The displayName property  */
     private _displayName?: string | undefined;
+    /** The endDateTime property  */
     private _endDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,28 +29,28 @@ export class SelfSignedCertificateRequestBody implements AdditionalDataHolder, P
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. 
+     * Gets the displayName property value. The displayName property
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. 
+     * Sets the displayName property value. The displayName property
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
         this._displayName = value;
     };
     /**
-     * Gets the endDateTime property value. 
+     * Gets the endDateTime property value. The endDateTime property
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. 
+     * Sets the endDateTime property value. The endDateTime property
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {

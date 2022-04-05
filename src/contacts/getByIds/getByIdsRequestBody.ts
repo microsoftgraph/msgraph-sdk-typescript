@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetByIdsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The ids property  */
     private _ids?: string[] | undefined;
+    /** The types property  */
     private _types?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -37,14 +39,14 @@ export class GetByIdsRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the ids property value. 
+     * Gets the ids property value. The ids property
      * @returns a string
      */
     public get ids() {
         return this._ids;
     };
     /**
-     * Sets the ids property value. 
+     * Sets the ids property value. The ids property
      * @param value Value to set for the ids property.
      */
     public set ids(value: string[] | undefined) {
@@ -61,14 +63,14 @@ export class GetByIdsRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the types property value. 
+     * Gets the types property value. The types property
      * @returns a string
      */
     public get types() {
         return this._types;
     };
     /**
-     * Sets the types property value. 
+     * Sets the types property value. The types property
      * @param value Value to set for the types property.
      */
     public set types(value: string[] | undefined) {

@@ -2,21 +2,25 @@ import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter
 
 /** Provides operations to call the setPresence method.  */
 export class SetPresenceRequestBody implements AdditionalDataHolder, Parsable {
+    /** The activity property  */
     private _activity?: string | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The availability property  */
     private _availability?: string | undefined;
+    /** The expirationDuration property  */
     private _expirationDuration?: Duration | undefined;
+    /** The sessionId property  */
     private _sessionId?: string | undefined;
     /**
-     * Gets the activity property value. 
+     * Gets the activity property value. The activity property
      * @returns a string
      */
     public get activity() {
         return this._activity;
     };
     /**
-     * Sets the activity property value. 
+     * Sets the activity property value. The activity property
      * @param value Value to set for the activity property.
      */
     public set activity(value: string | undefined) {
@@ -37,14 +41,14 @@ export class SetPresenceRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the availability property value. 
+     * Gets the availability property value. The availability property
      * @returns a string
      */
     public get availability() {
         return this._availability;
     };
     /**
-     * Sets the availability property value. 
+     * Sets the availability property value. The availability property
      * @param value Value to set for the availability property.
      */
     public set availability(value: string | undefined) {
@@ -57,14 +61,14 @@ export class SetPresenceRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the expirationDuration property value. 
+     * Gets the expirationDuration property value. The expirationDuration property
      * @returns a Duration
      */
     public get expirationDuration() {
         return this._expirationDuration;
     };
     /**
-     * Sets the expirationDuration property value. 
+     * Sets the expirationDuration property value. The expirationDuration property
      * @param value Value to set for the expirationDuration property.
      */
     public set expirationDuration(value: Duration | undefined) {
@@ -95,14 +99,14 @@ export class SetPresenceRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the sessionId property value. 
+     * Gets the sessionId property value. The sessionId property
      * @returns a string
      */
     public get sessionId() {
         return this._sessionId;
     };
     /**
-     * Sets the sessionId property value. 
+     * Sets the sessionId property value. The sessionId property
      * @param value Value to set for the sessionId property.
      */
     public set sessionId(value: string | undefined) {

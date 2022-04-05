@@ -1,7 +1,7 @@
-import {ODataError} from '../../../../../../../../../../../../../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {Term} from '../../../../../../../../../../../../../../../../models/microsoft/graph/termStore/';
-import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../models/microsoft/graph/termStore/createTermFromDiscriminatorValue';
+import {ODataError} from '../../../../../../../../../../../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Term} from '../../../../../../../../../../../../../../../../models/termStore/';
+import {createTermFromDiscriminatorValue} from '../../../../../../../../../../../../../../../../models/termStore/createTermFromDiscriminatorValue';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the fromTerm property of the microsoft.graph.termStore.relation entity.  */
@@ -27,38 +27,38 @@ export class FromTermRequestBuilder {
     };
     /**
      * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
         if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(q);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Term
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Term | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Term | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

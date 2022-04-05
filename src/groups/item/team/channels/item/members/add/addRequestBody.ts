@@ -1,11 +1,12 @@
-import {ConversationMember} from '../../../../../../../models/microsoft/graph/';
-import {createConversationMemberFromDiscriminatorValue} from '../../../../../../../models/microsoft/graph/createConversationMemberFromDiscriminatorValue';
+import {ConversationMember} from '../../../../../../../models/';
+import {createConversationMemberFromDiscriminatorValue} from '../../../../../../../models/createConversationMemberFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the add method.  */
 export class AddRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The values property  */
     private _values?: ConversationMember[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -46,14 +47,14 @@ export class AddRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the values property value. 
+     * Gets the values property value. The values property
      * @returns a conversationMember
      */
     public get values() {
         return this._values;
     };
     /**
-     * Sets the values property value. 
+     * Sets the values property value. The values property
      * @param value Value to set for the values property.
      */
     public set values(value: ConversationMember[] | undefined) {

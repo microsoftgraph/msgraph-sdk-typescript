@@ -1,14 +1,18 @@
-import {DateTimeTimeZone} from '../../../../../models/microsoft/graph/';
-import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createDateTimeTimeZoneFromDiscriminatorValue';
+import {DateTimeTimeZone} from '../../../../../models/';
+import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../../models/createDateTimeTimeZoneFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getSchedule method.  */
 export class GetScheduleRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The AvailabilityViewInterval property  */
     private _availabilityViewInterval?: number | undefined;
+    /** The EndTime property  */
     private _endTime?: DateTimeTimeZone | undefined;
+    /** The Schedules property  */
     private _schedules?: string[] | undefined;
+    /** The StartTime property  */
     private _startTime?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -25,14 +29,14 @@ export class GetScheduleRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the availabilityViewInterval property value. 
+     * Gets the availabilityViewInterval property value. The AvailabilityViewInterval property
      * @returns a integer
      */
     public get availabilityViewInterval() {
         return this._availabilityViewInterval;
     };
     /**
-     * Sets the availabilityViewInterval property value. 
+     * Sets the availabilityViewInterval property value. The AvailabilityViewInterval property
      * @param value Value to set for the AvailabilityViewInterval property.
      */
     public set availabilityViewInterval(value: number | undefined) {
@@ -45,14 +49,14 @@ export class GetScheduleRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the endTime property value. 
+     * Gets the endTime property value. The EndTime property
      * @returns a dateTimeTimeZone
      */
     public get endTime() {
         return this._endTime;
     };
     /**
-     * Sets the endTime property value. 
+     * Sets the endTime property value. The EndTime property
      * @param value Value to set for the EndTime property.
      */
     public set endTime(value: DateTimeTimeZone | undefined) {
@@ -71,14 +75,14 @@ export class GetScheduleRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the schedules property value. 
+     * Gets the schedules property value. The Schedules property
      * @returns a string
      */
     public get schedules() {
         return this._schedules;
     };
     /**
-     * Sets the schedules property value. 
+     * Sets the schedules property value. The Schedules property
      * @param value Value to set for the Schedules property.
      */
     public set schedules(value: string[] | undefined) {
@@ -97,14 +101,14 @@ export class GetScheduleRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startTime property value. 
+     * Gets the startTime property value. The StartTime property
      * @returns a dateTimeTimeZone
      */
     public get startTime() {
         return this._startTime;
     };
     /**
-     * Sets the startTime property value. 
+     * Sets the startTime property value. The StartTime property
      * @param value Value to set for the StartTime property.
      */
     public set startTime(value: DateTimeTimeZone | undefined) {

@@ -1,12 +1,14 @@
-import {Message} from '../../../../../../models/microsoft/graph/';
-import {createMessageFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createMessageFromDiscriminatorValue';
+import {Message} from '../../../../../../models/';
+import {createMessageFromDiscriminatorValue} from '../../../../../../models/createMessageFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the reply method.  */
 export class ReplyRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The Comment property  */
     private _comment?: string | undefined;
+    /** The Message property  */
     private _message?: Message | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -23,14 +25,14 @@ export class ReplyRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the comment property value. 
+     * Gets the comment property value. The Comment property
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. 
+     * Sets the comment property value. The Comment property
      * @param value Value to set for the Comment property.
      */
     public set comment(value: string | undefined) {
@@ -53,14 +55,14 @@ export class ReplyRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the message property value. 
+     * Gets the message property value. The Message property
      * @returns a message
      */
     public get message() {
         return this._message;
     };
     /**
-     * Sets the message property value. 
+     * Sets the message property value. The Message property
      * @param value Value to set for the Message property.
      */
     public set message(value: Message | undefined) {

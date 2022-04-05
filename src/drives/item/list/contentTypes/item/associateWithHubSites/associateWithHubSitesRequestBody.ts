@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AssociateWithHubSitesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The hubSiteUrls property  */
     private _hubSiteUrls?: string[] | undefined;
+    /** The propagateToExistingLists property  */
     private _propagateToExistingLists?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -37,28 +39,28 @@ export class AssociateWithHubSitesRequestBody implements AdditionalDataHolder, P
         };
     };
     /**
-     * Gets the hubSiteUrls property value. 
+     * Gets the hubSiteUrls property value. The hubSiteUrls property
      * @returns a string
      */
     public get hubSiteUrls() {
         return this._hubSiteUrls;
     };
     /**
-     * Sets the hubSiteUrls property value. 
+     * Sets the hubSiteUrls property value. The hubSiteUrls property
      * @param value Value to set for the hubSiteUrls property.
      */
     public set hubSiteUrls(value: string[] | undefined) {
         this._hubSiteUrls = value;
     };
     /**
-     * Gets the propagateToExistingLists property value. 
+     * Gets the propagateToExistingLists property value. The propagateToExistingLists property
      * @returns a boolean
      */
     public get propagateToExistingLists() {
         return this._propagateToExistingLists;
     };
     /**
-     * Sets the propagateToExistingLists property value. 
+     * Sets the propagateToExistingLists property value. The propagateToExistingLists property
      * @param value Value to set for the propagateToExistingLists property.
      */
     public set propagateToExistingLists(value: boolean | undefined) {

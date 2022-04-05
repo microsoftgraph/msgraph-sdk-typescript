@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RemoveGroupRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The groupId property  */
     private _groupId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -35,14 +36,14 @@ export class RemoveGroupRequestBody implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the groupId property value. 
+     * Gets the groupId property value. The groupId property
      * @returns a string
      */
     public get groupId() {
         return this._groupId;
     };
     /**
-     * Sets the groupId property value. 
+     * Sets the groupId property value. The groupId property
      * @param value Value to set for the groupId property.
      */
     public set groupId(value: string | undefined) {

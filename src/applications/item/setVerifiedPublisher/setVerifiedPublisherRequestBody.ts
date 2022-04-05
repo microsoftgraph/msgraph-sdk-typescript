@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SetVerifiedPublisherRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The verifiedPublisherId property  */
     private _verifiedPublisherId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,14 +45,14 @@ export class SetVerifiedPublisherRequestBody implements AdditionalDataHolder, Pa
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the verifiedPublisherId property value. 
+     * Gets the verifiedPublisherId property value. The verifiedPublisherId property
      * @returns a string
      */
     public get verifiedPublisherId() {
         return this._verifiedPublisherId;
     };
     /**
-     * Sets the verifiedPublisherId property value. 
+     * Sets the verifiedPublisherId property value. The verifiedPublisherId property
      * @param value Value to set for the verifiedPublisherId property.
      */
     public set verifiedPublisherId(value: string | undefined) {
