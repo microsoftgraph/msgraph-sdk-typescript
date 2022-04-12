@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class SetPriorityRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The priority property  */
     private _priority?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,22 +28,22 @@ export class SetPriorityRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "priority": (o, n) => { (o as unknown as SetPriorityRequestBody).priority = n.getNumberValue(); },
+            "priority": n => { this.priority = n.getNumberValue(); },
         };
     };
     /**
-     * Gets the priority property value. 
+     * Gets the priority property value. The priority property
      * @returns a integer
      */
     public get priority() {
         return this._priority;
     };
     /**
-     * Sets the priority property value. 
+     * Sets the priority property value. The priority property
      * @param value Value to set for the priority property.
      */
     public set priority(value: number | undefined) {

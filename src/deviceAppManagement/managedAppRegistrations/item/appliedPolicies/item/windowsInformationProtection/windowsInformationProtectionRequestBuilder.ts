@@ -3,6 +3,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedAppRegistrations/{managedAppRegistration-id}/appliedPolicies/{managedAppPolicy-id}/microsoft.graph.windowsInformationProtection  */
 export class WindowsInformationProtectionRequestBuilder {
+    /** The assign property  */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }

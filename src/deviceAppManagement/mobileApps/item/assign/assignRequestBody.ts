@@ -1,11 +1,12 @@
-import {MobileAppAssignment} from '../../../../models/microsoft/graph/';
-import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../models/microsoft/graph/createMobileAppAssignmentFromDiscriminatorValue';
+import {MobileAppAssignment} from '../../../../models/';
+import {createMobileAppAssignmentFromDiscriminatorValue} from '../../../../models/createMobileAppAssignmentFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method.  */
 export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The mobileAppAssignments property  */
     private _mobileAppAssignments?: MobileAppAssignment[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "mobileAppAssignments": (o, n) => { (o as unknown as AssignRequestBody).mobileAppAssignments = n.getCollectionOfObjectValues<MobileAppAssignment>(createMobileAppAssignmentFromDiscriminatorValue); },
+            "mobileAppAssignments": n => { this.mobileAppAssignments = n.getCollectionOfObjectValues<MobileAppAssignment>(createMobileAppAssignmentFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the mobileAppAssignments property value. 
+     * Gets the mobileAppAssignments property value. The mobileAppAssignments property
      * @returns a mobileAppAssignment
      */
     public get mobileAppAssignments() {
         return this._mobileAppAssignments;
     };
     /**
-     * Sets the mobileAppAssignments property value. 
+     * Sets the mobileAppAssignments property value. The mobileAppAssignments property
      * @param value Value to set for the mobileAppAssignments property.
      */
     public set mobileAppAssignments(value: MobileAppAssignment[] | undefined) {

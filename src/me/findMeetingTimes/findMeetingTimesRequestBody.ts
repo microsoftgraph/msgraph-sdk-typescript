@@ -1,20 +1,28 @@
-import {AttendeeBase, LocationConstraint, TimeConstraint} from '../../models/microsoft/graph/';
-import {createAttendeeBaseFromDiscriminatorValue} from '../../models/microsoft/graph/createAttendeeBaseFromDiscriminatorValue';
-import {createLocationConstraintFromDiscriminatorValue} from '../../models/microsoft/graph/createLocationConstraintFromDiscriminatorValue';
-import {createTimeConstraintFromDiscriminatorValue} from '../../models/microsoft/graph/createTimeConstraintFromDiscriminatorValue';
+import {AttendeeBase, LocationConstraint, TimeConstraint} from '../../models/';
+import {createAttendeeBaseFromDiscriminatorValue} from '../../models/createAttendeeBaseFromDiscriminatorValue';
+import {createLocationConstraintFromDiscriminatorValue} from '../../models/createLocationConstraintFromDiscriminatorValue';
+import {createTimeConstraintFromDiscriminatorValue} from '../../models/createTimeConstraintFromDiscriminatorValue';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the findMeetingTimes method.  */
 export class FindMeetingTimesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The attendees property  */
     private _attendees?: AttendeeBase[] | undefined;
+    /** The isOrganizerOptional property  */
     private _isOrganizerOptional?: boolean | undefined;
+    /** The locationConstraint property  */
     private _locationConstraint?: LocationConstraint | undefined;
+    /** The maxCandidates property  */
     private _maxCandidates?: number | undefined;
+    /** The meetingDuration property  */
     private _meetingDuration?: Duration | undefined;
+    /** The minimumAttendeePercentage property  */
     private _minimumAttendeePercentage?: number | undefined;
+    /** The returnSuggestionReasons property  */
     private _returnSuggestionReasons?: boolean | undefined;
+    /** The timeConstraint property  */
     private _timeConstraint?: TimeConstraint | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -31,14 +39,14 @@ export class FindMeetingTimesRequestBody implements AdditionalDataHolder, Parsab
         this._additionalData = value;
     };
     /**
-     * Gets the attendees property value. 
+     * Gets the attendees property value. The attendees property
      * @returns a attendeeBase
      */
     public get attendees() {
         return this._attendees;
     };
     /**
-     * Sets the attendees property value. 
+     * Sets the attendees property value. The attendees property
      * @param value Value to set for the attendees property.
      */
     public set attendees(value: AttendeeBase[] | undefined) {
@@ -52,99 +60,99 @@ export class FindMeetingTimesRequestBody implements AdditionalDataHolder, Parsab
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "attendees": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).attendees = n.getCollectionOfObjectValues<AttendeeBase>(createAttendeeBaseFromDiscriminatorValue); },
-            "isOrganizerOptional": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).isOrganizerOptional = n.getBooleanValue(); },
-            "locationConstraint": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).locationConstraint = n.getObjectValue<LocationConstraint>(createLocationConstraintFromDiscriminatorValue); },
-            "maxCandidates": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).maxCandidates = n.getNumberValue(); },
-            "meetingDuration": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).meetingDuration = n.getDurationValue(); },
-            "minimumAttendeePercentage": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).minimumAttendeePercentage = n.getNumberValue(); },
-            "returnSuggestionReasons": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).returnSuggestionReasons = n.getBooleanValue(); },
-            "timeConstraint": (o, n) => { (o as unknown as FindMeetingTimesRequestBody).timeConstraint = n.getObjectValue<TimeConstraint>(createTimeConstraintFromDiscriminatorValue); },
+            "attendees": n => { this.attendees = n.getCollectionOfObjectValues<AttendeeBase>(createAttendeeBaseFromDiscriminatorValue); },
+            "isOrganizerOptional": n => { this.isOrganizerOptional = n.getBooleanValue(); },
+            "locationConstraint": n => { this.locationConstraint = n.getObjectValue<LocationConstraint>(createLocationConstraintFromDiscriminatorValue); },
+            "maxCandidates": n => { this.maxCandidates = n.getNumberValue(); },
+            "meetingDuration": n => { this.meetingDuration = n.getDurationValue(); },
+            "minimumAttendeePercentage": n => { this.minimumAttendeePercentage = n.getNumberValue(); },
+            "returnSuggestionReasons": n => { this.returnSuggestionReasons = n.getBooleanValue(); },
+            "timeConstraint": n => { this.timeConstraint = n.getObjectValue<TimeConstraint>(createTimeConstraintFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the isOrganizerOptional property value. 
+     * Gets the isOrganizerOptional property value. The isOrganizerOptional property
      * @returns a boolean
      */
     public get isOrganizerOptional() {
         return this._isOrganizerOptional;
     };
     /**
-     * Sets the isOrganizerOptional property value. 
+     * Sets the isOrganizerOptional property value. The isOrganizerOptional property
      * @param value Value to set for the isOrganizerOptional property.
      */
     public set isOrganizerOptional(value: boolean | undefined) {
         this._isOrganizerOptional = value;
     };
     /**
-     * Gets the locationConstraint property value. 
+     * Gets the locationConstraint property value. The locationConstraint property
      * @returns a locationConstraint
      */
     public get locationConstraint() {
         return this._locationConstraint;
     };
     /**
-     * Sets the locationConstraint property value. 
+     * Sets the locationConstraint property value. The locationConstraint property
      * @param value Value to set for the locationConstraint property.
      */
     public set locationConstraint(value: LocationConstraint | undefined) {
         this._locationConstraint = value;
     };
     /**
-     * Gets the maxCandidates property value. 
+     * Gets the maxCandidates property value. The maxCandidates property
      * @returns a integer
      */
     public get maxCandidates() {
         return this._maxCandidates;
     };
     /**
-     * Sets the maxCandidates property value. 
+     * Sets the maxCandidates property value. The maxCandidates property
      * @param value Value to set for the maxCandidates property.
      */
     public set maxCandidates(value: number | undefined) {
         this._maxCandidates = value;
     };
     /**
-     * Gets the meetingDuration property value. 
+     * Gets the meetingDuration property value. The meetingDuration property
      * @returns a Duration
      */
     public get meetingDuration() {
         return this._meetingDuration;
     };
     /**
-     * Sets the meetingDuration property value. 
+     * Sets the meetingDuration property value. The meetingDuration property
      * @param value Value to set for the meetingDuration property.
      */
     public set meetingDuration(value: Duration | undefined) {
         this._meetingDuration = value;
     };
     /**
-     * Gets the minimumAttendeePercentage property value. 
+     * Gets the minimumAttendeePercentage property value. The minimumAttendeePercentage property
      * @returns a double
      */
     public get minimumAttendeePercentage() {
         return this._minimumAttendeePercentage;
     };
     /**
-     * Sets the minimumAttendeePercentage property value. 
+     * Sets the minimumAttendeePercentage property value. The minimumAttendeePercentage property
      * @param value Value to set for the minimumAttendeePercentage property.
      */
     public set minimumAttendeePercentage(value: number | undefined) {
         this._minimumAttendeePercentage = value;
     };
     /**
-     * Gets the returnSuggestionReasons property value. 
+     * Gets the returnSuggestionReasons property value. The returnSuggestionReasons property
      * @returns a boolean
      */
     public get returnSuggestionReasons() {
         return this._returnSuggestionReasons;
     };
     /**
-     * Sets the returnSuggestionReasons property value. 
+     * Sets the returnSuggestionReasons property value. The returnSuggestionReasons property
      * @param value Value to set for the returnSuggestionReasons property.
      */
     public set returnSuggestionReasons(value: boolean | undefined) {
@@ -167,14 +175,14 @@ export class FindMeetingTimesRequestBody implements AdditionalDataHolder, Parsab
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the timeConstraint property value. 
+     * Gets the timeConstraint property value. The timeConstraint property
      * @returns a timeConstraint
      */
     public get timeConstraint() {
         return this._timeConstraint;
     };
     /**
-     * Sets the timeConstraint property value. 
+     * Sets the timeConstraint property value. The timeConstraint property
      * @param value Value to set for the timeConstraint property.
      */
     public set timeConstraint(value: TimeConstraint | undefined) {

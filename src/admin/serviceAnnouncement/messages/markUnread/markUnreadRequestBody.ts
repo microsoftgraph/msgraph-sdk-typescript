@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MarkUnreadRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The messageIds property  */
     private _messageIds?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,22 +28,22 @@ export class MarkUnreadRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "messageIds": (o, n) => { (o as unknown as MarkUnreadRequestBody).messageIds = n.getCollectionOfPrimitiveValues<string>(); },
+            "messageIds": n => { this.messageIds = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
-     * Gets the messageIds property value. 
+     * Gets the messageIds property value. The messageIds property
      * @returns a string
      */
     public get messageIds() {
         return this._messageIds;
     };
     /**
-     * Sets the messageIds property value. 
+     * Sets the messageIds property value. The messageIds property
      * @param value Value to set for the messageIds property.
      */
     public set messageIds(value: string[] | undefined) {

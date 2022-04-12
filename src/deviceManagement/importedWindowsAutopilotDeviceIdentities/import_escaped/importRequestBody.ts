@@ -1,11 +1,12 @@
-import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/microsoft/graph/';
-import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/microsoft/graph/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
+import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/';
+import {createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue} from '../../../models/createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the import method.  */
 export class ImportRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The importedWindowsAutopilotDeviceIdentities property  */
     private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class ImportRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "importedWindowsAutopilotDeviceIdentities": (o, n) => { (o as unknown as ImportRequestBody).importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
+            "importedWindowsAutopilotDeviceIdentities": n => { this.importedWindowsAutopilotDeviceIdentities = n.getCollectionOfObjectValues<ImportedWindowsAutopilotDeviceIdentity>(createImportedWindowsAutopilotDeviceIdentityFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the importedWindowsAutopilotDeviceIdentities property value. 
+     * Gets the importedWindowsAutopilotDeviceIdentities property value. The importedWindowsAutopilotDeviceIdentities property
      * @returns a importedWindowsAutopilotDeviceIdentity
      */
     public get importedWindowsAutopilotDeviceIdentities() {
         return this._importedWindowsAutopilotDeviceIdentities;
     };
     /**
-     * Sets the importedWindowsAutopilotDeviceIdentities property value. 
+     * Sets the importedWindowsAutopilotDeviceIdentities property value. The importedWindowsAutopilotDeviceIdentities property
      * @param value Value to set for the importedWindowsAutopilotDeviceIdentities property.
      */
     public set importedWindowsAutopilotDeviceIdentities(value: ImportedWindowsAutopilotDeviceIdentity[] | undefined) {

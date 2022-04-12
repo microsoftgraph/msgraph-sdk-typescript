@@ -1,7 +1,7 @@
-import {User} from '../../models/microsoft/graph/';
-import {createUserFromDiscriminatorValue} from '../../models/microsoft/graph/createUserFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {User} from '../../models/';
+import {createUserFromDiscriminatorValue} from '../../models/createUserFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ActivitiesRequestBuilder} from './activities/activitiesRequestBuilder';
 import {UserActivityItemRequestBuilder} from './activities/item/userActivityItemRequestBuilder';
 import {AgreementAcceptancesRequestBuilder} from './agreementAcceptances/agreementAcceptancesRequestBuilder';
@@ -103,195 +103,257 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of user entities.  */
 export class UserItemRequestBuilder {
+    /** The activities property  */
     public get activities(): ActivitiesRequestBuilder {
         return new ActivitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The agreementAcceptances property  */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The appRoleAssignments property  */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The assignLicense property  */
     public get assignLicense(): AssignLicenseRequestBuilder {
         return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The authentication property  */
     public get authentication(): AuthenticationRequestBuilder {
         return new AuthenticationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendar property  */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendarGroups property  */
     public get calendarGroups(): CalendarGroupsRequestBuilder {
         return new CalendarGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendars property  */
     public get calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendarView property  */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The changePassword property  */
     public get changePassword(): ChangePasswordRequestBuilder {
         return new ChangePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The chats property  */
     public get chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberGroups property  */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberObjects property  */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The contactFolders property  */
     public get contactFolders(): ContactFoldersRequestBuilder {
         return new ContactFoldersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The contacts property  */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The createdObjects property  */
     public get createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceManagementTroubleshootingEvents property  */
     public get deviceManagementTroubleshootingEvents(): DeviceManagementTroubleshootingEventsRequestBuilder {
         return new DeviceManagementTroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The directReports property  */
     public get directReports(): DirectReportsRequestBuilder {
         return new DirectReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The drive property  */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The drives property  */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The events property  */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The exportPersonalData property  */
     public get exportPersonalData(): ExportPersonalDataRequestBuilder {
         return new ExportPersonalDataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The extensions property  */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The findMeetingTimes property  */
     public get findMeetingTimes(): FindMeetingTimesRequestBuilder {
         return new FindMeetingTimesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The followedSites property  */
     public get followedSites(): FollowedSitesRequestBuilder {
         return new FollowedSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMailTips property  */
     public get getMailTips(): GetMailTipsRequestBuilder {
         return new GetMailTipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMemberGroups property  */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMemberObjects property  */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The inferenceClassification property  */
     public get inferenceClassification(): InferenceClassificationRequestBuilder {
         return new InferenceClassificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The insights property  */
     public get insights(): InsightsRequestBuilder {
         return new InsightsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The joinedTeams property  */
     public get joinedTeams(): JoinedTeamsRequestBuilder {
         return new JoinedTeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The licenseDetails property  */
     public get licenseDetails(): LicenseDetailsRequestBuilder {
         return new LicenseDetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mailFolders property  */
     public get mailFolders(): MailFoldersRequestBuilder {
         return new MailFoldersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedAppRegistrations property  */
     public get managedAppRegistrations(): ManagedAppRegistrationsRequestBuilder {
         return new ManagedAppRegistrationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedDevices property  */
     public get managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The manager property  */
     public get manager(): ManagerRequestBuilder {
         return new ManagerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The memberOf property  */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The messages property  */
     public get messages(): MessagesRequestBuilder {
         return new MessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The oauth2PermissionGrants property  */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The onenote property  */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The onlineMeetings property  */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The outlook property  */
     public get outlook(): OutlookRequestBuilder {
         return new OutlookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The ownedDevices property  */
     public get ownedDevices(): OwnedDevicesRequestBuilder {
         return new OwnedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The ownedObjects property  */
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The people property  */
     public get people(): PeopleRequestBuilder {
         return new PeopleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The photo property  */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The photos property  */
     public get photos(): PhotosRequestBuilder {
         return new PhotosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The planner property  */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The presence property  */
     public get presence(): PresenceRequestBuilder {
         return new PresenceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The registeredDevices property  */
     public get registeredDevices(): RegisteredDevicesRequestBuilder {
         return new RegisteredDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The removeAllDevicesFromManagement property  */
     public get removeAllDevicesFromManagement(): RemoveAllDevicesFromManagementRequestBuilder {
         return new RemoveAllDevicesFromManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The reprocessLicenseAssignment property  */
     public get reprocessLicenseAssignment(): ReprocessLicenseAssignmentRequestBuilder {
         return new ReprocessLicenseAssignmentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The restore property  */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The revokeSignInSessions property  */
     public get revokeSignInSessions(): RevokeSignInSessionsRequestBuilder {
         return new RevokeSignInSessionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The scopedRoleMemberOf property  */
     public get scopedRoleMemberOf(): ScopedRoleMemberOfRequestBuilder {
         return new ScopedRoleMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The sendMail property  */
     public get sendMail(): SendMailRequestBuilder {
         return new SendMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The settings property  */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The teamwork property  */
     public get teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The todo property  */
     public get todo(): TodoRequestBuilder {
         return new TodoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The transitiveMemberOf property  */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The translateExchangeIds property  */
     public get translateExchangeIds(): TranslateExchangeIdsRequestBuilder {
         return new TranslateExchangeIdsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The wipeManagedAppRegistrationsByDeviceTag property  */
     public get wipeManagedAppRegistrationsByDeviceTag(): WipeManagedAppRegistrationsByDeviceTagRequestBuilder {
         return new WipeManagedAppRegistrationsByDeviceTagRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -409,17 +471,17 @@ export class UserItemRequestBuilder {
     };
     /**
      * Delete entity from users
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -435,51 +497,51 @@ export class UserItemRequestBuilder {
     };
     /**
      * Get entity from users by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update entity in users
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: User | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: User | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete entity from users
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -555,18 +617,18 @@ export class UserItemRequestBuilder {
     };
     /**
      * Get entity from users by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of User
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<User | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -712,14 +774,14 @@ export class UserItemRequestBuilder {
     /**
      * Update entity in users
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: User | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: User | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

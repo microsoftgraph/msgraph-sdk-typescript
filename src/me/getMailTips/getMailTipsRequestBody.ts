@@ -1,11 +1,13 @@
-import {MailTipsType} from '../../models/microsoft/graph/mailTipsType';
+import {MailTipsType} from '../../models/mailTipsType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMailTips method.  */
 export class GetMailTipsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The EmailAddresses property  */
     private _emailAddresses?: string[] | undefined;
+    /** The MailTipsOptions property  */
     private _mailTipsOptions?: MailTipsType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +30,14 @@ export class GetMailTipsRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the emailAddresses property value. 
+     * Gets the emailAddresses property value. The EmailAddresses property
      * @returns a string
      */
     public get emailAddresses() {
         return this._emailAddresses;
     };
     /**
-     * Sets the emailAddresses property value. 
+     * Sets the emailAddresses property value. The EmailAddresses property
      * @param value Value to set for the EmailAddresses property.
      */
     public set emailAddresses(value: string[] | undefined) {
@@ -43,23 +45,23 @@ export class GetMailTipsRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "emailAddresses": (o, n) => { (o as unknown as GetMailTipsRequestBody).emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
-            "mailTipsOptions": (o, n) => { (o as unknown as GetMailTipsRequestBody).mailTipsOptions = n.getEnumValue<MailTipsType>(MailTipsType); },
+            "emailAddresses": n => { this.emailAddresses = n.getCollectionOfPrimitiveValues<string>(); },
+            "mailTipsOptions": n => { this.mailTipsOptions = n.getEnumValue<MailTipsType>(MailTipsType); },
         };
     };
     /**
-     * Gets the mailTipsOptions property value. 
+     * Gets the mailTipsOptions property value. The MailTipsOptions property
      * @returns a mailTipsType
      */
     public get mailTipsOptions() {
         return this._mailTipsOptions;
     };
     /**
-     * Sets the mailTipsOptions property value. 
+     * Sets the mailTipsOptions property value. The MailTipsOptions property
      * @param value Value to set for the MailTipsOptions property.
      */
     public set mailTipsOptions(value: MailTipsType | undefined) {

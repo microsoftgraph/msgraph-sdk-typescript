@@ -1,27 +1,32 @@
-import {IncomingCallOptions, MediaConfig} from '../../../../models/microsoft/graph/';
-import {createIncomingCallOptionsFromDiscriminatorValue} from '../../../../models/microsoft/graph/createIncomingCallOptionsFromDiscriminatorValue';
-import {createMediaConfigFromDiscriminatorValue} from '../../../../models/microsoft/graph/createMediaConfigFromDiscriminatorValue';
-import {Modality} from '../../../../models/microsoft/graph/modality';
+import {IncomingCallOptions, MediaConfig} from '../../../../models/';
+import {createIncomingCallOptionsFromDiscriminatorValue} from '../../../../models/createIncomingCallOptionsFromDiscriminatorValue';
+import {createMediaConfigFromDiscriminatorValue} from '../../../../models/createMediaConfigFromDiscriminatorValue';
+import {Modality} from '../../../../models/modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the answer method.  */
 export class AnswerRequestBody implements AdditionalDataHolder, Parsable {
+    /** The acceptedModalities property  */
     private _acceptedModalities?: Modality[] | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The callbackUri property  */
     private _callbackUri?: string | undefined;
+    /** The callOptions property  */
     private _callOptions?: IncomingCallOptions | undefined;
+    /** The mediaConfig property  */
     private _mediaConfig?: MediaConfig | undefined;
+    /** The participantCapacity property  */
     private _participantCapacity?: number | undefined;
     /**
-     * Gets the acceptedModalities property value. 
+     * Gets the acceptedModalities property value. The acceptedModalities property
      * @returns a modality
      */
     public get acceptedModalities() {
         return this._acceptedModalities;
     };
     /**
-     * Sets the acceptedModalities property value. 
+     * Sets the acceptedModalities property value. The acceptedModalities property
      * @param value Value to set for the acceptedModalities property.
      */
     public set acceptedModalities(value: Modality[] | undefined) {
@@ -42,28 +47,28 @@ export class AnswerRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the callbackUri property value. 
+     * Gets the callbackUri property value. The callbackUri property
      * @returns a string
      */
     public get callbackUri() {
         return this._callbackUri;
     };
     /**
-     * Sets the callbackUri property value. 
+     * Sets the callbackUri property value. The callbackUri property
      * @param value Value to set for the callbackUri property.
      */
     public set callbackUri(value: string | undefined) {
         this._callbackUri = value;
     };
     /**
-     * Gets the callOptions property value. 
+     * Gets the callOptions property value. The callOptions property
      * @returns a incomingCallOptions
      */
     public get callOptions() {
         return this._callOptions;
     };
     /**
-     * Sets the callOptions property value. 
+     * Sets the callOptions property value. The callOptions property
      * @param value Value to set for the callOptions property.
      */
     public set callOptions(value: IncomingCallOptions | undefined) {
@@ -77,40 +82,40 @@ export class AnswerRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "acceptedModalities": (o, n) => { (o as unknown as AnswerRequestBody).acceptedModalities = n.getEnumValues<Modality>(Modality); },
-            "callbackUri": (o, n) => { (o as unknown as AnswerRequestBody).callbackUri = n.getStringValue(); },
-            "callOptions": (o, n) => { (o as unknown as AnswerRequestBody).callOptions = n.getObjectValue<IncomingCallOptions>(createIncomingCallOptionsFromDiscriminatorValue); },
-            "mediaConfig": (o, n) => { (o as unknown as AnswerRequestBody).mediaConfig = n.getObjectValue<MediaConfig>(createMediaConfigFromDiscriminatorValue); },
-            "participantCapacity": (o, n) => { (o as unknown as AnswerRequestBody).participantCapacity = n.getNumberValue(); },
+            "acceptedModalities": n => { this.acceptedModalities = n.getEnumValues<Modality>(Modality); },
+            "callbackUri": n => { this.callbackUri = n.getStringValue(); },
+            "callOptions": n => { this.callOptions = n.getObjectValue<IncomingCallOptions>(createIncomingCallOptionsFromDiscriminatorValue); },
+            "mediaConfig": n => { this.mediaConfig = n.getObjectValue<MediaConfig>(createMediaConfigFromDiscriminatorValue); },
+            "participantCapacity": n => { this.participantCapacity = n.getNumberValue(); },
         };
     };
     /**
-     * Gets the mediaConfig property value. 
+     * Gets the mediaConfig property value. The mediaConfig property
      * @returns a mediaConfig
      */
     public get mediaConfig() {
         return this._mediaConfig;
     };
     /**
-     * Sets the mediaConfig property value. 
+     * Sets the mediaConfig property value. The mediaConfig property
      * @param value Value to set for the mediaConfig property.
      */
     public set mediaConfig(value: MediaConfig | undefined) {
         this._mediaConfig = value;
     };
     /**
-     * Gets the participantCapacity property value. 
+     * Gets the participantCapacity property value. The participantCapacity property
      * @returns a integer
      */
     public get participantCapacity() {
         return this._participantCapacity;
     };
     /**
-     * Sets the participantCapacity property value. 
+     * Sets the participantCapacity property value. The participantCapacity property
      * @param value Value to set for the participantCapacity property.
      */
     public set participantCapacity(value: number | undefined) {

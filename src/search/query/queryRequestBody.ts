@@ -1,11 +1,12 @@
-import {SearchRequest} from '../../models/microsoft/graph/';
-import {createSearchRequestFromDiscriminatorValue} from '../../models/microsoft/graph/createSearchRequestFromDiscriminatorValue';
+import {SearchRequest} from '../../models/';
+import {createSearchRequestFromDiscriminatorValue} from '../../models/createSearchRequestFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the query method.  */
 export class QueryRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The requests property  */
     private _requests?: SearchRequest[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class QueryRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "requests": (o, n) => { (o as unknown as QueryRequestBody).requests = n.getCollectionOfObjectValues<SearchRequest>(createSearchRequestFromDiscriminatorValue); },
+            "requests": n => { this.requests = n.getCollectionOfObjectValues<SearchRequest>(createSearchRequestFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the requests property value. 
+     * Gets the requests property value. The requests property
      * @returns a searchRequest
      */
     public get requests() {
         return this._requests;
     };
     /**
-     * Sets the requests property value. 
+     * Sets the requests property value. The requests property
      * @param value Value to set for the requests property.
      */
     public set requests(value: SearchRequest[] | undefined) {

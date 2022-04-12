@@ -1,11 +1,12 @@
-import {ConvertIdResult} from '../../../models/microsoft/graph/';
-import {createConvertIdResultFromDiscriminatorValue} from '../../../models/microsoft/graph/createConvertIdResultFromDiscriminatorValue';
+import {ConvertIdResult} from '../../../models/';
+import {createConvertIdResultFromDiscriminatorValue} from '../../../models/createConvertIdResultFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the translateExchangeIds method.  */
 export class TranslateExchangeIdsResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The value property  */
     private _value?: ConvertIdResult[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,11 +30,11 @@ export class TranslateExchangeIdsResponse implements AdditionalDataHolder, Parsa
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": (o, n) => { (o as unknown as TranslateExchangeIdsResponse).value = n.getCollectionOfObjectValues<ConvertIdResult>(createConvertIdResultFromDiscriminatorValue); },
+            "value": n => { this.value = n.getCollectionOfObjectValues<ConvertIdResult>(createConvertIdResultFromDiscriminatorValue); },
         };
     };
     /**
@@ -46,14 +47,14 @@ export class TranslateExchangeIdsResponse implements AdditionalDataHolder, Parsa
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @returns a convertIdResult
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
     public set value(value: ConvertIdResult[] | undefined) {

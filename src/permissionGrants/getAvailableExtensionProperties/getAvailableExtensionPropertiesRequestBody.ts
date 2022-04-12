@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetAvailableExtensionPropertiesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The isSyncedFromOnPremises property  */
     private _isSyncedFromOnPremises?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,22 +28,22 @@ export class GetAvailableExtensionPropertiesRequestBody implements AdditionalDat
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "isSyncedFromOnPremises": (o, n) => { (o as unknown as GetAvailableExtensionPropertiesRequestBody).isSyncedFromOnPremises = n.getBooleanValue(); },
+            "isSyncedFromOnPremises": n => { this.isSyncedFromOnPremises = n.getBooleanValue(); },
         };
     };
     /**
-     * Gets the isSyncedFromOnPremises property value. 
+     * Gets the isSyncedFromOnPremises property value. The isSyncedFromOnPremises property
      * @returns a boolean
      */
     public get isSyncedFromOnPremises() {
         return this._isSyncedFromOnPremises;
     };
     /**
-     * Sets the isSyncedFromOnPremises property value. 
+     * Sets the isSyncedFromOnPremises property value. The isSyncedFromOnPremises property
      * @param value Value to set for the isSyncedFromOnPremises property.
      */
     public set isSyncedFromOnPremises(value: boolean | undefined) {

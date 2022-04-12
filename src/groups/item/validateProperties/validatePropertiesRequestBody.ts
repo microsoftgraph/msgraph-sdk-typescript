@@ -4,8 +4,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ValidatePropertiesRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The displayName property  */
     private _displayName?: string | undefined;
+    /** The mailNickname property  */
     private _mailNickname?: string | undefined;
+    /** The onBehalfOfUserId property  */
     private _onBehalfOfUserId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +31,14 @@ export class ValidatePropertiesRequestBody implements AdditionalDataHolder, Pars
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. 
+     * Gets the displayName property value. The displayName property
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. 
+     * Sets the displayName property value. The displayName property
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -43,38 +46,38 @@ export class ValidatePropertiesRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "displayName": (o, n) => { (o as unknown as ValidatePropertiesRequestBody).displayName = n.getStringValue(); },
-            "mailNickname": (o, n) => { (o as unknown as ValidatePropertiesRequestBody).mailNickname = n.getStringValue(); },
-            "onBehalfOfUserId": (o, n) => { (o as unknown as ValidatePropertiesRequestBody).onBehalfOfUserId = n.getStringValue(); },
+            "displayName": n => { this.displayName = n.getStringValue(); },
+            "mailNickname": n => { this.mailNickname = n.getStringValue(); },
+            "onBehalfOfUserId": n => { this.onBehalfOfUserId = n.getStringValue(); },
         };
     };
     /**
-     * Gets the mailNickname property value. 
+     * Gets the mailNickname property value. The mailNickname property
      * @returns a string
      */
     public get mailNickname() {
         return this._mailNickname;
     };
     /**
-     * Sets the mailNickname property value. 
+     * Sets the mailNickname property value. The mailNickname property
      * @param value Value to set for the mailNickname property.
      */
     public set mailNickname(value: string | undefined) {
         this._mailNickname = value;
     };
     /**
-     * Gets the onBehalfOfUserId property value. 
+     * Gets the onBehalfOfUserId property value. The onBehalfOfUserId property
      * @returns a string
      */
     public get onBehalfOfUserId() {
         return this._onBehalfOfUserId;
     };
     /**
-     * Sets the onBehalfOfUserId property value. 
+     * Sets the onBehalfOfUserId property value. The onBehalfOfUserId property
      * @param value Value to set for the onBehalfOfUserId property.
      */
     public set onBehalfOfUserId(value: string | undefined) {

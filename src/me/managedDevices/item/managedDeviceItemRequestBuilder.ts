@@ -1,7 +1,7 @@
-import {ManagedDevice} from '../../../models/microsoft/graph/';
-import {createManagedDeviceFromDiscriminatorValue} from '../../../models/microsoft/graph/createManagedDeviceFromDiscriminatorValue';
-import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ManagedDevice} from '../../../models/';
+import {createManagedDeviceFromDiscriminatorValue} from '../../../models/createManagedDeviceFromDiscriminatorValue';
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BypassActivationLockRequestBuilder} from './bypassActivationLock/bypassActivationLockRequestBuilder';
 import {CleanWindowsDeviceRequestBuilder} from './cleanWindowsDevice/cleanWindowsDeviceRequestBuilder';
 import {DeleteUserFromSharedAppleDeviceRequestBuilder} from './deleteUserFromSharedAppleDevice/deleteUserFromSharedAppleDeviceRequestBuilder';
@@ -29,72 +29,93 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the managedDevices property of the microsoft.graph.user entity.  */
 export class ManagedDeviceItemRequestBuilder {
+    /** The bypassActivationLock property  */
     public get bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The cleanWindowsDevice property  */
     public get cleanWindowsDevice(): CleanWindowsDeviceRequestBuilder {
         return new CleanWindowsDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deleteUserFromSharedAppleDevice property  */
     public get deleteUserFromSharedAppleDevice(): DeleteUserFromSharedAppleDeviceRequestBuilder {
         return new DeleteUserFromSharedAppleDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceCategory property  */
     public get deviceCategory(): DeviceCategoryRequestBuilder {
         return new DeviceCategoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceCompliancePolicyStates property  */
     public get deviceCompliancePolicyStates(): DeviceCompliancePolicyStatesRequestBuilder {
         return new DeviceCompliancePolicyStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceConfigurationStates property  */
     public get deviceConfigurationStates(): DeviceConfigurationStatesRequestBuilder {
         return new DeviceConfigurationStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The disableLostMode property  */
     public get disableLostMode(): DisableLostModeRequestBuilder {
         return new DisableLostModeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The locateDevice property  */
     public get locateDevice(): LocateDeviceRequestBuilder {
         return new LocateDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The logoutSharedAppleDeviceActiveUser property  */
     public get logoutSharedAppleDeviceActiveUser(): LogoutSharedAppleDeviceActiveUserRequestBuilder {
         return new LogoutSharedAppleDeviceActiveUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The rebootNow property  */
     public get rebootNow(): RebootNowRequestBuilder {
         return new RebootNowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The recoverPasscode property  */
     public get recoverPasscode(): RecoverPasscodeRequestBuilder {
         return new RecoverPasscodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The remoteLock property  */
     public get remoteLock(): RemoteLockRequestBuilder {
         return new RemoteLockRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The requestRemoteAssistance property  */
     public get requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The resetPasscode property  */
     public get resetPasscode(): ResetPasscodeRequestBuilder {
         return new ResetPasscodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The retire property  */
     public get retire(): RetireRequestBuilder {
         return new RetireRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The shutDown property  */
     public get shutDown(): ShutDownRequestBuilder {
         return new ShutDownRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The syncDevice property  */
     public get syncDevice(): SyncDeviceRequestBuilder {
         return new SyncDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The updateWindowsDeviceAccount property  */
     public get updateWindowsDeviceAccount(): UpdateWindowsDeviceAccountRequestBuilder {
         return new UpdateWindowsDeviceAccountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The windowsDefenderScan property  */
     public get windowsDefenderScan(): WindowsDefenderScanRequestBuilder {
         return new WindowsDefenderScanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The windowsDefenderUpdateSignatures property  */
     public get windowsDefenderUpdateSignatures(): WindowsDefenderUpdateSignaturesRequestBuilder {
         return new WindowsDefenderUpdateSignaturesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The wipe property  */
     public get wipe(): WipeRequestBuilder {
         return new WipeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -113,66 +134,66 @@ export class ManagedDeviceItemRequestBuilder {
     };
     /**
      * Delete navigation property managedDevices for me
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The managed devices associated with the user.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
+    public createGetRequestInformation(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property managedDevices in me
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ManagedDevice | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ManagedDevice | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property managedDevices for me
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -204,18 +225,18 @@ export class ManagedDeviceItemRequestBuilder {
     };
     /**
      * The managed devices associated with the user.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ManagedDevice
      */
-    public get(q?: {
+    public get(queryParameters?: {
                     expand?: string[],
                     select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDevice | undefined> {
+                    } | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ManagedDevice | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -226,14 +247,14 @@ export class ManagedDeviceItemRequestBuilder {
     /**
      * Update the navigation property managedDevices in me
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ManagedDevice | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedDevice | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

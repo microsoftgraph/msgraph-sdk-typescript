@@ -1,11 +1,12 @@
-import {RolePermission} from '../../models/microsoft/graph/';
-import {createRolePermissionFromDiscriminatorValue} from '../../models/microsoft/graph/createRolePermissionFromDiscriminatorValue';
+import {RolePermission} from '../../models/';
+import {createRolePermissionFromDiscriminatorValue} from '../../models/createRolePermissionFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getEffectivePermissions method.  */
 export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The value property  */
     private _value?: RolePermission[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,11 +30,11 @@ export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataH
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "value": (o, n) => { (o as unknown as GetEffectivePermissionsWithScopeResponse).value = n.getCollectionOfObjectValues<RolePermission>(createRolePermissionFromDiscriminatorValue); },
+            "value": n => { this.value = n.getCollectionOfObjectValues<RolePermission>(createRolePermissionFromDiscriminatorValue); },
         };
     };
     /**
@@ -46,14 +47,14 @@ export class GetEffectivePermissionsWithScopeResponse implements AdditionalDataH
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the value property value. 
+     * Gets the value property value. The value property
      * @returns a rolePermission
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. 
+     * Sets the value property value. The value property
      * @param value Value to set for the value property.
      */
     public set value(value: RolePermission[] | undefined) {

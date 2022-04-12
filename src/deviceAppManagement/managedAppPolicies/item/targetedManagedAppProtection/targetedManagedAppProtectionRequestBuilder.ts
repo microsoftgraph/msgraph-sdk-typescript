@@ -4,6 +4,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /deviceAppManagement/managedAppPolicies/{managedAppPolicy-id}/microsoft.graph.targetedManagedAppProtection  */
 export class TargetedManagedAppProtectionRequestBuilder {
+    /** The assign property  */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -11,6 +12,7 @@ export class TargetedManagedAppProtectionRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The targetApps property  */
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

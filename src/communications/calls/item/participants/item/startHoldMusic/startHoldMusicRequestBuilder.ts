@@ -1,5 +1,5 @@
-import {StartHoldMusicOperation} from '../../../../../../models/microsoft/graph/';
-import {createStartHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createStartHoldMusicOperationFromDiscriminatorValue';
+import {StartHoldMusicOperation} from '../../../../../../models/';
+import {createStartHoldMusicOperationFromDiscriminatorValue} from '../../../../../../models/createStartHoldMusicOperationFromDiscriminatorValue';
 import {StartHoldMusicRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -27,33 +27,33 @@ export class StartHoldMusicRequestBuilder {
     /**
      * Invoke action startHoldMusic
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: StartHoldMusicRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: StartHoldMusicRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Invoke action startHoldMusic
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of StartHoldMusicOperation
      */
-    public post(body: StartHoldMusicRequestBody | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StartHoldMusicOperation | undefined> {
+    public post(body: StartHoldMusicRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<StartHoldMusicOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         return this.requestAdapter?.sendAsync<StartHoldMusicOperation>(requestInfo, createStartHoldMusicOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };

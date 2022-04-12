@@ -7,6 +7,7 @@ export class ManagedAppProtectionRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The targetApps property  */
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }

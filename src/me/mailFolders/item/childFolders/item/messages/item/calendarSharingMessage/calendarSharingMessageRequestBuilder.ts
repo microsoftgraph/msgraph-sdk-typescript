@@ -3,6 +3,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /me/mailFolders/{mailFolder-id}/childFolders/{mailFolder-id1}/messages/{message-id}/microsoft.graph.calendarSharingMessage  */
 export class CalendarSharingMessageRequestBuilder {
+    /** The accept property  */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }

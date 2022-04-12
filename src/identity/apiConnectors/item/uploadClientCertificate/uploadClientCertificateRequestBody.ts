@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UploadClientCertificateRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The password property  */
     private _password?: string | undefined;
+    /** The pkcs12Value property  */
     private _pkcs12Value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,37 +30,37 @@ export class UploadClientCertificateRequestBody implements AdditionalDataHolder,
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "password": (o, n) => { (o as unknown as UploadClientCertificateRequestBody).password = n.getStringValue(); },
-            "pkcs12Value": (o, n) => { (o as unknown as UploadClientCertificateRequestBody).pkcs12Value = n.getStringValue(); },
+            "password": n => { this.password = n.getStringValue(); },
+            "pkcs12Value": n => { this.pkcs12Value = n.getStringValue(); },
         };
     };
     /**
-     * Gets the password property value. 
+     * Gets the password property value. The password property
      * @returns a string
      */
     public get password() {
         return this._password;
     };
     /**
-     * Sets the password property value. 
+     * Sets the password property value. The password property
      * @param value Value to set for the password property.
      */
     public set password(value: string | undefined) {
         this._password = value;
     };
     /**
-     * Gets the pkcs12Value property value. 
+     * Gets the pkcs12Value property value. The pkcs12Value property
      * @returns a string
      */
     public get pkcs12Value() {
         return this._pkcs12Value;
     };
     /**
-     * Sets the pkcs12Value property value. 
+     * Sets the pkcs12Value property value. The pkcs12Value property
      * @param value Value to set for the pkcs12Value property.
      */
     public set pkcs12Value(value: string | undefined) {
