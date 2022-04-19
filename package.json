@@ -2,8 +2,8 @@
     "name": "@microsoft/msgraph-sdk-javascript",
     "version": "1.0.0-preview.1",
     "description": "",
-    "main": "lib/index.js",
-    "types": "lib/index.d.ts",
+    "main": "lib/graphclient/index.js",
+    "types": "lib/graphclient/index.d.ts",
     "dependencies": {
         "@microsoft/kiota-abstractions": "^1.0.0-preview.1",
         "@microsoft/kiota-http-fetchlibrary": "^1.0.0-preview.1",

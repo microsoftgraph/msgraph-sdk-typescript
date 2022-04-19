@@ -7,7 +7,7 @@ All pull requests should be submitted against the **dev** branch or a specific f
 Some things to note about this project:
 
 ### How the library is built
-The .Net client library has a handwritten set of core files and two folders of generated models and request builders. These models and request builders are generated using the [Kiota](https://github.com/microsoft/kiota). **Changes made to the generated folders will be overwritten** the next time the generator is run. 
+The TypeScript client library has a handwritten set of files in the folder `src/graphclient`, all other files in the folder `src` are models and request builders generated using the [Kiota](https://github.com/microsoft/kiota). **Changes made to the generated folders will be overwritten** the next time the generator is run. 
 ```suggestion
 # Contributing
 ```

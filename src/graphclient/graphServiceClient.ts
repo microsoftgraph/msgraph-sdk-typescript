@@ -6,7 +6,7 @@
  */
 
 import { FetchRequestAdapter, HttpClient } from "@microsoft/kiota-http-fetchlibrary";
-import { GraphBaseServiceClient } from "./graphBaseServiceClient";
+import { GraphBaseServiceClient } from "../graphBaseServiceClient";
 import {ClientOptions, getDefaultMiddlewareChain, GraphBaseClient, GraphClientError, GraphRequest, GraphSDKConfig, GRAPH_API_VERSION, GRAPH_BASE_URL, updateAndReturnAllAllowedHosts} from "@microsoft/microsoft-graph-client"
 import { sdkVersion } from "./version";
 

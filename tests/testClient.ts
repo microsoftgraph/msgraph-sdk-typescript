@@ -1,4 +1,4 @@
-import {GraphServiceClient} from "../src/index";
+import {GraphServiceClient} from "../src/graphclient/index";
 import {AzureIdentityAuthenticationProvider} from "@microsoft/kiota-authentication-azure";
 import {ClientSecretCredential} from "@azure/identity";
 
