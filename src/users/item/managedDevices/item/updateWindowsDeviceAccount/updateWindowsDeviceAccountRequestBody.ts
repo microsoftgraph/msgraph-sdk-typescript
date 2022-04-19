@@ -1,11 +1,12 @@
-import {UpdateWindowsDeviceAccountActionParameter} from '../../../../../models/microsoft/graph/';
-import {createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue';
+import {UpdateWindowsDeviceAccountActionParameter} from '../../../../../models/';
+import {createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue} from '../../../../../models/createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the updateWindowsDeviceAccount method.  */
 export class UpdateWindowsDeviceAccountRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The updateWindowsDeviceAccountActionParameter property  */
     private _updateWindowsDeviceAccountActionParameter?: UpdateWindowsDeviceAccountActionParameter | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,11 +30,11 @@ export class UpdateWindowsDeviceAccountRequestBody implements AdditionalDataHold
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "updateWindowsDeviceAccountActionParameter": (o, n) => { (o as unknown as UpdateWindowsDeviceAccountRequestBody).updateWindowsDeviceAccountActionParameter = n.getObjectValue<UpdateWindowsDeviceAccountActionParameter>(createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue); },
+            "updateWindowsDeviceAccountActionParameter": n => { this.updateWindowsDeviceAccountActionParameter = n.getObjectValue<UpdateWindowsDeviceAccountActionParameter>(createUpdateWindowsDeviceAccountActionParameterFromDiscriminatorValue); },
         };
     };
     /**
@@ -46,14 +47,14 @@ export class UpdateWindowsDeviceAccountRequestBody implements AdditionalDataHold
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the updateWindowsDeviceAccountActionParameter property value. 
+     * Gets the updateWindowsDeviceAccountActionParameter property value. The updateWindowsDeviceAccountActionParameter property
      * @returns a updateWindowsDeviceAccountActionParameter
      */
     public get updateWindowsDeviceAccountActionParameter() {
         return this._updateWindowsDeviceAccountActionParameter;
     };
     /**
-     * Sets the updateWindowsDeviceAccountActionParameter property value. 
+     * Sets the updateWindowsDeviceAccountActionParameter property value. The updateWindowsDeviceAccountActionParameter property
      * @param value Value to set for the updateWindowsDeviceAccountActionParameter property.
      */
     public set updateWindowsDeviceAccountActionParameter(value: UpdateWindowsDeviceAccountActionParameter | undefined) {

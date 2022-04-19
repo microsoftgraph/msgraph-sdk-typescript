@@ -1,11 +1,12 @@
-import {ManagedMobileApp} from '../../../../models/microsoft/graph/';
-import {createManagedMobileAppFromDiscriminatorValue} from '../../../../models/microsoft/graph/createManagedMobileAppFromDiscriminatorValue';
+import {ManagedMobileApp} from '../../../../models/';
+import {createManagedMobileAppFromDiscriminatorValue} from '../../../../models/createManagedMobileAppFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the targetApps method.  */
 export class TargetAppsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The apps property  */
     private _apps?: ManagedMobileApp[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +23,14 @@ export class TargetAppsRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the apps property value. 
+     * Gets the apps property value. The apps property
      * @returns a managedMobileApp
      */
     public get apps() {
         return this._apps;
     };
     /**
-     * Sets the apps property value. 
+     * Sets the apps property value. The apps property
      * @param value Value to set for the apps property.
      */
     public set apps(value: ManagedMobileApp[] | undefined) {
@@ -43,11 +44,11 @@ export class TargetAppsRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "apps": (o, n) => { (o as unknown as TargetAppsRequestBody).apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
+            "apps": n => { this.apps = n.getCollectionOfObjectValues<ManagedMobileApp>(createManagedMobileAppFromDiscriminatorValue); },
         };
     };
     /**

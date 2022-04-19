@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class MoveRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The DestinationId property  */
     private _destinationId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +27,14 @@ export class MoveRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the destinationId property value. 
+     * Gets the destinationId property value. The DestinationId property
      * @returns a string
      */
     public get destinationId() {
         return this._destinationId;
     };
     /**
-     * Sets the destinationId property value. 
+     * Sets the destinationId property value. The DestinationId property
      * @param value Value to set for the DestinationId property.
      */
     public set destinationId(value: string | undefined) {
@@ -41,11 +42,11 @@ export class MoveRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "destinationId": (o, n) => { (o as unknown as MoveRequestBody).destinationId = n.getStringValue(); },
+            "destinationId": n => { this.destinationId = n.getStringValue(); },
         };
     };
     /**

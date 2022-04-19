@@ -1,11 +1,12 @@
-import {AttachmentItem} from '../../../../../../../../models/microsoft/graph/';
-import {createAttachmentItemFromDiscriminatorValue} from '../../../../../../../../models/microsoft/graph/createAttachmentItemFromDiscriminatorValue';
+import {AttachmentItem} from '../../../../../../../../models/';
+import {createAttachmentItemFromDiscriminatorValue} from '../../../../../../../../models/createAttachmentItemFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the createUploadSession method.  */
 export class CreateUploadSessionRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The AttachmentItem property  */
     private _attachmentItem?: AttachmentItem | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +23,14 @@ export class CreateUploadSessionRequestBody implements AdditionalDataHolder, Par
         this._additionalData = value;
     };
     /**
-     * Gets the attachmentItem property value. 
+     * Gets the attachmentItem property value. The AttachmentItem property
      * @returns a attachmentItem
      */
     public get attachmentItem() {
         return this._attachmentItem;
     };
     /**
-     * Sets the attachmentItem property value. 
+     * Sets the attachmentItem property value. The AttachmentItem property
      * @param value Value to set for the AttachmentItem property.
      */
     public set attachmentItem(value: AttachmentItem | undefined) {
@@ -43,11 +44,11 @@ export class CreateUploadSessionRequestBody implements AdditionalDataHolder, Par
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "attachmentItem": (o, n) => { (o as unknown as CreateUploadSessionRequestBody).attachmentItem = n.getObjectValue<AttachmentItem>(createAttachmentItemFromDiscriminatorValue); },
+            "attachmentItem": n => { this.attachmentItem = n.getObjectValue<AttachmentItem>(createAttachmentItemFromDiscriminatorValue); },
         };
     };
     /**

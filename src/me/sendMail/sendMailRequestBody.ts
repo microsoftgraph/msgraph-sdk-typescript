@@ -1,12 +1,14 @@
-import {Message} from '../../models/microsoft/graph/';
-import {createMessageFromDiscriminatorValue} from '../../models/microsoft/graph/createMessageFromDiscriminatorValue';
+import {Message} from '../../models/';
+import {createMessageFromDiscriminatorValue} from '../../models/createMessageFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the sendMail method.  */
 export class SendMailRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The Message property  */
     private _message?: Message | undefined;
+    /** The SaveToSentItems property  */
     private _saveToSentItems?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,37 +32,37 @@ export class SendMailRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "message": (o, n) => { (o as unknown as SendMailRequestBody).message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
-            "saveToSentItems": (o, n) => { (o as unknown as SendMailRequestBody).saveToSentItems = n.getBooleanValue(); },
+            "message": n => { this.message = n.getObjectValue<Message>(createMessageFromDiscriminatorValue); },
+            "saveToSentItems": n => { this.saveToSentItems = n.getBooleanValue(); },
         };
     };
     /**
-     * Gets the message property value. 
+     * Gets the message property value. The Message property
      * @returns a message
      */
     public get message() {
         return this._message;
     };
     /**
-     * Sets the message property value. 
+     * Sets the message property value. The Message property
      * @param value Value to set for the Message property.
      */
     public set message(value: Message | undefined) {
         this._message = value;
     };
     /**
-     * Gets the saveToSentItems property value. 
+     * Gets the saveToSentItems property value. The SaveToSentItems property
      * @returns a boolean
      */
     public get saveToSentItems() {
         return this._saveToSentItems;
     };
     /**
-     * Sets the saveToSentItems property value. 
+     * Sets the saveToSentItems property value. The SaveToSentItems property
      * @param value Value to set for the SaveToSentItems property.
      */
     public set saveToSentItems(value: boolean | undefined) {

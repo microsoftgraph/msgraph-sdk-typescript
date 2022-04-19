@@ -1,11 +1,12 @@
-import {AssignmentOrder} from '../../../../../models/microsoft/graph/';
-import {createAssignmentOrderFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createAssignmentOrderFromDiscriminatorValue';
+import {AssignmentOrder} from '../../../../../models/';
+import {createAssignmentOrderFromDiscriminatorValue} from '../../../../../models/createAssignmentOrderFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the setOrder method.  */
 export class SetOrderRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The newAssignmentOrder property  */
     private _newAssignmentOrder?: AssignmentOrder | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class SetOrderRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "newAssignmentOrder": (o, n) => { (o as unknown as SetOrderRequestBody).newAssignmentOrder = n.getObjectValue<AssignmentOrder>(createAssignmentOrderFromDiscriminatorValue); },
+            "newAssignmentOrder": n => { this.newAssignmentOrder = n.getObjectValue<AssignmentOrder>(createAssignmentOrderFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the newAssignmentOrder property value. 
+     * Gets the newAssignmentOrder property value. The newAssignmentOrder property
      * @returns a assignmentOrder
      */
     public get newAssignmentOrder() {
         return this._newAssignmentOrder;
     };
     /**
-     * Sets the newAssignmentOrder property value. 
+     * Sets the newAssignmentOrder property value. The newAssignmentOrder property
      * @param value Value to set for the newAssignmentOrder property.
      */
     public set newAssignmentOrder(value: AssignmentOrder | undefined) {

@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AcceptRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The Comment property  */
     private _comment?: string | undefined;
+    /** The SendResponse property  */
     private _sendResponse?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -21,14 +23,14 @@ export class AcceptRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the comment property value. 
+     * Gets the comment property value. The Comment property
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. 
+     * Sets the comment property value. The Comment property
      * @param value Value to set for the Comment property.
      */
     public set comment(value: string | undefined) {
@@ -42,23 +44,23 @@ export class AcceptRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "comment": (o, n) => { (o as unknown as AcceptRequestBody).comment = n.getStringValue(); },
-            "sendResponse": (o, n) => { (o as unknown as AcceptRequestBody).sendResponse = n.getBooleanValue(); },
+            "comment": n => { this.comment = n.getStringValue(); },
+            "sendResponse": n => { this.sendResponse = n.getBooleanValue(); },
         };
     };
     /**
-     * Gets the sendResponse property value. 
+     * Gets the sendResponse property value. The SendResponse property
      * @returns a boolean
      */
     public get sendResponse() {
         return this._sendResponse;
     };
     /**
-     * Sets the sendResponse property value. 
+     * Sets the sendResponse property value. The SendResponse property
      * @param value Value to set for the SendResponse property.
      */
     public set sendResponse(value: boolean | undefined) {
