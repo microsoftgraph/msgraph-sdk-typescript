@@ -1,13 +1,15 @@
-import {IosUpdateDeviceStatus, IosUpdateDeviceStatusCollectionResponse} from '../../models/microsoft/graph/';
-import {createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../models/microsoft/graph/createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue';
-import {createIosUpdateDeviceStatusFromDiscriminatorValue} from '../../models/microsoft/graph/createIosUpdateDeviceStatusFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {IosUpdateDeviceStatus, IosUpdateDeviceStatusCollectionResponse} from '../../models/';
+import {createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue} from '../../models/createIosUpdateDeviceStatusCollectionResponseFromDiscriminatorValue';
+import {createIosUpdateDeviceStatusFromDiscriminatorValue} from '../../models/createIosUpdateDeviceStatusFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {IosUpdateStatusesRequestBuilderGetQueryParameters} from './iosUpdateStatusesRequestBuilderGetQueryParameters';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the iosUpdateStatuses property of the microsoft.graph.deviceManagement entity.  */
 export class IosUpdateStatusesRequestBuilder {
+    /** The count property  */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -25,75 +27,57 @@ export class IosUpdateStatusesRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement/iosUpdateStatuses{?top,skip,search,filter,count,orderby,select,expand}";
+        this.urlTemplate = "{+baseurl}/deviceManagement/iosUpdateStatuses{?%24top,%24skip,%24search,%24filter,%24count,%24orderby,%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * The IOS software update installation statuses for this account.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    count?: boolean,
-                    expand?: string[],
-                    filter?: string,
-                    orderby?: string[],
-                    search?: string,
-                    select?: string[],
-                    skip?: number,
-                    top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: IosUpdateStatusesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Create new navigation property to iosUpdateStatuses for deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: IosUpdateDeviceStatus | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: IosUpdateDeviceStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The IOS software update installation statuses for this account.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IosUpdateDeviceStatusCollectionResponse
      */
-    public get(q?: {
-                    count?: boolean,
-                    expand?: string[],
-                    filter?: string,
-                    orderby?: string[],
-                    search?: string,
-                    select?: string[],
-                    skip?: number,
-                    top?: number
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined> {
+    public get(queryParameters?: IosUpdateStatusesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatusCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -104,15 +88,15 @@ export class IosUpdateStatusesRequestBuilder {
     /**
      * Create new navigation property to iosUpdateStatuses for deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IosUpdateDeviceStatus
      */
-    public post(body: IosUpdateDeviceStatus | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
+    public post(body: IosUpdateDeviceStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<IosUpdateDeviceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

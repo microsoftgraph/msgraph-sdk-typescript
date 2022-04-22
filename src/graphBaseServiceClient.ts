@@ -106,219 +106,287 @@ import {UserItemRequestBuilder} from './users/item/userItemRequestBuilder';
 import {UsersRequestBuilder} from './users/usersRequestBuilder';
 import {DriveItemItemRequestBuilder} from './workbooks/item/driveItemItemRequestBuilder';
 import {WorkbooksRequestBuilder} from './workbooks/workbooksRequestBuilder';
-import {enableBackingStoreForSerializationWriterFactory, getPathParameters, HttpMethod, Parsable, ParsableFactory, ParseNodeFactoryRegistry, registerDefaultDeserializer, registerDefaultSerializer, RequestAdapter, RequestInformation, RequestOption, ResponseHandler, SerializationWriterFactoryRegistry} from '@microsoft/kiota-abstractions';
+import {enableBackingStoreForSerializationWriterFactory, getPathParameters, ParseNodeFactoryRegistry, registerDefaultDeserializer, registerDefaultSerializer, RequestAdapter, SerializationWriterFactoryRegistry} from '@microsoft/kiota-abstractions';
 import {JsonParseNodeFactory, JsonSerializationWriterFactory} from '@microsoft/kiota-serialization-json';
 import {TextParseNodeFactory, TextSerializationWriterFactory} from '@microsoft/kiota-serialization-text';
 
 /** The main entry point of the SDK, exposes the configuration and the fluent API.  */
 export class GraphBaseServiceClient {
+    /** The admin property  */
     public get admin(): AdminRequestBuilder {
         return new AdminRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The agreementAcceptances property  */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The agreements property  */
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The appCatalogs property  */
     public get appCatalogs(): AppCatalogsRequestBuilder {
         return new AppCatalogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The applications property  */
     public get applications(): ApplicationsRequestBuilder {
         return new ApplicationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The applicationTemplates property  */
     public get applicationTemplates(): ApplicationTemplatesRequestBuilder {
         return new ApplicationTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The auditLogs property  */
     public get auditLogs(): AuditLogsRequestBuilder {
         return new AuditLogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The authenticationMethodConfigurations property  */
     public get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The authenticationMethodsPolicy property  */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The branding property  */
     public get branding(): BrandingRequestBuilder {
         return new BrandingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The certificateBasedAuthConfiguration property  */
     public get certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder {
         return new CertificateBasedAuthConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The chats property  */
     public get chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The communications property  */
     public get communications(): CommunicationsRequestBuilder {
         return new CommunicationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The compliance property  */
     public get compliance(): ComplianceRequestBuilder {
         return new ComplianceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The connections property  */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The contacts property  */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The contracts property  */
     public get contracts(): ContractsRequestBuilder {
         return new ContractsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The dataPolicyOperations property  */
     public get dataPolicyOperations(): DataPolicyOperationsRequestBuilder {
         return new DataPolicyOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceAppManagement property  */
     public get deviceAppManagement(): DeviceAppManagementRequestBuilder {
         return new DeviceAppManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceManagement property  */
     public get deviceManagement(): DeviceManagementRequestBuilder {
         return new DeviceManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The devices property  */
     public get devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The directory property  */
     public get directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The directoryObjects property  */
     public get directoryObjects(): DirectoryObjectsRequestBuilder {
         return new DirectoryObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The directoryRoles property  */
     public get directoryRoles(): DirectoryRolesRequestBuilder {
         return new DirectoryRolesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The directoryRoleTemplates property  */
     public get directoryRoleTemplates(): DirectoryRoleTemplatesRequestBuilder {
         return new DirectoryRoleTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The domainDnsRecords property  */
     public get domainDnsRecords(): DomainDnsRecordsRequestBuilder {
         return new DomainDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The domains property  */
     public get domains(): DomainsRequestBuilder {
         return new DomainsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The drive property  */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The drives property  */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The education property  */
     public get education(): EducationRequestBuilder {
         return new EducationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The external property  */
     public get external(): ExternalRequestBuilder {
         return new ExternalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The groupLifecyclePolicies property  */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The groups property  */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The groupSettings property  */
     public get groupSettings(): GroupSettingsRequestBuilder {
         return new GroupSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The groupSettingTemplates property  */
     public get groupSettingTemplates(): GroupSettingTemplatesRequestBuilder {
         return new GroupSettingTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The identity property  */
     public get identity(): IdentityRequestBuilder {
         return new IdentityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The identityGovernance property  */
     public get identityGovernance(): IdentityGovernanceRequestBuilder {
         return new IdentityGovernanceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The identityProtection property  */
     public get identityProtection(): IdentityProtectionRequestBuilder {
         return new IdentityProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The identityProviders property  */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The informationProtection property  */
     public get informationProtection(): InformationProtectionRequestBuilder {
         return new InformationProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The invitations property  */
     public get invitations(): InvitationsRequestBuilder {
         return new InvitationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The localizations property  */
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The me property  */
     public get me(): MeRequestBuilder {
         return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The oauth2PermissionGrants property  */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The organization property  */
     public get organization(): OrganizationRequestBuilder {
         return new OrganizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The permissionGrants property  */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The places property  */
     public get places(): PlacesRequestBuilder {
         return new PlacesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The planner property  */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The policies property  */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The print property  */
     public get print(): PrintRequestBuilder {
         return new PrintRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The privacy property  */
     public get privacy(): PrivacyRequestBuilder {
         return new PrivacyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The reports property  */
     public get reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The roleManagement property  */
     public get roleManagement(): RoleManagementRequestBuilder {
         return new RoleManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The schemaExtensions property  */
     public get schemaExtensions(): SchemaExtensionsRequestBuilder {
         return new SchemaExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The scopedRoleMemberships property  */
     public get scopedRoleMemberships(): ScopedRoleMembershipsRequestBuilder {
         return new ScopedRoleMembershipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The search property  */
     public get search(): SearchRequestBuilder {
         return new SearchRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The security property  */
     public get security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The servicePrincipals property  */
     public get servicePrincipals(): ServicePrincipalsRequestBuilder {
         return new ServicePrincipalsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The shares property  */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The sites property  */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The solutions property  */
     public get solutions(): SolutionsRequestBuilder {
         return new SolutionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The subscribedSkus property  */
     public get subscribedSkus(): SubscribedSkusRequestBuilder {
         return new SubscribedSkusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The subscriptions property  */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The teams property  */
     public get teams(): TeamsRequestBuilder {
         return new TeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The teamsTemplates property  */
     public get teamsTemplates(): TeamsTemplatesRequestBuilder {
         return new TeamsTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The teamwork property  */
     public get teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The users property  */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The workbooks property  */
     public get workbooks(): WorkbooksRequestBuilder {
         return new WorkbooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -330,7 +398,7 @@ export class GraphBaseServiceClient {
     public agreementAcceptancesById(id: string) : AgreementAcceptanceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreementAcceptance_id"] = id
+        urlTplParams["agreementAcceptance%2Did"] = id
         return new AgreementAcceptanceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -341,7 +409,7 @@ export class GraphBaseServiceClient {
     public agreementsById(id: string) : AgreementItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["agreement_id"] = id
+        urlTplParams["agreement%2Did"] = id
         return new AgreementItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -352,7 +420,7 @@ export class GraphBaseServiceClient {
     public applicationsById(id: string) : ApplicationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["application_id"] = id
+        urlTplParams["application%2Did"] = id
         return new ApplicationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -363,7 +431,7 @@ export class GraphBaseServiceClient {
     public applicationTemplatesById(id: string) : ApplicationTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["applicationTemplate_id"] = id
+        urlTplParams["applicationTemplate%2Did"] = id
         return new ApplicationTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -374,7 +442,7 @@ export class GraphBaseServiceClient {
     public authenticationMethodConfigurationsById(id: string) : AuthenticationMethodConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["authenticationMethodConfiguration_id"] = id
+        urlTplParams["authenticationMethodConfiguration%2Did"] = id
         return new AuthenticationMethodConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -385,7 +453,7 @@ export class GraphBaseServiceClient {
     public certificateBasedAuthConfigurationById(id: string) : CertificateBasedAuthConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["certificateBasedAuthConfiguration_id"] = id
+        urlTplParams["certificateBasedAuthConfiguration%2Did"] = id
         return new CertificateBasedAuthConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -396,7 +464,7 @@ export class GraphBaseServiceClient {
     public chatsById(id: string) : ChatItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["chat_id"] = id
+        urlTplParams["chat%2Did"] = id
         return new ChatItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -407,11 +475,11 @@ export class GraphBaseServiceClient {
     public connectionsById(id: string) : ExternalConnectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["externalConnection_id"] = id
+        urlTplParams["externalConnection%2Did"] = id
         return new ExternalConnectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Instantiates a new GraphServiceClient and sets the default values.
+     * Instantiates a new GraphBaseServiceClient and sets the default values.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(requestAdapter: RequestAdapter) {
@@ -423,7 +491,9 @@ export class GraphBaseServiceClient {
         registerDefaultSerializer(TextSerializationWriterFactory);
         registerDefaultDeserializer(JsonParseNodeFactory);
         registerDefaultDeserializer(TextParseNodeFactory);
-        requestAdapter.baseUrl = "https://graph.microsoft.com/v1.0";
+        if (requestAdapter.baseUrl === undefined || requestAdapter.baseUrl === "") {
+            requestAdapter.baseUrl = "https://graph.microsoft.com/v1.0";
+        }
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.contacts.item collection
@@ -433,7 +503,7 @@ export class GraphBaseServiceClient {
     public contactsById(id: string) : OrgContactItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["orgContact_id"] = id
+        urlTplParams["orgContact%2Did"] = id
         return new OrgContactItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -444,17 +514,8 @@ export class GraphBaseServiceClient {
     public contractsById(id: string) : ContractItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contract_id"] = id
+        urlTplParams["contract%2Did"] = id
         return new ContractItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    public createGetRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
-        return requestInfo;
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.dataPolicyOperations.item collection
@@ -464,7 +525,7 @@ export class GraphBaseServiceClient {
     public dataPolicyOperationsById(id: string) : DataPolicyOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["dataPolicyOperation_id"] = id
+        urlTplParams["dataPolicyOperation%2Did"] = id
         return new DataPolicyOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -475,7 +536,7 @@ export class GraphBaseServiceClient {
     public devicesById(id: string) : DeviceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["device_id"] = id
+        urlTplParams["device%2Did"] = id
         return new DeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -486,7 +547,7 @@ export class GraphBaseServiceClient {
     public directoryObjectsById(id: string) : DirectoryObjectItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -497,7 +558,7 @@ export class GraphBaseServiceClient {
     public directoryRolesById(id: string) : DirectoryRoleItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryRole_id"] = id
+        urlTplParams["directoryRole%2Did"] = id
         return new DirectoryRoleItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -508,7 +569,7 @@ export class GraphBaseServiceClient {
     public directoryRoleTemplatesById(id: string) : DirectoryRoleTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryRoleTemplate_id"] = id
+        urlTplParams["directoryRoleTemplate%2Did"] = id
         return new DirectoryRoleTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -519,7 +580,7 @@ export class GraphBaseServiceClient {
     public domainDnsRecordsById(id: string) : DomainDnsRecordItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["domainDnsRecord_id"] = id
+        urlTplParams["domainDnsRecord%2Did"] = id
         return new DomainDnsRecordItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -530,7 +591,7 @@ export class GraphBaseServiceClient {
     public domainsById(id: string) : DomainItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["domain_id"] = id
+        urlTplParams["domain%2Did"] = id
         return new DomainItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -541,14 +602,8 @@ export class GraphBaseServiceClient {
     public drivesById(id: string) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["drive_id"] = id
+        urlTplParams["drive%2Did"] = id
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
-    };
-    public get(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createGetRequestInformation(
-            h, o
-        );
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groupLifecyclePolicies.item collection
@@ -558,7 +613,7 @@ export class GraphBaseServiceClient {
     public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["groupLifecyclePolicy_id"] = id
+        urlTplParams["groupLifecyclePolicy%2Did"] = id
         return new GroupLifecyclePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -569,7 +624,7 @@ export class GraphBaseServiceClient {
     public groupsById(id: string) : GroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["group_id"] = id
+        urlTplParams["group%2Did"] = id
         return new GroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -580,7 +635,7 @@ export class GraphBaseServiceClient {
     public groupSettingsById(id: string) : GroupSettingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["groupSetting_id"] = id
+        urlTplParams["groupSetting%2Did"] = id
         return new GroupSettingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -591,7 +646,7 @@ export class GraphBaseServiceClient {
     public groupSettingTemplatesById(id: string) : GroupSettingTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["groupSettingTemplate_id"] = id
+        urlTplParams["groupSettingTemplate%2Did"] = id
         return new GroupSettingTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -602,7 +657,7 @@ export class GraphBaseServiceClient {
     public identityProvidersById(id: string) : IdentityProviderItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["identityProvider_id"] = id
+        urlTplParams["identityProvider%2Did"] = id
         return new IdentityProviderItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -613,7 +668,7 @@ export class GraphBaseServiceClient {
     public invitationsById(id: string) : InvitationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["invitation_id"] = id
+        urlTplParams["invitation%2Did"] = id
         return new InvitationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -624,7 +679,7 @@ export class GraphBaseServiceClient {
     public localizationsById(id: string) : OrganizationalBrandingLocalizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["organizationalBrandingLocalization_id"] = id
+        urlTplParams["organizationalBrandingLocalization%2Did"] = id
         return new OrganizationalBrandingLocalizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -635,7 +690,7 @@ export class GraphBaseServiceClient {
     public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["oAuth2PermissionGrant_id"] = id
+        urlTplParams["oAuth2PermissionGrant%2Did"] = id
         return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -646,7 +701,7 @@ export class GraphBaseServiceClient {
     public organizationById(id: string) : OrganizationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["organization_id"] = id
+        urlTplParams["organization%2Did"] = id
         return new OrganizationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -657,7 +712,7 @@ export class GraphBaseServiceClient {
     public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["resourceSpecificPermissionGrant_id"] = id
+        urlTplParams["resourceSpecificPermissionGrant%2Did"] = id
         return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -668,7 +723,7 @@ export class GraphBaseServiceClient {
     public placesById(id: string) : PlaceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["place_id"] = id
+        urlTplParams["place%2Did"] = id
         return new PlaceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -679,7 +734,7 @@ export class GraphBaseServiceClient {
     public schemaExtensionsById(id: string) : SchemaExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["schemaExtension_id"] = id
+        urlTplParams["schemaExtension%2Did"] = id
         return new SchemaExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -690,7 +745,7 @@ export class GraphBaseServiceClient {
     public scopedRoleMembershipsById(id: string) : ScopedRoleMembershipItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["scopedRoleMembership_id"] = id
+        urlTplParams["scopedRoleMembership%2Did"] = id
         return new ScopedRoleMembershipItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -701,7 +756,7 @@ export class GraphBaseServiceClient {
     public servicePrincipalsById(id: string) : ServicePrincipalItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["servicePrincipal_id"] = id
+        urlTplParams["servicePrincipal%2Did"] = id
         return new ServicePrincipalItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -712,7 +767,7 @@ export class GraphBaseServiceClient {
     public sharesById(id: string) : SharedDriveItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["sharedDriveItem_id"] = id
+        urlTplParams["sharedDriveItem%2Did"] = id
         return new SharedDriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -723,7 +778,7 @@ export class GraphBaseServiceClient {
     public sitesById(id: string) : SiteItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["site_id"] = id
+        urlTplParams["site%2Did"] = id
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -734,7 +789,7 @@ export class GraphBaseServiceClient {
     public subscribedSkusById(id: string) : SubscribedSkuItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["subscribedSku_id"] = id
+        urlTplParams["subscribedSku%2Did"] = id
         return new SubscribedSkuItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -745,7 +800,7 @@ export class GraphBaseServiceClient {
     public subscriptionsById(id: string) : SubscriptionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["subscription_id"] = id
+        urlTplParams["subscription%2Did"] = id
         return new SubscriptionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -756,7 +811,7 @@ export class GraphBaseServiceClient {
     public teamsById(id: string) : TeamItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["team_id"] = id
+        urlTplParams["team%2Did"] = id
         return new TeamItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -767,7 +822,7 @@ export class GraphBaseServiceClient {
     public teamsTemplatesById(id: string) : TeamsTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["teamsTemplate_id"] = id
+        urlTplParams["teamsTemplate%2Did"] = id
         return new TeamsTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -778,7 +833,7 @@ export class GraphBaseServiceClient {
     public usersById(id: string) : UserItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["user_id"] = id
+        urlTplParams["user%2Did"] = id
         return new UserItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -789,7 +844,7 @@ export class GraphBaseServiceClient {
     public workbooksById(id: string) : DriveItemItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem_id"] = id
+        urlTplParams["driveItem%2Did"] = id
         return new DriveItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

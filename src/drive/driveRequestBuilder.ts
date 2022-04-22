@@ -1,9 +1,10 @@
-import {Drive} from '../models/microsoft/graph/';
-import {createDriveFromDiscriminatorValue} from '../models/microsoft/graph/createDriveFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Drive} from '../models/';
+import {createDriveFromDiscriminatorValue} from '../models/createDriveFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
 import {DriveItemItemRequestBuilder as i8206508961c572e18e631114dbc7102078ce94aab7b8e2ace987563ef389a2b2} from './bundles/item/driveItemItemRequestBuilder';
+import {DriveRequestBuilderGetQueryParameters} from './driveRequestBuilderGetQueryParameters';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
 import {DriveItemItemRequestBuilder as i6131ecb129fca5d2c95f365ce93927497eaeadbbd709849676be27876dbdb482} from './following/item/driveItemItemRequestBuilder';
 import {DriveItemItemRequestBuilder as if6641a0c0f7d5944718f22b718fe31af69df3042eacd0757d2f0374e4c5080dd} from './items/item/driveItemItemRequestBuilder';
@@ -19,15 +20,19 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the drive singleton.  */
 export class DriveRequestBuilder {
+    /** The bundles property  */
     public get bundles(): BundlesRequestBuilder {
         return new BundlesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The following property  */
     public get following(): FollowingRequestBuilder {
         return new FollowingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The items property  */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The list property  */
     public get list(): ListRequestBuilder {
         return new ListRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -35,9 +40,11 @@ export class DriveRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The root property  */
     public get root(): RootRequestBuilder {
         return new RootRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The special property  */
     public get special(): SpecialRequestBuilder {
         return new SpecialRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -51,7 +58,7 @@ export class DriveRequestBuilder {
     public bundlesById(id: string) : i8206508961c572e18e631114dbc7102078ce94aab7b8e2ace987563ef389a2b2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem_id"] = id
+        urlTplParams["driveItem%2Did"] = id
         return new i8206508961c572e18e631114dbc7102078ce94aab7b8e2ace987563ef389a2b2(urlTplParams, this.requestAdapter);
     };
     /**
@@ -62,47 +69,44 @@ export class DriveRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/drive{?select,expand}";
+        this.urlTemplate = "{+baseurl}/drive{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Get drive
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: DriveRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update drive
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Drive | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Drive | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -113,23 +117,20 @@ export class DriveRequestBuilder {
     public followingById(id: string) : i6131ecb129fca5d2c95f365ce93927497eaeadbbd709849676be27876dbdb482 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem_id"] = id
+        urlTplParams["driveItem%2Did"] = id
         return new i6131ecb129fca5d2c95f365ce93927497eaeadbbd709849676be27876dbdb482(urlTplParams, this.requestAdapter);
     };
     /**
      * Get drive
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+    public get(queryParameters?: DriveRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -145,20 +146,20 @@ export class DriveRequestBuilder {
     public itemsById(id: string) : if6641a0c0f7d5944718f22b718fe31af69df3042eacd0757d2f0374e4c5080dd {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem_id"] = id
+        urlTplParams["driveItem%2Did"] = id
         return new if6641a0c0f7d5944718f22b718fe31af69df3042eacd0757d2f0374e4c5080dd(urlTplParams, this.requestAdapter);
     };
     /**
      * Update drive
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Drive | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Drive | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -197,7 +198,7 @@ export class DriveRequestBuilder {
     public specialById(id: string) : i804e640d2b824d667662b3596525b21e5d37b8f7eb021c8974a3cd25c8aa1519 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["driveItem_id"] = id
+        urlTplParams["driveItem%2Did"] = id
         return new i804e640d2b824d667662b3596525b21e5d37b8f7eb021c8974a3cd25c8aa1519(urlTplParams, this.requestAdapter);
     };
 }

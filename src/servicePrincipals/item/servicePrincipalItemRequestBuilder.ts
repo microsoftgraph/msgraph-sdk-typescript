@@ -1,7 +1,7 @@
-import {ServicePrincipal} from '../../models/microsoft/graph/';
-import {createServicePrincipalFromDiscriminatorValue} from '../../models/microsoft/graph/createServicePrincipalFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ServicePrincipal} from '../../models/';
+import {createServicePrincipalFromDiscriminatorValue} from '../../models/createServicePrincipalFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddKeyRequestBuilder} from './addKey/addKeyRequestBuilder';
 import {AddPasswordRequestBuilder} from './addPassword/addPasswordRequestBuilder';
 import {AddTokenSigningCertificateRequestBuilder} from './addTokenSigningCertificate/addTokenSigningCertificateRequestBuilder';
@@ -34,6 +34,7 @@ import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
 import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
+import {ServicePrincipalItemRequestBuilderGetQueryParameters} from './servicePrincipalItemRequestBuilderGetQueryParameters';
 import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
@@ -44,79 +45,103 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of servicePrincipal entities.  */
 export class ServicePrincipalItemRequestBuilder {
+    /** The addKey property  */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The addPassword property  */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The addTokenSigningCertificate property  */
     public get addTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
         return new AddTokenSigningCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The appRoleAssignedTo property  */
     public get appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The appRoleAssignments property  */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberGroups property  */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberObjects property  */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The claimsMappingPolicies property  */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The createdObjects property  */
     public get createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The delegatedPermissionClassifications property  */
     public get delegatedPermissionClassifications(): DelegatedPermissionClassificationsRequestBuilder {
         return new DelegatedPermissionClassificationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The endpoints property  */
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMemberGroups property  */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMemberObjects property  */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The homeRealmDiscoveryPolicies property  */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The memberOf property  */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The oauth2PermissionGrants property  */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The ownedObjects property  */
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The owners property  */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The removeKey property  */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The removePassword property  */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The restore property  */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The tokenIssuancePolicies property  */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The tokenLifetimePolicies property  */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The transitiveMemberOf property  */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -130,7 +155,7 @@ export class ServicePrincipalItemRequestBuilder {
     public appRoleAssignedToById(id: string) : iac42c179fbdac099e4134b34b88297a46fe2fb768a9103ce0eea83ad1ab04797 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["appRoleAssignment_id"] = id
+        urlTplParams["appRoleAssignment%2Did"] = id
         return new iac42c179fbdac099e4134b34b88297a46fe2fb768a9103ce0eea83ad1ab04797(urlTplParams, this.requestAdapter);
     };
     /**
@@ -141,7 +166,7 @@ export class ServicePrincipalItemRequestBuilder {
     public appRoleAssignmentsById(id: string) : ieae78ab3236063f35794731da34ad21355b3629db06985df19a9ea1bc2ab42e1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["appRoleAssignment_id"] = id
+        urlTplParams["appRoleAssignment%2Did"] = id
         return new ieae78ab3236063f35794731da34ad21355b3629db06985df19a9ea1bc2ab42e1(urlTplParams, this.requestAdapter);
     };
     /**
@@ -152,7 +177,7 @@ export class ServicePrincipalItemRequestBuilder {
     public claimsMappingPoliciesById(id: string) : ClaimsMappingPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["claimsMappingPolicy_id"] = id
+        urlTplParams["claimsMappingPolicy%2Did"] = id
         return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -163,24 +188,24 @@ export class ServicePrincipalItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal_id}{?select,expand}";
+        this.urlTemplate = "{+baseurl}/servicePrincipals/{servicePrincipal%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Delete entity from servicePrincipals
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -191,45 +216,42 @@ export class ServicePrincipalItemRequestBuilder {
     public createdObjectsById(id: string) : i1d7e157474e1ab4e17b5fdee6e05a3fb5390ff68bd17fbf2159d14e6b8a51ff2 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i1d7e157474e1ab4e17b5fdee6e05a3fb5390ff68bd17fbf2159d14e6b8a51ff2(urlTplParams, this.requestAdapter);
     };
     /**
      * Get entity from servicePrincipals by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: ServicePrincipalItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update entity in servicePrincipals
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ServicePrincipal | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ServicePrincipal | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -240,18 +262,18 @@ export class ServicePrincipalItemRequestBuilder {
     public delegatedPermissionClassificationsById(id: string) : DelegatedPermissionClassificationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["delegatedPermissionClassification_id"] = id
+        urlTplParams["delegatedPermissionClassification%2Did"] = id
         return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete entity from servicePrincipals
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -267,23 +289,20 @@ export class ServicePrincipalItemRequestBuilder {
     public endpointsById(id: string) : EndpointItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["endpoint_id"] = id
+        urlTplParams["endpoint%2Did"] = id
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get entity from servicePrincipals by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
+    public get(queryParameters?: ServicePrincipalItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -299,7 +318,7 @@ export class ServicePrincipalItemRequestBuilder {
     public homeRealmDiscoveryPoliciesById(id: string) : HomeRealmDiscoveryPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["homeRealmDiscoveryPolicy_id"] = id
+        urlTplParams["homeRealmDiscoveryPolicy%2Did"] = id
         return new HomeRealmDiscoveryPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -310,7 +329,7 @@ export class ServicePrincipalItemRequestBuilder {
     public memberOfById(id: string) : i07bc28166be09492e7925102a330e40e28f86aef914b7fdcfa685bf39b0f35c6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i07bc28166be09492e7925102a330e40e28f86aef914b7fdcfa685bf39b0f35c6(urlTplParams, this.requestAdapter);
     };
     /**
@@ -321,7 +340,7 @@ export class ServicePrincipalItemRequestBuilder {
     public oauth2PermissionGrantsById(id: string) : OAuth2PermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["oAuth2PermissionGrant_id"] = id
+        urlTplParams["oAuth2PermissionGrant%2Did"] = id
         return new OAuth2PermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -332,7 +351,7 @@ export class ServicePrincipalItemRequestBuilder {
     public ownedObjectsById(id: string) : i9cc16d80a0348466e5a2c965e1d74f476ce4b502c3b5cb0b265e9728f26b9e00 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i9cc16d80a0348466e5a2c965e1d74f476ce4b502c3b5cb0b265e9728f26b9e00(urlTplParams, this.requestAdapter);
     };
     /**
@@ -343,20 +362,20 @@ export class ServicePrincipalItemRequestBuilder {
     public ownersById(id: string) : i30d914c048be2ddd2cdee4e8211ef3882c63920bbe3a801be8a05c4c3c5535a6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i30d914c048be2ddd2cdee4e8211ef3882c63920bbe3a801be8a05c4c3c5535a6(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in servicePrincipals
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ServicePrincipal | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServicePrincipal | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -372,7 +391,7 @@ export class ServicePrincipalItemRequestBuilder {
     public tokenIssuancePoliciesById(id: string) : TokenIssuancePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["tokenIssuancePolicy_id"] = id
+        urlTplParams["tokenIssuancePolicy%2Did"] = id
         return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -383,7 +402,7 @@ export class ServicePrincipalItemRequestBuilder {
     public tokenLifetimePoliciesById(id: string) : TokenLifetimePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["tokenLifetimePolicy_id"] = id
+        urlTplParams["tokenLifetimePolicy%2Did"] = id
         return new TokenLifetimePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -394,7 +413,7 @@ export class ServicePrincipalItemRequestBuilder {
     public transitiveMemberOfById(id: string) : id1fdecf886744e82b4df54ccf3526f2867c4888092c2d423dece6c48084b7cfb {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new id1fdecf886744e82b4df54ccf3526f2867c4888092c2d423dece6c48084b7cfb(urlTplParams, this.requestAdapter);
     };
 }

@@ -1,10 +1,11 @@
-import {Call} from '../../../models/microsoft/graph/';
-import {createCallFromDiscriminatorValue} from '../../../models/microsoft/graph/createCallFromDiscriminatorValue';
-import {ODataError} from '../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Call} from '../../../models/';
+import {createCallFromDiscriminatorValue} from '../../../models/createCallFromDiscriminatorValue';
+import {ODataError} from '../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AnswerRequestBuilder} from './answer/answerRequestBuilder';
 import {AudioRoutingGroupsRequestBuilder} from './audioRoutingGroups/audioRoutingGroupsRequestBuilder';
 import {AudioRoutingGroupItemRequestBuilder} from './audioRoutingGroups/item/audioRoutingGroupItemRequestBuilder';
+import {CallItemRequestBuilderGetQueryParameters} from './callItemRequestBuilderGetQueryParameters';
 import {CancelMediaProcessingRequestBuilder} from './cancelMediaProcessing/cancelMediaProcessingRequestBuilder';
 import {ChangeScreenSharingRoleRequestBuilder} from './changeScreenSharingRole/changeScreenSharingRoleRequestBuilder';
 import {KeepAliveRequestBuilder} from './keepAlive/keepAliveRequestBuilder';
@@ -25,55 +26,71 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.  */
 export class CallItemRequestBuilder {
+    /** The answer property  */
     public get answer(): AnswerRequestBuilder {
         return new AnswerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The audioRoutingGroups property  */
     public get audioRoutingGroups(): AudioRoutingGroupsRequestBuilder {
         return new AudioRoutingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The cancelMediaProcessing property  */
     public get cancelMediaProcessing(): CancelMediaProcessingRequestBuilder {
         return new CancelMediaProcessingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The changeScreenSharingRole property  */
     public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
         return new ChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The keepAlive property  */
     public get keepAlive(): KeepAliveRequestBuilder {
         return new KeepAliveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mute property  */
     public get mute(): MuteRequestBuilder {
         return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The operations property  */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The participants property  */
     public get participants(): ParticipantsRequestBuilder {
         return new ParticipantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The playPrompt property  */
     public get playPrompt(): PlayPromptRequestBuilder {
         return new PlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The recordResponse property  */
     public get recordResponse(): RecordResponseRequestBuilder {
         return new RecordResponseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The redirect property  */
     public get redirect(): RedirectRequestBuilder {
         return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The reject property  */
     public get reject(): RejectRequestBuilder {
         return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The subscribeToTone property  */
     public get subscribeToTone(): SubscribeToToneRequestBuilder {
         return new SubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The transfer property  */
     public get transfer(): TransferRequestBuilder {
         return new TransferRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The unmute property  */
     public get unmute(): UnmuteRequestBuilder {
         return new UnmuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The updateRecordingStatus property  */
     public get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder {
         return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -87,7 +104,7 @@ export class CallItemRequestBuilder {
     public audioRoutingGroupsById(id: string) : AudioRoutingGroupItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["audioRoutingGroup_id"] = id
+        urlTplParams["audioRoutingGroup%2Did"] = id
         return new AudioRoutingGroupItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -98,73 +115,70 @@ export class CallItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/communications/calls/{call_id}{?select,expand}";
+        this.urlTemplate = "{+baseurl}/communications/calls/{call%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Delete navigation property calls for communications
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get calls from communications
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: CallItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property calls in communications
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Call | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Call | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property calls for communications
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -174,18 +188,15 @@ export class CallItemRequestBuilder {
     };
     /**
      * Get calls from communications
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Call
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
+    public get(queryParameters?: CallItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Call | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -201,7 +212,7 @@ export class CallItemRequestBuilder {
     public operationsById(id: string) : CommsOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["commsOperation_id"] = id
+        urlTplParams["commsOperation%2Did"] = id
         return new CommsOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -212,20 +223,20 @@ export class CallItemRequestBuilder {
     public participantsById(id: string) : ParticipantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["participant_id"] = id
+        urlTplParams["participant%2Did"] = id
         return new ParticipantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property calls in communications
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Call | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Call | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

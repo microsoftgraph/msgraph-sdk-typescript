@@ -1,0 +1,117 @@
+import {Entity} from './index';
+import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
+
+export class ManagedAppPolicy extends Entity implements Parsable {
+    /** The date and time the policy was created.  */
+    private _createdDateTime?: Date | undefined;
+    /** The policy's description.  */
+    private _description?: string | undefined;
+    /** Policy display name.  */
+    private _displayName?: string | undefined;
+    /** Last time the policy was modified.  */
+    private _lastModifiedDateTime?: Date | undefined;
+    /** Version of the entity.  */
+    private _version?: string | undefined;
+    /**
+     * Instantiates a new managedAppPolicy and sets the default values.
+     */
+    public constructor() {
+        super();
+    };
+    /**
+     * Gets the createdDateTime property value. The date and time the policy was created.
+     * @returns a Date
+     */
+    public get createdDateTime() {
+        return this._createdDateTime;
+    };
+    /**
+     * Sets the createdDateTime property value. The date and time the policy was created.
+     * @param value Value to set for the createdDateTime property.
+     */
+    public set createdDateTime(value: Date | undefined) {
+        this._createdDateTime = value;
+    };
+    /**
+     * Gets the description property value. The policy's description.
+     * @returns a string
+     */
+    public get description() {
+        return this._description;
+    };
+    /**
+     * Sets the description property value. The policy's description.
+     * @param value Value to set for the description property.
+     */
+    public set description(value: string | undefined) {
+        this._description = value;
+    };
+    /**
+     * Gets the displayName property value. Policy display name.
+     * @returns a string
+     */
+    public get displayName() {
+        return this._displayName;
+    };
+    /**
+     * Sets the displayName property value. Policy display name.
+     * @param value Value to set for the displayName property.
+     */
+    public set displayName(value: string | undefined) {
+        this._displayName = value;
+    };
+    /**
+     * The deserialization information for the current model
+     * @returns a Record<string, (node: ParseNode) => void>
+     */
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
+        return {...super.getFieldDeserializers(),
+            "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
+            "description": n => { this.description = n.getStringValue(); },
+            "displayName": n => { this.displayName = n.getStringValue(); },
+            "lastModifiedDateTime": n => { this.lastModifiedDateTime = n.getDateValue(); },
+            "version": n => { this.version = n.getStringValue(); },
+        };
+    };
+    /**
+     * Gets the lastModifiedDateTime property value. Last time the policy was modified.
+     * @returns a Date
+     */
+    public get lastModifiedDateTime() {
+        return this._lastModifiedDateTime;
+    };
+    /**
+     * Sets the lastModifiedDateTime property value. Last time the policy was modified.
+     * @param value Value to set for the lastModifiedDateTime property.
+     */
+    public set lastModifiedDateTime(value: Date | undefined) {
+        this._lastModifiedDateTime = value;
+    };
+    /**
+     * Serializes information the current object
+     * @param writer Serialization writer to use to serialize this model
+     */
+    public serialize(writer: SerializationWriter) : void {
+        if(!writer) throw new Error("writer cannot be undefined");
+        super.serialize(writer);
+        writer.writeDateValue("createdDateTime", this.createdDateTime);
+        writer.writeStringValue("description", this.description);
+        writer.writeStringValue("displayName", this.displayName);
+        writer.writeDateValue("lastModifiedDateTime", this.lastModifiedDateTime);
+        writer.writeStringValue("version", this.version);
+    };
+    /**
+     * Gets the version property value. Version of the entity.
+     * @returns a string
+     */
+    public get version() {
+        return this._version;
+    };
+    /**
+     * Sets the version property value. Version of the entity.
+     * @param value Value to set for the version property.
+     */
+    public set version(value: string | undefined) {
+        this._version = value;
+    };
+}

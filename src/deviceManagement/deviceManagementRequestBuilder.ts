@@ -1,7 +1,7 @@
-import {DeviceManagement} from '../models/microsoft/graph/';
-import {createDeviceManagementFromDiscriminatorValue} from '../models/microsoft/graph/createDeviceManagementFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {DeviceManagement} from '../models/';
+import {createDeviceManagementFromDiscriminatorValue} from '../models/createDeviceManagementFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {ApplePushNotificationCertificateRequestBuilder} from './applePushNotificationCertificate/applePushNotificationCertificateRequestBuilder';
 import {ComplianceManagementPartnersRequestBuilder} from './complianceManagementPartners/complianceManagementPartnersRequestBuilder';
 import {ComplianceManagementPartnerItemRequestBuilder} from './complianceManagementPartners/item/complianceManagementPartnerItemRequestBuilder';
@@ -22,6 +22,7 @@ import {DeviceEnrollmentConfigurationsRequestBuilder} from './deviceEnrollmentCo
 import {DeviceEnrollmentConfigurationItemRequestBuilder} from './deviceEnrollmentConfigurations/item/deviceEnrollmentConfigurationItemRequestBuilder';
 import {DeviceManagementPartnersRequestBuilder} from './deviceManagementPartners/deviceManagementPartnersRequestBuilder';
 import {DeviceManagementPartnerItemRequestBuilder} from './deviceManagementPartners/item/deviceManagementPartnerItemRequestBuilder';
+import {DeviceManagementRequestBuilderGetQueryParameters} from './deviceManagementRequestBuilderGetQueryParameters';
 import {ExchangeConnectorsRequestBuilder} from './exchangeConnectors/exchangeConnectorsRequestBuilder';
 import {DeviceManagementExchangeConnectorItemRequestBuilder} from './exchangeConnectors/item/deviceManagementExchangeConnectorItemRequestBuilder';
 import {GetEffectivePermissionsWithScopeRequestBuilder} from './getEffectivePermissionsWithScope/getEffectivePermissionsWithScopeRequestBuilder';
@@ -63,102 +64,133 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the deviceManagement singleton.  */
 export class DeviceManagementRequestBuilder {
+    /** The applePushNotificationCertificate property  */
     public get applePushNotificationCertificate(): ApplePushNotificationCertificateRequestBuilder {
         return new ApplePushNotificationCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The complianceManagementPartners property  */
     public get complianceManagementPartners(): ComplianceManagementPartnersRequestBuilder {
         return new ComplianceManagementPartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The conditionalAccessSettings property  */
     public get conditionalAccessSettings(): ConditionalAccessSettingsRequestBuilder {
         return new ConditionalAccessSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The detectedApps property  */
     public get detectedApps(): DetectedAppsRequestBuilder {
         return new DetectedAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceCategories property  */
     public get deviceCategories(): DeviceCategoriesRequestBuilder {
         return new DeviceCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceCompliancePolicies property  */
     public get deviceCompliancePolicies(): DeviceCompliancePoliciesRequestBuilder {
         return new DeviceCompliancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceCompliancePolicyDeviceStateSummary property  */
     public get deviceCompliancePolicyDeviceStateSummary(): DeviceCompliancePolicyDeviceStateSummaryRequestBuilder {
         return new DeviceCompliancePolicyDeviceStateSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceCompliancePolicySettingStateSummaries property  */
     public get deviceCompliancePolicySettingStateSummaries(): DeviceCompliancePolicySettingStateSummariesRequestBuilder {
         return new DeviceCompliancePolicySettingStateSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceConfigurationDeviceStateSummaries property  */
     public get deviceConfigurationDeviceStateSummaries(): DeviceConfigurationDeviceStateSummariesRequestBuilder {
         return new DeviceConfigurationDeviceStateSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceConfigurations property  */
     public get deviceConfigurations(): DeviceConfigurationsRequestBuilder {
         return new DeviceConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceEnrollmentConfigurations property  */
     public get deviceEnrollmentConfigurations(): DeviceEnrollmentConfigurationsRequestBuilder {
         return new DeviceEnrollmentConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The deviceManagementPartners property  */
     public get deviceManagementPartners(): DeviceManagementPartnersRequestBuilder {
         return new DeviceManagementPartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The exchangeConnectors property  */
     public get exchangeConnectors(): ExchangeConnectorsRequestBuilder {
         return new ExchangeConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The importedWindowsAutopilotDeviceIdentities property  */
     public get importedWindowsAutopilotDeviceIdentities(): ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new ImportedWindowsAutopilotDeviceIdentitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The iosUpdateStatuses property  */
     public get iosUpdateStatuses(): IosUpdateStatusesRequestBuilder {
         return new IosUpdateStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedDeviceOverview property  */
     public get managedDeviceOverview(): ManagedDeviceOverviewRequestBuilder {
         return new ManagedDeviceOverviewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedDevices property  */
     public get managedDevices(): ManagedDevicesRequestBuilder {
         return new ManagedDevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mobileThreatDefenseConnectors property  */
     public get mobileThreatDefenseConnectors(): MobileThreatDefenseConnectorsRequestBuilder {
         return new MobileThreatDefenseConnectorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The notificationMessageTemplates property  */
     public get notificationMessageTemplates(): NotificationMessageTemplatesRequestBuilder {
         return new NotificationMessageTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The remoteAssistancePartners property  */
     public get remoteAssistancePartners(): RemoteAssistancePartnersRequestBuilder {
         return new RemoteAssistancePartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The reports property  */
     public get reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The resourceOperations property  */
     public get resourceOperations(): ResourceOperationsRequestBuilder {
         return new ResourceOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The roleAssignments property  */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The roleDefinitions property  */
     public get roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The softwareUpdateStatusSummary property  */
     public get softwareUpdateStatusSummary(): SoftwareUpdateStatusSummaryRequestBuilder {
         return new SoftwareUpdateStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The telecomExpenseManagementPartners property  */
     public get telecomExpenseManagementPartners(): TelecomExpenseManagementPartnersRequestBuilder {
         return new TelecomExpenseManagementPartnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The termsAndConditions property  */
     public get termsAndConditions(): TermsAndConditionsRequestBuilder {
         return new TermsAndConditionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The troubleshootingEvents property  */
     public get troubleshootingEvents(): TroubleshootingEventsRequestBuilder {
         return new TroubleshootingEventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The windowsAutopilotDeviceIdentities property  */
     public get windowsAutopilotDeviceIdentities(): WindowsAutopilotDeviceIdentitiesRequestBuilder {
         return new WindowsAutopilotDeviceIdentitiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The windowsInformationProtectionAppLearningSummaries property  */
     public get windowsInformationProtectionAppLearningSummaries(): WindowsInformationProtectionAppLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionAppLearningSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The windowsInformationProtectionNetworkLearningSummaries property  */
     public get windowsInformationProtectionNetworkLearningSummaries(): WindowsInformationProtectionNetworkLearningSummariesRequestBuilder {
         return new WindowsInformationProtectionNetworkLearningSummariesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -170,7 +202,7 @@ export class DeviceManagementRequestBuilder {
     public complianceManagementPartnersById(id: string) : ComplianceManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["complianceManagementPartner_id"] = id
+        urlTplParams["complianceManagementPartner%2Did"] = id
         return new ComplianceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -181,47 +213,44 @@ export class DeviceManagementRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceManagement{?select,expand}";
+        this.urlTemplate = "{+baseurl}/deviceManagement{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Get deviceManagement
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: DeviceManagementRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: DeviceManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: DeviceManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -232,7 +261,7 @@ export class DeviceManagementRequestBuilder {
     public detectedAppsById(id: string) : DetectedAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["detectedApp_id"] = id
+        urlTplParams["detectedApp%2Did"] = id
         return new DetectedAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -243,7 +272,7 @@ export class DeviceManagementRequestBuilder {
     public deviceCategoriesById(id: string) : DeviceCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceCategory_id"] = id
+        urlTplParams["deviceCategory%2Did"] = id
         return new DeviceCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -254,7 +283,7 @@ export class DeviceManagementRequestBuilder {
     public deviceCompliancePoliciesById(id: string) : DeviceCompliancePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceCompliancePolicy_id"] = id
+        urlTplParams["deviceCompliancePolicy%2Did"] = id
         return new DeviceCompliancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -265,7 +294,7 @@ export class DeviceManagementRequestBuilder {
     public deviceCompliancePolicySettingStateSummariesById(id: string) : DeviceCompliancePolicySettingStateSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceCompliancePolicySettingStateSummary_id"] = id
+        urlTplParams["deviceCompliancePolicySettingStateSummary%2Did"] = id
         return new DeviceCompliancePolicySettingStateSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -276,7 +305,7 @@ export class DeviceManagementRequestBuilder {
     public deviceConfigurationsById(id: string) : DeviceConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceConfiguration_id"] = id
+        urlTplParams["deviceConfiguration%2Did"] = id
         return new DeviceConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -287,7 +316,7 @@ export class DeviceManagementRequestBuilder {
     public deviceEnrollmentConfigurationsById(id: string) : DeviceEnrollmentConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceEnrollmentConfiguration_id"] = id
+        urlTplParams["deviceEnrollmentConfiguration%2Did"] = id
         return new DeviceEnrollmentConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -298,7 +327,7 @@ export class DeviceManagementRequestBuilder {
     public deviceManagementPartnersById(id: string) : DeviceManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceManagementPartner_id"] = id
+        urlTplParams["deviceManagementPartner%2Did"] = id
         return new DeviceManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -309,23 +338,20 @@ export class DeviceManagementRequestBuilder {
     public exchangeConnectorsById(id: string) : DeviceManagementExchangeConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceManagementExchangeConnector_id"] = id
+        urlTplParams["deviceManagementExchangeConnector%2Did"] = id
         return new DeviceManagementExchangeConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get deviceManagement
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceManagement
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagement | undefined> {
+    public get(queryParameters?: DeviceManagementRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceManagement | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -350,7 +376,7 @@ export class DeviceManagementRequestBuilder {
     public importedWindowsAutopilotDeviceIdentitiesById(id: string) : ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["importedWindowsAutopilotDeviceIdentity_id"] = id
+        urlTplParams["importedWindowsAutopilotDeviceIdentity%2Did"] = id
         return new ImportedWindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -361,7 +387,7 @@ export class DeviceManagementRequestBuilder {
     public iosUpdateStatusesById(id: string) : IosUpdateDeviceStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["iosUpdateDeviceStatus_id"] = id
+        urlTplParams["iosUpdateDeviceStatus%2Did"] = id
         return new IosUpdateDeviceStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -372,7 +398,7 @@ export class DeviceManagementRequestBuilder {
     public managedDevicesById(id: string) : ManagedDeviceItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedDevice_id"] = id
+        urlTplParams["managedDevice%2Did"] = id
         return new ManagedDeviceItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -383,7 +409,7 @@ export class DeviceManagementRequestBuilder {
     public mobileThreatDefenseConnectorsById(id: string) : MobileThreatDefenseConnectorItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["mobileThreatDefenseConnector_id"] = id
+        urlTplParams["mobileThreatDefenseConnector%2Did"] = id
         return new MobileThreatDefenseConnectorItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -394,20 +420,20 @@ export class DeviceManagementRequestBuilder {
     public notificationMessageTemplatesById(id: string) : NotificationMessageTemplateItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["notificationMessageTemplate_id"] = id
+        urlTplParams["notificationMessageTemplate%2Did"] = id
         return new NotificationMessageTemplateItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update deviceManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DeviceManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -423,7 +449,7 @@ export class DeviceManagementRequestBuilder {
     public remoteAssistancePartnersById(id: string) : RemoteAssistancePartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["remoteAssistancePartner_id"] = id
+        urlTplParams["remoteAssistancePartner%2Did"] = id
         return new RemoteAssistancePartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -434,7 +460,7 @@ export class DeviceManagementRequestBuilder {
     public resourceOperationsById(id: string) : ResourceOperationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["resourceOperation_id"] = id
+        urlTplParams["resourceOperation%2Did"] = id
         return new ResourceOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -445,7 +471,7 @@ export class DeviceManagementRequestBuilder {
     public roleAssignmentsById(id: string) : DeviceAndAppManagementRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceAndAppManagementRoleAssignment_id"] = id
+        urlTplParams["deviceAndAppManagementRoleAssignment%2Did"] = id
         return new DeviceAndAppManagementRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -456,7 +482,7 @@ export class DeviceManagementRequestBuilder {
     public roleDefinitionsById(id: string) : RoleDefinitionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["roleDefinition_id"] = id
+        urlTplParams["roleDefinition%2Did"] = id
         return new RoleDefinitionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -467,7 +493,7 @@ export class DeviceManagementRequestBuilder {
     public telecomExpenseManagementPartnersById(id: string) : TelecomExpenseManagementPartnerItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["telecomExpenseManagementPartner_id"] = id
+        urlTplParams["telecomExpenseManagementPartner%2Did"] = id
         return new TelecomExpenseManagementPartnerItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -478,7 +504,7 @@ export class DeviceManagementRequestBuilder {
     public termsAndConditionsById(id: string) : TermsAndConditionsItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["termsAndConditions_id"] = id
+        urlTplParams["termsAndConditions%2Did"] = id
         return new TermsAndConditionsItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -489,7 +515,7 @@ export class DeviceManagementRequestBuilder {
     public troubleshootingEventsById(id: string) : DeviceManagementTroubleshootingEventItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["deviceManagementTroubleshootingEvent_id"] = id
+        urlTplParams["deviceManagementTroubleshootingEvent%2Did"] = id
         return new DeviceManagementTroubleshootingEventItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -509,7 +535,7 @@ export class DeviceManagementRequestBuilder {
     public windowsAutopilotDeviceIdentitiesById(id: string) : WindowsAutopilotDeviceIdentityItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["windowsAutopilotDeviceIdentity_id"] = id
+        urlTplParams["windowsAutopilotDeviceIdentity%2Did"] = id
         return new WindowsAutopilotDeviceIdentityItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -520,7 +546,7 @@ export class DeviceManagementRequestBuilder {
     public windowsInformationProtectionAppLearningSummariesById(id: string) : WindowsInformationProtectionAppLearningSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["windowsInformationProtectionAppLearningSummary_id"] = id
+        urlTplParams["windowsInformationProtectionAppLearningSummary%2Did"] = id
         return new WindowsInformationProtectionAppLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -531,7 +557,7 @@ export class DeviceManagementRequestBuilder {
     public windowsInformationProtectionNetworkLearningSummariesById(id: string) : WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["windowsInformationProtectionNetworkLearningSummary_id"] = id
+        urlTplParams["windowsInformationProtectionNetworkLearningSummary%2Did"] = id
         return new WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

@@ -4,12 +4,19 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetCachedReportRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The groupBy property  */
     private _groupBy?: string[] | undefined;
+    /** The id property  */
     private _id?: string | undefined;
+    /** The orderBy property  */
     private _orderBy?: string[] | undefined;
+    /** The search property  */
     private _search?: string | undefined;
+    /** The select property  */
     private _select?: string[] | undefined;
+    /** The skip property  */
     private _skip?: number | undefined;
+    /** The top property  */
     private _top?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -33,84 +40,84 @@ export class GetCachedReportRequestBody implements AdditionalDataHolder, Parsabl
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "groupBy": (o, n) => { (o as unknown as GetCachedReportRequestBody).groupBy = n.getCollectionOfPrimitiveValues<string>(); },
-            "id": (o, n) => { (o as unknown as GetCachedReportRequestBody).id = n.getStringValue(); },
-            "orderBy": (o, n) => { (o as unknown as GetCachedReportRequestBody).orderBy = n.getCollectionOfPrimitiveValues<string>(); },
-            "search": (o, n) => { (o as unknown as GetCachedReportRequestBody).search = n.getStringValue(); },
-            "select": (o, n) => { (o as unknown as GetCachedReportRequestBody).select = n.getCollectionOfPrimitiveValues<string>(); },
-            "skip": (o, n) => { (o as unknown as GetCachedReportRequestBody).skip = n.getNumberValue(); },
-            "top": (o, n) => { (o as unknown as GetCachedReportRequestBody).top = n.getNumberValue(); },
+            "groupBy": n => { this.groupBy = n.getCollectionOfPrimitiveValues<string>(); },
+            "id": n => { this.id = n.getStringValue(); },
+            "orderBy": n => { this.orderBy = n.getCollectionOfPrimitiveValues<string>(); },
+            "search": n => { this.search = n.getStringValue(); },
+            "select": n => { this.select = n.getCollectionOfPrimitiveValues<string>(); },
+            "skip": n => { this.skip = n.getNumberValue(); },
+            "top": n => { this.top = n.getNumberValue(); },
         };
     };
     /**
-     * Gets the groupBy property value. 
+     * Gets the groupBy property value. The groupBy property
      * @returns a string
      */
     public get groupBy() {
         return this._groupBy;
     };
     /**
-     * Sets the groupBy property value. 
+     * Sets the groupBy property value. The groupBy property
      * @param value Value to set for the groupBy property.
      */
     public set groupBy(value: string[] | undefined) {
         this._groupBy = value;
     };
     /**
-     * Gets the id property value. 
+     * Gets the id property value. The id property
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. 
+     * Sets the id property value. The id property
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
         this._id = value;
     };
     /**
-     * Gets the orderBy property value. 
+     * Gets the orderBy property value. The orderBy property
      * @returns a string
      */
     public get orderBy() {
         return this._orderBy;
     };
     /**
-     * Sets the orderBy property value. 
+     * Sets the orderBy property value. The orderBy property
      * @param value Value to set for the orderBy property.
      */
     public set orderBy(value: string[] | undefined) {
         this._orderBy = value;
     };
     /**
-     * Gets the search property value. 
+     * Gets the search property value. The search property
      * @returns a string
      */
     public get search() {
         return this._search;
     };
     /**
-     * Sets the search property value. 
+     * Sets the search property value. The search property
      * @param value Value to set for the search property.
      */
     public set search(value: string | undefined) {
         this._search = value;
     };
     /**
-     * Gets the select property value. 
+     * Gets the select property value. The select property
      * @returns a string
      */
     public get select() {
         return this._select;
     };
     /**
-     * Sets the select property value. 
+     * Sets the select property value. The select property
      * @param value Value to set for the select property.
      */
     public set select(value: string[] | undefined) {
@@ -132,28 +139,28 @@ export class GetCachedReportRequestBody implements AdditionalDataHolder, Parsabl
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the skip property value. 
+     * Gets the skip property value. The skip property
      * @returns a integer
      */
     public get skip() {
         return this._skip;
     };
     /**
-     * Sets the skip property value. 
+     * Sets the skip property value. The skip property
      * @param value Value to set for the skip property.
      */
     public set skip(value: number | undefined) {
         this._skip = value;
     };
     /**
-     * Gets the top property value. 
+     * Gets the top property value. The top property
      * @returns a integer
      */
     public get top() {
         return this._top;
     };
     /**
-     * Sets the top property value. 
+     * Sets the top property value. The top property
      * @param value Value to set for the top property.
      */
     public set top(value: number | undefined) {

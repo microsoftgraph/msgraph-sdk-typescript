@@ -1,11 +1,12 @@
-import {DeviceAppManagement} from '../models/microsoft/graph/';
-import {createDeviceAppManagementFromDiscriminatorValue} from '../models/microsoft/graph/createDeviceAppManagementFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {DeviceAppManagement} from '../models/';
+import {createDeviceAppManagementFromDiscriminatorValue} from '../models/createDeviceAppManagementFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AndroidManagedAppProtectionsRequestBuilder} from './androidManagedAppProtections/androidManagedAppProtectionsRequestBuilder';
 import {AndroidManagedAppProtectionItemRequestBuilder} from './androidManagedAppProtections/item/androidManagedAppProtectionItemRequestBuilder';
 import {DefaultManagedAppProtectionsRequestBuilder} from './defaultManagedAppProtections/defaultManagedAppProtectionsRequestBuilder';
 import {DefaultManagedAppProtectionItemRequestBuilder} from './defaultManagedAppProtections/item/defaultManagedAppProtectionItemRequestBuilder';
+import {DeviceAppManagementRequestBuilderGetQueryParameters} from './deviceAppManagementRequestBuilderGetQueryParameters';
 import {IosManagedAppProtectionsRequestBuilder} from './iosManagedAppProtections/iosManagedAppProtectionsRequestBuilder';
 import {IosManagedAppProtectionItemRequestBuilder} from './iosManagedAppProtections/item/iosManagedAppProtectionItemRequestBuilder';
 import {ManagedAppPolicyItemRequestBuilder} from './managedAppPolicies/item/managedAppPolicyItemRequestBuilder';
@@ -35,36 +36,47 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the deviceAppManagement singleton.  */
 export class DeviceAppManagementRequestBuilder {
+    /** The androidManagedAppProtections property  */
     public get androidManagedAppProtections(): AndroidManagedAppProtectionsRequestBuilder {
         return new AndroidManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The defaultManagedAppProtections property  */
     public get defaultManagedAppProtections(): DefaultManagedAppProtectionsRequestBuilder {
         return new DefaultManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The iosManagedAppProtections property  */
     public get iosManagedAppProtections(): IosManagedAppProtectionsRequestBuilder {
         return new IosManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedAppPolicies property  */
     public get managedAppPolicies(): ManagedAppPoliciesRequestBuilder {
         return new ManagedAppPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedAppRegistrations property  */
     public get managedAppRegistrations(): ManagedAppRegistrationsRequestBuilder {
         return new ManagedAppRegistrationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedAppStatuses property  */
     public get managedAppStatuses(): ManagedAppStatusesRequestBuilder {
         return new ManagedAppStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The managedEBooks property  */
     public get managedEBooks(): ManagedEBooksRequestBuilder {
         return new ManagedEBooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mdmWindowsInformationProtectionPolicies property  */
     public get mdmWindowsInformationProtectionPolicies(): MdmWindowsInformationProtectionPoliciesRequestBuilder {
         return new MdmWindowsInformationProtectionPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mobileAppCategories property  */
     public get mobileAppCategories(): MobileAppCategoriesRequestBuilder {
         return new MobileAppCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mobileAppConfigurations property  */
     public get mobileAppConfigurations(): MobileAppConfigurationsRequestBuilder {
         return new MobileAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The mobileApps property  */
     public get mobileApps(): MobileAppsRequestBuilder {
         return new MobileAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -72,17 +84,21 @@ export class DeviceAppManagementRequestBuilder {
     private readonly pathParameters: Record<string, unknown>;
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The syncMicrosoftStoreForBusinessApps property  */
     public get syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
         return new SyncMicrosoftStoreForBusinessAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The targetedManagedAppConfigurations property  */
     public get targetedManagedAppConfigurations(): TargetedManagedAppConfigurationsRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The vppTokens property  */
     public get vppTokens(): VppTokensRequestBuilder {
         return new VppTokensRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The windowsInformationProtectionPolicies property  */
     public get windowsInformationProtectionPolicies(): WindowsInformationProtectionPoliciesRequestBuilder {
         return new WindowsInformationProtectionPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -94,7 +110,7 @@ export class DeviceAppManagementRequestBuilder {
     public androidManagedAppProtectionsById(id: string) : AndroidManagedAppProtectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["androidManagedAppProtection_id"] = id
+        urlTplParams["androidManagedAppProtection%2Did"] = id
         return new AndroidManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -105,47 +121,44 @@ export class DeviceAppManagementRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/deviceAppManagement{?select,expand}";
+        this.urlTemplate = "{+baseurl}/deviceAppManagement{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Get deviceAppManagement
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: DeviceAppManagementRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update deviceAppManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: DeviceAppManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: DeviceAppManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -156,23 +169,20 @@ export class DeviceAppManagementRequestBuilder {
     public defaultManagedAppProtectionsById(id: string) : DefaultManagedAppProtectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["defaultManagedAppProtection_id"] = id
+        urlTplParams["defaultManagedAppProtection%2Did"] = id
         return new DefaultManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get deviceAppManagement
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceAppManagement
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAppManagement | undefined> {
+    public get(queryParameters?: DeviceAppManagementRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -188,7 +198,7 @@ export class DeviceAppManagementRequestBuilder {
     public iosManagedAppProtectionsById(id: string) : IosManagedAppProtectionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["iosManagedAppProtection_id"] = id
+        urlTplParams["iosManagedAppProtection%2Did"] = id
         return new IosManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -199,7 +209,7 @@ export class DeviceAppManagementRequestBuilder {
     public managedAppPoliciesById(id: string) : ManagedAppPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedAppPolicy_id"] = id
+        urlTplParams["managedAppPolicy%2Did"] = id
         return new ManagedAppPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -210,7 +220,7 @@ export class DeviceAppManagementRequestBuilder {
     public managedAppRegistrationsById(id: string) : ManagedAppRegistrationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedAppRegistration_id"] = id
+        urlTplParams["managedAppRegistration%2Did"] = id
         return new ManagedAppRegistrationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -221,7 +231,7 @@ export class DeviceAppManagementRequestBuilder {
     public managedAppStatusesById(id: string) : ManagedAppStatusItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedAppStatus_id"] = id
+        urlTplParams["managedAppStatus%2Did"] = id
         return new ManagedAppStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -232,7 +242,7 @@ export class DeviceAppManagementRequestBuilder {
     public managedEBooksById(id: string) : ManagedEBookItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedEBook_id"] = id
+        urlTplParams["managedEBook%2Did"] = id
         return new ManagedEBookItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -243,7 +253,7 @@ export class DeviceAppManagementRequestBuilder {
     public mdmWindowsInformationProtectionPoliciesById(id: string) : MdmWindowsInformationProtectionPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["mdmWindowsInformationProtectionPolicy_id"] = id
+        urlTplParams["mdmWindowsInformationProtectionPolicy%2Did"] = id
         return new MdmWindowsInformationProtectionPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -254,7 +264,7 @@ export class DeviceAppManagementRequestBuilder {
     public mobileAppCategoriesById(id: string) : MobileAppCategoryItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["mobileAppCategory_id"] = id
+        urlTplParams["mobileAppCategory%2Did"] = id
         return new MobileAppCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -265,7 +275,7 @@ export class DeviceAppManagementRequestBuilder {
     public mobileAppConfigurationsById(id: string) : ManagedDeviceMobileAppConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["managedDeviceMobileAppConfiguration_id"] = id
+        urlTplParams["managedDeviceMobileAppConfiguration%2Did"] = id
         return new ManagedDeviceMobileAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -276,20 +286,20 @@ export class DeviceAppManagementRequestBuilder {
     public mobileAppsById(id: string) : MobileAppItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["mobileApp_id"] = id
+        urlTplParams["mobileApp%2Did"] = id
         return new MobileAppItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update deviceAppManagement
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DeviceAppManagement | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceAppManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -305,7 +315,7 @@ export class DeviceAppManagementRequestBuilder {
     public targetedManagedAppConfigurationsById(id: string) : TargetedManagedAppConfigurationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["targetedManagedAppConfiguration_id"] = id
+        urlTplParams["targetedManagedAppConfiguration%2Did"] = id
         return new TargetedManagedAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -316,7 +326,7 @@ export class DeviceAppManagementRequestBuilder {
     public vppTokensById(id: string) : VppTokenItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["vppToken_id"] = id
+        urlTplParams["vppToken%2Did"] = id
         return new VppTokenItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -327,7 +337,7 @@ export class DeviceAppManagementRequestBuilder {
     public windowsInformationProtectionPoliciesById(id: string) : WindowsInformationProtectionPolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["windowsInformationProtectionPolicy_id"] = id
+        urlTplParams["windowsInformationProtectionPolicy%2Did"] = id
         return new WindowsInformationProtectionPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
 }

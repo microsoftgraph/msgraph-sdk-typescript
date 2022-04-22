@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetNotebookFromWebUrlRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The webUrl property  */
     private _webUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,11 +28,11 @@ export class GetNotebookFromWebUrlRequestBody implements AdditionalDataHolder, P
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "webUrl": (o, n) => { (o as unknown as GetNotebookFromWebUrlRequestBody).webUrl = n.getStringValue(); },
+            "webUrl": n => { this.webUrl = n.getStringValue(); },
         };
     };
     /**
@@ -44,14 +45,14 @@ export class GetNotebookFromWebUrlRequestBody implements AdditionalDataHolder, P
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the webUrl property value. 
+     * Gets the webUrl property value. The webUrl property
      * @returns a string
      */
     public get webUrl() {
         return this._webUrl;
     };
     /**
-     * Sets the webUrl property value. 
+     * Sets the webUrl property value. The webUrl property
      * @param value Value to set for the webUrl property.
      */
     public set webUrl(value: string | undefined) {

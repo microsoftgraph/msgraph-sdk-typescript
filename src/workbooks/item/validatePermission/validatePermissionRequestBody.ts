@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ValidatePermissionRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The challengeToken property  */
     private _challengeToken?: string | undefined;
+    /** The password property  */
     private _password?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -21,14 +23,14 @@ export class ValidatePermissionRequestBody implements AdditionalDataHolder, Pars
         this._additionalData = value;
     };
     /**
-     * Gets the challengeToken property value. 
+     * Gets the challengeToken property value. The challengeToken property
      * @returns a string
      */
     public get challengeToken() {
         return this._challengeToken;
     };
     /**
-     * Sets the challengeToken property value. 
+     * Sets the challengeToken property value. The challengeToken property
      * @param value Value to set for the challengeToken property.
      */
     public set challengeToken(value: string | undefined) {
@@ -42,23 +44,23 @@ export class ValidatePermissionRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "challengeToken": (o, n) => { (o as unknown as ValidatePermissionRequestBody).challengeToken = n.getStringValue(); },
-            "password": (o, n) => { (o as unknown as ValidatePermissionRequestBody).password = n.getStringValue(); },
+            "challengeToken": n => { this.challengeToken = n.getStringValue(); },
+            "password": n => { this.password = n.getStringValue(); },
         };
     };
     /**
-     * Gets the password property value. 
+     * Gets the password property value. The password property
      * @returns a string
      */
     public get password() {
         return this._password;
     };
     /**
-     * Sets the password property value. 
+     * Sets the password property value. The password property
      * @param value Value to set for the password property.
      */
     public set password(value: string | undefined) {

@@ -4,8 +4,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ShareRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The endDateTime property  */
     private _endDateTime?: Date | undefined;
+    /** The notifyTeam property  */
     private _notifyTeam?: boolean | undefined;
+    /** The startDateTime property  */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +31,14 @@ export class ShareRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the endDateTime property value. 
+     * Gets the endDateTime property value. The endDateTime property
      * @returns a Date
      */
     public get endDateTime() {
         return this._endDateTime;
     };
     /**
-     * Sets the endDateTime property value. 
+     * Sets the endDateTime property value. The endDateTime property
      * @param value Value to set for the endDateTime property.
      */
     public set endDateTime(value: Date | undefined) {
@@ -43,24 +46,24 @@ export class ShareRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "endDateTime": (o, n) => { (o as unknown as ShareRequestBody).endDateTime = n.getDateValue(); },
-            "notifyTeam": (o, n) => { (o as unknown as ShareRequestBody).notifyTeam = n.getBooleanValue(); },
-            "startDateTime": (o, n) => { (o as unknown as ShareRequestBody).startDateTime = n.getDateValue(); },
+            "endDateTime": n => { this.endDateTime = n.getDateValue(); },
+            "notifyTeam": n => { this.notifyTeam = n.getBooleanValue(); },
+            "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
     };
     /**
-     * Gets the notifyTeam property value. 
+     * Gets the notifyTeam property value. The notifyTeam property
      * @returns a boolean
      */
     public get notifyTeam() {
         return this._notifyTeam;
     };
     /**
-     * Sets the notifyTeam property value. 
+     * Sets the notifyTeam property value. The notifyTeam property
      * @param value Value to set for the notifyTeam property.
      */
     public set notifyTeam(value: boolean | undefined) {
@@ -78,14 +81,14 @@ export class ShareRequestBody implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the startDateTime property value. 
+     * Gets the startDateTime property value. The startDateTime property
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. 
+     * Sets the startDateTime property value. The startDateTime property
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

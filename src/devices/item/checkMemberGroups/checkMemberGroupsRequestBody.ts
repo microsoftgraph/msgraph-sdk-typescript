@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CheckMemberGroupsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The groupIds property  */
     private _groupIds?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,22 +28,22 @@ export class CheckMemberGroupsRequestBody implements AdditionalDataHolder, Parsa
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "groupIds": (o, n) => { (o as unknown as CheckMemberGroupsRequestBody).groupIds = n.getCollectionOfPrimitiveValues<string>(); },
+            "groupIds": n => { this.groupIds = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
-     * Gets the groupIds property value. 
+     * Gets the groupIds property value. The groupIds property
      * @returns a string
      */
     public get groupIds() {
         return this._groupIds;
     };
     /**
-     * Sets the groupIds property value. 
+     * Sets the groupIds property value. The groupIds property
      * @param value Value to set for the groupIds property.
      */
     public set groupIds(value: string[] | undefined) {

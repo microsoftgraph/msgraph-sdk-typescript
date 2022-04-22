@@ -1,11 +1,12 @@
-import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../models/microsoft/graph/';
-import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/microsoft/graph/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
+import {ManagedDeviceMobileAppConfigurationAssignment} from '../../../../models/';
+import {createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue} from '../../../../models/createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the assign method.  */
 export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The assignments property  */
     private _assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +23,14 @@ export class AssignRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the assignments property value. 
+     * Gets the assignments property value. The assignments property
      * @returns a managedDeviceMobileAppConfigurationAssignment
      */
     public get assignments() {
         return this._assignments;
     };
     /**
-     * Sets the assignments property value. 
+     * Sets the assignments property value. The assignments property
      * @param value Value to set for the assignments property.
      */
     public set assignments(value: ManagedDeviceMobileAppConfigurationAssignment[] | undefined) {
@@ -43,11 +44,11 @@ export class AssignRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "assignments": (o, n) => { (o as unknown as AssignRequestBody).assignments = n.getCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>(createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue); },
+            "assignments": n => { this.assignments = n.getCollectionOfObjectValues<ManagedDeviceMobileAppConfigurationAssignment>(createManagedDeviceMobileAppConfigurationAssignmentFromDiscriminatorValue); },
         };
     };
     /**
