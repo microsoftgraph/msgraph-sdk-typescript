@@ -1,7 +1,7 @@
-import {ReportRoot} from '../models/microsoft/graph/';
-import {createReportRootFromDiscriminatorValue} from '../models/microsoft/graph/createReportRootFromDiscriminatorValue';
-import {ODataError} from '../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ReportRoot} from '../models/';
+import {createReportRootFromDiscriminatorValue} from '../models/createReportRootFromDiscriminatorValue';
+import {ODataError} from '../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {DailyPrintUsageByPrinterRequestBuilder} from './dailyPrintUsageByPrinter/dailyPrintUsageByPrinterRequestBuilder';
 import {PrintUsageByPrinterItemRequestBuilder as iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401} from './dailyPrintUsageByPrinter/item/printUsageByPrinterItemRequestBuilder';
 import {DailyPrintUsageByUserRequestBuilder} from './dailyPrintUsageByUser/dailyPrintUsageByUserRequestBuilder';
@@ -102,19 +102,24 @@ import {PrintUsageByPrinterItemRequestBuilder as iaccf0da2bb94f1672a9d4b50cb59ac
 import {MonthlyPrintUsageByPrinterRequestBuilder} from './monthlyPrintUsageByPrinter/monthlyPrintUsageByPrinterRequestBuilder';
 import {PrintUsageByUserItemRequestBuilder as i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e} from './monthlyPrintUsageByUser/item/printUsageByUserItemRequestBuilder';
 import {MonthlyPrintUsageByUserRequestBuilder} from './monthlyPrintUsageByUser/monthlyPrintUsageByUserRequestBuilder';
+import {ReportsRequestBuilderGetQueryParameters} from './reportsRequestBuilderGetQueryParameters';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the reportRoot singleton.  */
 export class ReportsRequestBuilder {
+    /** The dailyPrintUsageByPrinter property  */
     public get dailyPrintUsageByPrinter(): DailyPrintUsageByPrinterRequestBuilder {
         return new DailyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The dailyPrintUsageByUser property  */
     public get dailyPrintUsageByUser(): DailyPrintUsageByUserRequestBuilder {
         return new DailyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The monthlyPrintUsageByPrinter property  */
     public get monthlyPrintUsageByPrinter(): MonthlyPrintUsageByPrinterRequestBuilder {
         return new MonthlyPrintUsageByPrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The monthlyPrintUsageByUser property  */
     public get monthlyPrintUsageByUser(): MonthlyPrintUsageByUserRequestBuilder {
         return new MonthlyPrintUsageByUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -132,47 +137,44 @@ export class ReportsRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/reports{?select,expand}";
+        this.urlTemplate = "{+baseurl}/reports{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Get reports
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: ReportsRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update reports
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ReportRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ReportRoot | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -183,7 +185,7 @@ export class ReportsRequestBuilder {
     public dailyPrintUsageByPrinterById(id: string) : iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByPrinter_id"] = id
+        urlTplParams["printUsageByPrinter%2Did"] = id
         return new iafab10717cb5833856b686ca073f6155a6d5c8d00c99ea4472c1643b1eb10401(urlTplParams, this.requestAdapter);
     };
     /**
@@ -194,7 +196,7 @@ export class ReportsRequestBuilder {
     public dailyPrintUsageByUserById(id: string) : i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByUser_id"] = id
+        urlTplParams["printUsageByUser%2Did"] = id
         return new i0b2d59ab3f36da4896152d94b03e0a424f89cb680045ac818df7fb6cc23e153c(urlTplParams, this.requestAdapter);
     };
     /**
@@ -213,18 +215,15 @@ export class ReportsRequestBuilder {
     };
     /**
      * Get reports
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ReportRoot
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
+    public get(queryParameters?: ReportsRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ReportRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -1058,7 +1057,7 @@ export class ReportsRequestBuilder {
     public monthlyPrintUsageByPrinterById(id: string) : iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByPrinter_id"] = id
+        urlTplParams["printUsageByPrinter%2Did"] = id
         return new iaccf0da2bb94f1672a9d4b50cb59ac46c2636af941878f04ccda835b4e6bc6df(urlTplParams, this.requestAdapter);
     };
     /**
@@ -1069,20 +1068,20 @@ export class ReportsRequestBuilder {
     public monthlyPrintUsageByUserById(id: string) : i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["printUsageByUser_id"] = id
+        urlTplParams["printUsageByUser%2Did"] = id
         return new i01dcdbc56e5bbfc103a10dadf48ed650311b2b37a8a04c85ddabbe6c031fcb3e(urlTplParams, this.requestAdapter);
     };
     /**
      * Update reports
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ReportRoot | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ReportRoot | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

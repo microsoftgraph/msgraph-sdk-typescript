@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class GetMemberObjectsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The securityEnabledOnly property  */
     private _securityEnabledOnly?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,22 +28,22 @@ export class GetMemberObjectsRequestBody implements AdditionalDataHolder, Parsab
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "securityEnabledOnly": (o, n) => { (o as unknown as GetMemberObjectsRequestBody).securityEnabledOnly = n.getBooleanValue(); },
+            "securityEnabledOnly": n => { this.securityEnabledOnly = n.getBooleanValue(); },
         };
     };
     /**
-     * Gets the securityEnabledOnly property value. 
+     * Gets the securityEnabledOnly property value. The securityEnabledOnly property
      * @returns a boolean
      */
     public get securityEnabledOnly() {
         return this._securityEnabledOnly;
     };
     /**
-     * Sets the securityEnabledOnly property value. 
+     * Sets the securityEnabledOnly property value. The securityEnabledOnly property
      * @param value Value to set for the securityEnabledOnly property.
      */
     public set securityEnabledOnly(value: boolean | undefined) {

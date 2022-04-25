@@ -1,7 +1,7 @@
-import {ContentType} from '../../../../../../models/microsoft/graph/';
-import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createContentTypeFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ContentType} from '../../../../../../models/';
+import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/createContentTypeFromDiscriminatorValue';
+import {ODataError} from '../../../../../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
@@ -12,6 +12,7 @@ import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRe
 import {ColumnDefinitionItemRequestBuilder as if8ea631730cd591b1d1d9b9e0baedb942390cb79079f8cbef3af81b1f9419a5d} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
 import {ColumnDefinitionItemRequestBuilder as i89df89f7798ebcf7eebdc380f3dab219ad4342e61faa20171ff6a0bac33fc9fe} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ContentTypeItemRequestBuilderGetQueryParameters} from './contentTypeItemRequestBuilderGetQueryParameters';
 import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
@@ -20,34 +21,43 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the contentTypes property of the microsoft.graph.list entity.  */
 export class ContentTypeItemRequestBuilder {
+    /** The associateWithHubSites property  */
     public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
         return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The base property  */
     public get base(): BaseRequestBuilder {
         return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The baseTypes property  */
     public get baseTypes(): BaseTypesRequestBuilder {
         return new BaseTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The columnLinks property  */
     public get columnLinks(): ColumnLinksRequestBuilder {
         return new ColumnLinksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The columnPositions property  */
     public get columnPositions(): ColumnPositionsRequestBuilder {
         return new ColumnPositionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The columns property  */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The copyToDefaultContentLocation property  */
     public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
         return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The publish property  */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The unpublish property  */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -61,7 +71,7 @@ export class ContentTypeItemRequestBuilder {
     public baseTypesById(id: string) : i54b2a278961bde0a0be714ae6fb3bd7ddd15aa7c73e433bcd084a0a55fe530f4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["contentType_id1"] = id
+        urlTplParams["contentType%2Did1"] = id
         return new i54b2a278961bde0a0be714ae6fb3bd7ddd15aa7c73e433bcd084a0a55fe530f4(urlTplParams, this.requestAdapter);
     };
     /**
@@ -72,7 +82,7 @@ export class ContentTypeItemRequestBuilder {
     public columnLinksById(id: string) : ColumnLinkItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnLink_id"] = id
+        urlTplParams["columnLink%2Did"] = id
         return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -83,7 +93,7 @@ export class ContentTypeItemRequestBuilder {
     public columnPositionsById(id: string) : if8ea631730cd591b1d1d9b9e0baedb942390cb79079f8cbef3af81b1f9419a5d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition_id"] = id
+        urlTplParams["columnDefinition%2Did"] = id
         return new if8ea631730cd591b1d1d9b9e0baedb942390cb79079f8cbef3af81b1f9419a5d(urlTplParams, this.requestAdapter);
     };
     /**
@@ -94,7 +104,7 @@ export class ContentTypeItemRequestBuilder {
     public columnsById(id: string) : i89df89f7798ebcf7eebdc380f3dab219ad4342e61faa20171ff6a0bac33fc9fe {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["columnDefinition_id"] = id
+        urlTplParams["columnDefinition%2Did"] = id
         return new i89df89f7798ebcf7eebdc380f3dab219ad4342e61faa20171ff6a0bac33fc9fe(urlTplParams, this.requestAdapter);
     };
     /**
@@ -105,73 +115,70 @@ export class ContentTypeItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/sites/{site_id}/lists/{list_id}/contentTypes/{contentType_id}{?select,expand}";
+        this.urlTemplate = "{+baseurl}/sites/{site%2Did}/lists/{list%2Did}/contentTypes/{contentType%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
     };
     /**
      * Delete navigation property contentTypes for sites
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * The collection of content types present in this list.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: ContentTypeItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update the navigation property contentTypes in sites
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ContentType | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ContentType | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property contentTypes for sites
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -181,18 +188,15 @@ export class ContentTypeItemRequestBuilder {
     };
     /**
      * The collection of content types present in this list.
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public get(queryParameters?: ContentTypeItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -210,14 +214,14 @@ export class ContentTypeItemRequestBuilder {
     /**
      * Update the navigation property contentTypes in sites
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ContentType | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ContentType | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

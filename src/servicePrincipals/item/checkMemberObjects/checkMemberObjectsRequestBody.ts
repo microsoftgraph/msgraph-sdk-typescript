@@ -4,6 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CheckMemberObjectsRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The ids property  */
     private _ids?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -27,22 +28,22 @@ export class CheckMemberObjectsRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "ids": (o, n) => { (o as unknown as CheckMemberObjectsRequestBody).ids = n.getCollectionOfPrimitiveValues<string>(); },
+            "ids": n => { this.ids = n.getCollectionOfPrimitiveValues<string>(); },
         };
     };
     /**
-     * Gets the ids property value. 
+     * Gets the ids property value. The ids property
      * @returns a string
      */
     public get ids() {
         return this._ids;
     };
     /**
-     * Sets the ids property value. 
+     * Sets the ids property value. The ids property
      * @param value Value to set for the ids property.
      */
     public set ids(value: string[] | undefined) {

@@ -1,12 +1,14 @@
-import {InvitationParticipantInfo} from '../../../../../models/microsoft/graph/';
-import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../../models/microsoft/graph/createInvitationParticipantInfoFromDiscriminatorValue';
+import {InvitationParticipantInfo} from '../../../../../models/';
+import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../../models/createInvitationParticipantInfoFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the invite method.  */
 export class InviteRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The clientContext property  */
     private _clientContext?: string | undefined;
+    /** The participants property  */
     private _participants?: InvitationParticipantInfo[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -23,14 +25,14 @@ export class InviteRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the clientContext property value. 
+     * Gets the clientContext property value. The clientContext property
      * @returns a string
      */
     public get clientContext() {
         return this._clientContext;
     };
     /**
-     * Sets the clientContext property value. 
+     * Sets the clientContext property value. The clientContext property
      * @param value Value to set for the clientContext property.
      */
     public set clientContext(value: string | undefined) {
@@ -44,23 +46,23 @@ export class InviteRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "clientContext": (o, n) => { (o as unknown as InviteRequestBody).clientContext = n.getStringValue(); },
-            "participants": (o, n) => { (o as unknown as InviteRequestBody).participants = n.getCollectionOfObjectValues<InvitationParticipantInfo>(createInvitationParticipantInfoFromDiscriminatorValue); },
+            "clientContext": n => { this.clientContext = n.getStringValue(); },
+            "participants": n => { this.participants = n.getCollectionOfObjectValues<InvitationParticipantInfo>(createInvitationParticipantInfoFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the participants property value. 
+     * Gets the participants property value. The participants property
      * @returns a invitationParticipantInfo
      */
     public get participants() {
         return this._participants;
     };
     /**
-     * Sets the participants property value. 
+     * Sets the participants property value. The participants property
      * @param value Value to set for the participants property.
      */
     public set participants(value: InvitationParticipantInfo[] | undefined) {

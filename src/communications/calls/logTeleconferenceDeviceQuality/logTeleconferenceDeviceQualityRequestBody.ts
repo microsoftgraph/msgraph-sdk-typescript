@@ -1,11 +1,12 @@
-import {TeleconferenceDeviceQuality} from '../../../models/microsoft/graph/';
-import {createTeleconferenceDeviceQualityFromDiscriminatorValue} from '../../../models/microsoft/graph/createTeleconferenceDeviceQualityFromDiscriminatorValue';
+import {TeleconferenceDeviceQuality} from '../../../models/';
+import {createTeleconferenceDeviceQualityFromDiscriminatorValue} from '../../../models/createTeleconferenceDeviceQualityFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the logTeleconferenceDeviceQuality method.  */
 export class LogTeleconferenceDeviceQualityRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The quality property  */
     private _quality?: TeleconferenceDeviceQuality | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class LogTeleconferenceDeviceQualityRequestBody implements AdditionalData
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "quality": (o, n) => { (o as unknown as LogTeleconferenceDeviceQualityRequestBody).quality = n.getObjectValue<TeleconferenceDeviceQuality>(createTeleconferenceDeviceQualityFromDiscriminatorValue); },
+            "quality": n => { this.quality = n.getObjectValue<TeleconferenceDeviceQuality>(createTeleconferenceDeviceQualityFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the quality property value. 
+     * Gets the quality property value. The quality property
      * @returns a teleconferenceDeviceQuality
      */
     public get quality() {
         return this._quality;
     };
     /**
-     * Sets the quality property value. 
+     * Sets the quality property value. The quality property
      * @param value Value to set for the quality property.
      */
     public set quality(value: TeleconferenceDeviceQuality | undefined) {

@@ -3,6 +3,7 @@ import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
 /** Builds and executes requests for operations under /users/{user-id}/messages/{message-id}/microsoft.graph.calendarSharingMessage  */
 export class CalendarSharingMessageRequestBuilder {
+    /** The accept property  */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -20,7 +21,7 @@ export class CalendarSharingMessageRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/users/{user_id}/messages/{message_id}/microsoft.graph.calendarSharingMessage";
+        this.urlTemplate = "{+baseurl}/users/{user%2Did}/messages/{message%2Did}/microsoft.graph.calendarSharingMessage";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;

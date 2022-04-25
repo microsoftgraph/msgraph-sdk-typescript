@@ -4,9 +4,13 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class CopyToSectionRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The groupId property  */
     private _groupId?: string | undefined;
+    /** The id property  */
     private _id?: string | undefined;
+    /** The siteCollectionId property  */
     private _siteCollectionId?: string | undefined;
+    /** The siteId property  */
     private _siteId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,39 +34,39 @@ export class CopyToSectionRequestBody implements AdditionalDataHolder, Parsable 
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "groupId": (o, n) => { (o as unknown as CopyToSectionRequestBody).groupId = n.getStringValue(); },
-            "id": (o, n) => { (o as unknown as CopyToSectionRequestBody).id = n.getStringValue(); },
-            "siteCollectionId": (o, n) => { (o as unknown as CopyToSectionRequestBody).siteCollectionId = n.getStringValue(); },
-            "siteId": (o, n) => { (o as unknown as CopyToSectionRequestBody).siteId = n.getStringValue(); },
+            "groupId": n => { this.groupId = n.getStringValue(); },
+            "id": n => { this.id = n.getStringValue(); },
+            "siteCollectionId": n => { this.siteCollectionId = n.getStringValue(); },
+            "siteId": n => { this.siteId = n.getStringValue(); },
         };
     };
     /**
-     * Gets the groupId property value. 
+     * Gets the groupId property value. The groupId property
      * @returns a string
      */
     public get groupId() {
         return this._groupId;
     };
     /**
-     * Sets the groupId property value. 
+     * Sets the groupId property value. The groupId property
      * @param value Value to set for the groupId property.
      */
     public set groupId(value: string | undefined) {
         this._groupId = value;
     };
     /**
-     * Gets the id property value. 
+     * Gets the id property value. The id property
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. 
+     * Sets the id property value. The id property
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {
@@ -81,28 +85,28 @@ export class CopyToSectionRequestBody implements AdditionalDataHolder, Parsable 
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the siteCollectionId property value. 
+     * Gets the siteCollectionId property value. The siteCollectionId property
      * @returns a string
      */
     public get siteCollectionId() {
         return this._siteCollectionId;
     };
     /**
-     * Sets the siteCollectionId property value. 
+     * Sets the siteCollectionId property value. The siteCollectionId property
      * @param value Value to set for the siteCollectionId property.
      */
     public set siteCollectionId(value: string | undefined) {
         this._siteCollectionId = value;
     };
     /**
-     * Gets the siteId property value. 
+     * Gets the siteId property value. The siteId property
      * @returns a string
      */
     public get siteId() {
         return this._siteId;
     };
     /**
-     * Sets the siteId property value. 
+     * Sets the siteId property value. The siteId property
      * @param value Value to set for the siteId property.
      */
     public set siteId(value: string | undefined) {

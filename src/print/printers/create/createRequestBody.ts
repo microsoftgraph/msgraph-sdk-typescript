@@ -1,17 +1,24 @@
-import {PrintCertificateSigningRequest} from '../../../models/microsoft/graph/';
-import {createPrintCertificateSigningRequestFromDiscriminatorValue} from '../../../models/microsoft/graph/createPrintCertificateSigningRequestFromDiscriminatorValue';
+import {PrintCertificateSigningRequest} from '../../../models/';
+import {createPrintCertificateSigningRequestFromDiscriminatorValue} from '../../../models/createPrintCertificateSigningRequestFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the create method.  */
 export class CreateRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The certificateSigningRequest property  */
     private _certificateSigningRequest?: PrintCertificateSigningRequest | undefined;
+    /** The connectorId property  */
     private _connectorId?: string | undefined;
+    /** The displayName property  */
     private _displayName?: string | undefined;
+    /** The hasPhysicalDevice property  */
     private _hasPhysicalDevice?: boolean | undefined;
+    /** The manufacturer property  */
     private _manufacturer?: string | undefined;
+    /** The model property  */
     private _model?: string | undefined;
+    /** The physicalDeviceId property  */
     private _physicalDeviceId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,28 +35,28 @@ export class CreateRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the certificateSigningRequest property value. 
+     * Gets the certificateSigningRequest property value. The certificateSigningRequest property
      * @returns a printCertificateSigningRequest
      */
     public get certificateSigningRequest() {
         return this._certificateSigningRequest;
     };
     /**
-     * Sets the certificateSigningRequest property value. 
+     * Sets the certificateSigningRequest property value. The certificateSigningRequest property
      * @param value Value to set for the certificateSigningRequest property.
      */
     public set certificateSigningRequest(value: PrintCertificateSigningRequest | undefined) {
         this._certificateSigningRequest = value;
     };
     /**
-     * Gets the connectorId property value. 
+     * Gets the connectorId property value. The connectorId property
      * @returns a string
      */
     public get connectorId() {
         return this._connectorId;
     };
     /**
-     * Sets the connectorId property value. 
+     * Sets the connectorId property value. The connectorId property
      * @param value Value to set for the connectorId property.
      */
     public set connectorId(value: string | undefined) {
@@ -62,14 +69,14 @@ export class CreateRequestBody implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. 
+     * Gets the displayName property value. The displayName property
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. 
+     * Sets the displayName property value. The displayName property
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -77,70 +84,70 @@ export class CreateRequestBody implements AdditionalDataHolder, Parsable {
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "certificateSigningRequest": (o, n) => { (o as unknown as CreateRequestBody).certificateSigningRequest = n.getObjectValue<PrintCertificateSigningRequest>(createPrintCertificateSigningRequestFromDiscriminatorValue); },
-            "connectorId": (o, n) => { (o as unknown as CreateRequestBody).connectorId = n.getStringValue(); },
-            "displayName": (o, n) => { (o as unknown as CreateRequestBody).displayName = n.getStringValue(); },
-            "hasPhysicalDevice": (o, n) => { (o as unknown as CreateRequestBody).hasPhysicalDevice = n.getBooleanValue(); },
-            "manufacturer": (o, n) => { (o as unknown as CreateRequestBody).manufacturer = n.getStringValue(); },
-            "model": (o, n) => { (o as unknown as CreateRequestBody).model = n.getStringValue(); },
-            "physicalDeviceId": (o, n) => { (o as unknown as CreateRequestBody).physicalDeviceId = n.getStringValue(); },
+            "certificateSigningRequest": n => { this.certificateSigningRequest = n.getObjectValue<PrintCertificateSigningRequest>(createPrintCertificateSigningRequestFromDiscriminatorValue); },
+            "connectorId": n => { this.connectorId = n.getStringValue(); },
+            "displayName": n => { this.displayName = n.getStringValue(); },
+            "hasPhysicalDevice": n => { this.hasPhysicalDevice = n.getBooleanValue(); },
+            "manufacturer": n => { this.manufacturer = n.getStringValue(); },
+            "model": n => { this.model = n.getStringValue(); },
+            "physicalDeviceId": n => { this.physicalDeviceId = n.getStringValue(); },
         };
     };
     /**
-     * Gets the hasPhysicalDevice property value. 
+     * Gets the hasPhysicalDevice property value. The hasPhysicalDevice property
      * @returns a boolean
      */
     public get hasPhysicalDevice() {
         return this._hasPhysicalDevice;
     };
     /**
-     * Sets the hasPhysicalDevice property value. 
+     * Sets the hasPhysicalDevice property value. The hasPhysicalDevice property
      * @param value Value to set for the hasPhysicalDevice property.
      */
     public set hasPhysicalDevice(value: boolean | undefined) {
         this._hasPhysicalDevice = value;
     };
     /**
-     * Gets the manufacturer property value. 
+     * Gets the manufacturer property value. The manufacturer property
      * @returns a string
      */
     public get manufacturer() {
         return this._manufacturer;
     };
     /**
-     * Sets the manufacturer property value. 
+     * Sets the manufacturer property value. The manufacturer property
      * @param value Value to set for the manufacturer property.
      */
     public set manufacturer(value: string | undefined) {
         this._manufacturer = value;
     };
     /**
-     * Gets the model property value. 
+     * Gets the model property value. The model property
      * @returns a string
      */
     public get model() {
         return this._model;
     };
     /**
-     * Sets the model property value. 
+     * Sets the model property value. The model property
      * @param value Value to set for the model property.
      */
     public set model(value: string | undefined) {
         this._model = value;
     };
     /**
-     * Gets the physicalDeviceId property value. 
+     * Gets the physicalDeviceId property value. The physicalDeviceId property
      * @returns a string
      */
     public get physicalDeviceId() {
         return this._physicalDeviceId;
     };
     /**
-     * Sets the physicalDeviceId property value. 
+     * Sets the physicalDeviceId property value. The physicalDeviceId property
      * @param value Value to set for the physicalDeviceId property.
      */
     public set physicalDeviceId(value: string | undefined) {

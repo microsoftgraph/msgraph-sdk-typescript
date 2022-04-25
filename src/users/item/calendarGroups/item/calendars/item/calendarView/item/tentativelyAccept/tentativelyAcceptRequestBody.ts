@@ -1,13 +1,16 @@
-import {TimeSlot} from '../../../../../../../../../models/microsoft/graph/';
-import {createTimeSlotFromDiscriminatorValue} from '../../../../../../../../../models/microsoft/graph/createTimeSlotFromDiscriminatorValue';
+import {TimeSlot} from '../../../../../../../../../models/';
+import {createTimeSlotFromDiscriminatorValue} from '../../../../../../../../../models/createTimeSlotFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the tentativelyAccept method.  */
 export class TentativelyAcceptRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The Comment property  */
     private _comment?: string | undefined;
+    /** The ProposedNewTime property  */
     private _proposedNewTime?: TimeSlot | undefined;
+    /** The SendResponse property  */
     private _sendResponse?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -24,14 +27,14 @@ export class TentativelyAcceptRequestBody implements AdditionalDataHolder, Parsa
         this._additionalData = value;
     };
     /**
-     * Gets the comment property value. 
+     * Gets the comment property value. The Comment property
      * @returns a string
      */
     public get comment() {
         return this._comment;
     };
     /**
-     * Sets the comment property value. 
+     * Sets the comment property value. The Comment property
      * @param value Value to set for the Comment property.
      */
     public set comment(value: string | undefined) {
@@ -45,38 +48,38 @@ export class TentativelyAcceptRequestBody implements AdditionalDataHolder, Parsa
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "comment": (o, n) => { (o as unknown as TentativelyAcceptRequestBody).comment = n.getStringValue(); },
-            "proposedNewTime": (o, n) => { (o as unknown as TentativelyAcceptRequestBody).proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
-            "sendResponse": (o, n) => { (o as unknown as TentativelyAcceptRequestBody).sendResponse = n.getBooleanValue(); },
+            "comment": n => { this.comment = n.getStringValue(); },
+            "proposedNewTime": n => { this.proposedNewTime = n.getObjectValue<TimeSlot>(createTimeSlotFromDiscriminatorValue); },
+            "sendResponse": n => { this.sendResponse = n.getBooleanValue(); },
         };
     };
     /**
-     * Gets the proposedNewTime property value. 
+     * Gets the proposedNewTime property value. The ProposedNewTime property
      * @returns a timeSlot
      */
     public get proposedNewTime() {
         return this._proposedNewTime;
     };
     /**
-     * Sets the proposedNewTime property value. 
+     * Sets the proposedNewTime property value. The ProposedNewTime property
      * @param value Value to set for the ProposedNewTime property.
      */
     public set proposedNewTime(value: TimeSlot | undefined) {
         this._proposedNewTime = value;
     };
     /**
-     * Gets the sendResponse property value. 
+     * Gets the sendResponse property value. The SendResponse property
      * @returns a boolean
      */
     public get sendResponse() {
         return this._sendResponse;
     };
     /**
-     * Sets the sendResponse property value. 
+     * Sets the sendResponse property value. The SendResponse property
      * @param value Value to set for the SendResponse property.
      */
     public set sendResponse(value: boolean | undefined) {

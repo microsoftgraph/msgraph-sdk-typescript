@@ -1,11 +1,12 @@
-import {DateTimeTimeZone} from '../../../../../../../../../../models/microsoft/graph/';
-import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../../../../../../../models/microsoft/graph/createDateTimeTimeZoneFromDiscriminatorValue';
+import {DateTimeTimeZone} from '../../../../../../../../../../models/';
+import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../../../../../../../models/createDateTimeTimeZoneFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the snoozeReminder method.  */
 export class SnoozeReminderRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The NewReminderTime property  */
     private _newReminderTime?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class SnoozeReminderRequestBody implements AdditionalDataHolder, Parsable
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "newReminderTime": (o, n) => { (o as unknown as SnoozeReminderRequestBody).newReminderTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
+            "newReminderTime": n => { this.newReminderTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the newReminderTime property value. 
+     * Gets the newReminderTime property value. The NewReminderTime property
      * @returns a dateTimeTimeZone
      */
     public get newReminderTime() {
         return this._newReminderTime;
     };
     /**
-     * Sets the newReminderTime property value. 
+     * Sets the newReminderTime property value. The NewReminderTime property
      * @param value Value to set for the NewReminderTime property.
      */
     public set newReminderTime(value: DateTimeTimeZone | undefined) {

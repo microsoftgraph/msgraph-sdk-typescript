@@ -1,7 +1,7 @@
-import {Group} from '../../models/microsoft/graph/';
-import {createGroupFromDiscriminatorValue} from '../../models/microsoft/graph/createGroupFromDiscriminatorValue';
-import {ODataError} from '../../models/microsoft/graph/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../models/microsoft/graph/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Group} from '../../models/';
+import {createGroupFromDiscriminatorValue} from '../../models/createGroupFromDiscriminatorValue';
+import {ODataError} from '../../models/oDataErrors/';
+import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AcceptedSendersRequestBuilder} from './acceptedSenders/acceptedSendersRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i2d2291fa1472e06653091837ff4c99f773a20578529c8484145f25f3f99fa62d} from './acceptedSenders/item/directoryObjectItemRequestBuilder';
 import {AddFavoriteRequestBuilder} from './addFavorite/addFavoriteRequestBuilder';
@@ -26,6 +26,7 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
+import {GroupItemRequestBuilderGetQueryParameters} from './groupItemRequestBuilderGetQueryParameters';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
 import {GroupLifecyclePolicyItemRequestBuilder} from './groupLifecyclePolicies/item/groupLifecyclePolicyItemRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i9e38ae949436d072a9f7fc1785bf9bf05fccf7dfa8c73ee8ac79966c36d19510} from './memberOf/item/directoryObjectItemRequestBuilder';
@@ -67,132 +68,173 @@ import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter
 
 /** Provides operations to manage the collection of group entities.  */
 export class GroupItemRequestBuilder {
+    /** The acceptedSenders property  */
     public get acceptedSenders(): AcceptedSendersRequestBuilder {
         return new AcceptedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The addFavorite property  */
     public get addFavorite(): AddFavoriteRequestBuilder {
         return new AddFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The appRoleAssignments property  */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The assignLicense property  */
     public get assignLicense(): AssignLicenseRequestBuilder {
         return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendar property  */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The calendarView property  */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkGrantedPermissionsForApp property  */
     public get checkGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
         return new CheckGrantedPermissionsForAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberGroups property  */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The checkMemberObjects property  */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The conversations property  */
     public get conversations(): ConversationsRequestBuilder {
         return new ConversationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The createdOnBehalfOf property  */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The drive property  */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The drives property  */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The events property  */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The extensions property  */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMemberGroups property  */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The getMemberObjects property  */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The groupLifecyclePolicies property  */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The memberOf property  */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The members property  */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The membersWithLicenseErrors property  */
     public get membersWithLicenseErrors(): MembersWithLicenseErrorsRequestBuilder {
         return new MembersWithLicenseErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The onenote property  */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The owners property  */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
+    /** The permissionGrants property  */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The photo property  */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The photos property  */
     public get photos(): PhotosRequestBuilder {
         return new PhotosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The planner property  */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The rejectedSenders property  */
     public get rejectedSenders(): RejectedSendersRequestBuilder {
         return new RejectedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The removeFavorite property  */
     public get removeFavorite(): RemoveFavoriteRequestBuilder {
         return new RemoveFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The renew property  */
     public get renew(): RenewRequestBuilder {
         return new RenewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The request adapter to use to execute the requests.  */
     private readonly requestAdapter: RequestAdapter;
+    /** The resetUnseenCount property  */
     public get resetUnseenCount(): ResetUnseenCountRequestBuilder {
         return new ResetUnseenCountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The restore property  */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The settings property  */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The sites property  */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The subscribeByMail property  */
     public get subscribeByMail(): SubscribeByMailRequestBuilder {
         return new SubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The team property  */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The threads property  */
     public get threads(): ThreadsRequestBuilder {
         return new ThreadsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The transitiveMemberOf property  */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The transitiveMembers property  */
     public get transitiveMembers(): TransitiveMembersRequestBuilder {
         return new TransitiveMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
+    /** The unsubscribeByMail property  */
     public get unsubscribeByMail(): UnsubscribeByMailRequestBuilder {
         return new UnsubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
+    /** The validateProperties property  */
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -204,7 +246,7 @@ export class GroupItemRequestBuilder {
     public acceptedSendersById(id: string) : i2d2291fa1472e06653091837ff4c99f773a20578529c8484145f25f3f99fa62d {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i2d2291fa1472e06653091837ff4c99f773a20578529c8484145f25f3f99fa62d(urlTplParams, this.requestAdapter);
     };
     /**
@@ -215,7 +257,7 @@ export class GroupItemRequestBuilder {
     public appRoleAssignmentsById(id: string) : AppRoleAssignmentItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["appRoleAssignment_id"] = id
+        urlTplParams["appRoleAssignment%2Did"] = id
         return new AppRoleAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -226,7 +268,7 @@ export class GroupItemRequestBuilder {
     public calendarViewById(id: string) : ic81e3fb81c60b007708708dc63032c19cab3ea8bcb0c173d143f627e74d5f795 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event_id"] = id
+        urlTplParams["event%2Did"] = id
         return new ic81e3fb81c60b007708708dc63032c19cab3ea8bcb0c173d143f627e74d5f795(urlTplParams, this.requestAdapter);
     };
     /**
@@ -237,7 +279,7 @@ export class GroupItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group_id}{?select,expand}";
+        this.urlTemplate = "{+baseurl}/groups/{group%2Did}{?%24select,%24expand}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
@@ -250,71 +292,68 @@ export class GroupItemRequestBuilder {
     public conversationsById(id: string) : ConversationItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversation_id"] = id
+        urlTplParams["conversation%2Did"] = id
         return new ConversationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Delete entity from groups
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(h) requestInfo.headers = h;
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Get entity from groups by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(queryParameters?: GroupItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(h) requestInfo.headers = h;
-        q && requestInfo.setQueryStringParametersFromRawObject(q);
-        o && requestInfo.addRequestOptions(...o);
+        if(headers) requestInfo.headers = headers;
+        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Update entity in groups
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Group | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Group | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(h) requestInfo.headers = h;
+        if(headers) requestInfo.headers = headers;
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        o && requestInfo.addRequestOptions(...o);
+        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete entity from groups
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            h, o
+            headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -330,7 +369,7 @@ export class GroupItemRequestBuilder {
     public drivesById(id: string) : DriveItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["drive_id"] = id
+        urlTplParams["drive%2Did"] = id
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -341,7 +380,7 @@ export class GroupItemRequestBuilder {
     public eventsById(id: string) : ic332bea5dacfbb195207b8d9df65c9c72465a00d316daf7f09d4ce7f76366ef3 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["event_id"] = id
+        urlTplParams["event%2Did"] = id
         return new ic332bea5dacfbb195207b8d9df65c9c72465a00d316daf7f09d4ce7f76366ef3(urlTplParams, this.requestAdapter);
     };
     /**
@@ -352,23 +391,20 @@ export class GroupItemRequestBuilder {
     public extensionsById(id: string) : ExtensionItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["extension_id"] = id
+        urlTplParams["extension%2Did"] = id
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Get entity from groups by key
-     * @param h Request headers
-     * @param o Request options
-     * @param q Request query parameters
+     * @param headers Request headers
+     * @param options Request options
+     * @param queryParameters Request query parameters
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
      */
-    public get(q?: {
-                    expand?: string[],
-                    select?: string[]
-                    } | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
+    public get(queryParameters?: GroupItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            q, h, o
+            queryParameters, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -384,7 +420,7 @@ export class GroupItemRequestBuilder {
     public groupLifecyclePoliciesById(id: string) : GroupLifecyclePolicyItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["groupLifecyclePolicy_id"] = id
+        urlTplParams["groupLifecyclePolicy%2Did"] = id
         return new GroupLifecyclePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -395,7 +431,7 @@ export class GroupItemRequestBuilder {
     public memberOfById(id: string) : i9e38ae949436d072a9f7fc1785bf9bf05fccf7dfa8c73ee8ac79966c36d19510 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i9e38ae949436d072a9f7fc1785bf9bf05fccf7dfa8c73ee8ac79966c36d19510(urlTplParams, this.requestAdapter);
     };
     /**
@@ -406,7 +442,7 @@ export class GroupItemRequestBuilder {
     public membersById(id: string) : id89adff530affa64ac89efb08fe2c868731227b159b4f8e655232b913b619492 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new id89adff530affa64ac89efb08fe2c868731227b159b4f8e655232b913b619492(urlTplParams, this.requestAdapter);
     };
     /**
@@ -417,7 +453,7 @@ export class GroupItemRequestBuilder {
     public membersWithLicenseErrorsById(id: string) : i6a898678a095191d7fdc99dbbc4e703f571fca1f8153fbc048f3356542279b97 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i6a898678a095191d7fdc99dbbc4e703f571fca1f8153fbc048f3356542279b97(urlTplParams, this.requestAdapter);
     };
     /**
@@ -428,20 +464,20 @@ export class GroupItemRequestBuilder {
     public ownersById(id: string) : i068a4645e53dd8ebc8e7025a71b39fe15b815ee1dd7818eba367d792e25da077 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i068a4645e53dd8ebc8e7025a71b39fe15b815ee1dd7818eba367d792e25da077(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in groups
      * @param body 
-     * @param h Request headers
-     * @param o Request options
+     * @param headers Request headers
+     * @param options Request options
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Group | undefined, h?: Record<string, string> | undefined, o?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Group | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, h, o
+            body, headers, options
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -457,7 +493,7 @@ export class GroupItemRequestBuilder {
     public permissionGrantsById(id: string) : ResourceSpecificPermissionGrantItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["resourceSpecificPermissionGrant_id"] = id
+        urlTplParams["resourceSpecificPermissionGrant%2Did"] = id
         return new ResourceSpecificPermissionGrantItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -468,7 +504,7 @@ export class GroupItemRequestBuilder {
     public photosById(id: string) : ProfilePhotoItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["profilePhoto_id"] = id
+        urlTplParams["profilePhoto%2Did"] = id
         return new ProfilePhotoItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -479,7 +515,7 @@ export class GroupItemRequestBuilder {
     public rejectedSendersById(id: string) : i1d520d329beb2bfb2a59aef316e596a4c38c1f35e2e9a6ec4b8238f25888e6bd {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i1d520d329beb2bfb2a59aef316e596a4c38c1f35e2e9a6ec4b8238f25888e6bd(urlTplParams, this.requestAdapter);
     };
     /**
@@ -490,7 +526,7 @@ export class GroupItemRequestBuilder {
     public settingsById(id: string) : GroupSettingItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["groupSetting_id"] = id
+        urlTplParams["groupSetting%2Did"] = id
         return new GroupSettingItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -501,7 +537,7 @@ export class GroupItemRequestBuilder {
     public sitesById(id: string) : SiteItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["site_id"] = id
+        urlTplParams["site%2Did"] = id
         return new SiteItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -512,7 +548,7 @@ export class GroupItemRequestBuilder {
     public threadsById(id: string) : ConversationThreadItemRequestBuilder {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["conversationThread_id"] = id
+        urlTplParams["conversationThread%2Did"] = id
         return new ConversationThreadItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
@@ -523,7 +559,7 @@ export class GroupItemRequestBuilder {
     public transitiveMemberOfById(id: string) : ia91115a5c48764d661fd5932145079299501a963f3810454d90fe7d9fdb7cc40 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new ia91115a5c48764d661fd5932145079299501a963f3810454d90fe7d9fdb7cc40(urlTplParams, this.requestAdapter);
     };
     /**
@@ -534,7 +570,7 @@ export class GroupItemRequestBuilder {
     public transitiveMembersById(id: string) : i00c0dcaf5f0aa8b9700ceaeecc2864c2d2a9f2acec7295833c9ae0304082b438 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
-        urlTplParams["directoryObject_id"] = id
+        urlTplParams["directoryObject%2Did"] = id
         return new i00c0dcaf5f0aa8b9700ceaeecc2864c2d2a9f2acec7295833c9ae0304082b438(urlTplParams, this.requestAdapter);
     };
 }

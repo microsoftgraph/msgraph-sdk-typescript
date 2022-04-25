@@ -4,7 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AssignUserToDeviceRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The addressableUserName property  */
     private _addressableUserName?: string | undefined;
+    /** The userPrincipalName property  */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -21,14 +23,14 @@ export class AssignUserToDeviceRequestBody implements AdditionalDataHolder, Pars
         this._additionalData = value;
     };
     /**
-     * Gets the addressableUserName property value. 
+     * Gets the addressableUserName property value. The addressableUserName property
      * @returns a string
      */
     public get addressableUserName() {
         return this._addressableUserName;
     };
     /**
-     * Sets the addressableUserName property value. 
+     * Sets the addressableUserName property value. The addressableUserName property
      * @param value Value to set for the addressableUserName property.
      */
     public set addressableUserName(value: string | undefined) {
@@ -42,12 +44,12 @@ export class AssignUserToDeviceRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "addressableUserName": (o, n) => { (o as unknown as AssignUserToDeviceRequestBody).addressableUserName = n.getStringValue(); },
-            "userPrincipalName": (o, n) => { (o as unknown as AssignUserToDeviceRequestBody).userPrincipalName = n.getStringValue(); },
+            "addressableUserName": n => { this.addressableUserName = n.getStringValue(); },
+            "userPrincipalName": n => { this.userPrincipalName = n.getStringValue(); },
         };
     };
     /**
@@ -61,14 +63,14 @@ export class AssignUserToDeviceRequestBody implements AdditionalDataHolder, Pars
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the userPrincipalName property value. 
+     * Gets the userPrincipalName property value. The userPrincipalName property
      * @returns a string
      */
     public get userPrincipalName() {
         return this._userPrincipalName;
     };
     /**
-     * Sets the userPrincipalName property value. 
+     * Sets the userPrincipalName property value. The userPrincipalName property
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {

@@ -1,12 +1,14 @@
-import {Prompt} from '../../../../../../models/microsoft/graph/';
-import {createPromptFromDiscriminatorValue} from '../../../../../../models/microsoft/graph/createPromptFromDiscriminatorValue';
+import {Prompt} from '../../../../../../models/';
+import {createPromptFromDiscriminatorValue} from '../../../../../../models/createPromptFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the startHoldMusic method.  */
 export class StartHoldMusicRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The clientContext property  */
     private _clientContext?: string | undefined;
+    /** The customPrompt property  */
     private _customPrompt?: Prompt | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -23,14 +25,14 @@ export class StartHoldMusicRequestBody implements AdditionalDataHolder, Parsable
         this._additionalData = value;
     };
     /**
-     * Gets the clientContext property value. 
+     * Gets the clientContext property value. The clientContext property
      * @returns a string
      */
     public get clientContext() {
         return this._clientContext;
     };
     /**
-     * Sets the clientContext property value. 
+     * Sets the clientContext property value. The clientContext property
      * @param value Value to set for the clientContext property.
      */
     public set clientContext(value: string | undefined) {
@@ -43,14 +45,14 @@ export class StartHoldMusicRequestBody implements AdditionalDataHolder, Parsable
         this._additionalData = {};
     };
     /**
-     * Gets the customPrompt property value. 
+     * Gets the customPrompt property value. The customPrompt property
      * @returns a prompt
      */
     public get customPrompt() {
         return this._customPrompt;
     };
     /**
-     * Sets the customPrompt property value. 
+     * Sets the customPrompt property value. The customPrompt property
      * @param value Value to set for the customPrompt property.
      */
     public set customPrompt(value: Prompt | undefined) {
@@ -58,12 +60,12 @@ export class StartHoldMusicRequestBody implements AdditionalDataHolder, Parsable
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "clientContext": (o, n) => { (o as unknown as StartHoldMusicRequestBody).clientContext = n.getStringValue(); },
-            "customPrompt": (o, n) => { (o as unknown as StartHoldMusicRequestBody).customPrompt = n.getObjectValue<Prompt>(createPromptFromDiscriminatorValue); },
+            "clientContext": n => { this.clientContext = n.getStringValue(); },
+            "customPrompt": n => { this.customPrompt = n.getObjectValue<Prompt>(createPromptFromDiscriminatorValue); },
         };
     };
     /**

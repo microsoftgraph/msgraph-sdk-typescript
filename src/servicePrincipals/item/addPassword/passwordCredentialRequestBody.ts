@@ -1,11 +1,12 @@
-import {PasswordCredential} from '../../../models/microsoft/graph/';
-import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/microsoft/graph/createPasswordCredentialFromDiscriminatorValue';
+import {PasswordCredential} from '../../../models/';
+import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addPassword method.  */
 export class PasswordCredentialRequestBody implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
+    /** The passwordCredential property  */
     private _passwordCredential?: PasswordCredential | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,22 +30,22 @@ export class PasswordCredentialRequestBody implements AdditionalDataHolder, Pars
     };
     /**
      * The deserialization information for the current model
-     * @returns a Record<string, (item: T, node: ParseNode) => void>
+     * @returns a Record<string, (node: ParseNode) => void>
      */
-    public getFieldDeserializers<T>() : Record<string, (item: T, node: ParseNode) => void> {
+    public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
-            "passwordCredential": (o, n) => { (o as unknown as PasswordCredentialRequestBody).passwordCredential = n.getObjectValue<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
+            "passwordCredential": n => { this.passwordCredential = n.getObjectValue<PasswordCredential>(createPasswordCredentialFromDiscriminatorValue); },
         };
     };
     /**
-     * Gets the passwordCredential property value. 
+     * Gets the passwordCredential property value. The passwordCredential property
      * @returns a passwordCredential
      */
     public get passwordCredential() {
         return this._passwordCredential;
     };
     /**
-     * Sets the passwordCredential property value. 
+     * Sets the passwordCredential property value. The passwordCredential property
      * @param value Value to set for the passwordCredential property.
      */
     public set passwordCredential(value: PasswordCredential | undefined) {
