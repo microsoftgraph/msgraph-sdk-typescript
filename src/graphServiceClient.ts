@@ -111,7 +111,7 @@ import {JsonParseNodeFactory, JsonSerializationWriterFactory} from '@microsoft/k
 import {TextParseNodeFactory, TextSerializationWriterFactory} from '@microsoft/kiota-serialization-text';
 
 /** The main entry point of the SDK, exposes the configuration and the fluent API.  */
-export class GraphBaseServiceClient {
+export class GraphServiceClient {
     /** The admin property  */
     public get admin(): AdminRequestBuilder {
         return new AdminRequestBuilder(this.pathParameters, this.requestAdapter);
@@ -479,7 +479,7 @@ export class GraphBaseServiceClient {
         return new ExternalConnectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Instantiates a new GraphBaseServiceClient and sets the default values.
+     * Instantiates a new GraphServiceClient and sets the default values.
      * @param requestAdapter The request adapter to use to execute the requests.
      */
     public constructor(requestAdapter: RequestAdapter) {
