@@ -17,6 +17,8 @@ import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListItemRequestBuilder} from './lists/item/listItemRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
+import {RichLongRunningOperationItemRequestBuilder} from './operations/item/richLongRunningOperationItemRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {PermissionItemRequestBuilder} from './permissions/item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
 import {SiteItemRequestBuilderGetQueryParameters} from './siteItemRequestBuilderGetQueryParameters';
@@ -64,6 +66,10 @@ export class SiteItemRequestBuilder {
     /** The onenote property  */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The operations property  */
+    public get operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -249,6 +255,17 @@ export class SiteItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["list%2Did"] = id
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.operations.item collection
+     * @param id Unique identifier of the item
+     * @returns a richLongRunningOperationItemRequestBuilder
+     */
+    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["richLongRunningOperation%2Did"] = id
+        return new RichLongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property sites in groups

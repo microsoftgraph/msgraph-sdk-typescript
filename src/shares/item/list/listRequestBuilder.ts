@@ -10,6 +10,8 @@ import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {ListItemItemRequestBuilder} from './items/item/listItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilderGetQueryParameters} from './listRequestBuilderGetQueryParameters';
+import {RichLongRunningOperationItemRequestBuilder} from './operations/item/richLongRunningOperationItemRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {SubscriptionItemRequestBuilder} from './subscriptions/item/subscriptionItemRequestBuilder';
 import {SubscriptionsRequestBuilder} from './subscriptions/subscriptionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -31,6 +33,10 @@ export class ListRequestBuilder {
     /** The items property  */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The operations property  */
+    public get operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -171,6 +177,17 @@ export class ListRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["listItem%2Did"] = id
         return new ListItemItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.shares.item.list.operations.item collection
+     * @param id Unique identifier of the item
+     * @returns a richLongRunningOperationItemRequestBuilder
+     */
+    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["richLongRunningOperation%2Did"] = id
+        return new RichLongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property list in shares

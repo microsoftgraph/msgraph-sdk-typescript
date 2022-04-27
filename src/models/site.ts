@@ -7,11 +7,12 @@ import {createListFromDiscriminatorValue} from './createListFromDiscriminatorVal
 import {createOnenoteFromDiscriminatorValue} from './createOnenoteFromDiscriminatorValue';
 import {createPermissionFromDiscriminatorValue} from './createPermissionFromDiscriminatorValue';
 import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDiscriminatorValue';
+import {createRichLongRunningOperationFromDiscriminatorValue} from './createRichLongRunningOperationFromDiscriminatorValue';
 import {createRootFromDiscriminatorValue} from './createRootFromDiscriminatorValue';
 import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
 import {createSiteCollectionFromDiscriminatorValue} from './createSiteCollectionFromDiscriminatorValue';
 import {createSiteFromDiscriminatorValue} from './createSiteFromDiscriminatorValue';
-import {BaseItem, ColumnDefinition, ContentType, Drive, ItemAnalytics, List, Onenote, Permission, PublicError, Root, SharepointIds, SiteCollection} from './index';
+import {BaseItem, ColumnDefinition, ContentType, Drive, ItemAnalytics, List, Onenote, Permission, PublicError, RichLongRunningOperation, Root, SharepointIds, SiteCollection} from './index';
 import {Store} from './termStore/';
 import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDiscriminatorValue';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
@@ -39,6 +40,8 @@ export class Site extends BaseItem implements Parsable {
     private _lists?: List[] | undefined;
     /** Calls the OneNote service for notebook related operations.  */
     private _onenote?: Onenote | undefined;
+    /** The collection of long running operations for the site.  */
+    private _operations?: RichLongRunningOperation[] | undefined;
     /** The permissions associated with the site. Nullable.  */
     private _permissions?: Permission[] | undefined;
     /** If present, indicates that this is the root site in the site collection. Read-only.  */
@@ -188,6 +191,7 @@ export class Site extends BaseItem implements Parsable {
             "items": n => { this.items = n.getCollectionOfObjectValues<BaseItem>(createBaseItemFromDiscriminatorValue); },
             "lists": n => { this.lists = n.getCollectionOfObjectValues<List>(createListFromDiscriminatorValue); },
             "onenote": n => { this.onenote = n.getObjectValue<Onenote>(createOnenoteFromDiscriminatorValue); },
+            "operations": n => { this.operations = n.getCollectionOfObjectValues<RichLongRunningOperation>(createRichLongRunningOperationFromDiscriminatorValue); },
             "permissions": n => { this.permissions = n.getCollectionOfObjectValues<Permission>(createPermissionFromDiscriminatorValue); },
             "root": n => { this.root = n.getObjectValue<Root>(createRootFromDiscriminatorValue); },
             "sharepointIds": n => { this.sharepointIds = n.getObjectValue<SharepointIds>(createSharepointIdsFromDiscriminatorValue); },
@@ -240,6 +244,20 @@ export class Site extends BaseItem implements Parsable {
         this._onenote = value;
     };
     /**
+     * Gets the operations property value. The collection of long running operations for the site.
+     * @returns a richLongRunningOperation
+     */
+    public get operations() {
+        return this._operations;
+    };
+    /**
+     * Sets the operations property value. The collection of long running operations for the site.
+     * @param value Value to set for the operations property.
+     */
+    public set operations(value: RichLongRunningOperation[] | undefined) {
+        this._operations = value;
+    };
+    /**
      * Gets the permissions property value. The permissions associated with the site. Nullable.
      * @returns a permission
      */
@@ -285,6 +303,7 @@ export class Site extends BaseItem implements Parsable {
         writer.writeCollectionOfObjectValues<BaseItem>("items", this.items);
         writer.writeCollectionOfObjectValues<List>("lists", this.lists);
         writer.writeObjectValue<Onenote>("onenote", this.onenote);
+        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", this.operations);
         writer.writeCollectionOfObjectValues<Permission>("permissions", this.permissions);
         writer.writeObjectValue<Root>("root", this.root);
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);
