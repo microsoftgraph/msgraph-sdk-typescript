@@ -6,9 +6,9 @@
     "types": "lib/src/graphclient/index.d.ts",
     "dependencies": {
         "@microsoft/kiota-abstractions": "1.0.0-preview.3",
-        "@microsoft/kiota-http-fetchlibrary": "1.0.0-preview.4",
-        "@microsoft/kiota-serialization-json": "1.0.0-preview.4",
-        "@microsoft/kiota-serialization-text": "1.0.0-preview.3",
+        "@microsoft/kiota-http-fetchlibrary": "1.0.0-preview.3",
+        "@microsoft/kiota-serialization-json": "1.0.0-preview.3",
+        "@microsoft/kiota-serialization-text": "1.0.0-preview.2",
         "@microsoft/microsoft-graph-client": "4.0.0-Preview.1",
         "tslib": "^2.3.1"
     },
