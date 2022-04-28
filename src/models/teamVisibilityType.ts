@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Provides operations to manage the collection of group entities.  */
 export enum TeamVisibilityType {
     Private = "private",
     Public = "public",

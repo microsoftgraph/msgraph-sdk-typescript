@@ -1,6 +1,5 @@
-import {Site, SiteCollectionResponse} from '../models/';
+import {SiteCollectionResponse} from '../models/';
 import {createSiteCollectionResponseFromDiscriminatorValue} from '../models/createSiteCollectionResponseFromDiscriminatorValue';
-import {createSiteFromDiscriminatorValue} from '../models/createSiteFromDiscriminatorValue';
 import {ODataError} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddRequestBuilder} from './add/addRequestBuilder';
@@ -60,24 +59,6 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to sites
-     * @param body 
-     * @param headers Request headers
-     * @param options Request options
-     * @returns a RequestInformation
-     */
-    public createPostRequestInformation(body: Site | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
-        return requestInfo;
-    };
-    /**
      * Get entities from sites
      * @param headers Request headers
      * @param options Request options
@@ -94,24 +75,5 @@ export class SitesRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<SiteCollectionResponse>(requestInfo, createSiteCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
-    };
-    /**
-     * Add new entity to sites
-     * @param body 
-     * @param headers Request headers
-     * @param options Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of Site
-     */
-    public post(body: Site | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
-        if(!body) throw new Error("body cannot be undefined");
-        const requestInfo = this.createPostRequestInformation(
-            body, headers, options
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

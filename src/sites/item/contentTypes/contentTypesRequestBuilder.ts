@@ -4,8 +4,10 @@ import {createContentTypeFromDiscriminatorValue} from '../../../models/createCon
 import {ODataError} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AddCopyRequestBuilder} from './addCopy/addCopyRequestBuilder';
+import {AddCopyFromContentTypeHubRequestBuilder} from './addCopyFromContentTypeHub/addCopyFromContentTypeHubRequestBuilder';
 import {ContentTypesRequestBuilderGetQueryParameters} from './contentTypesRequestBuilderGetQueryParameters';
 import {CountRequestBuilder} from './count/countRequestBuilder';
+import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the contentTypes property of the microsoft.graph.site entity.  */
@@ -13,6 +15,10 @@ export class ContentTypesRequestBuilder {
     /** The addCopy property  */
     public get addCopy(): AddCopyRequestBuilder {
         return new AddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The addCopyFromContentTypeHub property  */
+    public get addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
+        return new AddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** The count property  */
     public get count(): CountRequestBuilder {
@@ -89,6 +95,13 @@ export class ContentTypesRequestBuilder {
             "5XX": createODataErrorFromDiscriminatorValue,
         };
         return this.requestAdapter?.sendAsync<ContentTypeCollectionResponse>(requestInfo, createContentTypeCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+    };
+    /**
+     * Provides operations to call the getCompatibleHubContentTypes method.
+     * @returns a getCompatibleHubContentTypesRequestBuilder
+     */
+    public getCompatibleHubContentTypes() : GetCompatibleHubContentTypesRequestBuilder {
+        return new GetCompatibleHubContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
      * Create new navigation property to contentTypes for sites

@@ -21,6 +21,8 @@ import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListItemRequestBuilder} from './lists/item/listItemRequestBuilder';
 import {ListsRequestBuilder} from './lists/listsRequestBuilder';
 import {OnenoteRequestBuilder} from './onenote/onenoteRequestBuilder';
+import {RichLongRunningOperationItemRequestBuilder} from './operations/item/richLongRunningOperationItemRequestBuilder';
+import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {PermissionItemRequestBuilder} from './permissions/item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
 import {SiteItemRequestBuilderGetQueryParameters} from './siteItemRequestBuilderGetQueryParameters';
@@ -68,6 +70,10 @@ export class SiteItemRequestBuilder {
     /** The onenote property  */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The operations property  */
+    public get operations(): OperationsRequestBuilder {
+        return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /** Path parameters for the request  */
     private readonly pathParameters: Record<string, unknown>;
@@ -127,21 +133,6 @@ export class SiteItemRequestBuilder {
         return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete entity from sites
-     * @param headers Request headers
-     * @param options Request options
-     * @returns a RequestInformation
-     */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
-        return requestInfo;
-    };
-    /**
      * Get entity from sites by key
      * @param headers Request headers
      * @param options Request options
@@ -175,22 +166,6 @@ export class SiteItemRequestBuilder {
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
         options && requestInfo.addRequestOptions(...options);
         return requestInfo;
-    };
-    /**
-     * Delete entity from sites
-     * @param headers Request headers
-     * @param options Request options
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
-        const requestInfo = this.createDeleteRequestInformation(
-            headers, options
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.drives.item collection
@@ -291,6 +266,17 @@ export class SiteItemRequestBuilder {
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["list%2Did"] = id
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
+    };
+    /**
+     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.sites.item.operations.item collection
+     * @param id Unique identifier of the item
+     * @returns a richLongRunningOperationItemRequestBuilder
+     */
+    public operationsById(id: string) : RichLongRunningOperationItemRequestBuilder {
+        if(!id) throw new Error("id cannot be undefined");
+        const urlTplParams = getPathParameters(this.pathParameters);
+        urlTplParams["richLongRunningOperation%2Did"] = id
+        return new RichLongRunningOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
      * Update entity in sites

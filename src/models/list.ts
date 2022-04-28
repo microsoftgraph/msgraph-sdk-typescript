@@ -3,10 +3,11 @@ import {createContentTypeFromDiscriminatorValue} from './createContentTypeFromDi
 import {createDriveFromDiscriminatorValue} from './createDriveFromDiscriminatorValue';
 import {createListInfoFromDiscriminatorValue} from './createListInfoFromDiscriminatorValue';
 import {createListItemFromDiscriminatorValue} from './createListItemFromDiscriminatorValue';
+import {createRichLongRunningOperationFromDiscriminatorValue} from './createRichLongRunningOperationFromDiscriminatorValue';
 import {createSharepointIdsFromDiscriminatorValue} from './createSharepointIdsFromDiscriminatorValue';
 import {createSubscriptionFromDiscriminatorValue} from './createSubscriptionFromDiscriminatorValue';
 import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDiscriminatorValue';
-import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, SharepointIds, Subscription, SystemFacet} from './index';
+import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class List extends BaseItem implements Parsable {
@@ -22,6 +23,8 @@ export class List extends BaseItem implements Parsable {
     private _items?: ListItem[] | undefined;
     /** Provides additional details about the list.  */
     private _list?: ListInfo | undefined;
+    /** The collection of long running operations for the list.  */
+    private _operations?: RichLongRunningOperation[] | undefined;
     /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
     private _sharepointIds?: SharepointIds | undefined;
     /** The set of subscriptions on the list.  */
@@ -102,6 +105,7 @@ export class List extends BaseItem implements Parsable {
             "drive": n => { this.drive = n.getObjectValue<Drive>(createDriveFromDiscriminatorValue); },
             "items": n => { this.items = n.getCollectionOfObjectValues<ListItem>(createListItemFromDiscriminatorValue); },
             "list": n => { this.list = n.getObjectValue<ListInfo>(createListInfoFromDiscriminatorValue); },
+            "operations": n => { this.operations = n.getCollectionOfObjectValues<RichLongRunningOperation>(createRichLongRunningOperationFromDiscriminatorValue); },
             "sharepointIds": n => { this.sharepointIds = n.getObjectValue<SharepointIds>(createSharepointIdsFromDiscriminatorValue); },
             "subscriptions": n => { this.subscriptions = n.getCollectionOfObjectValues<Subscription>(createSubscriptionFromDiscriminatorValue); },
             "system": n => { this.system = n.getObjectValue<SystemFacet>(createSystemFacetFromDiscriminatorValue); },
@@ -136,6 +140,20 @@ export class List extends BaseItem implements Parsable {
         this._list = value;
     };
     /**
+     * Gets the operations property value. The collection of long running operations for the list.
+     * @returns a richLongRunningOperation
+     */
+    public get operations() {
+        return this._operations;
+    };
+    /**
+     * Sets the operations property value. The collection of long running operations for the list.
+     * @param value Value to set for the operations property.
+     */
+    public set operations(value: RichLongRunningOperation[] | undefined) {
+        this._operations = value;
+    };
+    /**
      * Serializes information the current object
      * @param writer Serialization writer to use to serialize this model
      */
@@ -148,6 +166,7 @@ export class List extends BaseItem implements Parsable {
         writer.writeObjectValue<Drive>("drive", this.drive);
         writer.writeCollectionOfObjectValues<ListItem>("items", this.items);
         writer.writeObjectValue<ListInfo>("list", this.list);
+        writer.writeCollectionOfObjectValues<RichLongRunningOperation>("operations", this.operations);
         writer.writeObjectValue<SharepointIds>("sharepointIds", this.sharepointIds);
         writer.writeCollectionOfObjectValues<Subscription>("subscriptions", this.subscriptions);
         writer.writeObjectValue<SystemFacet>("system", this.system);

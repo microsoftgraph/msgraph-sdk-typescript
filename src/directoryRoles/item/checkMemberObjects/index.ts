@@ -1,2 +1,2 @@
-export * from './checkMemberObjectsResponse'
 export * from './checkMemberObjectsRequestBody'
+export * from './checkMemberObjectsResponse'
