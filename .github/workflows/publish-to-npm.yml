@@ -21,12 +21,6 @@ jobs:
             node-version: ${{ matrix.node-version }}
         - run: npm ci
         - run: npm run build
-        - name: Archive transpiled folders # archive dist folders to verify if they are transpiled correctly and available for publishing
-          uses: actions/upload-artifact@v3
-          with:
-            name: transpiled folders
-            path: |
-              lib
         - run: npm run test
           env:
             TENANT_ID:  ${{secrets.tenant_id}}
