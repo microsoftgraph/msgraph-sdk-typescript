@@ -7,7 +7,7 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The result message for each threat assessment.  */
     private _message?: string | undefined;
-    /** The threat assessment result type. Possible values are: checkPolicy, rescan.  */
+    /** The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.  */
     private _resultType?: ThreatAssessmentResultType | undefined;
     /**
      * Instantiates a new threatAssessmentResult and sets the default values.
@@ -55,14 +55,14 @@ export class ThreatAssessmentResult extends Entity implements Parsable {
         this._message = value;
     };
     /**
-     * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy, rescan.
+     * Gets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
      * @returns a threatAssessmentResultType
      */
     public get resultType() {
         return this._resultType;
     };
     /**
-     * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy, rescan.
+     * Sets the resultType property value. The threat assessment result type. Possible values are: checkPolicy (only for mail assessment), rescan.
      * @param value Value to set for the resultType property.
      */
     public set resultType(value: ThreatAssessmentResultType | undefined) {

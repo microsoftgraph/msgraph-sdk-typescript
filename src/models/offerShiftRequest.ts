@@ -6,9 +6,9 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
     private _recipientActionDateTime?: Date | undefined;
     /** Custom message sent by recipient of the offer shift request.  */
     private _recipientActionMessage?: string | undefined;
-    /** User ID of the recipient of the offer shift request.  */
+    /** User id of the recipient of the offer shift request.  */
     private _recipientUserId?: string | undefined;
-    /** User ID of the sender of the offer shift request.  */
+    /** User id of the sender of the offer shift request.  */
     private _senderShiftId?: string | undefined;
     /**
      * Instantiates a new offerShiftRequest and sets the default values.
@@ -57,28 +57,28 @@ export class OfferShiftRequest extends ScheduleChangeRequest implements Parsable
         this._recipientActionMessage = value;
     };
     /**
-     * Gets the recipientUserId property value. User ID of the recipient of the offer shift request.
+     * Gets the recipientUserId property value. User id of the recipient of the offer shift request.
      * @returns a string
      */
     public get recipientUserId() {
         return this._recipientUserId;
     };
     /**
-     * Sets the recipientUserId property value. User ID of the recipient of the offer shift request.
+     * Sets the recipientUserId property value. User id of the recipient of the offer shift request.
      * @param value Value to set for the recipientUserId property.
      */
     public set recipientUserId(value: string | undefined) {
         this._recipientUserId = value;
     };
     /**
-     * Gets the senderShiftId property value. User ID of the sender of the offer shift request.
+     * Gets the senderShiftId property value. User id of the sender of the offer shift request.
      * @returns a string
      */
     public get senderShiftId() {
         return this._senderShiftId;
     };
     /**
-     * Sets the senderShiftId property value. User ID of the sender of the offer shift request.
+     * Sets the senderShiftId property value. User id of the sender of the offer shift request.
      * @param value Value to set for the senderShiftId property.
      */
     public set senderShiftId(value: string | undefined) {

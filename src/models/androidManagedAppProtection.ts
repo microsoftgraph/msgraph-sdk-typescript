@@ -6,9 +6,9 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class AndroidManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
     /** List of apps to which the policy is deployed.  */
     private _apps?: ManagedMobileApp[] | undefined;
-    /** Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.  */
+    /** Friendly name of the preferred custom browser to open weblink on Android.  */
     private _customBrowserDisplayName?: string | undefined;
-    /** Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.  */
+    /** Unique identifier of a custom browser to open weblink on Android.  */
     private _customBrowserPackageId?: string | undefined;
     /** Count of apps to which the current policy is deployed.  */
     private _deployedAppCount?: number | undefined;
@@ -45,28 +45,28 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
         super();
     };
     /**
-     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      * @returns a string
      */
     public get customBrowserDisplayName() {
         return this._customBrowserDisplayName;
     };
     /**
-     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      * @param value Value to set for the customBrowserDisplayName property.
      */
     public set customBrowserDisplayName(value: string | undefined) {
         this._customBrowserDisplayName = value;
     };
     /**
-     * Gets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      * @returns a string
      */
     public get customBrowserPackageId() {
         return this._customBrowserPackageId;
     };
     /**
-     * Sets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      * @param value Value to set for the customBrowserPackageId property.
      */
     public set customBrowserPackageId(value: string | undefined) {

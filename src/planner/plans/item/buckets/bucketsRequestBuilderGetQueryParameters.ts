@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Collection of buckets in the plan.  */
+/** Collection of buckets in the plan. Read-only. Nullable.  */
 export class BucketsRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

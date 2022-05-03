@@ -1,5 +1,5 @@
 
-/** Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles (isBuiltIn is true) support this attribute. Supports $expand.  */
+/** Read-only collection of role definitions that the given role definition inherits from. Only Azure AD built-in roles support this attribute.  */
 export class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

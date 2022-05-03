@@ -13,7 +13,7 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
     private _participantId?: string | undefined;
     /** The removeFromDefaultAudioRoutingGroup property  */
     private _removeFromDefaultAudioRoutingGroup?: boolean | undefined;
-    /** Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.  */
+    /** Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.  */
     private _replacesCallId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -105,14 +105,14 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
         this._removeFromDefaultAudioRoutingGroup = value;
     };
     /**
-     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
+     * Gets the replacesCallId property value. Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.
      * @returns a string
      */
     public get replacesCallId() {
         return this._replacesCallId;
     };
     /**
-     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
+     * Sets the replacesCallId property value. Optional. The call which the target idenity is currently a part of. This call will be dropped once the participant is added.
      * @param value Value to set for the replacesCallId property.
      */
     public set replacesCallId(value: string | undefined) {

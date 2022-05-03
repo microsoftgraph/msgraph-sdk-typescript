@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class NetworkConnection implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Name of the application managing the network connection (for example, Facebook or SMTP).  */
+    /** Name of the application managing the network connection (for example, Facebook, SMTP, etc.).  */
     private _applicationName?: string | undefined;
     /** Destination IP address (of the network connection).  */
     private _destinationAddress?: string | undefined;
@@ -61,14 +61,14 @@ export class NetworkConnection implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the applicationName property value. Name of the application managing the network connection (for example, Facebook or SMTP).
+     * Gets the applicationName property value. Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
      * @returns a string
      */
     public get applicationName() {
         return this._applicationName;
     };
     /**
-     * Sets the applicationName property value. Name of the application managing the network connection (for example, Facebook or SMTP).
+     * Sets the applicationName property value. Name of the application managing the network connection (for example, Facebook, SMTP, etc.).
      * @param value Value to set for the applicationName property.
      */
     public set applicationName(value: string | undefined) {

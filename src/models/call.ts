@@ -30,17 +30,17 @@ export class Call extends Entity implements Parsable {
     private _callOptions?: CallOptions | undefined;
     /** The routing information on how the call was retargeted. Read-only.  */
     private _callRoutes?: CallRoute[] | undefined;
-    /** The chat information. Required information for joining a meeting.  */
+    /** The chat information. Required information for meeting scenarios.  */
     private _chatInfo?: ChatInfo | undefined;
     /** The direction of the call. The possible value are incoming or outgoing. Read-only.  */
     private _direction?: CallDirection | undefined;
     /** The context associated with an incoming call. Read-only. Server generated.  */
     private _incomingContext?: IncomingContext | undefined;
-    /** The media configuration. Required.  */
+    /** The media configuration. Required information for creating peer to peer calls or joining meetings.  */
     private _mediaConfig?: MediaConfig | undefined;
     /** Read-only. The call media state.  */
     private _mediaState?: CallMediaState | undefined;
-    /** The meeting information that's required for joining a meeting.  */
+    /** The meeting information. Required information for meeting scenarios.  */
     private _meetingInfo?: MeetingInfo | undefined;
     /** The myParticipantId property  */
     private _myParticipantId?: string | undefined;
@@ -137,14 +137,14 @@ export class Call extends Entity implements Parsable {
         this._callRoutes = value;
     };
     /**
-     * Gets the chatInfo property value. The chat information. Required information for joining a meeting.
+     * Gets the chatInfo property value. The chat information. Required information for meeting scenarios.
      * @returns a chatInfo
      */
     public get chatInfo() {
         return this._chatInfo;
     };
     /**
-     * Sets the chatInfo property value. The chat information. Required information for joining a meeting.
+     * Sets the chatInfo property value. The chat information. Required information for meeting scenarios.
      * @param value Value to set for the chatInfo property.
      */
     public set chatInfo(value: ChatInfo | undefined) {
@@ -216,14 +216,14 @@ export class Call extends Entity implements Parsable {
         this._incomingContext = value;
     };
     /**
-     * Gets the mediaConfig property value. The media configuration. Required.
+     * Gets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
      * @returns a mediaConfig
      */
     public get mediaConfig() {
         return this._mediaConfig;
     };
     /**
-     * Sets the mediaConfig property value. The media configuration. Required.
+     * Sets the mediaConfig property value. The media configuration. Required information for creating peer to peer calls or joining meetings.
      * @param value Value to set for the mediaConfig property.
      */
     public set mediaConfig(value: MediaConfig | undefined) {
@@ -244,14 +244,14 @@ export class Call extends Entity implements Parsable {
         this._mediaState = value;
     };
     /**
-     * Gets the meetingInfo property value. The meeting information that's required for joining a meeting.
+     * Gets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      * @returns a meetingInfo
      */
     public get meetingInfo() {
         return this._meetingInfo;
     };
     /**
-     * Sets the meetingInfo property value. The meeting information that's required for joining a meeting.
+     * Sets the meetingInfo property value. The meeting information. Required information for meeting scenarios.
      * @param value Value to set for the meetingInfo property.
      */
     public set meetingInfo(value: MeetingInfo | undefined) {

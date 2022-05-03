@@ -1,5 +1,5 @@
 
-/** Assignments belonging to the user.  */
+/** List of assignments for the user. Nullable.  */
 export class EducationAssignmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

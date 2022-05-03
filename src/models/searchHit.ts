@@ -13,7 +13,7 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
     private _rank?: number | undefined;
     /** The resource property  */
     private _resource?: Entity | undefined;
-    /** ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.  */
+    /** ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.  */
     private _resultTemplateId?: string | undefined;
     /** A summary of the result, if a summary is available.  */
     private _summary?: string | undefined;
@@ -108,14 +108,14 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         this._resource = value;
     };
     /**
-     * Gets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * Gets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
      * @returns a string
      */
     public get resultTemplateId() {
         return this._resultTemplateId;
     };
     /**
-     * Sets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
      * @param value Value to set for the resultTemplateId property.
      */
     public set resultTemplateId(value: string | undefined) {

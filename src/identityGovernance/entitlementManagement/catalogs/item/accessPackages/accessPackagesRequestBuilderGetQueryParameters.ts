@@ -1,5 +1,5 @@
 
-/** The access packages in this catalog. Read-only. Nullable.  */
+/** The access packages in this catalog. Read-only. Nullable. Supports $expand.  */
 export class AccessPackagesRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

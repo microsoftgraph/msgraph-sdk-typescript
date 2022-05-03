@@ -1,5 +1,5 @@
 
-/** PDFs linked to this agreement. This property is in the process of being deprecated. Use the  file property instead. Supports $expand.  */
+/** PDFs linked to this agreement. Note: This property is in the process of being deprecated. Use the  file property instead.  */
 export class AgreementFileLocalizationItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

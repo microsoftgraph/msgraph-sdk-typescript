@@ -1,5 +1,5 @@
 
-/** Groups that the device is a member of. This operation is transitive. Supports $expand.  */
+/** Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.  */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

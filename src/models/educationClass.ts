@@ -25,7 +25,7 @@ export class EducationClass extends Entity implements Parsable {
     private _classCode?: string | undefined;
     /** Course information for the class.  */
     private _course?: EducationCourse | undefined;
-    /** Entity who created the class  */
+    /** Entity who created the class.  */
     private _createdBy?: IdentitySet | undefined;
     /** Description of the class.  */
     private _description?: string | undefined;
@@ -35,7 +35,7 @@ export class EducationClass extends Entity implements Parsable {
     private _externalId?: string | undefined;
     /** Name of the class in the syncing system.  */
     private _externalName?: string | undefined;
-    /** How this class was created. Possible values are: sis, manual.  */
+    /** The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.  */
     private _externalSource?: EducationExternalSource | undefined;
     /** The name of the external source this resources was generated from.  */
     private _externalSourceDetail?: string | undefined;
@@ -51,7 +51,7 @@ export class EducationClass extends Entity implements Parsable {
     private _schools?: EducationSchool[] | undefined;
     /** All teachers in the class. Nullable.  */
     private _teachers?: EducationUser[] | undefined;
-    /** Term for this class.  */
+    /** Term for the class.  */
     private _term?: EducationTerm | undefined;
     /**
      * Gets the assignmentCategories property value. All categories associated with this class. Nullable.
@@ -144,14 +144,14 @@ export class EducationClass extends Entity implements Parsable {
         this._course = value;
     };
     /**
-     * Gets the createdBy property value. Entity who created the class
+     * Gets the createdBy property value. Entity who created the class.
      * @returns a identitySet
      */
     public get createdBy() {
         return this._createdBy;
     };
     /**
-     * Sets the createdBy property value. Entity who created the class
+     * Sets the createdBy property value. Entity who created the class.
      * @param value Value to set for the createdBy property.
      */
     public set createdBy(value: IdentitySet | undefined) {
@@ -214,14 +214,14 @@ export class EducationClass extends Entity implements Parsable {
         this._externalName = value;
     };
     /**
-     * Gets the externalSource property value. How this class was created. Possible values are: sis, manual.
+     * Gets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
      * @returns a educationExternalSource
      */
     public get externalSource() {
         return this._externalSource;
     };
     /**
-     * Sets the externalSource property value. How this class was created. Possible values are: sis, manual.
+     * Sets the externalSource property value. The type of external source this resource was generated from (automatically determined from externalSourceDetail). Possible values are: sis, lms, or manual.
      * @param value Value to set for the externalSource property.
      */
     public set externalSource(value: EducationExternalSource | undefined) {
@@ -382,14 +382,14 @@ export class EducationClass extends Entity implements Parsable {
         this._teachers = value;
     };
     /**
-     * Gets the term property value. Term for this class.
+     * Gets the term property value. Term for the class.
      * @returns a educationTerm
      */
     public get term() {
         return this._term;
     };
     /**
-     * Sets the term property value. Term for this class.
+     * Sets the term property value. Term for the class.
      * @param value Value to set for the term property.
      */
     public set term(value: EducationTerm | undefined) {

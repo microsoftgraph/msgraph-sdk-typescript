@@ -1,5 +1,5 @@
 
-/** Get roleAssignmentScheduleInstances from roleManagement  */
+/** Instances for active role assignments.  */
 export class RoleAssignmentScheduleInstancesRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

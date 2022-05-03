@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Collection of tasks in the plan.  */
+/** Collection of tasks in the plan. Read-only. Nullable.  */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

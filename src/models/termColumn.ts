@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class TermColumn implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Specifies whether the column will allow more than one value.  */
+    /** Specifies whether the column will allow more than one value  */
     private _allowMultipleValues?: boolean | undefined;
     /** The parentTerm property  */
     private _parentTerm?: Term | undefined;
@@ -29,14 +29,14 @@ export class TermColumn implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value.
+     * Gets the allowMultipleValues property value. Specifies whether the column will allow more than one value
      * @returns a boolean
      */
     public get allowMultipleValues() {
         return this._allowMultipleValues;
     };
     /**
-     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value.
+     * Sets the allowMultipleValues property value. Specifies whether the column will allow more than one value
      * @param value Value to set for the allowMultipleValues property.
      */
     public set allowMultipleValues(value: boolean | undefined) {

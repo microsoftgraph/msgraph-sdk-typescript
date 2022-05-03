@@ -10,19 +10,19 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
     private _applyActions?: AccessReviewApplyAction[] | undefined;
     /** Indicates whether decisions are automatically applied. When set to false, an admin must apply the decisions manually once the reviewer completes the access review. When set to true, decisions are applied automatically after the access review instance duration ends, whether or not the reviewers have responded. Default value is false.  */
     private _autoApplyDecisionsEnabled?: boolean | undefined;
-    /** Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.  */
+    /** Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.  */
     private _defaultDecision?: string | undefined;
     /** Indicates whether the default decision is enabled or disabled when reviewers do not respond. Default value is false.  */
     private _defaultDecisionEnabled?: boolean | undefined;
-    /** Duration of each recurrence of review (accessReviewInstance) in number of days.  */
+    /** Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.  */
     private _instanceDurationInDays?: number | undefined;
     /** Indicates whether reviewers are required to provide justification with their decision. Default value is false.  */
     private _justificationRequiredOnApproval?: boolean | undefined;
     /** Indicates whether emails are enabled or disabled. Default value is false.  */
     private _mailNotificationsEnabled?: boolean | undefined;
-    /** Indicates whether decision recommendations are enabled or disabled.  */
+    /** Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.  */
     private _recommendationsEnabled?: boolean | undefined;
-    /** Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.  */
+    /** Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.  */
     private _recurrence?: PatternedRecurrence | undefined;
     /** Indicates whether reminders are enabled or disabled. Default value is false.  */
     private _reminderNotificationsEnabled?: boolean | undefined;
@@ -75,14 +75,14 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         this._additionalData = {};
     };
     /**
-     * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
+     * Gets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
      * @returns a string
      */
     public get defaultDecision() {
         return this._defaultDecision;
     };
     /**
-     * Sets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is true. Can be one of Approve, Deny, or Recommendation.
+     * Sets the defaultDecision property value. Decision chosen if defaultDecisionEnabled is enabled. Can be one of Approve, Deny, or Recommendation.
      * @param value Value to set for the defaultDecision property.
      */
     public set defaultDecision(value: string | undefined) {
@@ -121,14 +121,14 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         };
     };
     /**
-     * Gets the instanceDurationInDays property value. Duration of each recurrence of review (accessReviewInstance) in number of days.
+     * Gets the instanceDurationInDays property value. Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
      * @returns a integer
      */
     public get instanceDurationInDays() {
         return this._instanceDurationInDays;
     };
     /**
-     * Sets the instanceDurationInDays property value. Duration of each recurrence of review (accessReviewInstance) in number of days.
+     * Sets the instanceDurationInDays property value. Duration of each recurrence of review (accessReviewInstance) in number of days. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its durationInDays setting will be used instead of the value of this property.
      * @param value Value to set for the instanceDurationInDays property.
      */
     public set instanceDurationInDays(value: number | undefined) {
@@ -163,28 +163,28 @@ export class AccessReviewScheduleSettings implements AdditionalDataHolder, Parsa
         this._mailNotificationsEnabled = value;
     };
     /**
-     * Gets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled.
+     * Gets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.
      * @returns a boolean
      */
     public get recommendationsEnabled() {
         return this._recommendationsEnabled;
     };
     /**
-     * Sets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled.
+     * Sets the recommendationsEnabled property value. Indicates whether decision recommendations are enabled or disabled. NOTE: If the stageSettings of the accessReviewScheduleDefinition object is defined, its recommendationsEnabled setting will be used instead of the value of this property.
      * @param value Value to set for the recommendationsEnabled property.
      */
     public set recommendationsEnabled(value: boolean | undefined) {
         this._recommendationsEnabled = value;
     };
     /**
-     * Gets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
+     * Gets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      * @returns a patternedRecurrence
      */
     public get recurrence() {
         return this._recurrence;
     };
     /**
-     * Sets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object.  Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
+     * Sets the recurrence property value. Detailed settings for recurrence using the standard Outlook recurrence object. Note: Only dayOfMonth, interval, and type (weekly, absoluteMonthly) properties are supported. Use the property startDate on recurrenceRange to determine the day the review starts.
      * @param value Value to set for the recurrence property.
      */
     public set recurrence(value: PatternedRecurrence | undefined) {

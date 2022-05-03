@@ -6,9 +6,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.  */
+    /** If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.  */
     private _app?: AppIdentity | undefined;
-    /** If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.  */
+    /** If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.  */
     private _user?: UserIdentity | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -25,14 +25,14 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the app property value. If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
+     * Gets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
      * @returns a appIdentity
      */
     public get app() {
         return this._app;
     };
     /**
-     * Sets the app property value. If the resource initiating the activity is an app, this property indicates all the app related information like appId, Name, servicePrincipalId, Name.
+     * Sets the app property value. If the actor initiating the activity is an app, this property indicates all its identification information including appId, displayName, servicePrincipalId, and servicePrincipalName.
      * @param value Value to set for the app property.
      */
     public set app(value: AppIdentity | undefined) {
@@ -65,14 +65,14 @@ export class AuditActivityInitiator implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the user property value. If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
+     * Gets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
      * @returns a userIdentity
      */
     public get user() {
         return this._user;
     };
     /**
-     * Sets the user property value. If the resource initiating the activity is a user, this property Indicates all the user related information like userId, Name, UserPrinicpalName.
+     * Sets the user property value. If the actor initiating the activity is a user, this property indicates their identification information including their id, displayName, and userPrincipalName.
      * @param value Value to set for the user property.
      */
     public set user(value: UserIdentity | undefined) {

@@ -11,7 +11,7 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
     private _actionRequiredByDateTime?: Date | undefined;
     /** A collection of serviceAnnouncementAttachments.  */
     private _attachments?: ServiceAnnouncementAttachment[] | undefined;
-    /** The zip file that contains all attachments for a message.  */
+    /** The zip file of all attachments for a message.  */
     private _attachmentsArchive?: string | undefined;
     /** The body property  */
     private _body?: ItemBody | undefined;
@@ -58,14 +58,14 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._attachments = value;
     };
     /**
-     * Gets the attachmentsArchive property value. The zip file that contains all attachments for a message.
+     * Gets the attachmentsArchive property value. The zip file of all attachments for a message.
      * @returns a binary
      */
     public get attachmentsArchive() {
         return this._attachmentsArchive;
     };
     /**
-     * Sets the attachmentsArchive property value. The zip file that contains all attachments for a message.
+     * Sets the attachmentsArchive property value. The zip file of all attachments for a message.
      * @param value Value to set for the attachmentsArchive property.
      */
     public set attachmentsArchive(value: string | undefined) {

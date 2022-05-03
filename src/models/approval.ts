@@ -3,7 +3,7 @@ import {ApprovalStage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Approval extends Entity implements Parsable {
-    /** A collection of stages in the approval decision.  */
+    /** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.  */
     private _stages?: ApprovalStage[] | undefined;
     /**
      * Instantiates a new approval and sets the default values.
@@ -30,14 +30,14 @@ export class Approval extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<ApprovalStage>("stages", this.stages);
     };
     /**
-     * Gets the stages property value. A collection of stages in the approval decision.
+     * Gets the stages property value. Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
      * @returns a approvalStage
      */
     public get stages() {
         return this._stages;
     };
     /**
-     * Sets the stages property value. A collection of stages in the approval decision.
+     * Sets the stages property value. Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.
      * @param value Value to set for the stages property.
      */
     public set stages(value: ApprovalStage[] | undefined) {

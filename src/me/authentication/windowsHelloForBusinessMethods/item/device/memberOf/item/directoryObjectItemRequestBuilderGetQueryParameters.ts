@@ -1,5 +1,5 @@
 
-/** Groups that this device is a member of. Read-only. Nullable. Supports $expand.  */
+/** Groups and administrative units that this device is a member of. Read-only. Nullable. Supports $expand.  */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

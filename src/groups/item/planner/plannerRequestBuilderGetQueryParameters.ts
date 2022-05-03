@@ -1,5 +1,5 @@
 
-/** Entry-point to Planner resource that might exist for a Unified Group.  */
+/** Selective Planner services available to the group. Read-only. Nullable.  */
 export class PlannerRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

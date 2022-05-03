@@ -48,7 +48,7 @@ export class PlannerTask extends Entity implements Parsable {
     private _percentComplete?: number | undefined;
     /** Plan ID to which the task belongs.  */
     private _planId?: string | undefined;
-    /** This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.  */
+    /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.  */
     private _previewType?: PlannerPreviewType | undefined;
     /** Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.  */
     private _priority?: number | undefined;
@@ -366,14 +366,14 @@ export class PlannerTask extends Entity implements Parsable {
         this._planId = value;
     };
     /**
-     * Gets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
+     * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @returns a plannerPreviewType
      */
     public get previewType() {
         return this._previewType;
     };
     /**
-     * Sets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
+     * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @param value Value to set for the previewType property.
      */
     public set previewType(value: PlannerPreviewType | undefined) {

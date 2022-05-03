@@ -49,7 +49,7 @@ export class ColumnDefinition extends Entity implements Parsable {
     private _hidden?: boolean | undefined;
     /** This column stores hyperlink or picture values.  */
     private _hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
-    /** Specifies whether the column values can be used for sorting and searching.  */
+    /** Specifies whether the column values can used for sorting and searching.  */
     private _indexed?: boolean | undefined;
     /** Indicates whether this column can be deleted.  */
     private _isDeletable?: boolean | undefined;
@@ -65,15 +65,15 @@ export class ColumnDefinition extends Entity implements Parsable {
     private _number?: NumberColumn | undefined;
     /** This column stores Person or Group values.  */
     private _personOrGroup?: PersonOrGroupColumn | undefined;
-    /** If 'true', changes to this column will be propagated to lists that implement the column.  */
+    /** If true, changes to this column will be propagated to lists that implement the column.  */
     private _propagateChanges?: boolean | undefined;
     /** Specifies whether the column values can be modified.  */
     private _readOnly?: boolean | undefined;
     /** Specifies whether the column value isn't optional.  */
     private _required?: boolean | undefined;
-    /** The source column for the content type column.  */
+    /** The source column for content type column.  */
     private _sourceColumn?: ColumnDefinition | undefined;
-    /** ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.  */
+    /** ContentType from which this column is inherited from. Used only to fetch contentTypes columns.  */
     private _sourceContentType?: ContentTypeInfo | undefined;
     /** This column stores taxonomy terms.  */
     private _term?: TermColumn | undefined;
@@ -328,14 +328,14 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._hyperlinkOrPicture = value;
     };
     /**
-     * Gets the indexed property value. Specifies whether the column values can be used for sorting and searching.
+     * Gets the indexed property value. Specifies whether the column values can used for sorting and searching.
      * @returns a boolean
      */
     public get indexed() {
         return this._indexed;
     };
     /**
-     * Sets the indexed property value. Specifies whether the column values can be used for sorting and searching.
+     * Sets the indexed property value. Specifies whether the column values can used for sorting and searching.
      * @param value Value to set for the indexed property.
      */
     public set indexed(value: boolean | undefined) {
@@ -440,14 +440,14 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._personOrGroup = value;
     };
     /**
-     * Gets the propagateChanges property value. If 'true', changes to this column will be propagated to lists that implement the column.
+     * Gets the propagateChanges property value. If true, changes to this column will be propagated to lists that implement the column.
      * @returns a boolean
      */
     public get propagateChanges() {
         return this._propagateChanges;
     };
     /**
-     * Sets the propagateChanges property value. If 'true', changes to this column will be propagated to lists that implement the column.
+     * Sets the propagateChanges property value. If true, changes to this column will be propagated to lists that implement the column.
      * @param value Value to set for the propagateChanges property.
      */
     public set propagateChanges(value: boolean | undefined) {
@@ -522,28 +522,28 @@ export class ColumnDefinition extends Entity implements Parsable {
         writer.writeObjectValue<ColumnValidation>("validation", this.validation);
     };
     /**
-     * Gets the sourceColumn property value. The source column for the content type column.
+     * Gets the sourceColumn property value. The source column for content type column.
      * @returns a columnDefinition
      */
     public get sourceColumn() {
         return this._sourceColumn;
     };
     /**
-     * Sets the sourceColumn property value. The source column for the content type column.
+     * Sets the sourceColumn property value. The source column for content type column.
      * @param value Value to set for the sourceColumn property.
      */
     public set sourceColumn(value: ColumnDefinition | undefined) {
         this._sourceColumn = value;
     };
     /**
-     * Gets the sourceContentType property value. ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
+     * Gets the sourceContentType property value. ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
      * @returns a contentTypeInfo
      */
     public get sourceContentType() {
         return this._sourceContentType;
     };
     /**
-     * Sets the sourceContentType property value. ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
+     * Sets the sourceContentType property value. ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
      * @param value Value to set for the sourceContentType property.
      */
     public set sourceContentType(value: ContentTypeInfo | undefined) {

@@ -8,7 +8,7 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
     private _birthDate?: DateOnly | undefined;
     /** ID of the student in the source system.  */
     private _externalId?: string | undefined;
-    /** The possible values are: female, male, other, unknownFutureValue.  */
+    /** Possible values are: female, male, other.  */
     private _gender?: EducationGender | undefined;
     /** Current grade level of the student.  */
     private _grade?: string | undefined;
@@ -65,14 +65,14 @@ export class EducationStudent implements AdditionalDataHolder, Parsable {
         this._externalId = value;
     };
     /**
-     * Gets the gender property value. The possible values are: female, male, other, unknownFutureValue.
+     * Gets the gender property value. Possible values are: female, male, other.
      * @returns a educationGender
      */
     public get gender() {
         return this._gender;
     };
     /**
-     * Sets the gender property value. The possible values are: female, male, other, unknownFutureValue.
+     * Sets the gender property value. Possible values are: female, male, other.
      * @param value Value to set for the gender property.
      */
     public set gender(value: EducationGender | undefined) {

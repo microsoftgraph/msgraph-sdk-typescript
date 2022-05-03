@@ -7,7 +7,7 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
     private _aaGuid?: string | undefined;
     /** The attestation certificate(s) attached to this security key.  */
     private _attestationCertificates?: string[] | undefined;
-    /** The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.  */
+    /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.  */
     private _attestationLevel?: AttestationLevel | undefined;
     /** The timestamp when this key was registered to the user.  */
     private _createdDateTime?: Date | undefined;
@@ -44,14 +44,14 @@ export class Fido2AuthenticationMethod extends AuthenticationMethod implements P
         this._attestationCertificates = value;
     };
     /**
-     * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
+     * Gets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
      * @returns a attestationLevel
      */
     public get attestationLevel() {
         return this._attestationLevel;
     };
     /**
-     * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, or notAttested.
+     * Sets the attestationLevel property value. The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.
      * @param value Value to set for the attestationLevel property.
      */
     public set attestationLevel(value: AttestationLevel | undefined) {

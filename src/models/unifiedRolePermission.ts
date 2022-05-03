@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class UnifiedRolePermission implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Set of tasks that can be performed on a resource. Required.  */
+    /** Set of tasks that can be performed on a resource.  */
     private _allowedResourceActions?: string[] | undefined;
     /** Optional constraints that must be met for the permission to be effective.  */
     private _condition?: string | undefined;
@@ -24,14 +24,14 @@ export class UnifiedRolePermission implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource. Required.
+     * Gets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
      * @returns a string
      */
     public get allowedResourceActions() {
         return this._allowedResourceActions;
     };
     /**
-     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource. Required.
+     * Sets the allowedResourceActions property value. Set of tasks that can be performed on a resource.
      * @param value Value to set for the allowedResourceActions property.
      */
     public set allowedResourceActions(value: string[] | undefined) {

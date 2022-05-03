@@ -16,7 +16,7 @@ export class Location implements AdditionalDataHolder, Parsable {
     private _displayName?: string | undefined;
     /** Optional email address of the location.  */
     private _locationEmailAddress?: string | undefined;
-    /** The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
+    /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
     private _locationType?: LocationType | undefined;
     /** Optional URI representing the location.  */
     private _locationUri?: string | undefined;
@@ -117,14 +117,14 @@ export class Location implements AdditionalDataHolder, Parsable {
         this._locationEmailAddress = value;
     };
     /**
-     * Gets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @returns a locationType
      */
     public get locationType() {
         return this._locationType;
     };
     /**
-     * Sets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @param value Value to set for the locationType property.
      */
     public set locationType(value: LocationType | undefined) {

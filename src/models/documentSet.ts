@@ -11,11 +11,11 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
     private _allowedContentTypes?: ContentTypeInfo[] | undefined;
     /** Default contents of document set.  */
     private _defaultContents?: DocumentSetContent[] | undefined;
-    /** Specifies whether to push welcome page changes to inherited content types.  */
+    /** Indicates whether to add the name of the document set to each file name.  */
     private _propagateWelcomePageChanges?: boolean | undefined;
     /** The sharedColumns property  */
     private _sharedColumns?: ColumnDefinition[] | undefined;
-    /** Indicates whether to add the name of the document set to each file name.  */
+    /** Add the name of the Document Set to each file name.  */
     private _shouldPrefixNameToFile?: boolean | undefined;
     /** The welcomePageColumns property  */
     private _welcomePageColumns?: ColumnDefinition[] | undefined;
@@ -85,14 +85,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the propagateWelcomePageChanges property value. Specifies whether to push welcome page changes to inherited content types.
+     * Gets the propagateWelcomePageChanges property value. Indicates whether to add the name of the document set to each file name.
      * @returns a boolean
      */
     public get propagateWelcomePageChanges() {
         return this._propagateWelcomePageChanges;
     };
     /**
-     * Sets the propagateWelcomePageChanges property value. Specifies whether to push welcome page changes to inherited content types.
+     * Sets the propagateWelcomePageChanges property value. Indicates whether to add the name of the document set to each file name.
      * @param value Value to set for the propagateWelcomePageChanges property.
      */
     public set propagateWelcomePageChanges(value: boolean | undefined) {
@@ -128,14 +128,14 @@ export class DocumentSet implements AdditionalDataHolder, Parsable {
         this._sharedColumns = value;
     };
     /**
-     * Gets the shouldPrefixNameToFile property value. Indicates whether to add the name of the document set to each file name.
+     * Gets the shouldPrefixNameToFile property value. Add the name of the Document Set to each file name.
      * @returns a boolean
      */
     public get shouldPrefixNameToFile() {
         return this._shouldPrefixNameToFile;
     };
     /**
-     * Sets the shouldPrefixNameToFile property value. Indicates whether to add the name of the document set to each file name.
+     * Sets the shouldPrefixNameToFile property value. Add the name of the Document Set to each file name.
      * @param value Value to set for the shouldPrefixNameToFile property.
      */
     public set shouldPrefixNameToFile(value: boolean | undefined) {

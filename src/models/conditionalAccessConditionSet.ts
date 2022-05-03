@@ -28,7 +28,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     private _signInRiskLevels?: RiskLevel[] | undefined;
     /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
     private _userRiskLevels?: RiskLevel[] | undefined;
-    /** Users, groups, and roles included in and excluded from the policy. Required.  */
+    /** Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.  */
     private _users?: ConditionalAccessUsers | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -197,14 +197,14 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
         this._userRiskLevels = value;
     };
     /**
-     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @returns a conditionalAccessUsers
      */
     public get users() {
         return this._users;
     };
     /**
-     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @param value Value to set for the users property.
      */
     public set users(value: ConditionalAccessUsers | undefined) {

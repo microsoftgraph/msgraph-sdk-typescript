@@ -8,7 +8,7 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Identity information of the participant.  */
     private _identity?: IdentitySet | undefined;
-    /** Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.  */
+    /** Specifies the participant's role in the meeting.  */
     private _role?: OnlineMeetingRole | undefined;
     /** User principal name of the participant.  */
     private _upn?: string | undefined;
@@ -58,14 +58,14 @@ export class MeetingParticipantInfo implements AdditionalDataHolder, Parsable {
         this._identity = value;
     };
     /**
-     * Gets the role property value. Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+     * Gets the role property value. Specifies the participant's role in the meeting.
      * @returns a onlineMeetingRole
      */
     public get role() {
         return this._role;
     };
     /**
-     * Sets the role property value. Specifies the participant's role in the meeting.  Possible values are attendee, presenter, producer, and unknownFutureValue.
+     * Sets the role property value. Specifies the participant's role in the meeting.
      * @param value Value to set for the role property.
      */
     public set role(value: OnlineMeetingRole | undefined) {

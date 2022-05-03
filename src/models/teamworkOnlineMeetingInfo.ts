@@ -7,7 +7,7 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
     private _additionalData: Record<string, unknown>;
     /** The identifier of the calendar event associated with the meeting.  */
     private _calendarEventId?: string | undefined;
-    /** The URL that users click to join or uniquely identify the meeting.  */
+    /** The URL which can be clicked on to join or uniquely identify the meeting.  */
     private _joinWebUrl?: string | undefined;
     /** The organizer of the meeting.  */
     private _organizer?: TeamworkUserIdentity | undefined;
@@ -57,14 +57,14 @@ export class TeamworkOnlineMeetingInfo implements AdditionalDataHolder, Parsable
         };
     };
     /**
-     * Gets the joinWebUrl property value. The URL that users click to join or uniquely identify the meeting.
+     * Gets the joinWebUrl property value. The URL which can be clicked on to join or uniquely identify the meeting.
      * @returns a string
      */
     public get joinWebUrl() {
         return this._joinWebUrl;
     };
     /**
-     * Sets the joinWebUrl property value. The URL that users click to join or uniquely identify the meeting.
+     * Sets the joinWebUrl property value. The URL which can be clicked on to join or uniquely identify the meeting.
      * @param value Value to set for the joinWebUrl property.
      */
     public set joinWebUrl(value: string | undefined) {

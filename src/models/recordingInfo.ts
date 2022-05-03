@@ -6,7 +6,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class RecordingInfo implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** The identities of the recording initiator.  */
+    /** The identities of recording initiator.  */
     private _initiator?: IdentitySet | undefined;
     /** Possible values are: unknown, notRecording, recording, or failed.  */
     private _recordingStatus?: RecordingStatus | undefined;
@@ -41,14 +41,14 @@ export class RecordingInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the initiator property value. The identities of the recording initiator.
+     * Gets the initiator property value. The identities of recording initiator.
      * @returns a identitySet
      */
     public get initiator() {
         return this._initiator;
     };
     /**
-     * Sets the initiator property value. The identities of the recording initiator.
+     * Sets the initiator property value. The identities of recording initiator.
      * @param value Value to set for the initiator property.
      */
     public set initiator(value: IdentitySet | undefined) {

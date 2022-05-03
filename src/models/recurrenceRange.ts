@@ -12,7 +12,7 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
     private _recurrenceTimeZone?: string | undefined;
     /** The date to start applying the recurrence pattern. The first occurrence of the meeting may be this date or later, depending on the recurrence pattern of the event. Must be the same value as the start property of the recurring event. Required.  */
     private _startDate?: DateOnly | undefined;
-    /** The recurrence range. The possible values are: endDate, noEnd, numbered. Required.  */
+    /** The recurrence range. Possible values are: endDate, noEnd, numbered. Required.  */
     private _type?: RecurrenceRangeType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -117,14 +117,14 @@ export class RecurrenceRange implements AdditionalDataHolder, Parsable {
         this._startDate = value;
     };
     /**
-     * Gets the type property value. The recurrence range. The possible values are: endDate, noEnd, numbered. Required.
+     * Gets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
      * @returns a recurrenceRangeType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The recurrence range. The possible values are: endDate, noEnd, numbered. Required.
+     * Sets the type property value. The recurrence range. Possible values are: endDate, noEnd, numbered. Required.
      * @param value Value to set for the type property.
      */
     public set type(value: RecurrenceRangeType | undefined) {

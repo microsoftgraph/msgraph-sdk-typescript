@@ -6,7 +6,7 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Mode to use for the filter. Possible values are include or exclude.  */
     private _mode?: FilterMode | undefined;
-    /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions  */
+    /** Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions  */
     private _rule?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -53,14 +53,14 @@ export class ConditionalAccessFilter implements AdditionalDataHolder, Parsable {
         this._mode = value;
     };
     /**
-     * Gets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
+     * Gets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions
      * @returns a string
      */
     public get rule() {
         return this._rule;
     };
     /**
-     * Sets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory (Azure AD). For details, see rules with multiple expressions
+     * Sets the rule property value. Rule syntax is similar to that used for membership rules for groups in Azure Active Directory. For details, see rules with multiple expressions
      * @param value Value to set for the rule property.
      */
     public set rule(value: string | undefined) {

@@ -1,5 +1,5 @@
 
-/** Represents entry point for B2X/self-service sign-up identity userflows.  */
+/** Represents entry point for B2X and self-service sign-up identity userflows.  */
 export class B2xIdentityUserFlowItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

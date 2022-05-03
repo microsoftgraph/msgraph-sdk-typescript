@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class StoragePlanInformation implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Indicates whether there are higher storage quota plans available. Read-only.  */
+    /** Indicates if there are higher storage quota plans available. Read-only.  */
     private _upgradeAvailable?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -44,14 +44,14 @@ export class StoragePlanInformation implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the upgradeAvailable property value. Indicates whether there are higher storage quota plans available. Read-only.
+     * Gets the upgradeAvailable property value. Indicates if there are higher storage quota plans available. Read-only.
      * @returns a boolean
      */
     public get upgradeAvailable() {
         return this._upgradeAvailable;
     };
     /**
-     * Sets the upgradeAvailable property value. Indicates whether there are higher storage quota plans available. Read-only.
+     * Sets the upgradeAvailable property value. Indicates if there are higher storage quota plans available. Read-only.
      * @param value Value to set for the upgradeAvailable property.
      */
     public set upgradeAvailable(value: boolean | undefined) {

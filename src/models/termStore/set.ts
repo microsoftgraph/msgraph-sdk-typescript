@@ -12,7 +12,7 @@ export class Set extends Entity implements Parsable {
     private _children?: Term[] | undefined;
     /** Date and time of set creation. Read-only.  */
     private _createdDateTime?: Date | undefined;
-    /** Description that gives details on the term usage.  */
+    /** Description giving details on the term usage.  */
     private _description?: string | undefined;
     /** Name of the set for each languageTag.  */
     private _localizedNames?: LocalizedName[] | undefined;
@@ -59,14 +59,14 @@ export class Set extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the description property value. Description that gives details on the term usage.
+     * Gets the description property value. Description giving details on the term usage.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Description that gives details on the term usage.
+     * Sets the description property value. Description giving details on the term usage.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {

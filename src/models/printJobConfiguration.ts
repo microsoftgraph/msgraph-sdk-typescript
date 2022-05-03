@@ -34,7 +34,7 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
     private _inputBin?: string | undefined;
     /** The margin settings to use when printing.  */
     private _margin?: PrintMargin | undefined;
-    /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.  */
+    /** The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.  */
     private _mediaSize?: string | undefined;
     /** The default media (such as paper) type to print the document on.  */
     private _mediaType?: string | undefined;
@@ -240,14 +240,14 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._margin = value;
     };
     /**
-     * Gets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * Gets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
      * @returns a string
      */
     public get mediaSize() {
         return this._mediaSize;
     };
     /**
-     * Sets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * Sets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
      * @param value Value to set for the mediaSize property.
      */
     public set mediaSize(value: string | undefined) {

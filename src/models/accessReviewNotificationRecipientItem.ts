@@ -7,7 +7,7 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
     private _additionalData: Record<string, unknown>;
     /** Determines the recipient of the notification email.  */
     private _notificationRecipientScope?: AccessReviewNotificationRecipientScope | undefined;
-    /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.  */
+    /** Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.  */
     private _notificationTemplateType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -54,14 +54,14 @@ export class AccessReviewNotificationRecipientItem implements AdditionalDataHold
         this._notificationRecipientScope = value;
     };
     /**
-     * Gets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
+     * Gets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
      * @returns a string
      */
     public get notificationTemplateType() {
         return this._notificationTemplateType;
     };
     /**
-     * Sets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients, which sends review completion notifications to the recipients.
+     * Sets the notificationTemplateType property value. Indicates the type of access review email to be sent. Supported template type is CompletedAdditionalRecipients which sends review completion notifications to the recipients.
      * @param value Value to set for the notificationTemplateType property.
      */
     public set notificationTemplateType(value: string | undefined) {

@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Additional details about the plan.  */
+/** Additional details about the plan. Read-only. Nullable.  */
 export class DetailsRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

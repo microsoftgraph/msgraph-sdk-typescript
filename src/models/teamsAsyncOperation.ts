@@ -13,7 +13,7 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
     private _error_escaped?: OperationError | undefined;
     /** Time when the async operation was last updated.  */
     private _lastActionDateTime?: Date | undefined;
-    /** Denotes which type of operation is being described.  */
+    /** Denotes the type of operation being described.  */
     private _operationType?: TeamsAsyncOperationType | undefined;
     /** Operation status.  */
     private _status?: TeamsAsyncOperationStatus | undefined;
@@ -100,14 +100,14 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         this._lastActionDateTime = value;
     };
     /**
-     * Gets the operationType property value. Denotes which type of operation is being described.
+     * Gets the operationType property value. Denotes the type of operation being described.
      * @returns a teamsAsyncOperationType
      */
     public get operationType() {
         return this._operationType;
     };
     /**
-     * Sets the operationType property value. Denotes which type of operation is being described.
+     * Sets the operationType property value. Denotes the type of operation being described.
      * @param value Value to set for the operationType property.
      */
     public set operationType(value: TeamsAsyncOperationType | undefined) {

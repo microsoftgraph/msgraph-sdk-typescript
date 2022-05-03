@@ -1,5 +1,5 @@
 
-/** Get roleEligibilityScheduleInstances from roleManagement  */
+/** Instances for role eligibility requests.  */
 export class RoleEligibilityScheduleInstancesRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

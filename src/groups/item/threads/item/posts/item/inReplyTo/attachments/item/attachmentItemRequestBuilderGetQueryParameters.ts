@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Supports $expand.  */
+/** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.  */
 export class AttachmentItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable. Returns the plannerPlans shared with the user.  */
+/** Read-only. Nullable. Returns the plannerTasks assigned to the user.  */
 export class TasksRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

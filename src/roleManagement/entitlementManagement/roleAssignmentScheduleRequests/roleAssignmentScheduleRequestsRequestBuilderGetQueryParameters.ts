@@ -1,5 +1,5 @@
 
-/** Get roleAssignmentScheduleRequests from roleManagement  */
+/** Requests for active role assignments to principals through PIM.  */
 export class RoleAssignmentScheduleRequestsRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

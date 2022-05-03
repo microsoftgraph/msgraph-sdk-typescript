@@ -3,7 +3,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class EducationTeacher implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** ID of the teacher in the source system.  */
+    /** Id of the Teacher in external source system.  */
     private _externalId?: string | undefined;
     /** Teacher number.  */
     private _teacherNumber?: string | undefined;
@@ -28,14 +28,14 @@ export class EducationTeacher implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the externalId property value. ID of the teacher in the source system.
+     * Gets the externalId property value. Id of the Teacher in external source system.
      * @returns a string
      */
     public get externalId() {
         return this._externalId;
     };
     /**
-     * Sets the externalId property value. ID of the teacher in the source system.
+     * Sets the externalId property value. Id of the Teacher in external source system.
      * @param value Value to set for the externalId property.
      */
     public set externalId(value: string | undefined) {

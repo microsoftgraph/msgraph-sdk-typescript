@@ -1,5 +1,5 @@
 
-/** The tokenLifetimePolicies assigned to this service principal.  */
+/** The tokenLifetimePolicies assigned to this service principal. Supports $expand.  */
 export class TokenLifetimePoliciesRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

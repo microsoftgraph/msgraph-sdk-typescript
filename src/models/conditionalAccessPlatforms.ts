@@ -4,9 +4,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ConditionalAccessPlatforms implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.  */
+    /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.  */
     private _excludePlatforms?: ConditionalAccessDevicePlatform[] | undefined;
-    /** Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.  */
+    /** Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.  */
     private _includePlatforms?: ConditionalAccessDevicePlatform[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -29,14 +29,14 @@ export class ConditionalAccessPlatforms implements AdditionalDataHolder, Parsabl
         this._additionalData = {};
     };
     /**
-     * Gets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     * Gets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
      * @returns a conditionalAccessDevicePlatform
      */
     public get excludePlatforms() {
         return this._excludePlatforms;
     };
     /**
-     * Sets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     * Sets the excludePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue, linux.
      * @param value Value to set for the excludePlatforms property.
      */
     public set excludePlatforms(value: ConditionalAccessDevicePlatform[] | undefined) {
@@ -53,14 +53,14 @@ export class ConditionalAccessPlatforms implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     * Gets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
      * @returns a conditionalAccessDevicePlatform
      */
     public get includePlatforms() {
         return this._includePlatforms;
     };
     /**
-     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, linux, all, unknownFutureValue.
+     * Sets the includePlatforms property value. Possible values are: android, iOS, windows, windowsPhone, macOS, all, unknownFutureValue,linux``.
      * @param value Value to set for the includePlatforms property.
      */
     public set includePlatforms(value: ConditionalAccessDevicePlatform[] | undefined) {

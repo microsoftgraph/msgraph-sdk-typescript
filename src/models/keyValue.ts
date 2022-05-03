@@ -3,9 +3,9 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class KeyValue implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Key for the key-value pair.  */
+    /** Key.  */
     private _key?: string | undefined;
-    /** Value for the key-value pair.  */
+    /** Value.  */
     private _value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -38,14 +38,14 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the key property value. Key for the key-value pair.
+     * Gets the key property value. Key.
      * @returns a string
      */
     public get key() {
         return this._key;
     };
     /**
-     * Sets the key property value. Key for the key-value pair.
+     * Sets the key property value. Key.
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
@@ -62,14 +62,14 @@ export class KeyValue implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the value property value. Value for the key-value pair.
+     * Gets the value property value. Value.
      * @returns a string
      */
     public get value() {
         return this._value;
     };
     /**
-     * Sets the value property value. Value for the key-value pair.
+     * Sets the value property value. Value.
      * @param value Value to set for the value property.
      */
     public set value(value: string | undefined) {

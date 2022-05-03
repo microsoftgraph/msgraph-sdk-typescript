@@ -13,7 +13,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     private _azureTenantId?: string | undefined;
     /** The collection of compliance information associated with secure score control  */
     private _complianceInformation?: ComplianceInformation[] | undefined;
-    /** Control action category (Identity, Data, Device, Apps, Infrastructure).  */
+    /** Control action category (Account, Data, Device, Apps, Infrastructure).  */
     private _controlCategory?: string | undefined;
     /** Flag to indicate where the tenant has marked a control (ignore, thirdParty, reviewed) (supports update).  */
     private _controlStateUpdates?: SecureScoreControlStateUpdate[] | undefined;
@@ -23,7 +23,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     private _implementationCost?: string | undefined;
     /** Time at which the control profile entity was last modified. The Timestamp type represents date and time  */
     private _lastModifiedDateTime?: Date | undefined;
-    /** max attainable score for the control.  */
+    /** Current obtained max score on specified date.  */
     private _maxScore?: number | undefined;
     /** Microsoft's stack ranking of control.  */
     private _rank?: number | undefined;
@@ -33,7 +33,7 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
     private _remediationImpact?: string | undefined;
     /** Service that owns the control (Exchange, Sharepoint, Azure AD).  */
     private _service?: string | undefined;
-    /** List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,  */
+    /** List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).  */
     private _threats?: string[] | undefined;
     /** Control tier (Core, Defense in Depth, Advanced.)  */
     private _tier?: string | undefined;
@@ -106,14 +106,14 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * Gets the controlCategory property value. Control action category (Account, Data, Device, Apps, Infrastructure).
      * @returns a string
      */
     public get controlCategory() {
         return this._controlCategory;
     };
     /**
-     * Sets the controlCategory property value. Control action category (Identity, Data, Device, Apps, Infrastructure).
+     * Sets the controlCategory property value. Control action category (Account, Data, Device, Apps, Infrastructure).
      * @param value Value to set for the controlCategory property.
      */
     public set controlCategory(value: string | undefined) {
@@ -203,14 +203,14 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the maxScore property value. max attainable score for the control.
+     * Gets the maxScore property value. Current obtained max score on specified date.
      * @returns a double
      */
     public get maxScore() {
         return this._maxScore;
     };
     /**
-     * Sets the maxScore property value. max attainable score for the control.
+     * Sets the maxScore property value. Current obtained max score on specified date.
      * @param value Value to set for the maxScore property.
      */
     public set maxScore(value: number | undefined) {
@@ -300,14 +300,14 @@ export class SecureScoreControlProfile extends Entity implements Parsable {
         this._service = value;
     };
     /**
-     * Gets the threats property value. List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,
+     * Gets the threats property value. List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
      * @returns a string
      */
     public get threats() {
         return this._threats;
     };
     /**
-     * Sets the threats property value. List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,
+     * Sets the threats property value. List of threats the control mitigates (accountBreach,dataDeletion,dataExfiltration,dataSpillage,elevationOfPrivilege,maliciousInsider,passwordCracking,phishingOrWhaling,spoofing).
      * @param value Value to set for the threats property.
      */
     public set threats(value: string[] | undefined) {

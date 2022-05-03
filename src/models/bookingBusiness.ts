@@ -10,7 +10,7 @@ import {BookingAppointment, BookingCustomerBase, BookingCustomQuestion, BookingS
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingBusiness extends Entity implements Parsable {
-    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.  */
+    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.  */
     private _address?: PhysicalAddress | undefined;
     /** All the appointments of this business. Read-only. Nullable.  */
     private _appointments?: BookingAppointment[] | undefined;
@@ -45,14 +45,14 @@ export class BookingBusiness extends Entity implements Parsable {
     /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page.  */
     private _webSiteUrl?: string | undefined;
     /**
-     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
+     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
      * @returns a physicalAddress
      */
     public get address() {
         return this._address;
     };
     /**
-     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
+     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
      * @param value Value to set for the address property.
      */
     public set address(value: PhysicalAddress | undefined) {

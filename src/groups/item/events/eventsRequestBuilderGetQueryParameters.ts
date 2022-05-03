@@ -1,5 +1,5 @@
 
-/** The group's calendar events.  */
+/** The group's events.  */
 export class EventsRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

@@ -9,7 +9,7 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** A collection of search results.  */
     private _hitsContainers?: SearchHitsContainer[] | undefined;
-    /** Provides information related to spelling corrections in the alteration response.  */
+    /** Provides details of query alteration response for spelling correction.  */
     private _queryAlterationResponse?: AlterationResponse | undefined;
     /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.  */
     private _resultTemplates?: ResultTemplateDictionary | undefined;
@@ -62,14 +62,14 @@ export class SearchResponse implements AdditionalDataHolder, Parsable {
         this._hitsContainers = value;
     };
     /**
-     * Gets the queryAlterationResponse property value. Provides information related to spelling corrections in the alteration response.
+     * Gets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
      * @returns a alterationResponse
      */
     public get queryAlterationResponse() {
         return this._queryAlterationResponse;
     };
     /**
-     * Sets the queryAlterationResponse property value. Provides information related to spelling corrections in the alteration response.
+     * Sets the queryAlterationResponse property value. Provides details of query alteration response for spelling correction.
      * @param value Value to set for the queryAlterationResponse property.
      */
     public set queryAlterationResponse(value: AlterationResponse | undefined) {

@@ -8,7 +8,7 @@ export class Website implements AdditionalDataHolder, Parsable {
     private _address?: string | undefined;
     /** The display name of the web site.  */
     private _displayName?: string | undefined;
-    /** The possible values are: other, home, work, blog, profile.  */
+    /** Possible values are: other, home, work, blog, profile.  */
     private _type?: WebsiteType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -81,14 +81,14 @@ export class Website implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The possible values are: other, home, work, blog, profile.
+     * Gets the type property value. Possible values are: other, home, work, blog, profile.
      * @returns a websiteType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The possible values are: other, home, work, blog, profile.
+     * Sets the type property value. Possible values are: other, home, work, blog, profile.
      * @param value Value to set for the type property.
      */
     public set type(value: WebsiteType | undefined) {

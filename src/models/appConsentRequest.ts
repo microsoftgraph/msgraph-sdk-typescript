@@ -8,7 +8,7 @@ export class AppConsentRequest extends Entity implements Parsable {
     private _appDisplayName?: string | undefined;
     /** The identifier of the application. Required. Supports $filter (eq only) and $orderby.  */
     private _appId?: string | undefined;
-    /** A list of pending scopes waiting for approval. Required.  */
+    /** A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.  */
     private _pendingScopes?: AppConsentRequestScope[] | undefined;
     /** A list of pending user consent requests.  */
     private _userConsentRequests?: UserConsentRequest[] | undefined;
@@ -59,14 +59,14 @@ export class AppConsentRequest extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
+     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
      * @returns a appConsentRequestScope
      */
     public get pendingScopes() {
         return this._pendingScopes;
     };
     /**
-     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
+     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
      * @param value Value to set for the pendingScopes property.
      */
     public set pendingScopes(value: AppConsentRequestScope[] | undefined) {

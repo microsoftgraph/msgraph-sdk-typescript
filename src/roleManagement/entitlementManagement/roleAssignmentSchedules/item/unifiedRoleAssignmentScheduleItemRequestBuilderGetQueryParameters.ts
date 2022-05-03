@@ -1,5 +1,5 @@
 
-/** Get roleAssignmentSchedules from roleManagement  */
+/** Schedules for active role assignment operations.  */
 export class UnifiedRoleAssignmentScheduleItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

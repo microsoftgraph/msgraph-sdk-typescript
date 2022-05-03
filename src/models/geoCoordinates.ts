@@ -5,9 +5,9 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only.  */
     private _altitude?: number | undefined;
-    /** Optional. The latitude, in decimal, for the item. Read-only.  */
+    /** Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.  */
     private _latitude?: number | undefined;
-    /** Optional. The longitude, in decimal, for the item. Read-only.  */
+    /** Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.  */
     private _longitude?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -55,28 +55,28 @@ export class GeoCoordinates implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
+     * Gets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
      * @returns a double
      */
     public get latitude() {
         return this._latitude;
     };
     /**
-     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Read-only.
+     * Sets the latitude property value. Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.
      * @param value Value to set for the latitude property.
      */
     public set latitude(value: number | undefined) {
         this._latitude = value;
     };
     /**
-     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
+     * Gets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
      * @returns a double
      */
     public get longitude() {
         return this._longitude;
     };
     /**
-     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Read-only.
+     * Sets the longitude property value. Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.
      * @param value Value to set for the longitude property.
      */
     public set longitude(value: number | undefined) {

@@ -1,5 +1,5 @@
 
-/** The access packages in this catalog. Read-only. Nullable.  */
+/** The access packages in this catalog. Read-only. Nullable. Supports $expand.  */
 export class AccessPackageItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

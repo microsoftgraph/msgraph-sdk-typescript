@@ -18,7 +18,7 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
     private _meetingTimeSlot?: TimeSlot | undefined;
     /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence.  */
     private _order?: number | undefined;
-    /** Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
     private _organizerAvailability?: FreeBusyStatus | undefined;
     /** Reason for suggesting the meeting time.  */
     private _suggestionReason?: string | undefined;
@@ -128,14 +128,14 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
         this._order = value;
     };
     /**
-     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @returns a freeBusyStatus
      */
     public get organizerAvailability() {
         return this._organizerAvailability;
     };
     /**
-     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param value Value to set for the organizerAvailability property.
      */
     public set organizerAvailability(value: FreeBusyStatus | undefined) {

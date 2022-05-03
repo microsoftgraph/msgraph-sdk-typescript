@@ -21,7 +21,7 @@ export class VppToken extends Entity implements Parsable {
     private _lastSyncStatus?: VppTokenSyncStatus | undefined;
     /** The organization associated with the Apple Volume Purchase Program Token  */
     private _organizationName?: string | undefined;
-    /** Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.  */
+    /** Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.  */
     private _state?: VppTokenState | undefined;
     /** The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.  */
     private _token?: string | undefined;
@@ -184,14 +184,14 @@ export class VppToken extends Entity implements Parsable {
         writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
     };
     /**
-     * Gets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.
+     * Gets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.
      * @returns a vppTokenState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.
+     * Sets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.
      * @param value Value to set for the state property.
      */
     public set state(value: VppTokenState | undefined) {

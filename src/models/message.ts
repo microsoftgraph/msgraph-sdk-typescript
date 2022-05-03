@@ -18,7 +18,7 @@ export class Message extends OutlookItem implements Parsable {
     private _bccRecipients?: Recipient[] | undefined;
     /** The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body.  */
     private _body?: ItemBody | undefined;
-    /** The first 255 characters of the message body. It is in text format.  */
+    /** The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.  */
     private _bodyPreview?: string | undefined;
     /** The Cc: recipients for the message.  */
     private _ccRecipients?: Recipient[] | undefined;
@@ -115,14 +115,14 @@ export class Message extends OutlookItem implements Parsable {
         this._body = value;
     };
     /**
-     * Gets the bodyPreview property value. The first 255 characters of the message body. It is in text format.
+     * Gets the bodyPreview property value. The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.
      * @returns a string
      */
     public get bodyPreview() {
         return this._bodyPreview;
     };
     /**
-     * Sets the bodyPreview property value. The first 255 characters of the message body. It is in text format.
+     * Sets the bodyPreview property value. The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.
      * @param value Value to set for the bodyPreview property.
      */
     public set bodyPreview(value: string | undefined) {

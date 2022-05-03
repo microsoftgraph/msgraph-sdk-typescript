@@ -8,7 +8,7 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
     private _additionalData: Record<string, unknown>;
     /** Name of the contact. Required.  */
     private _displayName?: string | undefined;
-    /** Primary email address of the contact. Required.  */
+    /** Email address of the contact.  */
     private _emailAddress?: string | undefined;
     /** Mobile phone number of the contact.  */
     private _mobilePhone?: string | undefined;
@@ -63,14 +63,14 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the emailAddress property value. Primary email address of the contact. Required.
+     * Gets the emailAddress property value. Email address of the contact.
      * @returns a string
      */
     public get emailAddress() {
         return this._emailAddress;
     };
     /**
-     * Sets the emailAddress property value. Primary email address of the contact. Required.
+     * Sets the emailAddress property value. Email address of the contact.
      * @param value Value to set for the emailAddress property.
      */
     public set emailAddress(value: string | undefined) {

@@ -1,5 +1,5 @@
 
-/** Access package containing this policy. Read-only.  */
+/** The access package with this policy. Read-only. Nullable. Supports $expand.  */
 export class AccessPackageRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

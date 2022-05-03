@@ -6,7 +6,7 @@ import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstrac
 export class PlannerUser extends Entity implements Parsable {
     /** Read-only. Nullable. Returns the plannerTasks assigned to the user.  */
     private _plans?: PlannerPlan[] | undefined;
-    /** Read-only. Nullable. Returns the plannerPlans shared with the user.  */
+    /** Read-only. Nullable. Returns the plannerTasks assigned to the user.  */
     private _tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new plannerUser and sets the default values.
@@ -49,14 +49,14 @@ export class PlannerUser extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<PlannerTask>("tasks", this.tasks);
     };
     /**
-     * Gets the tasks property value. Read-only. Nullable. Returns the plannerPlans shared with the user.
+     * Gets the tasks property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
      * @returns a plannerTask
      */
     public get tasks() {
         return this._tasks;
     };
     /**
-     * Sets the tasks property value. Read-only. Nullable. Returns the plannerPlans shared with the user.
+     * Sets the tasks property value. Read-only. Nullable. Returns the plannerTasks assigned to the user.
      * @param value Value to set for the tasks property.
      */
     public set tasks(value: PlannerTask[] | undefined) {

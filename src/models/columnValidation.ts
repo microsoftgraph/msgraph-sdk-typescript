@@ -9,7 +9,7 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
     private _defaultLanguage?: string | undefined;
     /** Localized messages that explain what is needed for this column's value to be considered valid. User will be prompted with this message if validation fails.  */
     private _descriptions?: DisplayNameLocalization[] | undefined;
-    /** The formula to validate column value. For examples, see Examples of common formulas in lists.  */
+    /** The formula to validate column value. For examples, see Examples of common formulas in lists  */
     private _formula?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -60,14 +60,14 @@ export class ColumnValidation implements AdditionalDataHolder, Parsable {
         this._descriptions = value;
     };
     /**
-     * Gets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists.
+     * Gets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists
      * @returns a string
      */
     public get formula() {
         return this._formula;
     };
     /**
-     * Sets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists.
+     * Sets the formula property value. The formula to validate column value. For examples, see Examples of common formulas in lists
      * @param value Value to set for the formula property.
      */
     public set formula(value: string | undefined) {

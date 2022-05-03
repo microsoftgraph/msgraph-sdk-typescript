@@ -1,4 +1,5 @@
 import {createGetMailboxUsageMailboxCountsWithPeriodResponseFromDiscriminatorValue} from './createGetMailboxUsageMailboxCountsWithPeriodResponseFromDiscriminatorValue';
+import {GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration';
 import {GetMailboxUsageMailboxCountsWithPeriodResponse} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -27,29 +28,29 @@ export class GetMailboxUsageMailboxCountsWithPeriodRequestBuilder {
     };
     /**
      * Invoke function getMailboxUsageMailboxCounts
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Invoke function getMailboxUsageMailboxCounts
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMailboxUsageMailboxCountsWithPeriodResponse
      */
-    public get(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailboxUsageMailboxCountsWithPeriodResponse | undefined> {
+    public get(requestConfiguration?: GetMailboxUsageMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailboxUsageMailboxCountsWithPeriodResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            headers, options
+            requestConfiguration
         );
         return this.requestAdapter?.sendAsync<GetMailboxUsageMailboxCountsWithPeriodResponse>(requestInfo, createGetMailboxUsageMailboxCountsWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };

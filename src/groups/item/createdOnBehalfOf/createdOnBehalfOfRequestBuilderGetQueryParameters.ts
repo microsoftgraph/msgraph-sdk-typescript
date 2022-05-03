@@ -1,5 +1,5 @@
 
-/** The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.  */
+/** The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only.  */
 export class CreatedOnBehalfOfRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

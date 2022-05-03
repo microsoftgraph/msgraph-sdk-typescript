@@ -3,11 +3,11 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class AppIdentity implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** Refers to the Unique GUID representing Application Id in the Azure Active Directory.  */
+    /** Refers to the unique identifier representing Application Id in the Azure Active Directory.  */
     private _appId?: string | undefined;
     /** Refers to the Application Name displayed in the Azure Portal.  */
     private _displayName?: string | undefined;
-    /** Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.  */
+    /** Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.  */
     private _servicePrincipalId?: string | undefined;
     /** Refers to the Service Principal Name is the Application name in the tenant.  */
     private _servicePrincipalName?: string | undefined;
@@ -26,14 +26,14 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the appId property value. Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+     * Gets the appId property value. Refers to the unique identifier representing Application Id in the Azure Active Directory.
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. Refers to the Unique GUID representing Application Id in the Azure Active Directory.
+     * Sets the appId property value. Refers to the unique identifier representing Application Id in the Azure Active Directory.
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {
@@ -84,14 +84,14 @@ export class AppIdentity implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the servicePrincipalId property value. Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     * Gets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.
      * @returns a string
      */
     public get servicePrincipalId() {
         return this._servicePrincipalId;
     };
     /**
-     * Sets the servicePrincipalId property value. Refers to the Unique GUID indicating Service Principal Id in Azure Active Directory for the corresponding App.
+     * Sets the servicePrincipalId property value. Refers to the unique identifier indicating Service Principal Id in Azure Active Directory for the corresponding App.
      * @param value Value to set for the servicePrincipalId property.
      */
     public set servicePrincipalId(value: string | undefined) {

@@ -5,15 +5,15 @@ import {AccessPackage, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageCatalog extends Entity implements Parsable {
-    /** The access packages in this catalog. Read-only. Nullable.  */
+    /** The access packages in this catalog. Read-only. Nullable. Supports $expand.  */
     private _accessPackages?: AccessPackage[] | undefined;
-    /** Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.  */
+    /** One of UserManaged or ServiceDefault.  */
     private _catalogType?: AccessPackageCatalogType | undefined;
     /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
     private _createdDateTime?: Date | undefined;
     /** The description of the access package catalog.  */
     private _description?: string | undefined;
-    /** The display name of the access package catalog.  */
+    /** The display name of the access package catalog. Supports $filter (eq, contains).  */
     private _displayName?: string | undefined;
     /** Whether the access packages in this catalog can be requested by users outside of the tenant.  */
     private _isExternallyVisible?: boolean | undefined;
@@ -22,28 +22,28 @@ export class AccessPackageCatalog extends Entity implements Parsable {
     /** Has the value published if the access packages are available for management. The possible values are: unpublished, published, unknownFutureValue.  */
     private _state?: AccessPackageCatalogState | undefined;
     /**
-     * Gets the accessPackages property value. The access packages in this catalog. Read-only. Nullable.
+     * Gets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
      * @returns a accessPackage
      */
     public get accessPackages() {
         return this._accessPackages;
     };
     /**
-     * Sets the accessPackages property value. The access packages in this catalog. Read-only. Nullable.
+     * Sets the accessPackages property value. The access packages in this catalog. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the accessPackages property.
      */
     public set accessPackages(value: AccessPackage[] | undefined) {
         this._accessPackages = value;
     };
     /**
-     * Gets the catalogType property value. Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.
+     * Gets the catalogType property value. One of UserManaged or ServiceDefault.
      * @returns a accessPackageCatalogType
      */
     public get catalogType() {
         return this._catalogType;
     };
     /**
-     * Sets the catalogType property value. Whether the catalog is created by a user or entitlement management. The possible values are: userManaged, serviceDefault, serviceManaged, unknownFutureValue.
+     * Sets the catalogType property value. One of UserManaged or ServiceDefault.
      * @param value Value to set for the catalogType property.
      */
     public set catalogType(value: AccessPackageCatalogType | undefined) {
@@ -84,14 +84,14 @@ export class AccessPackageCatalog extends Entity implements Parsable {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. The display name of the access package catalog.
+     * Gets the displayName property value. The display name of the access package catalog. Supports $filter (eq, contains).
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The display name of the access package catalog.
+     * Sets the displayName property value. The display name of the access package catalog. Supports $filter (eq, contains).
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

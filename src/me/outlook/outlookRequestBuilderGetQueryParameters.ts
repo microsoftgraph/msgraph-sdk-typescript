@@ -1,5 +1,5 @@
 
-/** Read-only.  */
+/** Selective Outlook services available to the user. Read-only. Nullable.  */
 export class OutlookRequestBuilderGetQueryParameters {
     /** Select properties to be returned  */
     public select?: string[] | undefined;

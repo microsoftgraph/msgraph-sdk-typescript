@@ -34,7 +34,7 @@ export class Site extends BaseItem implements Parsable {
     private _error_escaped?: PublicError | undefined;
     /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.  */
     private _externalColumns?: ColumnDefinition[] | undefined;
-    /** Used to address any item contained in this site. This collection can't be enumerated.  */
+    /** Used to address any item contained in this site. This collection cannot be enumerated.  */
     private _items?: BaseItem[] | undefined;
     /** The collection of lists under this site.  */
     private _lists?: List[] | undefined;
@@ -52,7 +52,7 @@ export class Site extends BaseItem implements Parsable {
     private _siteCollection?: SiteCollection | undefined;
     /** The collection of the sub-sites under this site.  */
     private _sites?: Site[] | undefined;
-    /** The default termStore under this site.  */
+    /** The termStore under this site.  */
     private _termStore?: Store | undefined;
     /** The collection of termStores under this site.  */
     private _termStores?: Store[] | undefined;
@@ -202,14 +202,14 @@ export class Site extends BaseItem implements Parsable {
         };
     };
     /**
-     * Gets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
+     * Gets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
      * @returns a baseItem
      */
     public get items() {
         return this._items;
     };
     /**
-     * Sets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
+     * Sets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
      * @param value Value to set for the items property.
      */
     public set items(value: BaseItem[] | undefined) {
@@ -355,14 +355,14 @@ export class Site extends BaseItem implements Parsable {
         this._sites = value;
     };
     /**
-     * Gets the termStore property value. The default termStore under this site.
+     * Gets the termStore property value. The termStore under this site.
      * @returns a store
      */
     public get termStore() {
         return this._termStore;
     };
     /**
-     * Sets the termStore property value. The default termStore under this site.
+     * Sets the termStore property value. The termStore under this site.
      * @param value Value to set for the termStore property.
      */
     public set termStore(value: Store | undefined) {

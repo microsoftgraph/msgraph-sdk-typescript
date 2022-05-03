@@ -25,7 +25,7 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
     private _displayName?: string | undefined;
     /** DateTime the object was last modified.  */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.  */
+    /** The list of scheduled action for this rule  */
     private _scheduledActionsForRule?: DeviceComplianceScheduledActionForRule[] | undefined;
     /** List of DeviceComplianceUserStatus.  */
     private _userStatuses?: DeviceComplianceUserStatus[] | undefined;
@@ -172,14 +172,14 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * Gets the scheduledActionsForRule property value. The list of scheduled action for this rule
      * @returns a deviceComplianceScheduledActionForRule
      */
     public get scheduledActionsForRule() {
         return this._scheduledActionsForRule;
     };
     /**
-     * Sets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
      * @param value Value to set for the scheduledActionsForRule property.
      */
     public set scheduledActionsForRule(value: DeviceComplianceScheduledActionForRule[] | undefined) {

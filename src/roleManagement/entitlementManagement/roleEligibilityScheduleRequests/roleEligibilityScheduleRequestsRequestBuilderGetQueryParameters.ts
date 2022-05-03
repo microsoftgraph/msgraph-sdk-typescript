@@ -1,5 +1,5 @@
 
-/** Get roleEligibilityScheduleRequests from roleManagement  */
+/** Requests for role eligibilities for principals through PIM.  */
 export class RoleEligibilityScheduleRequestsRequestBuilderGetQueryParameters {
     /** Include count of items  */
     public count?: boolean | undefined;

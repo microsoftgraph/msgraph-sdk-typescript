@@ -4,7 +4,7 @@ import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@m
 export class ExcludeTarget implements AdditionalDataHolder, Parsable {
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
-    /** The object identifier of an Azure Active Directory user or group.  */
+    /** The object identifier of an Azure AD user or group.  */
     private _id?: string | undefined;
     /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue.  */
     private _targetType?: AuthenticationMethodTargetType | undefined;
@@ -39,14 +39,14 @@ export class ExcludeTarget implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the id property value. The object identifier of an Azure Active Directory user or group.
+     * Gets the id property value. The object identifier of an Azure AD user or group.
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. The object identifier of an Azure Active Directory user or group.
+     * Sets the id property value. The object identifier of an Azure AD user or group.
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

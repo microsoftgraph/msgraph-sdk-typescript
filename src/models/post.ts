@@ -9,7 +9,7 @@ import {Attachment, Extension, ItemBody, MultiValueLegacyExtendedProperty, Outlo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Post extends OutlookItem implements Parsable {
-    /** Read-only. Nullable. Supports $expand.  */
+    /** The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.  */
     private _attachments?: Attachment[] | undefined;
     /** The contents of the post. This is a default property. This property can be null.  */
     private _body?: ItemBody | undefined;
@@ -23,7 +23,7 @@ export class Post extends OutlookItem implements Parsable {
     private _from?: Recipient | undefined;
     /** Indicates whether the post has at least one attachment. This is a default property.  */
     private _hasAttachments?: boolean | undefined;
-    /** Read-only. Supports $expand.  */
+    /** The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.  */
     private _inReplyTo?: Post | undefined;
     /** The collection of multi-value extended properties defined for the post. Read-only. Nullable.  */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
@@ -36,14 +36,14 @@ export class Post extends OutlookItem implements Parsable {
     /** The collection of single-value extended properties defined for the post. Read-only. Nullable.  */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
-     * Gets the attachments property value. Read-only. Nullable. Supports $expand.
+     * Gets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
      * @returns a attachment
      */
     public get attachments() {
         return this._attachments;
     };
     /**
-     * Sets the attachments property value. Read-only. Nullable. Supports $expand.
+     * Sets the attachments property value. The collection of fileAttachment, itemAttachment, and referenceAttachment attachments for the post. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the attachments property.
      */
     public set attachments(value: Attachment[] | undefined) {
@@ -161,14 +161,14 @@ export class Post extends OutlookItem implements Parsable {
         this._hasAttachments = value;
     };
     /**
-     * Gets the inReplyTo property value. Read-only. Supports $expand.
+     * Gets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
      * @returns a post
      */
     public get inReplyTo() {
         return this._inReplyTo;
     };
     /**
-     * Sets the inReplyTo property value. Read-only. Supports $expand.
+     * Sets the inReplyTo property value. The earlier post that this post is replying to in the conversationThread. Read-only. Supports $expand.
      * @param value Value to set for the inReplyTo property.
      */
     public set inReplyTo(value: Post | undefined) {

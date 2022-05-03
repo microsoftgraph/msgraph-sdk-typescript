@@ -2,7 +2,7 @@ import {OfferShiftRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsable {
-    /** ShiftId for the recipient user with whom the request is to swap.  */
+    /** Shift ID for the recipient user with whom the request is to swap.  */
     private _recipientShiftId?: string | undefined;
     /**
      * Instantiates a new swapShiftsChangeRequest and sets the default values.
@@ -20,14 +20,14 @@ export class SwapShiftsChangeRequest extends OfferShiftRequest implements Parsab
         };
     };
     /**
-     * Gets the recipientShiftId property value. ShiftId for the recipient user with whom the request is to swap.
+     * Gets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
      * @returns a string
      */
     public get recipientShiftId() {
         return this._recipientShiftId;
     };
     /**
-     * Sets the recipientShiftId property value. ShiftId for the recipient user with whom the request is to swap.
+     * Sets the recipientShiftId property value. Shift ID for the recipient user with whom the request is to swap.
      * @param value Value to set for the recipientShiftId property.
      */
     public set recipientShiftId(value: string | undefined) {

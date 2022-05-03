@@ -1,5 +1,5 @@
 
-/** Read-only. Nullable.  */
+/** Notifications for suspicious or potential security issues in a customer’s tenant.  */
 export class AlertItemRequestBuilderGetQueryParameters {
     /** Expand related entities  */
     public expand?: string[] | undefined;

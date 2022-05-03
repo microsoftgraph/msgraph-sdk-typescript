@@ -3,7 +3,7 @@ import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkUserIdentity extends Identity implements Parsable {
-    /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.  */
+    /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.  */
     private _userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
      * Instantiates a new teamworkUserIdentity and sets the default values.
@@ -30,14 +30,14 @@ export class TeamworkUserIdentity extends Identity implements Parsable {
         writer.writeEnumValue<TeamworkUserIdentityType>("userIdentityType", this.userIdentityType);
     };
     /**
-     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
+     * Gets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
      * @returns a teamworkUserIdentityType
      */
     public get userIdentityType() {
         return this._userIdentityType;
     };
     /**
-     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, unknownFutureValue and emailUser.
+     * Sets the userIdentityType property value. Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.
      * @param value Value to set for the userIdentityType property.
      */
     public set userIdentityType(value: TeamworkUserIdentityType | undefined) {

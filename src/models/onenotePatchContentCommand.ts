@@ -3,25 +3,25 @@ import {OnenotePatchInsertPosition} from './onenotePatchInsertPosition';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsable {
-    /** The action to perform on the target element. The possible values are: replace, append, delete, insert, or prepend.  */
+    /** The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.  */
     private _action?: OnenotePatchActionType | undefined;
     /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
     private _additionalData: Record<string, unknown>;
     /** A string of well-formed HTML to add to the page, and any image or file binary data. If the content contains binary data, the request must be sent using the multipart/form-data content type with a 'Commands' part.  */
     private _content?: string | undefined;
-    /** The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.  */
+    /** The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.  */
     private _position?: OnenotePatchInsertPosition | undefined;
-    /** The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword.  */
+    /** The element to update. Must be the #<data-id> or the generated {id} of the element, or the body or title keyword.  */
     private _target?: string | undefined;
     /**
-     * Gets the action property value. The action to perform on the target element. The possible values are: replace, append, delete, insert, or prepend.
+     * Gets the action property value. The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
      * @returns a onenotePatchActionType
      */
     public get action() {
         return this._action;
     };
     /**
-     * Sets the action property value. The action to perform on the target element. The possible values are: replace, append, delete, insert, or prepend.
+     * Sets the action property value. The action to perform on the target element. Possible values are: replace, append, delete, insert, or prepend.
      * @param value Value to set for the action property.
      */
     public set action(value: OnenotePatchActionType | undefined) {
@@ -74,14 +74,14 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
         };
     };
     /**
-     * Gets the position property value. The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.
+     * Gets the position property value. The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.
      * @returns a onenotePatchInsertPosition
      */
     public get position() {
         return this._position;
     };
     /**
-     * Sets the position property value. The location to add the supplied content, relative to the target element. The possible values are: after (default) or before.
+     * Sets the position property value. The location to add the supplied content, relative to the target element. Possible values are: after (default) or before.
      * @param value Value to set for the position property.
      */
     public set position(value: OnenotePatchInsertPosition | undefined) {
@@ -100,14 +100,14 @@ export class OnenotePatchContentCommand implements AdditionalDataHolder, Parsabl
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the target property value. The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword.
+     * Gets the target property value. The element to update. Must be the #<data-id> or the generated {id} of the element, or the body or title keyword.
      * @returns a string
      */
     public get target() {
         return this._target;
     };
     /**
-     * Sets the target property value. The element to update. Must be the #<data-id> or the generated <id> of the element, or the body or title keyword.
+     * Sets the target property value. The element to update. Must be the #<data-id> or the generated {id} of the element, or the body or title keyword.
      * @param value Value to set for the target property.
      */
     public set target(value: string | undefined) {

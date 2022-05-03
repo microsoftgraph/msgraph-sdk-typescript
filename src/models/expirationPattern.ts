@@ -8,7 +8,7 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
     private _duration?: Duration | undefined;
     /** Timestamp of date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _endDateTime?: Date | undefined;
-    /** The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.  */
+    /** The requestor's desired expiration pattern type.  */
     private _type?: ExpirationPatternType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -81,14 +81,14 @@ export class ExpirationPattern implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
+     * Gets the type property value. The requestor's desired expiration pattern type.
      * @returns a expirationPatternType
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. The requestor's desired expiration pattern type. The possible values are: notSpecified, noExpiration, afterDateTime, afterDuration.
+     * Sets the type property value. The requestor's desired expiration pattern type.
      * @param value Value to set for the type property.
      */
     public set type(value: ExpirationPatternType | undefined) {

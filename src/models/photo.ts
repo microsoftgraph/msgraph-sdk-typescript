@@ -19,7 +19,7 @@ export class Photo implements AdditionalDataHolder, Parsable {
     private _iso?: number | undefined;
     /** The orientation value from the camera. Writable on OneDrive Personal.  */
     private _orientation?: number | undefined;
-    /** Represents the date and time the photo was taken. Read-only.  */
+    /** The date and time the photo was taken in UTC time. Read-only.  */
     private _takenDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -188,14 +188,14 @@ export class Photo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
+     * Gets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
      * @returns a Date
      */
     public get takenDateTime() {
         return this._takenDateTime;
     };
     /**
-     * Sets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
+     * Sets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
      * @param value Value to set for the takenDateTime property.
      */
     public set takenDateTime(value: Date | undefined) {

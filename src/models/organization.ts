@@ -28,19 +28,19 @@ export class Organization extends DirectoryObject implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** The display name for the tenant.  */
     private _displayName?: string | undefined;
-    /** The collection of open extensions defined for the organization. Read-only. Nullable.  */
+    /** The collection of open extensions defined for the organization resource. Nullable.  */
     private _extensions?: Extension[] | undefined;
     /** Not nullable.  */
     private _marketingNotificationEmails?: string[] | undefined;
     /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365.  */
     private _mobileDeviceManagementAuthority?: MdmAuthority | undefined;
-    /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).  */
+    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).  */
     private _onPremisesSyncEnabled?: boolean | undefined;
     /** Postal code of the address for the organization.  */
     private _postalCode?: string | undefined;
-    /** The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.  */
+    /** The preferred language for the organization. Should follow ISO 639-1 Code; for example en.  */
     private _preferredLanguage?: string | undefined;
     /** The privacy profile of an organization.  */
     private _privacyProfile?: PrivacyProfile | undefined;
@@ -193,14 +193,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the organization. Read-only. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
      * @returns a extension
      */
     public get extensions() {
         return this._extensions;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the organization. Read-only. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {
@@ -268,28 +268,28 @@ export class Organization extends DirectoryObject implements Parsable {
         this._mobileDeviceManagementAuthority = value;
     };
     /**
-     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get onPremisesLastSyncDateTime() {
         return this._onPremisesLastSyncDateTime;
     };
     /**
-     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the onPremisesLastSyncDateTime property.
      */
     public set onPremisesLastSyncDateTime(value: Date | undefined) {
         this._onPremisesLastSyncDateTime = value;
     };
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
      * @returns a boolean
      */
     public get onPremisesSyncEnabled() {
         return this._onPremisesSyncEnabled;
     };
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
      * @param value Value to set for the onPremisesSyncEnabled property.
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
@@ -310,14 +310,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._postalCode = value;
     };
     /**
-     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
+     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
      * @returns a string
      */
     public get preferredLanguage() {
         return this._preferredLanguage;
     };
     /**
-     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
+     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
      * @param value Value to set for the preferredLanguage property.
      */
     public set preferredLanguage(value: string | undefined) {

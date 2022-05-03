@@ -24,7 +24,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _addIns?: AddIn[] | undefined;
     /** Specifies settings for an application that implements a web API.  */
     private _api?: ApiApplication | undefined;
-    /** The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.  */
+    /** The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.  */
     private _appId?: string | undefined;
     /** Unique identifier of the applicationTemplate. Supports $filter (eq, not, ne).  */
     private _applicationTemplateId?: string | undefined;
@@ -34,7 +34,7 @@ export class Application extends DirectoryObject implements Parsable {
     private _createdDateTime?: Date | undefined;
     /** Read-only.  */
     private _createdOnBehalfOf?: DirectoryObject | undefined;
-    /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.  */
+    /** Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.  */
     private _description?: string | undefined;
     /** Specifies whether Microsoft has disabled the registered application. Possible values are: null (default value), NotDisabled, and DisabledDueToViolationOfServicesAgreement (reasons may include suspicious, abusive, or malicious activity, or a violation of the Microsoft Services Agreement).  Supports $filter (eq, ne, not).  */
     private _disabledByMicrosoftStatus?: string | undefined;
@@ -42,17 +42,17 @@ export class Application extends DirectoryObject implements Parsable {
     private _displayName?: string | undefined;
     /** Read-only. Nullable.  */
     private _extensionProperties?: ExtensionProperty[] | undefined;
-    /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).  */
+    /** Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).  */
     private _groupMembershipClaims?: string | undefined;
     /** The homeRealmDiscoveryPolicies property  */
     private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
     /** Also known as App ID URI, this value is set when an application is used as a resource app. The identifierUris acts as the prefix for the scopes you'll reference in your API's code, and it must be globally unique. You can use the default value provided, which is in the form api://<application-client-id>, or specify a more readable URI like https://contoso.com/api. For more information on valid identifierUris patterns and best practices, see Azure AD application registration security best practices. Not nullable. Supports $filter (eq, ne, ge, le, startsWith).  */
     private _identifierUris?: string[] | undefined;
-    /** Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).  */
+    /** Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).  */
     private _info?: InformationalUrl | undefined;
     /** Specifies whether this application supports device authentication without a user. The default is false.  */
     private _isDeviceOnlyAuthSupported?: boolean | undefined;
-    /** Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.  */
+    /** Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.  */
     private _isFallbackPublicClient?: boolean | undefined;
     /** The collection of key credentials associated with the application. Not nullable. Supports $filter (eq, not, ge, le).  */
     private _keyCredentials?: KeyCredential[] | undefined;
@@ -72,15 +72,17 @@ export class Application extends DirectoryObject implements Parsable {
     private _passwordCredentials?: PasswordCredential[] | undefined;
     /** Specifies settings for installed clients such as desktop or mobile devices.  */
     private _publicClient?: PublicClientApplication | undefined;
-    /** The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).  */
+    /** The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).  */
     private _publisherDomain?: string | undefined;
     /** Specifies the resources that the application needs to access. This property also specifies the set of delegated permissions and application roles that it needs for each of those resources. This configuration of access to the required resources drives the consent experience. No more than 50 resource services (APIs) can be configured. Beginning mid-October 2021, the total number of required permissions must not exceed 400. Not nullable. Supports $filter (eq, not, ge, le).  */
     private _requiredResourceAccess?: RequiredResourceAccess[] | undefined;
+    /** The serviceManagementReference property  */
+    private _serviceManagementReference?: string | undefined;
     /** Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).  */
     private _signInAudience?: string | undefined;
     /** Specifies settings for a single-page application, including sign out URLs and redirect URIs for authorization codes and access tokens.  */
     private _spa?: SpaApplication | undefined;
-    /** Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).  */
+    /** Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).  */
     private _tags?: string[] | undefined;
     /** Specifies the keyId of a public key from the keyCredentials collection. When configured, Azure AD encrypts all the tokens it emits by using the key this property points to. The application code that receives the encrypted token must use the matching private key to decrypt the token before it can be used for the signed-in user.  */
     private _tokenEncryptionKeyId?: string | undefined;
@@ -121,14 +123,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._api = value;
     };
     /**
-     * Gets the appId property value. The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.
+     * Gets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
      * @returns a string
      */
     public get appId() {
         return this._appId;
     };
     /**
-     * Sets the appId property value. The unique identifier for the application that is assigned to an application by Azure AD. Not nullable. Read-only.
+     * Sets the appId property value. The unique identifier for the application that is assigned by Azure AD. Not nullable. Read-only.
      * @param value Value to set for the appId property.
      */
     public set appId(value: string | undefined) {
@@ -197,14 +199,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._createdOnBehalfOf = value;
     };
     /**
-     * Gets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
+     * Gets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
+     * Sets the description property value. Free text field to provide a description of the application object to end users. The maximum allowed size is 1024 characters. Returned by default. Supports $filter (eq, ne, not, ge, le, startsWith) and $search.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
@@ -286,6 +288,7 @@ export class Application extends DirectoryObject implements Parsable {
             "publicClient": n => { this.publicClient = n.getObjectValue<PublicClientApplication>(createPublicClientApplicationFromDiscriminatorValue); },
             "publisherDomain": n => { this.publisherDomain = n.getStringValue(); },
             "requiredResourceAccess": n => { this.requiredResourceAccess = n.getCollectionOfObjectValues<RequiredResourceAccess>(createRequiredResourceAccessFromDiscriminatorValue); },
+            "serviceManagementReference": n => { this.serviceManagementReference = n.getStringValue(); },
             "signInAudience": n => { this.signInAudience = n.getStringValue(); },
             "spa": n => { this.spa = n.getObjectValue<SpaApplication>(createSpaApplicationFromDiscriminatorValue); },
             "tags": n => { this.tags = n.getCollectionOfPrimitiveValues<string>(); },
@@ -297,14 +300,14 @@ export class Application extends DirectoryObject implements Parsable {
         };
     };
     /**
-     * Gets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
+     * Gets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
      * @returns a string
      */
     public get groupMembershipClaims() {
         return this._groupMembershipClaims;
     };
     /**
-     * Sets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following valid string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all of the security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
+     * Sets the groupMembershipClaims property value. Configures the groups claim issued in a user or OAuth 2.0 access token that the application expects. To set this attribute, use one of the following string values: None, SecurityGroup (for security groups and Azure AD roles), All (this gets all security groups, distribution groups, and Azure AD directory roles that the signed-in user is a member of).
      * @param value Value to set for the groupMembershipClaims property.
      */
     public set groupMembershipClaims(value: string | undefined) {
@@ -339,14 +342,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._identifierUris = value;
     };
     /**
-     * Gets the info property value. Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
+     * Gets the info property value. Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @returns a informationalUrl
      */
     public get info() {
         return this._info;
     };
     /**
-     * Sets the info property value. Basic profile information of the application such as  app's marketing, support, terms of service and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more info, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
+     * Sets the info property value. Basic profile information of the application, such as it's marketing, support, terms of service, and privacy statement URLs. The terms of service and privacy statement are surfaced to users through the user consent experience. For more information, see How to: Add Terms of service and privacy statement for registered Azure AD apps. Supports $filter (eq, ne, not, ge, le, and eq on null values).
      * @param value Value to set for the info property.
      */
     public set info(value: InformationalUrl | undefined) {
@@ -367,14 +370,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._isDeviceOnlyAuthSupported = value;
     };
     /**
-     * Gets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
+     * Gets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
      * @returns a boolean
      */
     public get isFallbackPublicClient() {
         return this._isFallbackPublicClient;
     };
     /**
-     * Sets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where it is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
+     * Sets the isFallbackPublicClient property value. Specifies the fallback application type as public client, such as an installed application running on a mobile device. The default value is false which means the fallback application type is confidential client such as a web app. There are certain scenarios where Azure AD cannot determine the client application type. For example, the ROPC flow where the application is configured without specifying a redirect URI. In those cases Azure AD interprets the application type based on the value of this property.
      * @param value Value to set for the isFallbackPublicClient property.
      */
     public set isFallbackPublicClient(value: boolean | undefined) {
@@ -507,14 +510,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._publicClient = value;
     };
     /**
-     * Gets the publisherDomain property value. The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).
+     * Gets the publisherDomain property value. The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
      * @returns a string
      */
     public get publisherDomain() {
         return this._publisherDomain;
     };
     /**
-     * Sets the publisherDomain property value. The verified publisher domain for the application. Read-only. For more information, see How to: Configure an application's publisher domain. Supports $filter (eq, ne, ge, le, startsWith).
+     * Sets the publisherDomain property value. The verified publisher domain for the application. Read-only. Supports $filter (eq, ne, ge, le, startsWith).
      * @param value Value to set for the publisherDomain property.
      */
     public set publisherDomain(value: string | undefined) {
@@ -569,6 +572,7 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeObjectValue<PublicClientApplication>("publicClient", this.publicClient);
         writer.writeStringValue("publisherDomain", this.publisherDomain);
         writer.writeCollectionOfObjectValues<RequiredResourceAccess>("requiredResourceAccess", this.requiredResourceAccess);
+        writer.writeStringValue("serviceManagementReference", this.serviceManagementReference);
         writer.writeStringValue("signInAudience", this.signInAudience);
         writer.writeObjectValue<SpaApplication>("spa", this.spa);
         writer.writeCollectionOfPrimitiveValues<string>("tags", this.tags);
@@ -577,6 +581,20 @@ export class Application extends DirectoryObject implements Parsable {
         writer.writeCollectionOfObjectValues<TokenLifetimePolicy>("tokenLifetimePolicies", this.tokenLifetimePolicies);
         writer.writeObjectValue<VerifiedPublisher>("verifiedPublisher", this.verifiedPublisher);
         writer.writeObjectValue<WebApplication>("web", this.web);
+    };
+    /**
+     * Gets the serviceManagementReference property value. The serviceManagementReference property
+     * @returns a string
+     */
+    public get serviceManagementReference() {
+        return this._serviceManagementReference;
+    };
+    /**
+     * Sets the serviceManagementReference property value. The serviceManagementReference property
+     * @param value Value to set for the serviceManagementReference property.
+     */
+    public set serviceManagementReference(value: string | undefined) {
+        this._serviceManagementReference = value;
     };
     /**
      * Gets the signInAudience property value. Specifies the Microsoft accounts that are supported for the current application. The possible values are: AzureADMyOrg, AzureADMultipleOrgs, AzureADandPersonalMicrosoftAccount (default), and PersonalMicrosoftAccount. See more in the table below. Supports $filter (eq, ne, not).
@@ -607,14 +625,14 @@ export class Application extends DirectoryObject implements Parsable {
         this._spa = value;
     };
     /**
-     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Gets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
      * @returns a string
      */
     public get tags() {
         return this._tags;
     };
     /**
-     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable. Supports $filter (eq, not, ge, le, startsWith).
+     * Sets the tags property value. Custom strings that can be used to categorize and identify the application. Not nullable.Supports $filter (eq, not, ge, le, startsWith).
      * @param value Value to set for the tags property.
      */
     public set tags(value: string[] | undefined) {

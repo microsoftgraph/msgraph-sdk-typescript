@@ -16,7 +16,7 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
     private _languageId?: string | undefined;
     /** The participant ID of the participant. Read-only.  */
     private _participantId?: string | undefined;
-    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.  */
+    /** The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.  */
     private _region?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -123,14 +123,14 @@ export class ParticipantInfo implements AdditionalDataHolder, Parsable {
         this._participantId = value;
     };
     /**
-     * Gets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.
+     * Gets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
      * @returns a string
      */
     public get region() {
         return this._region;
     };
     /**
-     * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location. Read-only.
+     * Sets the region property value. The home region of the participant. This can be a country, a continent, or a larger geographic region. This does not change based on the participant's current physical location, unlike countryCode. Read-only.
      * @param value Value to set for the region property.
      */
     public set region(value: string | undefined) {

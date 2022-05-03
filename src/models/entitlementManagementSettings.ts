@@ -5,7 +5,7 @@ import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kio
 export class EntitlementManagementSettings extends Entity implements Parsable {
     /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.  */
     private _durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
-    /** Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.  */
+    /** One of None, BlockSignIn, or BlockSignInAndDelete.  */
     private _externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
     /**
      * Instantiates a new entitlementManagementSettings and sets the default values.
@@ -28,14 +28,14 @@ export class EntitlementManagementSettings extends Entity implements Parsable {
         this._durationUntilExternalUserDeletedAfterBlocked = value;
     };
     /**
-     * Gets the externalUserLifecycleAction property value. Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
+     * Gets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
      * @returns a accessPackageExternalUserLifecycleAction
      */
     public get externalUserLifecycleAction() {
         return this._externalUserLifecycleAction;
     };
     /**
-     * Sets the externalUserLifecycleAction property value. Automatic action that the service should take when an external user's last access package assignment is removed. The possible values are: none, blockSignIn, blockSignInAndDelete, unknownFutureValue.
+     * Sets the externalUserLifecycleAction property value. One of None, BlockSignIn, or BlockSignInAndDelete.
      * @param value Value to set for the externalUserLifecycleAction property.
      */
     public set externalUserLifecycleAction(value: AccessPackageExternalUserLifecycleAction | undefined) {

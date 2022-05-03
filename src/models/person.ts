@@ -27,7 +27,7 @@ export class Person extends Entity implements Parsable {
     private _officeLocation?: string | undefined;
     /** Free-form notes that the user has taken about this person.  */
     private _personNotes?: string | undefined;
-    /** The type of person.  */
+    /** The type of person, for example distribution list.  */
     private _personType?: PersonType | undefined;
     /** The person's phone numbers.  */
     private _phones?: Phone[] | undefined;
@@ -219,14 +219,14 @@ export class Person extends Entity implements Parsable {
         this._personNotes = value;
     };
     /**
-     * Gets the personType property value. The type of person.
+     * Gets the personType property value. The type of person, for example distribution list.
      * @returns a personType
      */
     public get personType() {
         return this._personType;
     };
     /**
-     * Sets the personType property value. The type of person.
+     * Sets the personType property value. The type of person, for example distribution list.
      * @param value Value to set for the personType property.
      */
     public set personType(value: PersonType | undefined) {

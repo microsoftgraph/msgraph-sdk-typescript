@@ -4,7 +4,7 @@ import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandin
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NotificationMessageTemplate extends Entity implements Parsable {
-    /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.  */
+    /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.  */
     private _brandingOptions?: NotificationTemplateBrandingOptions | undefined;
     /** The default locale to fallback onto when the requested locale is not available.  */
     private _defaultLocale?: string | undefined;
@@ -15,14 +15,14 @@ export class NotificationMessageTemplate extends Entity implements Parsable {
     /** The list of localized messages for this Notification Message Template.  */
     private _localizedNotificationMessages?: LocalizedNotificationMessage[] | undefined;
     /**
-     * Gets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.
+     * Gets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.
      * @returns a notificationTemplateBrandingOptions
      */
     public get brandingOptions() {
         return this._brandingOptions;
     };
     /**
-     * Sets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.
+     * Sets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.
      * @param value Value to set for the brandingOptions property.
      */
     public set brandingOptions(value: NotificationTemplateBrandingOptions | undefined) {
