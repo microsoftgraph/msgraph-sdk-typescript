@@ -1,7 +1,7 @@
-import {SearchEntity} from './index';
+import {SearchEntityImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSearchEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : SearchEntity {
+export function createSearchEntityFromDiscriminatorValue(parseNode: ParseNode | undefined) : SearchEntityImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SearchEntity();
+    return new SearchEntityImpl();
 }

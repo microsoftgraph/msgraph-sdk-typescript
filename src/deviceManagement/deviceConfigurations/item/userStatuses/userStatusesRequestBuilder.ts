@@ -1,10 +1,13 @@
-import {DeviceConfigurationUserStatus, DeviceConfigurationUserStatusCollectionResponse} from '../../../../models/';
+import {DeviceConfigurationUserStatusCollectionResponseImpl, DeviceConfigurationUserStatusImpl} from '../../../../models/';
 import {createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue';
 import {createDeviceConfigurationUserStatusFromDiscriminatorValue} from '../../../../models/createDeviceConfigurationUserStatusFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {DeviceConfigurationUserStatus} from '../../../../models/deviceConfigurationUserStatus';
+import {DeviceConfigurationUserStatusCollectionResponse} from '../../../../models/deviceConfigurationUserStatusCollectionResponse';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {UserStatusesRequestBuilderGetQueryParameters} from './userStatusesRequestBuilderGetQueryParameters';
+import {UserStatusesRequestBuilderGetRequestConfiguration} from './userStatusesRequestBuilderGetRequestConfiguration';
+import {UserStatusesRequestBuilderPostRequestConfiguration} from './userStatusesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the userStatuses property of the microsoft.graph.deviceConfiguration entity.  */
@@ -34,74 +37,73 @@ export class UserStatusesRequestBuilder {
     };
     /**
      * Device configuration installation status by user.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: UserStatusesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: UserStatusesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Create new navigation property to userStatuses for deviceManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: DeviceConfigurationUserStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: DeviceConfigurationUserStatus | undefined, requestConfiguration?: UserStatusesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new DeviceConfigurationUserStatusImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Device configuration installation status by user.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationUserStatusCollectionResponse
      */
-    public get(queryParameters?: UserStatusesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationUserStatusCollectionResponse | undefined> {
+    public get(requestConfiguration?: UserStatusesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationUserStatusCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatusCollectionResponse>(requestInfo, createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatusCollectionResponseImpl>(requestInfo, createDeviceConfigurationUserStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to userStatuses for deviceManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceConfigurationUserStatus
      */
-    public post(body: DeviceConfigurationUserStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
+    public post(body: DeviceConfigurationUserStatus | undefined, requestConfiguration?: UserStatusesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceConfigurationUserStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatus>(requestInfo, createDeviceConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceConfigurationUserStatusImpl>(requestInfo, createDeviceConfigurationUserStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

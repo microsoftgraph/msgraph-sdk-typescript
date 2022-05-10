@@ -1,7 +1,7 @@
-import {ConversationThreadCollectionResponse} from './index';
+import {ConversationThreadCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConversationThreadCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationThreadCollectionResponse {
+export function createConversationThreadCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationThreadCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ConversationThreadCollectionResponse();
+    return new ConversationThreadCollectionResponseImpl();
 }

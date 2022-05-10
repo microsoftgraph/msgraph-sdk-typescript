@@ -1,7 +1,7 @@
-import {ChatMessagePolicyViolationPolicyTip} from './index';
+import {ChatMessagePolicyViolationPolicyTipImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChatMessagePolicyViolationPolicyTip {
+export function createChatMessagePolicyViolationPolicyTipFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChatMessagePolicyViolationPolicyTipImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ChatMessagePolicyViolationPolicyTip();
+    return new ChatMessagePolicyViolationPolicyTipImpl();
 }

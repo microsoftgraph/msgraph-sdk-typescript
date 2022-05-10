@@ -1,7 +1,7 @@
-import {UpdateRecordingStatusRequestBody} from './index';
+import {UpdateRecordingStatusRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUpdateRecordingStatusRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UpdateRecordingStatusRequestBody {
+export function createUpdateRecordingStatusRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UpdateRecordingStatusRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UpdateRecordingStatusRequestBody();
+    return new UpdateRecordingStatusRequestBodyImpl();
 }

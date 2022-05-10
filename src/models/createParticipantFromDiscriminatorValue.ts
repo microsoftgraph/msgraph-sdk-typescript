@@ -1,7 +1,7 @@
-import {Participant} from './index';
+import {ParticipantImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createParticipantFromDiscriminatorValue(parseNode: ParseNode | undefined) : Participant {
+export function createParticipantFromDiscriminatorValue(parseNode: ParseNode | undefined) : ParticipantImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Participant();
+    return new ParticipantImpl();
 }

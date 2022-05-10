@@ -1,7 +1,7 @@
-import {RiskDetection} from './index';
+import {RiskDetectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRiskDetectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskDetection {
+export function createRiskDetectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskDetectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RiskDetection();
+    return new RiskDetectionImpl();
 }

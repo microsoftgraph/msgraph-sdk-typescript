@@ -1,5 +1,7 @@
 import {createGetEmailActivityUserDetailWithPeriodResponseFromDiscriminatorValue} from './createGetEmailActivityUserDetailWithPeriodResponseFromDiscriminatorValue';
-import {GetEmailActivityUserDetailWithPeriodResponse} from './index';
+import {GetEmailActivityUserDetailWithPeriodRequestBuilderGetRequestConfiguration} from './getEmailActivityUserDetailWithPeriodRequestBuilderGetRequestConfiguration';
+import {GetEmailActivityUserDetailWithPeriodResponse} from './getEmailActivityUserDetailWithPeriodResponse';
+import {GetEmailActivityUserDetailWithPeriodResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getEmailActivityUserDetail method.  */
@@ -27,30 +29,30 @@ export class GetEmailActivityUserDetailWithPeriodRequestBuilder {
     };
     /**
      * Invoke function getEmailActivityUserDetail
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GetEmailActivityUserDetailWithPeriodRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Invoke function getEmailActivityUserDetail
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetEmailActivityUserDetailWithPeriodResponse
      */
-    public get(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetEmailActivityUserDetailWithPeriodResponse | undefined> {
+    public get(requestConfiguration?: GetEmailActivityUserDetailWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetEmailActivityUserDetailWithPeriodResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            headers, options
+            requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetEmailActivityUserDetailWithPeriodResponse>(requestInfo, createGetEmailActivityUserDetailWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetEmailActivityUserDetailWithPeriodResponseImpl>(requestInfo, createGetEmailActivityUserDetailWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

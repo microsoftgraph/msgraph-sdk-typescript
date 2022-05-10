@@ -1,7 +1,7 @@
-import {ScheduleActionsForRulesRequestBody} from './index';
+import {ScheduleActionsForRulesRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createScheduleActionsForRulesRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleActionsForRulesRequestBody {
+export function createScheduleActionsForRulesRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ScheduleActionsForRulesRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ScheduleActionsForRulesRequestBody();
+    return new ScheduleActionsForRulesRequestBodyImpl();
 }

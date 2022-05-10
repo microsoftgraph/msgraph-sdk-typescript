@@ -1,7 +1,7 @@
-import {CurrencyColumn} from './index';
+import {CurrencyColumnImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCurrencyColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : CurrencyColumn {
+export function createCurrencyColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : CurrencyColumnImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CurrencyColumn();
+    return new CurrencyColumnImpl();
 }

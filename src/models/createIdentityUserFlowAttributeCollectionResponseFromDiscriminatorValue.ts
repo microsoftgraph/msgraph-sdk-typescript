@@ -1,7 +1,7 @@
-import {IdentityUserFlowAttributeCollectionResponse} from './index';
+import {IdentityUserFlowAttributeCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityUserFlowAttributeCollectionResponse {
+export function createIdentityUserFlowAttributeCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityUserFlowAttributeCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IdentityUserFlowAttributeCollectionResponse();
+    return new IdentityUserFlowAttributeCollectionResponseImpl();
 }

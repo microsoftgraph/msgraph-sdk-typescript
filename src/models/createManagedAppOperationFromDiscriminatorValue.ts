@@ -1,7 +1,7 @@
-import {ManagedAppOperation} from './index';
+import {ManagedAppOperationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppOperation {
+export function createManagedAppOperationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppOperationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ManagedAppOperation();
+    return new ManagedAppOperationImpl();
 }

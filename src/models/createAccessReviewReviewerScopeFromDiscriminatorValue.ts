@@ -1,7 +1,7 @@
-import {AccessReviewReviewerScope} from './index';
+import {AccessReviewReviewerScopeImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewReviewerScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewReviewerScope {
+export function createAccessReviewReviewerScopeFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewReviewerScopeImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessReviewReviewerScope();
+    return new AccessReviewReviewerScopeImpl();
 }

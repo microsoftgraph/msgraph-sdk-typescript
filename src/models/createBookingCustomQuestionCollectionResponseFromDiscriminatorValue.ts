@@ -1,7 +1,7 @@
-import {BookingCustomQuestionCollectionResponse} from './index';
+import {BookingCustomQuestionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingCustomQuestionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCustomQuestionCollectionResponse {
+export function createBookingCustomQuestionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCustomQuestionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingCustomQuestionCollectionResponse();
+    return new BookingCustomQuestionCollectionResponseImpl();
 }

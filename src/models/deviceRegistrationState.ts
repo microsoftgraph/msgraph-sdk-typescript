@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Provides operations to manage the deviceManagement singleton.  */
 export enum DeviceRegistrationState {
     NotRegistered = "notRegistered",
     Registered = "registered",

@@ -1,7 +1,7 @@
-import {Album} from './index';
+import {AlbumImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAlbumFromDiscriminatorValue(parseNode: ParseNode | undefined) : Album {
+export function createAlbumFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlbumImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Album();
+    return new AlbumImpl();
 }

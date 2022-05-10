@@ -1,7 +1,7 @@
-import {GetPolicyNonComplianceSummaryReportResponse} from './index';
+import {GetPolicyNonComplianceSummaryReportResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetPolicyNonComplianceSummaryReportResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetPolicyNonComplianceSummaryReportResponse {
+export function createGetPolicyNonComplianceSummaryReportResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetPolicyNonComplianceSummaryReportResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetPolicyNonComplianceSummaryReportResponse();
+    return new GetPolicyNonComplianceSummaryReportResponseImpl();
 }

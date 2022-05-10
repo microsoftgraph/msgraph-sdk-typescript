@@ -1,7 +1,7 @@
-import {WindowsInformationProtectionAppLearningSummaryCollectionResponse} from './index';
+import {WindowsInformationProtectionAppLearningSummaryCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionAppLearningSummaryCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionAppLearningSummaryCollectionResponse {
+export function createWindowsInformationProtectionAppLearningSummaryCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionAppLearningSummaryCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsInformationProtectionAppLearningSummaryCollectionResponse();
+    return new WindowsInformationProtectionAppLearningSummaryCollectionResponseImpl();
 }

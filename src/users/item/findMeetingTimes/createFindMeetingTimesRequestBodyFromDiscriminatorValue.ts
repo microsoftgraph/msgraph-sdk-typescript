@@ -1,7 +1,7 @@
-import {FindMeetingTimesRequestBody} from './index';
+import {FindMeetingTimesRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFindMeetingTimesRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FindMeetingTimesRequestBody {
+export function createFindMeetingTimesRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : FindMeetingTimesRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FindMeetingTimesRequestBody();
+    return new FindMeetingTimesRequestBodyImpl();
 }

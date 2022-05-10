@@ -1,7 +1,7 @@
-import {SolutionsRoot} from './index';
+import {SolutionsRootImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSolutionsRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : SolutionsRoot {
+export function createSolutionsRootFromDiscriminatorValue(parseNode: ParseNode | undefined) : SolutionsRootImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SolutionsRoot();
+    return new SolutionsRootImpl();
 }

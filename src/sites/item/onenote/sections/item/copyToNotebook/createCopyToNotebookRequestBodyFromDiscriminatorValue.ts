@@ -1,7 +1,7 @@
-import {CopyToNotebookRequestBody} from './index';
+import {CopyToNotebookRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCopyToNotebookRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CopyToNotebookRequestBody {
+export function createCopyToNotebookRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CopyToNotebookRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CopyToNotebookRequestBody();
+    return new CopyToNotebookRequestBodyImpl();
 }

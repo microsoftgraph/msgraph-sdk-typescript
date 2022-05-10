@@ -1,7 +1,7 @@
-import {DeviceEnrollmentConfiguration} from './index';
+import {DeviceEnrollmentConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceEnrollmentConfiguration {
+export function createDeviceEnrollmentConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceEnrollmentConfigurationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceEnrollmentConfiguration();
+    return new DeviceEnrollmentConfigurationImpl();
 }

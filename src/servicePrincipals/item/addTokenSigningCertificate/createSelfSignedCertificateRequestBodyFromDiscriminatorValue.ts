@@ -1,7 +1,7 @@
-import {SelfSignedCertificateRequestBody} from './index';
+import {SelfSignedCertificateRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSelfSignedCertificateRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SelfSignedCertificateRequestBody {
+export function createSelfSignedCertificateRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SelfSignedCertificateRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SelfSignedCertificateRequestBody();
+    return new SelfSignedCertificateRequestBodyImpl();
 }

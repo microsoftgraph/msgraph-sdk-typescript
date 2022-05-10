@@ -1,7 +1,7 @@
-import {MobileAppCategory} from './index';
+import {MobileAppCategoryImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createMobileAppCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppCategory {
+export function createMobileAppCategoryFromDiscriminatorValue(parseNode: ParseNode | undefined) : MobileAppCategoryImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new MobileAppCategory();
+    return new MobileAppCategoryImpl();
 }

@@ -1,17 +1,18 @@
-import {Site} from '../../../../models/';
+import {SiteImpl} from '../../../../models/';
 import {createSiteFromDiscriminatorValue} from '../../../../models/createSiteFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {Site} from '../../../../models/site';
 import {AnalyticsRequestBuilder} from './analytics/analyticsRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as ifd3560d84f5b0ef40078f14f9bc1ae61c10f6c0d625b4fe3e6d905ed48fb19c8} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as ic01c7a4f135817f0d6f7cb6e3314fca5d27d99eb7bba4d12f20042b0ba03a684} from './columns/item/columnDefinitionItemRequestBuilder';
 import {ContentTypesRequestBuilder} from './contentTypes/contentTypesRequestBuilder';
 import {ContentTypeItemRequestBuilder} from './contentTypes/item/contentTypeItemRequestBuilder';
 import {DriveRequestBuilder} from './drive/driveRequestBuilder';
 import {DrivesRequestBuilder} from './drives/drivesRequestBuilder';
 import {DriveItemRequestBuilder} from './drives/item/driveItemRequestBuilder';
 import {ExternalColumnsRequestBuilder} from './externalColumns/externalColumnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as id7b2885ecb4143d97925da6866e18018e906b5aee422692d97345d3a9c7c0d0a} from './externalColumns/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i381adabe01ab5dc92cb377d88d1ede05b0b9c9130b9d3d2b867915bdf1708fa1} from './externalColumns/item/columnDefinitionItemRequestBuilder';
 import {BaseItemItemRequestBuilder} from './items/item/baseItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListItemRequestBuilder} from './lists/item/listItemRequestBuilder';
@@ -21,8 +22,10 @@ import {RichLongRunningOperationItemRequestBuilder} from './operations/item/rich
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {PermissionItemRequestBuilder} from './permissions/item/permissionItemRequestBuilder';
 import {PermissionsRequestBuilder} from './permissions/permissionsRequestBuilder';
-import {SiteItemRequestBuilderGetQueryParameters} from './siteItemRequestBuilderGetQueryParameters';
-import {SiteItemRequestBuilder as i270eddd6b9ccf703fcddbc9dabbd75da7ad93a172ddeecc374dfa558384646d4} from './sites/item/siteItemRequestBuilder';
+import {SiteItemRequestBuilderDeleteRequestConfiguration} from './siteItemRequestBuilderDeleteRequestConfiguration';
+import {SiteItemRequestBuilderGetRequestConfiguration} from './siteItemRequestBuilderGetRequestConfiguration';
+import {SiteItemRequestBuilderPatchRequestConfiguration} from './siteItemRequestBuilderPatchRequestConfiguration';
+import {SiteItemRequestBuilder as ie9f838ca929f8253d370b39ddbbfea7b95c5863322f17f10c20e47d0bcfadb2e} from './sites/item/siteItemRequestBuilder';
 import {SitesRequestBuilder} from './sites/sitesRequestBuilder';
 import {TermStoreRequestBuilder} from './termStore/termStoreRequestBuilder';
 import {StoreItemRequestBuilder} from './termStores/item/storeItemRequestBuilder';
@@ -94,15 +97,15 @@ export class SiteItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.columns.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : ifd3560d84f5b0ef40078f14f9bc1ae61c10f6c0d625b4fe3e6d905ed48fb19c8 {
+    public columnsById(id: string) : ic01c7a4f135817f0d6f7cb6e3314fca5d27d99eb7bba4d12f20042b0ba03a684 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new ifd3560d84f5b0ef40078f14f9bc1ae61c10f6c0d625b4fe3e6d905ed48fb19c8(urlTplParams, this.requestAdapter);
+        return new ic01c7a4f135817f0d6f7cb6e3314fca5d27d99eb7bba4d12f20042b0ba03a684(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new SiteItemRequestBuilder and sets the default values.
@@ -118,7 +121,7 @@ export class SiteItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.contentTypes.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.contentTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeItemRequestBuilder
      */
@@ -130,63 +133,65 @@ export class SiteItemRequestBuilder {
     };
     /**
      * Delete navigation property sites for groups
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: SiteItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * The list of SharePoint sites in this group. Access the default site with /sites/root.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: SiteItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update the navigation property sites in groups
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Site | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new SiteImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Delete navigation property sites for groups
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: SiteItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -195,7 +200,7 @@ export class SiteItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.drives.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.drives.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemRequestBuilder
      */
@@ -206,36 +211,34 @@ export class SiteItemRequestBuilder {
         return new DriveItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.externalColumns.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.externalColumns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public externalColumnsById(id: string) : id7b2885ecb4143d97925da6866e18018e906b5aee422692d97345d3a9c7c0d0a {
+    public externalColumnsById(id: string) : i381adabe01ab5dc92cb377d88d1ede05b0b9c9130b9d3d2b867915bdf1708fa1 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new id7b2885ecb4143d97925da6866e18018e906b5aee422692d97345d3a9c7c0d0a(urlTplParams, this.requestAdapter);
+        return new i381adabe01ab5dc92cb377d88d1ede05b0b9c9130b9d3d2b867915bdf1708fa1(urlTplParams, this.requestAdapter);
     };
     /**
      * The list of SharePoint sites in this group. Access the default site with /sites/root.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
      */
-    public get(queryParameters?: SiteItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
+    public get(requestConfiguration?: SiteItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Site | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Site>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<SiteImpl>(requestInfo, createSiteFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.items.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a baseItemItemRequestBuilder
      */
@@ -246,7 +249,7 @@ export class SiteItemRequestBuilder {
         return new BaseItemItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.lists.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.lists.item collection
      * @param id Unique identifier of the item
      * @returns a listItemRequestBuilder
      */
@@ -257,7 +260,7 @@ export class SiteItemRequestBuilder {
         return new ListItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.operations.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.operations.item collection
      * @param id Unique identifier of the item
      * @returns a richLongRunningOperationItemRequestBuilder
      */
@@ -270,14 +273,13 @@ export class SiteItemRequestBuilder {
     /**
      * Update the navigation property sites in groups
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Site | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SiteImpl | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -286,7 +288,7 @@ export class SiteItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.permissions.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.permissions.item collection
      * @param id Unique identifier of the item
      * @returns a permissionItemRequestBuilder
      */
@@ -297,18 +299,18 @@ export class SiteItemRequestBuilder {
         return new PermissionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.sites.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.sites.item collection
      * @param id Unique identifier of the item
      * @returns a siteItemRequestBuilder
      */
-    public sitesById(id: string) : i270eddd6b9ccf703fcddbc9dabbd75da7ad93a172ddeecc374dfa558384646d4 {
+    public sitesById(id: string) : ie9f838ca929f8253d370b39ddbbfea7b95c5863322f17f10c20e47d0bcfadb2e {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["site%2Did1"] = id
-        return new i270eddd6b9ccf703fcddbc9dabbd75da7ad93a172ddeecc374dfa558384646d4(urlTplParams, this.requestAdapter);
+        return new ie9f838ca929f8253d370b39ddbbfea7b95c5863322f17f10c20e47d0bcfadb2e(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.groups.item.sites.item.termStores.item collection
+     * Gets an item from the MicrosoftGraph.groups.item.sites.item.termStores.item collection
      * @param id Unique identifier of the item
      * @returns a storeItemRequestBuilder
      */

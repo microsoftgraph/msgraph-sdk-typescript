@@ -1,1 +1,3 @@
+export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseImpl'
+export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalRequestBuilderGetRequestConfiguration'
 export * from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse'

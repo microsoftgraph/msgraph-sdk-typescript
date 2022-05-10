@@ -1,7 +1,7 @@
-import {PermissionGrantConditionSetCollectionResponse} from './index';
+import {PermissionGrantConditionSetCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PermissionGrantConditionSetCollectionResponse {
+export function createPermissionGrantConditionSetCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PermissionGrantConditionSetCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PermissionGrantConditionSetCollectionResponse();
+    return new PermissionGrantConditionSetCollectionResponseImpl();
 }

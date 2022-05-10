@@ -1,7 +1,7 @@
-import {ProvisionChannelEmailResult} from './index';
+import {ProvisionChannelEmailResultImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createProvisionChannelEmailResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ProvisionChannelEmailResult {
+export function createProvisionChannelEmailResultFromDiscriminatorValue(parseNode: ParseNode | undefined) : ProvisionChannelEmailResultImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ProvisionChannelEmailResult();
+    return new ProvisionChannelEmailResultImpl();
 }

@@ -1,5 +1,7 @@
 import {createGetCompatibleHubContentTypesResponseFromDiscriminatorValue} from './createGetCompatibleHubContentTypesResponseFromDiscriminatorValue';
-import {GetCompatibleHubContentTypesResponse} from './index';
+import {GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration} from './getCompatibleHubContentTypesRequestBuilderGetRequestConfiguration';
+import {GetCompatibleHubContentTypesResponse} from './getCompatibleHubContentTypesResponse';
+import {GetCompatibleHubContentTypesResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getCompatibleHubContentTypes method.  */
@@ -25,30 +27,30 @@ export class GetCompatibleHubContentTypesRequestBuilder {
     };
     /**
      * Invoke function getCompatibleHubContentTypes
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Invoke function getCompatibleHubContentTypes
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetCompatibleHubContentTypesResponse
      */
-    public get(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetCompatibleHubContentTypesResponse | undefined> {
+    public get(requestConfiguration?: GetCompatibleHubContentTypesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetCompatibleHubContentTypesResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            headers, options
+            requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetCompatibleHubContentTypesResponse>(requestInfo, createGetCompatibleHubContentTypesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetCompatibleHubContentTypesResponseImpl>(requestInfo, createGetCompatibleHubContentTypesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,7 @@
-import {GetHistoricalReportResponse} from './index';
+import {GetHistoricalReportResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetHistoricalReportResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetHistoricalReportResponse {
+export function createGetHistoricalReportResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetHistoricalReportResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetHistoricalReportResponse();
+    return new GetHistoricalReportResponseImpl();
 }

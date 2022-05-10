@@ -1,7 +1,7 @@
-import {RemoveGroupRequestBody} from './index';
+import {RemoveGroupRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRemoveGroupRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RemoveGroupRequestBody {
+export function createRemoveGroupRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RemoveGroupRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RemoveGroupRequestBody();
+    return new RemoveGroupRequestBodyImpl();
 }

@@ -1,18 +1,21 @@
-import {ContentType} from '../../../../../../models/';
+import {ContentTypeImpl} from '../../../../../../models/';
+import {ContentType} from '../../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../models/createContentTypeFromDiscriminatorValue';
-import {ODataError} from '../../../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssociateWithHubSitesRequestBuilder} from './associateWithHubSites/associateWithHubSitesRequestBuilder';
 import {BaseRequestBuilder} from './base/baseRequestBuilder';
 import {BaseTypesRequestBuilder} from './baseTypes/baseTypesRequestBuilder';
-import {ContentTypeItemRequestBuilder as ief32609912716a70a09abd89cad61f2f5545224f741b5f241967a6ff9f8acb09} from './baseTypes/item/contentTypeItemRequestBuilder';
+import {ContentTypeItemRequestBuilder as i45ec8b68716d0cd48bdb2d133b0a472d669356379a4f7f20e143763ee2d679fe} from './baseTypes/item/contentTypeItemRequestBuilder';
 import {ColumnLinksRequestBuilder} from './columnLinks/columnLinksRequestBuilder';
 import {ColumnLinkItemRequestBuilder} from './columnLinks/item/columnLinkItemRequestBuilder';
 import {ColumnPositionsRequestBuilder} from './columnPositions/columnPositionsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as ieca3c8d5139592e6bd73a5c720a39b0b86f0c4da76257700d0bf2cecdb2d24b4} from './columnPositions/item/columnDefinitionItemRequestBuilder';
+import {ColumnDefinitionItemRequestBuilder as i6f05eaa79b8433d2086742dcef0776ef9ff2e9edddce20d63d87bdab7a951607} from './columnPositions/item/columnDefinitionItemRequestBuilder';
 import {ColumnsRequestBuilder} from './columns/columnsRequestBuilder';
-import {ColumnDefinitionItemRequestBuilder as i710802058528a4fa0b2fffc8bff28afe81b17ef73fdc339d5200367d6a8b3394} from './columns/item/columnDefinitionItemRequestBuilder';
-import {ContentTypeItemRequestBuilderGetQueryParameters} from './contentTypeItemRequestBuilderGetQueryParameters';
+import {ColumnDefinitionItemRequestBuilder as ibd1efc3e463928b949d89775c23c6cfc09b15180cff790bd4900e3081ee3e66f} from './columns/item/columnDefinitionItemRequestBuilder';
+import {ContentTypeItemRequestBuilderDeleteRequestConfiguration} from './contentTypeItemRequestBuilderDeleteRequestConfiguration';
+import {ContentTypeItemRequestBuilderGetRequestConfiguration} from './contentTypeItemRequestBuilderGetRequestConfiguration';
+import {ContentTypeItemRequestBuilderPatchRequestConfiguration} from './contentTypeItemRequestBuilderPatchRequestConfiguration';
 import {CopyToDefaultContentLocationRequestBuilder} from './copyToDefaultContentLocation/copyToDefaultContentLocationRequestBuilder';
 import {IsPublishedRequestBuilder} from './isPublished/isPublishedRequestBuilder';
 import {PublishRequestBuilder} from './publish/publishRequestBuilder';
@@ -64,18 +67,18 @@ export class ContentTypeItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.contentTypes.item.baseTypes.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.list.contentTypes.item.baseTypes.item collection
      * @param id Unique identifier of the item
      * @returns a contentTypeItemRequestBuilder
      */
-    public baseTypesById(id: string) : ief32609912716a70a09abd89cad61f2f5545224f741b5f241967a6ff9f8acb09 {
+    public baseTypesById(id: string) : i45ec8b68716d0cd48bdb2d133b0a472d669356379a4f7f20e143763ee2d679fe {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["contentType%2Did1"] = id
-        return new ief32609912716a70a09abd89cad61f2f5545224f741b5f241967a6ff9f8acb09(urlTplParams, this.requestAdapter);
+        return new i45ec8b68716d0cd48bdb2d133b0a472d669356379a4f7f20e143763ee2d679fe(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.contentTypes.item.columnLinks.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.list.contentTypes.item.columnLinks.item collection
      * @param id Unique identifier of the item
      * @returns a columnLinkItemRequestBuilder
      */
@@ -86,26 +89,26 @@ export class ContentTypeItemRequestBuilder {
         return new ColumnLinkItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.contentTypes.item.columnPositions.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.list.contentTypes.item.columnPositions.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnPositionsById(id: string) : ieca3c8d5139592e6bd73a5c720a39b0b86f0c4da76257700d0bf2cecdb2d24b4 {
+    public columnPositionsById(id: string) : i6f05eaa79b8433d2086742dcef0776ef9ff2e9edddce20d63d87bdab7a951607 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new ieca3c8d5139592e6bd73a5c720a39b0b86f0c4da76257700d0bf2cecdb2d24b4(urlTplParams, this.requestAdapter);
+        return new i6f05eaa79b8433d2086742dcef0776ef9ff2e9edddce20d63d87bdab7a951607(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.list.contentTypes.item.columns.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.list.contentTypes.item.columns.item collection
      * @param id Unique identifier of the item
      * @returns a columnDefinitionItemRequestBuilder
      */
-    public columnsById(id: string) : i710802058528a4fa0b2fffc8bff28afe81b17ef73fdc339d5200367d6a8b3394 {
+    public columnsById(id: string) : ibd1efc3e463928b949d89775c23c6cfc09b15180cff790bd4900e3081ee3e66f {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["columnDefinition%2Did"] = id
-        return new i710802058528a4fa0b2fffc8bff28afe81b17ef73fdc339d5200367d6a8b3394(urlTplParams, this.requestAdapter);
+        return new ibd1efc3e463928b949d89775c23c6cfc09b15180cff790bd4900e3081ee3e66f(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new ContentTypeItemRequestBuilder and sets the default values.
@@ -122,63 +125,65 @@ export class ContentTypeItemRequestBuilder {
     };
     /**
      * Delete navigation property contentTypes for me
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * The collection of content types present in this list.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: ContentTypeItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update the navigation property contentTypes in me
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ContentType | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new ContentTypeImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Delete navigation property contentTypes for me
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ContentTypeItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -188,21 +193,19 @@ export class ContentTypeItemRequestBuilder {
     };
     /**
      * The collection of content types present in this list.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public get(queryParameters?: ContentTypeItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public get(requestConfiguration?: ContentTypeItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentTypeImpl>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Provides operations to call the isPublished method.
@@ -214,14 +217,13 @@ export class ContentTypeItemRequestBuilder {
     /**
      * Update the navigation property contentTypes in me
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ContentType | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ContentTypeImpl | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

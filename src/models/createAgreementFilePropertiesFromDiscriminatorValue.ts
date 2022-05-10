@@ -1,7 +1,7 @@
-import {AgreementFileProperties} from './index';
+import {AgreementFilePropertiesImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAgreementFilePropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementFileProperties {
+export function createAgreementFilePropertiesFromDiscriminatorValue(parseNode: ParseNode | undefined) : AgreementFilePropertiesImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AgreementFileProperties();
+    return new AgreementFilePropertiesImpl();
 }

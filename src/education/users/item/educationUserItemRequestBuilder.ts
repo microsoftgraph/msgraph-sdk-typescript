@@ -1,17 +1,20 @@
-import {EducationUser} from '../../../models/';
+import {EducationUserImpl} from '../../../models/';
 import {createEducationUserFromDiscriminatorValue} from '../../../models/createEducationUserFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {EducationUser} from '../../../models/educationUser';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AssignmentsRequestBuilder} from './assignments/assignmentsRequestBuilder';
 import {EducationAssignmentItemRequestBuilder} from './assignments/item/educationAssignmentItemRequestBuilder';
 import {ClassesRequestBuilder} from './classes/classesRequestBuilder';
-import {EducationClassItemRequestBuilder as ice1272692f4bc266210a2382c62791c1922a32cec5c73db5e3a5228fa1c8c029} from './classes/item/educationClassItemRequestBuilder';
-import {EducationUserItemRequestBuilderGetQueryParameters} from './educationUserItemRequestBuilderGetQueryParameters';
+import {EducationClassItemRequestBuilder as i3ca409a9d8cc3c08f6c5f81ea3b99d7b35c2fea3a65c0c9461b5700c1854acb3} from './classes/item/educationClassItemRequestBuilder';
+import {EducationUserItemRequestBuilderDeleteRequestConfiguration} from './educationUserItemRequestBuilderDeleteRequestConfiguration';
+import {EducationUserItemRequestBuilderGetRequestConfiguration} from './educationUserItemRequestBuilderGetRequestConfiguration';
+import {EducationUserItemRequestBuilderPatchRequestConfiguration} from './educationUserItemRequestBuilderPatchRequestConfiguration';
 import {EducationRubricItemRequestBuilder} from './rubrics/item/educationRubricItemRequestBuilder';
 import {RubricsRequestBuilder} from './rubrics/rubricsRequestBuilder';
 import {EducationSchoolItemRequestBuilder} from './schools/item/educationSchoolItemRequestBuilder';
 import {SchoolsRequestBuilder} from './schools/schoolsRequestBuilder';
-import {EducationClassItemRequestBuilder as i2f7a14872a2bd0639c7556619e3a52dc0d62512adbf27d1b6c2d9f3254435dd0} from './taughtClasses/item/educationClassItemRequestBuilder';
+import {EducationClassItemRequestBuilder as i68bdbdf0b00ba4e46e4637db3d4fd5f30625cb7d9d4a769200c9ae24894091b6} from './taughtClasses/item/educationClassItemRequestBuilder';
 import {TaughtClassesRequestBuilder} from './taughtClasses/taughtClassesRequestBuilder';
 import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
@@ -49,7 +52,7 @@ export class EducationUserItemRequestBuilder {
         return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.assignments.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item.assignments.item collection
      * @param id Unique identifier of the item
      * @returns a educationAssignmentItemRequestBuilder
      */
@@ -60,15 +63,15 @@ export class EducationUserItemRequestBuilder {
         return new EducationAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.classes.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item.classes.item collection
      * @param id Unique identifier of the item
      * @returns a educationClassItemRequestBuilder
      */
-    public classesById(id: string) : ice1272692f4bc266210a2382c62791c1922a32cec5c73db5e3a5228fa1c8c029 {
+    public classesById(id: string) : i3ca409a9d8cc3c08f6c5f81ea3b99d7b35c2fea3a65c0c9461b5700c1854acb3 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
-        return new ice1272692f4bc266210a2382c62791c1922a32cec5c73db5e3a5228fa1c8c029(urlTplParams, this.requestAdapter);
+        return new i3ca409a9d8cc3c08f6c5f81ea3b99d7b35c2fea3a65c0c9461b5700c1854acb3(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new EducationUserItemRequestBuilder and sets the default values.
@@ -85,63 +88,65 @@ export class EducationUserItemRequestBuilder {
     };
     /**
      * Delete navigation property users for education
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: EducationUserItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Get users from education
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: EducationUserItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: EducationUserItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update the navigation property users in education
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: EducationUser | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: EducationUser | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new EducationUserImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Delete navigation property users for education
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: EducationUserItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -151,33 +156,30 @@ export class EducationUserItemRequestBuilder {
     };
     /**
      * Get users from education
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of EducationUser
      */
-    public get(queryParameters?: EducationUserItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
+    public get(requestConfiguration?: EducationUserItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<EducationUser | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<EducationUser>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<EducationUserImpl>(requestInfo, createEducationUserFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property users in education
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EducationUser | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationUserImpl | undefined, requestConfiguration?: EducationUserItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -186,7 +188,7 @@ export class EducationUserItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.rubrics.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item.rubrics.item collection
      * @param id Unique identifier of the item
      * @returns a educationRubricItemRequestBuilder
      */
@@ -197,7 +199,7 @@ export class EducationUserItemRequestBuilder {
         return new EducationRubricItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.schools.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item.schools.item collection
      * @param id Unique identifier of the item
      * @returns a educationSchoolItemRequestBuilder
      */
@@ -208,14 +210,14 @@ export class EducationUserItemRequestBuilder {
         return new EducationSchoolItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.education.users.item.taughtClasses.item collection
+     * Gets an item from the MicrosoftGraph.education.users.item.taughtClasses.item collection
      * @param id Unique identifier of the item
      * @returns a educationClassItemRequestBuilder
      */
-    public taughtClassesById(id: string) : i2f7a14872a2bd0639c7556619e3a52dc0d62512adbf27d1b6c2d9f3254435dd0 {
+    public taughtClassesById(id: string) : i68bdbdf0b00ba4e46e4637db3d4fd5f30625cb7d9d4a769200c9ae24894091b6 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["educationClass%2Did"] = id
-        return new i2f7a14872a2bd0639c7556619e3a52dc0d62512adbf27d1b6c2d9f3254435dd0(urlTplParams, this.requestAdapter);
+        return new i68bdbdf0b00ba4e46e4637db3d4fd5f30625cb7d9d4a769200c9ae24894091b6(urlTplParams, this.requestAdapter);
     };
 }

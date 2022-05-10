@@ -1,7 +1,7 @@
-import {NotificationMessageTemplateCollectionResponse} from './index';
+import {NotificationMessageTemplateCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : NotificationMessageTemplateCollectionResponse {
+export function createNotificationMessageTemplateCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : NotificationMessageTemplateCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new NotificationMessageTemplateCollectionResponse();
+    return new NotificationMessageTemplateCollectionResponseImpl();
 }

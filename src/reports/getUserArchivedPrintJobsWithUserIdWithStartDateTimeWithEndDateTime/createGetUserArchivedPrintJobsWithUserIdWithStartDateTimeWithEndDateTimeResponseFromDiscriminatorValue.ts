@@ -1,7 +1,7 @@
-import {GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse} from './index';
+import {GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse {
+export function createGetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponse();
+    return new GetUserArchivedPrintJobsWithUserIdWithStartDateTimeWithEndDateTimeResponseImpl();
 }

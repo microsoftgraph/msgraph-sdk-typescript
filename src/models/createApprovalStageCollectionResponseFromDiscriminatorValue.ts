@@ -1,7 +1,7 @@
-import {ApprovalStageCollectionResponse} from './index';
+import {ApprovalStageCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createApprovalStageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApprovalStageCollectionResponse {
+export function createApprovalStageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ApprovalStageCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ApprovalStageCollectionResponse();
+    return new ApprovalStageCollectionResponseImpl();
 }

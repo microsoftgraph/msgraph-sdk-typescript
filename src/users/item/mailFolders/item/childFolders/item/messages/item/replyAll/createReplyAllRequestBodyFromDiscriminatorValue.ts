@@ -1,7 +1,7 @@
-import {ReplyAllRequestBody} from './index';
+import {ReplyAllRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createReplyAllRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ReplyAllRequestBody {
+export function createReplyAllRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : ReplyAllRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ReplyAllRequestBody();
+    return new ReplyAllRequestBodyImpl();
 }

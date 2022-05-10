@@ -1,7 +1,7 @@
-import {GroupSettingTemplate} from './index';
+import {GroupSettingTemplateImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGroupSettingTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : GroupSettingTemplate {
+export function createGroupSettingTemplateFromDiscriminatorValue(parseNode: ParseNode | undefined) : GroupSettingTemplateImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GroupSettingTemplate();
+    return new GroupSettingTemplateImpl();
 }

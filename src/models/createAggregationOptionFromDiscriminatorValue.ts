@@ -1,7 +1,7 @@
-import {AggregationOption} from './index';
+import {AggregationOptionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAggregationOptionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AggregationOption {
+export function createAggregationOptionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AggregationOptionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AggregationOption();
+    return new AggregationOptionImpl();
 }

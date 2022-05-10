@@ -1,7 +1,7 @@
-import {SwapShiftsChangeRequest} from './index';
+import {SwapShiftsChangeRequestImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSwapShiftsChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : SwapShiftsChangeRequest {
+export function createSwapShiftsChangeRequestFromDiscriminatorValue(parseNode: ParseNode | undefined) : SwapShiftsChangeRequestImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SwapShiftsChangeRequest();
+    return new SwapShiftsChangeRequestImpl();
 }

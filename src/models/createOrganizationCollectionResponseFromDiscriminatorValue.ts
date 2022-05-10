@@ -1,7 +1,7 @@
-import {OrganizationCollectionResponse} from './index';
+import {OrganizationCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOrganizationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : OrganizationCollectionResponse {
+export function createOrganizationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : OrganizationCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OrganizationCollectionResponse();
+    return new OrganizationCollectionResponseImpl();
 }

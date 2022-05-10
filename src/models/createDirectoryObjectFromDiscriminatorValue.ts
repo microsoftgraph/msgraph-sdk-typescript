@@ -1,7 +1,7 @@
-import {DirectoryObject} from './index';
+import {DirectoryObjectImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryObject {
+export function createDirectoryObjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : DirectoryObjectImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DirectoryObject();
+    return new DirectoryObjectImpl();
 }

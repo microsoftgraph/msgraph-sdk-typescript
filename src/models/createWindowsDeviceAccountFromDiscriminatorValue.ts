@@ -1,7 +1,7 @@
-import {WindowsDeviceAccount} from './index';
+import {WindowsDeviceAccountImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsDeviceAccountFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsDeviceAccount {
+export function createWindowsDeviceAccountFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsDeviceAccountImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsDeviceAccount();
+    return new WindowsDeviceAccountImpl();
 }

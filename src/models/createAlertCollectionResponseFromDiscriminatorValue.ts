@@ -1,7 +1,7 @@
-import {AlertCollectionResponse} from './index';
+import {AlertCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAlertCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlertCollectionResponse {
+export function createAlertCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AlertCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AlertCollectionResponse();
+    return new AlertCollectionResponseImpl();
 }

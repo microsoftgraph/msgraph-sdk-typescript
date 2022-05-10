@@ -1,12 +1,15 @@
-import {UnifiedRoleManagementPolicy} from '../../../models/';
+import {UnifiedRoleManagementPolicyImpl} from '../../../models/';
 import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from '../../../models/createUnifiedRoleManagementPolicyFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleManagementPolicy} from '../../../models/unifiedRoleManagementPolicy';
 import {EffectiveRulesRequestBuilder} from './effectiveRules/effectiveRulesRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
-import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as ia903ab73bbb020238a677619a7cd9f549acabe28c93f299fe5dfcbed6c61ca54} from './effectiveRules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
+import {UnifiedRoleManagementPolicyRuleItemRequestBuilder as i596d7869117d1be6d9b9de4f9cbb8dfb117db4762c7189856165170e7c929fb4} from './rules/item/unifiedRoleManagementPolicyRuleItemRequestBuilder';
 import {RulesRequestBuilder} from './rules/rulesRequestBuilder';
-import {UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters} from './unifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters';
+import {UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration';
+import {UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration';
+import {UnifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleManagementPolicies property of the microsoft.graph.policyRoot entity.  */
@@ -40,63 +43,65 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
     };
     /**
      * Delete navigation property roleManagementPolicies for policies
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Represents the role management policies.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update the navigation property roleManagementPolicies in policies
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: UnifiedRoleManagementPolicy | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: UnifiedRoleManagementPolicy | undefined, requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new UnifiedRoleManagementPolicyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Delete navigation property roleManagementPolicies for policies
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -105,45 +110,42 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item.effectiveRules.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicies.item.effectiveRules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public effectiveRulesById(id: string) : ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec {
+    public effectiveRulesById(id: string) : ia903ab73bbb020238a677619a7cd9f549acabe28c93f299fe5dfcbed6c61ca54 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ia40e5b4dfc4f932f58859b037d6bd550dc1b64cf92d909c5c2bd8f9bb3b976ec(urlTplParams, this.requestAdapter);
+        return new ia903ab73bbb020238a677619a7cd9f549acabe28c93f299fe5dfcbed6c61ca54(urlTplParams, this.requestAdapter);
     };
     /**
      * Represents the role management policies.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleManagementPolicy
      */
-    public get(queryParameters?: UnifiedRoleManagementPolicyItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicy | undefined> {
+    public get(requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleManagementPolicy | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicy>(requestInfo, createUnifiedRoleManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleManagementPolicyImpl>(requestInfo, createUnifiedRoleManagementPolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Update the navigation property roleManagementPolicies in policies
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: UnifiedRoleManagementPolicy | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UnifiedRoleManagementPolicyImpl | undefined, requestConfiguration?: UnifiedRoleManagementPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -152,14 +154,14 @@ export class UnifiedRoleManagementPolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item.rules.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicies.item.rules.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyRuleItemRequestBuilder
      */
-    public rulesById(id: string) : ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521 {
+    public rulesById(id: string) : i596d7869117d1be6d9b9de4f9cbb8dfb117db4762c7189856165170e7c929fb4 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["unifiedRoleManagementPolicyRule%2Did"] = id
-        return new ib7537d91007c74df50220e8af9edec8645866417b1cf7b5dd57c4d955f8b9521(urlTplParams, this.requestAdapter);
+        return new i596d7869117d1be6d9b9de4f9cbb8dfb117db4762c7189856165170e7c929fb4(urlTplParams, this.requestAdapter);
     };
 }

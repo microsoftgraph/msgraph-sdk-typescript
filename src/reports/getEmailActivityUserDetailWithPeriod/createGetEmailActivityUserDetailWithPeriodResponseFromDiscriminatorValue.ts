@@ -1,7 +1,7 @@
-import {GetEmailActivityUserDetailWithPeriodResponse} from './index';
+import {GetEmailActivityUserDetailWithPeriodResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetEmailActivityUserDetailWithPeriodResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetEmailActivityUserDetailWithPeriodResponse {
+export function createGetEmailActivityUserDetailWithPeriodResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetEmailActivityUserDetailWithPeriodResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetEmailActivityUserDetailWithPeriodResponse();
+    return new GetEmailActivityUserDetailWithPeriodResponseImpl();
 }

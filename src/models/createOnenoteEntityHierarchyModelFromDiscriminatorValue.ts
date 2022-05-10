@@ -1,7 +1,7 @@
-import {OnenoteEntityHierarchyModel} from './index';
+import {OnenoteEntityHierarchyModelImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityHierarchyModel {
+export function createOnenoteEntityHierarchyModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityHierarchyModelImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OnenoteEntityHierarchyModel();
+    return new OnenoteEntityHierarchyModelImpl();
 }

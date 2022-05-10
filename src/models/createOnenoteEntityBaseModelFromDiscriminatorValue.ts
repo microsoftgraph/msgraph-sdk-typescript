@@ -1,7 +1,7 @@
-import {OnenoteEntityBaseModel} from './index';
+import {OnenoteEntityBaseModelImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityBaseModel {
+export function createOnenoteEntityBaseModelFromDiscriminatorValue(parseNode: ParseNode | undefined) : OnenoteEntityBaseModelImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OnenoteEntityBaseModel();
+    return new OnenoteEntityBaseModelImpl();
 }

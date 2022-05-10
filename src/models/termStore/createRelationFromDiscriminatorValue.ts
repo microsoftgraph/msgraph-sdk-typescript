@@ -1,7 +1,7 @@
-import {Relation} from './index';
+import {RelationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRelationFromDiscriminatorValue(parseNode: ParseNode | undefined) : Relation {
+export function createRelationFromDiscriminatorValue(parseNode: ParseNode | undefined) : RelationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Relation();
+    return new RelationImpl();
 }

@@ -1,7 +1,7 @@
-import {SettingTemplateValue} from './index';
+import {SettingTemplateValueImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSettingTemplateValueFromDiscriminatorValue(parseNode: ParseNode | undefined) : SettingTemplateValue {
+export function createSettingTemplateValueFromDiscriminatorValue(parseNode: ParseNode | undefined) : SettingTemplateValueImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SettingTemplateValue();
+    return new SettingTemplateValueImpl();
 }

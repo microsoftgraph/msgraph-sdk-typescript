@@ -1,7 +1,7 @@
-import {SchedulingGroup} from './index';
+import {SchedulingGroupImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSchedulingGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : SchedulingGroup {
+export function createSchedulingGroupFromDiscriminatorValue(parseNode: ParseNode | undefined) : SchedulingGroupImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SchedulingGroup();
+    return new SchedulingGroupImpl();
 }

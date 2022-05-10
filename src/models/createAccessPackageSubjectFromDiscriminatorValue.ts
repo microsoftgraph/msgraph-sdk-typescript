@@ -1,7 +1,7 @@
-import {AccessPackageSubject} from './index';
+import {AccessPackageSubjectImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessPackageSubjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageSubject {
+export function createAccessPackageSubjectFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessPackageSubjectImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessPackageSubject();
+    return new AccessPackageSubjectImpl();
 }

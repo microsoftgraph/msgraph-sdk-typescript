@@ -1,7 +1,7 @@
-import {AttachmentItem} from './index';
+import {AttachmentItemImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAttachmentItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttachmentItem {
+export function createAttachmentItemFromDiscriminatorValue(parseNode: ParseNode | undefined) : AttachmentItemImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AttachmentItem();
+    return new AttachmentItemImpl();
 }

@@ -1,7 +1,7 @@
-import {LicenseAssignmentState} from './index';
+import {LicenseAssignmentStateImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLicenseAssignmentStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : LicenseAssignmentState {
+export function createLicenseAssignmentStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : LicenseAssignmentStateImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LicenseAssignmentState();
+    return new LicenseAssignmentStateImpl();
 }

@@ -1,7 +1,7 @@
-import {IdentityProviderBase} from './index';
+import {IdentityProviderBaseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityProviderBase {
+export function createIdentityProviderBaseFromDiscriminatorValue(parseNode: ParseNode | undefined) : IdentityProviderBaseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IdentityProviderBase();
+    return new IdentityProviderBaseImpl();
 }

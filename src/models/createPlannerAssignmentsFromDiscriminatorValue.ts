@@ -1,7 +1,7 @@
-import {PlannerAssignments} from './index';
+import {PlannerAssignmentsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPlannerAssignmentsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerAssignments {
+export function createPlannerAssignmentsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerAssignmentsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PlannerAssignments();
+    return new PlannerAssignmentsImpl();
 }

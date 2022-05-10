@@ -1,7 +1,7 @@
-import {UpdateDevicePropertiesRequestBody} from './index';
+import {UpdateDevicePropertiesRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUpdateDevicePropertiesRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UpdateDevicePropertiesRequestBody {
+export function createUpdateDevicePropertiesRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UpdateDevicePropertiesRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UpdateDevicePropertiesRequestBody();
+    return new UpdateDevicePropertiesRequestBodyImpl();
 }

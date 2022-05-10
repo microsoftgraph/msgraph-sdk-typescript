@@ -1,7 +1,7 @@
-import {StartHoldMusicRequestBody} from './index';
+import {StartHoldMusicRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStartHoldMusicRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StartHoldMusicRequestBody {
+export function createStartHoldMusicRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StartHoldMusicRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new StartHoldMusicRequestBody();
+    return new StartHoldMusicRequestBodyImpl();
 }

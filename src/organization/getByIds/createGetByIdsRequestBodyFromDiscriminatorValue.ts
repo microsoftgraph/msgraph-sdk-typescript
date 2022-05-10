@@ -1,7 +1,7 @@
-import {GetByIdsRequestBody} from './index';
+import {GetByIdsRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetByIdsRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetByIdsRequestBody {
+export function createGetByIdsRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetByIdsRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetByIdsRequestBody();
+    return new GetByIdsRequestBodyImpl();
 }

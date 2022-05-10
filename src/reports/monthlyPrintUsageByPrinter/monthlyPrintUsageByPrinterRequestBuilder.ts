@@ -1,10 +1,13 @@
-import {PrintUsageByPrinter, PrintUsageByPrinterCollectionResponse} from '../../models/';
+import {PrintUsageByPrinterCollectionResponseImpl, PrintUsageByPrinterImpl} from '../../models/';
 import {createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue} from '../../models/createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue';
 import {createPrintUsageByPrinterFromDiscriminatorValue} from '../../models/createPrintUsageByPrinterFromDiscriminatorValue';
-import {ODataError} from '../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PrintUsageByPrinter} from '../../models/printUsageByPrinter';
+import {PrintUsageByPrinterCollectionResponse} from '../../models/printUsageByPrinterCollectionResponse';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters} from './monthlyPrintUsageByPrinterRequestBuilderGetQueryParameters';
+import {MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration} from './monthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration';
+import {MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration} from './monthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the monthlyPrintUsageByPrinter property of the microsoft.graph.reportRoot entity.  */
@@ -34,74 +37,73 @@ export class MonthlyPrintUsageByPrinterRequestBuilder {
     };
     /**
      * Get monthlyPrintUsageByPrinter from reports
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Create new navigation property to monthlyPrintUsageByPrinter for reports
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: PrintUsageByPrinter | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: PrintUsageByPrinter | undefined, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new PrintUsageByPrinterImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Get monthlyPrintUsageByPrinter from reports
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByPrinterCollectionResponse
      */
-    public get(queryParameters?: MonthlyPrintUsageByPrinterRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByPrinterCollectionResponse | undefined> {
+    public get(requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByPrinterCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrintUsageByPrinterCollectionResponse>(requestInfo, createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrintUsageByPrinterCollectionResponseImpl>(requestInfo, createPrintUsageByPrinterCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to monthlyPrintUsageByPrinter for reports
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PrintUsageByPrinter
      */
-    public post(body: PrintUsageByPrinter | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByPrinter | undefined> {
+    public post(body: PrintUsageByPrinter | undefined, requestConfiguration?: MonthlyPrintUsageByPrinterRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PrintUsageByPrinter | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PrintUsageByPrinter>(requestInfo, createPrintUsageByPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PrintUsageByPrinterImpl>(requestInfo, createPrintUsageByPrinterFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

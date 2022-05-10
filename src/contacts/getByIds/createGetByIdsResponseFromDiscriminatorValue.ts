@@ -1,7 +1,7 @@
-import {GetByIdsResponse} from './index';
+import {GetByIdsResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetByIdsResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetByIdsResponse {
+export function createGetByIdsResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetByIdsResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetByIdsResponse();
+    return new GetByIdsResponseImpl();
 }

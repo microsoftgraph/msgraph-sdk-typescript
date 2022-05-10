@@ -1,17 +1,20 @@
-import {Drive} from '../../../models/';
+import {DriveImpl} from '../../../models/';
 import {createDriveFromDiscriminatorValue} from '../../../models/createDriveFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {Drive} from '../../../models/drive';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {BundlesRequestBuilder} from './bundles/bundlesRequestBuilder';
-import {DriveItemItemRequestBuilder as ia1caf4a77a8be779396cba5586a4075272363e4fd6014371268720d85325de51} from './bundles/item/driveItemItemRequestBuilder';
-import {DriveItemRequestBuilderGetQueryParameters} from './driveItemRequestBuilderGetQueryParameters';
+import {DriveItemItemRequestBuilder as icbc1e9f553e3bbec0e246ae6dff433018084e8baa705c277fbed9b961b170fda} from './bundles/item/driveItemItemRequestBuilder';
+import {DriveItemRequestBuilderDeleteRequestConfiguration} from './driveItemRequestBuilderDeleteRequestConfiguration';
+import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
+import {DriveItemRequestBuilderPatchRequestConfiguration} from './driveItemRequestBuilderPatchRequestConfiguration';
 import {FollowingRequestBuilder} from './following/followingRequestBuilder';
-import {DriveItemItemRequestBuilder as i100858b0950bdc2bbb14c1cbb6149a0e337b224823f4d97821535e5d662705fc} from './following/item/driveItemItemRequestBuilder';
-import {DriveItemItemRequestBuilder as i4dea9182fb492ecfe5c3a145e7b799663c739b982d2f0de6c6993d5a60d716a1} from './items/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i8e211f4897bce1a12363fd2ebeb1aa2bbc3ba18029bcf504d57e3e01b13a38eb} from './following/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i0dfc9fe201a5b6f0edb2985ec543107a75e50ea63d342af1f2fdb76a72fd3e51} from './items/item/driveItemItemRequestBuilder';
 import {ItemsRequestBuilder} from './items/itemsRequestBuilder';
 import {ListRequestBuilder} from './list/listRequestBuilder';
 import {RootRequestBuilder} from './root/rootRequestBuilder';
-import {DriveItemItemRequestBuilder as iafbca058cc455f042164477dc3b7aaa191363ddf40521895c461d0315c14185c} from './special/item/driveItemItemRequestBuilder';
+import {DriveItemItemRequestBuilder as i3a10b5381671cfb60364394660e578f69e5c66342dcb654d5ef8fd4173ab2018} from './special/item/driveItemItemRequestBuilder';
 import {SpecialRequestBuilder} from './special/specialRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -48,15 +51,15 @@ export class DriveItemRequestBuilder {
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.bundles.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.bundles.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public bundlesById(id: string) : ia1caf4a77a8be779396cba5586a4075272363e4fd6014371268720d85325de51 {
+    public bundlesById(id: string) : icbc1e9f553e3bbec0e246ae6dff433018084e8baa705c277fbed9b961b170fda {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new ia1caf4a77a8be779396cba5586a4075272363e4fd6014371268720d85325de51(urlTplParams, this.requestAdapter);
+        return new icbc1e9f553e3bbec0e246ae6dff433018084e8baa705c277fbed9b961b170fda(urlTplParams, this.requestAdapter);
     };
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.
@@ -73,63 +76,65 @@ export class DriveItemRequestBuilder {
     };
     /**
      * Delete navigation property drives for me
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: DriveItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * A collection of drives available for this user. Read-only.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: DriveItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update the navigation property drives in me
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Drive | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Drive | undefined, requestConfiguration?: DriveItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new DriveImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Delete navigation property drives for me
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: DriveItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -138,56 +143,53 @@ export class DriveItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.following.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.following.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public followingById(id: string) : i100858b0950bdc2bbb14c1cbb6149a0e337b224823f4d97821535e5d662705fc {
+    public followingById(id: string) : i8e211f4897bce1a12363fd2ebeb1aa2bbc3ba18029bcf504d57e3e01b13a38eb {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i100858b0950bdc2bbb14c1cbb6149a0e337b224823f4d97821535e5d662705fc(urlTplParams, this.requestAdapter);
+        return new i8e211f4897bce1a12363fd2ebeb1aa2bbc3ba18029bcf504d57e3e01b13a38eb(urlTplParams, this.requestAdapter);
     };
     /**
      * A collection of drives available for this user. Read-only.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Drive
      */
-    public get(queryParameters?: DriveItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
+    public get(requestConfiguration?: DriveItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Drive | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<Drive>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DriveImpl>(requestInfo, createDriveFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.items.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.items.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public itemsById(id: string) : i4dea9182fb492ecfe5c3a145e7b799663c739b982d2f0de6c6993d5a60d716a1 {
+    public itemsById(id: string) : i0dfc9fe201a5b6f0edb2985ec543107a75e50ea63d342af1f2fdb76a72fd3e51 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new i4dea9182fb492ecfe5c3a145e7b799663c739b982d2f0de6c6993d5a60d716a1(urlTplParams, this.requestAdapter);
+        return new i0dfc9fe201a5b6f0edb2985ec543107a75e50ea63d342af1f2fdb76a72fd3e51(urlTplParams, this.requestAdapter);
     };
     /**
      * Update the navigation property drives in me
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Drive | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DriveImpl | undefined, requestConfiguration?: DriveItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -196,14 +198,14 @@ export class DriveItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.me.drives.item.special.item collection
+     * Gets an item from the MicrosoftGraph.me.drives.item.special.item collection
      * @param id Unique identifier of the item
      * @returns a driveItemItemRequestBuilder
      */
-    public specialById(id: string) : iafbca058cc455f042164477dc3b7aaa191363ddf40521895c461d0315c14185c {
+    public specialById(id: string) : i3a10b5381671cfb60364394660e578f69e5c66342dcb654d5ef8fd4173ab2018 {
         if(!id) throw new Error("id cannot be undefined");
         const urlTplParams = getPathParameters(this.pathParameters);
         urlTplParams["driveItem%2Did"] = id
-        return new iafbca058cc455f042164477dc3b7aaa191363ddf40521895c461d0315c14185c(urlTplParams, this.requestAdapter);
+        return new i3a10b5381671cfb60364394660e578f69e5c66342dcb654d5ef8fd4173ab2018(urlTplParams, this.requestAdapter);
     };
 }

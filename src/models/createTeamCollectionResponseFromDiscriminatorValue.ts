@@ -1,7 +1,7 @@
-import {TeamCollectionResponse} from './index';
+import {TeamCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamCollectionResponse {
+export function createTeamCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TeamCollectionResponse();
+    return new TeamCollectionResponseImpl();
 }

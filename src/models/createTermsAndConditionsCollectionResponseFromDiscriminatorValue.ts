@@ -1,7 +1,7 @@
-import {TermsAndConditionsCollectionResponse} from './index';
+import {TermsAndConditionsCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTermsAndConditionsCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TermsAndConditionsCollectionResponse {
+export function createTermsAndConditionsCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : TermsAndConditionsCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TermsAndConditionsCollectionResponse();
+    return new TermsAndConditionsCollectionResponseImpl();
 }

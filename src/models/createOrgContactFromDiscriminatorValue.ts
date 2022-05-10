@@ -1,7 +1,7 @@
-import {OrgContact} from './index';
+import {OrgContactImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOrgContactFromDiscriminatorValue(parseNode: ParseNode | undefined) : OrgContact {
+export function createOrgContactFromDiscriminatorValue(parseNode: ParseNode | undefined) : OrgContactImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OrgContact();
+    return new OrgContactImpl();
 }

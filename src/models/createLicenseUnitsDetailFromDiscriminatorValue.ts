@@ -1,7 +1,7 @@
-import {LicenseUnitsDetail} from './index';
+import {LicenseUnitsDetailImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLicenseUnitsDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : LicenseUnitsDetail {
+export function createLicenseUnitsDetailFromDiscriminatorValue(parseNode: ParseNode | undefined) : LicenseUnitsDetailImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LicenseUnitsDetail();
+    return new LicenseUnitsDetailImpl();
 }

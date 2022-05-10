@@ -1,7 +1,7 @@
-import {CancelMediaProcessingRequestBody} from './index';
+import {CancelMediaProcessingRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCancelMediaProcessingRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CancelMediaProcessingRequestBody {
+export function createCancelMediaProcessingRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CancelMediaProcessingRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CancelMediaProcessingRequestBody();
+    return new CancelMediaProcessingRequestBodyImpl();
 }

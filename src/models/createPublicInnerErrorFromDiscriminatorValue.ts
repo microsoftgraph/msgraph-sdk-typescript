@@ -1,7 +1,7 @@
-import {PublicInnerError} from './index';
+import {PublicInnerErrorImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPublicInnerErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) : PublicInnerError {
+export function createPublicInnerErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) : PublicInnerErrorImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PublicInnerError();
+    return new PublicInnerErrorImpl();
 }

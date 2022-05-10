@@ -1,7 +1,7 @@
-import {AdminConsentRequestPolicy} from './index';
+import {AdminConsentRequestPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAdminConsentRequestPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AdminConsentRequestPolicy {
+export function createAdminConsentRequestPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : AdminConsentRequestPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AdminConsentRequestPolicy();
+    return new AdminConsentRequestPolicyImpl();
 }

@@ -1,7 +1,7 @@
-import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse} from './index';
+import {VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse {
+export function createVerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponse();
+    return new VerifyWindowsEnrollmentAutoDiscoveryWithDomainNameResponseImpl();
 }

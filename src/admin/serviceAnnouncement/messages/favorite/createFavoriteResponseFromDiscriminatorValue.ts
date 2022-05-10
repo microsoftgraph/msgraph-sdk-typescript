@@ -1,7 +1,7 @@
-import {FavoriteResponse} from './index';
+import {FavoriteResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createFavoriteResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : FavoriteResponse {
+export function createFavoriteResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : FavoriteResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new FavoriteResponse();
+    return new FavoriteResponseImpl();
 }

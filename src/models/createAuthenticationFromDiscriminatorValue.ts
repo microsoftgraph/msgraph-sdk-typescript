@@ -1,7 +1,7 @@
-import {Authentication} from './index';
+import {AuthenticationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthenticationFromDiscriminatorValue(parseNode: ParseNode | undefined) : Authentication {
+export function createAuthenticationFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Authentication();
+    return new AuthenticationImpl();
 }

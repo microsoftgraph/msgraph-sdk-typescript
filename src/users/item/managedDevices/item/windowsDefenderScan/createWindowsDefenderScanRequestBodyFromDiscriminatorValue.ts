@@ -1,7 +1,7 @@
-import {WindowsDefenderScanRequestBody} from './index';
+import {WindowsDefenderScanRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsDefenderScanRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsDefenderScanRequestBody {
+export function createWindowsDefenderScanRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsDefenderScanRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsDefenderScanRequestBody();
+    return new WindowsDefenderScanRequestBodyImpl();
 }

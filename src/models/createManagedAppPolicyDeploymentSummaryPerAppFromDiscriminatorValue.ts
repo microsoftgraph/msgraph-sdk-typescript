@@ -1,7 +1,7 @@
-import {ManagedAppPolicyDeploymentSummaryPerApp} from './index';
+import {ManagedAppPolicyDeploymentSummaryPerAppImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppPolicyDeploymentSummaryPerApp {
+export function createManagedAppPolicyDeploymentSummaryPerAppFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedAppPolicyDeploymentSummaryPerAppImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ManagedAppPolicyDeploymentSummaryPerApp();
+    return new ManagedAppPolicyDeploymentSummaryPerAppImpl();
 }

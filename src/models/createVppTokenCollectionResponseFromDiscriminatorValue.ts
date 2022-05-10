@@ -1,7 +1,7 @@
-import {VppTokenCollectionResponse} from './index';
+import {VppTokenCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createVppTokenCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : VppTokenCollectionResponse {
+export function createVppTokenCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : VppTokenCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new VppTokenCollectionResponse();
+    return new VppTokenCollectionResponseImpl();
 }

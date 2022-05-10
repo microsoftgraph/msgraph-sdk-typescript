@@ -1,7 +1,7 @@
-import {ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse} from './index';
+import {ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse {
+export function createManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponse();
+    return new ManagedDeviceMobileAppConfigurationDeviceStatusCollectionResponseImpl();
 }

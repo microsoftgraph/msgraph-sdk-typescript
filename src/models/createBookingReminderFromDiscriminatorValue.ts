@@ -1,7 +1,7 @@
-import {BookingReminder} from './index';
+import {BookingReminderImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingReminderFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingReminder {
+export function createBookingReminderFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingReminderImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingReminder();
+    return new BookingReminderImpl();
 }

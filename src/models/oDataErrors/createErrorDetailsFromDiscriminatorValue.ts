@@ -1,7 +1,7 @@
-import {ErrorDetails} from './index';
+import {ErrorDetailsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createErrorDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ErrorDetails {
+export function createErrorDetailsFromDiscriminatorValue(parseNode: ParseNode | undefined) : ErrorDetailsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ErrorDetails();
+    return new ErrorDetailsImpl();
 }

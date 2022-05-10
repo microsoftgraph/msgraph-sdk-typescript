@@ -1,7 +1,7 @@
-import {PrintTaskCollectionResponse} from './index';
+import {PrintTaskCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrintTaskCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintTaskCollectionResponse {
+export function createPrintTaskCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintTaskCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PrintTaskCollectionResponse();
+    return new PrintTaskCollectionResponseImpl();
 }

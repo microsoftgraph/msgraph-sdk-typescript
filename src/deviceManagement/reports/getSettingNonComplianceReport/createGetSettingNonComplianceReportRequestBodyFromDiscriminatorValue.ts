@@ -1,7 +1,7 @@
-import {GetSettingNonComplianceReportRequestBody} from './index';
+import {GetSettingNonComplianceReportRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetSettingNonComplianceReportRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetSettingNonComplianceReportRequestBody {
+export function createGetSettingNonComplianceReportRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetSettingNonComplianceReportRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetSettingNonComplianceReportRequestBody();
+    return new GetSettingNonComplianceReportRequestBodyImpl();
 }

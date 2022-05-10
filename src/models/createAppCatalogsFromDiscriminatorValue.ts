@@ -1,7 +1,7 @@
-import {AppCatalogs} from './index';
+import {AppCatalogsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAppCatalogsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AppCatalogs {
+export function createAppCatalogsFromDiscriminatorValue(parseNode: ParseNode | undefined) : AppCatalogsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AppCatalogs();
+    return new AppCatalogsImpl();
 }

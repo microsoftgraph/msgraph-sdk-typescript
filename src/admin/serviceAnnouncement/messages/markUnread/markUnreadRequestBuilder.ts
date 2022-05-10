@@ -1,5 +1,8 @@
 import {createMarkUnreadResponseFromDiscriminatorValue} from './createMarkUnreadResponseFromDiscriminatorValue';
-import {MarkUnreadRequestBody, MarkUnreadResponse} from './index';
+import {MarkUnreadRequestBodyImpl, MarkUnreadResponseImpl} from './index';
+import {MarkUnreadRequestBody} from './markUnreadRequestBody';
+import {MarkUnreadRequestBuilderPostRequestConfiguration} from './markUnreadRequestBuilderPostRequestConfiguration';
+import {MarkUnreadResponse} from './markUnreadResponse';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the markUnread method.  */
@@ -26,34 +29,35 @@ export class MarkUnreadRequestBuilder {
     /**
      * Invoke action markUnread
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: MarkUnreadRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: MarkUnreadRequestBody | undefined, requestConfiguration?: MarkUnreadRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new MarkUnreadRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Invoke action markUnread
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of MarkUnreadResponse
      */
-    public post(body: MarkUnreadRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkUnreadResponse | undefined> {
+    public post(body: MarkUnreadRequestBody | undefined, requestConfiguration?: MarkUnreadRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<MarkUnreadResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<MarkUnreadResponse>(requestInfo, createMarkUnreadResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<MarkUnreadResponseImpl>(requestInfo, createMarkUnreadResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

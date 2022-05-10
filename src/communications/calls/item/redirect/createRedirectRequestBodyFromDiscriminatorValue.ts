@@ -1,7 +1,7 @@
-import {RedirectRequestBody} from './index';
+import {RedirectRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRedirectRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RedirectRequestBody {
+export function createRedirectRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : RedirectRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RedirectRequestBody();
+    return new RedirectRequestBodyImpl();
 }

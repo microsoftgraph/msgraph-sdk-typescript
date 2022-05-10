@@ -1,5 +1,8 @@
 import {createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue} from './createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue';
-import {GetAvailableExtensionPropertiesRequestBody, GetAvailableExtensionPropertiesResponse} from './index';
+import {GetAvailableExtensionPropertiesRequestBody} from './getAvailableExtensionPropertiesRequestBody';
+import {GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration} from './getAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration';
+import {GetAvailableExtensionPropertiesResponse} from './getAvailableExtensionPropertiesResponse';
+import {GetAvailableExtensionPropertiesRequestBodyImpl, GetAvailableExtensionPropertiesResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getAvailableExtensionProperties method.  */
@@ -26,34 +29,35 @@ export class GetAvailableExtensionPropertiesRequestBuilder {
     /**
      * Invoke action getAvailableExtensionProperties
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetAvailableExtensionPropertiesRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetAvailableExtensionPropertiesRequestBody | undefined, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new GetAvailableExtensionPropertiesRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Invoke action getAvailableExtensionProperties
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetAvailableExtensionPropertiesResponse
      */
-    public post(body: GetAvailableExtensionPropertiesRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
+    public post(body: GetAvailableExtensionPropertiesRequestBody | undefined, requestConfiguration?: GetAvailableExtensionPropertiesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetAvailableExtensionPropertiesResponse | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetAvailableExtensionPropertiesResponse>(requestInfo, createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetAvailableExtensionPropertiesResponseImpl>(requestInfo, createGetAvailableExtensionPropertiesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

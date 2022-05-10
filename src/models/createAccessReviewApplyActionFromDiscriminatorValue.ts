@@ -1,7 +1,7 @@
-import {AccessReviewApplyAction} from './index';
+import {AccessReviewApplyActionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewApplyActionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewApplyAction {
+export function createAccessReviewApplyActionFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewApplyActionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessReviewApplyAction();
+    return new AccessReviewApplyActionImpl();
 }

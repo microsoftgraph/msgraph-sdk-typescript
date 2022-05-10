@@ -1,7 +1,7 @@
-import {TodoTask} from './index';
+import {TodoTaskImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTodoTaskFromDiscriminatorValue(parseNode: ParseNode | undefined) : TodoTask {
+export function createTodoTaskFromDiscriminatorValue(parseNode: ParseNode | undefined) : TodoTaskImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TodoTask();
+    return new TodoTaskImpl();
 }

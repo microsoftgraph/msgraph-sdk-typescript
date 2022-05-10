@@ -1,5 +1,7 @@
 import {createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue} from './createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue';
-import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse} from './index';
+import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration} from './getMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration';
+import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse} from './getMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse';
+import {GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getMailboxUsageQuotaStatusMailboxCounts method.  */
@@ -27,30 +29,30 @@ export class GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilder {
     };
     /**
      * Invoke function getMailboxUsageQuotaStatusMailboxCounts
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Invoke function getMailboxUsageQuotaStatusMailboxCounts
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse
      */
-    public get(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse | undefined> {
+    public get(requestConfiguration?: GetMailboxUsageQuotaStatusMailboxCountsWithPeriodRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            headers, options
+            requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponse>(requestInfo, createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseImpl>(requestInfo, createGetMailboxUsageQuotaStatusMailboxCountsWithPeriodResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

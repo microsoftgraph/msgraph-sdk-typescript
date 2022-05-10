@@ -1,7 +1,7 @@
-import {Presence} from './index';
+import {PresenceImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPresenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : Presence {
+export function createPresenceFromDiscriminatorValue(parseNode: ParseNode | undefined) : PresenceImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Presence();
+    return new PresenceImpl();
 }

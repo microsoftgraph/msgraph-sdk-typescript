@@ -1,7 +1,7 @@
-import {InsightIdentity} from './index';
+import {InsightIdentityImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInsightIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : InsightIdentity {
+export function createInsightIdentityFromDiscriminatorValue(parseNode: ParseNode | undefined) : InsightIdentityImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InsightIdentity();
+    return new InsightIdentityImpl();
 }

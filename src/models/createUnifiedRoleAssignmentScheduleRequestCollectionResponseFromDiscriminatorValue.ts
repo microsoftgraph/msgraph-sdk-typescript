@@ -1,7 +1,7 @@
-import {UnifiedRoleAssignmentScheduleRequestCollectionResponse} from './index';
+import {UnifiedRoleAssignmentScheduleRequestCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleAssignmentScheduleRequestCollectionResponse {
+export function createUnifiedRoleAssignmentScheduleRequestCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleAssignmentScheduleRequestCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UnifiedRoleAssignmentScheduleRequestCollectionResponse();
+    return new UnifiedRoleAssignmentScheduleRequestCollectionResponseImpl();
 }

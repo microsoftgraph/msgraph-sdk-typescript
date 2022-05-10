@@ -1,7 +1,7 @@
-import {ManagedEBook} from './index';
+import {ManagedEBookImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createManagedEBookFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedEBook {
+export function createManagedEBookFromDiscriminatorValue(parseNode: ParseNode | undefined) : ManagedEBookImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ManagedEBook();
+    return new ManagedEBookImpl();
 }

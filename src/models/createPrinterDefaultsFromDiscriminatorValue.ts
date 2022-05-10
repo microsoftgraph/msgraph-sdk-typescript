@@ -1,7 +1,7 @@
-import {PrinterDefaults} from './index';
+import {PrinterDefaultsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrinterDefaultsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrinterDefaults {
+export function createPrinterDefaultsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrinterDefaultsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PrinterDefaults();
+    return new PrinterDefaultsImpl();
 }

@@ -1,7 +1,7 @@
-import {AccessReviewScheduleDefinitionCollectionResponse} from './index';
+import {AccessReviewScheduleDefinitionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewScheduleDefinitionCollectionResponse {
+export function createAccessReviewScheduleDefinitionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewScheduleDefinitionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessReviewScheduleDefinitionCollectionResponse();
+    return new AccessReviewScheduleDefinitionCollectionResponseImpl();
 }

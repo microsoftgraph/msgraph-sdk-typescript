@@ -1,7 +1,7 @@
-import {GetDeviceNonComplianceReportResponse} from './index';
+import {GetDeviceNonComplianceReportResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetDeviceNonComplianceReportResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetDeviceNonComplianceReportResponse {
+export function createGetDeviceNonComplianceReportResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetDeviceNonComplianceReportResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetDeviceNonComplianceReportResponse();
+    return new GetDeviceNonComplianceReportResponseImpl();
 }

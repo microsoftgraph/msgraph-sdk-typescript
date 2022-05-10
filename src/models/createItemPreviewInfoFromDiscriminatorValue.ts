@@ -1,7 +1,7 @@
-import {ItemPreviewInfo} from './index';
+import {ItemPreviewInfoImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createItemPreviewInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ItemPreviewInfo {
+export function createItemPreviewInfoFromDiscriminatorValue(parseNode: ParseNode | undefined) : ItemPreviewInfoImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ItemPreviewInfo();
+    return new ItemPreviewInfoImpl();
 }

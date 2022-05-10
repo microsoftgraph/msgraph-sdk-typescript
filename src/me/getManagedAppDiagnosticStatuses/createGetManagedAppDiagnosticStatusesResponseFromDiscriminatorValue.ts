@@ -1,7 +1,7 @@
-import {GetManagedAppDiagnosticStatusesResponse} from './index';
+import {GetManagedAppDiagnosticStatusesResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetManagedAppDiagnosticStatusesResponse {
+export function createGetManagedAppDiagnosticStatusesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetManagedAppDiagnosticStatusesResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetManagedAppDiagnosticStatusesResponse();
+    return new GetManagedAppDiagnosticStatusesResponseImpl();
 }

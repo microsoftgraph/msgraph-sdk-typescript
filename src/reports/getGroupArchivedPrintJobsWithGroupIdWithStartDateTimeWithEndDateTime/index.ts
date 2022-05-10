@@ -1,1 +1,3 @@
+export * from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponseImpl'
+export * from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeRequestBuilderGetRequestConfiguration'
 export * from './getGroupArchivedPrintJobsWithGroupIdWithStartDateTimeWithEndDateTimeResponse'

@@ -1,7 +1,8 @@
-import {PolicyRoot} from '../models/';
+import {PolicyRootImpl} from '../models/';
 import {createPolicyRootFromDiscriminatorValue} from '../models/createPolicyRootFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {PolicyRoot} from '../models/policyRoot';
 import {ActivityBasedTimeoutPoliciesRequestBuilder} from './activityBasedTimeoutPolicies/activityBasedTimeoutPoliciesRequestBuilder';
 import {ActivityBasedTimeoutPolicyItemRequestBuilder} from './activityBasedTimeoutPolicies/item/activityBasedTimeoutPolicyItemRequestBuilder';
 import {AdminConsentRequestPolicyRequestBuilder} from './adminConsentRequestPolicy/adminConsentRequestPolicyRequestBuilder';
@@ -19,7 +20,8 @@ import {HomeRealmDiscoveryPolicyItemRequestBuilder} from './homeRealmDiscoveryPo
 import {IdentitySecurityDefaultsEnforcementPolicyRequestBuilder} from './identitySecurityDefaultsEnforcementPolicy/identitySecurityDefaultsEnforcementPolicyRequestBuilder';
 import {PermissionGrantPolicyItemRequestBuilder} from './permissionGrantPolicies/item/permissionGrantPolicyItemRequestBuilder';
 import {PermissionGrantPoliciesRequestBuilder} from './permissionGrantPolicies/permissionGrantPoliciesRequestBuilder';
-import {PoliciesRequestBuilderGetQueryParameters} from './policiesRequestBuilderGetQueryParameters';
+import {PoliciesRequestBuilderGetRequestConfiguration} from './policiesRequestBuilderGetRequestConfiguration';
+import {PoliciesRequestBuilderPatchRequestConfiguration} from './policiesRequestBuilderPatchRequestConfiguration';
 import {UnifiedRoleManagementPolicyItemRequestBuilder} from './roleManagementPolicies/item/unifiedRoleManagementPolicyItemRequestBuilder';
 import {RoleManagementPoliciesRequestBuilder} from './roleManagementPolicies/roleManagementPoliciesRequestBuilder';
 import {UnifiedRoleManagementPolicyAssignmentItemRequestBuilder} from './roleManagementPolicyAssignments/item/unifiedRoleManagementPolicyAssignmentItemRequestBuilder';
@@ -99,7 +101,7 @@ export class PoliciesRequestBuilder {
     /** Url template to use to build the URL for the current request builder  */
     private readonly urlTemplate: string;
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.activityBasedTimeoutPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.activityBasedTimeoutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a activityBasedTimeoutPolicyItemRequestBuilder
      */
@@ -110,7 +112,7 @@ export class PoliciesRequestBuilder {
         return new ActivityBasedTimeoutPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.claimsMappingPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.claimsMappingPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a claimsMappingPolicyItemRequestBuilder
      */
@@ -121,7 +123,7 @@ export class PoliciesRequestBuilder {
         return new ClaimsMappingPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.conditionalAccessPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.conditionalAccessPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a conditionalAccessPolicyItemRequestBuilder
      */
@@ -146,41 +148,43 @@ export class PoliciesRequestBuilder {
     };
     /**
      * Get policies
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: PoliciesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update policies
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: PolicyRoot | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: PolicyRoot | undefined, requestConfiguration?: PoliciesRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new PolicyRootImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.featureRolloutPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.featureRolloutPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a featureRolloutPolicyItemRequestBuilder
      */
@@ -192,24 +196,22 @@ export class PoliciesRequestBuilder {
     };
     /**
      * Get policies
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of PolicyRoot
      */
-    public get(queryParameters?: PoliciesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
+    public get(requestConfiguration?: PoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<PolicyRoot | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<PolicyRoot>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<PolicyRootImpl>(requestInfo, createPolicyRootFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.homeRealmDiscoveryPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.homeRealmDiscoveryPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a homeRealmDiscoveryPolicyItemRequestBuilder
      */
@@ -222,14 +224,13 @@ export class PoliciesRequestBuilder {
     /**
      * Update policies
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PolicyRoot | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PolicyRootImpl | undefined, requestConfiguration?: PoliciesRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -238,7 +239,7 @@ export class PoliciesRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.permissionGrantPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.permissionGrantPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a permissionGrantPolicyItemRequestBuilder
      */
@@ -249,7 +250,7 @@ export class PoliciesRequestBuilder {
         return new PermissionGrantPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyItemRequestBuilder
      */
@@ -260,7 +261,7 @@ export class PoliciesRequestBuilder {
         return new UnifiedRoleManagementPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.roleManagementPolicyAssignments.item collection
+     * Gets an item from the MicrosoftGraph.policies.roleManagementPolicyAssignments.item collection
      * @param id Unique identifier of the item
      * @returns a unifiedRoleManagementPolicyAssignmentItemRequestBuilder
      */
@@ -271,7 +272,7 @@ export class PoliciesRequestBuilder {
         return new UnifiedRoleManagementPolicyAssignmentItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenIssuancePolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.tokenIssuancePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenIssuancePolicyItemRequestBuilder
      */
@@ -282,7 +283,7 @@ export class PoliciesRequestBuilder {
         return new TokenIssuancePolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.policies.tokenLifetimePolicies.item collection
+     * Gets an item from the MicrosoftGraph.policies.tokenLifetimePolicies.item collection
      * @param id Unique identifier of the item
      * @returns a tokenLifetimePolicyItemRequestBuilder
      */

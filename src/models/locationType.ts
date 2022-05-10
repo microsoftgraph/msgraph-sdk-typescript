@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Provides operations to manage the collection of group entities.  */
 export enum LocationType {
     Default_escaped = "default_escaped",
     ConferenceRoom = "conferenceRoom",

@@ -1,7 +1,7 @@
-import {AccessReviewHistoryDefinitionCollectionResponse} from './index';
+import {AccessReviewHistoryDefinitionCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewHistoryDefinitionCollectionResponse {
+export function createAccessReviewHistoryDefinitionCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewHistoryDefinitionCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessReviewHistoryDefinitionCollectionResponse();
+    return new AccessReviewHistoryDefinitionCollectionResponseImpl();
 }

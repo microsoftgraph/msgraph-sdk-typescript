@@ -1,2 +1,5 @@
-export * from './getHistoricalReportResponse'
+export * from './getHistoricalReportRequestBodyImpl'
+export * from './getHistoricalReportResponseImpl'
 export * from './getHistoricalReportRequestBody'
+export * from './getHistoricalReportRequestBuilderPostRequestConfiguration'
+export * from './getHistoricalReportResponse'

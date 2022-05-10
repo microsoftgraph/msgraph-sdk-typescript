@@ -1,7 +1,7 @@
-import {DeviceManagementTroubleshootingEvent} from './index';
+import {DeviceManagementTroubleshootingEventImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementTroubleshootingEvent {
+export function createDeviceManagementTroubleshootingEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceManagementTroubleshootingEventImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceManagementTroubleshootingEvent();
+    return new DeviceManagementTroubleshootingEventImpl();
 }

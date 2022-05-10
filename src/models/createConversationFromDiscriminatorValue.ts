@@ -1,7 +1,7 @@
-import {Conversation} from './index';
+import {ConversationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createConversationFromDiscriminatorValue(parseNode: ParseNode | undefined) : Conversation {
+export function createConversationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ConversationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Conversation();
+    return new ConversationImpl();
 }

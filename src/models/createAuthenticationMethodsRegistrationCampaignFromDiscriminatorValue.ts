@@ -1,7 +1,7 @@
-import {AuthenticationMethodsRegistrationCampaign} from './index';
+import {AuthenticationMethodsRegistrationCampaignImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthenticationMethodsRegistrationCampaignFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodsRegistrationCampaign {
+export function createAuthenticationMethodsRegistrationCampaignFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodsRegistrationCampaignImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AuthenticationMethodsRegistrationCampaign();
+    return new AuthenticationMethodsRegistrationCampaignImpl();
 }

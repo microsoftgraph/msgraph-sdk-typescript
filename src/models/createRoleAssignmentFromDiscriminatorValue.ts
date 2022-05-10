@@ -1,7 +1,7 @@
-import {RoleAssignment} from './index';
+import {RoleAssignmentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : RoleAssignment {
+export function createRoleAssignmentFromDiscriminatorValue(parseNode: ParseNode | undefined) : RoleAssignmentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RoleAssignment();
+    return new RoleAssignmentImpl();
 }

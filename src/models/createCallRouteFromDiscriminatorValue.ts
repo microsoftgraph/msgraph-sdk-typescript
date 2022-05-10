@@ -1,7 +1,7 @@
-import {CallRoute} from './index';
+import {CallRouteImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCallRouteFromDiscriminatorValue(parseNode: ParseNode | undefined) : CallRoute {
+export function createCallRouteFromDiscriminatorValue(parseNode: ParseNode | undefined) : CallRouteImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CallRoute();
+    return new CallRouteImpl();
 }

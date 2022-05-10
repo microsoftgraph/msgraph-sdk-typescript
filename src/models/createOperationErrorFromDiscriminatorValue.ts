@@ -1,7 +1,7 @@
-import {OperationError} from './index';
+import {OperationErrorImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOperationErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) : OperationError {
+export function createOperationErrorFromDiscriminatorValue(parseNode: ParseNode | undefined) : OperationErrorImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OperationError();
+    return new OperationErrorImpl();
 }

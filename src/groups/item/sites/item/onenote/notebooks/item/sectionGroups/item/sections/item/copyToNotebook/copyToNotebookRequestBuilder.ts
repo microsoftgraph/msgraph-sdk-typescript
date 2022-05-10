@@ -1,6 +1,9 @@
-import {OnenoteOperation} from '../../../../../../../../../../../../models/';
+import {OnenoteOperationImpl} from '../../../../../../../../../../../../models/';
 import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../../../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import {CopyToNotebookRequestBody} from './index';
+import {OnenoteOperation} from '../../../../../../../../../../../../models/onenoteOperation';
+import {CopyToNotebookRequestBody} from './copyToNotebookRequestBody';
+import {CopyToNotebookRequestBuilderPostRequestConfiguration} from './copyToNotebookRequestBuilderPostRequestConfiguration';
+import {CopyToNotebookRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToNotebook method.  */
@@ -27,34 +30,35 @@ export class CopyToNotebookRequestBuilder {
     /**
      * Invoke action copyToNotebook
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: CopyToNotebookRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: CopyToNotebookRequestBody | undefined, requestConfiguration?: CopyToNotebookRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new CopyToNotebookRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Invoke action copyToNotebook
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteOperation
      */
-    public post(body: CopyToNotebookRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
+    public post(body: CopyToNotebookRequestBody | undefined, requestConfiguration?: CopyToNotebookRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<OnenoteOperation>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteOperationImpl>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

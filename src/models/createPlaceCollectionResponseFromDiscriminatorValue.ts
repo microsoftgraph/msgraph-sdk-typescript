@@ -1,7 +1,7 @@
-import {PlaceCollectionResponse} from './index';
+import {PlaceCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPlaceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlaceCollectionResponse {
+export function createPlaceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlaceCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PlaceCollectionResponse();
+    return new PlaceCollectionResponseImpl();
 }

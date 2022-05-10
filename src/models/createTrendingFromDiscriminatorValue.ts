@@ -1,7 +1,7 @@
-import {Trending} from './index';
+import {TrendingImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTrendingFromDiscriminatorValue(parseNode: ParseNode | undefined) : Trending {
+export function createTrendingFromDiscriminatorValue(parseNode: ParseNode | undefined) : TrendingImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Trending();
+    return new TrendingImpl();
 }

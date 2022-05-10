@@ -1,7 +1,7 @@
-import {ResourceVisualization} from './index';
+import {ResourceVisualizationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createResourceVisualizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ResourceVisualization {
+export function createResourceVisualizationFromDiscriminatorValue(parseNode: ParseNode | undefined) : ResourceVisualizationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ResourceVisualization();
+    return new ResourceVisualizationImpl();
 }

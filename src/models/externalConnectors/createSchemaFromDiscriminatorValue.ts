@@ -1,7 +1,7 @@
-import {Schema} from './index';
+import {SchemaImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSchemaFromDiscriminatorValue(parseNode: ParseNode | undefined) : Schema {
+export function createSchemaFromDiscriminatorValue(parseNode: ParseNode | undefined) : SchemaImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Schema();
+    return new SchemaImpl();
 }

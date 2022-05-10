@@ -1,9 +1,10 @@
-import {BaseItemCollectionResponse} from '../../../models/';
+import {BaseItemCollectionResponseImpl} from '../../../models/';
+import {BaseItemCollectionResponse} from '../../../models/baseItemCollectionResponse';
 import {createBaseItemCollectionResponseFromDiscriminatorValue} from '../../../models/createBaseItemCollectionResponseFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {ItemsRequestBuilderGetQueryParameters} from './itemsRequestBuilderGetQueryParameters';
+import {ItemsRequestBuilderGetRequestConfiguration} from './itemsRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the items property of the microsoft.graph.site entity.  */
@@ -32,38 +33,36 @@ export class ItemsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Used to address any item contained in this site. This collection can't be enumerated.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Used to address any item contained in this site. This collection cannot be enumerated.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: ItemsRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: ItemsRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
-     * Used to address any item contained in this site. This collection can't be enumerated.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Used to address any item contained in this site. This collection cannot be enumerated.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of BaseItemCollectionResponse
      */
-    public get(queryParameters?: ItemsRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BaseItemCollectionResponse | undefined> {
+    public get(requestConfiguration?: ItemsRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<BaseItemCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<BaseItemCollectionResponse>(requestInfo, createBaseItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<BaseItemCollectionResponseImpl>(requestInfo, createBaseItemCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

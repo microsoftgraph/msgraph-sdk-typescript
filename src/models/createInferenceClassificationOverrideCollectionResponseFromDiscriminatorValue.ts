@@ -1,7 +1,7 @@
-import {InferenceClassificationOverrideCollectionResponse} from './index';
+import {InferenceClassificationOverrideCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInferenceClassificationOverrideCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : InferenceClassificationOverrideCollectionResponse {
+export function createInferenceClassificationOverrideCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : InferenceClassificationOverrideCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InferenceClassificationOverrideCollectionResponse();
+    return new InferenceClassificationOverrideCollectionResponseImpl();
 }

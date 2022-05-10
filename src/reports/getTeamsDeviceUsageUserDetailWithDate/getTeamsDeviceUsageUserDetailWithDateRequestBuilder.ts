@@ -1,5 +1,7 @@
 import {createGetTeamsDeviceUsageUserDetailWithDateResponseFromDiscriminatorValue} from './createGetTeamsDeviceUsageUserDetailWithDateResponseFromDiscriminatorValue';
-import {GetTeamsDeviceUsageUserDetailWithDateResponse} from './index';
+import {GetTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration} from './getTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration';
+import {GetTeamsDeviceUsageUserDetailWithDateResponse} from './getTeamsDeviceUsageUserDetailWithDateResponse';
+import {GetTeamsDeviceUsageUserDetailWithDateResponseImpl} from './index';
 import {DateOnly, getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getTeamsDeviceUsageUserDetail method.  */
@@ -27,30 +29,30 @@ export class GetTeamsDeviceUsageUserDetailWithDateRequestBuilder {
     };
     /**
      * Invoke function getTeamsDeviceUsageUserDetail
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GetTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Invoke function getTeamsDeviceUsageUserDetail
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetTeamsDeviceUsageUserDetailWithDateResponse
      */
-    public get(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetTeamsDeviceUsageUserDetailWithDateResponse | undefined> {
+    public get(requestConfiguration?: GetTeamsDeviceUsageUserDetailWithDateRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetTeamsDeviceUsageUserDetailWithDateResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            headers, options
+            requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetTeamsDeviceUsageUserDetailWithDateResponse>(requestInfo, createGetTeamsDeviceUsageUserDetailWithDateResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetTeamsDeviceUsageUserDetailWithDateResponseImpl>(requestInfo, createGetTeamsDeviceUsageUserDetailWithDateResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

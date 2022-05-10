@@ -1,7 +1,7 @@
-import {StoragePlanInformation} from './index';
+import {StoragePlanInformationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStoragePlanInformationFromDiscriminatorValue(parseNode: ParseNode | undefined) : StoragePlanInformation {
+export function createStoragePlanInformationFromDiscriminatorValue(parseNode: ParseNode | undefined) : StoragePlanInformationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new StoragePlanInformation();
+    return new StoragePlanInformationImpl();
 }

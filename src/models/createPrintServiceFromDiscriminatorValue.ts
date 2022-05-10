@@ -1,7 +1,7 @@
-import {PrintService} from './index';
+import {PrintServiceImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrintServiceFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintService {
+export function createPrintServiceFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintServiceImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PrintService();
+    return new PrintServiceImpl();
 }

@@ -1,7 +1,7 @@
-import {AuthenticationMethodCollectionResponse} from './index';
+import {AuthenticationMethodCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAuthenticationMethodCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodCollectionResponse {
+export function createAuthenticationMethodCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : AuthenticationMethodCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AuthenticationMethodCollectionResponse();
+    return new AuthenticationMethodCollectionResponseImpl();
 }

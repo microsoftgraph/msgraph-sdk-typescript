@@ -1,7 +1,7 @@
-import {DelegatedPermissionClassificationCollectionResponse} from './index';
+import {DelegatedPermissionClassificationCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DelegatedPermissionClassificationCollectionResponse {
+export function createDelegatedPermissionClassificationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DelegatedPermissionClassificationCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DelegatedPermissionClassificationCollectionResponse();
+    return new DelegatedPermissionClassificationCollectionResponseImpl();
 }

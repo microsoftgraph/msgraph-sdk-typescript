@@ -1,7 +1,7 @@
-import {LocalizedNotificationMessageCollectionResponse} from './index';
+import {LocalizedNotificationMessageCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocalizedNotificationMessageCollectionResponse {
+export function createLocalizedNotificationMessageCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : LocalizedNotificationMessageCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LocalizedNotificationMessageCollectionResponse();
+    return new LocalizedNotificationMessageCollectionResponseImpl();
 }

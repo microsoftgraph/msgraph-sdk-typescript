@@ -1,7 +1,7 @@
-import {SecureScoreControlProfile} from './index';
+import {SecureScoreControlProfileImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSecureScoreControlProfileFromDiscriminatorValue(parseNode: ParseNode | undefined) : SecureScoreControlProfile {
+export function createSecureScoreControlProfileFromDiscriminatorValue(parseNode: ParseNode | undefined) : SecureScoreControlProfileImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SecureScoreControlProfile();
+    return new SecureScoreControlProfileImpl();
 }

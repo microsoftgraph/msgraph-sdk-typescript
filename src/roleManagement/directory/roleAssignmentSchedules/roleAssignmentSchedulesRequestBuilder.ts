@@ -1,11 +1,14 @@
-import {UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleCollectionResponse} from '../../../models/';
+import {UnifiedRoleAssignmentScheduleCollectionResponseImpl, UnifiedRoleAssignmentScheduleImpl} from '../../../models/';
 import {createUnifiedRoleAssignmentScheduleCollectionResponseFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentScheduleCollectionResponseFromDiscriminatorValue';
 import {createUnifiedRoleAssignmentScheduleFromDiscriminatorValue} from '../../../models/createUnifiedRoleAssignmentScheduleFromDiscriminatorValue';
-import {ODataError} from '../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {UnifiedRoleAssignmentSchedule} from '../../../models/unifiedRoleAssignmentSchedule';
+import {UnifiedRoleAssignmentScheduleCollectionResponse} from '../../../models/unifiedRoleAssignmentScheduleCollectionResponse';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {FilterByCurrentUserWithOnRequestBuilder} from './filterByCurrentUserWithOn/filterByCurrentUserWithOnRequestBuilder';
-import {RoleAssignmentSchedulesRequestBuilderGetQueryParameters} from './roleAssignmentSchedulesRequestBuilderGetQueryParameters';
+import {RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderGetRequestConfiguration';
+import {RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration} from './roleAssignmentSchedulesRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to manage the roleAssignmentSchedules property of the microsoft.graph.rbacApplication entity.  */
@@ -34,38 +37,40 @@ export class RoleAssignmentSchedulesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get roleAssignmentSchedules from roleManagement
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Schedules for active role assignment operations.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: RoleAssignmentSchedulesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Create new navigation property to roleAssignmentSchedules for roleManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: UnifiedRoleAssignmentSchedule | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: UnifiedRoleAssignmentSchedule | undefined, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new UnifiedRoleAssignmentScheduleImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
@@ -78,40 +83,37 @@ export class RoleAssignmentSchedulesRequestBuilder {
         return new FilterByCurrentUserWithOnRequestBuilder(this.pathParameters, this.requestAdapter, on);
     };
     /**
-     * Get roleAssignmentSchedules from roleManagement
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Schedules for active role assignment operations.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentScheduleCollectionResponse
      */
-    public get(queryParameters?: RoleAssignmentSchedulesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined> {
+    public get(requestConfiguration?: RoleAssignmentSchedulesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentScheduleCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleCollectionResponse>(requestInfo, createUnifiedRoleAssignmentScheduleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleCollectionResponseImpl>(requestInfo, createUnifiedRoleAssignmentScheduleCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to roleAssignmentSchedules for roleManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of UnifiedRoleAssignmentSchedule
      */
-    public post(body: UnifiedRoleAssignmentSchedule | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
+    public post(body: UnifiedRoleAssignmentSchedule | undefined, requestConfiguration?: RoleAssignmentSchedulesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<UnifiedRoleAssignmentSchedule | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentSchedule>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<UnifiedRoleAssignmentScheduleImpl>(requestInfo, createUnifiedRoleAssignmentScheduleFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

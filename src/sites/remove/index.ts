@@ -1,2 +1,5 @@
+export * from './removeRequestBodyImpl'
+export * from './removeResponseImpl'
 export * from './removeResponse'
+export * from './removeRequestBuilderPostRequestConfiguration'
 export * from './removeRequestBody'

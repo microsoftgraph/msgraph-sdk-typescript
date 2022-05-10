@@ -1,7 +1,7 @@
-import {SetPriorityRequestBody} from './index';
+import {SetPriorityRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createSetPriorityRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SetPriorityRequestBody {
+export function createSetPriorityRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : SetPriorityRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new SetPriorityRequestBody();
+    return new SetPriorityRequestBodyImpl();
 }

@@ -1,7 +1,7 @@
-import {ChatMessageMentionedIdentitySet} from './index';
+import {ChatMessageMentionedIdentitySetImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createChatMessageMentionedIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChatMessageMentionedIdentitySet {
+export function createChatMessageMentionedIdentitySetFromDiscriminatorValue(parseNode: ParseNode | undefined) : ChatMessageMentionedIdentitySetImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ChatMessageMentionedIdentitySet();
+    return new ChatMessageMentionedIdentitySetImpl();
 }

@@ -1,6 +1,9 @@
-import {OnenoteOperation} from '../../../../../../../../../models/';
+import {OnenoteOperationImpl} from '../../../../../../../../../models/';
 import {createOnenoteOperationFromDiscriminatorValue} from '../../../../../../../../../models/createOnenoteOperationFromDiscriminatorValue';
-import {CopyToSectionGroupRequestBody} from './index';
+import {OnenoteOperation} from '../../../../../../../../../models/onenoteOperation';
+import {CopyToSectionGroupRequestBody} from './copyToSectionGroupRequestBody';
+import {CopyToSectionGroupRequestBuilderPostRequestConfiguration} from './copyToSectionGroupRequestBuilderPostRequestConfiguration';
+import {CopyToSectionGroupRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the copyToSectionGroup method.  */
@@ -27,34 +30,35 @@ export class CopyToSectionGroupRequestBuilder {
     /**
      * Invoke action copyToSectionGroup
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: CopyToSectionGroupRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: CopyToSectionGroupRequestBody | undefined, requestConfiguration?: CopyToSectionGroupRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new CopyToSectionGroupRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Invoke action copyToSectionGroup
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OnenoteOperation
      */
-    public post(body: CopyToSectionGroupRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
+    public post(body: CopyToSectionGroupRequestBody | undefined, requestConfiguration?: CopyToSectionGroupRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<OnenoteOperation | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<OnenoteOperation>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<OnenoteOperationImpl>(requestInfo, createOnenoteOperationFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

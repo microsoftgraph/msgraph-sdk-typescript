@@ -1,7 +1,7 @@
-import {WorkingHours} from './index';
+import {WorkingHoursImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkingHoursFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkingHours {
+export function createWorkingHoursFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkingHoursImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkingHours();
+    return new WorkingHoursImpl();
 }

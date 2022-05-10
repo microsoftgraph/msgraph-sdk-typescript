@@ -1,7 +1,7 @@
-import {KeyCredential} from './index';
+import {KeyCredentialImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createKeyCredentialFromDiscriminatorValue(parseNode: ParseNode | undefined) : KeyCredential {
+export function createKeyCredentialFromDiscriminatorValue(parseNode: ParseNode | undefined) : KeyCredentialImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new KeyCredential();
+    return new KeyCredentialImpl();
 }

@@ -1,7 +1,7 @@
-import {TeamworkHostedContent} from './index';
+import {TeamworkHostedContentImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamworkHostedContent {
+export function createTeamworkHostedContentFromDiscriminatorValue(parseNode: ParseNode | undefined) : TeamworkHostedContentImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new TeamworkHostedContent();
+    return new TeamworkHostedContentImpl();
 }

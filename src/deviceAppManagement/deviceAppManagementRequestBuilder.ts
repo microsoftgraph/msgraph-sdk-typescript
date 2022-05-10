@@ -1,12 +1,14 @@
-import {DeviceAppManagement} from '../models/';
+import {DeviceAppManagementImpl} from '../models/';
 import {createDeviceAppManagementFromDiscriminatorValue} from '../models/createDeviceAppManagementFromDiscriminatorValue';
-import {ODataError} from '../models/oDataErrors/';
+import {DeviceAppManagement} from '../models/deviceAppManagement';
+import {ODataErrorImpl} from '../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../models/oDataErrors/createODataErrorFromDiscriminatorValue';
 import {AndroidManagedAppProtectionsRequestBuilder} from './androidManagedAppProtections/androidManagedAppProtectionsRequestBuilder';
 import {AndroidManagedAppProtectionItemRequestBuilder} from './androidManagedAppProtections/item/androidManagedAppProtectionItemRequestBuilder';
 import {DefaultManagedAppProtectionsRequestBuilder} from './defaultManagedAppProtections/defaultManagedAppProtectionsRequestBuilder';
 import {DefaultManagedAppProtectionItemRequestBuilder} from './defaultManagedAppProtections/item/defaultManagedAppProtectionItemRequestBuilder';
-import {DeviceAppManagementRequestBuilderGetQueryParameters} from './deviceAppManagementRequestBuilderGetQueryParameters';
+import {DeviceAppManagementRequestBuilderGetRequestConfiguration} from './deviceAppManagementRequestBuilderGetRequestConfiguration';
+import {DeviceAppManagementRequestBuilderPatchRequestConfiguration} from './deviceAppManagementRequestBuilderPatchRequestConfiguration';
 import {IosManagedAppProtectionsRequestBuilder} from './iosManagedAppProtections/iosManagedAppProtectionsRequestBuilder';
 import {IosManagedAppProtectionItemRequestBuilder} from './iosManagedAppProtections/item/iosManagedAppProtectionItemRequestBuilder';
 import {ManagedAppPolicyItemRequestBuilder} from './managedAppPolicies/item/managedAppPolicyItemRequestBuilder';
@@ -103,7 +105,7 @@ export class DeviceAppManagementRequestBuilder {
         return new WindowsInformationProtectionPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.androidManagedAppProtections.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.androidManagedAppProtections.item collection
      * @param id Unique identifier of the item
      * @returns a androidManagedAppProtectionItemRequestBuilder
      */
@@ -128,41 +130,43 @@ export class DeviceAppManagementRequestBuilder {
     };
     /**
      * Get deviceAppManagement
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: DeviceAppManagementRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update deviceAppManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: DeviceAppManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: DeviceAppManagement | undefined, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new DeviceAppManagementImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.defaultManagedAppProtections.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.defaultManagedAppProtections.item collection
      * @param id Unique identifier of the item
      * @returns a defaultManagedAppProtectionItemRequestBuilder
      */
@@ -174,24 +178,22 @@ export class DeviceAppManagementRequestBuilder {
     };
     /**
      * Get deviceAppManagement
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DeviceAppManagement
      */
-    public get(queryParameters?: DeviceAppManagementRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAppManagement | undefined> {
+    public get(requestConfiguration?: DeviceAppManagementRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DeviceAppManagement | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<DeviceAppManagement>(requestInfo, createDeviceAppManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<DeviceAppManagementImpl>(requestInfo, createDeviceAppManagementFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.iosManagedAppProtections.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.iosManagedAppProtections.item collection
      * @param id Unique identifier of the item
      * @returns a iosManagedAppProtectionItemRequestBuilder
      */
@@ -202,7 +204,7 @@ export class DeviceAppManagementRequestBuilder {
         return new IosManagedAppProtectionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppPolicies.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppPolicyItemRequestBuilder
      */
@@ -213,7 +215,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedAppPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppRegistrations.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppRegistrations.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppRegistrationItemRequestBuilder
      */
@@ -224,7 +226,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedAppRegistrationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedAppStatuses.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppStatuses.item collection
      * @param id Unique identifier of the item
      * @returns a managedAppStatusItemRequestBuilder
      */
@@ -235,7 +237,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedAppStatusItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.managedEBooks.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.managedEBooks.item collection
      * @param id Unique identifier of the item
      * @returns a managedEBookItemRequestBuilder
      */
@@ -246,7 +248,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedEBookItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mdmWindowsInformationProtectionPolicies.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.mdmWindowsInformationProtectionPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a mdmWindowsInformationProtectionPolicyItemRequestBuilder
      */
@@ -257,7 +259,7 @@ export class DeviceAppManagementRequestBuilder {
         return new MdmWindowsInformationProtectionPolicyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppCategories.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.mobileAppCategories.item collection
      * @param id Unique identifier of the item
      * @returns a mobileAppCategoryItemRequestBuilder
      */
@@ -268,7 +270,7 @@ export class DeviceAppManagementRequestBuilder {
         return new MobileAppCategoryItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileAppConfigurations.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.mobileAppConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a managedDeviceMobileAppConfigurationItemRequestBuilder
      */
@@ -279,7 +281,7 @@ export class DeviceAppManagementRequestBuilder {
         return new ManagedDeviceMobileAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.mobileApps.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.mobileApps.item collection
      * @param id Unique identifier of the item
      * @returns a mobileAppItemRequestBuilder
      */
@@ -292,14 +294,13 @@ export class DeviceAppManagementRequestBuilder {
     /**
      * Update deviceAppManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DeviceAppManagement | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceAppManagementImpl | undefined, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -308,7 +309,7 @@ export class DeviceAppManagementRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.targetedManagedAppConfigurations.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.targetedManagedAppConfigurations.item collection
      * @param id Unique identifier of the item
      * @returns a targetedManagedAppConfigurationItemRequestBuilder
      */
@@ -319,7 +320,7 @@ export class DeviceAppManagementRequestBuilder {
         return new TargetedManagedAppConfigurationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.vppTokens.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.vppTokens.item collection
      * @param id Unique identifier of the item
      * @returns a vppTokenItemRequestBuilder
      */
@@ -330,7 +331,7 @@ export class DeviceAppManagementRequestBuilder {
         return new VppTokenItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.deviceAppManagement.windowsInformationProtectionPolicies.item collection
+     * Gets an item from the MicrosoftGraph.deviceAppManagement.windowsInformationProtectionPolicies.item collection
      * @param id Unique identifier of the item
      * @returns a windowsInformationProtectionPolicyItemRequestBuilder
      */

@@ -1,7 +1,7 @@
-import {UnifiedRoleManagementPolicy} from './index';
+import {UnifiedRoleManagementPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnifiedRoleManagementPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleManagementPolicy {
+export function createUnifiedRoleManagementPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnifiedRoleManagementPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UnifiedRoleManagementPolicy();
+    return new UnifiedRoleManagementPolicyImpl();
 }

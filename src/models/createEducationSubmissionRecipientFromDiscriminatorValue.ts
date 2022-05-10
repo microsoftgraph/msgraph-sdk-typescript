@@ -1,7 +1,7 @@
-import {EducationSubmissionRecipient} from './index';
+import {EducationSubmissionRecipientImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEducationSubmissionRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationSubmissionRecipient {
+export function createEducationSubmissionRecipientFromDiscriminatorValue(parseNode: ParseNode | undefined) : EducationSubmissionRecipientImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new EducationSubmissionRecipient();
+    return new EducationSubmissionRecipientImpl();
 }

@@ -1,7 +1,7 @@
-import {DeviceCollectionResponse} from './index';
+import {DeviceCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDeviceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceCollectionResponse {
+export function createDeviceCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DeviceCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DeviceCollectionResponse();
+    return new DeviceCollectionResponseImpl();
 }

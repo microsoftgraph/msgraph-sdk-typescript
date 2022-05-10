@@ -1,7 +1,7 @@
-import {LogTeleconferenceDeviceQualityRequestBody} from './index';
+import {LogTeleconferenceDeviceQualityRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createLogTeleconferenceDeviceQualityRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : LogTeleconferenceDeviceQualityRequestBody {
+export function createLogTeleconferenceDeviceQualityRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : LogTeleconferenceDeviceQualityRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new LogTeleconferenceDeviceQualityRequestBody();
+    return new LogTeleconferenceDeviceQualityRequestBodyImpl();
 }

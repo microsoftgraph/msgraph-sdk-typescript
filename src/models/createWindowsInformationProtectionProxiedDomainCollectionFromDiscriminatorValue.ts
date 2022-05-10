@@ -1,7 +1,7 @@
-import {WindowsInformationProtectionProxiedDomainCollection} from './index';
+import {WindowsInformationProtectionProxiedDomainCollectionImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWindowsInformationProtectionProxiedDomainCollectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionProxiedDomainCollection {
+export function createWindowsInformationProtectionProxiedDomainCollectionFromDiscriminatorValue(parseNode: ParseNode | undefined) : WindowsInformationProtectionProxiedDomainCollectionImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WindowsInformationProtectionProxiedDomainCollection();
+    return new WindowsInformationProtectionProxiedDomainCollectionImpl();
 }

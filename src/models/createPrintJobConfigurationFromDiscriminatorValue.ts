@@ -1,7 +1,7 @@
-import {PrintJobConfiguration} from './index';
+import {PrintJobConfigurationImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPrintJobConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintJobConfiguration {
+export function createPrintJobConfigurationFromDiscriminatorValue(parseNode: ParseNode | undefined) : PrintJobConfigurationImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PrintJobConfiguration();
+    return new PrintJobConfigurationImpl();
 }

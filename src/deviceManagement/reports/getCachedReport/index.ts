@@ -1,2 +1,5 @@
-export * from './getCachedReportResponse'
+export * from './getCachedReportRequestBodyImpl'
+export * from './getCachedReportResponseImpl'
 export * from './getCachedReportRequestBody'
+export * from './getCachedReportRequestBuilderPostRequestConfiguration'
+export * from './getCachedReportResponse'

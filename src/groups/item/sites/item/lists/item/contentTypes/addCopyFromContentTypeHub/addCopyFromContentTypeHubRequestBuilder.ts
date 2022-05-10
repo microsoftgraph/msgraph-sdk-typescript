@@ -1,6 +1,9 @@
-import {ContentType} from '../../../../../../../../models/';
+import {ContentTypeImpl} from '../../../../../../../../models/';
+import {ContentType} from '../../../../../../../../models/contentType';
 import {createContentTypeFromDiscriminatorValue} from '../../../../../../../../models/createContentTypeFromDiscriminatorValue';
-import {AddCopyFromContentTypeHubRequestBody} from './index';
+import {AddCopyFromContentTypeHubRequestBody} from './addCopyFromContentTypeHubRequestBody';
+import {AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration} from './addCopyFromContentTypeHubRequestBuilderPostRequestConfiguration';
+import {AddCopyFromContentTypeHubRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the addCopyFromContentTypeHub method.  */
@@ -27,34 +30,35 @@ export class AddCopyFromContentTypeHubRequestBuilder {
     /**
      * Invoke action addCopyFromContentTypeHub
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: AddCopyFromContentTypeHubRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: AddCopyFromContentTypeHubRequestBody | undefined, requestConfiguration?: AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new AddCopyFromContentTypeHubRequestBodyImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * Invoke action addCopyFromContentTypeHub
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ContentType
      */
-    public post(body: AddCopyFromContentTypeHubRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
+    public post(body: AddCopyFromContentTypeHubRequestBody | undefined, requestConfiguration?: AddCopyFromContentTypeHubRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ContentType | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<ContentType>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<ContentTypeImpl>(requestInfo, createContentTypeFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,7 +1,7 @@
-import {IntegerRange} from './index';
+import {IntegerRangeImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createIntegerRangeFromDiscriminatorValue(parseNode: ParseNode | undefined) : IntegerRange {
+export function createIntegerRangeFromDiscriminatorValue(parseNode: ParseNode | undefined) : IntegerRangeImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new IntegerRange();
+    return new IntegerRangeImpl();
 }

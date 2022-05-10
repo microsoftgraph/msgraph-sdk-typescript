@@ -1,7 +1,7 @@
-import {RiskyUser} from './index';
+import {RiskyUserImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskyUser {
+export function createRiskyUserFromDiscriminatorValue(parseNode: ParseNode | undefined) : RiskyUserImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new RiskyUser();
+    return new RiskyUserImpl();
 }

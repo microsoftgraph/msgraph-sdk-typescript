@@ -1,7 +1,7 @@
-import {CleanWindowsDeviceRequestBody} from './index';
+import {CleanWindowsDeviceRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createCleanWindowsDeviceRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CleanWindowsDeviceRequestBody {
+export function createCleanWindowsDeviceRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : CleanWindowsDeviceRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new CleanWindowsDeviceRequestBody();
+    return new CleanWindowsDeviceRequestBodyImpl();
 }

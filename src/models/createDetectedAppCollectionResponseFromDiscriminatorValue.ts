@@ -1,7 +1,7 @@
-import {DetectedAppCollectionResponse} from './index';
+import {DetectedAppCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createDetectedAppCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DetectedAppCollectionResponse {
+export function createDetectedAppCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : DetectedAppCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new DetectedAppCollectionResponse();
+    return new DetectedAppCollectionResponseImpl();
 }

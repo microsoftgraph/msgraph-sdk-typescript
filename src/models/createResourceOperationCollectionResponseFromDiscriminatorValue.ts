@@ -1,7 +1,7 @@
-import {ResourceOperationCollectionResponse} from './index';
+import {ResourceOperationCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createResourceOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ResourceOperationCollectionResponse {
+export function createResourceOperationCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ResourceOperationCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ResourceOperationCollectionResponse();
+    return new ResourceOperationCollectionResponseImpl();
 }

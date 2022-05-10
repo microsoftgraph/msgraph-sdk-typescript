@@ -1,7 +1,7 @@
-import {GetMailboxUsageStorageWithPeriodResponse} from './index';
+import {GetMailboxUsageStorageWithPeriodResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetMailboxUsageStorageWithPeriodResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetMailboxUsageStorageWithPeriodResponse {
+export function createGetMailboxUsageStorageWithPeriodResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetMailboxUsageStorageWithPeriodResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetMailboxUsageStorageWithPeriodResponse();
+    return new GetMailboxUsageStorageWithPeriodResponseImpl();
 }

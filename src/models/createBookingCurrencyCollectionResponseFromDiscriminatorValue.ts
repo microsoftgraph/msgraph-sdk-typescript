@@ -1,7 +1,7 @@
-import {BookingCurrencyCollectionResponse} from './index';
+import {BookingCurrencyCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createBookingCurrencyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCurrencyCollectionResponse {
+export function createBookingCurrencyCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : BookingCurrencyCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new BookingCurrencyCollectionResponse();
+    return new BookingCurrencyCollectionResponseImpl();
 }

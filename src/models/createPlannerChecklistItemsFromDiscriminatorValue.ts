@@ -1,7 +1,7 @@
-import {PlannerChecklistItems} from './index';
+import {PlannerChecklistItemsImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createPlannerChecklistItemsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerChecklistItems {
+export function createPlannerChecklistItemsFromDiscriminatorValue(parseNode: ParseNode | undefined) : PlannerChecklistItemsImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new PlannerChecklistItems();
+    return new PlannerChecklistItemsImpl();
 }

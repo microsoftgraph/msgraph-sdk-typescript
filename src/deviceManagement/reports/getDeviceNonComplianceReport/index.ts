@@ -1,2 +1,5 @@
+export * from './getDeviceNonComplianceReportRequestBodyImpl'
+export * from './getDeviceNonComplianceReportResponseImpl'
 export * from './getDeviceNonComplianceReportRequestBody'
+export * from './getDeviceNonComplianceReportRequestBuilderPostRequestConfiguration'
 export * from './getDeviceNonComplianceReportResponse'

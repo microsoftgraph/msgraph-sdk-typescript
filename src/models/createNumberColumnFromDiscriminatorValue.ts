@@ -1,7 +1,7 @@
-import {NumberColumn} from './index';
+import {NumberColumnImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createNumberColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : NumberColumn {
+export function createNumberColumnFromDiscriminatorValue(parseNode: ParseNode | undefined) : NumberColumnImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new NumberColumn();
+    return new NumberColumnImpl();
 }

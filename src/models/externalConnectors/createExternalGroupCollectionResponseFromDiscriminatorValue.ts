@@ -1,7 +1,7 @@
-import {ExternalGroupCollectionResponse} from './index';
+import {ExternalGroupCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createExternalGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExternalGroupCollectionResponse {
+export function createExternalGroupCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : ExternalGroupCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new ExternalGroupCollectionResponse();
+    return new ExternalGroupCollectionResponseImpl();
 }

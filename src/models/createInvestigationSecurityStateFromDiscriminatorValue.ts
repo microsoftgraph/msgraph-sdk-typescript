@@ -1,7 +1,7 @@
-import {InvestigationSecurityState} from './index';
+import {InvestigationSecurityStateImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInvestigationSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : InvestigationSecurityState {
+export function createInvestigationSecurityStateFromDiscriminatorValue(parseNode: ParseNode | undefined) : InvestigationSecurityStateImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InvestigationSecurityState();
+    return new InvestigationSecurityStateImpl();
 }

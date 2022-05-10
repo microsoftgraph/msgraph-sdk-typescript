@@ -1,7 +1,7 @@
-import {AssignedLabel} from './index';
+import {AssignedLabelImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAssignedLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) : AssignedLabel {
+export function createAssignedLabelFromDiscriminatorValue(parseNode: ParseNode | undefined) : AssignedLabelImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AssignedLabel();
+    return new AssignedLabelImpl();
 }

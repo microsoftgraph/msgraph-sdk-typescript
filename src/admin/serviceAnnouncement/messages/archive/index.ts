@@ -1,2 +1,5 @@
+export * from './archiveResponseImpl'
+export * from './archiveRequestBodyImpl'
+export * from './archiveRequestBuilderPostRequestConfiguration'
 export * from './archiveResponse'
 export * from './archiveRequestBody'

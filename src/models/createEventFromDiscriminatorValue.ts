@@ -1,7 +1,7 @@
-import {Event} from './index';
+import {EventImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : Event {
+export function createEventFromDiscriminatorValue(parseNode: ParseNode | undefined) : EventImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new Event();
+    return new EventImpl();
 }

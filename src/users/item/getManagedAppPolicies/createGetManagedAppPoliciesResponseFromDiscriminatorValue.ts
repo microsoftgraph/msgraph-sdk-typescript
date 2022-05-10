@@ -1,7 +1,7 @@
-import {GetManagedAppPoliciesResponse} from './index';
+import {GetManagedAppPoliciesResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGetManagedAppPoliciesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetManagedAppPoliciesResponse {
+export function createGetManagedAppPoliciesResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : GetManagedAppPoliciesResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GetManagedAppPoliciesResponse();
+    return new GetManagedAppPoliciesResponseImpl();
 }

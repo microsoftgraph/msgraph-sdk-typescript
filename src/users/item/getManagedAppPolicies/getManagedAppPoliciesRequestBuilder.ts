@@ -1,5 +1,7 @@
 import {createGetManagedAppPoliciesResponseFromDiscriminatorValue} from './createGetManagedAppPoliciesResponseFromDiscriminatorValue';
-import {GetManagedAppPoliciesResponse} from './index';
+import {GetManagedAppPoliciesRequestBuilderGetRequestConfiguration} from './getManagedAppPoliciesRequestBuilderGetRequestConfiguration';
+import {GetManagedAppPoliciesResponse} from './getManagedAppPoliciesResponse';
+import {GetManagedAppPoliciesResponseImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
 /** Provides operations to call the getManagedAppPolicies method.  */
@@ -25,30 +27,30 @@ export class GetManagedAppPoliciesRequestBuilder {
     };
     /**
      * Gets app restrictions for a given user.
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GetManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Gets app restrictions for a given user.
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GetManagedAppPoliciesResponse
      */
-    public get(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetManagedAppPoliciesResponse | undefined> {
+    public get(requestConfiguration?: GetManagedAppPoliciesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetManagedAppPoliciesResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            headers, options
+            requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetManagedAppPoliciesResponse>(requestInfo, createGetManagedAppPoliciesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<GetManagedAppPoliciesResponseImpl>(requestInfo, createGetManagedAppPoliciesResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

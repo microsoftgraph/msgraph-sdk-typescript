@@ -1,7 +1,7 @@
-import {AccessReviewInstanceDecisionItemResource} from './index';
+import {AccessReviewInstanceDecisionItemResourceImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewInstanceDecisionItemResource {
+export function createAccessReviewInstanceDecisionItemResourceFromDiscriminatorValue(parseNode: ParseNode | undefined) : AccessReviewInstanceDecisionItemResourceImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new AccessReviewInstanceDecisionItemResource();
+    return new AccessReviewInstanceDecisionItemResourceImpl();
 }

@@ -1,7 +1,7 @@
-import {InformationalUrl} from './index';
+import {InformationalUrlImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createInformationalUrlFromDiscriminatorValue(parseNode: ParseNode | undefined) : InformationalUrl {
+export function createInformationalUrlFromDiscriminatorValue(parseNode: ParseNode | undefined) : InformationalUrlImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new InformationalUrl();
+    return new InformationalUrlImpl();
 }

@@ -1,7 +1,7 @@
-import {UnmuteRequestBody} from './index';
+import {UnmuteRequestBodyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createUnmuteRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnmuteRequestBody {
+export function createUnmuteRequestBodyFromDiscriminatorValue(parseNode: ParseNode | undefined) : UnmuteRequestBodyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new UnmuteRequestBody();
+    return new UnmuteRequestBodyImpl();
 }

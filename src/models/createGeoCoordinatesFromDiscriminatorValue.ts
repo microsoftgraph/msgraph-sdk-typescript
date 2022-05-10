@@ -1,7 +1,7 @@
-import {GeoCoordinates} from './index';
+import {GeoCoordinatesImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createGeoCoordinatesFromDiscriminatorValue(parseNode: ParseNode | undefined) : GeoCoordinates {
+export function createGeoCoordinatesFromDiscriminatorValue(parseNode: ParseNode | undefined) : GeoCoordinatesImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new GeoCoordinates();
+    return new GeoCoordinatesImpl();
 }

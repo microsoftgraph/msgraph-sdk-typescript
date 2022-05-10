@@ -1,9 +1,12 @@
-import {TermsAndConditionsAcceptanceStatus, TermsAndConditionsAcceptanceStatusCollectionResponse} from '../../../../models/';
+import {TermsAndConditionsAcceptanceStatusCollectionResponseImpl, TermsAndConditionsAcceptanceStatusImpl} from '../../../../models/';
 import {createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue} from '../../../../models/createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue';
 import {createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue} from '../../../../models/createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
+import {ODataErrorImpl} from '../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {AcceptanceStatusesRequestBuilderGetQueryParameters} from './acceptanceStatusesRequestBuilderGetQueryParameters';
+import {TermsAndConditionsAcceptanceStatus} from '../../../../models/termsAndConditionsAcceptanceStatus';
+import {TermsAndConditionsAcceptanceStatusCollectionResponse} from '../../../../models/termsAndConditionsAcceptanceStatusCollectionResponse';
+import {AcceptanceStatusesRequestBuilderGetRequestConfiguration} from './acceptanceStatusesRequestBuilderGetRequestConfiguration';
+import {AcceptanceStatusesRequestBuilderPostRequestConfiguration} from './acceptanceStatusesRequestBuilderPostRequestConfiguration';
 import {CountRequestBuilder} from './count/countRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
@@ -34,74 +37,73 @@ export class AcceptanceStatusesRequestBuilder {
     };
     /**
      * The list of acceptance statuses for this T&C policy.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: AcceptanceStatusesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: AcceptanceStatusesRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Create new navigation property to acceptanceStatuses for deviceManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: TermsAndConditionsAcceptanceStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: AcceptanceStatusesRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
-        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
+        const bodyParsable = new TermsAndConditionsAcceptanceStatusImpl(body)
+        requestInfo.setContentFromParsable(this.requestAdapter, "application/json", bodyParsable);
         return requestInfo;
     };
     /**
      * The list of acceptance statuses for this T&C policy.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsAndConditionsAcceptanceStatusCollectionResponse
      */
-    public get(queryParameters?: AcceptanceStatusesRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAcceptanceStatusCollectionResponse | undefined> {
+    public get(requestConfiguration?: AcceptanceStatusesRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAcceptanceStatusCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TermsAndConditionsAcceptanceStatusCollectionResponse>(requestInfo, createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TermsAndConditionsAcceptanceStatusCollectionResponseImpl>(requestInfo, createTermsAndConditionsAcceptanceStatusCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
      * Create new navigation property to acceptanceStatuses for deviceManagement
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TermsAndConditionsAcceptanceStatus
      */
-    public post(body: TermsAndConditionsAcceptanceStatus | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
+    public post(body: TermsAndConditionsAcceptanceStatus | undefined, requestConfiguration?: AcceptanceStatusesRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<TermsAndConditionsAcceptanceStatus | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
             "5XX": createODataErrorFromDiscriminatorValue,
         };
-        return this.requestAdapter?.sendAsync<TermsAndConditionsAcceptanceStatus>(requestInfo, createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendAsync<TermsAndConditionsAcceptanceStatusImpl>(requestInfo, createTermsAndConditionsAcceptanceStatusFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

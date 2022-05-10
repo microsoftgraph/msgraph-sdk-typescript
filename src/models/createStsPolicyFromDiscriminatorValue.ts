@@ -1,7 +1,7 @@
-import {StsPolicy} from './index';
+import {StsPolicyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StsPolicy {
+export function createStsPolicyFromDiscriminatorValue(parseNode: ParseNode | undefined) : StsPolicyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new StsPolicy();
+    return new StsPolicyImpl();
 }

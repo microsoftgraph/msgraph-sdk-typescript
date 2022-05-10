@@ -1,7 +1,7 @@
-import {OAuth2PermissionGrantCollectionResponse} from './index';
+import {OAuth2PermissionGrantCollectionResponseImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : OAuth2PermissionGrantCollectionResponse {
+export function createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue(parseNode: ParseNode | undefined) : OAuth2PermissionGrantCollectionResponseImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new OAuth2PermissionGrantCollectionResponse();
+    return new OAuth2PermissionGrantCollectionResponseImpl();
 }

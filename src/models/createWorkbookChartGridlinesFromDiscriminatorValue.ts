@@ -1,7 +1,7 @@
-import {WorkbookChartGridlines} from './index';
+import {WorkbookChartGridlinesImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookChartGridlinesFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartGridlines {
+export function createWorkbookChartGridlinesFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookChartGridlinesImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookChartGridlines();
+    return new WorkbookChartGridlinesImpl();
 }

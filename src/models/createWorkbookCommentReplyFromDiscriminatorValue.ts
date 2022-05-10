@@ -1,7 +1,7 @@
-import {WorkbookCommentReply} from './index';
+import {WorkbookCommentReplyImpl} from './index';
 import {ParseNode} from '@microsoft/kiota-abstractions';
 
-export function createWorkbookCommentReplyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookCommentReply {
+export function createWorkbookCommentReplyFromDiscriminatorValue(parseNode: ParseNode | undefined) : WorkbookCommentReplyImpl {
     if(!parseNode) throw new Error("parseNode cannot be undefined");
-    return new WorkbookCommentReply();
+    return new WorkbookCommentReplyImpl();
 }
