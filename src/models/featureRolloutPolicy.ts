@@ -4,17 +4,17 @@ import {StagedFeatureName} from './stagedFeatureName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FeatureRolloutPolicy extends Entity implements Parsable {
-    /** Nullable. Specifies a list of directoryObjects that feature is enabled for.  */
+    /** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
     private _appliesTo?: DirectoryObject[] | undefined;
-    /** A description for this feature rollout policy.  */
+    /** A description for this feature rollout policy. */
     private _description?: string | undefined;
-    /** The display name for this  feature rollout policy.  */
+    /** The display name for this  feature rollout policy. */
     private _displayName?: string | undefined;
-    /** Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue.  */
+    /** Possible values are: passthroughAuthentication, seamlessSso, passwordHashSync, emailAsAlternateId, unknownFutureValue. */
     private _feature?: StagedFeatureName | undefined;
-    /** Indicates whether this feature rollout policy should be applied to the entire organization.  */
+    /** Indicates whether this feature rollout policy should be applied to the entire organization. */
     private _isAppliedToOrganization?: boolean | undefined;
-    /** Indicates whether the feature rollout is enabled.  */
+    /** Indicates whether the feature rollout is enabled. */
     private _isEnabled?: boolean | undefined;
     /**
      * Gets the appliesTo property value. Nullable. Specifies a list of directoryObjects that feature is enabled for.

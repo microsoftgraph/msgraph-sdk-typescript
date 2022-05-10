@@ -1,7 +1,7 @@
 
-/** Get entity from subscriptions by key  */
+/** Get subscription */
 export class SubscriptionItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

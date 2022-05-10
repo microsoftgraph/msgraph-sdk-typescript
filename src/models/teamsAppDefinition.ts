@@ -5,23 +5,23 @@ import {TeamsAppPublishingState} from './teamsAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppDefinition extends Entity implements Parsable {
-    /** The details of the bot specified in the Teams app manifest.  */
+    /** The details of the bot specified in the Teams app manifest. */
     private _bot?: TeamworkBot | undefined;
-    /** The createdBy property  */
+    /** The createdBy property */
     private _createdBy?: IdentitySet | undefined;
-    /** Verbose description of the application.  */
+    /** Verbose description of the application. */
     private _description?: string | undefined;
-    /** The name of the app provided by the app developer.  */
+    /** The name of the app provided by the app developer. */
     private _displayName?: string | undefined;
-    /** The lastModifiedDateTime property  */
+    /** The lastModifiedDateTime property */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin.  */
+    /** The published status of a specific version of a Teams app. Possible values are:submitted — The specific version of the Teams app has been submitted and is under review. published  — The request to publish the specific version of the Teams app has been approved by the admin and the app is published.  rejected — The request to publish the specific version of the Teams app was rejected by the admin. */
     private _publishingState?: TeamsAppPublishingState | undefined;
-    /** Short description of the application.  */
+    /** Short description of the application. */
     private _shortDescription?: string | undefined;
-    /** The ID from the Teams app manifest.  */
+    /** The ID from the Teams app manifest. */
     private _teamsAppId?: string | undefined;
-    /** The version number of the application.  */
+    /** The version number of the application. */
     private _version?: string | undefined;
     /**
      * Gets the bot property value. The details of the bot specified in the Teams app manifest.

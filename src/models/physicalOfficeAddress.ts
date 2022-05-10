@@ -1,19 +1,19 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PhysicalOfficeAddress implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The city.  */
+    /** The city. */
     private _city?: string | undefined;
-    /** The country or region. It's a free-format string value, for example, 'United States'.  */
+    /** The country or region. It's a free-format string value, for example, 'United States'. */
     private _countryOrRegion?: string | undefined;
-    /** Office location such as building and office number for an organizational contact.  */
+    /** Office location such as building and office number for an organizational contact. */
     private _officeLocation?: string | undefined;
-    /** The postal code.  */
+    /** The postal code. */
     private _postalCode?: string | undefined;
-    /** The state.  */
+    /** The state. */
     private _state?: string | undefined;
-    /** The street.  */
+    /** The street. */
     private _street?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

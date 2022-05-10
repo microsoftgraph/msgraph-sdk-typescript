@@ -3,15 +3,15 @@ import {Entity, TermsAndConditions} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsAndConditionsAcceptanceStatus extends Entity implements Parsable {
-    /** DateTime when the terms were last accepted by the user.  */
+    /** DateTime when the terms were last accepted by the user. */
     private _acceptedDateTime?: Date | undefined;
-    /** Most recent version number of the T&C accepted by the user.  */
+    /** Most recent version number of the T&C accepted by the user. */
     private _acceptedVersion?: number | undefined;
-    /** Navigation link to the terms and conditions that are assigned.  */
+    /** Navigation link to the terms and conditions that are assigned. */
     private _termsAndConditions?: TermsAndConditions | undefined;
-    /** Display name of the user whose acceptance the entity represents.  */
+    /** Display name of the user whose acceptance the entity represents. */
     private _userDisplayName?: string | undefined;
-    /** The userPrincipalName of the User that accepted the term.  */
+    /** The userPrincipalName of the User that accepted the term. */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the acceptedDateTime property value. DateTime when the terms were last accepted by the user.

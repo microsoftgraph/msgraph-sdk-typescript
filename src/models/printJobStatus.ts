@@ -3,15 +3,15 @@ import {PrintJobStateDetail} from './printJobStateDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintJobStatus implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A human-readable description of the print job's current processing state. Read-only.  */
+    /** A human-readable description of the print job's current processing state. Read-only. */
     private _description?: string | undefined;
-    /** Additional details for print job state. Valid values are described in the following table. Read-only.  */
+    /** Additional details for print job state. Valid values are described in the following table. Read-only. */
     private _details?: PrintJobStateDetail[] | undefined;
-    /** True if the job was acknowledged by a printer; false otherwise. Read-only.  */
+    /** True if the job was acknowledged by a printer; false otherwise. Read-only. */
     private _isAcquiredByPrinter?: boolean | undefined;
-    /** The print job's current processing state. Valid values are described in the following table. Read-only.  */
+    /** The print job's current processing state. Valid values are described in the following table. Read-only. */
     private _state?: PrintJobProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

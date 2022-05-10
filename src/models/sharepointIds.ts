@@ -1,21 +1,21 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharepointIds implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The unique identifier (guid) for the item's list in SharePoint.  */
+    /** The unique identifier (guid) for the item's list in SharePoint. */
     private _listId?: string | undefined;
-    /** An integer identifier for the item within the containing list.  */
+    /** An integer identifier for the item within the containing list. */
     private _listItemId?: string | undefined;
-    /** The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site.  */
+    /** The unique identifier (guid) for the item within OneDrive for Business or a SharePoint site. */
     private _listItemUniqueId?: string | undefined;
-    /** The unique identifier (guid) for the item's site collection (SPSite).  */
+    /** The unique identifier (guid) for the item's site collection (SPSite). */
     private _siteId?: string | undefined;
-    /** The SharePoint URL for the site that contains the item.  */
+    /** The SharePoint URL for the site that contains the item. */
     private _siteUrl?: string | undefined;
-    /** The unique identifier (guid) for the tenancy.  */
+    /** The unique identifier (guid) for the tenancy. */
     private _tenantId?: string | undefined;
-    /** The unique identifier (guid) for the item's site (SPWeb).  */
+    /** The unique identifier (guid) for the item's site (SPWeb). */
     private _webId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

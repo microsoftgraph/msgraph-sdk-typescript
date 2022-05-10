@@ -5,17 +5,17 @@ import {Notebook, OnenoteEntityHierarchyModel, OnenoteSection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SectionGroup extends OnenoteEntityHierarchyModel implements Parsable {
-    /** The notebook that contains the section group. Read-only.  */
+    /** The notebook that contains the section group. Read-only. */
     private _parentNotebook?: Notebook | undefined;
-    /** The section group that contains the section group. Read-only.  */
+    /** The section group that contains the section group. Read-only. */
     private _parentSectionGroup?: SectionGroup | undefined;
-    /** The section groups in the section. Read-only. Nullable.  */
+    /** The section groups in the section. Read-only. Nullable. */
     private _sectionGroups?: SectionGroup[] | undefined;
-    /** The URL for the sectionGroups navigation property, which returns all the section groups in the section group. Read-only.  */
+    /** The URL for the sectionGroups navigation property, which returns all the section groups in the section group. Read-only. */
     private _sectionGroupsUrl?: string | undefined;
-    /** The sections in the section group. Read-only. Nullable.  */
+    /** The sections in the section group. Read-only. Nullable. */
     private _sections?: OnenoteSection[] | undefined;
-    /** The URL for the sections navigation property, which returns all the sections in the section group. Read-only.  */
+    /** The URL for the sections navigation property, which returns all the sections in the section group. Read-only. */
     private _sectionsUrl?: string | undefined;
     /**
      * Instantiates a new sectionGroup and sets the default values.

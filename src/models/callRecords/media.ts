@@ -5,19 +5,19 @@ import {DeviceInfo, MediaStream, NetworkInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Media implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Device information associated with the callee endpoint of this media.  */
+    /** Device information associated with the callee endpoint of this media. */
     private _calleeDevice?: DeviceInfo | undefined;
-    /** Network information associated with the callee endpoint of this media.  */
+    /** Network information associated with the callee endpoint of this media. */
     private _calleeNetwork?: NetworkInfo | undefined;
-    /** Device information associated with the caller endpoint of this media.  */
+    /** Device information associated with the caller endpoint of this media. */
     private _callerDevice?: DeviceInfo | undefined;
-    /** Network information associated with the caller endpoint of this media.  */
+    /** Network information associated with the caller endpoint of this media. */
     private _callerNetwork?: NetworkInfo | undefined;
-    /** How the media was identified during media negotiation stage.  */
+    /** How the media was identified during media negotiation stage. */
     private _label?: string | undefined;
-    /** Network streams associated with this media.  */
+    /** Network streams associated with this media. */
     private _streams?: MediaStream[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -3,9 +3,9 @@ import {AuthenticationMethodsRegistrationCampaign} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RegistrationEnforcement implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Run campaigns to remind users to set up targeted authentication methods.  */
+    /** Run campaigns to remind users to setup targeted authentication methods. */
     private _authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -22,14 +22,14 @@ export class RegistrationEnforcement implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
+     * Gets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
      * @returns a authenticationMethodsRegistrationCampaign
      */
     public get authenticationMethodsRegistrationCampaign() {
         return this._authenticationMethodsRegistrationCampaign;
     };
     /**
-     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to set up targeted authentication methods.
+     * Sets the authenticationMethodsRegistrationCampaign property value. Run campaigns to remind users to setup targeted authentication methods.
      * @param value Value to set for the authenticationMethodsRegistrationCampaign property.
      */
     public set authenticationMethodsRegistrationCampaign(value: AuthenticationMethodsRegistrationCampaign | undefined) {

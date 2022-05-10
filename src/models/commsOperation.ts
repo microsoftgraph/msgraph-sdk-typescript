@@ -4,11 +4,11 @@ import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CommsOperation extends Entity implements Parsable {
-    /** Unique Client Context string. Max limit is 256 chars.  */
+    /** Unique Client Context string. Max limit is 256 chars. */
     private _clientContext?: string | undefined;
-    /** The result information. Read-only.  */
+    /** The result information. Read-only. */
     private _resultInfo?: ResultInfo | undefined;
-    /** Possible values are: notStarted, running, completed, failed. Read-only.  */
+    /** Possible values are: notStarted, running, completed, failed. Read-only. */
     private _status?: OperationStatus | undefined;
     /**
      * Gets the clientContext property value. Unique Client Context string. Max limit is 256 chars.

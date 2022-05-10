@@ -1,9 +1,9 @@
 
-/** Nullable. Specifies a list of directoryObjects that feature is enabled for.  */
+/** Nullable. Specifies a list of directoryObjects that feature is enabled for. */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

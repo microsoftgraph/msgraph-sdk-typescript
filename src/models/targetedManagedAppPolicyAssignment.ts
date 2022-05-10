@@ -3,7 +3,7 @@ import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppPolicyAssignment extends Entity implements Parsable {
-    /** Identifier for deployment to a group or app  */
+    /** Identifier for deployment to a group or app */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new targetedManagedAppPolicyAssignment and sets the default values.

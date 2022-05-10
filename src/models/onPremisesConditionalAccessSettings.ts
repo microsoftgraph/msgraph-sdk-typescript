@@ -2,13 +2,13 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnPremisesConditionalAccessSettings extends Entity implements Parsable {
-    /** Indicates if on premises conditional access is enabled for this organization  */
+    /** Indicates if on premises conditional access is enabled for this organization */
     private _enabled?: boolean | undefined;
-    /** User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy.  */
+    /** User groups that will be exempt by on premises conditional access. All users in these groups will be exempt from the conditional access policy. */
     private _excludedGroups?: string[] | undefined;
-    /** User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access.  */
+    /** User groups that will be targeted by on premises conditional access. All users in these groups will be required to have mobile device managed and compliant for mail access. */
     private _includedGroups?: string[] | undefined;
-    /** Override the default access rule when allowing a device to ensure access is granted.  */
+    /** Override the default access rule when allowing a device to ensure access is granted. */
     private _overrideDefaultRule?: boolean | undefined;
     /**
      * Instantiates a new onPremisesConditionalAccessSettings and sets the default values.

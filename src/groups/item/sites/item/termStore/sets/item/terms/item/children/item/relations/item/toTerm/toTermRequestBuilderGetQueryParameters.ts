@@ -1,9 +1,9 @@
 
-/** The to [term] of the relation. The term to which the relationship is defined.  */
+/** The to [term] of the relation. The term to which the relationship is defined. */
 export class ToTermRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

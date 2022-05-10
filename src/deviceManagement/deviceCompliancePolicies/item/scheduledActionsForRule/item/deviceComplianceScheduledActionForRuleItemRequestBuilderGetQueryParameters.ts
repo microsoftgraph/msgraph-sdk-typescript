@@ -1,9 +1,9 @@
 
-/** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.  */
+/** The list of scheduled action for this rule */
 export class DeviceComplianceScheduledActionForRuleItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

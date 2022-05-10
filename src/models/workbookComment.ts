@@ -3,11 +3,11 @@ import {Entity, WorkbookCommentReply} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookComment extends Entity implements Parsable {
-    /** The content of comment.  */
+    /** The content of the comment. */
     private _content?: string | undefined;
-    /** Indicates the type for the comment.  */
+    /** Indicates the type for the comment. */
     private _contentType?: string | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _replies?: WorkbookCommentReply[] | undefined;
     /**
      * Instantiates a new workbookComment and sets the default values.
@@ -16,14 +16,14 @@ export class WorkbookComment extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the content property value. The content of comment.
+     * Gets the content property value. The content of the comment.
      * @returns a string
      */
     public get content() {
         return this._content;
     };
     /**
-     * Sets the content property value. The content of comment.
+     * Sets the content property value. The content of the comment.
      * @param value Value to set for the content property.
      */
     public set content(value: string | undefined) {

@@ -10,55 +10,55 @@ import {WindowsInformationProtectionEnforcementLevel} from './windowsInformation
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtection extends ManagedAppPolicy implements Parsable {
-    /** Navigation property to list of security groups targeted for policy.  */
+    /** Navigation property to list of security groups targeted for policy. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
-    /** Specifies whether to allow Azure RMS encryption for WIP  */
+    /** Specifies whether to allow Azure RMS encryption for WIP */
     private _azureRightsManagementServicesAllowed?: boolean | undefined;
-    /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS)  */
+    /** Specifies a recovery certificate that can be used for data recovery of encrypted files. This is the same as the data recovery agent(DRA) certificate for encrypting file system(EFS) */
     private _dataRecoveryCertificate?: WindowsInformationProtectionDataRecoveryCertificate | undefined;
-    /** WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock.  */
+    /** WIP enforcement level.See the Enum definition for supported values. Possible values are: noProtection, encryptAndAuditOnly, encryptAuditAndPrompt, encryptAuditAndBlock. */
     private _enforcementLevel?: WindowsInformationProtectionEnforcementLevel | undefined;
-    /** Primary enterprise domain  */
+    /** Primary enterprise domain */
     private _enterpriseDomain?: string | undefined;
-    /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies  */
+    /** This is the comma-separated list of internal proxy servers. For example, '157.54.14.28, 157.54.11.118, 10.202.14.167, 157.53.14.163, 157.69.210.59'. These proxies have been configured by the admin to connect to specific resources on the Internet. They are considered to be enterprise network locations. The proxies are only leveraged in configuring the EnterpriseProxiedDomains policy to force traffic to the matched domains through these proxies */
     private _enterpriseInternalProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
-    /** Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to  */
+    /** Sets the enterprise IP ranges that define the computers in the enterprise network. Data that comes from those computers will be considered part of the enterprise and protected. These locations will be considered a safe destination for enterprise data to be shared to */
     private _enterpriseIPRanges?: WindowsInformationProtectionIPRangeCollection[] | undefined;
-    /** Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false  */
+    /** Boolean value that tells the client to accept the configured list and not to use heuristics to attempt to find other subnets. Default is false */
     private _enterpriseIPRangesAreAuthoritative?: boolean | undefined;
-    /** This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to  */
+    /** This is the list of domains that comprise the boundaries of the enterprise. Data from one of these domains that is sent to a device will be considered enterprise data and protected These locations will be considered a safe destination for enterprise data to be shared to */
     private _enterpriseNetworkDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
-    /** List of enterprise domains to be protected  */
+    /** List of enterprise domains to be protected */
     private _enterpriseProtectedDomainNames?: WindowsInformationProtectionResourceCollection[] | undefined;
-    /** Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy  */
+    /** Contains a list of Enterprise resource domains hosted in the cloud that need to be protected. Connections to these resources are considered enterprise data. If a proxy is paired with a cloud resource, traffic to the cloud resource will be routed through the enterprise network via the denoted proxy server (on Port 80). A proxy server used for this purpose must also be configured using the EnterpriseInternalProxyServers policy */
     private _enterpriseProxiedDomains?: WindowsInformationProtectionProxiedDomainCollection[] | undefined;
-    /** This is a list of proxy servers. Any server not on this list is considered non-enterprise  */
+    /** This is a list of proxy servers. Any server not on this list is considered non-enterprise */
     private _enterpriseProxyServers?: WindowsInformationProtectionResourceCollection[] | undefined;
-    /** Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false  */
+    /** Boolean value that tells the client to accept the configured list of proxies and not try to detect other work proxies. Default is false */
     private _enterpriseProxyServersAreAuthoritative?: boolean | undefined;
-    /** Another way to input exempt apps through xml files  */
+    /** Another way to input exempt apps through xml files */
     private _exemptAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
-    /** Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data.  */
+    /** Exempt applications can also access enterprise data, but the data handled by those applications are not protected. This is because some critical enterprise applications may have compatibility problems with encrypted data. */
     private _exemptApps?: WindowsInformationProtectionApp[] | undefined;
-    /** Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app  */
+    /** Determines whether overlays are added to icons for WIP protected files in Explorer and enterprise only app tiles in the Start menu. Starting in Windows 10, version 1703 this setting also configures the visibility of the WIP icon in the title bar of a WIP-protected app */
     private _iconsVisible?: boolean | undefined;
-    /** This switch is for the Windows Search Indexer, to allow or disallow indexing of items  */
+    /** This switch is for the Windows Search Indexer, to allow or disallow indexing of items */
     private _indexingEncryptedStoresOrItemsBlocked?: boolean | undefined;
-    /** Indicates if the policy is deployed to any inclusion groups or not.  */
+    /** Indicates if the policy is deployed to any inclusion groups or not. */
     private _isAssigned?: boolean | undefined;
-    /** List of domain names that can used for work or personal resource  */
+    /** List of domain names that can used for work or personal resource */
     private _neutralDomainResources?: WindowsInformationProtectionResourceCollection[] | undefined;
-    /** Another way to input protected apps through xml files  */
+    /** Another way to input protected apps through xml files */
     private _protectedAppLockerFiles?: WindowsInformationProtectionAppLockerFile[] | undefined;
-    /** Protected applications can access enterprise data and the data handled by those applications are protected with encryption  */
+    /** Protected applications can access enterprise data and the data handled by those applications are protected with encryption */
     private _protectedApps?: WindowsInformationProtectionApp[] | undefined;
-    /** Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured  */
+    /** Specifies whether the protection under lock feature (also known as encrypt under pin) should be configured */
     private _protectionUnderLockConfigRequired?: boolean | undefined;
-    /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently.  */
+    /** This policy controls whether to revoke the WIP keys when a device unenrolls from the management service. If set to 1 (Don't revoke keys), the keys will not be revoked and the user will continue to have access to protected files after unenrollment. If the keys are not revoked, there will be no revoked file cleanup subsequently. */
     private _revokeOnUnenrollDisabled?: boolean | undefined;
-    /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access  */
+    /** TemplateID GUID to use for RMS encryption. The RMS template allows the IT admin to configure the details about who has access to RMS-protected file and how long they have access */
     private _rightsManagementServicesTemplateId?: string | undefined;
-    /** Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary  */
+    /** Specifies a list of file extensions, so that files with these extensions are encrypted when copying from an SMB share within the corporate boundary */
     private _smbAutoEncryptedFileExtensions?: WindowsInformationProtectionResourceCollection[] | undefined;
     /**
      * Gets the assignments property value. Navigation property to list of security groups targeted for policy.

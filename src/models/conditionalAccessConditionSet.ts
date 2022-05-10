@@ -10,25 +10,25 @@ import {RiskLevel} from './riskLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Applications and user actions included in and excluded from the policy. Required.  */
+    /** Applications and user actions included in and excluded from the policy. Required. */
     private _applications?: ConditionalAccessApplications | undefined;
-    /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.  */
+    /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */
     private _clientApplications?: ConditionalAccessClientApplications | undefined;
-    /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  */
+    /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required. */
     private _clientAppTypes?: ConditionalAccessClientApp[] | undefined;
-    /** Devices in the policy.  */
+    /** Devices in the policy. */
     private _devices?: ConditionalAccessDevices | undefined;
-    /** Locations included in and excluded from the policy.  */
+    /** Locations included in and excluded from the policy. */
     private _locations?: ConditionalAccessLocations | undefined;
-    /** Platforms included in and excluded from the policy.  */
+    /** Platforms included in and excluded from the policy. */
     private _platforms?: ConditionalAccessPlatforms | undefined;
-    /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
+    /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     private _signInRiskLevels?: RiskLevel[] | undefined;
-    /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
+    /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     private _userRiskLevels?: RiskLevel[] | undefined;
-    /** Users, groups, and roles included in and excluded from the policy. Required.  */
+    /** Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required. */
     private _users?: ConditionalAccessUsers | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -197,14 +197,14 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
         this._userRiskLevels = value;
     };
     /**
-     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @returns a conditionalAccessUsers
      */
     public get users() {
         return this._users;
     };
     /**
-     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @param value Value to set for the users property.
      */
     public set users(value: ConditionalAccessUsers | undefined) {

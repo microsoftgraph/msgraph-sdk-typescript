@@ -1,20 +1,20 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the createLink method.  */
+/** Provides operations to call the createLink method. */
 export class CreateLinkRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The expirationDateTime property  */
+    /** The expirationDateTime property */
     private _expirationDateTime?: Date | undefined;
-    /** The message property  */
+    /** The message property */
     private _message?: string | undefined;
-    /** The password property  */
+    /** The password property */
     private _password?: string | undefined;
-    /** The retainInheritedPermissions property  */
+    /** The retainInheritedPermissions property */
     private _retainInheritedPermissions?: boolean | undefined;
-    /** The scope property  */
+    /** The scope property */
     private _scope?: string | undefined;
-    /** The type property  */
+    /** The type property */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

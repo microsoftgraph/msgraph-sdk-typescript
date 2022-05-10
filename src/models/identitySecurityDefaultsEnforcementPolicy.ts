@@ -2,7 +2,7 @@ import {PolicyBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentitySecurityDefaultsEnforcementPolicy extends PolicyBase implements Parsable {
-    /** If set to true, Azure Active Directory security defaults is enabled for the tenant.  */
+    /** If set to true, Azure Active Directory security defaults is enabled for the tenant. */
     private _isEnabled?: boolean | undefined;
     /**
      * Instantiates a new identitySecurityDefaultsEnforcementPolicy and sets the default values.

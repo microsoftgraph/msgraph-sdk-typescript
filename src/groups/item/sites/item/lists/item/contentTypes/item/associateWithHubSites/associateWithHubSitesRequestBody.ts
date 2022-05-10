@@ -1,12 +1,12 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the associateWithHubSites method.  */
+/** Provides operations to call the associateWithHubSites method. */
 export class AssociateWithHubSitesRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The hubSiteUrls property  */
+    /** The hubSiteUrls property */
     private _hubSiteUrls?: string[] | undefined;
-    /** The propagateToExistingLists property  */
+    /** The propagateToExistingLists property */
     private _propagateToExistingLists?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

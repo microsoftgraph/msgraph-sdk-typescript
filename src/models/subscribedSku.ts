@@ -4,19 +4,19 @@ import {Entity, LicenseUnitsDetail, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SubscribedSku extends Entity implements Parsable {
-    /** For example, 'User' or 'Company'.  */
+    /** For example, 'User' or 'Company'. */
     private _appliesTo?: string | undefined;
-    /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription.  */
+    /** Possible values are: Enabled, Warning, Suspended, Deleted, LockedOut. The capabilityStatus is Enabled if the prepaidUnits property has at least 1 unit that is enabled, and LockedOut if the customer cancelled their subscription. */
     private _capabilityStatus?: string | undefined;
-    /** The number of licenses that have been assigned.  */
+    /** The number of licenses that have been assigned. */
     private _consumedUnits?: number | undefined;
-    /** Information about the number and status of prepaid licenses.  */
+    /** Information about the number and status of prepaid licenses. */
     private _prepaidUnits?: LicenseUnitsDetail | undefined;
-    /** Information about the service plans that are available with the SKU. Not nullable  */
+    /** Information about the service plans that are available with the SKU. Not nullable */
     private _servicePlans?: ServicePlanInfo[] | undefined;
-    /** The unique identifier (GUID) for the service SKU.  */
+    /** The unique identifier (GUID) for the service SKU. */
     private _skuId?: string | undefined;
-    /** The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus.  */
+    /** The SKU part number; for example: 'AAD_PREMIUM' or 'RMSBASIC'. To get a list of commercial subscriptions that an organization has acquired, see List subscribedSkus. */
     private _skuPartNumber?: string | undefined;
     /**
      * Gets the appliesTo property value. For example, 'User' or 'Company'.

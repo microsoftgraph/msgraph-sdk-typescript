@@ -4,23 +4,23 @@ import {Entity, Post, Recipient} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConversationThread extends Entity implements Parsable {
-    /** The Cc: recipients for the thread. Returned only on $select.  */
+    /** The Cc: recipients for the thread. Returned only on $select. */
     private _ccRecipients?: Recipient[] | undefined;
-    /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default.  */
+    /** Indicates whether any of the posts within this thread has at least one attachment. Returned by default. */
     private _hasAttachments?: boolean | undefined;
-    /** Indicates if the thread is locked. Returned by default.  */
+    /** Indicates if the thread is locked. Returned by default. */
     private _isLocked?: boolean | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default. */
     private _lastDeliveredDateTime?: Date | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _posts?: Post[] | undefined;
-    /** A short summary from the body of the latest post in this conversation. Returned by default.  */
+    /** A short summary from the body of the latest post in this conversation. Returned by default. */
     private _preview?: string | undefined;
-    /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. Returned by default.  */
+    /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. Returned by default. */
     private _topic?: string | undefined;
-    /** The To: recipients for the thread. Returned only on $select.  */
+    /** The To: recipients for the thread. Returned only on $select. */
     private _toRecipients?: Recipient[] | undefined;
-    /** All the users that sent a message to this thread. Returned by default.  */
+    /** All the users that sent a message to this thread. Returned by default. */
     private _uniqueSenders?: string[] | undefined;
     /**
      * Gets the ccRecipients property value. The Cc: recipients for the thread. Returned only on $select.
@@ -88,14 +88,14 @@ export class ConversationThread extends Entity implements Parsable {
         this._isLocked = value;
     };
     /**
-     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default.
+     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default.
      * @returns a Date
      */
     public get lastDeliveredDateTime() {
         return this._lastDeliveredDateTime;
     };
     /**
-     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.Returned by default.
+     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Returned by default.
      * @param value Value to set for the lastDeliveredDateTime property.
      */
     public set lastDeliveredDateTime(value: Date | undefined) {

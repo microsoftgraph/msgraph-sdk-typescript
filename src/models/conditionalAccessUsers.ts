@@ -1,19 +1,19 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessUsers implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Group IDs excluded from scope of policy.  */
+    /** Group IDs excluded from scope of policy. */
     private _excludeGroups?: string[] | undefined;
-    /** Role IDs excluded from scope of policy.  */
+    /** Role IDs excluded from scope of policy. */
     private _excludeRoles?: string[] | undefined;
-    /** User IDs excluded from scope of policy and/or GuestsOrExternalUsers.  */
+    /** User IDs excluded from scope of policy and/or GuestsOrExternalUsers. */
     private _excludeUsers?: string[] | undefined;
-    /** Group IDs in scope of policy unless explicitly excluded, or All.  */
+    /** Group IDs in scope of policy unless explicitly excluded, or All. */
     private _includeGroups?: string[] | undefined;
-    /** Role IDs in scope of policy unless explicitly excluded, or All.  */
+    /** Role IDs in scope of policy unless explicitly excluded, or All. */
     private _includeRoles?: string[] | undefined;
-    /** User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers.  */
+    /** User IDs in scope of policy unless explicitly excluded, or None or All or GuestsOrExternalUsers. */
     private _includeUsers?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

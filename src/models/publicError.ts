@@ -4,17 +4,17 @@ import {PublicErrorDetail, PublicInnerError} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PublicError implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Represents the error code.  */
+    /** Represents the error code. */
     private _code?: string | undefined;
-    /** Details of the error.  */
+    /** Details of the error. */
     private _details?: PublicErrorDetail[] | undefined;
-    /** Details of the inner error.  */
+    /** Details of the inner error. */
     private _innerError?: PublicInnerError | undefined;
-    /** A non-localized message for the developer.  */
+    /** A non-localized message for the developer. */
     private _message?: string | undefined;
-    /** The target of the error.  */
+    /** The target of the error. */
     private _target?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

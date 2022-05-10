@@ -1,9 +1,9 @@
 
-/** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.  */
+/** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

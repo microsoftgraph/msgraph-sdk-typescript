@@ -4,13 +4,13 @@ import {Entity, TeamsApp, TeamsTabConfiguration} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsTab extends Entity implements Parsable {
-    /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set.  */
+    /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
     private _configuration?: TeamsTabConfiguration | undefined;
-    /** Name of the tab.  */
+    /** Name of the tab. */
     private _displayName?: string | undefined;
-    /** The application that is linked to the tab. This cannot be changed after tab creation.  */
+    /** The application that is linked to the tab. */
     private _teamsApp?: TeamsApp | undefined;
-    /** Deep link URL of the tab instance. Read only.  */
+    /** Deep link URL of the tab instance. Read only. */
     private _webUrl?: string | undefined;
     /**
      * Gets the configuration property value. Container for custom settings applied to a tab. The tab is considered configured only once this property is set.
@@ -71,14 +71,14 @@ export class TeamsTab extends Entity implements Parsable {
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
-     * Gets the teamsApp property value. The application that is linked to the tab. This cannot be changed after tab creation.
+     * Gets the teamsApp property value. The application that is linked to the tab.
      * @returns a teamsApp
      */
     public get teamsApp() {
         return this._teamsApp;
     };
     /**
-     * Sets the teamsApp property value. The application that is linked to the tab. This cannot be changed after tab creation.
+     * Sets the teamsApp property value. The application that is linked to the tab.
      * @param value Value to set for the teamsApp property.
      */
     public set teamsApp(value: TeamsApp | undefined) {

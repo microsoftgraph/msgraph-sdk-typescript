@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileSystemInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The UTC date and time the file was created on a client.  */
+    /** The UTC date and time the file was created on a client. */
     private _createdDateTime?: Date | undefined;
-    /** The UTC date and time the file was last accessed. Available for the recent file list only.  */
+    /** The UTC date and time the file was last accessed. Available for the recent file list only. */
     private _lastAccessedDateTime?: Date | undefined;
-    /** The UTC date and time the file was last modified on a client.  */
+    /** The UTC date and time the file was last modified on a client. */
     private _lastModifiedDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PublicationFacet implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The state of publication for this document. Either published or checkout. Read-only.  */
+    /** The state of publication for this document. Either published or checkout. Read-only. */
     private _level?: string | undefined;
-    /** The unique identifier for the version that is visible to the current caller. Read-only.  */
+    /** The unique identifier for the version that is visible to the current caller. Read-only. */
     private _versionId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

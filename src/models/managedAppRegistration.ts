@@ -6,35 +6,35 @@ import {ManagedAppFlaggedReason} from './managedAppFlaggedReason';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppRegistration extends Entity implements Parsable {
-    /** The app package Identifier  */
+    /** The app package Identifier */
     private _appIdentifier?: MobileAppIdentifier | undefined;
-    /** App version  */
+    /** App version */
     private _applicationVersion?: string | undefined;
-    /** Zero or more policys already applied on the registered app when it last synchronized with managment service.  */
+    /** Zero or more policys already applied on the registered app when it last synchronized with managment service. */
     private _appliedPolicies?: ManagedAppPolicy[] | undefined;
-    /** Date and time of creation  */
+    /** Date and time of creation */
     private _createdDateTime?: Date | undefined;
-    /** Host device name  */
+    /** Host device name */
     private _deviceName?: string | undefined;
-    /** App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions.  */
+    /** App management SDK generated tag, which helps relate apps hosted on the same device. Not guaranteed to relate apps in all conditions. */
     private _deviceTag?: string | undefined;
-    /** Host device type  */
+    /** Host device type */
     private _deviceType?: string | undefined;
-    /** Zero or more reasons an app registration is flagged. E.g. app running on rooted device  */
+    /** Zero or more reasons an app registration is flagged. E.g. app running on rooted device */
     private _flaggedReasons?: ManagedAppFlaggedReason[] | undefined;
-    /** Zero or more policies admin intended for the app as of now.  */
+    /** Zero or more policies admin intended for the app as of now. */
     private _intendedPolicies?: ManagedAppPolicy[] | undefined;
-    /** Date and time of last the app synced with management service.  */
+    /** Date and time of last the app synced with management service. */
     private _lastSyncDateTime?: Date | undefined;
-    /** App management SDK version  */
+    /** App management SDK version */
     private _managementSdkVersion?: string | undefined;
-    /** Zero or more long running operations triggered on the app registration.  */
+    /** Zero or more long running operations triggered on the app registration. */
     private _operations?: ManagedAppOperation[] | undefined;
-    /** Operating System version  */
+    /** Operating System version */
     private _platformVersion?: string | undefined;
-    /** The user Id to who this app registration belongs.  */
+    /** The user Id to who this app registration belongs. */
     private _userId?: string | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     private _version?: string | undefined;
     /**
      * Gets the appIdentifier property value. The app package Identifier

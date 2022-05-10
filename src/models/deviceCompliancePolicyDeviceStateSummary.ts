@@ -2,23 +2,23 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicyDeviceStateSummary extends Entity implements Parsable {
-    /** Number of compliant devices  */
+    /** Number of compliant devices */
     private _compliantDeviceCount?: number | undefined;
-    /** Number of devices that have compliance managed by System Center Configuration Manager  */
+    /** Number of devices that have compliance managed by System Center Configuration Manager */
     private _configManagerCount?: number | undefined;
-    /** Number of conflict devices  */
+    /** Number of conflict devices */
     private _conflictDeviceCount?: number | undefined;
-    /** Number of error devices  */
+    /** Number of error devices */
     private _errorDeviceCount?: number | undefined;
-    /** Number of devices that are in grace period  */
+    /** Number of devices that are in grace period */
     private _inGracePeriodCount?: number | undefined;
-    /** Number of NonCompliant devices  */
+    /** Number of NonCompliant devices */
     private _nonCompliantDeviceCount?: number | undefined;
-    /** Number of not applicable devices  */
+    /** Number of not applicable devices */
     private _notApplicableDeviceCount?: number | undefined;
-    /** Number of remediated devices  */
+    /** Number of remediated devices */
     private _remediatedDeviceCount?: number | undefined;
-    /** Number of unknown devices  */
+    /** Number of unknown devices */
     private _unknownDeviceCount?: number | undefined;
     /**
      * Gets the compliantDeviceCount property value. Number of compliant devices

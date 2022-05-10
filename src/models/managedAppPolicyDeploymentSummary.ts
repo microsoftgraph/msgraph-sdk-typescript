@@ -3,15 +3,15 @@ import {Entity, ManagedAppPolicyDeploymentSummaryPerApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppPolicyDeploymentSummary extends Entity implements Parsable {
-    /** Not yet documented  */
+    /** Not yet documented */
     private _configurationDeployedUserCount?: number | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     private _configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     private _displayName?: string | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     private _lastRefreshTime?: Date | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     private _version?: string | undefined;
     /**
      * Gets the configurationDeployedUserCount property value. Not yet documented

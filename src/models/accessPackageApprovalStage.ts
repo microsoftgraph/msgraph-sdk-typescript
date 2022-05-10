@@ -3,23 +3,23 @@ import {SubjectSet} from './index';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageApprovalStage implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The number of days that a request can be pending a response before it is automatically denied.  */
+    /** The number of days that a request can be pending a response before it is automatically denied. */
     private _durationBeforeAutomaticDenial?: Duration | undefined;
-    /** If escalation is required, the time a request can be pending a response from a primary approver.  */
+    /** If escalation is required, the time a request can be pending a response from a primary approver. */
     private _durationBeforeEscalation?: Duration | undefined;
-    /** If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests.  */
+    /** If escalation is enabled and the primary approvers do not respond before the escalation time, the escalationApprovers are the users who will be asked to approve requests. */
     private _escalationApprovers?: SubjectSet[] | undefined;
-    /** The subjects, typically users, who are the fallback escalation approvers.  */
+    /** The subjects, typically users, who are the fallback escalation approvers. */
     private _fallbackEscalationApprovers?: SubjectSet[] | undefined;
-    /** The subjects, typically users, who are the fallback primary approvers.  */
+    /** The subjects, typically users, who are the fallback primary approvers. */
     private _fallbackPrimaryApprovers?: SubjectSet[] | undefined;
-    /** Indicates whether the approver is required to provide a justification for approving a request.  */
+    /** Indicates whether the approver is required to provide a justification for approving a request. */
     private _isApproverJustificationRequired?: boolean | undefined;
-    /** If true, then one or more escalationApprovers are configured in this approval stage.  */
+    /** If true, then one or more escalationApprovers are configured in this approval stage. */
     private _isEscalationEnabled?: boolean | undefined;
-    /** The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors.  */
+    /** The subjects, typically users, who will be asked to approve requests. A collection of singleUser, groupMembers, requestorManager, internalSponsors or externalSponsors. */
     private _primaryApprovers?: SubjectSet[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

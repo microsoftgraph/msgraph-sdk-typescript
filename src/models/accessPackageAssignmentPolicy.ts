@@ -10,39 +10,39 @@ import {AccessPackage, AccessPackageAssignmentApprovalSettings, AccessPackageAss
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
-    /** Access package containing this policy. Read-only.  */
+    /** The access package with this policy. Read-only. Nullable. Supports $expand. */
     private _accessPackage?: AccessPackage | undefined;
-    /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue.  */
+    /** Principals that can be assigned the access package through this policy. The possible values are: notSpecified, specificDirectoryUsers, specificConnectedOrganizationUsers, specificDirectoryServicePrincipals, allMemberUsers, allDirectoryUsers, allDirectoryServicePrincipals, allConfiguredConnectedOrganizationUsers, allExternalUsers, unknownFutureValue. */
     private _allowedTargetScope?: AllowedTargetScope | undefined;
-    /** Catalog of the access package containing this policy. Read-only.  */
+    /** Catalog of the access package containing this policy. Read-only. */
     private _catalog?: AccessPackageCatalog | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
-    /** The description of the policy.  */
+    /** The description of the policy. */
     private _description?: string | undefined;
-    /** The display name of the policy.  */
+    /** The display name of the policy. Supports $filter (eq). */
     private _displayName?: string | undefined;
-    /** The expiration date for assignments created in this policy.  */
+    /** The expiration date for assignments created in this policy. */
     private _expiration?: ExpirationPattern | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _modifiedDateTime?: Date | undefined;
-    /** Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.  */
+    /** Who must approve requests for access package in this policy. */
     private _requestApprovalSettings?: AccessPackageAssignmentApprovalSettings | undefined;
-    /** Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.  */
+    /** Who can request this access package from this policy. */
     private _requestorSettings?: AccessPackageAssignmentRequestorSettings | undefined;
-    /** Settings for access reviews of assignments through this policy.  */
+    /** Settings for access reviews of assignments through this policy. */
     private _reviewSettings?: AccessPackageAssignmentReviewSettings | undefined;
-    /** The principals that can be assigned access from an access package through this policy.  */
+    /** The principals that can be assigned access from an access package through this policy. */
     private _specificAllowedTargets?: SubjectSet[] | undefined;
     /**
-     * Gets the accessPackage property value. Access package containing this policy. Read-only.
+     * Gets the accessPackage property value. The access package with this policy. Read-only. Nullable. Supports $expand.
      * @returns a accessPackage
      */
     public get accessPackage() {
         return this._accessPackage;
     };
     /**
-     * Sets the accessPackage property value. Access package containing this policy. Read-only.
+     * Sets the accessPackage property value. The access package with this policy. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the accessPackage property.
      */
     public set accessPackage(value: AccessPackage | undefined) {
@@ -83,14 +83,14 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get createdDateTime() {
         return this._createdDateTime;
     };
     /**
-     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the createdDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the createdDateTime property.
      */
     public set createdDateTime(value: Date | undefined) {
@@ -111,14 +111,14 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. The display name of the policy.
+     * Gets the displayName property value. The display name of the policy. Supports $filter (eq).
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The display name of the policy.
+     * Sets the displayName property value. The display name of the policy. Supports $filter (eq).
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -159,42 +159,42 @@ export class AccessPackageAssignmentPolicy extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get modifiedDateTime() {
         return this._modifiedDateTime;
     };
     /**
-     * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the modifiedDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the modifiedDateTime property.
      */
     public set modifiedDateTime(value: Date | undefined) {
         this._modifiedDateTime = value;
     };
     /**
-     * Gets the requestApprovalSettings property value. Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
+     * Gets the requestApprovalSettings property value. Who must approve requests for access package in this policy.
      * @returns a accessPackageAssignmentApprovalSettings
      */
     public get requestApprovalSettings() {
         return this._requestApprovalSettings;
     };
     /**
-     * Sets the requestApprovalSettings property value. Specifies the settings for approval of requests for an access package assignment through this policy. For example, if approval is required for new requests.
+     * Sets the requestApprovalSettings property value. Who must approve requests for access package in this policy.
      * @param value Value to set for the requestApprovalSettings property.
      */
     public set requestApprovalSettings(value: AccessPackageAssignmentApprovalSettings | undefined) {
         this._requestApprovalSettings = value;
     };
     /**
-     * Gets the requestorSettings property value. Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
+     * Gets the requestorSettings property value. Who can request this access package from this policy.
      * @returns a accessPackageAssignmentRequestorSettings
      */
     public get requestorSettings() {
         return this._requestorSettings;
     };
     /**
-     * Sets the requestorSettings property value. Provides additional settings to select who can create a request for an access package assignment through this policy, and what they can include in their request.
+     * Sets the requestorSettings property value. Who can request this access package from this policy.
      * @param value Value to set for the requestorSettings property.
      */
     public set requestorSettings(value: AccessPackageAssignmentRequestorSettings | undefined) {

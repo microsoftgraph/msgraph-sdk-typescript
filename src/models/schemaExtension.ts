@@ -3,15 +3,15 @@ import {Entity, ExtensionSchemaProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchemaExtension extends Entity implements Parsable {
-    /** Description for the schema extension. Supports $filter (eq).  */
+    /** Description for the schema extension. Supports $filter (eq). */
     private _description?: string | undefined;
-    /** The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq).  */
+    /** The appId of the application that is the owner of the schema extension. This property can be supplied on creation, to set the owner.  If not supplied, then the calling application's appId will be set as the owner. In either case, the signed-in user must be the owner of the application. So, for example, if creating a new schema extension definition using Graph Explorer, you must supply the owner property. Once set, this property is read-only and cannot be changed. Supports $filter (eq). */
     private _owner?: string | undefined;
-    /** The collection of property names and types that make up the schema extension definition.  */
+    /** The collection of property names and types that make up the schema extension definition. */
     private _properties?: ExtensionSchemaProperty[] | undefined;
-    /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq).  */
+    /** The lifecycle state of the schema extension. Possible states are InDevelopment, Available, and Deprecated. Automatically set to InDevelopment on creation. Schema extensions provides more information on the possible state transitions and behaviors. Supports $filter (eq). */
     private _status?: string | undefined;
-    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.  */
+    /** Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user. */
     private _targetTypes?: string[] | undefined;
     /**
      * Instantiates a new schemaExtension and sets the default values.
@@ -102,14 +102,14 @@ export class SchemaExtension extends Entity implements Parsable {
         this._status = value;
     };
     /**
-     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
+     * Gets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
      * @returns a string
      */
     public get targetTypes() {
         return this._targetTypes;
     };
     /**
-     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from contact, device, event, group, message, organization, post, or user.
+     * Sets the targetTypes property value. Set of Microsoft Graph types (that can support extensions) that the schema extension can be applied to. Select from administrativeUnit, contact, device, event, group, message, organization, post, or user.
      * @param value Value to set for the targetTypes property.
      */
     public set targetTypes(value: string[] | undefined) {

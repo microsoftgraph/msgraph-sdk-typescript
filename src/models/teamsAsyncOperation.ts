@@ -5,21 +5,21 @@ import {TeamsAsyncOperationType} from './teamsAsyncOperationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAsyncOperation extends Entity implements Parsable {
-    /** Number of times the operation was attempted before being marked successful or failed.  */
+    /** Number of times the operation was attempted before being marked successful or failed. */
     private _attemptsCount?: number | undefined;
-    /** Time when the operation was created.  */
+    /** Time when the operation was created. */
     private _createdDateTime?: Date | undefined;
-    /** Any error that causes the async operation to fail.  */
+    /** Any error that causes the async operation to fail. */
     private _error_escaped?: OperationError | undefined;
-    /** Time when the async operation was last updated.  */
+    /** Time when the async operation was last updated. */
     private _lastActionDateTime?: Date | undefined;
-    /** Denotes which type of operation is being described.  */
+    /** Denotes the type of operation being described. */
     private _operationType?: TeamsAsyncOperationType | undefined;
-    /** Operation status.  */
+    /** Operation status. */
     private _status?: TeamsAsyncOperationStatus | undefined;
-    /** The ID of the object that's created or modified as result of this async operation, typically a team.  */
+    /** The ID of the object that's created or modified as result of this async operation, typically a team. */
     private _targetResourceId?: string | undefined;
-    /** The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths.  */
+    /** The location of the object that's created or modified as result of this async operation. This URL should be treated as an opaque value and not parsed into its component paths. */
     private _targetResourceLocation?: string | undefined;
     /**
      * Gets the attemptsCount property value. Number of times the operation was attempted before being marked successful or failed.
@@ -100,14 +100,14 @@ export class TeamsAsyncOperation extends Entity implements Parsable {
         this._lastActionDateTime = value;
     };
     /**
-     * Gets the operationType property value. Denotes which type of operation is being described.
+     * Gets the operationType property value. Denotes the type of operation being described.
      * @returns a teamsAsyncOperationType
      */
     public get operationType() {
         return this._operationType;
     };
     /**
-     * Sets the operationType property value. Denotes which type of operation is being described.
+     * Sets the operationType property value. Denotes the type of operation being described.
      * @param value Value to set for the operationType property.
      */
     public set operationType(value: TeamsAsyncOperationType | undefined) {

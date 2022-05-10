@@ -1,9 +1,9 @@
 
-/** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).  */
+/** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD). */
 export class AgreementItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

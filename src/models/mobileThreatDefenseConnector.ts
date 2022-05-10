@@ -3,21 +3,21 @@ import {MobileThreatPartnerTenantState} from './mobileThreatPartnerTenantState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileThreatDefenseConnector extends Entity implements Parsable {
-    /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant  */
+    /** For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     private _androidDeviceBlockedOnMissingPartnerData?: boolean | undefined;
-    /** For Android, set whether data from the data sync partner should be used during compliance evaluations  */
+    /** For Android, set whether data from the data sync partner should be used during compliance evaluations */
     private _androidEnabled?: boolean | undefined;
-    /** For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant  */
+    /** For IOS, set whether Intune must receive data from the data sync partner prior to marking a device compliant */
     private _iosDeviceBlockedOnMissingPartnerData?: boolean | undefined;
-    /** For IOS, get or set whether data from the data sync partner should be used during compliance evaluations  */
+    /** For IOS, get or set whether data from the data sync partner should be used during compliance evaluations */
     private _iosEnabled?: boolean | undefined;
-    /** DateTime of last Heartbeat recieved from the Data Sync Partner  */
+    /** DateTime of last Heartbeat recieved from the Data Sync Partner */
     private _lastHeartbeatDateTime?: Date | undefined;
-    /** Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive.  */
+    /** Data Sync Partner state for this account. Possible values are: unavailable, available, enabled, unresponsive. */
     private _partnerState?: MobileThreatPartnerTenantState | undefined;
-    /** Get or Set days the per tenant tolerance to unresponsiveness for this partner integration  */
+    /** Get or Set days the per tenant tolerance to unresponsiveness for this partner integration */
     private _partnerUnresponsivenessThresholdInDays?: number | undefined;
-    /** Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner  */
+    /** Get or set whether to block devices on the enabled platforms that do not meet the minimum version requirements of the Data Sync Partner */
     private _partnerUnsupportedOsVersionBlocked?: boolean | undefined;
     /**
      * Gets the androidDeviceBlockedOnMissingPartnerData property value. For Android, set whether Intune must receive data from the data sync partner prior to marking a device compliant

@@ -3,13 +3,13 @@ import {Calendar, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarGroup extends Entity implements Parsable {
-    /** The calendars in the calendar group. Navigation property. Read-only. Nullable.  */
+    /** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
     private _calendars?: Calendar[] | undefined;
-    /** Identifies the version of the calendar group. Every time the calendar group is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only.  */
+    /** Identifies the version of the calendar group. Every time the calendar group is changed, ChangeKey changes as well. This allows Exchange to apply changes to the correct version of the object. Read-only. */
     private _changeKey?: string | undefined;
-    /** The class identifier. Read-only.  */
+    /** The class identifier. Read-only. */
     private _classId?: string | undefined;
-    /** The group name.  */
+    /** The group name. */
     private _name?: string | undefined;
     /**
      * Gets the calendars property value. The calendars in the calendar group. Navigation property. Read-only. Nullable.

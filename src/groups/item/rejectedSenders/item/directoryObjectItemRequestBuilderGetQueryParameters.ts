@@ -1,7 +1,7 @@
 
-/** The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable  */
+/** The list of users or groups that are not allowed to create posts or calendar events in this group. Nullable */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

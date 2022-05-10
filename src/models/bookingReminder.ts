@@ -1,15 +1,15 @@
 import {BookingReminderRecipients} from './bookingReminderRecipients';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This type represents when and to whom to send an e-mail reminder.  */
+/** This type represents when and to whom to send an e-mail reminder. */
 export class BookingReminder implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The message in the reminder.  */
+    /** The message in the reminder. */
     private _message?: string | undefined;
-    /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.  */
+    /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
     private _offset?: Duration | undefined;
-    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.  */
+    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue. */
     private _recipients?: BookingReminderRecipients | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -71,14 +71,14 @@ export class BookingReminder implements AdditionalDataHolder, Parsable {
         this._offset = value;
     };
     /**
-     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.
+     * Gets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
      * @returns a bookingReminderRecipients
      */
     public get recipients() {
         return this._recipients;
     };
     /**
-     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer, unknownFutureValue.
+     * Sets the recipients property value. The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.
      * @param value Value to set for the recipients property.
      */
     public set recipients(value: BookingReminderRecipients | undefined) {

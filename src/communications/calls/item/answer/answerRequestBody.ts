@@ -4,19 +4,19 @@ import {createMediaConfigFromDiscriminatorValue} from '../../../../models/create
 import {Modality} from '../../../../models/modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the answer method.  */
+/** Provides operations to call the answer method. */
 export class AnswerRequestBody implements AdditionalDataHolder, Parsable {
-    /** The acceptedModalities property  */
+    /** The acceptedModalities property */
     private _acceptedModalities?: Modality[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The callbackUri property  */
+    /** The callbackUri property */
     private _callbackUri?: string | undefined;
-    /** The callOptions property  */
+    /** The callOptions property */
     private _callOptions?: IncomingCallOptions | undefined;
-    /** The mediaConfig property  */
+    /** The mediaConfig property */
     private _mediaConfig?: MediaConfig | undefined;
-    /** The participantCapacity property  */
+    /** The participantCapacity property */
     private _participantCapacity?: number | undefined;
     /**
      * Gets the acceptedModalities property value. The acceptedModalities property

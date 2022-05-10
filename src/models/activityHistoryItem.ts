@@ -4,23 +4,23 @@ import {Status} from './status';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityHistoryItem extends Entity implements Parsable {
-    /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.  */
+    /** Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime. */
     private _activeDurationSeconds?: number | undefined;
-    /** The activity property  */
+    /** The activity property */
     private _activity?: UserActivity | undefined;
-    /** Set by the server. DateTime in UTC when the object was created on the server.  */
+    /** Set by the server. DateTime in UTC when the object was created on the server. */
     private _createdDateTime?: Date | undefined;
-    /** Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client.  */
+    /** Optional. UTC DateTime when the historyItem will undergo hard-delete. Can be set by the client. */
     private _expirationDateTime?: Date | undefined;
-    /** Optional. UTC DateTime when the historyItem (activity session) was last understood as active or finished - if null, historyItem status should be Ongoing.  */
+    /** Optional. UTC DateTime when the historyItem (activity session) was last understood as active or finished - if null, historyItem status should be Ongoing. */
     private _lastActiveDateTime?: Date | undefined;
-    /** Set by the server. DateTime in UTC when the object was modified on the server.  */
+    /** Set by the server. DateTime in UTC when the object was modified on the server. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history.  */
+    /** Required. UTC DateTime when the historyItem (activity session) was started. Required for timeline history. */
     private _startedDateTime?: Date | undefined;
-    /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored.  */
+    /** Set by the server. A status code used to identify valid objects. Values: active, updated, deleted, ignored. */
     private _status?: Status | undefined;
-    /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation.  */
+    /** Optional. The timezone in which the user's device used to generate the activity was located at activity creation time. Values supplied as Olson IDs in order to support cross-platform representation. */
     private _userTimezone?: string | undefined;
     /**
      * Gets the activeDurationSeconds property value. Optional. The duration of active user engagement. if not supplied, this is calculated from the startedDateTime and lastActiveDateTime.

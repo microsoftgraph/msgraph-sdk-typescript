@@ -3,7 +3,7 @@ import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EnrollmentConfigurationAssignment extends Entity implements Parsable {
-    /** Represents an assignment to managed devices in the tenant  */
+    /** Represents an assignment to managed devices in the tenant */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new enrollmentConfigurationAssignment and sets the default values.

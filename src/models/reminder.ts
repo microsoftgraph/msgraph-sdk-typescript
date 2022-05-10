@@ -4,23 +4,23 @@ import {DateTimeTimeZone, Location} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Reminder implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object.  */
+    /** Identifies the version of the reminder. Every time the reminder is changed, changeKey changes as well. This allows Exchange to apply changes to the correct version of the object. */
     private _changeKey?: string | undefined;
-    /** The date, time and time zone that the event ends.  */
+    /** The date, time and time zone that the event ends. */
     private _eventEndTime?: DateTimeTimeZone | undefined;
-    /** The unique ID of the event. Read only.  */
+    /** The unique ID of the event. Read only. */
     private _eventId?: string | undefined;
-    /** The location of the event.  */
+    /** The location of the event. */
     private _eventLocation?: Location | undefined;
-    /** The date, time, and time zone that the event starts.  */
+    /** The date, time, and time zone that the event starts. */
     private _eventStartTime?: DateTimeTimeZone | undefined;
-    /** The text of the event's subject line.  */
+    /** The text of the event's subject line. */
     private _eventSubject?: string | undefined;
-    /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame.  */
+    /** The URL to open the event in Outlook on the web.The event will open in the browser if you are logged in to your mailbox via Outlook on the web. You will be prompted to login if you are not already logged in with the browser.This URL cannot be accessed from within an iFrame. */
     private _eventWebLink?: string | undefined;
-    /** The date, time, and time zone that the reminder is set to occur.  */
+    /** The date, time, and time zone that the reminder is set to occur. */
     private _reminderFireTime?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InnerError implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Client request Id as sent by the client application.  */
+    /** Client request Id as sent by the client application. */
     private _clientRequestId?: string | undefined;
-    /** Date when the error occured.  */
+    /** Date when the error occured. */
     private _date?: Date | undefined;
-    /** Request Id as tracked internally by the service  */
+    /** Request Id as tracked internally by the service */
     private _requestId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,9 +1,9 @@
 
-/** A list of group members with license errors from this group-based license assignment. Read-only.  */
+/** A list of group members with license errors from this group-based license assignment. Read-only. */
 export class DirectoryObjectItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

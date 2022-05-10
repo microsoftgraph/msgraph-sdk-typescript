@@ -3,19 +3,19 @@ import {Entity, ImportedWindowsAutopilotDeviceIdentityState} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImportedWindowsAutopilotDeviceIdentity extends Entity implements Parsable {
-    /** UPN of the user the device will be assigned  */
+    /** UPN of the user the device will be assigned */
     private _assignedUserPrincipalName?: string | undefined;
-    /** Group Tag of the Windows autopilot device.  */
+    /** Group Tag of the Windows autopilot device. */
     private _groupTag?: string | undefined;
-    /** Hardware Blob of the Windows autopilot device.  */
+    /** Hardware Blob of the Windows autopilot device. */
     private _hardwareIdentifier?: string | undefined;
-    /** The Import Id of the Windows autopilot device.  */
+    /** The Import Id of the Windows autopilot device. */
     private _importId?: string | undefined;
-    /** Product Key of the Windows autopilot device.  */
+    /** Product Key of the Windows autopilot device. */
     private _productKey?: string | undefined;
-    /** Serial number of the Windows autopilot device.  */
+    /** Serial number of the Windows autopilot device. */
     private _serialNumber?: string | undefined;
-    /** Current state of the imported device.  */
+    /** Current state of the imported device. */
     private _state?: ImportedWindowsAutopilotDeviceIdentityState | undefined;
     /**
      * Gets the assignedUserPrincipalName property value. UPN of the user the device will be assigned

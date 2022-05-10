@@ -4,15 +4,15 @@ import {EducationAssignmentGradeType, EducationItemBody} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricLevel implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The description of this rubric level.  */
+    /** The description of this rubric level. */
     private _description?: EducationItemBody | undefined;
-    /** The name of this rubric level.  */
+    /** The name of this rubric level. */
     private _displayName?: string | undefined;
-    /** Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric.  */
+    /** Null if this is a no-points rubric; educationAssignmentPointsGradeType if it is a points rubric. */
     private _grading?: EducationAssignmentGradeType | undefined;
-    /** The ID of this resource.  */
+    /** The ID of this resource. */
     private _levelId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

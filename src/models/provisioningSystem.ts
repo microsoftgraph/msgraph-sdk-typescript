@@ -3,7 +3,7 @@ import {DetailsInfo, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningSystem extends Identity implements Parsable {
-    /** Details of the system.  */
+    /** Details of the system. */
     private _details?: DetailsInfo | undefined;
     /**
      * Instantiates a new provisioningSystem and sets the default values.

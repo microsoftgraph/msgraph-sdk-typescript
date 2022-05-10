@@ -1,9 +1,9 @@
 
-/** The parent [group] that contains the set.  */
+/** The parent [group] that contains the set. */
 export class ParentGroupRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

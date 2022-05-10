@@ -6,13 +6,13 @@ import {Entity, ResourceReference, ResourceVisualization, UsageDetails} from './
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UsedInsight extends Entity implements Parsable {
-    /** Information about when the item was last viewed or modified by the user. Read only.  */
+    /** Information about when the item was last viewed or modified by the user. Read only. */
     private _lastUsed?: UsageDetails | undefined;
-    /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.  */
+    /** Used for navigating to the item that was used. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
     private _resource?: Entity | undefined;
-    /** Reference properties of the used document, such as the url and type of the document. Read-only  */
+    /** Reference properties of the used document, such as the url and type of the document. Read-only */
     private _resourceReference?: ResourceReference | undefined;
-    /** Properties that you can use to visualize the document in your experience. Read-only  */
+    /** Properties that you can use to visualize the document in your experience. Read-only */
     private _resourceVisualization?: ResourceVisualization | undefined;
     /**
      * Instantiates a new usedInsight and sets the default values.

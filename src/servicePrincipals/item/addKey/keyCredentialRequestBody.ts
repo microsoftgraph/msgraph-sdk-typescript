@@ -3,15 +3,15 @@ import {createKeyCredentialFromDiscriminatorValue} from '../../../models/createK
 import {createPasswordCredentialFromDiscriminatorValue} from '../../../models/createPasswordCredentialFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the addKey method.  */
+/** Provides operations to call the addKey method. */
 export class KeyCredentialRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The keyCredential property  */
+    /** The keyCredential property */
     private _keyCredential?: KeyCredential | undefined;
-    /** The passwordCredential property  */
+    /** The passwordCredential property */
     private _passwordCredential?: PasswordCredential | undefined;
-    /** The proof property  */
+    /** The proof property */
     private _proof?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -6,41 +6,41 @@ import {DirectoryObject, OnPremisesProvisioningError, Phone, PhysicalOfficeAddre
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OrgContact extends DirectoryObject implements Parsable {
-    /** Postal addresses for this organizational contact. For now a contact can only have one physical address.  */
+    /** Postal addresses for this organizational contact. For now a contact can only have one physical address. */
     private _addresses?: PhysicalOfficeAddress[] | undefined;
-    /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
+    /** Name of the company that this organizational contact belong to. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _companyName?: string | undefined;
-    /** The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
+    /** The name for the department in which the contact works. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _department?: string | undefined;
-    /** The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand.  */
+    /** The contact's direct reports. (The users and contacts that have their manager property set to this contact.) Read-only. Nullable. Supports $expand. */
     private _directReports?: DirectoryObject[] | undefined;
-    /** Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.  */
+    /** Display name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
+    /** First name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _givenName?: string | undefined;
-    /** Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
+    /** Job title for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _jobTitle?: string | undefined;
-    /** The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
+    /** The SMTP address for the contact, for example, 'jeff@contoso.onmicrosoft.com'. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _mail?: string | undefined;
-    /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values).  */
+    /** Email alias (portion of email address pre-pending the @ symbol) for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values). */
     private _mailNickname?: string | undefined;
-    /** The user or contact that is this contact's manager. Read-only. Supports $expand.  */
+    /** The user or contact that is this contact's manager. Read-only. Supports $expand. */
     private _manager?: DirectoryObject | undefined;
-    /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand.  */
+    /** Groups that this contact is a member of. Read-only. Nullable. Supports $expand. */
     private _memberOf?: DirectoryObject[] | undefined;
-    /** Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in).  */
+    /** Date and time when this organizational contact was last synchronized from on-premises AD. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, not, ge, le, in). */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not).  */
+    /** List of any synchronization provisioning errors for this organizational contact. Supports $filter (eq, not). */
     private _onPremisesProvisioningErrors?: OnPremisesProvisioningError[] | undefined;
-    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values).  */
+    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced and now mastered in Exchange; null if this object has never been synced from an on-premises directory (default).  Supports $filter (eq, ne, not, in, and eq on null values). */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in).  */
+    /** List of phones for this organizational contact. Phone types can be mobile, business, and businessFax. Only one of each type can ever be present in the collection. Supports $filter (eq, ne, not, in). */
     private _phones?: Phone[] | undefined;
-    /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith).  */
+    /** For example: 'SMTP: bob@contoso.com', 'smtp: bob@sales.contoso.com'. The any operator is required for filter expressions on multi-valued properties. Supports $filter (eq, not, ge, le, startsWith). */
     private _proxyAddresses?: string[] | undefined;
-    /** Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values)  */
+    /** Last name for this organizational contact. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values) */
     private _surname?: string | undefined;
-    /** The transitiveMemberOf property  */
+    /** The transitiveMemberOf property */
     private _transitiveMemberOf?: DirectoryObject[] | undefined;
     /**
      * Gets the addresses property value. Postal addresses for this organizational contact. For now a contact can only have one physical address.

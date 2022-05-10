@@ -1,9 +1,9 @@
 
-/** The policy by which consent requests are created and managed for the entire tenant.  */
+/** The policy by which consent requests are created and managed for the entire tenant. */
 export class AdminConsentRequestPolicyRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

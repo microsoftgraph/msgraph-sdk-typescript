@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SecureScoreControlStateUpdate implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Assigns the control to the user who will take the action.  */
+    /** Assigns the control to the user who will take the action. */
     private _assignedTo?: string | undefined;
-    /** Provides optional comment about the control.  */
+    /** Provides optional comment about the control. */
     private _comment?: string | undefined;
-    /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).  */
+    /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty). */
     private _state?: string | undefined;
-    /** ID of the user who updated tenant state.  */
+    /** ID of the user who updated tenant state. */
     private _updatedBy?: string | undefined;
-    /** Time at which the control state was updated.  */
+    /** Time at which the control state was updated. */
     private _updatedDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

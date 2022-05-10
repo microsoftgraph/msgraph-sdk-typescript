@@ -3,9 +3,9 @@ import {Entity, WorkbookChartGridlinesFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartGridlines extends Entity implements Parsable {
-    /** Represents the formatting of chart gridlines. Read-only.  */
+    /** Represents the formatting of chart gridlines. Read-only. */
     private _format?: WorkbookChartGridlinesFormat | undefined;
-    /** Boolean value representing if the axis gridlines are visible or not.  */
+    /** Boolean value representing if the axis gridlines are visible or not. */
     private _visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartGridlines and sets the default values.

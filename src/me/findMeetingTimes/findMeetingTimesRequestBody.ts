@@ -4,25 +4,25 @@ import {createLocationConstraintFromDiscriminatorValue} from '../../models/creat
 import {createTimeConstraintFromDiscriminatorValue} from '../../models/createTimeConstraintFromDiscriminatorValue';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the findMeetingTimes method.  */
+/** Provides operations to call the findMeetingTimes method. */
 export class FindMeetingTimesRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The attendees property  */
+    /** The attendees property */
     private _attendees?: AttendeeBase[] | undefined;
-    /** The isOrganizerOptional property  */
+    /** The isOrganizerOptional property */
     private _isOrganizerOptional?: boolean | undefined;
-    /** The locationConstraint property  */
+    /** The locationConstraint property */
     private _locationConstraint?: LocationConstraint | undefined;
-    /** The maxCandidates property  */
+    /** The maxCandidates property */
     private _maxCandidates?: number | undefined;
-    /** The meetingDuration property  */
+    /** The meetingDuration property */
     private _meetingDuration?: Duration | undefined;
-    /** The minimumAttendeePercentage property  */
+    /** The minimumAttendeePercentage property */
     private _minimumAttendeePercentage?: number | undefined;
-    /** The returnSuggestionReasons property  */
+    /** The returnSuggestionReasons property */
     private _returnSuggestionReasons?: boolean | undefined;
-    /** The timeConstraint property  */
+    /** The timeConstraint property */
     private _timeConstraint?: TimeConstraint | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

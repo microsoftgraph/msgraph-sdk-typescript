@@ -4,19 +4,19 @@ import {createKeyValuePairFromDiscriminatorValue} from '../../../../models/creat
 import {createTeamworkActivityTopicFromDiscriminatorValue} from '../../../../models/createTeamworkActivityTopicFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the sendActivityNotification method.  */
+/** Provides operations to call the sendActivityNotification method. */
 export class SendActivityNotificationRequestBody implements AdditionalDataHolder, Parsable {
-    /** The activityType property  */
+    /** The activityType property */
     private _activityType?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The chainId property  */
+    /** The chainId property */
     private _chainId?: number | undefined;
-    /** The previewText property  */
+    /** The previewText property */
     private _previewText?: ItemBody | undefined;
-    /** The templateParameters property  */
+    /** The templateParameters property */
     private _templateParameters?: KeyValuePair[] | undefined;
-    /** The topic property  */
+    /** The topic property */
     private _topic?: TeamworkActivityTopic | undefined;
     /**
      * Gets the activityType property value. The activityType property

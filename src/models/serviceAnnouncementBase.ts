@@ -3,15 +3,15 @@ import {Entity, KeyValuePair} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceAnnouncementBase extends Entity implements Parsable {
-    /** Additional details about service event. This property doesn't support filters.  */
+    /** Additional details about service event. This property doesn't support filters. */
     private _details?: KeyValuePair[] | undefined;
-    /** The end time of the service event.  */
+    /** The end time of the service event. */
     private _endDateTime?: Date | undefined;
-    /** The last modified time of the service event.  */
+    /** The last modified time of the service event. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The start time of the service event.  */
+    /** The start time of the service event. */
     private _startDateTime?: Date | undefined;
-    /** The title of the service event.  */
+    /** The title of the service event. */
     private _title?: string | undefined;
     /**
      * Instantiates a new serviceAnnouncementBase and sets the default values.

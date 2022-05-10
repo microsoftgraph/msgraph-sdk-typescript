@@ -8,21 +8,21 @@ import {Group, LocalizedName, Relation, Term} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Set extends Entity implements Parsable {
-    /** Children terms of set in term [store].  */
+    /** Children terms of set in term [store]. */
     private _children?: Term[] | undefined;
-    /** Date and time of set creation. Read-only.  */
+    /** Date and time of set creation. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Description that gives details on the term usage.  */
+    /** Description giving details on the term usage. */
     private _description?: string | undefined;
-    /** Name of the set for each languageTag.  */
+    /** Name of the set for each languageTag. */
     private _localizedNames?: LocalizedName[] | undefined;
-    /** The parentGroup property  */
+    /** The parentGroup property */
     private _parentGroup?: Group | undefined;
-    /** Custom properties for the set.  */
+    /** Custom properties for the set. */
     private _properties?: KeyValue[] | undefined;
-    /** Indicates which terms have been pinned or reused directly under the set.  */
+    /** Indicates which terms have been pinned or reused directly under the set. */
     private _relations?: Relation[] | undefined;
-    /** All the terms under the set.  */
+    /** All the terms under the set. */
     private _terms?: Term[] | undefined;
     /**
      * Gets the children property value. Children terms of set in term [store].
@@ -59,14 +59,14 @@ export class Set extends Entity implements Parsable {
         this._createdDateTime = value;
     };
     /**
-     * Gets the description property value. Description that gives details on the term usage.
+     * Gets the description property value. Description giving details on the term usage.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Description that gives details on the term usage.
+     * Sets the description property value. Description giving details on the term usage.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {

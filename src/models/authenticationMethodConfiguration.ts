@@ -3,7 +3,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodConfiguration extends Entity implements Parsable {
-    /** The state of the policy. Possible values are: enabled, disabled.  */
+    /** The state of the policy. Possible values are: enabled, disabled. */
     private _state?: AuthenticationMethodState | undefined;
     /**
      * Instantiates a new authenticationMethodConfiguration and sets the default values.

@@ -1,11 +1,11 @@
 import {ScreenSharingRole} from '../../../../models/screenSharingRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the changeScreenSharingRole method.  */
+/** Provides operations to call the changeScreenSharingRole method. */
 export class ChangeScreenSharingRoleRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The role property  */
+    /** The role property */
     private _role?: ScreenSharingRole | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

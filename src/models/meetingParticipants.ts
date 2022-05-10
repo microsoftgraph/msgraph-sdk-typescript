@@ -3,11 +3,11 @@ import {MeetingParticipantInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingParticipants implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Information of the meeting attendees.  */
+    /** Information of the meeting attendees. */
     private _attendees?: MeetingParticipantInfo[] | undefined;
-    /** Information of the meeting organizer.  */
+    /** Information of the meeting organizer. */
     private _organizer?: MeetingParticipantInfo | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

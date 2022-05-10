@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ColumnLink extends Entity implements Parsable {
-    /** The name of the column  in this content type.  */
+    /** The name of the column  in this content type. */
     private _name?: string | undefined;
     /**
      * Instantiates a new columnLink and sets the default values.

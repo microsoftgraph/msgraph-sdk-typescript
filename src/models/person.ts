@@ -7,43 +7,43 @@ import {Entity, Location, PersonType, Phone, ScoredEmailAddress, Website} from '
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Person extends Entity implements Parsable {
-    /** The person's birthday.  */
+    /** The person's birthday. */
     private _birthday?: string | undefined;
-    /** The name of the person's company.  */
+    /** The name of the person's company. */
     private _companyName?: string | undefined;
-    /** The person's department.  */
+    /** The person's department. */
     private _department?: string | undefined;
-    /** The person's display name.  */
+    /** The person's display name. */
     private _displayName?: string | undefined;
-    /** The person's given name.  */
+    /** The person's given name. */
     private _givenName?: string | undefined;
-    /** The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only.  */
+    /** The instant message voice over IP (VOIP) session initiation protocol (SIP) address for the user. Read-only. */
     private _imAddress?: string | undefined;
-    /** true if the user has flagged this person as a favorite.  */
+    /** true if the user has flagged this person as a favorite. */
     private _isFavorite?: boolean | undefined;
-    /** The person's job title.  */
+    /** The person's job title. */
     private _jobTitle?: string | undefined;
-    /** The location of the person's office.  */
+    /** The location of the person's office. */
     private _officeLocation?: string | undefined;
-    /** Free-form notes that the user has taken about this person.  */
+    /** Free-form notes that the user has taken about this person. */
     private _personNotes?: string | undefined;
-    /** The type of person.  */
+    /** The type of person, for example distribution list. */
     private _personType?: PersonType | undefined;
-    /** The person's phone numbers.  */
+    /** The person's phone numbers. */
     private _phones?: Phone[] | undefined;
-    /** The person's addresses.  */
+    /** The person's addresses. */
     private _postalAddresses?: Location[] | undefined;
-    /** The person's profession.  */
+    /** The person's profession. */
     private _profession?: string | undefined;
-    /** The person's email addresses.  */
+    /** The person's email addresses. */
     private _scoredEmailAddresses?: ScoredEmailAddress[] | undefined;
-    /** The person's surname.  */
+    /** The person's surname. */
     private _surname?: string | undefined;
-    /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain.  */
+    /** The user principal name (UPN) of the person. The UPN is an Internet-style login name for the person based on the Internet standard RFC 822. By convention, this should map to the person's email name. The general format is alias@domain. */
     private _userPrincipalName?: string | undefined;
-    /** The person's websites.  */
+    /** The person's websites. */
     private _websites?: Website[] | undefined;
-    /** The phonetic Japanese name of the person's company.  */
+    /** The phonetic Japanese name of the person's company. */
     private _yomiCompany?: string | undefined;
     /**
      * Gets the birthday property value. The person's birthday.
@@ -219,14 +219,14 @@ export class Person extends Entity implements Parsable {
         this._personNotes = value;
     };
     /**
-     * Gets the personType property value. The type of person.
+     * Gets the personType property value. The type of person, for example distribution list.
      * @returns a personType
      */
     public get personType() {
         return this._personType;
     };
     /**
-     * Sets the personType property value. The type of person.
+     * Sets the personType property value. The type of person, for example distribution list.
      * @param value Value to set for the personType property.
      */
     public set personType(value: PersonType | undefined) {

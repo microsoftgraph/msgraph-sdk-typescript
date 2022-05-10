@@ -4,17 +4,17 @@ import {ImageInfo, Json} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class VisualInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Optional. JSON object used to represent an icon which represents the application used to generate the activity  */
+    /** Optional. JSON object used to represent an icon which represents the application used to generate the activity */
     private _attribution?: ImageInfo | undefined;
-    /** Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color  */
+    /** Optional. Background color used to render the activity in the UI - brand color for the application source of the activity. Must be a valid hex color */
     private _backgroundColor?: string | undefined;
-    /** Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI  */
+    /** Optional. Custom piece of data - JSON object used to provide custom content to render the activity in the Windows Shell UI */
     private _content?: Json | undefined;
-    /** Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata)  */
+    /** Optional. Longer text description of the user's unique activity (example: document name, first sentence, and/or metadata) */
     private _description?: string | undefined;
-    /** Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation)  */
+    /** Required. Short text description of the user's unique activity (for example, document name in cases where an activity refers to document creation) */
     private _displayText?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

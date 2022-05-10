@@ -9,19 +9,19 @@ import {Entity, WorkbookApplication, WorkbookComment, WorkbookFunctions, Workboo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Workbook extends Entity implements Parsable {
-    /** The application property  */
+    /** The application property */
     private _application?: WorkbookApplication | undefined;
-    /** The comments property  */
+    /** The comments property */
     private _comments?: WorkbookComment[] | undefined;
-    /** The functions property  */
+    /** The functions property */
     private _functions?: WorkbookFunctions | undefined;
-    /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.  */
+    /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
     private _names?: WorkbookNamedItem[] | undefined;
-    /** The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.  */
+    /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable. */
     private _operations?: WorkbookOperation[] | undefined;
-    /** Represents a collection of tables associated with the workbook. Read-only.  */
+    /** Represents a collection of tables associated with the workbook. Read-only. */
     private _tables?: WorkbookTable[] | undefined;
-    /** Represents a collection of worksheets associated with the workbook. Read-only.  */
+    /** Represents a collection of worksheets associated with the workbook. Read-only. */
     private _worksheets?: WorkbookWorksheet[] | undefined;
     /**
      * Gets the application property value. The application property
@@ -101,14 +101,14 @@ export class Workbook extends Entity implements Parsable {
         this._names = value;
     };
     /**
-     * Gets the operations property value. The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
+     * Gets the operations property value. The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
      * @returns a workbookOperation
      */
     public get operations() {
         return this._operations;
     };
     /**
-     * Sets the operations property value. The status of workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only.
+     * Sets the operations property value. The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.
      * @param value Value to set for the operations property.
      */
     public set operations(value: WorkbookOperation[] | undefined) {

@@ -1,13 +1,13 @@
 import {RecordingStatus} from '../../../../models/recordingStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the updateRecordingStatus method.  */
+/** Provides operations to call the updateRecordingStatus method. */
 export class UpdateRecordingStatusRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The clientContext property  */
+    /** The clientContext property */
     private _clientContext?: string | undefined;
-    /** The status property  */
+    /** The status property */
     private _status?: RecordingStatus | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

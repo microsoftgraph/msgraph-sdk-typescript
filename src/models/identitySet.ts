@@ -3,13 +3,13 @@ import {Identity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentitySet implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Optional. The application associated with this action.  */
+    /** Optional. The application associated with this action. */
     private _application?: Identity | undefined;
-    /** Optional. The device associated with this action.  */
+    /** Optional. The device associated with this action. */
     private _device?: Identity | undefined;
-    /** Optional. The user associated with this action.  */
+    /** Optional. The user associated with this action. */
     private _user?: Identity | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

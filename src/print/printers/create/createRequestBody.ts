@@ -2,23 +2,23 @@ import {PrintCertificateSigningRequest} from '../../../models/';
 import {createPrintCertificateSigningRequestFromDiscriminatorValue} from '../../../models/createPrintCertificateSigningRequestFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the create method.  */
+/** Provides operations to call the create method. */
 export class CreateRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The certificateSigningRequest property  */
+    /** The certificateSigningRequest property */
     private _certificateSigningRequest?: PrintCertificateSigningRequest | undefined;
-    /** The connectorId property  */
+    /** The connectorId property */
     private _connectorId?: string | undefined;
-    /** The displayName property  */
+    /** The displayName property */
     private _displayName?: string | undefined;
-    /** The hasPhysicalDevice property  */
+    /** The hasPhysicalDevice property */
     private _hasPhysicalDevice?: boolean | undefined;
-    /** The manufacturer property  */
+    /** The manufacturer property */
     private _manufacturer?: string | undefined;
-    /** The model property  */
+    /** The model property */
     private _model?: string | undefined;
-    /** The physicalDeviceId property  */
+    /** The physicalDeviceId property */
     private _physicalDeviceId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -3,15 +3,15 @@ import {ImplicitGrantSettings} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WebApplication implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Home page or landing page of the application.  */
+    /** Home page or landing page of the application. */
     private _homePageUrl?: string | undefined;
-    /** Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow.  */
+    /** Specifies whether this web application can request tokens using the OAuth 2.0 implicit flow. */
     private _implicitGrantSettings?: ImplicitGrantSettings | undefined;
-    /** Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols.  */
+    /** Specifies the URL that will be used by Microsoft's authorization service to logout an user using front-channel, back-channel or SAML logout protocols. */
     private _logoutUrl?: string | undefined;
-    /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent.  */
+    /** Specifies the URLs where user tokens are sent for sign-in, or the redirect URIs where OAuth 2.0 authorization codes and access tokens are sent. */
     private _redirectUris?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

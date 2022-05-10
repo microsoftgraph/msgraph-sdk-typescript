@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class VerifiedDomain implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** For example, 'Email', 'OfficeCommunicationsOnline'.  */
+    /** For example, Email, OfficeCommunicationsOnline. */
     private _capabilities?: string | undefined;
-    /** true if this is the default domain associated with the tenant; otherwise, false.  */
+    /** true if this is the default domain associated with the tenant; otherwise, false. */
     private _isDefault?: boolean | undefined;
-    /** true if this is the initial domain associated with the tenant; otherwise, false  */
+    /** true if this is the initial domain associated with the tenant; otherwise, false. */
     private _isInitial?: boolean | undefined;
-    /** The domain name; for example, 'contoso.onmicrosoft.com'  */
+    /** The domain name; for example, contoso.onmicrosoft.com. */
     private _name?: string | undefined;
-    /** For example, 'Managed'.  */
+    /** For example, Managed. */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -28,14 +28,14 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the capabilities property value. For example, 'Email', 'OfficeCommunicationsOnline'.
+     * Gets the capabilities property value. For example, Email, OfficeCommunicationsOnline.
      * @returns a string
      */
     public get capabilities() {
         return this._capabilities;
     };
     /**
-     * Sets the capabilities property value. For example, 'Email', 'OfficeCommunicationsOnline'.
+     * Sets the capabilities property value. For example, Email, OfficeCommunicationsOnline.
      * @param value Value to set for the capabilities property.
      */
     public set capabilities(value: string | undefined) {
@@ -75,28 +75,28 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
         this._isDefault = value;
     };
     /**
-     * Gets the isInitial property value. true if this is the initial domain associated with the tenant; otherwise, false
+     * Gets the isInitial property value. true if this is the initial domain associated with the tenant; otherwise, false.
      * @returns a boolean
      */
     public get isInitial() {
         return this._isInitial;
     };
     /**
-     * Sets the isInitial property value. true if this is the initial domain associated with the tenant; otherwise, false
+     * Sets the isInitial property value. true if this is the initial domain associated with the tenant; otherwise, false.
      * @param value Value to set for the isInitial property.
      */
     public set isInitial(value: boolean | undefined) {
         this._isInitial = value;
     };
     /**
-     * Gets the name property value. The domain name; for example, 'contoso.onmicrosoft.com'
+     * Gets the name property value. The domain name; for example, contoso.onmicrosoft.com.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The domain name; for example, 'contoso.onmicrosoft.com'
+     * Sets the name property value. The domain name; for example, contoso.onmicrosoft.com.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
@@ -116,14 +116,14 @@ export class VerifiedDomain implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. For example, 'Managed'.
+     * Gets the type property value. For example, Managed.
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. For example, 'Managed'.
+     * Sets the type property value. For example, Managed.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

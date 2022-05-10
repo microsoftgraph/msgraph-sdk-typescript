@@ -6,35 +6,35 @@ import {MobileAppPublishingState} from './mobileAppPublishingState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileApp extends Entity implements Parsable {
-    /** The list of group assignments for this mobile app.  */
+    /** The list of group assignments for this mobile app. */
     private _assignments?: MobileAppAssignment[] | undefined;
-    /** The list of categories for this app.  */
+    /** The list of categories for this app. */
     private _categories?: MobileAppCategory[] | undefined;
-    /** The date and time the app was created.  */
+    /** The date and time the app was created. */
     private _createdDateTime?: Date | undefined;
-    /** The description of the app.  */
+    /** The description of the app. */
     private _description?: string | undefined;
-    /** The developer of the app.  */
+    /** The developer of the app. */
     private _developer?: string | undefined;
-    /** The admin provided or imported title of the app.  */
+    /** The admin provided or imported title of the app. */
     private _displayName?: string | undefined;
-    /** The more information Url.  */
+    /** The more information Url. */
     private _informationUrl?: string | undefined;
-    /** The value indicating whether the app is marked as featured by the admin.  */
+    /** The value indicating whether the app is marked as featured by the admin. */
     private _isFeatured?: boolean | undefined;
-    /** The large icon, to be displayed in the app details and used for upload of the icon.  */
+    /** The large icon, to be displayed in the app details and used for upload of the icon. */
     private _largeIcon?: MimeContent | undefined;
-    /** The date and time the app was last modified.  */
+    /** The date and time the app was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Notes for the app.  */
+    /** Notes for the app. */
     private _notes?: string | undefined;
-    /** The owner of the app.  */
+    /** The owner of the app. */
     private _owner?: string | undefined;
-    /** The privacy statement Url.  */
+    /** The privacy statement Url. */
     private _privacyInformationUrl?: string | undefined;
-    /** The publisher of the app.  */
+    /** The publisher of the app. */
     private _publisher?: string | undefined;
-    /** The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published.  */
+    /** The publishing state for the app. The app cannot be assigned unless the app is published. Possible values are: notPublished, processing, published. */
     private _publishingState?: MobileAppPublishingState | undefined;
     /**
      * Gets the assignments property value. The list of group assignments for this mobile app.

@@ -3,9 +3,9 @@ import {EducationResource, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentResource extends Entity implements Parsable {
-    /** Indicates whether this resource should be copied to each student submission for modification and submission. Required  */
+    /** Indicates whether this resource should be copied to each student submission for modification and submission. Required */
     private _distributeForStudentWork?: boolean | undefined;
-    /** Resource object that has been associated with this assignment.  */
+    /** Resource object that has been associated with this assignment. */
     private _resource?: EducationResource | undefined;
     /**
      * Instantiates a new educationAssignmentResource and sets the default values.

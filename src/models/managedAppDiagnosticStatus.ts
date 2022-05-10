@@ -1,14 +1,14 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents diagnostics status.  */
+/** Represents diagnostics status. */
 export class ManagedAppDiagnosticStatus implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Instruction on how to mitigate a failed validation  */
+    /** Instruction on how to mitigate a failed validation */
     private _mitigationInstruction?: string | undefined;
-    /** The state of the operation  */
+    /** The state of the operation */
     private _state?: string | undefined;
-    /** The validation friendly name  */
+    /** The validation friendly name */
     private _validationName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

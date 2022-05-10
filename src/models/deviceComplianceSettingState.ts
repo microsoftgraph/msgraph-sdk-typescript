@@ -3,27 +3,27 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceSettingState extends Entity implements Parsable {
-    /** The DateTime when device compliance grace period expires  */
+    /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;
-    /** The Device Id that is being reported  */
+    /** The Device Id that is being reported */
     private _deviceId?: string | undefined;
-    /** The device model that is being reported  */
+    /** The device model that is being reported */
     private _deviceModel?: string | undefined;
-    /** The Device Name that is being reported  */
+    /** The Device Name that is being reported */
     private _deviceName?: string | undefined;
-    /** The setting class name and property name.  */
+    /** The setting class name and property name. */
     private _setting?: string | undefined;
-    /** The Setting Name that is being reported  */
+    /** The Setting Name that is being reported */
     private _settingName?: string | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     private _state?: ComplianceStatus | undefined;
-    /** The User email address that is being reported  */
+    /** The User email address that is being reported */
     private _userEmail?: string | undefined;
-    /** The user Id that is being reported  */
+    /** The user Id that is being reported */
     private _userId?: string | undefined;
-    /** The User Name that is being reported  */
+    /** The User Name that is being reported */
     private _userName?: string | undefined;
-    /** The User PrincipalName that is being reported  */
+    /** The User PrincipalName that is being reported */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires

@@ -8,25 +8,25 @@ import {AccessReviewHistoryInstance, AccessReviewHistoryScheduleSettings, Access
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewHistoryDefinition extends Entity implements Parsable {
-    /** The createdBy property  */
+    /** The createdBy property */
     private _createdBy?: UserIdentity | undefined;
-    /** Timestamp when the access review definition was created.  */
+    /** Timestamp when the access review definition was created. */
     private _createdDateTime?: Date | undefined;
-    /** Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified.  */
+    /** Determines which review decisions will be included in the fetched review history data if specified. Optional on create. All decisions will be included by default if no decisions are provided on create. Possible values are: approve, deny, dontKnow, notReviewed, and notNotified. */
     private _decisions?: AccessReviewHistoryDecisionFilter[] | undefined;
-    /** Name for the access review history data collection. Required.  */
+    /** Name for the access review history data collection. Required. */
     private _displayName?: string | undefined;
-    /** If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance.  */
+    /** If the accessReviewHistoryDefinition is a recurring definition, instances represent each recurrence. A definition that does not recur will have exactly one instance. */
     private _instances?: AccessReviewHistoryInstance[] | undefined;
-    /** A timestamp. Reviews ending on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined.  */
+    /** A timestamp. Reviews ending on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined. */
     private _reviewHistoryPeriodEndDateTime?: Date | undefined;
-    /** A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined.  */
+    /** A timestamp. Reviews starting on or before this date will be included in the fetched history data. Only required if scheduleSettings is not defined. */
     private _reviewHistoryPeriodStartDateTime?: Date | undefined;
-    /** The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet.  */
+    /** The settings for a recurring access review history definition series. Only required if reviewHistoryPeriodStartDateTime or reviewHistoryPeriodEndDateTime are not defined. Not supported yet. */
     private _scheduleSettings?: AccessReviewHistoryScheduleSettings | undefined;
-    /** Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. Required.  */
+    /** Used to scope what reviews are included in the fetched history data. Fetches reviews whose scope matches with this provided scope. Required. */
     private _scopes?: AccessReviewScope[] | undefined;
-    /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue.  */
+    /** Represents the status of the review history data collection. The possible values are: done, inProgress, error, requested, unknownFutureValue. */
     private _status?: AccessReviewHistoryStatus | undefined;
     /**
      * Instantiates a new accessReviewHistoryDefinition and sets the default values.

@@ -7,43 +7,43 @@ import {BookingQuestionAssignment, BookingReminder, BookingSchedulingPolicy, Ent
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingService extends Entity implements Parsable {
-    /** Additional information that is sent to the customer when an appointment is confirmed.  */
+    /** Additional information that is sent to the customer when an appointment is confirmed. */
     private _additionalInformation?: string | undefined;
-    /** Contains the set of custom questions associated with a particular service.  */
+    /** Contains the set of custom questions associated with a particular service. */
     private _customQuestions?: BookingQuestionAssignment[] | undefined;
-    /** The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S.  */
+    /** The default length of the service, represented in numbers of days, hours, minutes, and seconds. For example, P11D23H59M59.999999999999S. */
     private _defaultDuration?: Duration | undefined;
-    /** The default physical location for the service.  */
+    /** The default physical location for the service. */
     private _defaultLocation?: Location | undefined;
-    /** The default monetary price for the service.  */
+    /** The default monetary price for the service. */
     private _defaultPrice?: number | undefined;
-    /** The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue.  */
+    /** The default way the service is charged. Possible values are: undefined, fixedPrice, startingAt, hourly, free, priceVaries, callUs, notSet, unknownFutureValue. */
     private _defaultPriceType?: BookingPriceType | undefined;
-    /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID.  */
+    /** The default set of reminders for an appointment of this service. The value of this property is available only when reading this bookingService by its ID. */
     private _defaultReminders?: BookingReminder[] | undefined;
-    /** A text description for the service.  */
+    /** A text description for the service. */
     private _description?: string | undefined;
-    /** A service name.  */
+    /** A service name. */
     private _displayName?: string | undefined;
-    /** True means this service is not available to customers for booking.  */
+    /** True means this service is not available to customers for booking. */
     private _isHiddenFromCustomers?: boolean | undefined;
-    /** True indicates that the appointments for the service will be held online. Default value is false.  */
+    /** True indicates that the appointments for the service will be held online. Default value is false. */
     private _isLocationOnline?: boolean | undefined;
-    /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.  */
+    /** The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation. */
     private _maximumAttendeesCount?: number | undefined;
-    /** Additional information about this service.  */
+    /** Additional information about this service. */
     private _notes?: string | undefined;
-    /** The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked.  */
+    /** The time to buffer after an appointment for this service ends, and before the next customer appointment can be booked. */
     private _postBuffer?: Duration | undefined;
-    /** The time to buffer before an appointment for this service can start.  */
+    /** The time to buffer before an appointment for this service can start. */
     private _preBuffer?: Duration | undefined;
-    /** The set of policies that determine how appointments for this type of service should be created and managed.  */
+    /** The set of policies that determine how appointments for this type of service should be created and managed. */
     private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
-    /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false.  */
+    /** True indicates SMS notifications can be sent to the customers for the appointment of the service. Default value is false. */
     private _smsNotificationsEnabled?: boolean | undefined;
-    /** Represents those staff members who provide this service.  */
+    /** Represents those staff members who provide this service. */
     private _staffMemberIds?: string[] | undefined;
-    /** The URL a customer uses to access the service.  */
+    /** The URL a customer uses to access the service. */
     private _webUrl?: string | undefined;
     /**
      * Gets the additionalInformation property value. Additional information that is sent to the customer when an appointment is confirmed.
@@ -233,14 +233,14 @@ export class BookingService extends Entity implements Parsable {
         this._isLocationOnline = value;
     };
     /**
-     * Gets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
+     * Gets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation.
      * @returns a integer
      */
     public get maximumAttendeesCount() {
         return this._maximumAttendeesCount;
     };
     /**
-     * Sets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment. To create a customer, use the Create bookingCustomer operation.
+     * Sets the maximumAttendeesCount property value. The maximum number of customers allowed in a service. If maximumAttendeesCount of the service is greater than 1, pass valid customer IDs while creating or updating an appointment.  To create a customer, use the Create bookingCustomer operation.
      * @param value Value to set for the maximumAttendeesCount property.
      */
     public set maximumAttendeesCount(value: number | undefined) {

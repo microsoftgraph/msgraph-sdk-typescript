@@ -2,13 +2,13 @@ import {Message} from '../../../../../../../../../models/';
 import {createMessageFromDiscriminatorValue} from '../../../../../../../../../models/createMessageFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the replyAll method.  */
+/** Provides operations to call the replyAll method. */
 export class ReplyAllRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The Comment property  */
+    /** The Comment property */
     private _comment?: string | undefined;
-    /** The Message property  */
+    /** The Message property */
     private _message?: Message | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

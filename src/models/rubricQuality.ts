@@ -4,17 +4,17 @@ import {EducationItemBody, RubricCriterion} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricQuality implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The collection of criteria for this rubric quality.  */
+    /** The collection of criteria for this rubric quality. */
     private _criteria?: RubricCriterion[] | undefined;
-    /** The description of this rubric quality.  */
+    /** The description of this rubric quality. */
     private _description?: EducationItemBody | undefined;
-    /** The name of this rubric quality.  */
+    /** The name of this rubric quality. */
     private _displayName?: string | undefined;
-    /** The ID of this resource.  */
+    /** The ID of this resource. */
     private _qualityId?: string | undefined;
-    /** If present, a numerical weight for this quality.  Weights must add up to 100.  */
+    /** If present, a numerical weight for this quality.  Weights must add up to 100. */
     private _weight?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

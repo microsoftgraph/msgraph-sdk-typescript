@@ -4,19 +4,19 @@ import {DateTimeTimeZone} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleItem implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The date, time, and time zone that the corresponding event ends.  */
+    /** The date, time, and time zone that the corresponding event ends. */
     private _end?: DateTimeTimeZone | undefined;
-    /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.  */
+    /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
     private _isPrivate?: boolean | undefined;
-    /** The location where the corresponding event is held or attended from. Optional.  */
+    /** The location where the corresponding event is held or attended from. Optional. */
     private _location?: string | undefined;
-    /** The date, time, and time zone that the corresponding event starts.  */
+    /** The date, time, and time zone that the corresponding event starts. */
     private _start?: DateTimeTimeZone | undefined;
-    /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
     private _status?: FreeBusyStatus | undefined;
-    /** The corresponding event's subject line. Optional.  */
+    /** The corresponding event's subject line. Optional. */
     private _subject?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

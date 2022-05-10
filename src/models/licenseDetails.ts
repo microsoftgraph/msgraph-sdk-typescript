@@ -3,11 +3,11 @@ import {Entity, ServicePlanInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LicenseDetails extends Entity implements Parsable {
-    /** Information about the service plans assigned with the license. Read-only, Not nullable  */
+    /** Information about the service plans assigned with the license. Read-only, Not nullable */
     private _servicePlans?: ServicePlanInfo[] | undefined;
-    /** Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only  */
+    /** Unique identifier (GUID) for the service SKU. Equal to the skuId property on the related SubscribedSku object. Read-only */
     private _skuId?: string | undefined;
-    /** Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only  */
+    /** Unique SKU display name. Equal to the skuPartNumber on the related SubscribedSku object; for example: 'AAD_Premium'. Read-only */
     private _skuPartNumber?: string | undefined;
     /**
      * Instantiates a new licenseDetails and sets the default values.

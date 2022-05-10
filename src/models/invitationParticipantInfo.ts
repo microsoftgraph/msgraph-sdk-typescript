@@ -3,17 +3,17 @@ import {IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The hidden property  */
+    /** The hidden property */
     private _hidden?: boolean | undefined;
-    /** The identity property  */
+    /** The identity property */
     private _identity?: IdentitySet | undefined;
-    /** The participantId property  */
+    /** Optional. The ID of the target participant. */
     private _participantId?: string | undefined;
-    /** The removeFromDefaultAudioRoutingGroup property  */
+    /** The removeFromDefaultAudioRoutingGroup property */
     private _removeFromDefaultAudioRoutingGroup?: boolean | undefined;
-    /** Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.  */
+    /** Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully. */
     private _replacesCallId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -77,14 +77,14 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
         this._identity = value;
     };
     /**
-     * Gets the participantId property value. The participantId property
+     * Gets the participantId property value. Optional. The ID of the target participant.
      * @returns a string
      */
     public get participantId() {
         return this._participantId;
     };
     /**
-     * Sets the participantId property value. The participantId property
+     * Sets the participantId property value. Optional. The ID of the target participant.
      * @param value Value to set for the participantId property.
      */
     public set participantId(value: string | undefined) {
@@ -105,14 +105,14 @@ export class InvitationParticipantInfo implements AdditionalDataHolder, Parsable
         this._removeFromDefaultAudioRoutingGroup = value;
     };
     /**
-     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
+     * Gets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
      * @returns a string
      */
     public get replacesCallId() {
         return this._replacesCallId;
     };
     /**
-     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. This call will be dropped once the participant is added.
+     * Sets the replacesCallId property value. Optional. The call which the target identity is currently a part of. For peer-to-peer case, the call will be dropped once the participant is added successfully.
      * @param value Value to set for the replacesCallId property.
      */
     public set replacesCallId(value: string | undefined) {

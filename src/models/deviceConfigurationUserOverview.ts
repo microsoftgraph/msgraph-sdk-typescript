@@ -2,19 +2,19 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationUserOverview extends Entity implements Parsable {
-    /** Version of the policy for that overview  */
+    /** Version of the policy for that overview */
     private _configurationVersion?: number | undefined;
-    /** Number of error Users  */
+    /** Number of error Users */
     private _errorCount?: number | undefined;
-    /** Number of failed Users  */
+    /** Number of failed Users */
     private _failedCount?: number | undefined;
-    /** Last update time  */
+    /** Last update time */
     private _lastUpdateDateTime?: Date | undefined;
-    /** Number of not applicable users  */
+    /** Number of not applicable users */
     private _notApplicableCount?: number | undefined;
-    /** Number of pending Users  */
+    /** Number of pending Users */
     private _pendingCount?: number | undefined;
-    /** Number of succeeded Users  */
+    /** Number of succeeded Users */
     private _successCount?: number | undefined;
     /**
      * Gets the configurationVersion property value. Version of the policy for that overview

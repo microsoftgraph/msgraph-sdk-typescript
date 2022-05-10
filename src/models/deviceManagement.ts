@@ -35,77 +35,77 @@ import {DeviceManagementSubscriptionState} from './deviceManagementSubscriptionS
 import {ApplePushNotificationCertificate, ComplianceManagementPartner, DetectedApp, DeviceAndAppManagementRoleAssignment, DeviceCategory, DeviceCompliancePolicy, DeviceCompliancePolicyDeviceStateSummary, DeviceCompliancePolicySettingStateSummary, DeviceConfiguration, DeviceConfigurationDeviceStateSummary, DeviceEnrollmentConfiguration, DeviceManagementExchangeConnector, DeviceManagementPartner, DeviceManagementReports, DeviceManagementSettings, DeviceManagementTroubleshootingEvent, Entity, ImportedWindowsAutopilotDeviceIdentity, IntuneBrand, IosUpdateDeviceStatus, ManagedDevice, ManagedDeviceOverview, MobileThreatDefenseConnector, NotificationMessageTemplate, OnPremisesConditionalAccessSettings, RemoteAssistancePartner, ResourceOperation, RoleDefinition, SoftwareUpdateStatusSummary, TelecomExpenseManagementPartner, TermsAndConditions, WindowsAutopilotDeviceIdentity, WindowsInformationProtectionAppLearningSummary, WindowsInformationProtectionNetworkLearningSummary} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Singleton entity that acts as a container for all device management functionality.  */
+/** Singleton entity that acts as a container for all device management functionality. */
 export class DeviceManagement extends Entity implements Parsable {
-    /** Apple push notification certificate.  */
+    /** Apple push notification certificate. */
     private _applePushNotificationCertificate?: ApplePushNotificationCertificate | undefined;
-    /** The list of Compliance Management Partners configured by the tenant.  */
+    /** The list of Compliance Management Partners configured by the tenant. */
     private _complianceManagementPartners?: ComplianceManagementPartner[] | undefined;
-    /** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access  */
+    /** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access */
     private _conditionalAccessSettings?: OnPremisesConditionalAccessSettings | undefined;
-    /** The list of detected apps associated with a device.  */
+    /** The list of detected apps associated with a device. */
     private _detectedApps?: DetectedApp[] | undefined;
-    /** The list of device categories with the tenant.  */
+    /** The list of device categories with the tenant. */
     private _deviceCategories?: DeviceCategory[] | undefined;
-    /** The device compliance policies.  */
+    /** The device compliance policies. */
     private _deviceCompliancePolicies?: DeviceCompliancePolicy[] | undefined;
-    /** The device compliance state summary for this account.  */
+    /** The device compliance state summary for this account. */
     private _deviceCompliancePolicyDeviceStateSummary?: DeviceCompliancePolicyDeviceStateSummary | undefined;
-    /** The summary states of compliance policy settings for this account.  */
+    /** The summary states of compliance policy settings for this account. */
     private _deviceCompliancePolicySettingStateSummaries?: DeviceCompliancePolicySettingStateSummary[] | undefined;
-    /** The device configuration device state summary for this account.  */
+    /** The device configuration device state summary for this account. */
     private _deviceConfigurationDeviceStateSummaries?: DeviceConfigurationDeviceStateSummary | undefined;
-    /** The device configurations.  */
+    /** The device configurations. */
     private _deviceConfigurations?: DeviceConfiguration[] | undefined;
-    /** The list of device enrollment configurations  */
+    /** The list of device enrollment configurations */
     private _deviceEnrollmentConfigurations?: DeviceEnrollmentConfiguration[] | undefined;
-    /** The list of Device Management Partners configured by the tenant.  */
+    /** The list of Device Management Partners configured by the tenant. */
     private _deviceManagementPartners?: DeviceManagementPartner[] | undefined;
-    /** The list of Exchange Connectors configured by the tenant.  */
+    /** The list of Exchange Connectors configured by the tenant. */
     private _exchangeConnectors?: DeviceManagementExchangeConnector[] | undefined;
-    /** Collection of imported Windows autopilot devices.  */
+    /** Collection of imported Windows autopilot devices. */
     private _importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
-    /** Intune Account Id for given tenant  */
+    /** Intune Account ID for given tenant */
     private _intuneAccountId?: string | undefined;
-    /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.  */
+    /** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
     private _intuneBrand?: IntuneBrand | undefined;
-    /** The IOS software update installation statuses for this account.  */
+    /** The IOS software update installation statuses for this account. */
     private _iosUpdateStatuses?: IosUpdateDeviceStatus[] | undefined;
-    /** Device overview  */
+    /** Device overview */
     private _managedDeviceOverview?: ManagedDeviceOverview | undefined;
-    /** The list of managed devices.  */
+    /** The list of managed devices. */
     private _managedDevices?: ManagedDevice[] | undefined;
-    /** The list of Mobile threat Defense connectors configured by the tenant.  */
+    /** The list of Mobile threat Defense connectors configured by the tenant. */
     private _mobileThreatDefenseConnectors?: MobileThreatDefenseConnector[] | undefined;
-    /** The Notification Message Templates.  */
+    /** The Notification Message Templates. */
     private _notificationMessageTemplates?: NotificationMessageTemplate[] | undefined;
-    /** The remote assist partners.  */
+    /** The remote assist partners. */
     private _remoteAssistancePartners?: RemoteAssistancePartner[] | undefined;
-    /** Reports singleton  */
+    /** Reports singleton */
     private _reports?: DeviceManagementReports | undefined;
-    /** The Resource Operations.  */
+    /** The Resource Operations. */
     private _resourceOperations?: ResourceOperation[] | undefined;
-    /** The Role Assignments.  */
+    /** The Role Assignments. */
     private _roleAssignments?: DeviceAndAppManagementRoleAssignment[] | undefined;
-    /** The Role Definitions.  */
+    /** The Role Definitions. */
     private _roleDefinitions?: RoleDefinition[] | undefined;
-    /** Account level settings.  */
+    /** Account level settings. */
     private _settings?: DeviceManagementSettings | undefined;
-    /** The software update status summary.  */
+    /** The software update status summary. */
     private _softwareUpdateStatusSummary?: SoftwareUpdateStatusSummary | undefined;
-    /** Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut.  */
+    /** Tenant mobile device management subscription state. Possible values are: pending, active, warning, disabled, deleted, blocked, lockedOut. */
     private _subscriptionState?: DeviceManagementSubscriptionState | undefined;
-    /** The telecom expense management partners.  */
+    /** The telecom expense management partners. */
     private _telecomExpenseManagementPartners?: TelecomExpenseManagementPartner[] | undefined;
-    /** The terms and conditions associated with device management of the company.  */
+    /** The terms and conditions associated with device management of the company. */
     private _termsAndConditions?: TermsAndConditions[] | undefined;
-    /** The list of troubleshooting events for the tenant.  */
+    /** The list of troubleshooting events for the tenant. */
     private _troubleshootingEvents?: DeviceManagementTroubleshootingEvent[] | undefined;
-    /** The Windows autopilot device identities contained collection.  */
+    /** The Windows autopilot device identities contained collection. */
     private _windowsAutopilotDeviceIdentities?: WindowsAutopilotDeviceIdentity[] | undefined;
-    /** The windows information protection app learning summaries.  */
+    /** The windows information protection app learning summaries. */
     private _windowsInformationProtectionAppLearningSummaries?: WindowsInformationProtectionAppLearningSummary[] | undefined;
-    /** The windows information protection network learning summaries.  */
+    /** The windows information protection network learning summaries. */
     private _windowsInformationProtectionNetworkLearningSummaries?: WindowsInformationProtectionNetworkLearningSummary[] | undefined;
     /**
      * Gets the applePushNotificationCertificate property value. Apple push notification certificate.
@@ -353,14 +353,14 @@ export class DeviceManagement extends Entity implements Parsable {
         this._importedWindowsAutopilotDeviceIdentities = value;
     };
     /**
-     * Gets the intuneAccountId property value. Intune Account Id for given tenant
+     * Gets the intuneAccountId property value. Intune Account ID for given tenant
      * @returns a string
      */
     public get intuneAccountId() {
         return this._intuneAccountId;
     };
     /**
-     * Sets the intuneAccountId property value. Intune Account Id for given tenant
+     * Sets the intuneAccountId property value. Intune Account ID for given tenant
      * @param value Value to set for the intuneAccountId property.
      */
     public set intuneAccountId(value: string | undefined) {

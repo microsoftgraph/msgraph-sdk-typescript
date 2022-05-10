@@ -1,9 +1,9 @@
 
-/** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access  */
+/** The Exchange on premises conditional access settings. On premises conditional access will require devices to be both enrolled and compliant for mail access */
 export class ConditionalAccessSettingsRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

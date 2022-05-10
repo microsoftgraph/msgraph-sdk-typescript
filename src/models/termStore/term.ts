@@ -9,21 +9,21 @@ import {LocalizedDescription, LocalizedLabel, Relation, Set} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Term extends Entity implements Parsable {
-    /** Children of current term.  */
+    /** Children of current term. */
     private _children?: Term[] | undefined;
-    /** Date and time of term creation. Read-only.  */
+    /** Date and time of term creation. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Description about term that is dependent on the languageTag.  */
+    /** Description about term that is dependent on the languageTag. */
     private _descriptions?: LocalizedDescription[] | undefined;
-    /** Label metadata for a term.  */
+    /** Label metadata for a term. */
     private _labels?: LocalizedLabel[] | undefined;
-    /** Last date and time of term modification. Read-only.  */
+    /** Last date and time of term modification. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Collection of properties on the term.  */
+    /** Collection of properties on the term. */
     private _properties?: KeyValue[] | undefined;
-    /** To indicate which terms are related to the current term as either pinned or reused.  */
+    /** To indicate which terms are related to the current term as either pinned or reused. */
     private _relations?: Relation[] | undefined;
-    /** The [set] in which the term is created.  */
+    /** The [set] in which the term is created. */
     private _set?: Set | undefined;
     /**
      * Gets the children property value. Children of current term.

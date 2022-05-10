@@ -2,19 +2,19 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceMobileAppConfigurationDeviceSummary extends Entity implements Parsable {
-    /** Version of the policy for that overview  */
+    /** Version of the policy for that overview */
     private _configurationVersion?: number | undefined;
-    /** Number of error devices  */
+    /** Number of error devices */
     private _errorCount?: number | undefined;
-    /** Number of failed devices  */
+    /** Number of failed devices */
     private _failedCount?: number | undefined;
-    /** Last update time  */
+    /** Last update time */
     private _lastUpdateDateTime?: Date | undefined;
-    /** Number of not applicable devices  */
+    /** Number of not applicable devices */
     private _notApplicableCount?: number | undefined;
-    /** Number of pending devices  */
+    /** Number of pending devices */
     private _pendingCount?: number | undefined;
-    /** Number of succeeded devices  */
+    /** Number of succeeded devices */
     private _successCount?: number | undefined;
     /**
      * Gets the configurationVersion property value. Version of the policy for that overview

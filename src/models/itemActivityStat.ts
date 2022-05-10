@@ -5,25 +5,25 @@ import {Entity, IncompleteData, ItemActionStat, ItemActivity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemActivityStat extends Entity implements Parsable {
-    /** Statistics about the access actions in this interval. Read-only.  */
+    /** Statistics about the access actions in this interval. Read-only. */
     private _access?: ItemActionStat | undefined;
-    /** Exposes the itemActivities represented in this itemActivityStat resource.  */
+    /** Exposes the itemActivities represented in this itemActivityStat resource. */
     private _activities?: ItemActivity[] | undefined;
-    /** Statistics about the create actions in this interval. Read-only.  */
+    /** Statistics about the create actions in this interval. Read-only. */
     private _create?: ItemActionStat | undefined;
-    /** Statistics about the delete actions in this interval. Read-only.  */
+    /** Statistics about the delete actions in this interval. Read-only. */
     private _delete?: ItemActionStat | undefined;
-    /** Statistics about the edit actions in this interval. Read-only.  */
+    /** Statistics about the edit actions in this interval. Read-only. */
     private _edit?: ItemActionStat | undefined;
-    /** When the interval ends. Read-only.  */
+    /** When the interval ends. Read-only. */
     private _endDateTime?: Date | undefined;
-    /** Indicates that the statistics in this interval are based on incomplete data. Read-only.  */
+    /** Indicates that the statistics in this interval are based on incomplete data. Read-only. */
     private _incompleteData?: IncompleteData | undefined;
-    /** Indicates whether the item is 'trending.' Read-only.  */
+    /** Indicates whether the item is 'trending.' Read-only. */
     private _isTrending?: boolean | undefined;
-    /** Statistics about the move actions in this interval. Read-only.  */
+    /** Statistics about the move actions in this interval. Read-only. */
     private _move?: ItemActionStat | undefined;
-    /** When the interval starts. Read-only.  */
+    /** When the interval starts. Read-only. */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the access property value. Statistics about the access actions in this interval. Read-only.

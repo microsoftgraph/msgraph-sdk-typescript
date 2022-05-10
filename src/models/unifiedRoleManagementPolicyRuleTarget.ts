@@ -4,19 +4,19 @@ import {UnifiedRoleManagementPolicyRuleTargetOperations} from './unifiedRoleMana
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser.  */
+    /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
     private _caller?: string | undefined;
-    /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.  */
+    /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings. */
     private _enforcedSettings?: string[] | undefined;
-    /** The list of settings which can be inherited by child scopes. Use All for all settings.  */
+    /** The list of settings which can be inherited by child scopes. Use All for all settings. */
     private _inheritableSettings?: string[] | undefined;
-    /** The level for the policy rule target. Allowed values are: Eligibility, Assignment.  */
+    /** The level for the policy rule target. Allowed values are: Eligibility, Assignment. */
     private _level?: string | undefined;
-    /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.  */
+    /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
     private _operations?: UnifiedRoleManagementPolicyRuleTargetOperations[] | undefined;
-    /** The targetObjects property  */
+    /** The targetObjects property */
     private _targetObjects?: DirectoryObject[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

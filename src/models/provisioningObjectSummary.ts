@@ -10,37 +10,37 @@ import {ProvisioningAction} from './provisioningAction';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningObjectSummary extends Entity implements Parsable {
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _activityDateTime?: Date | undefined;
-    /** Unique ID of this change in this cycle.  */
+    /** Unique ID of this change in this cycle. */
     private _changeId?: string | undefined;
-    /** Unique ID per job iteration.  */
+    /** Unique ID per job iteration. */
     private _cycleId?: string | undefined;
-    /** Indicates how long this provisioning action took to finish. Measured in milliseconds.  */
+    /** Indicates how long this provisioning action took to finish. Measured in milliseconds. */
     private _durationInMilliseconds?: number | undefined;
-    /** Details of who initiated this provisioning.  */
+    /** Details of who initiated this provisioning. */
     private _initiatedBy?: Initiator | undefined;
-    /** The unique ID for the whole provisioning job.  */
+    /** The unique ID for the whole provisioning job. */
     private _jobId?: string | undefined;
-    /** Details of each property that was modified in this provisioning action on this object.  */
+    /** Details of each property that was modified in this provisioning action on this object. */
     private _modifiedProperties?: ModifiedProperty[] | undefined;
-    /** Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list.  */
+    /** Indicates the activity name or the operation name. Possible values are: create, update, delete, stageddelete, disable, other and unknownFutureValue. For a list of activities logged, refer to Azure AD activity list. */
     private _provisioningAction?: ProvisioningAction | undefined;
-    /** Details of provisioning status.  */
+    /** Details of provisioning status. */
     private _provisioningStatusInfo?: ProvisioningStatusInfo | undefined;
-    /** Details of each step in provisioning.  */
+    /** Details of each step in provisioning. */
     private _provisioningSteps?: ProvisioningStep[] | undefined;
-    /** Represents the service principal used for provisioning.  */
+    /** Represents the service principal used for provisioning. */
     private _servicePrincipal?: ProvisioningServicePrincipal | undefined;
-    /** Details of source object being provisioned.  */
+    /** Details of source object being provisioned. */
     private _sourceIdentity?: ProvisionedIdentity | undefined;
-    /** Details of source system of the object being provisioned.  */
+    /** Details of source system of the object being provisioned. */
     private _sourceSystem?: ProvisioningSystem | undefined;
-    /** Details of target object being provisioned.  */
+    /** Details of target object being provisioned. */
     private _targetIdentity?: ProvisionedIdentity | undefined;
-    /** Details of target system of the object being provisioned.  */
+    /** Details of target system of the object being provisioned. */
     private _targetSystem?: ProvisioningSystem | undefined;
-    /** Unique Azure AD tenant ID.  */
+    /** Unique Azure AD tenant ID. */
     private _tenantId?: string | undefined;
     /**
      * Gets the activityDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z

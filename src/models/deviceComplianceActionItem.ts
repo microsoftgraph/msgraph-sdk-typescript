@@ -3,23 +3,23 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceActionItem extends Entity implements Parsable {
-    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.  */
+    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
     private _actionType?: DeviceComplianceActionType | undefined;
-    /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760  */
+    /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
     private _gracePeriodHours?: number | undefined;
-    /** A list of group IDs to speicify who to CC this notification message to.  */
+    /** A list of group IDs to speicify who to CC this notification message to. */
     private _notificationMessageCCList?: string[] | undefined;
-    /** What notification Message template to use  */
+    /** What notification Message template to use */
     private _notificationTemplateId?: string | undefined;
     /**
-     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
+     * Gets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
      * @returns a deviceComplianceActionType
      */
     public get actionType() {
         return this._actionType;
     };
     /**
-     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification.
+     * Sets the actionType property value. What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.
      * @param value Value to set for the actionType property.
      */
     public set actionType(value: DeviceComplianceActionType | undefined) {

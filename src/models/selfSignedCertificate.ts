@@ -1,25 +1,25 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SelfSignedCertificate implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Custom key identifier.  */
+    /** Custom key identifier. */
     private _customKeyIdentifier?: string | undefined;
-    /** The friendly name for the key.  */
+    /** The friendly name for the key. */
     private _displayName?: string | undefined;
-    /** The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time at which the credential expires. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _endDateTime?: Date | undefined;
-    /** The value for the key credential. Should be a base-64 encoded value.  */
+    /** The value for the key credential. Should be a base-64 encoded value. */
     private _key?: string | undefined;
-    /** The unique identifier (GUID) for the key.  */
+    /** The unique identifier (GUID) for the key. */
     private _keyId?: string | undefined;
-    /** The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time at which the credential becomes valid. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
-    /** The thumbprint value for the key.  */
+    /** The thumbprint value for the key. */
     private _thumbprint?: string | undefined;
-    /** The type of key credential. 'AsymmetricX509Cert'.  */
+    /** The type of key credential. 'AsymmetricX509Cert'. */
     private _type?: string | undefined;
-    /** A string that describes the purpose for which the key can be used. For example, 'Verify'.  */
+    /** A string that describes the purpose for which the key can be used. For example, 'Verify'. */
     private _usage?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

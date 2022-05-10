@@ -2,9 +2,9 @@ import {createTeamsAppFromDiscriminatorValue} from './createTeamsAppFromDiscrimi
 import {Entity, TeamsApp} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the appCatalogs singleton.  */
+/** Provides operations to manage the appCatalogs singleton. */
 export class AppCatalogs extends Entity implements Parsable {
-    /** The teamsApps property  */
+    /** The teamsApps property */
     private _teamsApps?: TeamsApp[] | undefined;
     /**
      * Instantiates a new appCatalogs and sets the default values.

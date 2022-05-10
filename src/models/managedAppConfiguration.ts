@@ -3,7 +3,7 @@ import {KeyValuePair, ManagedAppPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppConfiguration extends ManagedAppPolicy implements Parsable {
-    /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service  */
+    /** A set of string key and string value pairs to be sent to apps for users to whom the configuration is scoped, unalterned by this service */
     private _customSettings?: KeyValuePair[] | undefined;
     /**
      * Instantiates a new managedAppConfiguration and sets the default values.

@@ -1,9 +1,9 @@
 
-/** The list of previous versions of the list item.  */
+/** The list of previous versions of the list item. */
 export class ListItemVersionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

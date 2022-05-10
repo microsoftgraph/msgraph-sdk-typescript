@@ -12,65 +12,65 @@ import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Message extends OutlookItem implements Parsable {
-    /** The fileAttachment and itemAttachment attachments for the message.  */
+    /** The fileAttachment and itemAttachment attachments for the message. */
     private _attachments?: Attachment[] | undefined;
-    /** The Bcc: recipients for the message.  */
+    /** The Bcc: recipients for the message. */
     private _bccRecipients?: Recipient[] | undefined;
-    /** The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body.  */
+    /** The body of the message. It can be in HTML or text format. Find out about safe HTML in a message body. */
     private _body?: ItemBody | undefined;
-    /** The first 255 characters of the message body. It is in text format.  */
+    /** The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well. */
     private _bodyPreview?: string | undefined;
-    /** The Cc: recipients for the message.  */
+    /** The Cc: recipients for the message. */
     private _ccRecipients?: Recipient[] | undefined;
-    /** The ID of the conversation the email belongs to.  */
+    /** The ID of the conversation the email belongs to. */
     private _conversationId?: string | undefined;
-    /** Indicates the position of the message within the conversation.  */
+    /** Indicates the position of the message within the conversation. */
     private _conversationIndex?: string | undefined;
-    /** The collection of open extensions defined for the message. Nullable.  */
+    /** The collection of open extensions defined for the message. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** The flag value that indicates the status, start date, due date, or completion date for the message.  */
+    /** The flag value that indicates the status, start date, due date, or completion date for the message. */
     private _flag?: FollowupFlag | undefined;
-    /** The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message.  */
+    /** The owner of the mailbox from which the message is sent. In most cases, this value is the same as the sender property, except for sharing or delegation scenarios. The value must correspond to the actual mailbox used. Find out more about setting the from and sender properties of a message. */
     private _from?: Recipient | undefined;
-    /** Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>.  */
+    /** Indicates whether the message has attachments. This property doesn't include inline attachments, so if a message contains only inline attachments, this property is false. To verify the existence of inline attachments, parse the body property to look for a src attribute, such as <IMG src='cid:image001.jpg@01D26CD8.6C05F070'>. */
     private _hasAttachments?: boolean | undefined;
-    /** The importance property  */
+    /** The importance property */
     private _importance?: Importance | undefined;
-    /** The inferenceClassification property  */
+    /** The inferenceClassification property */
     private _inferenceClassification?: InferenceClassificationType | undefined;
-    /** The internetMessageHeaders property  */
+    /** The internetMessageHeaders property */
     private _internetMessageHeaders?: InternetMessageHeader[] | undefined;
-    /** The internetMessageId property  */
+    /** The internetMessageId property */
     private _internetMessageId?: string | undefined;
-    /** The isDeliveryReceiptRequested property  */
+    /** The isDeliveryReceiptRequested property */
     private _isDeliveryReceiptRequested?: boolean | undefined;
-    /** The isDraft property  */
+    /** The isDraft property */
     private _isDraft?: boolean | undefined;
-    /** The isRead property  */
+    /** The isRead property */
     private _isRead?: boolean | undefined;
-    /** The isReadReceiptRequested property  */
+    /** The isReadReceiptRequested property */
     private _isReadReceiptRequested?: boolean | undefined;
-    /** The collection of multi-value extended properties defined for the message. Nullable.  */
+    /** The collection of multi-value extended properties defined for the message. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The parentFolderId property  */
+    /** The parentFolderId property */
     private _parentFolderId?: string | undefined;
-    /** The receivedDateTime property  */
+    /** The receivedDateTime property */
     private _receivedDateTime?: Date | undefined;
-    /** The replyTo property  */
+    /** The replyTo property */
     private _replyTo?: Recipient[] | undefined;
-    /** The sender property  */
+    /** The sender property */
     private _sender?: Recipient | undefined;
-    /** The sentDateTime property  */
+    /** The sentDateTime property */
     private _sentDateTime?: Date | undefined;
-    /** The collection of single-value extended properties defined for the message. Nullable.  */
+    /** The collection of single-value extended properties defined for the message. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The subject property  */
+    /** The subject property */
     private _subject?: string | undefined;
-    /** The toRecipients property  */
+    /** The toRecipients property */
     private _toRecipients?: Recipient[] | undefined;
-    /** The uniqueBody property  */
+    /** The uniqueBody property */
     private _uniqueBody?: ItemBody | undefined;
-    /** The webLink property  */
+    /** The webLink property */
     private _webLink?: string | undefined;
     /**
      * Gets the attachments property value. The fileAttachment and itemAttachment attachments for the message.
@@ -115,14 +115,14 @@ export class Message extends OutlookItem implements Parsable {
         this._body = value;
     };
     /**
-     * Gets the bodyPreview property value. The first 255 characters of the message body. It is in text format.
+     * Gets the bodyPreview property value. The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.
      * @returns a string
      */
     public get bodyPreview() {
         return this._bodyPreview;
     };
     /**
-     * Sets the bodyPreview property value. The first 255 characters of the message body. It is in text format.
+     * Sets the bodyPreview property value. The first 255 characters of the message body. It is in text format. If the message contains instances of mention, this property would contain a concatenation of these mentions as well.
      * @param value Value to set for the bodyPreview property.
      */
     public set bodyPreview(value: string | undefined) {

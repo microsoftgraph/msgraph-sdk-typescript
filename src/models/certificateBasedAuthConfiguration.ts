@@ -3,7 +3,7 @@ import {CertificateAuthority, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CertificateBasedAuthConfiguration extends Entity implements Parsable {
-    /** Collection of certificate authorities which creates a trusted certificate chain.  */
+    /** Collection of certificate authorities which creates a trusted certificate chain. */
     private _certificateAuthorities?: CertificateAuthority[] | undefined;
     /**
      * Gets the certificateAuthorities property value. Collection of certificate authorities which creates a trusted certificate chain.

@@ -8,27 +8,27 @@ import {BaseItem, DriveItem, IdentitySet, List, Quota, SharepointIds, SystemFace
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Drive extends BaseItem implements Parsable {
-    /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.  */
+    /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
     private _bundles?: DriveItem[] | undefined;
-    /** Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only.  */
+    /** Describes the type of drive represented by this resource. OneDrive personal drives will return personal. OneDrive for Business will return business. SharePoint document libraries will return documentLibrary. Read-only. */
     private _driveType?: string | undefined;
-    /** The list of items the user is following. Only in OneDrive for Business.  */
+    /** The list of items the user is following. Only in OneDrive for Business. */
     private _following?: DriveItem[] | undefined;
-    /** All items contained in the drive. Read-only. Nullable.  */
+    /** All items contained in the drive. Read-only. Nullable. */
     private _items?: DriveItem[] | undefined;
-    /** For drives in SharePoint, the underlying document library list. Read-only. Nullable.  */
+    /** For drives in SharePoint, the underlying document library list. Read-only. Nullable. */
     private _list?: List | undefined;
-    /** Optional. The user account that owns the drive. Read-only.  */
+    /** Optional. The user account that owns the drive. Read-only. */
     private _owner?: IdentitySet | undefined;
-    /** Optional. Information about the drive's storage space quota. Read-only.  */
+    /** Optional. Information about the drive's storage space quota. Read-only. */
     private _quota?: Quota | undefined;
-    /** The root folder of the drive. Read-only.  */
+    /** The root folder of the drive. Read-only. */
     private _root?: DriveItem | undefined;
-    /** The sharePointIds property  */
+    /** The sharePointIds property */
     private _sharePointIds?: SharepointIds | undefined;
-    /** Collection of common folders available in OneDrive. Read-only. Nullable.  */
+    /** Collection of common folders available in OneDrive. Read-only. Nullable. */
     private _special?: DriveItem[] | undefined;
-    /** If present, indicates that this is a system-managed drive. Read-only.  */
+    /** If present, indicates that this is a system-managed drive. Read-only. */
     private _system?: SystemFacet | undefined;
     /**
      * Gets the bundles property value. Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive.

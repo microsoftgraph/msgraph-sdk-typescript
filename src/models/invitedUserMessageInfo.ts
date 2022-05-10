@@ -3,13 +3,13 @@ import {Recipient} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InvitedUserMessageInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported.  */
+    /** Additional recipients the invitation message should be sent to. Currently only 1 additional recipient is supported. */
     private _ccRecipients?: Recipient[] | undefined;
-    /** Customized message body you want to send if you don't want the default message.  */
+    /** Customized message body you want to send if you don't want the default message. */
     private _customizedMessageBody?: string | undefined;
-    /** The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US.  */
+    /** The language you want to send the default message in. If the customizedMessageBody is specified, this property is ignored, and the message is sent using the customizedMessageBody. The language format should be in ISO 639. The default is en-US. */
     private _messageLanguage?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

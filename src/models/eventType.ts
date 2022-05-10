@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Provides operations to manage the drive singleton. */
 export enum EventType {
     SingleInstance = "singleInstance",
     Occurrence = "occurrence",

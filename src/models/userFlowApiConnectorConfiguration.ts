@@ -3,11 +3,11 @@ import {IdentityApiConnector} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserFlowApiConnectorConfiguration implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The postAttributeCollection property  */
+    /** The postAttributeCollection property */
     private _postAttributeCollection?: IdentityApiConnector | undefined;
-    /** The postFederationSignup property  */
+    /** The postFederationSignup property */
     private _postFederationSignup?: IdentityApiConnector | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

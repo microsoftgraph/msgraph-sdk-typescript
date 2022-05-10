@@ -21,69 +21,69 @@ import {BooleanColumn, CalculatedColumn, ChoiceColumn, ColumnValidation, Content
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ColumnDefinition extends Entity implements Parsable {
-    /** This column stores boolean values.  */
+    /** This column stores boolean values. */
     private _boolean?: BooleanColumn | undefined;
-    /** This column's data is calculated based on other columns.  */
+    /** This column's data is calculated based on other columns. */
     private _calculated?: CalculatedColumn | undefined;
-    /** This column stores data from a list of choices.  */
+    /** This column stores data from a list of choices. */
     private _choice?: ChoiceColumn | undefined;
-    /** For site columns, the name of the group this column belongs to. Helps organize related columns.  */
+    /** For site columns, the name of the group this column belongs to. Helps organize related columns. */
     private _columnGroup?: string | undefined;
-    /** This column stores content approval status.  */
+    /** This column stores content approval status. */
     private _contentApprovalStatus?: ContentApprovalStatusColumn | undefined;
-    /** This column stores currency values.  */
+    /** This column stores currency values. */
     private _currency?: CurrencyColumn | undefined;
-    /** This column stores DateTime values.  */
+    /** This column stores DateTime values. */
     private _dateTime?: DateTimeColumn | undefined;
-    /** The default value for this column.  */
+    /** The default value for this column. */
     private _defaultValue?: DefaultColumnValue | undefined;
-    /** The user-facing description of the column.  */
+    /** The user-facing description of the column. */
     private _description?: string | undefined;
-    /** The user-facing name of the column.  */
+    /** The user-facing name of the column. */
     private _displayName?: string | undefined;
-    /** If true, no two list items may have the same value for this column.  */
+    /** If true, no two list items may have the same value for this column. */
     private _enforceUniqueValues?: boolean | undefined;
-    /** This column stores a geolocation.  */
+    /** This column stores a geolocation. */
     private _geolocation?: GeolocationColumn | undefined;
-    /** Specifies whether the column is displayed in the user interface.  */
+    /** Specifies whether the column is displayed in the user interface. */
     private _hidden?: boolean | undefined;
-    /** This column stores hyperlink or picture values.  */
+    /** This column stores hyperlink or picture values. */
     private _hyperlinkOrPicture?: HyperlinkOrPictureColumn | undefined;
-    /** Specifies whether the column values can be used for sorting and searching.  */
+    /** Specifies whether the column values can used for sorting and searching. */
     private _indexed?: boolean | undefined;
-    /** Indicates whether this column can be deleted.  */
+    /** Indicates whether this column can be deleted. */
     private _isDeletable?: boolean | undefined;
-    /** Indicates whether values in the column can be reordered. Read-only.  */
+    /** Indicates whether values in the column can be reordered. Read-only. */
     private _isReorderable?: boolean | undefined;
-    /** Specifies whether the column can be changed.  */
+    /** Specifies whether the column can be changed. */
     private _isSealed?: boolean | undefined;
-    /** This column's data is looked up from another source in the site.  */
+    /** This column's data is looked up from another source in the site. */
     private _lookup?: LookupColumn | undefined;
-    /** The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName.  */
+    /** The API-facing name of the column as it appears in the [fields][] on a [listItem][]. For the user-facing name, see displayName. */
     private _name?: string | undefined;
-    /** This column stores number values.  */
+    /** This column stores number values. */
     private _number?: NumberColumn | undefined;
-    /** This column stores Person or Group values.  */
+    /** This column stores Person or Group values. */
     private _personOrGroup?: PersonOrGroupColumn | undefined;
-    /** If 'true', changes to this column will be propagated to lists that implement the column.  */
+    /** If true, changes to this column will be propagated to lists that implement the column. */
     private _propagateChanges?: boolean | undefined;
-    /** Specifies whether the column values can be modified.  */
+    /** Specifies whether the column values can be modified. */
     private _readOnly?: boolean | undefined;
-    /** Specifies whether the column value isn't optional.  */
+    /** Specifies whether the column value isn't optional. */
     private _required?: boolean | undefined;
-    /** The source column for the content type column.  */
+    /** The source column for content type column. */
     private _sourceColumn?: ColumnDefinition | undefined;
-    /** ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.  */
+    /** ContentType from which this column is inherited from. Used only to fetch contentTypes columns. */
     private _sourceContentType?: ContentTypeInfo | undefined;
-    /** This column stores taxonomy terms.  */
+    /** This column stores taxonomy terms. */
     private _term?: TermColumn | undefined;
-    /** This column stores text values.  */
+    /** This column stores text values. */
     private _text?: TextColumn | undefined;
-    /** This column stores thumbnail values.  */
+    /** This column stores thumbnail values. */
     private _thumbnail?: ThumbnailColumn | undefined;
-    /** For site columns, the type of column. Read-only.  */
+    /** For site columns, the type of column. Read-only. */
     private _type?: ColumnTypes | undefined;
-    /** This column stores validation formula and message for the column.  */
+    /** This column stores validation formula and message for the column. */
     private _validation?: ColumnValidation | undefined;
     /**
      * Gets the boolean property value. This column stores boolean values.
@@ -328,14 +328,14 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._hyperlinkOrPicture = value;
     };
     /**
-     * Gets the indexed property value. Specifies whether the column values can be used for sorting and searching.
+     * Gets the indexed property value. Specifies whether the column values can used for sorting and searching.
      * @returns a boolean
      */
     public get indexed() {
         return this._indexed;
     };
     /**
-     * Sets the indexed property value. Specifies whether the column values can be used for sorting and searching.
+     * Sets the indexed property value. Specifies whether the column values can used for sorting and searching.
      * @param value Value to set for the indexed property.
      */
     public set indexed(value: boolean | undefined) {
@@ -440,14 +440,14 @@ export class ColumnDefinition extends Entity implements Parsable {
         this._personOrGroup = value;
     };
     /**
-     * Gets the propagateChanges property value. If 'true', changes to this column will be propagated to lists that implement the column.
+     * Gets the propagateChanges property value. If true, changes to this column will be propagated to lists that implement the column.
      * @returns a boolean
      */
     public get propagateChanges() {
         return this._propagateChanges;
     };
     /**
-     * Sets the propagateChanges property value. If 'true', changes to this column will be propagated to lists that implement the column.
+     * Sets the propagateChanges property value. If true, changes to this column will be propagated to lists that implement the column.
      * @param value Value to set for the propagateChanges property.
      */
     public set propagateChanges(value: boolean | undefined) {
@@ -522,28 +522,28 @@ export class ColumnDefinition extends Entity implements Parsable {
         writer.writeObjectValue<ColumnValidation>("validation", this.validation);
     };
     /**
-     * Gets the sourceColumn property value. The source column for the content type column.
+     * Gets the sourceColumn property value. The source column for content type column.
      * @returns a columnDefinition
      */
     public get sourceColumn() {
         return this._sourceColumn;
     };
     /**
-     * Sets the sourceColumn property value. The source column for the content type column.
+     * Sets the sourceColumn property value. The source column for content type column.
      * @param value Value to set for the sourceColumn property.
      */
     public set sourceColumn(value: ColumnDefinition | undefined) {
         this._sourceColumn = value;
     };
     /**
-     * Gets the sourceContentType property value. ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
+     * Gets the sourceContentType property value. ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
      * @returns a contentTypeInfo
      */
     public get sourceContentType() {
         return this._sourceContentType;
     };
     /**
-     * Sets the sourceContentType property value. ContentType from which this column is inherited from. Present only in contentTypes columns response. Read-only.
+     * Sets the sourceContentType property value. ContentType from which this column is inherited from. Used only to fetch contentTypes columns.
      * @param value Value to set for the sourceContentType property.
      */
     public set sourceContentType(value: ContentTypeInfo | undefined) {

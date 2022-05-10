@@ -2,17 +2,17 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApplePushNotificationCertificate extends Entity implements Parsable {
-    /** Apple Id of the account used to create the MDM push certificate.  */
+    /** Apple Id of the account used to create the MDM push certificate. */
     private _appleIdentifier?: string | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     private _certificate?: string | undefined;
-    /** Certificate serial number. This property is read-only.  */
+    /** Certificate serial number. This property is read-only. */
     private _certificateSerialNumber?: string | undefined;
-    /** The expiration date and time for Apple push notification certificate.  */
+    /** The expiration date and time for Apple push notification certificate. */
     private _expirationDateTime?: Date | undefined;
-    /** Last modified date and time for Apple push notification certificate.  */
+    /** Last modified date and time for Apple push notification certificate. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Topic Id.  */
+    /** Topic Id. */
     private _topicIdentifier?: string | undefined;
     /**
      * Gets the appleIdentifier property value. Apple Id of the account used to create the MDM push certificate.

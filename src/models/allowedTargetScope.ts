@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityGovernance singleton.  */
+/** Provides operations to manage the identityGovernance singleton. */
 export enum AllowedTargetScope {
     NotSpecified = "notSpecified",
     SpecificDirectoryUsers = "specificDirectoryUsers",

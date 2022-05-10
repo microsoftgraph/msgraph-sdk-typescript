@@ -1,7 +1,7 @@
 
-/** The group's conversations.  */
+/** The group's conversations. */
 export class ConversationItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

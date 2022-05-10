@@ -8,79 +8,79 @@ import {EmailAddress, Extension, MultiValueLegacyExtendedProperty, OutlookItem, 
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Contact extends OutlookItem implements Parsable {
-    /** The name of the contact's assistant.  */
+    /** The name of the contact's assistant. */
     private _assistantName?: string | undefined;
-    /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The contact's birthday. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _birthday?: Date | undefined;
-    /** The contact's business address.  */
+    /** The contact's business address. */
     private _businessAddress?: PhysicalAddress | undefined;
-    /** The business home page of the contact.  */
+    /** The business home page of the contact. */
     private _businessHomePage?: string | undefined;
-    /** The contact's business phone numbers.  */
+    /** The contact's business phone numbers. */
     private _businessPhones?: string[] | undefined;
-    /** The names of the contact's children.  */
+    /** The names of the contact's children. */
     private _children?: string[] | undefined;
-    /** The name of the contact's company.  */
+    /** The name of the contact's company. */
     private _companyName?: string | undefined;
-    /** The contact's department.  */
+    /** The contact's department. */
     private _department?: string | undefined;
-    /** The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation.  */
+    /** The contact's display name. You can specify the display name in a create or update operation. Note that later updates to other properties may cause an automatically generated value to overwrite the displayName value you have specified. To preserve a pre-existing value, always include it as displayName in an update operation. */
     private _displayName?: string | undefined;
-    /** The contact's email addresses.  */
+    /** The contact's email addresses. */
     private _emailAddresses?: EmailAddress[] | undefined;
-    /** The collection of open extensions defined for the contact. Read-only. Nullable.  */
+    /** The collection of open extensions defined for the contact. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** The name the contact is filed under.  */
+    /** The name the contact is filed under. */
     private _fileAs?: string | undefined;
-    /** The contact's generation.  */
+    /** The contact's generation. */
     private _generation?: string | undefined;
-    /** The contact's given name.  */
+    /** The contact's given name. */
     private _givenName?: string | undefined;
-    /** The contact's home address.  */
+    /** The contact's home address. */
     private _homeAddress?: PhysicalAddress | undefined;
-    /** The contact's home phone numbers.  */
+    /** The contact's home phone numbers. */
     private _homePhones?: string[] | undefined;
-    /** The imAddresses property  */
+    /** The imAddresses property */
     private _imAddresses?: string[] | undefined;
-    /** The initials property  */
+    /** The initials property */
     private _initials?: string | undefined;
-    /** The jobTitle property  */
+    /** The jobTitle property */
     private _jobTitle?: string | undefined;
-    /** The manager property  */
+    /** The manager property */
     private _manager?: string | undefined;
-    /** The middleName property  */
+    /** The middleName property */
     private _middleName?: string | undefined;
-    /** The mobilePhone property  */
+    /** The mobilePhone property */
     private _mobilePhone?: string | undefined;
-    /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable.  */
+    /** The collection of multi-value extended properties defined for the contact. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The nickName property  */
+    /** The nickName property */
     private _nickName?: string | undefined;
-    /** The officeLocation property  */
+    /** The officeLocation property */
     private _officeLocation?: string | undefined;
-    /** The otherAddress property  */
+    /** The otherAddress property */
     private _otherAddress?: PhysicalAddress | undefined;
-    /** The parentFolderId property  */
+    /** The parentFolderId property */
     private _parentFolderId?: string | undefined;
-    /** The personalNotes property  */
+    /** The personalNotes property */
     private _personalNotes?: string | undefined;
-    /** Optional contact picture. You can get or set a photo for a contact.  */
+    /** Optional contact picture. You can get or set a photo for a contact. */
     private _photo?: ProfilePhoto | undefined;
-    /** The profession property  */
+    /** The profession property */
     private _profession?: string | undefined;
-    /** The collection of single-value extended properties defined for the contact. Read-only. Nullable.  */
+    /** The collection of single-value extended properties defined for the contact. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The spouseName property  */
+    /** The spouseName property */
     private _spouseName?: string | undefined;
-    /** The surname property  */
+    /** The surname property */
     private _surname?: string | undefined;
-    /** The title property  */
+    /** The title property */
     private _title?: string | undefined;
-    /** The yomiCompanyName property  */
+    /** The yomiCompanyName property */
     private _yomiCompanyName?: string | undefined;
-    /** The yomiGivenName property  */
+    /** The yomiGivenName property */
     private _yomiGivenName?: string | undefined;
-    /** The yomiSurname property  */
+    /** The yomiSurname property */
     private _yomiSurname?: string | undefined;
     /**
      * Gets the assistantName property value. The name of the contact's assistant.
@@ -229,14 +229,14 @@ export class Contact extends OutlookItem implements Parsable {
         this._emailAddresses = value;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the contact. Nullable.
      * @returns a extension
      */
     public get extensions() {
         return this._extensions;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the contact. Read-only. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the contact. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {

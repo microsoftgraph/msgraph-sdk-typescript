@@ -1,9 +1,9 @@
 
-/** Each principal reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed.  */
+/** Each user reviewed in an accessReviewInstance has a decision item representing if they were approved, denied, or not yet reviewed. */
 export class AccessReviewInstanceDecisionItemItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

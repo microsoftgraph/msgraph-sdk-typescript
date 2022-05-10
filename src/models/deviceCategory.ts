@@ -2,9 +2,9 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCategory extends Entity implements Parsable {
-    /** Optional description for the device category.  */
+    /** Optional description for the device category. */
     private _description?: string | undefined;
-    /** Display name for the device category.  */
+    /** Display name for the device category. */
     private _displayName?: string | undefined;
     /**
      * Instantiates a new deviceCategory and sets the default values.

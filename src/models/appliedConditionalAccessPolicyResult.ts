@@ -1,4 +1,4 @@
-/** Provides operations to manage the auditLogRoot singleton.  */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum AppliedConditionalAccessPolicyResult {
     Success = "success",
     Failure = "failure",

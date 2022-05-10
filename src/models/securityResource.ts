@@ -2,11 +2,11 @@ import {SecurityResourceType} from './securityResourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SecurityResource implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the resource that is related to current alert. Required.  */
+    /** Name of the resource that is related to current alert. Required. */
     private _resource?: string | undefined;
-    /** Represents type of security resources related to an alert. Possible values are: attacked, related.  */
+    /** Represents type of security resources related to an alert. Possible values are: attacked, related. */
     private _resourceType?: SecurityResourceType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

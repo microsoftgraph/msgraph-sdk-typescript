@@ -1,9 +1,9 @@
 
-/** The policy that specifies the characteristics of SAML tokens issued by Azure AD.  */
+/** The policy that specifies the characteristics of SAML tokens issued by Azure AD. */
 export class TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -5,13 +5,13 @@ import {Group, Set} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Store extends Entity implements Parsable {
-    /** Default language of the term store.  */
+    /** Default language of the term store. */
     private _defaultLanguageTag?: string | undefined;
-    /** Collection of all groups available in the term store.  */
+    /** Collection of all groups available in the term store. */
     private _groups?: Group[] | undefined;
-    /** List of languages for the term store.  */
+    /** List of languages for the term store. */
     private _languageTags?: string[] | undefined;
-    /** Collection of all sets available in the term store.  */
+    /** Collection of all sets available in the term store. */
     private _sets?: Set[] | undefined;
     /**
      * Instantiates a new store and sets the default values.

@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IncompleteData implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The service does not have source data before the specified time.  */
+    /** The service does not have source data before the specified time. */
     private _missingDataBeforeDateTime?: Date | undefined;
-    /** Some data was not recorded due to excessive activity.  */
+    /** Some data was not recorded due to excessive activity. */
     private _wasThrottled?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

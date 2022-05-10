@@ -3,11 +3,11 @@ import {FolderView} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Folder implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Number of children contained immediately within this container.  */
+    /** Number of children contained immediately within this container. */
     private _childCount?: number | undefined;
-    /** A collection of properties defining the recommended view for the folder.  */
+    /** A collection of properties defining the recommended view for the folder. */
     private _view?: FolderView | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

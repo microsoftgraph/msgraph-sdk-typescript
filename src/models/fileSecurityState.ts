@@ -3,15 +3,15 @@ import {FileHash} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileSecurityState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Complex type containing file hashes (cryptographic and location-sensitive).  */
+    /** Complex type containing file hashes (cryptographic and location-sensitive). */
     private _fileHash?: FileHash | undefined;
-    /** File name (without path).  */
+    /** File name (without path). */
     private _name?: string | undefined;
-    /** Full file path of the file/imageFile.  */
+    /** Full file path of the file/imageFile. */
     private _path?: string | undefined;
-    /** Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage.  */
+    /** Provider generated/calculated risk score of the alert file. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

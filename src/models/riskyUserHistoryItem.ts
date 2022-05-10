@@ -3,11 +3,11 @@ import {RiskUserActivity, RiskyUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskyUserHistoryItem extends RiskyUser implements Parsable {
-    /** The activity related to user risk level change.  */
+    /** The activity related to user risk level change. */
     private _activity?: RiskUserActivity | undefined;
-    /** The id of actor that does the operation.  */
+    /** The id of actor that does the operation. */
     private _initiatedBy?: string | undefined;
-    /** The id of the user.  */
+    /** The id of the user. */
     private _userId?: string | undefined;
     /**
      * Gets the activity property value. The activity related to user risk level change.

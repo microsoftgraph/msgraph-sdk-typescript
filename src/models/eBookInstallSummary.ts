@@ -2,17 +2,17 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EBookInstallSummary extends Entity implements Parsable {
-    /** Number of Devices that have failed to install this book.  */
+    /** Number of Devices that have failed to install this book. */
     private _failedDeviceCount?: number | undefined;
-    /** Number of Users that have 1 or more device that failed to install this book.  */
+    /** Number of Users that have 1 or more device that failed to install this book. */
     private _failedUserCount?: number | undefined;
-    /** Number of Devices that have successfully installed this book.  */
+    /** Number of Devices that have successfully installed this book. */
     private _installedDeviceCount?: number | undefined;
-    /** Number of Users whose devices have all succeeded to install this book.  */
+    /** Number of Users whose devices have all succeeded to install this book. */
     private _installedUserCount?: number | undefined;
-    /** Number of Devices that does not have this book installed.  */
+    /** Number of Devices that does not have this book installed. */
     private _notInstalledDeviceCount?: number | undefined;
-    /** Number of Users that did not install this book.  */
+    /** Number of Users that did not install this book. */
     private _notInstalledUserCount?: number | undefined;
     /**
      * Instantiates a new eBookInstallSummary and sets the default values.

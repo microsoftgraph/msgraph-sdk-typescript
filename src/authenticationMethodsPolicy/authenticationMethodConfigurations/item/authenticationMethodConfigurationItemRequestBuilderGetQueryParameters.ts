@@ -1,9 +1,9 @@
 
-/** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.  */
+/** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
 export class AuthenticationMethodConfigurationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

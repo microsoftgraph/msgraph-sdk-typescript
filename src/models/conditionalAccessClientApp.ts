@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton.  */
+/** Provides operations to manage the identityContainer singleton. */
 export enum ConditionalAccessClientApp {
     All = "all",
     Browser = "browser",

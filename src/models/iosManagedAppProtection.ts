@@ -5,19 +5,19 @@ import {ManagedAppDataEncryptionType} from './managedAppDataEncryptionType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
-    /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.  */
+    /** Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked. */
     private _appDataEncryptionType?: ManagedAppDataEncryptionType | undefined;
-    /** List of apps to which the policy is deployed.  */
+    /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
-    /** A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.  */
+    /** A custom browser protocol to open weblink on iOS. */
     private _customBrowserProtocol?: string | undefined;
-    /** Count of apps to which the current policy is deployed.  */
+    /** Count of apps to which the current policy is deployed. */
     private _deployedAppCount?: number | undefined;
-    /** Navigation property to deployment summary of the configuration.  */
+    /** Navigation property to deployment summary of the configuration. */
     private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
-    /** Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True.  */
+    /** Indicates whether use of the FaceID is allowed in place of a pin if PinRequired is set to True. */
     private _faceIdBlocked?: boolean | undefined;
-    /** Versions less than the specified version will block the managed app from accessing company data.  */
+    /** Versions less than the specified version will block the managed app from accessing company data. */
     private _minimumRequiredSdkVersion?: string | undefined;
     /**
      * Gets the appDataEncryptionType property value. Type of encryption which should be used for data in a managed app. Possible values are: useDeviceSettings, afterDeviceRestart, whenDeviceLockedExceptOpenFiles, whenDeviceLocked.
@@ -54,14 +54,14 @@ export class IosManagedAppProtection extends TargetedManagedAppProtection implem
         super();
     };
     /**
-     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      * @returns a string
      */
     public get customBrowserProtocol() {
         return this._customBrowserProtocol;
     };
     /**
-     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserProtocol property value. A custom browser protocol to open weblink on iOS.
      * @param value Value to set for the customBrowserProtocol property.
      */
     public set customBrowserProtocol(value: string | undefined) {

@@ -2,7 +2,7 @@ import {PrintUsage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinter extends PrintUsage implements Parsable {
-    /** The printerId property  */
+    /** The printerId property */
     private _printerId?: string | undefined;
     /**
      * Instantiates a new printUsageByPrinter and sets the default values.

@@ -6,27 +6,27 @@ import {OperationResult} from './operationResult';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryAudit extends Entity implements Parsable {
-    /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _activityDateTime?: Date | undefined;
-    /** Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.  */
+    /** Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list. */
     private _activityDisplayName?: string | undefined;
-    /** Indicates additional details on the activity.  */
+    /** Indicates additional details on the activity. */
     private _additionalDetails?: KeyValue[] | undefined;
-    /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..)  */
+    /** Indicates which resource category that's targeted by the activity. (For example: User Management, Group Management etc..) */
     private _category?: string | undefined;
-    /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services.  */
+    /** Indicates a unique ID that helps correlate activities that span across various services. Can be used to trace logs across services. */
     private _correlationId?: string | undefined;
-    /** The initiatedBy property  */
+    /** The initiatedBy property */
     private _initiatedBy?: AuditActivityInitiator | undefined;
-    /** Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management.  */
+    /** Indicates information on which service initiated the activity (For example: Self-service Password Management, Core Directory, B2C, Invited Users, Microsoft Identity Manager, Privileged Identity Management. */
     private _loggedByService?: string | undefined;
-    /** Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete.  */
+    /** Indicates the type of operation that was performed. The possible values include but are not limited to the following: Add, Assign, Update, Unassign, and Delete. */
     private _operationType?: string | undefined;
-    /** Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue.  */
+    /** Indicates the result of the activity. Possible values are: success, failure, timeout, unknownFutureValue. */
     private _result?: OperationResult | undefined;
-    /** Indicates the reason for failure if the result is failure or timeout.  */
+    /** Indicates the reason for failure if the result is failure or timeout. */
     private _resultReason?: string | undefined;
-    /** Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.  */
+    /** Information about the resource that changed due to the activity. */
     private _targetResources?: TargetResource[] | undefined;
     /**
      * Gets the activityDateTime property value. Indicates the date and time the activity was performed. The Timestamp type is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
@@ -43,14 +43,14 @@ export class DirectoryAudit extends Entity implements Parsable {
         this._activityDateTime = value;
     };
     /**
-     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
+     * Gets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
      * @returns a string
      */
     public get activityDisplayName() {
         return this._activityDisplayName;
     };
     /**
-     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (examples: 'Create User' and 'Add member to group'). For full list, see Azure AD activity list.
+     * Sets the activityDisplayName property value. Indicates the activity name or the operation name (E.g. 'Create User', 'Add member to group'). For a list of activities logged, refer to Azure Ad activity list.
      * @param value Value to set for the activityDisplayName property.
      */
     public set activityDisplayName(value: string | undefined) {
@@ -213,14 +213,14 @@ export class DirectoryAudit extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<TargetResource>("targetResources", this.targetResources);
     };
     /**
-     * Gets the targetResources property value. Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.
+     * Gets the targetResources property value. Information about the resource that changed due to the activity.
      * @returns a targetResource
      */
     public get targetResources() {
         return this._targetResources;
     };
     /**
-     * Sets the targetResources property value. Indicates information on which resource was changed due to the activity. Target Resource Type can be User, Device, Directory, App, Role, Group, Policy or Other.
+     * Sets the targetResources property value. Information about the resource that changed due to the activity.
      * @param value Value to set for the targetResources property.
      */
     public set targetResources(value: TargetResource[] | undefined) {

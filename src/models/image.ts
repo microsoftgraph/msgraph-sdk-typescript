@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Image implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Optional. Height of the image, in pixels. Read-only.  */
+    /** Optional. Height of the image, in pixels. Read-only. */
     private _height?: number | undefined;
-    /** Optional. Width of the image, in pixels. Read-only.  */
+    /** Optional. Width of the image, in pixels. Read-only. */
     private _width?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

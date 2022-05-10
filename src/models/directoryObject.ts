@@ -2,7 +2,7 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryObject extends Entity implements Parsable {
-    /** Date and time when this object was deleted. Always null when the object hasn't been deleted.  */
+    /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
     private _deletedDateTime?: Date | undefined;
     /**
      * Instantiates a new directoryObject and sets the default values.

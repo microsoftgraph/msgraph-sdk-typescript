@@ -4,27 +4,27 @@ import {RegistryValueType} from './registryValueType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RegistryKeyState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A Windows registry hive : HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_LOCAL_MACHINE/SAM HKEY_LOCAL_MACHINE/Security HKEY_LOCAL_MACHINE/Software HKEY_LOCAL_MACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault.  */
+    /** A Windows registry hive : HKEY_CURRENT_CONFIG HKEY_CURRENT_USER HKEY_LOCAL_MACHINE/SAM HKEY_LOCAL_MACHINE/Security HKEY_LOCAL_MACHINE/Software HKEY_LOCAL_MACHINE/System HKEY_USERS/.Default. Possible values are: unknown, currentConfig, currentUser, localMachineSam, localMachineSecurity, localMachineSoftware, localMachineSystem, usersDefault. */
     private _hive?: RegistryHive | undefined;
-    /** Current (i.e. changed) registry key (excludes HIVE).  */
+    /** Current (i.e. changed) registry key (excludes HIVE). */
     private _key?: string | undefined;
-    /** Previous (i.e. before changed) registry key (excludes HIVE).  */
+    /** Previous (i.e. before changed) registry key (excludes HIVE). */
     private _oldKey?: string | undefined;
-    /** Previous (i.e. before changed) registry key value data (contents).  */
+    /** Previous (i.e. before changed) registry key value data (contents). */
     private _oldValueData?: string | undefined;
-    /** Previous (i.e. before changed) registry key value name.  */
+    /** Previous (i.e. before changed) registry key value name. */
     private _oldValueName?: string | undefined;
-    /** Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete.  */
+    /** Operation that changed the registry key name and/or value. Possible values are: unknown, create, modify, delete. */
     private _operation?: RegistryOperation | undefined;
-    /** Process ID (PID) of the process that modified the registry key (process details will appear in the alert 'processes' collection).  */
+    /** Process ID (PID) of the process that modified the registry key (process details will appear in the alert 'processes' collection). */
     private _processId?: number | undefined;
-    /** Current (i.e. changed) registry key value data (contents).  */
+    /** Current (i.e. changed) registry key value data (contents). */
     private _valueData?: string | undefined;
-    /** Current (i.e. changed) registry key value name  */
+    /** Current (i.e. changed) registry key value name */
     private _valueName?: string | undefined;
-    /** Registry key value type REG_BINARY REG_DWORD REG_DWORD_LITTLE_ENDIAN REG_DWORD_BIG_ENDIANREG_EXPAND_SZ REG_LINK REG_MULTI_SZ REG_NONE REG_QWORD REG_QWORD_LITTLE_ENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz.  */
+    /** Registry key value type REG_BINARY REG_DWORD REG_DWORD_LITTLE_ENDIAN REG_DWORD_BIG_ENDIANREG_EXPAND_SZ REG_LINK REG_MULTI_SZ REG_NONE REG_QWORD REG_QWORD_LITTLE_ENDIAN REG_SZ Possible values are: unknown, binary, dword, dwordLittleEndian, dwordBigEndian, expandSz, link, multiSz, none, qword, qwordlittleEndian, sz. */
     private _valueType?: RegistryValueType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

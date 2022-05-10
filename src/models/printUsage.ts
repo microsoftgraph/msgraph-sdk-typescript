@@ -2,13 +2,13 @@ import {Entity} from './index';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsage extends Entity implements Parsable {
-    /** The completedBlackAndWhiteJobCount property  */
+    /** The completedBlackAndWhiteJobCount property */
     private _completedBlackAndWhiteJobCount?: number | undefined;
-    /** The completedColorJobCount property  */
+    /** The completedColorJobCount property */
     private _completedColorJobCount?: number | undefined;
-    /** The incompleteJobCount property  */
+    /** The incompleteJobCount property */
     private _incompleteJobCount?: number | undefined;
-    /** The usageDate property  */
+    /** The usageDate property */
     private _usageDate?: DateOnly | undefined;
     /**
      * Gets the completedBlackAndWhiteJobCount property value. The completedBlackAndWhiteJobCount property

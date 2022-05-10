@@ -2,17 +2,17 @@ import {BroadcastMeetingAudience} from './broadcastMeetingAudience';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BroadcastMeetingSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Defines who can join the Teams live event. Possible values are listed in the following table.  */
+    /** Defines who can join the Teams live event. Possible values are listed in the following table. */
     private _allowedAudience?: BroadcastMeetingAudience | undefined;
-    /** Indicates whether attendee report is enabled for this Teams live event. Default value is false.  */
+    /** Indicates whether attendee report is enabled for this Teams live event. Default value is false. */
     private _isAttendeeReportEnabled?: boolean | undefined;
-    /** Indicates whether Q&A is enabled for this Teams live event. Default value is false.  */
+    /** Indicates whether Q&A is enabled for this Teams live event. Default value is false. */
     private _isQuestionAndAnswerEnabled?: boolean | undefined;
-    /** Indicates whether recording is enabled for this Teams live event. Default value is false.  */
+    /** Indicates whether recording is enabled for this Teams live event. Default value is false. */
     private _isRecordingEnabled?: boolean | undefined;
-    /** Indicates whether video on demand is enabled for this Teams live event. Default value is false.  */
+    /** Indicates whether video on demand is enabled for this Teams live event. Default value is false. */
     private _isVideoOnDemandEnabled?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

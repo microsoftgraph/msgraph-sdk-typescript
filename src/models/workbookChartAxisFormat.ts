@@ -4,9 +4,9 @@ import {Entity, WorkbookChartFont, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxisFormat extends Entity implements Parsable {
-    /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only.  */
+    /** Represents the font attributes (font name, font size, color, etc.) for a chart axis element. Read-only. */
     private _font?: WorkbookChartFont | undefined;
-    /** Represents chart line formatting. Read-only.  */
+    /** Represents chart line formatting. Read-only. */
     private _line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartAxisFormat and sets the default values.

@@ -8,17 +8,17 @@ import {BaseItem, ContentTypeInfo, DriveItem, FieldValueSet, ItemAnalytics, List
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ListItem extends BaseItem implements Parsable {
-    /** Analytics about the view activities that took place on this item.  */
+    /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;
-    /** The content type of this list item  */
+    /** The content type of this list item */
     private _contentType?: ContentTypeInfo | undefined;
-    /** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]  */
+    /** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
     private _driveItem?: DriveItem | undefined;
-    /** The values of the columns set on this list item.  */
+    /** The values of the columns set on this list item. */
     private _fields?: FieldValueSet | undefined;
-    /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
+    /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
-    /** The list of previous versions of the list item.  */
+    /** The list of previous versions of the list item. */
     private _versions?: ListItemVersion[] | undefined;
     /**
      * Gets the analytics property value. Analytics about the view activities that took place on this item.

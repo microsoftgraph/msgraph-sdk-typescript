@@ -3,21 +3,21 @@ import {createChatInfoFromDiscriminatorValue} from '../../../models/createChatIn
 import {createMeetingParticipantsFromDiscriminatorValue} from '../../../models/createMeetingParticipantsFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the createOrGet method.  */
+/** Provides operations to call the createOrGet method. */
 export class CreateOrGetRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The chatInfo property  */
+    /** The chatInfo property */
     private _chatInfo?: ChatInfo | undefined;
-    /** The endDateTime property  */
+    /** The endDateTime property */
     private _endDateTime?: Date | undefined;
-    /** The externalId property  */
+    /** The externalId property */
     private _externalId?: string | undefined;
-    /** The participants property  */
+    /** The participants property */
     private _participants?: MeetingParticipants | undefined;
-    /** The startDateTime property  */
+    /** The startDateTime property */
     private _startDateTime?: Date | undefined;
-    /** The subject property  */
+    /** The subject property */
     private _subject?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

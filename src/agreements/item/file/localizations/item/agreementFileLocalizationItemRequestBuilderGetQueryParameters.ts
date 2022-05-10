@@ -1,9 +1,9 @@
 
-/** The localized version of the terms of use agreement files attached to the agreement.  */
+/** The localized version of the terms of use agreement files attached to the agreement. */
 export class AgreementFileLocalizationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

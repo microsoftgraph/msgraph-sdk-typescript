@@ -1,4 +1,4 @@
-/** Provides operations to manage the security singleton.  */
+/** Provides operations to manage the security singleton. */
 export enum RegistryHive {
     Unknown = "unknown",
     CurrentConfig = "currentConfig",

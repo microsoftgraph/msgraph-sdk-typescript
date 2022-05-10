@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Thumbnail implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The content stream for the thumbnail.  */
+    /** The content stream for the thumbnail. */
     private _content?: string | undefined;
-    /** The height of the thumbnail, in pixels.  */
+    /** The height of the thumbnail, in pixels. */
     private _height?: number | undefined;
-    /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested.  */
+    /** The unique identifier of the item that provided the thumbnail. This is only available when a folder thumbnail is requested. */
     private _sourceItemId?: string | undefined;
-    /** The URL used to fetch the thumbnail content.  */
+    /** The URL used to fetch the thumbnail content. */
     private _url?: string | undefined;
-    /** The width of the thumbnail, in pixels.  */
+    /** The width of the thumbnail, in pixels. */
     private _width?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

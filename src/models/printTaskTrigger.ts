@@ -4,9 +4,9 @@ import {PrintEvent} from './printEvent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskTrigger extends Entity implements Parsable {
-    /** The definition property  */
+    /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;
-    /** The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table.  */
+    /** The Universal Print event that will cause a new printTask to be triggered. Valid values are described in the following table. */
     private _event?: PrintEvent | undefined;
     /**
      * Instantiates a new printTaskTrigger and sets the default values.

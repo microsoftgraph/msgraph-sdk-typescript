@@ -4,27 +4,27 @@ import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicySettingStateSummary extends Entity implements Parsable {
-    /** Number of compliant devices  */
+    /** Number of compliant devices */
     private _compliantDeviceCount?: number | undefined;
-    /** Number of conflict devices  */
+    /** Number of conflict devices */
     private _conflictDeviceCount?: number | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     private _deviceComplianceSettingStates?: DeviceComplianceSettingState[] | undefined;
-    /** Number of error devices  */
+    /** Number of error devices */
     private _errorDeviceCount?: number | undefined;
-    /** Number of NonCompliant devices  */
+    /** Number of NonCompliant devices */
     private _nonCompliantDeviceCount?: number | undefined;
-    /** Number of not applicable devices  */
+    /** Number of not applicable devices */
     private _notApplicableDeviceCount?: number | undefined;
-    /** Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.  */
+    /** Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all. */
     private _platformType?: PolicyPlatformType | undefined;
-    /** Number of remediated devices  */
+    /** Number of remediated devices */
     private _remediatedDeviceCount?: number | undefined;
-    /** The setting class name and property name.  */
+    /** The setting class name and property name. */
     private _setting?: string | undefined;
-    /** Name of the setting.  */
+    /** Name of the setting. */
     private _settingName?: string | undefined;
-    /** Number of unknown devices  */
+    /** Number of unknown devices */
     private _unknownDeviceCount?: number | undefined;
     /**
      * Gets the compliantDeviceCount property value. Number of compliant devices
@@ -136,14 +136,14 @@ export class DeviceCompliancePolicySettingStateSummary extends Entity implements
         this._notApplicableDeviceCount = value;
     };
     /**
-     * Gets the platformType property value. Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
+     * Gets the platformType property value. Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
      * @returns a policyPlatformType
      */
     public get platformType() {
         return this._platformType;
     };
     /**
-     * Sets the platformType property value. Setting platform. Possible values are: android, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, all.
+     * Sets the platformType property value. Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.
      * @param value Value to set for the platformType property.
      */
     public set platformType(value: PolicyPlatformType | undefined) {

@@ -1,12 +1,12 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the uploadClientCertificate method.  */
+/** Provides operations to call the uploadClientCertificate method. */
 export class UploadClientCertificateRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The password property  */
+    /** The password property */
     private _password?: string | undefined;
-    /** The pkcs12Value property  */
+    /** The pkcs12Value property */
     private _pkcs12Value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

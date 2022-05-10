@@ -7,27 +7,27 @@ import {Entity, ManagedDeviceMobileAppConfigurationAssignment, ManagedDeviceMobi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceMobileAppConfiguration extends Entity implements Parsable {
-    /** The list of group assignemenets for app configration.  */
+    /** The list of group assignemenets for app configration. */
     private _assignments?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
-    /** DateTime the object was created.  */
+    /** DateTime the object was created. */
     private _createdDateTime?: Date | undefined;
-    /** Admin provided description of the Device Configuration.  */
+    /** Admin provided description of the Device Configuration. */
     private _description?: string | undefined;
-    /** List of ManagedDeviceMobileAppConfigurationDeviceStatus.  */
+    /** List of ManagedDeviceMobileAppConfigurationDeviceStatus. */
     private _deviceStatuses?: ManagedDeviceMobileAppConfigurationDeviceStatus[] | undefined;
-    /** App configuration device status summary.  */
+    /** App configuration device status summary. */
     private _deviceStatusSummary?: ManagedDeviceMobileAppConfigurationDeviceSummary | undefined;
-    /** Admin provided name of the device configuration.  */
+    /** Admin provided name of the device configuration. */
     private _displayName?: string | undefined;
-    /** DateTime the object was last modified.  */
+    /** DateTime the object was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** the associated app.  */
+    /** the associated app. */
     private _targetedMobileApps?: string[] | undefined;
-    /** List of ManagedDeviceMobileAppConfigurationUserStatus.  */
+    /** List of ManagedDeviceMobileAppConfigurationUserStatus. */
     private _userStatuses?: ManagedDeviceMobileAppConfigurationUserStatus[] | undefined;
-    /** App configuration user status summary.  */
+    /** App configuration user status summary. */
     private _userStatusSummary?: ManagedDeviceMobileAppConfigurationUserSummary | undefined;
-    /** Version of the device configuration.  */
+    /** Version of the device configuration. */
     private _version?: number | undefined;
     /**
      * Gets the assignments property value. The list of group assignemenets for app configration.

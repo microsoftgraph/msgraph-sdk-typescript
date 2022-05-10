@@ -4,15 +4,15 @@ import {Entity, RoleAssignment, RolePermission} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoleDefinition extends Entity implements Parsable {
-    /** Description of the Role definition.  */
+    /** Description of the Role definition. */
     private _description?: string | undefined;
-    /** Display Name of the Role definition.  */
+    /** Display Name of the Role definition. */
     private _displayName?: string | undefined;
-    /** Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition.  */
+    /** Type of Role. Set to True if it is built-in, or set to False if it is a custom role definition. */
     private _isBuiltIn?: boolean | undefined;
-    /** List of Role assignments for this role definition.  */
+    /** List of Role assignments for this role definition. */
     private _roleAssignments?: RoleAssignment[] | undefined;
-    /** List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission.  */
+    /** List of Role Permissions this role is allowed to perform. These must match the actionName that is defined as part of the rolePermission. */
     private _rolePermissions?: RolePermission[] | undefined;
     /**
      * Instantiates a new roleDefinition and sets the default values.

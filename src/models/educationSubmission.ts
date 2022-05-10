@@ -7,33 +7,33 @@ import {EducationOutcome, EducationSubmissionRecipient, EducationSubmissionResou
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationSubmission extends Entity implements Parsable {
-    /** Read-Write. Nullable.  */
+    /** Read-Write. Nullable. */
     private _outcomes?: EducationOutcome[] | undefined;
-    /** User who moved the status of this submission to reassigned.  */
+    /** User who moved the status of this submission to reassigned. */
     private _reassignedBy?: IdentitySet | undefined;
-    /** Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the submission was reassigned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _reassignedDateTime?: Date | undefined;
-    /** Who this submission is assigned to.  */
+    /** Who this submission is assigned to. */
     private _recipient?: EducationSubmissionRecipient | undefined;
-    /** Nullable.  */
+    /** Nullable. */
     private _resources?: EducationSubmissionResource[] | undefined;
-    /** Folder where all file resources for this submission need to be stored.  */
+    /** Folder where all file resources for this submission need to be stored. */
     private _resourcesFolderUrl?: string | undefined;
-    /** User who moved the status of this submission to returned.  */
+    /** User who moved the status of this submission to returned. */
     private _returnedBy?: IdentitySet | undefined;
-    /** Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the submission was returned. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _returnedDateTime?: Date | undefined;
-    /** Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.  */
+    /** Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned. */
     private _status?: EducationSubmissionStatus | undefined;
-    /** User who moved the resource into the submitted state.  */
+    /** User who moved the resource into the submitted state. */
     private _submittedBy?: IdentitySet | undefined;
-    /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the submission was moved into the submitted state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _submittedDateTime?: Date | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _submittedResources?: EducationSubmissionResource[] | undefined;
-    /** User who moved the resource from submitted into the working state.  */
+    /** User who moved the resource from submitted into the working state. */
     private _unsubmittedBy?: IdentitySet | undefined;
-    /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the submission was moved from submitted into the working state. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _unsubmittedDateTime?: Date | undefined;
     /**
      * Instantiates a new educationSubmission and sets the default values.
@@ -198,14 +198,14 @@ export class EducationSubmission extends Entity implements Parsable {
         writer.writeDateValue("unsubmittedDateTime", this.unsubmittedDateTime);
     };
     /**
-     * Gets the status property value. Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
+     * Gets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
      * @returns a educationSubmissionStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
+     * Sets the status property value. Read-only. Possible values are: working, submitted, released, returned, unknownFutureValue and reassigned. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: reassigned.
      * @param value Value to set for the status property.
      */
     public set status(value: EducationSubmissionStatus | undefined) {

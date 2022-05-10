@@ -1,13 +1,13 @@
 import {RejectReason} from '../../../../models/rejectReason';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the reject method.  */
+/** Provides operations to call the reject method. */
 export class RejectRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The callbackUri property  */
+    /** The callbackUri property */
     private _callbackUri?: string | undefined;
-    /** The reason property  */
+    /** The reason property */
     private _reason?: RejectReason | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

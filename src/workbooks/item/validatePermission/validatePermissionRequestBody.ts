@@ -1,12 +1,12 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the validatePermission method.  */
+/** Provides operations to call the validatePermission method. */
 export class ValidatePermissionRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The challengeToken property  */
+    /** The challengeToken property */
     private _challengeToken?: string | undefined;
-    /** The password property  */
+    /** The password property */
     private _password?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

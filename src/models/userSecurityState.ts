@@ -4,35 +4,35 @@ import {UserAccountSecurityType} from './userAccountSecurityType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserSecurityState implements AdditionalDataHolder, Parsable {
-    /** AAD User object identifier (GUID) - represents the physical/multi-account user entity.  */
+    /** AAD User object identifier (GUID) - represents the physical/multi-account user entity. */
     private _aadUserId?: string | undefined;
-    /** Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName).  */
+    /** Account name of user account (without Active Directory domain or DNS domain) - (also called mailNickName). */
     private _accountName?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** NetBIOS/Active Directory domain of user account (that is, domain/account format).  */
+    /** NetBIOS/Active Directory domain of user account (that is, domain/account format). */
     private _domainName?: string | undefined;
-    /** For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient.  */
+    /** For email-related alerts - user account's email 'role'. Possible values are: unknown, sender, recipient. */
     private _emailRole?: EmailRole | undefined;
-    /** Indicates whether the user logged on through a VPN.  */
+    /** Indicates whether the user logged on through a VPN. */
     private _isVpn?: boolean | undefined;
-    /** Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** Time at which the sign-in occurred. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _logonDateTime?: Date | undefined;
-    /** User sign-in ID.  */
+    /** User sign-in ID. */
     private _logonId?: string | undefined;
-    /** IP Address the sign-in request originated from.  */
+    /** IP Address the sign-in request originated from. */
     private _logonIp?: string | undefined;
-    /** Location (by IP address mapping) associated with a user sign-in event by this user.  */
+    /** Location (by IP address mapping) associated with a user sign-in event by this user. */
     private _logonLocation?: string | undefined;
-    /** Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service.  */
+    /** Method of user sign in. Possible values are: unknown, interactive, remoteInteractive, network, batch, service. */
     private _logonType?: LogonType | undefined;
-    /** Active Directory (on-premises) Security Identifier (SID) of the user.  */
+    /** Active Directory (on-premises) Security Identifier (SID) of the user. */
     private _onPremisesSecurityIdentifier?: string | undefined;
-    /** Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage.  */
+    /** Provider-generated/calculated risk score of the user account. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
-    /** User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator.  */
+    /** User account type (group membership), per Windows definition. Possible values are: unknown, standard, power, administrator. */
     private _userAccountType?: UserAccountSecurityType | undefined;
-    /** User sign-in name - internet format: (user account name)@(user account DNS domain name).  */
+    /** User sign-in name - internet format: (user account name)@(user account DNS domain name). */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the aadUserId property value. AAD User object identifier (GUID) - represents the physical/multi-account user entity.

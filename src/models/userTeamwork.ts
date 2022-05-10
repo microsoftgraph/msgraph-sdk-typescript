@@ -3,7 +3,7 @@ import {Entity, UserScopeTeamsAppInstallation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserTeamwork extends Entity implements Parsable {
-    /** The apps installed in the personal scope of this user.  */
+    /** The apps installed in the personal scope of this user. */
     private _installedApps?: UserScopeTeamsAppInstallation[] | undefined;
     /**
      * Instantiates a new userTeamwork and sets the default values.

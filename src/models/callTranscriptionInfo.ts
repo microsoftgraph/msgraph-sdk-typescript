@@ -2,11 +2,11 @@ import {CallTranscriptionState} from './callTranscriptionState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CallTranscriptionInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The state modified time in UTC.  */
+    /** The state modified time in UTC. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Possible values are: notStarted, active, inactive.  */
+    /** Possible values are: notStarted, active, inactive. */
     private _state?: CallTranscriptionState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

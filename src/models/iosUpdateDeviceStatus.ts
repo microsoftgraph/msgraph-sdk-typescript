@@ -4,27 +4,27 @@ import {IosUpdatesInstallStatus} from './iosUpdatesInstallStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IosUpdateDeviceStatus extends Entity implements Parsable {
-    /** The DateTime when device compliance grace period expires  */
+    /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;
-    /** Device name of the DevicePolicyStatus.  */
+    /** Device name of the DevicePolicyStatus. */
     private _deviceDisplayName?: string | undefined;
-    /** The device id that is being reported.  */
+    /** The device id that is being reported. */
     private _deviceId?: string | undefined;
-    /** The device model that is being reported  */
+    /** The device model that is being reported */
     private _deviceModel?: string | undefined;
-    /** The installation status of the policy report. Possible values are: success, available, idle, unknown, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, deviceOsHigherThanDesiredOsVersion.  */
+    /** The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed. */
     private _installStatus?: IosUpdatesInstallStatus | undefined;
-    /** Last modified date time of the policy report.  */
+    /** Last modified date time of the policy report. */
     private _lastReportedDateTime?: Date | undefined;
-    /** The device version that is being reported.  */
+    /** The device version that is being reported. */
     private _osVersion?: string | undefined;
-    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     private _status?: ComplianceStatus | undefined;
-    /** The User id that is being reported.  */
+    /** The User id that is being reported. */
     private _userId?: string | undefined;
-    /** The User Name that is being reported  */
+    /** The User Name that is being reported */
     private _userName?: string | undefined;
-    /** UserPrincipalName.  */
+    /** UserPrincipalName. */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires
@@ -108,14 +108,14 @@ export class IosUpdateDeviceStatus extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the installStatus property value. The installation status of the policy report. Possible values are: success, available, idle, unknown, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, deviceOsHigherThanDesiredOsVersion.
+     * Gets the installStatus property value. The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed.
      * @returns a iosUpdatesInstallStatus
      */
     public get installStatus() {
         return this._installStatus;
     };
     /**
-     * Sets the installStatus property value. The installation status of the policy report. Possible values are: success, available, idle, unknown, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, deviceOsHigherThanDesiredOsVersion.
+     * Sets the installStatus property value. The installation status of the policy report. Possible values are: success, available, idle, unknown, mdmClientCrashed, timeout, downloading, downloadFailed, downloadRequiresComputer, downloadInsufficientSpace, downloadInsufficientPower, downloadInsufficientNetwork, installing, installInsufficientSpace, installInsufficientPower, installPhoneCallInProgress, installFailed, notSupportedOperation, sharedDeviceUserLoggedInError, updateError, deviceOsHigherThanDesiredOsVersion, updateScanFailed.
      * @param value Value to set for the installStatus property.
      */
     public set installStatus(value: IosUpdatesInstallStatus | undefined) {

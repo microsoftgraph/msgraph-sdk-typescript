@@ -2,17 +2,17 @@ import {DateTimeTimeZone} from '../../../../models/';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from '../../../../models/createDateTimeTimeZoneFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getSchedule method.  */
+/** Provides operations to call the getSchedule method. */
 export class GetScheduleRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The AvailabilityViewInterval property  */
+    /** The AvailabilityViewInterval property */
     private _availabilityViewInterval?: number | undefined;
-    /** The EndTime property  */
+    /** The EndTime property */
     private _endTime?: DateTimeTimeZone | undefined;
-    /** The Schedules property  */
+    /** The Schedules property */
     private _schedules?: string[] | undefined;
-    /** The StartTime property  */
+    /** The StartTime property */
     private _startTime?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

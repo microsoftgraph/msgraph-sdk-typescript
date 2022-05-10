@@ -1,9 +1,9 @@
 
-/** The IOS software update installation statuses for this account.  */
+/** The IOS software update installation statuses for this account. */
 export class IosUpdateDeviceStatusItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

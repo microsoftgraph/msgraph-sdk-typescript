@@ -10,55 +10,55 @@ import {PlannerPreviewType} from './plannerPreviewType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerTask extends Entity implements Parsable {
-    /** Number of checklist items with value set to false, representing incomplete items.  */
+    /** Number of checklist items with value set to false, representing incomplete items. */
     private _activeChecklistItemCount?: number | undefined;
-    /** The categories to which the task has been applied. See applied Categories for possible values.  */
+    /** The categories to which the task has been applied. See applied Categories for possible values. */
     private _appliedCategories?: PlannerAppliedCategories | undefined;
-    /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo.  */
+    /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by assignedTo. */
     private _assignedToTaskBoardFormat?: PlannerAssignedToTaskBoardTaskFormat | undefined;
-    /** Hint used to order items of this type in a list view. The format is defined as outlined here.  */
+    /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
     private _assigneePriority?: string | undefined;
-    /** The set of assignees the task is assigned to.  */
+    /** The set of assignees the task is assigned to. */
     private _assignments?: PlannerAssignments | undefined;
-    /** Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service.  */
+    /** Bucket ID to which the task belongs. The bucket needs to be in the plan that the task is in. It is 28 characters long and case-sensitive. Format validation is done on the service. */
     private _bucketId?: string | undefined;
-    /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket.  */
+    /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by bucket. */
     private _bucketTaskBoardFormat?: PlannerBucketTaskBoardTaskFormat | undefined;
-    /** Number of checklist items that are present on the task.  */
+    /** Number of checklist items that are present on the task. */
     private _checklistItemCount?: number | undefined;
-    /** Identity of the user that completed the task.  */
+    /** Identity of the user that completed the task. */
     private _completedBy?: IdentitySet | undefined;
-    /** Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Read-only. Date and time at which the 'percentComplete' of the task is set to '100'. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _completedDateTime?: Date | undefined;
-    /** Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group.  */
+    /** Thread ID of the conversation on the task. This is the ID of the conversation thread object created in the group. */
     private _conversationThreadId?: string | undefined;
-    /** Identity of the user that created the task.  */
+    /** Identity of the user that created the task. */
     private _createdBy?: IdentitySet | undefined;
-    /** Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Read-only. Date and time at which the task is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
-    /** Read-only. Nullable. Additional details about the task.  */
+    /** Read-only. Nullable. Additional details about the task. */
     private _details?: PlannerTaskDetails | undefined;
-    /** Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Date and time at which the task is due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _dueDateTime?: Date | undefined;
-    /** Read-only. Value is true if the details object of the task has a non-empty description and false otherwise.  */
+    /** Read-only. Value is true if the details object of the task has a non-empty description and false otherwise. */
     private _hasDescription?: boolean | undefined;
-    /** Hint used to order items of this type in a list view. The format is defined as outlined here.  */
+    /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
     private _orderHint?: string | undefined;
-    /** Percentage of task completion. When set to 100, the task is considered completed.  */
+    /** Percentage of task completion. When set to 100, the task is considered completed. */
     private _percentComplete?: number | undefined;
-    /** Plan ID to which the task belongs.  */
+    /** Plan ID to which the task belongs. */
     private _planId?: string | undefined;
-    /** This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.  */
+    /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. */
     private _previewType?: PlannerPreviewType | undefined;
-    /** Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'.  */
+    /** Priority of the task. Valid range of values is between 0 and 10 (inclusive), with increasing value being lower priority (0 has the highest priority and 10 has the lowest priority).  Currently, Planner interprets values 0 and 1 as 'urgent', 2 and 3 and 4 as 'important', 5, 6, and 7 as 'medium', and 8, 9, and 10 as 'low'.  Currently, Planner sets the value 1 for 'urgent', 3 for 'important', 5 for 'medium', and 9 for 'low'. */
     private _priority?: number | undefined;
-    /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.  */
+    /** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress. */
     private _progressTaskBoardFormat?: PlannerProgressTaskBoardTaskFormat | undefined;
-    /** Number of external references that exist on the task.  */
+    /** Number of external references that exist on the task. */
     private _referenceCount?: number | undefined;
-    /** Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Date and time at which the task starts. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
-    /** Title of the task.  */
+    /** Title of the task. */
     private _title?: string | undefined;
     /**
      * Gets the activeChecklistItemCount property value. Number of checklist items with value set to false, representing incomplete items.
@@ -366,14 +366,14 @@ export class PlannerTask extends Entity implements Parsable {
         this._planId = value;
     };
     /**
-     * Gets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
+     * Gets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @returns a plannerPreviewType
      */
     public get previewType() {
         return this._previewType;
     };
     /**
-     * Sets the previewType property value. This sets the type of preview that shows up on the task. The possible values are: automatic, noPreview, checklist, description, reference.
+     * Sets the previewType property value. This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference.
      * @param value Value to set for the previewType property.
      */
     public set previewType(value: PlannerPreviewType | undefined) {

@@ -1,23 +1,23 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class KeyCredential implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Custom key identifier  */
+    /** Custom key identifier */
     private _customKeyIdentifier?: string | undefined;
-    /** Friendly name for the key. Optional.  */
+    /** Friendly name for the key. Optional. */
     private _displayName?: string | undefined;
-    /** The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time at which the credential expires. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _endDateTime?: Date | undefined;
-    /** The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.  */
+    /** Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null. */
     private _key?: string | undefined;
-    /** The unique identifier (GUID) for the key.  */
+    /** The unique identifier for the key. */
     private _keyId?: string | undefined;
-    /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time at which the credential becomes valid.The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _startDateTime?: Date | undefined;
-    /** The type of key credential; for example, Symmetric, AsymmetricX509Cert.  */
+    /** The type of key credential; for example, Symmetric, AsymmetricX509Cert. */
     private _type?: string | undefined;
-    /** A string that describes the purpose for which the key can be used; for example, Verify.  */
+    /** A string that describes the purpose for which the key can be used; for example, Verify. */
     private _usage?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -98,28 +98,28 @@ export class KeyCredential implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     * Gets the key property value. Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
      * @returns a binary
      */
     public get key() {
         return this._key;
     };
     /**
-     * Sets the key property value. The certificate's raw data in byte array converted to Base64 string. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
+     * Sets the key property value. Value for the key credential. Should be a Base64 encoded value. Returned only on $select for a single object, that is, GET applications/{applicationId}?$select=keyCredentials or GET servicePrincipals/{servicePrincipalId}?$select=keyCredentials; otherwise, it is always null.
      * @param value Value to set for the key property.
      */
     public set key(value: string | undefined) {
         this._key = value;
     };
     /**
-     * Gets the keyId property value. The unique identifier (GUID) for the key.
+     * Gets the keyId property value. The unique identifier for the key.
      * @returns a string
      */
     public get keyId() {
         return this._keyId;
     };
     /**
-     * Sets the keyId property value. The unique identifier (GUID) for the key.
+     * Sets the keyId property value. The unique identifier for the key.
      * @param value Value to set for the keyId property.
      */
     public set keyId(value: string | undefined) {

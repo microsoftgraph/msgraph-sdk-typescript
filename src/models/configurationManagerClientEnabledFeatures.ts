@@ -1,20 +1,20 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** configuration Manager client enabled features  */
+/** configuration Manager client enabled features */
 export class ConfigurationManagerClientEnabledFeatures implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Whether compliance policy is managed by Intune  */
+    /** Whether compliance policy is managed by Intune */
     private _compliancePolicy?: boolean | undefined;
-    /** Whether device configuration is managed by Intune  */
+    /** Whether device configuration is managed by Intune */
     private _deviceConfiguration?: boolean | undefined;
-    /** Whether inventory is managed by Intune  */
+    /** Whether inventory is managed by Intune */
     private _inventory?: boolean | undefined;
-    /** Whether modern application is managed by Intune  */
+    /** Whether modern application is managed by Intune */
     private _modernApps?: boolean | undefined;
-    /** Whether resource access is managed by Intune  */
+    /** Whether resource access is managed by Intune */
     private _resourceAccess?: boolean | undefined;
-    /** Whether Windows Update for Business is managed by Intune  */
+    /** Whether Windows Update for Business is managed by Intune */
     private _windowsUpdateForBusiness?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

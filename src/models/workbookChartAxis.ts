@@ -6,21 +6,21 @@ import {Entity, Json, WorkbookChartAxisFormat, WorkbookChartAxisTitle, WorkbookC
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxis extends Entity implements Parsable {
-    /** Represents the formatting of a chart object, which includes line and font formatting. Read-only.  */
+    /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     private _format?: WorkbookChartAxisFormat | undefined;
-    /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only.  */
+    /** Returns a gridlines object that represents the major gridlines for the specified axis. Read-only. */
     private _majorGridlines?: WorkbookChartGridlines | undefined;
-    /** Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number.  */
+    /** Represents the interval between two major tick marks. Can be set to a numeric value or an empty string.  The returned value is always a number. */
     private _majorUnit?: Json | undefined;
-    /** Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.  */
+    /** Represents the maximum value on the value axis.  Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number. */
     private _maximum?: Json | undefined;
-    /** Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number.  */
+    /** Represents the minimum value on the value axis. Can be set to a numeric value or an empty string (for automatic axis values).  The returned value is always a number. */
     private _minimum?: Json | undefined;
-    /** Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only.  */
+    /** Returns a Gridlines object that represents the minor gridlines for the specified axis. Read-only. */
     private _minorGridlines?: WorkbookChartGridlines | undefined;
-    /** Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number.  */
+    /** Represents the interval between two minor tick marks. 'Can be set to a numeric value or an empty string (for automatic axis values). The returned value is always a number. */
     private _minorUnit?: Json | undefined;
-    /** Represents the axis title. Read-only.  */
+    /** Represents the axis title. Read-only. */
     private _title?: WorkbookChartAxisTitle | undefined;
     /**
      * Instantiates a new workbookChartAxis and sets the default values.

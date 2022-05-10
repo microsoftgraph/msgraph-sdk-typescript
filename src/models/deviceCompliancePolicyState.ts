@@ -5,17 +5,17 @@ import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicyState extends Entity implements Parsable {
-    /** The name of the policy for this policyBase  */
+    /** The name of the policy for this policyBase */
     private _displayName?: string | undefined;
-    /** Platform type that the policy applies to  */
+    /** Platform type that the policy applies to */
     private _platformType?: PolicyPlatformType | undefined;
-    /** Count of how many setting a policy holds  */
+    /** Count of how many setting a policy holds */
     private _settingCount?: number | undefined;
-    /** The settingStates property  */
+    /** The settingStates property */
     private _settingStates?: DeviceCompliancePolicySettingState[] | undefined;
-    /** The compliance state of the policy  */
+    /** The compliance state of the policy */
     private _state?: ComplianceStatus | undefined;
-    /** The version of the policy  */
+    /** The version of the policy */
     private _version?: number | undefined;
     /**
      * Instantiates a new deviceCompliancePolicyState and sets the default values.

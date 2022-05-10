@@ -1,22 +1,22 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getCachedReport method.  */
+/** Provides operations to call the getCachedReport method. */
 export class GetCachedReportRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The groupBy property  */
+    /** The groupBy property */
     private _groupBy?: string[] | undefined;
-    /** The id property  */
+    /** The id property */
     private _id?: string | undefined;
-    /** The orderBy property  */
+    /** The orderBy property */
     private _orderBy?: string[] | undefined;
-    /** The search property  */
+    /** The search property */
     private _search?: string | undefined;
-    /** The select property  */
+    /** The select property */
     private _select?: string[] | undefined;
-    /** The skip property  */
+    /** The skip property */
     private _skip?: number | undefined;
-    /** The top property  */
+    /** The top property */
     private _top?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

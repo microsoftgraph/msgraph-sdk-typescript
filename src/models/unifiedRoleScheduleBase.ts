@@ -5,29 +5,29 @@ import {AppScope, DirectoryObject, Entity, UnifiedRoleDefinition} from './index'
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleScheduleBase extends Entity implements Parsable {
-    /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity.  */
+    /** Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity. */
     private _appScope?: AppScope | undefined;
-    /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units or all users.  */
+    /** Identifier of the app-specific scope when the assignment scope is app-specific. The scope of an assignment determines the set of resources for which the principal has been granted access. App scopes are scopes that are defined and understood by this application only. Use / for tenant-wide app scopes. Use directoryScopeId to limit the scope to particular directory objects, for example, administrative units or all users. */
     private _appScopeId?: string | undefined;
-    /** Time that the schedule was created.  */
+    /** Time that the schedule was created. */
     private _createdDateTime?: Date | undefined;
-    /** Identifier of the roleAssignmentScheduleRequest that created this schedule.  */
+    /** Identifier of the roleAssignmentScheduleRequest that created this schedule. */
     private _createdUsing?: string | undefined;
-    /** Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only.  */
+    /** Property referencing the directory object that is the scope of the assignment. Provided so that callers can get the directory object using $expand at the same time as getting the role assignment. Read-only. */
     private _directoryScope?: DirectoryObject | undefined;
-    /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only.  */
+    /** Identifier of the directory object representing the scope of the assignment. The scope of an assignment determines the set of resources for which the principal has been granted access. Directory scopes are shared scopes stored in the directory that are understood by multiple applications. Use / for tenant-wide scope. Use appScopeId to limit the scope to an application only. */
     private _directoryScopeId?: string | undefined;
-    /** Last time the schedule was updated.  */
+    /** Last time the schedule was updated. */
     private _modifiedDateTime?: Date | undefined;
-    /** Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only.  */
+    /** Property referencing the principal that is getting a role assignment through the request. Provided so that callers can get the principal using $expand at the same time as getting the role assignment. Read-only. */
     private _principal?: DirectoryObject | undefined;
-    /** Identifier of the principal to which the assignment is being granted to. Supports $filter (eq).  */
+    /** Identifier of the principal to which the assignment is being granted to. Supports $filter (eq). */
     private _principalId?: string | undefined;
-    /** Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded.  */
+    /** Property indicating the roleDefinition the assignment is for. Provided so that callers can get the role definition using $expand at the same time as getting the role assignment. roleDefinition.Id will be auto expanded. */
     private _roleDefinition?: UnifiedRoleDefinition | undefined;
-    /** Identifier of the unifiedRoleDefinition the assignment is for. Read only. Supports $filter (eq).  */
+    /** Identifier of the unifiedRoleDefinition the assignment is for. Read only. Supports $filter (eq). */
     private _roleDefinitionId?: string | undefined;
-    /** Status for the roleAssignmentSchedule. It can include state related messages like Provisioned, Revoked, Pending Provisioning, and Pending Approval. Supports $filter (eq).  */
+    /** Status for the roleAssignmentSchedule. It can include state related messages like Provisioned, Revoked, Pending Provisioning, and Pending Approval. Supports $filter (eq). */
     private _status?: string | undefined;
     /**
      * Gets the appScope property value. Read-only property with details of the app specific scope when the assignment scope is app specific. Containment entity.

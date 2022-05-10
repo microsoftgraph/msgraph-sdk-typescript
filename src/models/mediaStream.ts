@@ -3,17 +3,17 @@ import {Modality} from './modality';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MediaStream implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive.  */
+    /** The direction. The possible values are inactive, sendOnly, receiveOnly, sendReceive. */
     private _direction?: MediaDirection | undefined;
-    /** The media stream label.  */
+    /** The media stream label. */
     private _label?: string | undefined;
-    /** The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data.  */
+    /** The media type. The possible value are unknown, audio, video, videoBasedScreenSharing, data. */
     private _mediaType?: Modality | undefined;
-    /** If the media is muted by the server.  */
+    /** Indicates whether the media is muted by the server. */
     private _serverMuted?: boolean | undefined;
-    /** The source ID.  */
+    /** The source ID. */
     private _sourceId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -104,14 +104,14 @@ export class MediaStream implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the serverMuted property value. If the media is muted by the server.
+     * Gets the serverMuted property value. Indicates whether the media is muted by the server.
      * @returns a boolean
      */
     public get serverMuted() {
         return this._serverMuted;
     };
     /**
-     * Sets the serverMuted property value. If the media is muted by the server.
+     * Sets the serverMuted property value. Indicates whether the media is muted by the server.
      * @param value Value to set for the serverMuted property.
      */
     public set serverMuted(value: boolean | undefined) {

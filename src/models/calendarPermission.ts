@@ -4,15 +4,15 @@ import {EmailAddress, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CalendarPermission extends Entity implements Parsable {
-    /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.  */
+    /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
     private _allowedRoles?: CalendarRoleType[] | undefined;
-    /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.  */
+    /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
     private _emailAddress?: EmailAddress | undefined;
-    /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.  */
+    /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
     private _isInsideOrganization?: boolean | undefined;
-    /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.  */
+    /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar. */
     private _isRemovable?: boolean | undefined;
-    /** Current permission level of the calendar sharee or delegate.  */
+    /** Current permission level of the calendar sharee or delegate. */
     private _role?: CalendarRoleType | undefined;
     /**
      * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.

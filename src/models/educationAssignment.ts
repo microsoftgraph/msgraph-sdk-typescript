@@ -13,55 +13,55 @@ import {EducationAssignmentGradeType, EducationAssignmentRecipient, EducationAss
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignment extends Entity implements Parsable {
-    /** Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.  */
+    /** Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen. */
     private _addedStudentAction?: EducationAddedStudentAction | undefined;
-    /** Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none.  */
+    /** Optional field to control the assignment behavior  for adding assignments to students' and teachers' calendars when the assignment is published. The possible values are: none, studentsAndPublisher, studentsAndTeamOwners, unknownFutureValue, and studentsOnly. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value(s) in this evolvable enum: studentsOnly. The default value is none. */
     private _addToCalendarAction?: EducationAddToCalendarOptions | undefined;
-    /** Identifies whether students can submit after the due date. If this property isn't specified during create, it defaults to true.  */
+    /** Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true. */
     private _allowLateSubmissions?: boolean | undefined;
-    /** Identifies whether students can add their own resources to a submission or if they can only modify resources added by the teacher.  */
+    /** Identifies whether students can add their own resources to a submission or if they can only modify resources added by the teacher. */
     private _allowStudentsToAddResourcesToSubmission?: boolean | undefined;
-    /** The date when the assignment should become active.  If in the future, the assignment isn't shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _assignDateTime?: Date | undefined;
-    /** The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The moment that the assignment was published to students and the assignment shows up on the students timeline.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _assignedDateTime?: Date | undefined;
-    /** Which users, or whole class should receive a submission object once the assignment is published.  */
+    /** Which users, or whole class should receive a submission object once the assignment is published. */
     private _assignTo?: EducationAssignmentRecipient | undefined;
-    /** When set, enables users to easily find assignments of a given type.  Read-only. Nullable.  */
+    /** When set, enables users to easily find assignments of a given type.  Read-only. Nullable. */
     private _categories?: EducationCategory[] | undefined;
-    /** Class which this assignment belongs.  */
+    /** Class which this assignment belongs. */
     private _classId?: string | undefined;
-    /** Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Date when the assignment will be closed for submissions. This is an optional field that can be null if the assignment does not allowLateSubmissions or when the closeDateTime is the same as the dueDateTime. But if specified, then the closeDateTime must be greater than or equal to the dueDateTime. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _closeDateTime?: Date | undefined;
-    /** Who created the assignment.  */
+    /** Who created the assignment. */
     private _createdBy?: IdentitySet | undefined;
-    /** Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment when the assignment was created.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
-    /** Name of the assignment.  */
+    /** Name of the assignment. */
     private _displayName?: string | undefined;
-    /** Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Date when the students assignment is due.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _dueDateTime?: Date | undefined;
-    /** How the assignment will be graded.  */
+    /** How the assignment will be graded. */
     private _grading?: EducationAssignmentGradeType | undefined;
-    /** Instructions for the assignment.  This along with the display name tell the student what to do.  */
+    /** Instructions for the assignment.  This along with the display name tell the student what to do. */
     private _instructions?: EducationItemBody | undefined;
-    /** Who last modified the assignment.  */
+    /** Who last modified the assignment. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment when the assignment was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn't allowed after the assignment has been published.  */
+    /** Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published. */
     private _notificationChannelUrl?: string | undefined;
-    /** Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.  */
+    /** Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable. */
     private _resources?: EducationAssignmentResource[] | undefined;
-    /** Folder URL where all the file resources for this assignment are stored.  */
+    /** Folder URL where all the file resources for this assignment are stored. */
     private _resourcesFolderUrl?: string | undefined;
-    /** When set, the grading rubric attached to this assignment.  */
+    /** When set, the grading rubric attached to this assignment. */
     private _rubric?: EducationRubric | undefined;
-    /** Status of the Assignment.  You can't PATCH this value.  Possible values are: draft, scheduled, published, assigned.  */
+    /** Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned. */
     private _status?: EducationAssignmentStatus | undefined;
-    /** Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable.  */
+    /** Once published, there is a submission object for each student representing their work and grade.  Read-only. Nullable. */
     private _submissions?: EducationSubmission[] | undefined;
-    /** The deep link URL for the given assignment.  */
+    /** The deep link URL for the given assignment. */
     private _webUrl?: string | undefined;
     /**
      * Gets the addedStudentAction property value. Optional field to control the assignment behavior for students who are added after the assignment is published. If not specified, defaults to none value. Currently supports only two values: none or assignIfOpen.
@@ -92,14 +92,14 @@ export class EducationAssignment extends Entity implements Parsable {
         this._addToCalendarAction = value;
     };
     /**
-     * Gets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property isn't specified during create, it defaults to true.
+     * Gets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
      * @returns a boolean
      */
     public get allowLateSubmissions() {
         return this._allowLateSubmissions;
     };
     /**
-     * Sets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property isn't specified during create, it defaults to true.
+     * Sets the allowLateSubmissions property value. Identifies whether students can submit after the due date. If this property is not specified during create, it defaults to true.
      * @param value Value to set for the allowLateSubmissions property.
      */
     public set allowLateSubmissions(value: boolean | undefined) {
@@ -120,14 +120,14 @@ export class EducationAssignment extends Entity implements Parsable {
         this._allowStudentsToAddResourcesToSubmission = value;
     };
     /**
-     * Gets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment isn't shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get assignDateTime() {
         return this._assignDateTime;
     };
     /**
-     * Sets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment isn't shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the assignDateTime property value. The date when the assignment should become active.  If in the future, the assignment is not shown to the student until this date.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the assignDateTime property.
      */
     public set assignDateTime(value: Date | undefined) {
@@ -355,14 +355,14 @@ export class EducationAssignment extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn't allowed after the assignment has been published.
+     * Gets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
      * @returns a string
      */
     public get notificationChannelUrl() {
         return this._notificationChannelUrl;
     };
     /**
-     * Sets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl isn't allowed after the assignment has been published.
+     * Sets the notificationChannelUrl property value. Optional field to specify the URL of the channel to post the assignment publish notification. If not specified or null, defaults to the General channel. This field only applies to assignments where the assignTo value is educationAssignmentClassRecipient. Updating the notificationChannelUrl is not allowed after the assignment has been published.
      * @param value Value to set for the notificationChannelUrl property.
      */
     public set notificationChannelUrl(value: string | undefined) {
@@ -444,14 +444,14 @@ export class EducationAssignment extends Entity implements Parsable {
         writer.writeStringValue("webUrl", this.webUrl);
     };
     /**
-     * Gets the status property value. Status of the Assignment.  You can't PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+     * Gets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
      * @returns a educationAssignmentStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. Status of the Assignment.  You can't PATCH this value.  Possible values are: draft, scheduled, published, assigned.
+     * Sets the status property value. Status of the Assignment.  You can not PATCH this value.  Possible values are: draft, scheduled, published, assigned.
      * @param value Value to set for the status property.
      */
     public set status(value: EducationAssignmentStatus | undefined) {

@@ -1,9 +1,9 @@
 
-/** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule.  */
+/** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
 export class ActivatedUsingRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

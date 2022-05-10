@@ -3,7 +3,7 @@ import {AgreementFileProperties, AgreementFileVersion} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementFileLocalization extends AgreementFileProperties implements Parsable {
-    /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.  */
+    /** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
     private _versions?: AgreementFileVersion[] | undefined;
     /**
      * Instantiates a new agreementFileLocalization and sets the default values.

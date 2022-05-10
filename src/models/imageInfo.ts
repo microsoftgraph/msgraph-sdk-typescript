@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImageInfo implements AdditionalDataHolder, Parsable {
-    /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image  */
+    /** Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image */
     private _addImageQuery?: boolean | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Optional; alt-text accessible content for the image  */
+    /** Optional; alt-text accessible content for the image */
     private _alternateText?: string | undefined;
-    /** The alternativeText property  */
+    /** The alternativeText property */
     private _alternativeText?: string | undefined;
-    /** Optional; URI that points to an icon which represents the application used to generate the activity  */
+    /** Optional; URI that points to an icon which represents the application used to generate the activity */
     private _iconUrl?: string | undefined;
     /**
      * Gets the addImageQuery property value. Optional; parameter used to indicate the server is able to render image dynamically in response to parameterization. For example – a high contrast image

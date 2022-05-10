@@ -5,17 +5,17 @@ import {DirectoryObject, Extension, ScopedRoleMembership} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AdministrativeUnit extends DirectoryObject implements Parsable {
-    /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search.  */
+    /** An optional description for the administrative unit. Supports $filter (eq, ne, in, startsWith), $search. */
     private _description?: string | undefined;
-    /** Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy.  */
+    /** Display name for the administrative unit. Supports $filter (eq, ne, not, ge, le, in, startsWith, and eq on null values), $search, and $orderBy. */
     private _displayName?: string | undefined;
-    /** The collection of open extensions defined for this administrative unit. Nullable.  */
+    /** The collection of open extensions defined for this administrative unit. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** Users and groups that are members of this administrative unit. Supports $expand.  */
+    /** Users and groups that are members of this administrative unit. Supports $expand. */
     private _members?: DirectoryObject[] | undefined;
-    /** Scoped-role members of this administrative unit.  */
+    /** Scoped-role members of this administrative unit. */
     private _scopedRoleMembers?: ScopedRoleMembership[] | undefined;
-    /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit.  */
+    /** Controls whether the administrative unit and its members are hidden or public. Can be set to HiddenMembership. If not set (value is null), the default behavior is public. When set to HiddenMembership, only members of the administrative unit can list other members of the administrative unit. */
     private _visibility?: string | undefined;
     /**
      * Instantiates a new administrativeUnit and sets the default values.

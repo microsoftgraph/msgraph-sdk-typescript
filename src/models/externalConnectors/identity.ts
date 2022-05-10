@@ -3,7 +3,7 @@ import {IdentityType} from './identityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Identity extends Entity implements Parsable {
-    /** The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system.  */
+    /** The type of identity. Possible values are: user or group for Azure AD identities and externalgroup for groups in an external system. */
     private _type?: IdentityType | undefined;
     /**
      * Instantiates a new identity and sets the default values.

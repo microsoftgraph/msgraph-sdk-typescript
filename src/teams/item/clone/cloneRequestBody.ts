@@ -2,21 +2,21 @@ import {ClonableTeamParts} from '../../../models/clonableTeamParts';
 import {TeamVisibilityType} from '../../../models/teamVisibilityType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the clone method.  */
+/** Provides operations to call the clone method. */
 export class CloneRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The classification property  */
+    /** The classification property */
     private _classification?: string | undefined;
-    /** The description property  */
+    /** The description property */
     private _description?: string | undefined;
-    /** The displayName property  */
+    /** The displayName property */
     private _displayName?: string | undefined;
-    /** The mailNickname property  */
+    /** The mailNickname property */
     private _mailNickname?: string | undefined;
-    /** The partsToClone property  */
+    /** The partsToClone property */
     private _partsToClone?: ClonableTeamParts | undefined;
-    /** The visibility property  */
+    /** The visibility property */
     private _visibility?: TeamVisibilityType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

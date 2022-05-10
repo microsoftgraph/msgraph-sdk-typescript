@@ -4,11 +4,11 @@ import {Entity, WorkbookChartPoint, WorkbookChartSeriesFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartSeries extends Entity implements Parsable {
-    /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only.  */
+    /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
     private _format?: WorkbookChartSeriesFormat | undefined;
-    /** Represents the name of a series in a chart.  */
+    /** Represents the name of a series in a chart. */
     private _name?: string | undefined;
-    /** Represents a collection of all points in the series. Read-only.  */
+    /** Represents a collection of all points in the series. Read-only. */
     private _points?: WorkbookChartPoint[] | undefined;
     /**
      * Instantiates a new workbookChartSeries and sets the default values.

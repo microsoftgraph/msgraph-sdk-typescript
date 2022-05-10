@@ -9,29 +9,29 @@ import {DeviceComplianceDeviceOverview, DeviceComplianceDeviceStatus, DeviceComp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicy extends Entity implements Parsable {
-    /** The collection of assignments for this compliance policy.  */
+    /** The collection of assignments for this compliance policy. */
     private _assignments?: DeviceCompliancePolicyAssignment[] | undefined;
-    /** DateTime the object was created.  */
+    /** DateTime the object was created. */
     private _createdDateTime?: Date | undefined;
-    /** Admin provided description of the Device Configuration.  */
+    /** Admin provided description of the Device Configuration. */
     private _description?: string | undefined;
-    /** Compliance Setting State Device Summary  */
+    /** Compliance Setting State Device Summary */
     private _deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
-    /** List of DeviceComplianceDeviceStatus.  */
+    /** List of DeviceComplianceDeviceStatus. */
     private _deviceStatuses?: DeviceComplianceDeviceStatus[] | undefined;
-    /** Device compliance devices status overview  */
+    /** Device compliance devices status overview */
     private _deviceStatusOverview?: DeviceComplianceDeviceOverview | undefined;
-    /** Admin provided name of the device configuration.  */
+    /** Admin provided name of the device configuration. */
     private _displayName?: string | undefined;
-    /** DateTime the object was last modified.  */
+    /** DateTime the object was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.  */
+    /** The list of scheduled action for this rule */
     private _scheduledActionsForRule?: DeviceComplianceScheduledActionForRule[] | undefined;
-    /** List of DeviceComplianceUserStatus.  */
+    /** List of DeviceComplianceUserStatus. */
     private _userStatuses?: DeviceComplianceUserStatus[] | undefined;
-    /** Device compliance users status overview  */
+    /** Device compliance users status overview */
     private _userStatusOverview?: DeviceComplianceUserOverview | undefined;
-    /** Version of the device configuration.  */
+    /** Version of the device configuration. */
     private _version?: number | undefined;
     /**
      * Gets the assignments property value. The collection of assignments for this compliance policy.
@@ -172,14 +172,14 @@ export class DeviceCompliancePolicy extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * Gets the scheduledActionsForRule property value. The list of scheduled action for this rule
      * @returns a deviceComplianceScheduledActionForRule
      */
     public get scheduledActionsForRule() {
         return this._scheduledActionsForRule;
     };
     /**
-     * Sets the scheduledActionsForRule property value. The list of scheduled action per rule for this compliance policy. This is a required property when creating any individual per-platform compliance policies.
+     * Sets the scheduledActionsForRule property value. The list of scheduled action for this rule
      * @param value Value to set for the scheduledActionsForRule property.
      */
     public set scheduledActionsForRule(value: DeviceComplianceScheduledActionForRule[] | undefined) {

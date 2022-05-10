@@ -1,11 +1,11 @@
 
-/** Get entities from subscribedSkus  */
+/** List subscribedSkus */
 export class SubscribedSkusRequestBuilderGetQueryParameters {
-    /** Order items by property values  */
+    /** Order items by property values */
     public orderby?: string[] | undefined;
-    /** Search items by search phrases  */
+    /** Search items by search phrases */
     public search?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

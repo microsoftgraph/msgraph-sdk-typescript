@@ -3,19 +3,19 @@ import {UnifiedRoleEligibilityScheduleInstance, UnifiedRoleScheduleInstanceBase}
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleAssignmentScheduleInstance extends UnifiedRoleScheduleInstanceBase implements Parsable {
-    /** If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.  */
+    /** If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance. */
     private _activatedUsing?: UnifiedRoleEligibilityScheduleInstance | undefined;
-    /** Type of the assignment. It can either be Assigned or Activated.  */
+    /** Type of the assignment. It can either be Assigned or Activated. */
     private _assignmentType?: string | undefined;
-    /** Time that the roleAssignmentInstance will expire  */
+    /** Time that the roleAssignmentInstance will expire */
     private _endDateTime?: Date | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group.  */
+    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
     private _memberType?: string | undefined;
-    /** ID of the roleAssignment in the directory  */
+    /** ID of the roleAssignment in the directory */
     private _roleAssignmentOriginId?: string | undefined;
-    /** ID of the parent roleAssignmentSchedule for this instance  */
+    /** ID of the parent roleAssignmentSchedule for this instance */
     private _roleAssignmentScheduleId?: string | undefined;
-    /** Time that the roleAssignmentInstance will start  */
+    /** Time that the roleAssignmentInstance will start */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the activatedUsing property value. If the roleAssignmentScheduleInstance is activated by a roleEligibilityScheduleRequest, this is the link to the related schedule instance.

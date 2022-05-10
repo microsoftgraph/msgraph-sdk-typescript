@@ -6,23 +6,23 @@ import {RiskState} from './riskState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskyUser extends Entity implements Parsable {
-    /** The activity related to user risk level change  */
+    /** The activity related to user risk level change */
     private _history?: RiskyUserHistoryItem[] | undefined;
-    /** Indicates whether the user is deleted. Possible values are: true, false.  */
+    /** Indicates whether the user is deleted. Possible values are: true, false. */
     private _isDeleted?: boolean | undefined;
-    /** Indicates whether a user's risky state is being processed by the backend.  */
+    /** Indicates whether a user's risky state is being processed by the backend. */
     private _isProcessing?: boolean | undefined;
-    /** Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.  */
+    /** The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue. */
     private _riskDetail?: RiskDetail | undefined;
-    /** The date and time that the risky user was last updated.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time that the risky user was last updated.  The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _riskLastUpdatedDateTime?: Date | undefined;
-    /** Level of the detected risky user. Possible values are: low, medium, high, hidden, none, unknownFutureValue.  */
+    /** Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue. */
     private _riskLevel?: RiskLevel | undefined;
-    /** State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue.  */
+    /** State of the user's risk. Possible values are: none, confirmedSafe, remediated, dismissed, atRisk, confirmedCompromised, unknownFutureValue. */
     private _riskState?: RiskState | undefined;
-    /** Risky user display name.  */
+    /** Risky user display name. */
     private _userDisplayName?: string | undefined;
-    /** Risky user principal name.  */
+    /** Risky user principal name. */
     private _userPrincipalName?: string | undefined;
     /**
      * Instantiates a new riskyUser and sets the default values.
@@ -90,14 +90,14 @@ export class RiskyUser extends Entity implements Parsable {
         this._isProcessing = value;
     };
     /**
-     * Gets the riskDetail property value. Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+     * Gets the riskDetail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      * @returns a riskDetail
      */
     public get riskDetail() {
         return this._riskDetail;
     };
     /**
-     * Sets the riskDetail property value. Details of the detected risk. Possible values are: none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
+     * Sets the riskDetail property value. The possible values are none, adminGeneratedTemporaryPassword, userPerformedSecuredPasswordChange, userPerformedSecuredPasswordReset, adminConfirmedSigninSafe, aiConfirmedSigninSafe, userPassedMFADrivenByRiskBasedPolicy, adminDismissedAllRiskForUser, adminConfirmedSigninCompromised, hidden, adminConfirmedUserCompromised, unknownFutureValue.
      * @param value Value to set for the riskDetail property.
      */
     public set riskDetail(value: RiskDetail | undefined) {
@@ -118,14 +118,14 @@ export class RiskyUser extends Entity implements Parsable {
         this._riskLastUpdatedDateTime = value;
     };
     /**
-     * Gets the riskLevel property value. Level of the detected risky user. Possible values are: low, medium, high, hidden, none, unknownFutureValue.
+     * Gets the riskLevel property value. Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue.
      * @returns a riskLevel
      */
     public get riskLevel() {
         return this._riskLevel;
     };
     /**
-     * Sets the riskLevel property value. Level of the detected risky user. Possible values are: low, medium, high, hidden, none, unknownFutureValue.
+     * Sets the riskLevel property value. Level of the detected risky user. The possible values are low, medium, high, hidden, none, unknownFutureValue.
      * @param value Value to set for the riskLevel property.
      */
     public set riskLevel(value: RiskLevel | undefined) {

@@ -7,31 +7,31 @@ import {DeviceInstallState, EBookInstallSummary, Entity, ManagedEBookAssignment,
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBook extends Entity implements Parsable {
-    /** The list of assignments for this eBook.  */
+    /** The list of assignments for this eBook. */
     private _assignments?: ManagedEBookAssignment[] | undefined;
-    /** The date and time when the eBook file was created.  */
+    /** The date and time when the eBook file was created. */
     private _createdDateTime?: Date | undefined;
-    /** Description.  */
+    /** Description. */
     private _description?: string | undefined;
-    /** The list of installation states for this eBook.  */
+    /** The list of installation states for this eBook. */
     private _deviceStates?: DeviceInstallState[] | undefined;
-    /** Name of the eBook.  */
+    /** Name of the eBook. */
     private _displayName?: string | undefined;
-    /** The more information Url.  */
+    /** The more information Url. */
     private _informationUrl?: string | undefined;
-    /** Mobile App Install Summary.  */
+    /** Mobile App Install Summary. */
     private _installSummary?: EBookInstallSummary | undefined;
-    /** Book cover.  */
+    /** Book cover. */
     private _largeCover?: MimeContent | undefined;
-    /** The date and time when the eBook was last modified.  */
+    /** The date and time when the eBook was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The privacy statement Url.  */
+    /** The privacy statement Url. */
     private _privacyInformationUrl?: string | undefined;
-    /** The date and time when the eBook was published.  */
+    /** The date and time when the eBook was published. */
     private _publishedDateTime?: Date | undefined;
-    /** Publisher.  */
+    /** Publisher. */
     private _publisher?: string | undefined;
-    /** The list of installation states for this eBook.  */
+    /** The list of installation states for this eBook. */
     private _userStateSummary?: UserInstallStateSummary[] | undefined;
     /**
      * Gets the assignments property value. The list of assignments for this eBook.

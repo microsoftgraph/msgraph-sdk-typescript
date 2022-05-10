@@ -5,15 +5,15 @@ import {Group, Printer, PrinterBase, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterShare extends PrinterBase implements Parsable {
-    /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.  */
+    /** If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties. */
     private _allowAllUsers?: boolean | undefined;
-    /** The groups whose users have access to print using the printer.  */
+    /** The groups whose users have access to print using the printer. */
     private _allowedGroups?: Group[] | undefined;
-    /** The users who have access to print using the printer.  */
+    /** The users who have access to print using the printer. */
     private _allowedUsers?: User[] | undefined;
-    /** The DateTimeOffset when the printer share was created. Read-only.  */
+    /** The DateTimeOffset when the printer share was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The printer that this printer share is related to.  */
+    /** The printer that this printer share is related to. */
     private _printer?: Printer | undefined;
     /**
      * Gets the allowAllUsers property value. If true, all users and groups will be granted access to this printer share. This supersedes the allow lists defined by the allowedUsers and allowedGroups navigation properties.

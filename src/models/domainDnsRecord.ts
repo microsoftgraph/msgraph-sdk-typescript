@@ -2,15 +2,15 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DomainDnsRecord extends Entity implements Parsable {
-    /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain.  */
+    /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     private _isOptional?: boolean | undefined;
-    /** Value used when configuring the name of the DNS record at the DNS host.  */
+    /** Value used when configuring the name of the DNS record at the DNS host. */
     private _label?: string | undefined;
-    /** Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey  */
+    /** Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt. */
     private _recordType?: string | undefined;
-    /** Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune  */
+    /** Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. */
     private _supportedService?: string | undefined;
-    /** Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable  */
+    /** Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable. */
     private _ttl?: number | undefined;
     /**
      * Instantiates a new domainDnsRecord and sets the default values.
@@ -60,14 +60,14 @@ export class DomainDnsRecord extends Entity implements Parsable {
         this._label = value;
     };
     /**
-     * Gets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey
+     * Gets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
      * @returns a string
      */
     public get recordType() {
         return this._recordType;
     };
     /**
-     * Sets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, TxtKey
+     * Sets the recordType property value. Indicates what type of DNS record this entity represents.The value can be one of the following: CName, Mx, Srv, Txt.
      * @param value Value to set for the recordType property.
      */
     public set recordType(value: string | undefined) {
@@ -87,28 +87,28 @@ export class DomainDnsRecord extends Entity implements Parsable {
         writer.writeNumberValue("ttl", this.ttl);
     };
     /**
-     * Gets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune
+     * Gets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
      * @returns a string
      */
     public get supportedService() {
         return this._supportedService;
     };
     /**
-     * Sets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune
+     * Sets the supportedService property value. Microsoft Online Service or feature that has a dependency on this DNS record.Can be one of the following values: null, Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune.
      * @param value Value to set for the supportedService property.
      */
     public set supportedService(value: string | undefined) {
         this._supportedService = value;
     };
     /**
-     * Gets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable
+     * Gets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable.
      * @returns a integer
      */
     public get ttl() {
         return this._ttl;
     };
     /**
-     * Sets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable
+     * Sets the ttl property value. Value to use when configuring the time-to-live (ttl) property of the DNS record at the DNS host. Not nullable.
      * @param value Value to set for the ttl property.
      */
     public set ttl(value: number | undefined) {

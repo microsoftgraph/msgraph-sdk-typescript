@@ -5,17 +5,17 @@ import {ProvisioningStepType} from './provisioningStepType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningStep implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Summary of what occurred during the step.  */
+    /** Summary of what occurred during the step. */
     private _description?: string | undefined;
-    /** Details of what occurred during the step.  */
+    /** Details of what occurred during the step. */
     private _details?: DetailsInfo | undefined;
-    /** Name of the step.  */
+    /** Name of the step. */
     private _name?: string | undefined;
-    /** Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue.  */
+    /** Type of step. Possible values are: import, scoping, matching, processing, referenceResolution, export, unknownFutureValue. */
     private _provisioningStepType?: ProvisioningStepType | undefined;
-    /** Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue.  */
+    /** Status of the step. Possible values are: success, warning,  failure, skipped, unknownFutureValue. */
     private _status?: ProvisioningResult | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

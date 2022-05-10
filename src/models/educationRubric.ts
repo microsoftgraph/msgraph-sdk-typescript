@@ -7,23 +7,23 @@ import {EducationAssignmentGradeType, EducationItemBody, Entity, IdentitySet, Ru
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRubric extends Entity implements Parsable {
-    /** The user who created this resource.  */
+    /** The user who created this resource. */
     private _createdBy?: IdentitySet | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _createdDateTime?: Date | undefined;
-    /** The description of this rubric.  */
+    /** The description of this rubric. */
     private _description?: EducationItemBody | undefined;
-    /** The name of this rubric.  */
+    /** The name of this rubric. */
     private _displayName?: string | undefined;
-    /** The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric.  */
+    /** The grading type of this rubric -- null for a no-points rubric, or educationAssignmentPointsGradeType for a points rubric. */
     private _grading?: EducationAssignmentGradeType | undefined;
-    /** The last user to modify the resource.  */
+    /** The last user to modify the resource. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** Moment in time when the resource was last modified.  The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The collection of levels making up this rubric.  */
+    /** The collection of levels making up this rubric. */
     private _levels?: RubricLevel[] | undefined;
-    /** The collection of qualities making up this rubric.  */
+    /** The collection of qualities making up this rubric. */
     private _qualities?: RubricQuality[] | undefined;
     /**
      * Instantiates a new educationRubric and sets the default values.

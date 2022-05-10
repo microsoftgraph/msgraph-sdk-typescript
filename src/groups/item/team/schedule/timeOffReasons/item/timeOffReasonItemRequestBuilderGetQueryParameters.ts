@@ -1,7 +1,7 @@
 
-/** The set of reasons for a time off in the schedule.  */
+/** The set of reasons for a time off in the schedule. */
 export class TimeOffReasonItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

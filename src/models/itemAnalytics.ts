@@ -3,11 +3,11 @@ import {Entity, ItemActivityStat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemAnalytics extends Entity implements Parsable {
-    /** The allTime property  */
+    /** The allTime property */
     private _allTime?: ItemActivityStat | undefined;
-    /** The itemActivityStats property  */
+    /** The itemActivityStats property */
     private _itemActivityStats?: ItemActivityStat[] | undefined;
-    /** The lastSevenDays property  */
+    /** The lastSevenDays property */
     private _lastSevenDays?: ItemActivityStat | undefined;
     /**
      * Gets the allTime property value. The allTime property

@@ -4,17 +4,17 @@ import {WorkforceIntegrationSupportedEntities} from './workforceIntegrationSuppo
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkforceIntegration extends ChangeTrackedEntity implements Parsable {
-    /** API version for the call back URL. Start with 1.  */
+    /** API version for the call back URL. Start with 1. */
     private _apiVersion?: number | undefined;
-    /** Name of the workforce integration.  */
+    /** Name of the workforce integration. */
     private _displayName?: string | undefined;
-    /** The workforce integration encryption resource.  */
+    /** The workforce integration encryption resource. */
     private _encryption?: WorkforceIntegrationEncryption | undefined;
-    /** Indicates whether this workforce integration is currently active and available.  */
+    /** Indicates whether this workforce integration is currently active and available. */
     private _isActive?: boolean | undefined;
-    /** The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.  */
+    /** This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase. */
     private _supportedEntities?: WorkforceIntegrationSupportedEntities | undefined;
-    /** Workforce Integration URL for callbacks from the Shifts service.  */
+    /** Workforce Integration URL for callbacks from the Shifts service. */
     private _url?: string | undefined;
     /**
      * Gets the apiVersion property value. API version for the call back URL. Start with 1.
@@ -107,14 +107,14 @@ export class WorkforceIntegration extends ChangeTrackedEntity implements Parsabl
         writer.writeStringValue("url", this.url);
     };
     /**
-     * Gets the supportedEntities property value. The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
+     * Gets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
      * @returns a workforceIntegrationSupportedEntities
      */
     public get supportedEntities() {
         return this._supportedEntities;
     };
     /**
-     * Sets the supportedEntities property value. The Shifts entities supported for synchronous change notifications. Shifts will make a call back to the url provided on client changes on those entities added here. By default, no entities are supported for change notifications. Possible values are: none, shift, swapRequest, userShiftPreferences, openshift, openShiftRequest, offerShiftRequest, unknownFutureValue.
+     * Sets the supportedEntities property value. This property has replaced supports in v1.0. We recommend that you use this property instead of supports. The supports property is still supported in beta for the time being. The possible values are: none, shift, swapRequest, openshift, openShiftRequest, userShiftPreferences, offerShiftRequest, unknownFutureValue, timeCard, timeOffReason, timeOff, timeOffRequest. Note that you must use the Prefer: include-unknown-enum-members request header to get the following values in this evolvable enum: timeCard, timeOffReason, timeOff, timeOffRequest. If selecting more than one value, all values must start with the first letter in uppercase.
      * @param value Value to set for the supportedEntities property.
      */
     public set supportedEntities(value: WorkforceIntegrationSupportedEntities | undefined) {

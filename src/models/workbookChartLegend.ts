@@ -3,13 +3,13 @@ import {Entity, WorkbookChartLegendFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartLegend extends Entity implements Parsable {
-    /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only.  */
+    /** Represents the formatting of a chart legend, which includes fill and font formatting. Read-only. */
     private _format?: WorkbookChartLegendFormat | undefined;
-    /** Boolean value for whether the chart legend should overlap with the main body of the chart.  */
+    /** Boolean value for whether the chart legend should overlap with the main body of the chart. */
     private _overlay?: boolean | undefined;
-    /** Represents the position of the legend on the chart. The possible values are: Top, Bottom, Left, Right, Corner, Custom.  */
+    /** Represents the position of the legend on the chart. The possible values are: Top, Bottom, Left, Right, Corner, Custom. */
     private _position?: string | undefined;
-    /** A boolean value the represents the visibility of a ChartLegend object.  */
+    /** A boolean value the represents the visibility of a ChartLegend object. */
     private _visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartLegend and sets the default values.

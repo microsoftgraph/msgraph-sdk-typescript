@@ -1,9 +1,9 @@
 
-/** Read-only. Nullable. Returns a collection of the specified Conditional Access (CA) policies.  */
+/** Read-only. Nullable. Returns a collection of the specified Conditional Access policies. */
 export class ConditionalAccessPolicyItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

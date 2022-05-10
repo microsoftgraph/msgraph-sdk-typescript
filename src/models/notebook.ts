@@ -6,21 +6,21 @@ import {OnenoteUserRole} from './onenoteUserRole';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Notebook extends OnenoteEntityHierarchyModel implements Parsable {
-    /** Indicates whether this is the user's default notebook. Read-only.  */
+    /** Indicates whether this is the user's default notebook. Read-only. */
     private _isDefault?: boolean | undefined;
-    /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only.  */
+    /** Indicates whether the notebook is shared. If true, the contents of the notebook can be seen by people other than the owner. Read-only. */
     private _isShared?: boolean | undefined;
-    /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web.  */
+    /** Links for opening the notebook. The oneNoteClientURL link opens the notebook in the OneNote native client if it's installed. The oneNoteWebURL link opens the notebook in OneNote on the web. */
     private _links?: NotebookLinks | undefined;
-    /** The section groups in the notebook. Read-only. Nullable.  */
+    /** The section groups in the notebook. Read-only. Nullable. */
     private _sectionGroups?: SectionGroup[] | undefined;
-    /** The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only.  */
+    /** The URL for the sectionGroups navigation property, which returns all the section groups in the notebook. Read-only. */
     private _sectionGroupsUrl?: string | undefined;
-    /** The sections in the notebook. Read-only. Nullable.  */
+    /** The sections in the notebook. Read-only. Nullable. */
     private _sections?: OnenoteSection[] | undefined;
-    /** The URL for the sections navigation property, which returns all the sections in the notebook. Read-only.  */
+    /** The URL for the sections navigation property, which returns all the sections in the notebook. Read-only. */
     private _sectionsUrl?: string | undefined;
-    /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only.  */
+    /** Possible values are: Owner, Contributor, Reader, None. Owner represents owner-level access to the notebook. Contributor represents read/write access to the notebook. Reader represents read-only access to the notebook. Read-only. */
     private _userRole?: OnenoteUserRole | undefined;
     /**
      * Instantiates a new notebook and sets the default values.

@@ -3,13 +3,13 @@ import {PrinterProcessingStateDetail} from './printerProcessingStateDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterStatus implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A human-readable description of the printer's current processing state. Read-only.  */
+    /** A human-readable description of the printer's current processing state. Read-only. */
     private _description?: string | undefined;
-    /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.  */
+    /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only. */
     private _details?: PrinterProcessingStateDetail[] | undefined;
-    /** The current processing state. Valid values are described in the following table. Read-only.  */
+    /** The current processing state. Valid values are described in the following table. Read-only. */
     private _state?: PrinterProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

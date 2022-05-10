@@ -4,11 +4,11 @@ import {BookingBusiness, BookingCurrency} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SolutionsRoot implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The bookingBusinesses property  */
+    /** The bookingBusinesses property */
     private _bookingBusinesses?: BookingBusiness[] | undefined;
-    /** The bookingCurrencies property  */
+    /** The bookingCurrencies property */
     private _bookingCurrencies?: BookingCurrency[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

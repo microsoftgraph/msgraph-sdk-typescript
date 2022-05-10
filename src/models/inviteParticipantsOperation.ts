@@ -3,7 +3,7 @@ import {CommsOperation, InvitationParticipantInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InviteParticipantsOperation extends CommsOperation implements Parsable {
-    /** The participants to invite.  */
+    /** The participants to invite. */
     private _participants?: InvitationParticipantInfo[] | undefined;
     /**
      * Instantiates a new inviteParticipantsOperation and sets the default values.

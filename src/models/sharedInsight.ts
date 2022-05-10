@@ -6,17 +6,17 @@ import {Entity, ResourceReference, ResourceVisualization, SharingDetail} from '.
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharedInsight extends Entity implements Parsable {
-    /** Details about the shared item. Read only.  */
+    /** Details about the shared item. Read only. */
     private _lastShared?: SharingDetail | undefined;
-    /** The lastSharedMethod property  */
+    /** The lastSharedMethod property */
     private _lastSharedMethod?: Entity | undefined;
-    /** Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem.  */
+    /** Used for navigating to the item that was shared. For file attachments, the type is fileAttachment. For linked attachments, the type is driveItem. */
     private _resource?: Entity | undefined;
-    /** Reference properties of the shared document, such as the url and type of the document. Read-only  */
+    /** Reference properties of the shared document, such as the url and type of the document. Read-only */
     private _resourceReference?: ResourceReference | undefined;
-    /** Properties that you can use to visualize the document in your experience. Read-only  */
+    /** Properties that you can use to visualize the document in your experience. Read-only */
     private _resourceVisualization?: ResourceVisualization | undefined;
-    /** The sharingHistory property  */
+    /** The sharingHistory property */
     private _sharingHistory?: SharingDetail[] | undefined;
     /**
      * Instantiates a new sharedInsight and sets the default values.

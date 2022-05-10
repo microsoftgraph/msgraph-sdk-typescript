@@ -1,9 +1,9 @@
 
-/** Represents the template and scheduling for an access review.  */
+/** Represents the template and scheduling for an access review. */
 export class AccessReviewScheduleDefinitionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

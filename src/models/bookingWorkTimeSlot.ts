@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class BookingWorkTimeSlot implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The time of the day when work stops. For example, 17:00:00.0000000.  */
+    /** The time of the day when work stops. For example, 17:00:00.0000000. */
     private _endTime?: TimeOnly | undefined;
-    /** The time of the day when work starts. For example, 08:00:00.0000000.  */
+    /** The time of the day when work starts. For example, 08:00:00.0000000. */
     private _startTime?: TimeOnly | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

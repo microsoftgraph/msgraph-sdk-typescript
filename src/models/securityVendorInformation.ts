@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SecurityVendorInformation implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP.  */
+    /** Specific provider (product/service - not vendor company); for example, WindowsDefenderATP. */
     private _provider?: string | undefined;
-    /** Version of the provider or subprovider, if it exists, that generated the alert. Required  */
+    /** Version of the provider or subprovider, if it exists, that generated the alert. Required */
     private _providerVersion?: string | undefined;
-    /** Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen.  */
+    /** Specific subprovider (under aggregating provider); for example, WindowsDefenderATP.SmartScreen. */
     private _subProvider?: string | undefined;
-    /** Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required  */
+    /** Name of the alert vendor (for example, Microsoft, Dell, FireEye). Required */
     private _vendor?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,9 +1,9 @@
 
-/** Specifies class-level defaults respected by new assignments created in the class.  */
+/** Specifies class-level defaults respected by new assignments created in the class. */
 export class AssignmentDefaultsRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

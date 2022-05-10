@@ -5,17 +5,17 @@ import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Group extends Entity implements Parsable {
-    /** Date and time of the group creation. Read-only.  */
+    /** Date and time of the group creation. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Description that gives details on the term usage.  */
+    /** Description that gives details on the term usage. */
     private _description?: string | undefined;
-    /** Name of the group.  */
+    /** Name of the group. */
     private _displayName?: string | undefined;
-    /** ID of the parent site of this group.  */
+    /** ID of the parent site of this group. */
     private _parentSiteId?: string | undefined;
-    /** Returns the type of the group. Possible values are global, system, and siteCollection.  */
+    /** Returns the type of the group. Possible values are global, system, and siteCollection. */
     private _scope?: TermGroupScope | undefined;
-    /** All sets under the group in a term [store].  */
+    /** All sets under the group in a term [store]. */
     private _sets?: Set[] | undefined;
     /**
      * Instantiates a new group and sets the default values.

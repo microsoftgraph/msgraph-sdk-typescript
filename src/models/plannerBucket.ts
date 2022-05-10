@@ -3,13 +3,13 @@ import {Entity, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerBucket extends Entity implements Parsable {
-    /** Name of the bucket.  */
+    /** Name of the bucket. */
     private _name?: string | undefined;
-    /** Hint used to order items of this type in a list view. The format is defined as outlined here.  */
+    /** Hint used to order items of this type in a list view. The format is defined as outlined here. */
     private _orderHint?: string | undefined;
-    /** Plan ID to which the bucket belongs.  */
+    /** Plan ID to which the bucket belongs. */
     private _planId?: string | undefined;
-    /** Read-only. Nullable. The collection of tasks in the bucket.  */
+    /** Read-only. Nullable. The collection of tasks in the bucket. */
     private _tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new plannerBucket and sets the default values.

@@ -6,13 +6,13 @@ import {RelationType} from './relationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Relation extends Entity implements Parsable {
-    /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set].  */
+    /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     private _fromTerm?: Term | undefined;
-    /** The type of relation. Possible values are: pin, reuse.  */
+    /** The type of relation. Possible values are: pin, reuse. */
     private _relationship?: RelationType | undefined;
-    /** The [set] in which the relation is relevant.  */
+    /** The [set] in which the relation is relevant. */
     private _set?: Set | undefined;
-    /** The to [term] of the relation. The term to which the relationship is defined.  */
+    /** The to [term] of the relation. The term to which the relationship is defined. */
     private _toTerm?: Term | undefined;
     /**
      * Instantiates a new relation and sets the default values.

@@ -2,11 +2,11 @@ import {ConversationMember} from '../../../../../../../../models/';
 import {createConversationMemberFromDiscriminatorValue} from '../../../../../../../../models/createConversationMemberFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the add method.  */
+/** Provides operations to call the add method. */
 export class AddRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The values property  */
+    /** The values property */
     private _values?: ConversationMember[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

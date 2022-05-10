@@ -2,17 +2,17 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartFont extends Entity implements Parsable {
-    /** Represents the bold status of font.  */
+    /** Represents the bold status of font. */
     private _bold?: boolean | undefined;
-    /** HTML color code representation of the text color. E.g. #FF0000 represents Red.  */
+    /** HTML color code representation of the text color. E.g. #FF0000 represents Red. */
     private _color?: string | undefined;
-    /** Represents the italic status of the font.  */
+    /** Represents the italic status of the font. */
     private _italic?: boolean | undefined;
-    /** Font name (e.g. 'Calibri')  */
+    /** Font name (e.g. 'Calibri') */
     private _name?: string | undefined;
-    /** Size of the font (e.g. 11)  */
+    /** Size of the font (e.g. 11) */
     private _size?: number | undefined;
-    /** Type of underline applied to the font. The possible values are: None, Single.  */
+    /** Type of underline applied to the font. The possible values are: None, Single. */
     private _underline?: string | undefined;
     /**
      * Gets the bold property value. Represents the bold status of font.

@@ -1,9 +1,9 @@
 
-/** The list of group assignments for the device configuration profile  */
+/** The list of group assignments for the device configuration profile */
 export class EnrollmentConfigurationAssignmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

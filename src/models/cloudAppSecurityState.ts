@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudAppSecurityState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Destination IP Address of the connection to the cloud application/service.  */
+    /** Destination IP Address of the connection to the cloud application/service. */
     private _destinationServiceIp?: string | undefined;
-    /** Cloud application/service name (for example 'Salesforce', 'DropBox', etc.).  */
+    /** Cloud application/service name (for example 'Salesforce', 'DropBox', etc.). */
     private _destinationServiceName?: string | undefined;
-    /** Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage.  */
+    /** Provider-generated/calculated risk score of the Cloud Application/Service. Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

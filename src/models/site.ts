@@ -18,43 +18,43 @@ import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDisc
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Site extends BaseItem implements Parsable {
-    /** Analytics about the view activities that took place in this site.  */
+    /** Analytics about the view activities that took place in this site. */
     private _analytics?: ItemAnalytics | undefined;
-    /** The collection of column definitions reusable across lists under this site.  */
+    /** The collection of column definitions reusable across lists under this site. */
     private _columns?: ColumnDefinition[] | undefined;
-    /** The collection of content types defined for this site.  */
+    /** The collection of content types defined for this site. */
     private _contentTypes?: ContentType[] | undefined;
-    /** The full title for the site. Read-only.  */
+    /** The full title for the site. Read-only. */
     private _displayName?: string | undefined;
-    /** The default drive (document library) for this site.  */
+    /** The default drive (document library) for this site. */
     private _drive?: Drive | undefined;
-    /** The collection of drives (document libraries) under this site.  */
+    /** The collection of drives (document libraries) under this site. */
     private _drives?: Drive[] | undefined;
-    /** The error property  */
+    /** The error property */
     private _error_escaped?: PublicError | undefined;
-    /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site.  */
+    /** The collection of column definitions available in the site that are referenced from the sites in the parent hierarchy of the current site. */
     private _externalColumns?: ColumnDefinition[] | undefined;
-    /** Used to address any item contained in this site. This collection can't be enumerated.  */
+    /** Used to address any item contained in this site. This collection cannot be enumerated. */
     private _items?: BaseItem[] | undefined;
-    /** The collection of lists under this site.  */
+    /** The collection of lists under this site. */
     private _lists?: List[] | undefined;
-    /** Calls the OneNote service for notebook related operations.  */
+    /** Calls the OneNote service for notebook related operations. */
     private _onenote?: Onenote | undefined;
-    /** The collection of long running operations for the site.  */
+    /** The collection of long running operations for the site. */
     private _operations?: RichLongRunningOperation[] | undefined;
-    /** The permissions associated with the site. Nullable.  */
+    /** The permissions associated with the site. Nullable. */
     private _permissions?: Permission[] | undefined;
-    /** If present, indicates that this is the root site in the site collection. Read-only.  */
+    /** If present, indicates that this is the root site in the site collection. Read-only. */
     private _root?: Root | undefined;
-    /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
+    /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
-    /** Provides details about the site's site collection. Available only on the root site. Read-only.  */
+    /** Provides details about the site's site collection. Available only on the root site. Read-only. */
     private _siteCollection?: SiteCollection | undefined;
-    /** The collection of the sub-sites under this site.  */
+    /** The collection of the sub-sites under this site. */
     private _sites?: Site[] | undefined;
-    /** The default termStore under this site.  */
+    /** The termStore under this site. */
     private _termStore?: Store | undefined;
-    /** The collection of termStores under this site.  */
+    /** The collection of termStores under this site. */
     private _termStores?: Store[] | undefined;
     /**
      * Gets the analytics property value. Analytics about the view activities that took place in this site.
@@ -202,14 +202,14 @@ export class Site extends BaseItem implements Parsable {
         };
     };
     /**
-     * Gets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
+     * Gets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
      * @returns a baseItem
      */
     public get items() {
         return this._items;
     };
     /**
-     * Sets the items property value. Used to address any item contained in this site. This collection can't be enumerated.
+     * Sets the items property value. Used to address any item contained in this site. This collection cannot be enumerated.
      * @param value Value to set for the items property.
      */
     public set items(value: BaseItem[] | undefined) {
@@ -355,14 +355,14 @@ export class Site extends BaseItem implements Parsable {
         this._sites = value;
     };
     /**
-     * Gets the termStore property value. The default termStore under this site.
+     * Gets the termStore property value. The termStore under this site.
      * @returns a store
      */
     public get termStore() {
         return this._termStore;
     };
     /**
-     * Sets the termStore property value. The default termStore under this site.
+     * Sets the termStore property value. The termStore under this site.
      * @param value Value to set for the termStore property.
      */
     public set termStore(value: Store | undefined) {

@@ -1,7 +1,7 @@
 
-/** The group's conversation threads. Nullable.  */
+/** The group's conversation threads. Nullable. */
 export class ConversationThreadItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

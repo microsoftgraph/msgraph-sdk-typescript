@@ -2,25 +2,25 @@ import {DriveRecipient} from '../../../models/';
 import {createDriveRecipientFromDiscriminatorValue} from '../../../models/createDriveRecipientFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the invite method.  */
+/** Provides operations to call the invite method. */
 export class InviteRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The expirationDateTime property  */
+    /** The expirationDateTime property */
     private _expirationDateTime?: string | undefined;
-    /** The message property  */
+    /** The message property */
     private _message?: string | undefined;
-    /** The password property  */
+    /** The password property */
     private _password?: string | undefined;
-    /** The recipients property  */
+    /** The recipients property */
     private _recipients?: DriveRecipient[] | undefined;
-    /** The requireSignIn property  */
+    /** The requireSignIn property */
     private _requireSignIn?: boolean | undefined;
-    /** The retainInheritedPermissions property  */
+    /** The retainInheritedPermissions property */
     private _retainInheritedPermissions?: boolean | undefined;
-    /** The roles property  */
+    /** The roles property */
     private _roles?: string[] | undefined;
-    /** The sendInvitation property  */
+    /** The sendInvitation property */
     private _sendInvitation?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -3,11 +3,11 @@ import {RoutingMode} from './routingMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AudioRoutingGroup extends Entity implements Parsable {
-    /** List of receiving participant ids.  */
+    /** List of receiving participant ids. */
     private _receivers?: string[] | undefined;
-    /** Routing group mode.  Possible values are: oneToOne, multicast.  */
+    /** Routing group mode.  Possible values are: oneToOne, multicast. */
     private _routingMode?: RoutingMode | undefined;
-    /** List of source participant ids.  */
+    /** List of source participant ids. */
     private _sources?: string[] | undefined;
     /**
      * Instantiates a new audioRoutingGroup and sets the default values.

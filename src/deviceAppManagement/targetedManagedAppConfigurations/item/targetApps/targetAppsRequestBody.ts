@@ -3,13 +3,13 @@ import {createManagedMobileAppFromDiscriminatorValue} from '../../../../models/c
 import {TargetedManagedAppGroupType} from '../../../../models/targetedManagedAppGroupType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the targetApps method.  */
+/** Provides operations to call the targetApps method. */
 export class TargetAppsRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The appGroupType property  */
+    /** The appGroupType property */
     private _appGroupType?: TargetedManagedAppGroupType | undefined;
-    /** The apps property  */
+    /** The apps property */
     private _apps?: ManagedMobileApp[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

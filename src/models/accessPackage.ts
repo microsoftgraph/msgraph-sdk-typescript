@@ -4,19 +4,19 @@ import {AccessPackageAssignmentPolicy, AccessPackageCatalog, Entity} from './ind
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackage extends Entity implements Parsable {
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _catalog?: AccessPackageCatalog | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The description of the access package.  */
+    /** The description of the access package. */
     private _description?: string | undefined;
-    /** The display name of the access package. Supports $filter (eq, contains).  */
+    /** The display name of the access package. Supports $filter (eq, contains). */
     private _displayName?: string | undefined;
-    /** Whether the access package is hidden from the requestor.  */
+    /** Whether the access package is hidden from the requestor. */
     private _isHidden?: boolean | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _modifiedDateTime?: Date | undefined;
     /**
      * Gets the assignmentPolicies property value. Read-only. Nullable.

@@ -9,29 +9,29 @@ import {Entity, WorkbookChartAreaFormat, WorkbookChartAxes, WorkbookChartDataLab
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChart extends Entity implements Parsable {
-    /** Represents chart axes. Read-only.  */
+    /** Represents chart axes. Read-only. */
     private _axes?: WorkbookChartAxes | undefined;
-    /** Represents the datalabels on the chart. Read-only.  */
+    /** Represents the datalabels on the chart. Read-only. */
     private _dataLabels?: WorkbookChartDataLabels | undefined;
-    /** Encapsulates the format properties for the chart area. Read-only.  */
+    /** Encapsulates the format properties for the chart area. Read-only. */
     private _format?: WorkbookChartAreaFormat | undefined;
-    /** Represents the height, in points, of the chart object.  */
+    /** Represents the height, in points, of the chart object. */
     private _height?: number | undefined;
-    /** The distance, in points, from the left side of the chart to the worksheet origin.  */
+    /** The distance, in points, from the left side of the chart to the worksheet origin. */
     private _left?: number | undefined;
-    /** Represents the legend for the chart. Read-only.  */
+    /** Represents the legend for the chart. Read-only. */
     private _legend?: WorkbookChartLegend | undefined;
-    /** Represents the name of a chart object.  */
+    /** Represents the name of a chart object. */
     private _name?: string | undefined;
-    /** Represents either a single series or collection of series in the chart. Read-only.  */
+    /** Represents either a single series or collection of series in the chart. Read-only. */
     private _series?: WorkbookChartSeries[] | undefined;
-    /** Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only.  */
+    /** Represents the title of the specified chart, including the text, visibility, position and formating of the title. Read-only. */
     private _title?: WorkbookChartTitle | undefined;
-    /** Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart).  */
+    /** Represents the distance, in points, from the top edge of the object to the top of row 1 (on a worksheet) or the top of the chart area (on a chart). */
     private _top?: number | undefined;
-    /** Represents the width, in points, of the chart object.  */
+    /** Represents the width, in points, of the chart object. */
     private _width?: number | undefined;
-    /** The worksheet containing the current chart. Read-only.  */
+    /** The worksheet containing the current chart. Read-only. */
     private _worksheet?: WorkbookWorksheet | undefined;
     /**
      * Gets the axes property value. Represents chart axes. Read-only.

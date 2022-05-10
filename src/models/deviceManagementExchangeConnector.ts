@@ -4,23 +4,23 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementExchangeConnector extends Entity implements Parsable {
-    /** The name of the server hosting the Exchange Connector.  */
+    /** The name of the server hosting the Exchange Connector. */
     private _connectorServerName?: string | undefined;
-    /** An alias assigned to the Exchange server  */
+    /** An alias assigned to the Exchange server */
     private _exchangeAlias?: string | undefined;
-    /** The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated.  */
+    /** The type of Exchange Connector Configured. Possible values are: onPremises, hosted, serviceToService, dedicated. */
     private _exchangeConnectorType?: DeviceManagementExchangeConnectorType | undefined;
-    /** Exchange Organization to the Exchange server  */
+    /** Exchange Organization to the Exchange server */
     private _exchangeOrganization?: string | undefined;
-    /** Last sync time for the Exchange Connector  */
+    /** Last sync time for the Exchange Connector */
     private _lastSyncDateTime?: Date | undefined;
-    /** Email address used to configure the Service To Service Exchange Connector.  */
+    /** Email address used to configure the Service To Service Exchange Connector. */
     private _primarySmtpAddress?: string | undefined;
-    /** The name of the Exchange server.  */
+    /** The name of the Exchange server. */
     private _serverName?: string | undefined;
-    /** Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected.  */
+    /** Exchange Connector Status. Possible values are: none, connectionPending, connected, disconnected. */
     private _status?: DeviceManagementExchangeConnectorStatus | undefined;
-    /** The version of the ExchangeConnectorAgent  */
+    /** The version of the ExchangeConnectorAgent */
     private _version?: string | undefined;
     /**
      * Gets the connectorServerName property value. The name of the server hosting the Exchange Connector.

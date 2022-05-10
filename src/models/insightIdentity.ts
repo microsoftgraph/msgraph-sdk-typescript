@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InsightIdentity implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The email address of the user who shared the item.  */
+    /** The email address of the user who shared the item. */
     private _address?: string | undefined;
-    /** The display name of the user who shared the item.  */
+    /** The display name of the user who shared the item. */
     private _displayName?: string | undefined;
-    /** The id of the user who shared the item.  */
+    /** The id of the user who shared the item. */
     private _id?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -3,9 +3,9 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OutlookCategory extends Entity implements Parsable {
-    /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.  */
+    /** A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below. */
     private _color?: CategoryColor | undefined;
-    /** A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only.  */
+    /** A unique name that identifies a category in the user's mailbox. After a category is created, the name cannot be changed. Read-only. */
     private _displayName?: string | undefined;
     /**
      * Gets the color property value. A pre-set color constant that characterizes a category, and that is mapped to one of 25 predefined colors. See the note below.

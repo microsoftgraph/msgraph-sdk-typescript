@@ -9,21 +9,21 @@ import {ThreatExpectedAssessment} from './threatExpectedAssessment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentRequest extends Entity implements Parsable {
-    /** The threat category. Possible values are: spam, phishing, malware.  */
+    /** The threat category. Possible values are: spam, phishing, malware. */
     private _category?: ThreatCategory | undefined;
-    /** The content type of threat assessment. Possible values are: mail, url, file.  */
+    /** The content type of threat assessment. Possible values are: mail, url, file. */
     private _contentType?: ThreatAssessmentContentType | undefined;
-    /** The threat assessment request creator.  */
+    /** The threat assessment request creator. */
     private _createdBy?: IdentitySet | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
-    /** The expected assessment from submitter. Possible values are: block, unblock.  */
+    /** The expected assessment from submitter. Possible values are: block, unblock. */
     private _expectedAssessment?: ThreatExpectedAssessment | undefined;
-    /** The source of the threat assessment request. Possible values are: administrator.  */
+    /** The source of the threat assessment request. Possible values are: user, administrator. */
     private _requestSource?: ThreatAssessmentRequestSource | undefined;
-    /** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it.  */
+    /** A collection of threat assessment results. Read-only. By default, a GET /threatAssessmentRequests/{id} does not return this property unless you apply $expand on it. */
     private _results?: ThreatAssessmentResult[] | undefined;
-    /** The assessment process status. Possible values are: pending, completed.  */
+    /** The assessment process status. Possible values are: pending, completed. */
     private _status?: ThreatAssessmentStatus | undefined;
     /**
      * Gets the category property value. The threat category. Possible values are: spam, phishing, malware.
@@ -118,14 +118,14 @@ export class ThreatAssessmentRequest extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the requestSource property value. The source of the threat assessment request. Possible values are: administrator.
+     * Gets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
      * @returns a threatAssessmentRequestSource
      */
     public get requestSource() {
         return this._requestSource;
     };
     /**
-     * Sets the requestSource property value. The source of the threat assessment request. Possible values are: administrator.
+     * Sets the requestSource property value. The source of the threat assessment request. Possible values are: user, administrator.
      * @param value Value to set for the requestSource property.
      */
     public set requestSource(value: ThreatAssessmentRequestSource | undefined) {

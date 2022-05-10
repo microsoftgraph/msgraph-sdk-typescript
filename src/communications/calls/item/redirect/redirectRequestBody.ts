@@ -2,15 +2,15 @@ import {InvitationParticipantInfo} from '../../../../models/';
 import {createInvitationParticipantInfoFromDiscriminatorValue} from '../../../../models/createInvitationParticipantInfoFromDiscriminatorValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the redirect method.  */
+/** Provides operations to call the redirect method. */
 export class RedirectRequestBody implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The callbackUri property  */
+    /** The callbackUri property */
     private _callbackUri?: string | undefined;
-    /** The targets property  */
+    /** The targets property */
     private _targets?: InvitationParticipantInfo[] | undefined;
-    /** The timeout property  */
+    /** The timeout property */
     private _timeout?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

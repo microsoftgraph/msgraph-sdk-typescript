@@ -1,9 +1,9 @@
 
-/** The collection of content types that are ancestors of this content type.  */
+/** The collection of content types that are ancestors of this content type. */
 export class ContentTypeItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

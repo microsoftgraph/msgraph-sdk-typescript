@@ -3,11 +3,11 @@ import {Album} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Bundle implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If the bundle is an [album][], then the album property is included  */
+    /** If the bundle is an [album][], then the album property is included */
     private _album?: Album | undefined;
-    /** Number of children contained immediately within this container.  */
+    /** Number of children contained immediately within this container. */
     private _childCount?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

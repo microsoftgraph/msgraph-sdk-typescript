@@ -3,13 +3,13 @@ import {RemoteAssistanceOnboardingStatus} from './remoteAssistanceOnboardingStat
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RemoteAssistancePartner extends Entity implements Parsable {
-    /** Display name of the partner.  */
+    /** Display name of the partner. */
     private _displayName?: string | undefined;
-    /** Timestamp of the last request sent to Intune by the TEM partner.  */
+    /** Timestamp of the last request sent to Intune by the TEM partner. */
     private _lastConnectionDateTime?: Date | undefined;
-    /** A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded.  */
+    /** A friendly description of the current TeamViewer connector status. Possible values are: notOnboarded, onboarding, onboarded. */
     private _onboardingStatus?: RemoteAssistanceOnboardingStatus | undefined;
-    /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service.  */
+    /** URL of the partner's onboarding portal, where an administrator can configure their Remote Assistance service. */
     private _onboardingUrl?: string | undefined;
     /**
      * Instantiates a new remoteAssistancePartner and sets the default values.

@@ -12,45 +12,45 @@ import {PrintScaling} from './printScaling';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document.  */
+    /** Whether the printer should collate pages wehen printing multiple copies of a multi-page document. */
     private _collate?: boolean | undefined;
-    /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only.  */
+    /** The color mode the printer should use to print the job. Valid values are described in the table below. Read-only. */
     private _colorMode?: PrintColorMode | undefined;
-    /** The number of copies that should be printed. Read-only.  */
+    /** The number of copies that should be printed. Read-only. */
     private _copies?: number | undefined;
-    /** The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only.  */
+    /** The resolution to use when printing the job, expressed in dots per inch (DPI). Read-only. */
     private _dpi?: number | undefined;
-    /** The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only.  */
+    /** The duplex mode the printer should use when printing the job. Valid values are described in the table below. Read-only. */
     private _duplexMode?: PrintDuplexMode | undefined;
-    /** The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only.  */
+    /** The orientation to use when feeding media into the printer. Valid values are described in the following table. Read-only. */
     private _feedOrientation?: PrinterFeedOrientation | undefined;
-    /** Finishing processes to use when printing.  */
+    /** Finishing processes to use when printing. */
     private _finishings?: PrintFinishing[] | undefined;
-    /** The fitPdfToPage property  */
+    /** The fitPdfToPage property */
     private _fitPdfToPage?: boolean | undefined;
-    /** The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins.  */
+    /** The input bin (tray) to use when printing. See the printer's capabilities for a list of supported input bins. */
     private _inputBin?: string | undefined;
-    /** The margin settings to use when printing.  */
+    /** The margin settings to use when printing. */
     private _margin?: PrintMargin | undefined;
-    /** The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.  */
+    /** The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic. */
     private _mediaSize?: string | undefined;
-    /** The default media (such as paper) type to print the document on.  */
+    /** The default media (such as paper) type to print the document on. */
     private _mediaType?: string | undefined;
-    /** The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table.  */
+    /** The direction to lay out pages when multiple pages are being printed per sheet. Valid values are described in the following table. */
     private _multipageLayout?: PrintMultipageLayout | undefined;
-    /** The orientation setting the printer should use when printing the job. Valid values are described in the following table.  */
+    /** The orientation setting the printer should use when printing the job. Valid values are described in the following table. */
     private _orientation?: PrintOrientation | undefined;
-    /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins.  */
+    /** The output bin to place completed prints into. See the printer's capabilities for a list of supported output bins. */
     private _outputBin?: string | undefined;
-    /** The page ranges to print. Read-only.  */
+    /** The page ranges to print. Read-only. */
     private _pageRanges?: IntegerRange[] | undefined;
-    /** The number of document pages to print on each sheet.  */
+    /** The number of document pages to print on each sheet. */
     private _pagesPerSheet?: number | undefined;
-    /** The print quality to use when printing the job. Valid values are described in the table below. Read-only.  */
+    /** The print quality to use when printing the job. Valid values are described in the table below. Read-only. */
     private _quality?: PrintQuality | undefined;
-    /** Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table.  */
+    /** Specifies how the printer should scale the document data to fit the requested media. Valid values are described in the following table. */
     private _scaling?: PrintScaling | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -240,14 +240,14 @@ export class PrintJobConfiguration implements AdditionalDataHolder, Parsable {
         this._margin = value;
     };
     /**
-     * Gets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * Gets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
      * @returns a string
      */
     public get mediaSize() {
         return this._mediaSize;
     };
     /**
-     * Sets the mediaSize property value. The media size to use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values listed in the printerCapabilities topic.
+     * Sets the mediaSize property value. The media sizeto use when printing. Supports standard size names for ISO and ANSI media sizes. Valid values are listed in the printerCapabilities topic.
      * @param value Value to set for the mediaSize property.
      */
     public set mediaSize(value: string | undefined) {

@@ -8,27 +8,27 @@ import {DeviceConfigurationAssignment, DeviceConfigurationDeviceOverview, Device
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfiguration extends Entity implements Parsable {
-    /** The list of assignments for the device configuration profile.  */
+    /** The list of assignments for the device configuration profile. */
     private _assignments?: DeviceConfigurationAssignment[] | undefined;
-    /** DateTime the object was created.  */
+    /** DateTime the object was created. */
     private _createdDateTime?: Date | undefined;
-    /** Admin provided description of the Device Configuration.  */
+    /** Admin provided description of the Device Configuration. */
     private _description?: string | undefined;
-    /** Device Configuration Setting State Device Summary  */
+    /** Device Configuration Setting State Device Summary */
     private _deviceSettingStateSummaries?: SettingStateDeviceSummary[] | undefined;
-    /** Device configuration installation status by device.  */
+    /** Device configuration installation status by device. */
     private _deviceStatuses?: DeviceConfigurationDeviceStatus[] | undefined;
-    /** Device Configuration devices status overview  */
+    /** Device Configuration devices status overview */
     private _deviceStatusOverview?: DeviceConfigurationDeviceOverview | undefined;
-    /** Admin provided name of the device configuration.  */
+    /** Admin provided name of the device configuration. */
     private _displayName?: string | undefined;
-    /** DateTime the object was last modified.  */
+    /** DateTime the object was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Device configuration installation status by user.  */
+    /** Device configuration installation status by user. */
     private _userStatuses?: DeviceConfigurationUserStatus[] | undefined;
-    /** Device Configuration users status overview  */
+    /** Device Configuration users status overview */
     private _userStatusOverview?: DeviceConfigurationUserOverview | undefined;
-    /** Version of the device configuration.  */
+    /** Version of the device configuration. */
     private _version?: number | undefined;
     /**
      * Gets the assignments property value. The list of assignments for the device configuration profile.

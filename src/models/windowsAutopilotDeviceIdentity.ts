@@ -3,37 +3,37 @@ import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
-    /** Addressable user name.  */
+    /** Addressable user name. */
     private _addressableUserName?: string | undefined;
-    /** AAD Device ID - to be deprecated  */
+    /** AAD Device ID - to be deprecated */
     private _azureActiveDirectoryDeviceId?: string | undefined;
-    /** Display Name  */
+    /** Display Name */
     private _displayName?: string | undefined;
-    /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.  */
+    /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked. */
     private _enrollmentState?: EnrollmentState | undefined;
-    /** Group Tag of the Windows autopilot device.  */
+    /** Group Tag of the Windows autopilot device. */
     private _groupTag?: string | undefined;
-    /** Intune Last Contacted Date Time of the Windows autopilot device.  */
+    /** Intune Last Contacted Date Time of the Windows autopilot device. */
     private _lastContactedDateTime?: Date | undefined;
-    /** Managed Device ID  */
+    /** Managed Device ID */
     private _managedDeviceId?: string | undefined;
-    /** Oem manufacturer of the Windows autopilot device.  */
+    /** Oem manufacturer of the Windows autopilot device. */
     private _manufacturer?: string | undefined;
-    /** Model name of the Windows autopilot device.  */
+    /** Model name of the Windows autopilot device. */
     private _model?: string | undefined;
-    /** Product Key of the Windows autopilot device.  */
+    /** Product Key of the Windows autopilot device. */
     private _productKey?: string | undefined;
-    /** Purchase Order Identifier of the Windows autopilot device.  */
+    /** Purchase Order Identifier of the Windows autopilot device. */
     private _purchaseOrderIdentifier?: string | undefined;
-    /** Resource Name.  */
+    /** Resource Name. */
     private _resourceName?: string | undefined;
-    /** Serial number of the Windows autopilot device.  */
+    /** Serial number of the Windows autopilot device. */
     private _serialNumber?: string | undefined;
-    /** SKU Number  */
+    /** SKU Number */
     private _skuNumber?: string | undefined;
-    /** System Family  */
+    /** System Family */
     private _systemFamily?: string | undefined;
-    /** User Principal Name.  */
+    /** User Principal Name. */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the addressableUserName property value. Addressable user name.
@@ -84,14 +84,14 @@ export class WindowsAutopilotDeviceIdentity extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.
+     * Gets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
      * @returns a enrollmentState
      */
     public get enrollmentState() {
         return this._enrollmentState;
     };
     /**
-     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted.
+     * Sets the enrollmentState property value. Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.
      * @param value Value to set for the enrollmentState property.
      */
     public set enrollmentState(value: EnrollmentState | undefined) {

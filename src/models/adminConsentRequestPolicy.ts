@@ -3,17 +3,17 @@ import {AccessReviewReviewerScope, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AdminConsentRequestPolicy extends Entity implements Parsable {
-    /** Specifies whether the admin consent request feature is enabled or disabled. Required.  */
+    /** Specifies whether the admin consent request feature is enabled or disabled. Required. */
     private _isEnabled?: boolean | undefined;
-    /** Specifies whether reviewers will receive notifications. Required.  */
+    /** Specifies whether reviewers will receive notifications. Required. */
     private _notifyReviewers?: boolean | undefined;
-    /** Specifies whether reviewers will receive reminder emails. Required.  */
+    /** Specifies whether reviewers will receive reminder emails. Required. */
     private _remindersEnabled?: boolean | undefined;
-    /** Specifies the duration the request is active before it automatically expires if no decision is applied.  */
+    /** Specifies the duration the request is active before it automatically expires if no decision is applied. */
     private _requestDurationInDays?: number | undefined;
-    /** The list of reviewers for the admin consent. Required.  */
+    /** Required. */
     private _reviewers?: AccessReviewReviewerScope[] | undefined;
-    /** Specifies the version of this policy. When the policy is updated, this version is updated. Read-only.  */
+    /** Specifies the version of this policy. When the policy is updated, this version is updated. Read-only. */
     private _version?: number | undefined;
     /**
      * Instantiates a new adminConsentRequestPolicy and sets the default values.
@@ -92,14 +92,14 @@ export class AdminConsentRequestPolicy extends Entity implements Parsable {
         this._requestDurationInDays = value;
     };
     /**
-     * Gets the reviewers property value. The list of reviewers for the admin consent. Required.
+     * Gets the reviewers property value. Required.
      * @returns a accessReviewReviewerScope
      */
     public get reviewers() {
         return this._reviewers;
     };
     /**
-     * Sets the reviewers property value. The list of reviewers for the admin consent. Required.
+     * Sets the reviewers property value. Required.
      * @param value Value to set for the reviewers property.
      */
     public set reviewers(value: AccessReviewReviewerScope[] | undefined) {

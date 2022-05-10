@@ -4,21 +4,21 @@ import {ScheduleChangeState} from './scheduleChangeState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleChangeRequest extends ChangeTrackedEntity implements Parsable {
-    /** The assignedTo property  */
+    /** The assignedTo property */
     private _assignedTo?: ScheduleChangeRequestActor | undefined;
-    /** The managerActionDateTime property  */
+    /** The managerActionDateTime property */
     private _managerActionDateTime?: Date | undefined;
-    /** The managerActionMessage property  */
+    /** The managerActionMessage property */
     private _managerActionMessage?: string | undefined;
-    /** The managerUserId property  */
+    /** The managerUserId property */
     private _managerUserId?: string | undefined;
-    /** The senderDateTime property  */
+    /** The senderDateTime property */
     private _senderDateTime?: Date | undefined;
-    /** The senderMessage property  */
+    /** The senderMessage property */
     private _senderMessage?: string | undefined;
-    /** The senderUserId property  */
+    /** The senderUserId property */
     private _senderUserId?: string | undefined;
-    /** The state property  */
+    /** The state property */
     private _state?: ScheduleChangeState | undefined;
     /**
      * Gets the assignedTo property value. The assignedTo property

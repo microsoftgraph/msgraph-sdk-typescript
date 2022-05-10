@@ -1,9 +1,9 @@
 
-/** The underlying administrativeUnit for this school.  */
+/** The underlying administrativeUnit for this school. */
 export class AdministrativeUnitRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

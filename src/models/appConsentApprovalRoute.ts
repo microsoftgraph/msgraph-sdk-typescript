@@ -3,7 +3,7 @@ import {AppConsentRequest, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppConsentApprovalRoute extends Entity implements Parsable {
-    /** A collection of userConsentRequest objects for a specific application.  */
+    /** A collection of userConsentRequest objects for a specific application. */
     private _appConsentRequests?: AppConsentRequest[] | undefined;
     /**
      * Gets the appConsentRequests property value. A collection of userConsentRequest objects for a specific application.

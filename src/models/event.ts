@@ -21,99 +21,99 @@ import {Sensitivity} from './sensitivity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Event extends OutlookItem implements Parsable {
-    /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.  */
+    /** true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true. */
     private _allowNewTimeProposals?: boolean | undefined;
-    /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable.  */
+    /** The collection of FileAttachment, ItemAttachment, and referenceAttachment attachments for the event. Navigation property. Read-only. Nullable. */
     private _attachments?: Attachment[] | undefined;
-    /** The collection of attendees for the event.  */
+    /** The collection of attendees for the event. */
     private _attendees?: Attendee[] | undefined;
-    /** The body of the message associated with the event. It can be in HTML or text format.  */
+    /** The body of the message associated with the event. It can be in HTML or text format. */
     private _body?: ItemBody | undefined;
-    /** The preview of the message associated with the event. It is in text format.  */
+    /** The preview of the message associated with the event. It is in text format. */
     private _bodyPreview?: string | undefined;
-    /** The calendar that contains the event. Navigation property. Read-only.  */
+    /** The calendar that contains the event. Navigation property. Read-only. */
     private _calendar?: Calendar | undefined;
-    /** The date, time, and time zone that the event ends. By default, the end time is in UTC.  */
+    /** The date, time, and time zone that the event ends. By default, the end time is in UTC. */
     private _end?: DateTimeTimeZone | undefined;
-    /** The collection of open extensions defined for the event. Nullable.  */
+    /** The collection of open extensions defined for the event. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** Set to true if the event has attachments.  */
+    /** Set to true if the event has attachments. */
     private _hasAttachments?: boolean | undefined;
-    /** When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false.  */
+    /** When set to true, each attendee only sees themselves in the meeting request and meeting Tracking list. Default is false. */
     private _hideAttendees?: boolean | undefined;
-    /** A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only.  */
+    /** A unique identifier for an event across calendars. This ID is different for each occurrence in a recurring series. Read-only. */
     private _iCalUId?: string | undefined;
-    /** The importance property  */
+    /** The importance property */
     private _importance?: Importance | undefined;
-    /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable.  */
+    /** The occurrences of a recurring series, if the event is a series master. This property includes occurrences that are part of the recurrence pattern, and exceptions that have been modified, but does not include occurrences that have been cancelled from the series. Navigation property. Read-only. Nullable. */
     private _instances?: Event[] | undefined;
-    /** The isAllDay property  */
+    /** The isAllDay property */
     private _isAllDay?: boolean | undefined;
-    /** The isCancelled property  */
+    /** The isCancelled property */
     private _isCancelled?: boolean | undefined;
-    /** The isDraft property  */
+    /** The isDraft property */
     private _isDraft?: boolean | undefined;
-    /** The isOnlineMeeting property  */
+    /** The isOnlineMeeting property */
     private _isOnlineMeeting?: boolean | undefined;
-    /** The isOrganizer property  */
+    /** The isOrganizer property */
     private _isOrganizer?: boolean | undefined;
-    /** The isReminderOn property  */
+    /** The isReminderOn property */
     private _isReminderOn?: boolean | undefined;
-    /** The location property  */
+    /** The location property */
     private _location?: Location | undefined;
-    /** The locations property  */
+    /** The locations property */
     private _locations?: Location[] | undefined;
-    /** The collection of multi-value extended properties defined for the event. Read-only. Nullable.  */
+    /** The collection of multi-value extended properties defined for the event. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The onlineMeeting property  */
+    /** The onlineMeeting property */
     private _onlineMeeting?: OnlineMeetingInfo | undefined;
-    /** The onlineMeetingProvider property  */
+    /** The onlineMeetingProvider property */
     private _onlineMeetingProvider?: OnlineMeetingProviderType | undefined;
-    /** The onlineMeetingUrl property  */
+    /** The onlineMeetingUrl property */
     private _onlineMeetingUrl?: string | undefined;
-    /** The organizer property  */
+    /** The organizer property */
     private _organizer?: Recipient | undefined;
-    /** The originalEndTimeZone property  */
+    /** The originalEndTimeZone property */
     private _originalEndTimeZone?: string | undefined;
-    /** The originalStart property  */
+    /** The originalStart property */
     private _originalStart?: Date | undefined;
-    /** The originalStartTimeZone property  */
+    /** The originalStartTimeZone property */
     private _originalStartTimeZone?: string | undefined;
-    /** The recurrence property  */
+    /** The recurrence property */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The reminderMinutesBeforeStart property  */
+    /** The reminderMinutesBeforeStart property */
     private _reminderMinutesBeforeStart?: number | undefined;
-    /** The responseRequested property  */
+    /** The responseRequested property */
     private _responseRequested?: boolean | undefined;
-    /** The responseStatus property  */
+    /** The responseStatus property */
     private _responseStatus?: ResponseStatus | undefined;
-    /** The sensitivity property  */
+    /** The sensitivity property */
     private _sensitivity?: Sensitivity | undefined;
-    /** The seriesMasterId property  */
+    /** The seriesMasterId property */
     private _seriesMasterId?: string | undefined;
-    /** The showAs property  */
+    /** The showAs property */
     private _showAs?: FreeBusyStatus | undefined;
-    /** The collection of single-value extended properties defined for the event. Read-only. Nullable.  */
+    /** The collection of single-value extended properties defined for the event. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
-    /** The start property  */
+    /** The start property */
     private _start?: DateTimeTimeZone | undefined;
-    /** The subject property  */
+    /** The subject property */
     private _subject?: string | undefined;
-    /** The transactionId property  */
+    /** The transactionId property */
     private _transactionId?: string | undefined;
-    /** The type property  */
+    /** The type property */
     private _type?: EventType | undefined;
-    /** The webLink property  */
+    /** The webLink property */
     private _webLink?: string | undefined;
     /**
-     * Gets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
+     * Gets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
      * @returns a boolean
      */
     public get allowNewTimeProposals() {
         return this._allowNewTimeProposals;
     };
     /**
-     * Sets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise, false. Optional. Default is true.
+     * Sets the allowNewTimeProposals property value. true if the meeting organizer allows invitees to propose a new time when responding; otherwise false. Optional. Default is true.
      * @param value Value to set for the allowNewTimeProposals property.
      */
     public set allowNewTimeProposals(value: boolean | undefined) {

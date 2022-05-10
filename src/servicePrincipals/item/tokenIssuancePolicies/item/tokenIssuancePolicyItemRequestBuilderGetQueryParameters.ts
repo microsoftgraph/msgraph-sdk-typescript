@@ -1,9 +1,9 @@
 
-/** The tokenIssuancePolicies assigned to this service principal.  */
+/** The tokenIssuancePolicies assigned to this service principal. Supports $expand. */
 export class TokenIssuancePolicyItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -1,9 +1,9 @@
 
-/** The list of assignments for the device configuration profile.  */
+/** The list of assignments for the device configuration profile. */
 export class DeviceConfigurationAssignmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.
