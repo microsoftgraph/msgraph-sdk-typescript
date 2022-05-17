@@ -1,11 +1,11 @@
 import {ClearPresenceRequestBody} from './clearPresenceRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the clearPresence method.  */
+/** Provides operations to call the clearPresence method. */
 export class ClearPresenceRequestBodyImpl implements AdditionalDataHolder, ClearPresenceRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The sessionId property  */
+    /** The sessionId property */
     sessionId?: string | undefined;
     /**
      * Instantiates a new clearPresenceRequestBody and sets the default values.

@@ -4,23 +4,23 @@ import {PrintCertificateSigningRequest} from '../../../models/printCertificateSi
 import {CreateRequestBody} from './createRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the create method.  */
+/** Provides operations to call the create method. */
 export class CreateRequestBodyImpl implements AdditionalDataHolder, CreateRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The certificateSigningRequest property  */
+    /** The certificateSigningRequest property */
     certificateSigningRequest?: PrintCertificateSigningRequest | undefined;
-    /** The connectorId property  */
+    /** The connectorId property */
     connectorId?: string | undefined;
-    /** The displayName property  */
+    /** The displayName property */
     displayName?: string | undefined;
-    /** The hasPhysicalDevice property  */
+    /** The hasPhysicalDevice property */
     hasPhysicalDevice?: boolean | undefined;
-    /** The manufacturer property  */
+    /** The manufacturer property */
     manufacturer?: string | undefined;
-    /** The model property  */
+    /** The model property */
     model?: string | undefined;
-    /** The physicalDeviceId property  */
+    /** The physicalDeviceId property */
     physicalDeviceId?: string | undefined;
     /**
      * Instantiates a new createRequestBody and sets the default values.

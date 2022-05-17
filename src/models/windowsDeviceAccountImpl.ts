@@ -2,9 +2,9 @@ import {WindowsDeviceAccount} from './windowsDeviceAccount';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsDeviceAccountImpl implements AdditionalDataHolder, Parsable, WindowsDeviceAccount {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Not yet documented  */
+    /** Not yet documented */
     password?: string | undefined;
     /**
      * Instantiates a new windowsDeviceAccount and sets the default values.

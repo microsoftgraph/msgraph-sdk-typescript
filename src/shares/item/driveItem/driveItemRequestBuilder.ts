@@ -7,17 +7,17 @@ import {ContentRequestBuilder} from './content/contentRequestBuilder';
 import {DriveItemRequestBuilderGetRequestConfiguration} from './driveItemRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity.  */
+/** Provides operations to manage the driveItem property of the microsoft.graph.sharedDriveItem entity. */
 export class DriveItemRequestBuilder {
-    /** The content property  */
+    /** The content property */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new DriveItemRequestBuilder and sets the default values.

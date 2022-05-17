@@ -11,27 +11,27 @@ import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceUpdateMessageImpl extends ServiceAnnouncementBaseImpl implements Parsable, ServiceUpdateMessage {
-    /** The expected deadline of the action for the message.  */
+    /** The expected deadline of the action for the message. */
     actionRequiredByDateTime?: Date | undefined;
-    /** A collection of serviceAnnouncementAttachments.  */
+    /** A collection of serviceAnnouncementAttachments. */
     attachments?: ServiceAnnouncementAttachment[] | undefined;
-    /** The zip file of all attachments for a message.  */
+    /** The zip file of all attachments for a message. */
     attachmentsArchive?: string | undefined;
-    /** The body property  */
+    /** The body property */
     body?: ItemBody | undefined;
-    /** The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue.  */
+    /** The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue. */
     category?: ServiceUpdateCategory | undefined;
-    /** Indicates whether the message has any attachment.  */
+    /** Indicates whether the message has any attachment. */
     hasAttachments?: boolean | undefined;
-    /** Indicates whether the message describes a major update for the service.  */
+    /** Indicates whether the message describes a major update for the service. */
     isMajorChange?: boolean | undefined;
-    /** The affected services by the service message.  */
+    /** The affected services by the service message. */
     services?: string[] | undefined;
-    /** The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue.  */
+    /** The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue. */
     severity?: ServiceUpdateSeverity | undefined;
-    /** A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on.  */
+    /** A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on. */
     tags?: string[] | undefined;
-    /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions.  */
+    /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions. */
     viewPoint?: ServiceUpdateMessageViewpoint | undefined;
     /**
      * Instantiates a new serviceUpdateMessage and sets the default values.

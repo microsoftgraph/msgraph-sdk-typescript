@@ -7,11 +7,11 @@ import {PublicationFacet} from './publicationFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BaseItemVersionImpl extends EntityImpl implements BaseItemVersion, Parsable {
-    /** Identity of the user which last modified the version. Read-only.  */
+    /** Identity of the user which last modified the version. Read-only. */
     lastModifiedBy?: IdentitySet | undefined;
-    /** Date and time the version was last modified. Read-only.  */
+    /** Date and time the version was last modified. Read-only. */
     lastModifiedDateTime?: Date | undefined;
-    /** Indicates the publication status of this particular version. Read-only.  */
+    /** Indicates the publication status of this particular version. Read-only. */
     publication?: PublicationFacet | undefined;
     /**
      * Instantiates a new baseItemVersion and sets the default values.

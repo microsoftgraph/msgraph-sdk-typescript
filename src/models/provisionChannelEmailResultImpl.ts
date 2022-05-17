@@ -2,9 +2,9 @@ import {ProvisionChannelEmailResult} from './provisionChannelEmailResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisionChannelEmailResultImpl implements AdditionalDataHolder, Parsable, ProvisionChannelEmailResult {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Represents the provisioned email address.  */
+    /** Represents the provisioned email address. */
     email?: string | undefined;
     /**
      * Instantiates a new provisionChannelEmailResult and sets the default values.

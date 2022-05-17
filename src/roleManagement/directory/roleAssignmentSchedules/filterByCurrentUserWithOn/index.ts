@@ -1,3 +1,3 @@
 export * from './filterByCurrentUserWithOnResponseImpl'
-export * from './filterByCurrentUserWithOnResponse'
 export * from './filterByCurrentUserWithOnRequestBuilderGetRequestConfiguration'
+export * from './filterByCurrentUserWithOnResponse'

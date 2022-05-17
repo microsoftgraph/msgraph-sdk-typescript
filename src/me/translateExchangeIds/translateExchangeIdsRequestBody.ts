@@ -1,12 +1,12 @@
 import {ExchangeIdFormat} from '../../models/exchangeIdFormat';
 
 export interface TranslateExchangeIdsRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The InputIds property  */
+    /** The InputIds property */
     inputIds?: string[] | undefined;
-    /** The SourceIdType property  */
+    /** The SourceIdType property */
     sourceIdType?: ExchangeIdFormat | undefined;
-    /** The TargetIdType property  */
+    /** The TargetIdType property */
     targetIdType?: ExchangeIdFormat | undefined;
 }

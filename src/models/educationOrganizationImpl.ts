@@ -4,13 +4,13 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationOrganizationImpl extends EntityImpl implements EducationOrganization, Parsable {
-    /** Organization description.  */
+    /** Organization description. */
     description?: string | undefined;
-    /** Organization display name.  */
+    /** Organization display name. */
     displayName?: string | undefined;
-    /** Where this user was created from. Possible values are: sis, lms, or manual.  */
+    /** Where this user was created from. Possible values are: sis, lms, or manual. */
     externalSource?: EducationExternalSource | undefined;
-    /** The name of the external source this resources was generated from.  */
+    /** The name of the external source this resources was generated from. */
     externalSourceDetail?: string | undefined;
     /**
      * Instantiates a new educationOrganization and sets the default values.

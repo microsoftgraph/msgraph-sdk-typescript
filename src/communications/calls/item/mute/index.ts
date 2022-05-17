@@ -1,3 +1,3 @@
 export * from './muteRequestBodyImpl'
-export * from './muteRequestBuilderPostRequestConfiguration'
 export * from './muteRequestBody'
+export * from './muteRequestBuilderPostRequestConfiguration'

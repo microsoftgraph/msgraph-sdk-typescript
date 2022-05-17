@@ -4,13 +4,13 @@ import {InvitationParticipantInfo} from '../../../../../models/invitationPartici
 import {InviteRequestBody} from './inviteRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the invite method.  */
+/** Provides operations to call the invite method. */
 export class InviteRequestBodyImpl implements AdditionalDataHolder, InviteRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The clientContext property  */
+    /** The clientContext property */
     clientContext?: string | undefined;
-    /** The participants property  */
+    /** The participants property */
     participants?: InvitationParticipantInfo[] | undefined;
     /**
      * Instantiates a new inviteRequestBody and sets the default values.

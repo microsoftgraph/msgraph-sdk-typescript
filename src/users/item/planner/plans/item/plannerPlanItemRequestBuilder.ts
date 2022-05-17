@@ -13,25 +13,25 @@ import {PlannerTaskItemRequestBuilder} from './tasks/item/plannerTaskItemRequest
 import {TasksRequestBuilder} from './tasks/tasksRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the plans property of the microsoft.graph.plannerUser entity.  */
+/** Provides operations to manage the plans property of the microsoft.graph.plannerUser entity. */
 export class PlannerPlanItemRequestBuilder {
-    /** The buckets property  */
+    /** The buckets property */
     public get buckets(): BucketsRequestBuilder {
         return new BucketsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The details property  */
+    /** The details property */
     public get details(): DetailsRequestBuilder {
         return new DetailsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The tasks property  */
+    /** The tasks property */
     public get tasks(): TasksRequestBuilder {
         return new TasksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.users.item.planner.plans.item.buckets.item collection
@@ -147,7 +147,7 @@ export class PlannerPlanItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PlannerPlanImpl | undefined, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PlannerPlan | undefined, requestConfiguration?: PlannerPlanItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

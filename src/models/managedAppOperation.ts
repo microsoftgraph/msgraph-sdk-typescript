@@ -1,12 +1,12 @@
 import {Entity} from './entity';
 
 export interface ManagedAppOperation extends Entity{
-    /** The operation name.  */
+    /** The operation name. */
     displayName?: string | undefined;
-    /** The last time the app operation was modified.  */
+    /** The last time the app operation was modified. */
     lastModifiedDateTime?: Date | undefined;
-    /** The current state of the operation  */
+    /** The current state of the operation */
     state?: string | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
 }

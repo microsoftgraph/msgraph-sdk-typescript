@@ -13,21 +13,21 @@ import {SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration} from '.
 import {TeamRequestBuilder} from './team/teamRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity.  */
+/** Provides operations to manage the subjectRightsRequests property of the microsoft.graph.privacy entity. */
 export class SubjectRightsRequestItemRequestBuilder {
-    /** The notes property  */
+    /** The notes property */
     public get notes(): NotesRequestBuilder {
         return new NotesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The team property  */
+    /** The team property */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new SubjectRightsRequestItemRequestBuilder and sets the default values.
@@ -157,7 +157,7 @@ export class SubjectRightsRequestItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: SubjectRightsRequestImpl | undefined, requestConfiguration?: SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SubjectRightsRequest | undefined, requestConfiguration?: SubjectRightsRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

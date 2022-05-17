@@ -5,11 +5,11 @@ import {PrintTaskDefinitionCollectionResponse} from './printTaskDefinitionCollec
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskDefinitionCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintTaskDefinitionCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: PrintTaskDefinition[] | undefined;
     /**
      * Instantiates a new PrintTaskDefinitionCollectionResponse and sets the default values.

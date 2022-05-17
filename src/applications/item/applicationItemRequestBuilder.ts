@@ -31,85 +31,85 @@ import {TokenLifetimePoliciesRequestBuilder} from './tokenLifetimePolicies/token
 import {UnsetVerifiedPublisherRequestBuilder} from './unsetVerifiedPublisher/unsetVerifiedPublisherRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of application entities.  */
+/** Provides operations to manage the collection of application entities. */
 export class ApplicationItemRequestBuilder {
-    /** The addKey property  */
+    /** The addKey property */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addPassword property  */
+    /** The addPassword property */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property  */
+    /** The checkMemberGroups property */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property  */
+    /** The checkMemberObjects property */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdOnBehalfOf property  */
+    /** The createdOnBehalfOf property */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensionProperties property  */
+    /** The extensionProperties property */
     public get extensionProperties(): ExtensionPropertiesRequestBuilder {
         return new ExtensionPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property  */
+    /** The getMemberGroups property */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property  */
+    /** The getMemberObjects property */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The homeRealmDiscoveryPolicies property  */
+    /** The homeRealmDiscoveryPolicies property */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The logo property  */
+    /** The logo property */
     public get logo(): LogoRequestBuilder {
         return new LogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The owners property  */
+    /** The owners property */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The removeKey property  */
+    /** The removeKey property */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removePassword property  */
+    /** The removePassword property */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property  */
+    /** The restore property */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The setVerifiedPublisher property  */
+    /** The setVerifiedPublisher property */
     public get setVerifiedPublisher(): SetVerifiedPublisherRequestBuilder {
         return new SetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenIssuancePolicies property  */
+    /** The tokenIssuancePolicies property */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenLifetimePolicies property  */
+    /** The tokenLifetimePolicies property */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unsetVerifiedPublisher property  */
+    /** The unsetVerifiedPublisher property */
     public get unsetVerifiedPublisher(): UnsetVerifiedPublisherRequestBuilder {
         return new UnsetVerifiedPublisherRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ApplicationItemRequestBuilder and sets the default values.
@@ -125,7 +125,7 @@ export class ApplicationItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from applications
+     * Delete application
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -141,7 +141,7 @@ export class ApplicationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from applications by key
+     * Get application
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -158,7 +158,7 @@ export class ApplicationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in applications
+     * Configure required Azure AD Graph permissions for an app registration
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -178,7 +178,7 @@ export class ApplicationItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete entity from applications
+     * Delete application
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -204,7 +204,7 @@ export class ApplicationItemRequestBuilder {
         return new ExtensionPropertyItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from applications by key
+     * Get application
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Application
@@ -242,12 +242,12 @@ export class ApplicationItemRequestBuilder {
         return new DirectoryObjectItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in applications
+     * Configure required Azure AD Graph permissions for an app registration
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ApplicationImpl | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Application | undefined, requestConfiguration?: ApplicationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

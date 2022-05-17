@@ -7,9 +7,9 @@ import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartPointImpl extends EntityImpl implements Parsable, WorkbookChartPoint {
-    /** Encapsulates the format properties chart point. Read-only.  */
+    /** Encapsulates the format properties chart point. Read-only. */
     format?: WorkbookChartPointFormat | undefined;
-    /** Returns the value of a chart point. Read-only.  */
+    /** Returns the value of a chart point. Read-only. */
     value?: Json | undefined;
     /**
      * Instantiates a new workbookChartPoint and sets the default values.

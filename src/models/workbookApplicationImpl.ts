@@ -3,7 +3,7 @@ import {WorkbookApplication} from './workbookApplication';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookApplicationImpl extends EntityImpl implements Parsable, WorkbookApplication {
-    /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual.  */
+    /** Returns the calculation mode used in the workbook. Possible values are: Automatic, AutomaticExceptTables, Manual. */
     calculationMode?: string | undefined;
     /**
      * Instantiates a new workbookApplication and sets the default values.

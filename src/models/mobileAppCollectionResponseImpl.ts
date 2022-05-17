@@ -5,11 +5,11 @@ import {MobileAppCollectionResponse} from './mobileAppCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileAppCollectionResponseImpl implements AdditionalDataHolder, MobileAppCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: MobileApp[] | undefined;
     /**
      * Instantiates a new MobileAppCollectionResponse and sets the default values.

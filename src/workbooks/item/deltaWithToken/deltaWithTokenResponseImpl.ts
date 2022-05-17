@@ -4,11 +4,11 @@ import {DriveItem} from '../../../models/driveItem';
 import {DeltaWithTokenResponse} from './deltaWithTokenResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the delta method.  */
+/** Provides operations to call the delta method. */
 export class DeltaWithTokenResponseImpl implements AdditionalDataHolder, DeltaWithTokenResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: DriveItem[] | undefined;
     /**
      * Instantiates a new deltaWithTokenResponse and sets the default values.

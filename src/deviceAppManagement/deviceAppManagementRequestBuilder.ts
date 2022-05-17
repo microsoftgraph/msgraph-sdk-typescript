@@ -36,71 +36,71 @@ import {WindowsInformationProtectionPolicyItemRequestBuilder} from './windowsInf
 import {WindowsInformationProtectionPoliciesRequestBuilder} from './windowsInformationProtectionPolicies/windowsInformationProtectionPoliciesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the deviceAppManagement singleton.  */
+/** Provides operations to manage the deviceAppManagement singleton. */
 export class DeviceAppManagementRequestBuilder {
-    /** The androidManagedAppProtections property  */
+    /** The androidManagedAppProtections property */
     public get androidManagedAppProtections(): AndroidManagedAppProtectionsRequestBuilder {
         return new AndroidManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The defaultManagedAppProtections property  */
+    /** The defaultManagedAppProtections property */
     public get defaultManagedAppProtections(): DefaultManagedAppProtectionsRequestBuilder {
         return new DefaultManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The iosManagedAppProtections property  */
+    /** The iosManagedAppProtections property */
     public get iosManagedAppProtections(): IosManagedAppProtectionsRequestBuilder {
         return new IosManagedAppProtectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedAppPolicies property  */
+    /** The managedAppPolicies property */
     public get managedAppPolicies(): ManagedAppPoliciesRequestBuilder {
         return new ManagedAppPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedAppRegistrations property  */
+    /** The managedAppRegistrations property */
     public get managedAppRegistrations(): ManagedAppRegistrationsRequestBuilder {
         return new ManagedAppRegistrationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedAppStatuses property  */
+    /** The managedAppStatuses property */
     public get managedAppStatuses(): ManagedAppStatusesRequestBuilder {
         return new ManagedAppStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The managedEBooks property  */
+    /** The managedEBooks property */
     public get managedEBooks(): ManagedEBooksRequestBuilder {
         return new ManagedEBooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mdmWindowsInformationProtectionPolicies property  */
+    /** The mdmWindowsInformationProtectionPolicies property */
     public get mdmWindowsInformationProtectionPolicies(): MdmWindowsInformationProtectionPoliciesRequestBuilder {
         return new MdmWindowsInformationProtectionPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mobileAppCategories property  */
+    /** The mobileAppCategories property */
     public get mobileAppCategories(): MobileAppCategoriesRequestBuilder {
         return new MobileAppCategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mobileAppConfigurations property  */
+    /** The mobileAppConfigurations property */
     public get mobileAppConfigurations(): MobileAppConfigurationsRequestBuilder {
         return new MobileAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mobileApps property  */
+    /** The mobileApps property */
     public get mobileApps(): MobileAppsRequestBuilder {
         return new MobileAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The syncMicrosoftStoreForBusinessApps property  */
+    /** The syncMicrosoftStoreForBusinessApps property */
     public get syncMicrosoftStoreForBusinessApps(): SyncMicrosoftStoreForBusinessAppsRequestBuilder {
         return new SyncMicrosoftStoreForBusinessAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The targetedManagedAppConfigurations property  */
+    /** The targetedManagedAppConfigurations property */
     public get targetedManagedAppConfigurations(): TargetedManagedAppConfigurationsRequestBuilder {
         return new TargetedManagedAppConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The vppTokens property  */
+    /** The vppTokens property */
     public get vppTokens(): VppTokensRequestBuilder {
         return new VppTokensRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The windowsInformationProtectionPolicies property  */
+    /** The windowsInformationProtectionPolicies property */
     public get windowsInformationProtectionPolicies(): WindowsInformationProtectionPoliciesRequestBuilder {
         return new WindowsInformationProtectionPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -297,7 +297,7 @@ export class DeviceAppManagementRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DeviceAppManagementImpl | undefined, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceAppManagement | undefined, requestConfiguration?: DeviceAppManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

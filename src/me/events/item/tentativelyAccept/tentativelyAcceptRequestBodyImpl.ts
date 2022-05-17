@@ -4,15 +4,15 @@ import {TimeSlot} from '../../../../models/timeSlot';
 import {TentativelyAcceptRequestBody} from './tentativelyAcceptRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the tentativelyAccept method.  */
+/** Provides operations to call the tentativelyAccept method. */
 export class TentativelyAcceptRequestBodyImpl implements AdditionalDataHolder, Parsable, TentativelyAcceptRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The Comment property  */
+    /** The Comment property */
     comment?: string | undefined;
-    /** The ProposedNewTime property  */
+    /** The ProposedNewTime property */
     proposedNewTime?: TimeSlot | undefined;
-    /** The SendResponse property  */
+    /** The SendResponse property */
     sendResponse?: boolean | undefined;
     /**
      * Instantiates a new tentativelyAcceptRequestBody and sets the default values.

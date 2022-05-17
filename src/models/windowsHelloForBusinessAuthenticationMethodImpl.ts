@@ -6,13 +6,13 @@ import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsHelloForBusinessAuthenticationMethodImpl extends AuthenticationMethodImpl implements Parsable, WindowsHelloForBusinessAuthenticationMethod {
-    /** The date and time that this Windows Hello for Business key was registered.  */
+    /** The date and time that this Windows Hello for Business key was registered. */
     createdDateTime?: Date | undefined;
-    /** The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user's Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device.  */
+    /** The registered device on which this Windows Hello for Business key resides. Supports $expand. When you get a user's Windows Hello for Business registration information, this property is returned only on a single GET and when you specify ?$expand. For example, GET /users/admin@contoso.com/authentication/windowsHelloForBusinessMethods/_jpuR-TGZtk6aQCLF3BQjA2?$expand=device. */
     device?: Device | undefined;
-    /** The name of the device on which Windows Hello for Business is registered  */
+    /** The name of the device on which Windows Hello for Business is registered */
     displayName?: string | undefined;
-    /** Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown.  */
+    /** Key strength of this Windows Hello for Business key. Possible values are: normal, weak, unknown. */
     keyStrength?: AuthenticationMethodKeyStrength | undefined;
     /**
      * Instantiates a new windowsHelloForBusinessAuthenticationMethod and sets the default values.

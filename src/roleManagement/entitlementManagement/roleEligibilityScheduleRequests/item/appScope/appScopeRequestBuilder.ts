@@ -6,13 +6,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {AppScopeRequestBuilderGetRequestConfiguration} from './appScopeRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity.  */
+/** Provides operations to manage the appScope property of the microsoft.graph.unifiedRoleEligibilityScheduleRequest entity. */
 export class AppScopeRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AppScopeRequestBuilder and sets the default values.

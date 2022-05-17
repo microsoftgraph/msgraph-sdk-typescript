@@ -11,21 +11,21 @@ import {IosManagedAppProtectionItemRequestBuilderGetRequestConfiguration} from '
 import {IosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration} from './iosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity.  */
+/** Provides operations to manage the iosManagedAppProtections property of the microsoft.graph.deviceAppManagement entity. */
 export class IosManagedAppProtectionItemRequestBuilder {
-    /** The apps property  */
+    /** The apps property */
     public get apps(): AppsRequestBuilder {
         return new AppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deploymentSummary property  */
+    /** The deploymentSummary property */
     public get deploymentSummary(): DeploymentSummaryRequestBuilder {
         return new DeploymentSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.deviceAppManagement.iosManagedAppProtections.item.apps.item collection
@@ -141,7 +141,7 @@ export class IosManagedAppProtectionItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: IosManagedAppProtectionImpl | undefined, requestConfiguration?: IosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IosManagedAppProtection | undefined, requestConfiguration?: IosManagedAppProtectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

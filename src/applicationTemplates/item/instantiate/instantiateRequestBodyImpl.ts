@@ -1,11 +1,11 @@
 import {InstantiateRequestBody} from './instantiateRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the instantiate method.  */
+/** Provides operations to call the instantiate method. */
 export class InstantiateRequestBodyImpl implements AdditionalDataHolder, InstantiateRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The displayName property  */
+    /** The displayName property */
     displayName?: string | undefined;
     /**
      * Instantiates a new instantiateRequestBody and sets the default values.

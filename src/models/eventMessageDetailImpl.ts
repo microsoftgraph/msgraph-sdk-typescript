@@ -2,7 +2,7 @@ import {EventMessageDetail} from './eventMessageDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EventMessageDetailImpl implements AdditionalDataHolder, EventMessageDetail, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new eventMessageDetail and sets the default values.

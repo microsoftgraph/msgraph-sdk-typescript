@@ -1,13 +1,13 @@
 import {ResourceAction} from './resourceAction';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Set of allowed and not allowed actions for a resource.  */
+/** Set of allowed and not allowed actions for a resource. */
 export class ResourceActionImpl implements AdditionalDataHolder, Parsable, ResourceAction {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Allowed Actions  */
+    /** Allowed Actions */
     allowedResourceActions?: string[] | undefined;
-    /** Not Allowed Actions.  */
+    /** Not Allowed Actions. */
     notAllowedResourceActions?: string[] | undefined;
     /**
      * Instantiates a new resourceAction and sets the default values.

@@ -1,15 +1,15 @@
 import {RgbColor} from './rgbColor';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Color in RGB.  */
+/** Color in RGB. */
 export class RgbColorImpl implements AdditionalDataHolder, Parsable, RgbColor {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Blue value  */
+    /** Blue value */
     b?: number | undefined;
-    /** Green value  */
+    /** Green value */
     g?: number | undefined;
-    /** Red value  */
+    /** Red value */
     r?: number | undefined;
     /**
      * Instantiates a new rgbColor and sets the default values.

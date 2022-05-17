@@ -2,7 +2,7 @@ import {ThumbnailColumn} from './thumbnailColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThumbnailColumnImpl implements AdditionalDataHolder, Parsable, ThumbnailColumn {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new thumbnailColumn and sets the default values.

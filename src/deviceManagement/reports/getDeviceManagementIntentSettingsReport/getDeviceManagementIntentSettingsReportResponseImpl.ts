@@ -1,11 +1,11 @@
 import {GetDeviceManagementIntentSettingsReportResponse} from './getDeviceManagementIntentSettingsReportResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getDeviceManagementIntentSettingsReport method.  */
+/** Provides operations to call the getDeviceManagementIntentSettingsReport method. */
 export class GetDeviceManagementIntentSettingsReportResponseImpl implements AdditionalDataHolder, GetDeviceManagementIntentSettingsReportResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: string | undefined;
     /**
      * Instantiates a new getDeviceManagementIntentSettingsReportResponse and sets the default values.

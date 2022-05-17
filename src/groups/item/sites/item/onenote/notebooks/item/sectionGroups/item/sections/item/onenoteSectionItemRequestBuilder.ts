@@ -14,33 +14,33 @@ import {ParentNotebookRequestBuilder} from './parentNotebook/parentNotebookReque
 import {ParentSectionGroupRequestBuilder} from './parentSectionGroup/parentSectionGroupRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity.  */
+/** Provides operations to manage the sections property of the microsoft.graph.sectionGroup entity. */
 export class OnenoteSectionItemRequestBuilder {
-    /** The copyToNotebook property  */
+    /** The copyToNotebook property */
     public get copyToNotebook(): CopyToNotebookRequestBuilder {
         return new CopyToNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copyToSectionGroup property  */
+    /** The copyToSectionGroup property */
     public get copyToSectionGroup(): CopyToSectionGroupRequestBuilder {
         return new CopyToSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The pages property  */
+    /** The pages property */
     public get pages(): PagesRequestBuilder {
         return new PagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The parentNotebook property  */
+    /** The parentNotebook property */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The parentSectionGroup property  */
+    /** The parentSectionGroup property */
     public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
         return new ParentSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new OnenoteSectionItemRequestBuilder and sets the default values.
@@ -156,7 +156,7 @@ export class OnenoteSectionItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: OnenoteSectionImpl | undefined, requestConfiguration?: OnenoteSectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OnenoteSection | undefined, requestConfiguration?: OnenoteSectionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

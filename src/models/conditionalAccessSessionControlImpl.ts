@@ -2,9 +2,9 @@ import {ConditionalAccessSessionControl} from './conditionalAccessSessionControl
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessSessionControlImpl implements AdditionalDataHolder, ConditionalAccessSessionControl, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Specifies whether the session control is enabled.  */
+    /** Specifies whether the session control is enabled. */
     isEnabled?: boolean | undefined;
     /**
      * Instantiates a new conditionalAccessSessionControl and sets the default values.

@@ -5,7 +5,7 @@ import {ProvisioningSystem} from './provisioningSystem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningSystemImpl extends IdentityImpl implements Parsable, ProvisioningSystem {
-    /** Details of the system.  */
+    /** Details of the system. */
     details?: DetailsInfo | undefined;
     /**
      * Instantiates a new provisioningSystem and sets the default values.

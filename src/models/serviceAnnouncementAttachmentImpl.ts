@@ -3,15 +3,15 @@ import {ServiceAnnouncementAttachment} from './serviceAnnouncementAttachment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceAnnouncementAttachmentImpl extends EntityImpl implements Parsable, ServiceAnnouncementAttachment {
-    /** The attachment content.  */
+    /** The attachment content. */
     content?: string | undefined;
-    /** The contentType property  */
+    /** The contentType property */
     contentType?: string | undefined;
-    /** The lastModifiedDateTime property  */
+    /** The lastModifiedDateTime property */
     lastModifiedDateTime?: Date | undefined;
-    /** The name property  */
+    /** The name property */
     name?: string | undefined;
-    /** The size property  */
+    /** The size property */
     size?: number | undefined;
     /**
      * Instantiates a new serviceAnnouncementAttachment and sets the default values.

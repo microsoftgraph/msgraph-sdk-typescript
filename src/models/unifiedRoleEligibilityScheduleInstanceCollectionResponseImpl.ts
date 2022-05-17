@@ -5,11 +5,11 @@ import {UnifiedRoleEligibilityScheduleInstanceCollectionResponse} from './unifie
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleEligibilityScheduleInstanceCollectionResponseImpl implements AdditionalDataHolder, Parsable, UnifiedRoleEligibilityScheduleInstanceCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: UnifiedRoleEligibilityScheduleInstance[] | undefined;
     /**
      * Instantiates a new UnifiedRoleEligibilityScheduleInstanceCollectionResponse and sets the default values.

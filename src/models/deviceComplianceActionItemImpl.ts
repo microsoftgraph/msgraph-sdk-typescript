@@ -4,13 +4,13 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceActionItemImpl extends EntityImpl implements DeviceComplianceActionItem, Parsable {
-    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock.  */
+    /** What action to take. Possible values are: noAction, notification, block, retire, wipe, removeResourceAccessProfiles, pushNotification, remoteLock. */
     actionType?: DeviceComplianceActionType | undefined;
-    /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760  */
+    /** Number of hours to wait till the action will be enforced. Valid values 0 to 8760 */
     gracePeriodHours?: number | undefined;
-    /** A list of group IDs to speicify who to CC this notification message to.  */
+    /** A list of group IDs to speicify who to CC this notification message to. */
     notificationMessageCCList?: string[] | undefined;
-    /** What notification Message template to use  */
+    /** What notification Message template to use */
     notificationTemplateId?: string | undefined;
     /**
      * Instantiates a new deviceComplianceActionItem and sets the default values.

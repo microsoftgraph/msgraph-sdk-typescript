@@ -5,9 +5,9 @@ import {PrintOperationStatus} from './printOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintOperationImpl extends EntityImpl implements Parsable, PrintOperation {
-    /** The DateTimeOffset when the operation was created. Read-only.  */
+    /** The DateTimeOffset when the operation was created. Read-only. */
     createdDateTime?: Date | undefined;
-    /** The status property  */
+    /** The status property */
     status?: PrintOperationStatus | undefined;
     /**
      * Instantiates a new printOperation and sets the default values.

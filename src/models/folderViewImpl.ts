@@ -2,13 +2,13 @@ import {FolderView} from './folderView';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FolderViewImpl implements AdditionalDataHolder, FolderView, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The method by which the folder should be sorted.  */
+    /** The method by which the folder should be sorted. */
     sortBy?: string | undefined;
-    /** If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending.  */
+    /** If true, indicates that items should be sorted in descending order. Otherwise, items should be sorted ascending. */
     sortOrder?: string | undefined;
-    /** The type of view that should be used to represent the folder.  */
+    /** The type of view that should be used to represent the folder. */
     viewType?: string | undefined;
     /**
      * Instantiates a new folderView and sets the default values.

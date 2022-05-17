@@ -10,17 +10,17 @@ import {BitlockerRecoveryKeyItemRequestBuilder} from './recoveryKeys/item/bitloc
 import {RecoveryKeysRequestBuilder} from './recoveryKeys/recoveryKeysRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity.  */
+/** Provides operations to manage the bitlocker property of the microsoft.graph.informationProtection entity. */
 export class BitlockerRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The recoveryKeys property  */
+    /** The recoveryKeys property */
     public get recoveryKeys(): RecoveryKeysRequestBuilder {
         return new RecoveryKeysRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new BitlockerRequestBuilder and sets the default values.
@@ -125,7 +125,7 @@ export class BitlockerRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: BitlockerImpl | undefined, requestConfiguration?: BitlockerRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Bitlocker | undefined, requestConfiguration?: BitlockerRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

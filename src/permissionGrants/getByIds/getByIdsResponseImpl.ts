@@ -4,11 +4,11 @@ import {DirectoryObject} from '../../models/directoryObject';
 import {GetByIdsResponse} from './getByIdsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getByIds method.  */
+/** Provides operations to call the getByIds method. */
 export class GetByIdsResponseImpl implements AdditionalDataHolder, GetByIdsResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: DirectoryObject[] | undefined;
     /**
      * Instantiates a new getByIdsResponse and sets the default values.

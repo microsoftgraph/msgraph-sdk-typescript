@@ -5,11 +5,11 @@ import {OpenShiftChangeRequestCollectionResponse} from './openShiftChangeRequest
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequestCollectionResponseImpl implements AdditionalDataHolder, OpenShiftChangeRequestCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: OpenShiftChangeRequest[] | undefined;
     /**
      * Instantiates a new OpenShiftChangeRequestCollectionResponse and sets the default values.

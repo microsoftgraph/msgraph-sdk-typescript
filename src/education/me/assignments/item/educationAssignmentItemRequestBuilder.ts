@@ -17,37 +17,37 @@ import {EducationSubmissionItemRequestBuilder} from './submissions/item/educatio
 import {SubmissionsRequestBuilder} from './submissions/submissionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the assignments property of the microsoft.graph.educationUser entity.  */
+/** Provides operations to manage the assignments property of the microsoft.graph.educationUser entity. */
 export class EducationAssignmentItemRequestBuilder {
-    /** The categories property  */
+    /** The categories property */
     public get categories(): CategoriesRequestBuilder {
         return new CategoriesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The publish property  */
+    /** The publish property */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The resources property  */
+    /** The resources property */
     public get resources(): ResourcesRequestBuilder {
         return new ResourcesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The rubric property  */
+    /** The rubric property */
     public get rubric(): RubricRequestBuilder {
         return new RubricRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The setUpResourcesFolder property  */
+    /** The setUpResourcesFolder property */
     public get setUpResourcesFolder(): SetUpResourcesFolderRequestBuilder {
         return new SetUpResourcesFolderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The submissions property  */
+    /** The submissions property */
     public get submissions(): SubmissionsRequestBuilder {
         return new SubmissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.education.me.assignments.item.categories.item collection
@@ -163,7 +163,7 @@ export class EducationAssignmentItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EducationAssignmentImpl | undefined, requestConfiguration?: EducationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: EducationAssignment | undefined, requestConfiguration?: EducationAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

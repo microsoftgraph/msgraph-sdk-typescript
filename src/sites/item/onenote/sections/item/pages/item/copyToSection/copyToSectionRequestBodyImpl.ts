@@ -1,17 +1,17 @@
 import {CopyToSectionRequestBody} from './copyToSectionRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the copyToSection method.  */
+/** Provides operations to call the copyToSection method. */
 export class CopyToSectionRequestBodyImpl implements AdditionalDataHolder, CopyToSectionRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The groupId property  */
+    /** The groupId property */
     groupId?: string | undefined;
-    /** The id property  */
+    /** The id property */
     id?: string | undefined;
-    /** The siteCollectionId property  */
+    /** The siteCollectionId property */
     siteCollectionId?: string | undefined;
-    /** The siteId property  */
+    /** The siteId property */
     siteId?: string | undefined;
     /**
      * Instantiates a new copyToSectionRequestBody and sets the default values.

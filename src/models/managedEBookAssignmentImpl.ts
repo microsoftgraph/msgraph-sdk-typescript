@@ -6,9 +6,9 @@ import {ManagedEBookAssignment} from './managedEBookAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedEBookAssignmentImpl extends EntityImpl implements ManagedEBookAssignment, Parsable {
-    /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */
+    /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     installIntent?: InstallIntent | undefined;
-    /** The assignment target for eBook.  */
+    /** The assignment target for eBook. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedEBookAssignment and sets the default values.

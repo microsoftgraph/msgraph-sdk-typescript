@@ -1,5 +1,5 @@
 export * from './getScheduleRequestBodyImpl'
 export * from './getScheduleResponseImpl'
+export * from './getScheduleRequestBody'
 export * from './getScheduleResponse'
 export * from './getScheduleRequestBuilderPostRequestConfiguration'
-export * from './getScheduleRequestBody'

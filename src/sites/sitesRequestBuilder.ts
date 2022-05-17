@@ -9,25 +9,25 @@ import {RemoveRequestBuilder} from './remove/removeRequestBuilder';
 import {SitesRequestBuilderGetRequestConfiguration} from './sitesRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of site entities.  */
+/** Provides operations to manage the collection of site entities. */
 export class SitesRequestBuilder {
-    /** The add property  */
+    /** The add property */
     public get add(): AddRequestBuilder {
         return new AddRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The remove property  */
+    /** The remove property */
     public get remove(): RemoveRequestBuilder {
         return new RemoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new SitesRequestBuilder and sets the default values.
@@ -43,7 +43,7 @@ export class SitesRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get entities from sites
+     * Search for sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -60,7 +60,7 @@ export class SitesRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from sites
+     * Search for sites
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SiteCollectionResponse

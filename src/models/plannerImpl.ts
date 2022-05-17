@@ -8,13 +8,13 @@ import {PlannerPlan} from './plannerPlan';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the planner singleton.  */
+/** Provides operations to manage the planner singleton. */
 export class PlannerImpl extends EntityImpl implements Parsable, Planner {
-    /** Read-only. Nullable. Returns a collection of the specified buckets  */
+    /** Read-only. Nullable. Returns a collection of the specified buckets */
     buckets?: PlannerBucket[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified plans  */
+    /** Read-only. Nullable. Returns a collection of the specified plans */
     plans?: PlannerPlan[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified tasks  */
+    /** Read-only. Nullable. Returns a collection of the specified tasks */
     tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new planner and sets the default values.

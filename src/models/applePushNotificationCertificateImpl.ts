@@ -3,17 +3,17 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApplePushNotificationCertificateImpl extends EntityImpl implements ApplePushNotificationCertificate, Parsable {
-    /** Apple Id of the account used to create the MDM push certificate.  */
+    /** Apple Id of the account used to create the MDM push certificate. */
     appleIdentifier?: string | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     certificate?: string | undefined;
-    /** Certificate serial number. This property is read-only.  */
+    /** Certificate serial number. This property is read-only. */
     certificateSerialNumber?: string | undefined;
-    /** The expiration date and time for Apple push notification certificate.  */
+    /** The expiration date and time for Apple push notification certificate. */
     expirationDateTime?: Date | undefined;
-    /** Last modified date and time for Apple push notification certificate.  */
+    /** Last modified date and time for Apple push notification certificate. */
     lastModifiedDateTime?: Date | undefined;
-    /** Topic Id.  */
+    /** Topic Id. */
     topicIdentifier?: string | undefined;
     /**
      * Instantiates a new applePushNotificationCertificate and sets the default values.

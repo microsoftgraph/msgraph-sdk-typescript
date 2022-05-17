@@ -1,5 +1,5 @@
 export * from './getDeviceManagementIntentSettingsReportRequestBodyImpl'
 export * from './getDeviceManagementIntentSettingsReportResponseImpl'
+export * from './getDeviceManagementIntentSettingsReportResponse'
 export * from './getDeviceManagementIntentSettingsReportRequestBuilderPostRequestConfiguration'
 export * from './getDeviceManagementIntentSettingsReportRequestBody'
-export * from './getDeviceManagementIntentSettingsReportResponse'

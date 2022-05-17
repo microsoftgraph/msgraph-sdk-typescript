@@ -1,9 +1,9 @@
 
 export interface KeyValue{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Key.  */
+    /** Key. */
     key?: string | undefined;
-    /** Value.  */
+    /** Value. */
     value?: string | undefined;
 }

@@ -3,13 +3,13 @@ import {WindowsInformationProtectionAppLockerFile} from './windowsInformationPro
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionAppLockerFileImpl extends EntityImpl implements Parsable, WindowsInformationProtectionAppLockerFile {
-    /** The friendly name  */
+    /** The friendly name */
     displayName?: string | undefined;
-    /** File as a byte array  */
+    /** File as a byte array */
     file?: string | undefined;
-    /** SHA256 hash of the file  */
+    /** SHA256 hash of the file */
     fileHash?: string | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionAppLockerFile and sets the default values.

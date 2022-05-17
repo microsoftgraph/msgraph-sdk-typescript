@@ -4,11 +4,11 @@ import {WindowsInformationProtectionAppLearningSummary} from './windowsInformati
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionAppLearningSummaryImpl extends EntityImpl implements Parsable, WindowsInformationProtectionAppLearningSummary {
-    /** Application Name  */
+    /** Application Name */
     applicationName?: string | undefined;
-    /** Application Type. Possible values are: universal, desktop.  */
+    /** Application Type. Possible values are: universal, desktop. */
     applicationType?: ApplicationType | undefined;
-    /** Device Count  */
+    /** Device Count */
     deviceCount?: number | undefined;
     /**
      * Instantiates a new windowsInformationProtectionAppLearningSummary and sets the default values.

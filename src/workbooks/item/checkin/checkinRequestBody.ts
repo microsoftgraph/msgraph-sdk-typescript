@@ -1,9 +1,9 @@
 
 export interface CheckinRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The checkInAs property  */
+    /** The checkInAs property */
     checkInAs?: string | undefined;
-    /** The comment property  */
+    /** The comment property */
     comment?: string | undefined;
 }

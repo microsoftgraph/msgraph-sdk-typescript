@@ -10,11 +10,11 @@ import {Properties} from './properties';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalItemImpl extends EntityImpl implements ExternalItem, Parsable {
-    /** An array of access control entries. Each entry specifies the access granted to a user or group. Required.  */
+    /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
     acl?: Acl[] | undefined;
-    /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.  */
+    /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */
     content?: ExternalItemContent | undefined;
-    /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.  */
+    /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required. */
     properties?: Properties | undefined;
     /**
      * Instantiates a new externalItem and sets the default values.

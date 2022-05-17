@@ -5,11 +5,11 @@ import {ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse} from '.
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceMobileAppConfigurationAssignmentCollectionResponseImpl implements AdditionalDataHolder, ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: ManagedDeviceMobileAppConfigurationAssignment[] | undefined;
     /**
      * Instantiates a new ManagedDeviceMobileAppConfigurationAssignmentCollectionResponse and sets the default values.

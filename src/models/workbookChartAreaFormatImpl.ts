@@ -7,9 +7,9 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAreaFormatImpl extends EntityImpl implements Parsable, WorkbookChartAreaFormat {
-    /** Represents the fill format of an object, which includes background formatting information. Read-only.  */
+    /** Represents the fill format of an object, which includes background formatting information. Read-only. */
     fill?: WorkbookChartFill | undefined;
-    /** Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only.  */
+    /** Represents the font attributes (font name, font size, color, etc.) for the current object. Read-only. */
     font?: WorkbookChartFont | undefined;
     /**
      * Instantiates a new workbookChartAreaFormat and sets the default values.

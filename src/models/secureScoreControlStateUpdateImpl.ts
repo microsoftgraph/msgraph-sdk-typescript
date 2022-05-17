@@ -2,17 +2,17 @@ import {SecureScoreControlStateUpdate} from './secureScoreControlStateUpdate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SecureScoreControlStateUpdateImpl implements AdditionalDataHolder, Parsable, SecureScoreControlStateUpdate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Assigns the control to the user who will take the action.  */
+    /** Assigns the control to the user who will take the action. */
     assignedTo?: string | undefined;
-    /** Provides optional comment about the control.  */
+    /** Provides optional comment about the control. */
     comment?: string | undefined;
-    /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty).  */
+    /** State of the control, which can be modified via a PATCH command (for example, ignored, thirdParty). */
     state?: string | undefined;
-    /** ID of the user who updated tenant state.  */
+    /** ID of the user who updated tenant state. */
     updatedBy?: string | undefined;
-    /** Time at which the control state was updated.  */
+    /** Time at which the control state was updated. */
     updatedDateTime?: Date | undefined;
     /**
      * Instantiates a new secureScoreControlStateUpdate and sets the default values.

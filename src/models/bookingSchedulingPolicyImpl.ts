@@ -1,19 +1,19 @@
 import {BookingSchedulingPolicy} from './bookingSchedulingPolicy';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This type represents the set of policies that dictate how bookings can be created in a Booking Calendar.  */
+/** This type represents the set of policies that dictate how bookings can be created in a Booking Calendar. */
 export class BookingSchedulingPolicyImpl implements AdditionalDataHolder, BookingSchedulingPolicy, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** True if to allow customers to choose a specific person for the booking.  */
+    /** True if to allow customers to choose a specific person for the booking. */
     allowStaffSelection?: boolean | undefined;
-    /** Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format.  */
+    /** Maximum number of days in advance that a booking can be made. It follows the ISO 8601 format. */
     maximumAdvance?: Duration | undefined;
-    /** The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format.  */
+    /** The minimum amount of time before which bookings and cancellations must be made. It follows the ISO 8601 format. */
     minimumLeadTime?: Duration | undefined;
-    /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business.  */
+    /** True to notify the business via email when a booking is created or changed. Use the email address specified in the email property of the bookingBusiness entity for the business. */
     sendConfirmationsToOwner?: boolean | undefined;
-    /** Duration of each time slot, denoted in ISO 8601 format.  */
+    /** Duration of each time slot, denoted in ISO 8601 format. */
     timeSlotInterval?: Duration | undefined;
     /**
      * Instantiates a new bookingSchedulingPolicy and sets the default values.

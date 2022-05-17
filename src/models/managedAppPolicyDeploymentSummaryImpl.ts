@@ -5,15 +5,15 @@ import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploym
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppPolicyDeploymentSummaryImpl extends EntityImpl implements ManagedAppPolicyDeploymentSummary, Parsable {
-    /** Not yet documented  */
+    /** Not yet documented */
     configurationDeployedUserCount?: number | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     configurationDeploymentSummaryPerApp?: ManagedAppPolicyDeploymentSummaryPerApp[] | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     displayName?: string | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     lastRefreshTime?: Date | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
     /**
      * Instantiates a new managedAppPolicyDeploymentSummary and sets the default values.

@@ -5,7 +5,7 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceConfigurationAssignmentImpl extends EntityImpl implements DeviceConfigurationAssignment, Parsable {
-    /** The assignment target for the device configuration.  */
+    /** The assignment target for the device configuration. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new deviceConfigurationAssignment and sets the default values.

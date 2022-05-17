@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationCategoryImpl extends EntityImpl implements EducationCategory, Parsable {
-    /** Unique identifier for the category.  */
+    /** Unique identifier for the category. */
     displayName?: string | undefined;
     /**
      * Instantiates a new educationCategory and sets the default values.

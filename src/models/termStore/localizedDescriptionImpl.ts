@@ -2,11 +2,11 @@ import {LocalizedDescription} from './localizedDescription';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocalizedDescriptionImpl implements AdditionalDataHolder, LocalizedDescription, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The description in the localized language.  */
+    /** The description in the localized language. */
     description?: string | undefined;
-    /** The language tag for the label.  */
+    /** The language tag for the label. */
     languageTag?: string | undefined;
     /**
      * Instantiates a new localizedDescription and sets the default values.

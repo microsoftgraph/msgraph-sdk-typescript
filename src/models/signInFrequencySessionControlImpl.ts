@@ -4,9 +4,9 @@ import {SigninFrequencyType} from './signinFrequencyType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SignInFrequencySessionControlImpl extends ConditionalAccessSessionControlImpl implements Parsable, SignInFrequencySessionControl {
-    /** Possible values are: days, hours.  */
+    /** Possible values are: days, hours. */
     type?: SigninFrequencyType | undefined;
-    /** The number of days or hours.  */
+    /** The number of days or hours. */
     value?: number | undefined;
     /**
      * Instantiates a new signInFrequencySessionControl and sets the default values.

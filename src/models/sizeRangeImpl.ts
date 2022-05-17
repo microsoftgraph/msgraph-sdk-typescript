@@ -2,11 +2,11 @@ import {SizeRange} from './sizeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SizeRangeImpl implements AdditionalDataHolder, Parsable, SizeRange {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.  */
+    /** The maximum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
     maximumSize?: number | undefined;
-    /** The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply.  */
+    /** The minimum size (in kilobytes) that an incoming message must have in order for a condition or exception to apply. */
     minimumSize?: number | undefined;
     /**
      * Instantiates a new sizeRange and sets the default values.

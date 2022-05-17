@@ -1,3 +1,3 @@
 export * from './moveRequestBodyImpl'
-export * from './moveRequestBuilderPostRequestConfiguration'
 export * from './moveRequestBody'
+export * from './moveRequestBuilderPostRequestConfiguration'

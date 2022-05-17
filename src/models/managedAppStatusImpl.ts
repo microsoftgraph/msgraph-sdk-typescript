@@ -3,9 +3,9 @@ import {ManagedAppStatus} from './managedAppStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppStatusImpl extends EntityImpl implements ManagedAppStatus, Parsable {
-    /** Friendly name of the status report.  */
+    /** Friendly name of the status report. */
     displayName?: string | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
     /**
      * Instantiates a new managedAppStatus and sets the default values.

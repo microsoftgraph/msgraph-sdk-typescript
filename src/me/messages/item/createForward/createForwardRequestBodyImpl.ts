@@ -6,15 +6,15 @@ import {Recipient} from '../../../../models/recipient';
 import {CreateForwardRequestBody} from './createForwardRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the createForward method.  */
+/** Provides operations to call the createForward method. */
 export class CreateForwardRequestBodyImpl implements AdditionalDataHolder, CreateForwardRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The Comment property  */
+    /** The Comment property */
     comment?: string | undefined;
-    /** The Message property  */
+    /** The Message property */
     message?: Message | undefined;
-    /** The ToRecipients property  */
+    /** The ToRecipients property */
     toRecipients?: Recipient[] | undefined;
     /**
      * Instantiates a new createForwardRequestBody and sets the default values.

@@ -5,9 +5,9 @@ import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionO
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsable, WorkbookWorksheetProtection {
-    /** Sheet protection options. Read-only.  */
+    /** Sheet protection options. Read-only. */
     options?: WorkbookWorksheetProtectionOptions | undefined;
-    /** Indicates if the worksheet is protected.  Read-only.  */
+    /** Indicates if the worksheet is protected.  Read-only. */
     protected?: boolean | undefined;
     /**
      * Instantiates a new workbookWorksheetProtection and sets the default values.

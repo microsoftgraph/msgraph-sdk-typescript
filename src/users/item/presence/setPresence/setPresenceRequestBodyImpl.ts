@@ -1,17 +1,17 @@
 import {SetPresenceRequestBody} from './setPresenceRequestBody';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the setPresence method.  */
+/** Provides operations to call the setPresence method. */
 export class SetPresenceRequestBodyImpl implements AdditionalDataHolder, Parsable, SetPresenceRequestBody {
-    /** The activity property  */
+    /** The activity property */
     activity?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The availability property  */
+    /** The availability property */
     availability?: string | undefined;
-    /** The expirationDuration property  */
+    /** The expirationDuration property */
     expirationDuration?: Duration | undefined;
-    /** The sessionId property  */
+    /** The sessionId property */
     sessionId?: string | undefined;
     /**
      * Instantiates a new setPresenceRequestBody and sets the default values.

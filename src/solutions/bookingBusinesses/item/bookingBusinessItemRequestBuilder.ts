@@ -22,45 +22,45 @@ import {StaffMembersRequestBuilder} from './staffMembers/staffMembersRequestBuil
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity.  */
+/** Provides operations to manage the bookingBusinesses property of the microsoft.graph.solutionsRoot entity. */
 export class BookingBusinessItemRequestBuilder {
-    /** The appointments property  */
+    /** The appointments property */
     public get appointments(): AppointmentsRequestBuilder {
         return new AppointmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarView property  */
+    /** The calendarView property */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The customers property  */
+    /** The customers property */
     public get customers(): CustomersRequestBuilder {
         return new CustomersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The customQuestions property  */
+    /** The customQuestions property */
     public get customQuestions(): CustomQuestionsRequestBuilder {
         return new CustomQuestionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The publish property  */
+    /** The publish property */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The services property  */
+    /** The services property */
     public get services(): ServicesRequestBuilder {
         return new ServicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The staffMembers property  */
+    /** The staffMembers property */
     public get staffMembers(): StaffMembersRequestBuilder {
         return new StaffMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unpublish property  */
+    /** The unpublish property */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.solutions.bookingBusinesses.item.appointments.item collection
@@ -209,7 +209,7 @@ export class BookingBusinessItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: BookingBusinessImpl | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: BookingBusiness | undefined, requestConfiguration?: BookingBusinessItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

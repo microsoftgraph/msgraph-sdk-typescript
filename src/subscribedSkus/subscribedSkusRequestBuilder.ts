@@ -9,13 +9,13 @@ import {SubscribedSkusRequestBuilderGetRequestConfiguration} from './subscribedS
 import {SubscribedSkusRequestBuilderPostRequestConfiguration} from './subscribedSkusRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of subscribedSku entities.  */
+/** Provides operations to manage the collection of subscribedSku entities. */
 export class SubscribedSkusRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new SubscribedSkusRequestBuilder and sets the default values.
@@ -31,7 +31,7 @@ export class SubscribedSkusRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get entities from subscribedSkus
+     * List subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -68,7 +68,7 @@ export class SubscribedSkusRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from subscribedSkus
+     * List subscribedSkus
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscribedSkuCollectionResponse

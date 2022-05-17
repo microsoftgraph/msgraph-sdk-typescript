@@ -2,11 +2,11 @@ import {DeviceManagementExchangeConnectorSyncType} from '../../../../models/devi
 import {SyncRequestBody} from './syncRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the sync method.  */
+/** Provides operations to call the sync method. */
 export class SyncRequestBodyImpl implements AdditionalDataHolder, Parsable, SyncRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The syncType property  */
+    /** The syncType property */
     syncType?: DeviceManagementExchangeConnectorSyncType | undefined;
     /**
      * Instantiates a new syncRequestBody and sets the default values.

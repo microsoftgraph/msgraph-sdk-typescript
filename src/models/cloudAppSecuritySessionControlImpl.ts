@@ -4,7 +4,7 @@ import {ConditionalAccessSessionControlImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CloudAppSecuritySessionControlImpl extends ConditionalAccessSessionControlImpl implements CloudAppSecuritySessionControl, Parsable {
-    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.  */
+    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
     cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
     /**
      * Instantiates a new cloudAppSecuritySessionControl and sets the default values.

@@ -1,10 +1,10 @@
 import {Recipient} from '../../../../../../../../../models/recipient';
 
 export interface ForwardRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The Comment property  */
+    /** The Comment property */
     comment?: string | undefined;
-    /** The ToRecipients property  */
+    /** The ToRecipients property */
     toRecipients?: Recipient[] | undefined;
 }

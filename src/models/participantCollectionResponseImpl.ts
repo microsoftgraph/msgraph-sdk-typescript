@@ -5,11 +5,11 @@ import {ParticipantCollectionResponse} from './participantCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ParticipantCollectionResponseImpl implements AdditionalDataHolder, Parsable, ParticipantCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: Participant[] | undefined;
     /**
      * Instantiates a new ParticipantCollectionResponse and sets the default values.

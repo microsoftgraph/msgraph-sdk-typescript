@@ -6,9 +6,9 @@ import {ConnectionOperationStatus} from './connectionOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConnectionOperationImpl extends EntityImpl implements ConnectionOperation, Parsable {
-    /** If status is failed, provides more information about the error that caused the failure.  */
+    /** If status is failed, provides more information about the error that caused the failure. */
     error_escaped?: PublicError | undefined;
-    /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed.  */
+    /** Indicates the status of the asynchronous operation. Possible values are: unspecified, inprogress, completed, failed. */
     status?: ConnectionOperationStatus | undefined;
     /**
      * Instantiates a new connectionOperation and sets the default values.

@@ -2,17 +2,17 @@ import {ResourceSpecificPermission} from './resourceSpecificPermission';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceSpecificPermissionImpl implements AdditionalDataHolder, Parsable, ResourceSpecificPermission {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Describes the level of access that the resource-specific permission represents.  */
+    /** Describes the level of access that the resource-specific permission represents. */
     description?: string | undefined;
-    /** The display name for the resource-specific permission.  */
+    /** The display name for the resource-specific permission. */
     displayName?: string | undefined;
-    /** The unique identifier for the resource-specific application permission.  */
+    /** The unique identifier for the resource-specific application permission. */
     id?: string | undefined;
-    /** Indicates whether the permission is enabled.  */
+    /** Indicates whether the permission is enabled. */
     isEnabled?: boolean | undefined;
-    /** The value of the permission.  */
+    /** The value of the permission. */
     value?: string | undefined;
     /**
      * Instantiates a new resourceSpecificPermission and sets the default values.

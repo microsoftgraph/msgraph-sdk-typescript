@@ -2,15 +2,15 @@ import {BookingReminder} from './bookingReminder';
 import {BookingReminderRecipients} from './bookingReminderRecipients';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This type represents when and to whom to send an e-mail reminder.  */
+/** This type represents when and to whom to send an e-mail reminder. */
 export class BookingReminderImpl implements AdditionalDataHolder, BookingReminder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The message in the reminder.  */
+    /** The message in the reminder. */
     message?: string | undefined;
-    /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format.  */
+    /** The amount of time before the start of an appointment that the reminder should be sent. It's denoted in ISO 8601 format. */
     offset?: Duration | undefined;
-    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue.  */
+    /** The persons who should receive the reminder. Possible values are: allAttendees, staff, customer and unknownFutureValue. */
     recipients?: BookingReminderRecipients | undefined;
     /**
      * Instantiates a new bookingReminder and sets the default values.

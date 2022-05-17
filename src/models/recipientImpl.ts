@@ -5,9 +5,9 @@ import {Recipient} from './recipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecipientImpl implements AdditionalDataHolder, Parsable, Recipient {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The recipient's email address.  */
+    /** The recipient's email address. */
     emailAddress?: EmailAddress | undefined;
     /**
      * Instantiates a new recipient and sets the default values.

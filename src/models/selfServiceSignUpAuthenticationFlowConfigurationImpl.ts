@@ -2,9 +2,9 @@ import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSig
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SelfServiceSignUpAuthenticationFlowConfigurationImpl implements AdditionalDataHolder, Parsable, SelfServiceSignUpAuthenticationFlowConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required.  */
+    /** Indicates whether self-service sign-up flow is enabled or disabled. The default value is false. This property is not a key. Required. */
     isEnabled?: boolean | undefined;
     /**
      * Instantiates a new selfServiceSignUpAuthenticationFlowConfiguration and sets the default values.

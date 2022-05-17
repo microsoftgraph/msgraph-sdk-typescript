@@ -1,11 +1,11 @@
 import {CheckMemberGroupsRequestBody} from './checkMemberGroupsRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the checkMemberGroups method.  */
+/** Provides operations to call the checkMemberGroups method. */
 export class CheckMemberGroupsRequestBodyImpl implements AdditionalDataHolder, CheckMemberGroupsRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The groupIds property  */
+    /** The groupIds property */
     groupIds?: string[] | undefined;
     /**
      * Instantiates a new checkMemberGroupsRequestBody and sets the default values.

@@ -5,7 +5,7 @@ import {AppConsentRequestImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppConsentApprovalRouteImpl extends EntityImpl implements AppConsentApprovalRoute, Parsable {
-    /** A collection of userConsentRequest objects for a specific application.  */
+    /** A collection of userConsentRequest objects for a specific application. */
     appConsentRequests?: AppConsentRequest[] | undefined;
     /**
      * Instantiates a new appConsentApprovalRoute and sets the default values.

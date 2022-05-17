@@ -1,11 +1,11 @@
 import {UnmuteRequestBody} from './unmuteRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the unmute method.  */
+/** Provides operations to call the unmute method. */
 export class UnmuteRequestBodyImpl implements AdditionalDataHolder, Parsable, UnmuteRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The clientContext property  */
+    /** The clientContext property */
     clientContext?: string | undefined;
     /**
      * Instantiates a new unmuteRequestBody and sets the default values.

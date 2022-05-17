@@ -1,17 +1,17 @@
 import {BatchRecordDecisionsRequestBody} from './batchRecordDecisionsRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the batchRecordDecisions method.  */
+/** Provides operations to call the batchRecordDecisions method. */
 export class BatchRecordDecisionsRequestBodyImpl implements AdditionalDataHolder, BatchRecordDecisionsRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The decision property  */
+    /** The decision property */
     decision?: string | undefined;
-    /** The justification property  */
+    /** The justification property */
     justification?: string | undefined;
-    /** The principalId property  */
+    /** The principalId property */
     principalId?: string | undefined;
-    /** The resourceId property  */
+    /** The resourceId property */
     resourceId?: string | undefined;
     /**
      * Instantiates a new batchRecordDecisionsRequestBody and sets the default values.

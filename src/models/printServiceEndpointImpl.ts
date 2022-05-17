@@ -3,9 +3,9 @@ import {PrintServiceEndpoint} from './printServiceEndpoint';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintServiceEndpointImpl extends EntityImpl implements Parsable, PrintServiceEndpoint {
-    /** A human-readable display name for the endpoint.  */
+    /** A human-readable display name for the endpoint. */
     displayName?: string | undefined;
-    /** The URI that can be used to access the service.  */
+    /** The URI that can be used to access the service. */
     uri?: string | undefined;
     /**
      * Instantiates a new printServiceEndpoint and sets the default values.

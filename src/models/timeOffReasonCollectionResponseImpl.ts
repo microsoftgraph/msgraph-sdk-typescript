@@ -5,11 +5,11 @@ import {TimeOffReasonCollectionResponse} from './timeOffReasonCollectionResponse
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffReasonCollectionResponseImpl implements AdditionalDataHolder, Parsable, TimeOffReasonCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: TimeOffReason[] | undefined;
     /**
      * Instantiates a new TimeOffReasonCollectionResponse and sets the default values.

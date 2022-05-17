@@ -2,11 +2,11 @@ import {Image} from './image';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImageImpl implements AdditionalDataHolder, Image, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Optional. Height of the image, in pixels. Read-only.  */
+    /** Optional. Height of the image, in pixels. Read-only. */
     height?: number | undefined;
-    /** Optional. Width of the image, in pixels. Read-only.  */
+    /** Optional. Width of the image, in pixels. Read-only. */
     width?: number | undefined;
     /**
      * Instantiates a new image and sets the default values.

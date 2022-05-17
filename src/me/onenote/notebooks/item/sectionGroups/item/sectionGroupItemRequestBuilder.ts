@@ -14,29 +14,29 @@ import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionIt
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity.  */
+/** Provides operations to manage the sectionGroups property of the microsoft.graph.notebook entity. */
 export class SectionGroupItemRequestBuilder {
-    /** The parentNotebook property  */
+    /** The parentNotebook property */
     public get parentNotebook(): ParentNotebookRequestBuilder {
         return new ParentNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The parentSectionGroup property  */
+    /** The parentSectionGroup property */
     public get parentSectionGroup(): ParentSectionGroupRequestBuilder {
         return new ParentSectionGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sectionGroups property  */
+    /** The sectionGroups property */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sections property  */
+    /** The sections property */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new SectionGroupItemRequestBuilder and sets the default values.
@@ -141,7 +141,7 @@ export class SectionGroupItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: SectionGroupImpl | undefined, requestConfiguration?: SectionGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SectionGroup | undefined, requestConfiguration?: SectionGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

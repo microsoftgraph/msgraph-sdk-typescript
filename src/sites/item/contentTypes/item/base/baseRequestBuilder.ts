@@ -6,13 +6,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {BaseRequestBuilderGetRequestConfiguration} from './baseRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the base property of the microsoft.graph.contentType entity.  */
+/** Provides operations to manage the base property of the microsoft.graph.contentType entity. */
 export class BaseRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new BaseRequestBuilder and sets the default values.

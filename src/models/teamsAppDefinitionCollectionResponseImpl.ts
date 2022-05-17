@@ -5,11 +5,11 @@ import {TeamsAppDefinitionCollectionResponse} from './teamsAppDefinitionCollecti
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppDefinitionCollectionResponseImpl implements AdditionalDataHolder, Parsable, TeamsAppDefinitionCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: TeamsAppDefinition[] | undefined;
     /**
      * Instantiates a new TeamsAppDefinitionCollectionResponse and sets the default values.

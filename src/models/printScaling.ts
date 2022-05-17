@@ -1,4 +1,4 @@
-/** Provides operations to manage the print singleton.  */
+/** Provides operations to manage the print singleton. */
 export enum PrintScaling {
     Auto = "auto",
     ShrinkToFit = "shrinkToFit",

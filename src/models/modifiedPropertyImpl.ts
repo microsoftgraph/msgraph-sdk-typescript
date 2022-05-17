@@ -2,13 +2,13 @@ import {ModifiedProperty} from './modifiedProperty';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ModifiedPropertyImpl implements AdditionalDataHolder, ModifiedProperty, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Name of property that was modified.  */
+    /** Name of property that was modified. */
     displayName?: string | undefined;
-    /** New property value.  */
+    /** New property value. */
     newValue?: string | undefined;
-    /** Old property value.  */
+    /** Old property value. */
     oldValue?: string | undefined;
     /**
      * Instantiates a new modifiedProperty and sets the default values.

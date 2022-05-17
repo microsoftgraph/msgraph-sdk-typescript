@@ -5,11 +5,11 @@ import {SelfServiceSignUpAuthenticationFlowConfiguration} from './selfServiceSig
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationFlowsPolicyImpl extends EntityImpl implements AuthenticationFlowsPolicy, Parsable {
-    /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only.  */
+    /** Inherited property. A description of the policy. This property is not a key. Optional. Read-only. */
     description?: string | undefined;
-    /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only.  */
+    /** Inherited property. The human-readable name of the policy. This property is not a key. Optional. Read-only. */
     displayName?: string | undefined;
-    /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only.  */
+    /** Contains selfServiceSignUpAuthenticationFlowConfiguration settings that convey whether self-service sign-up is enabled or disabled. This property is not a key. Optional. Read-only. */
     selfServiceSignUp?: SelfServiceSignUpAuthenticationFlowConfiguration | undefined;
     /**
      * Instantiates a new authenticationFlowsPolicy and sets the default values.

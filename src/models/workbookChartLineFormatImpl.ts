@@ -3,7 +3,7 @@ import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartLineFormatImpl extends EntityImpl implements Parsable, WorkbookChartLineFormat {
-    /** HTML color code representing the color of lines in the chart.  */
+    /** HTML color code representing the color of lines in the chart. */
     color?: string | undefined;
     /**
      * Instantiates a new workbookChartLineFormat and sets the default values.

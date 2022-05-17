@@ -7,9 +7,9 @@ import {AccessReviewHistoryDefinitionImpl, AccessReviewScheduleDefinitionImpl, E
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewSetImpl extends EntityImpl implements AccessReviewSet, Parsable {
-    /** Represents the template and scheduling for an access review.  */
+    /** Represents the template and scheduling for an access review. */
     definitions?: AccessReviewScheduleDefinition[] | undefined;
-    /** Represents a collection of access review history data and the scopes used to collect that data.  */
+    /** Represents a collection of access review history data and the scopes used to collect that data. */
     historyDefinitions?: AccessReviewHistoryDefinition[] | undefined;
     /**
      * Instantiates a new accessReviewSet and sets the default values.

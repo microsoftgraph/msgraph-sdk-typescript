@@ -3,7 +3,7 @@ import {PlannerProgressTaskBoardTaskFormat} from './plannerProgressTaskBoardTask
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerProgressTaskBoardTaskFormatImpl extends EntityImpl implements Parsable, PlannerProgressTaskBoardTaskFormat {
-    /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here.  */
+    /** Hint value used to order the task on the Progress view of the Task Board. The format is defined as outlined here. */
     orderHint?: string | undefined;
     /**
      * Instantiates a new plannerProgressTaskBoardTaskFormat and sets the default values.

@@ -2,11 +2,11 @@ import {TeamGuestSettings} from './teamGuestSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamGuestSettingsImpl implements AdditionalDataHolder, Parsable, TeamGuestSettings {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** If set to true, guests can add and update channels.  */
+    /** If set to true, guests can add and update channels. */
     allowCreateUpdateChannels?: boolean | undefined;
-    /** If set to true, guests can delete channels.  */
+    /** If set to true, guests can delete channels. */
     allowDeleteChannels?: boolean | undefined;
     /**
      * Instantiates a new teamGuestSettings and sets the default values.

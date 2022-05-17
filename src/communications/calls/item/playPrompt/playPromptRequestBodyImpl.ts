@@ -4,13 +4,13 @@ import {Prompt} from '../../../../models/prompt';
 import {PlayPromptRequestBody} from './playPromptRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the playPrompt method.  */
+/** Provides operations to call the playPrompt method. */
 export class PlayPromptRequestBodyImpl implements AdditionalDataHolder, Parsable, PlayPromptRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The clientContext property  */
+    /** The clientContext property */
     clientContext?: string | undefined;
-    /** The prompts property  */
+    /** The prompts property */
     prompts?: Prompt[] | undefined;
     /**
      * Instantiates a new playPromptRequestBody and sets the default values.

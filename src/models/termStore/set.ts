@@ -6,20 +6,20 @@ import {Relation} from './relation';
 import {Term} from './term';
 
 export interface Set extends Entity{
-    /** Children terms of set in term [store].  */
+    /** Children terms of set in term [store]. */
     children?: Term[] | undefined;
-    /** Date and time of set creation. Read-only.  */
+    /** Date and time of set creation. Read-only. */
     createdDateTime?: Date | undefined;
-    /** Description giving details on the term usage.  */
+    /** Description giving details on the term usage. */
     description?: string | undefined;
-    /** Name of the set for each languageTag.  */
+    /** Name of the set for each languageTag. */
     localizedNames?: LocalizedName[] | undefined;
-    /** The parentGroup property  */
+    /** The parentGroup property */
     parentGroup?: Group | undefined;
-    /** Custom properties for the set.  */
+    /** Custom properties for the set. */
     properties?: KeyValue[] | undefined;
-    /** Indicates which terms have been pinned or reused directly under the set.  */
+    /** Indicates which terms have been pinned or reused directly under the set. */
     relations?: Relation[] | undefined;
-    /** All the terms under the set.  */
+    /** All the terms under the set. */
     terms?: Term[] | undefined;
 }

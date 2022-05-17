@@ -1,10 +1,10 @@
-/** Provides operations to manage the auditLogRoot singleton.  */
+/** Provides operations to manage the auditLogRoot singleton. */
 export enum ProvisioningStepType {
-    Import_escaped = "import_escaped",
+    Import_escaped = "import",
     Scoping = "scoping",
     Matching = "matching",
     Processing = "processing",
     ReferenceResolution = "referenceResolution",
-    Export_escaped = "export_escaped",
+    Export_escaped = "export",
     UnknownFutureValue = "unknownFutureValue",
 }

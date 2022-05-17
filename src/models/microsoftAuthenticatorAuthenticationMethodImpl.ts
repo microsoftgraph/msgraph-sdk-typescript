@@ -5,15 +5,15 @@ import {MicrosoftAuthenticatorAuthenticationMethod} from './microsoftAuthenticat
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MicrosoftAuthenticatorAuthenticationMethodImpl extends AuthenticationMethodImpl implements MicrosoftAuthenticatorAuthenticationMethod, Parsable {
-    /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In.  */
+    /** The date and time that this app was registered. This property is null if the device is not registered for passwordless Phone Sign-In. */
     createdDateTime?: Date | undefined;
-    /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In.  */
+    /** The registered device on which Microsoft Authenticator resides. This property is null if the device is not registered for passwordless Phone Sign-In. */
     device?: Device | undefined;
-    /** Tags containing app metadata.  */
+    /** Tags containing app metadata. */
     deviceTag?: string | undefined;
-    /** The name of the device on which this app is registered.  */
+    /** The name of the device on which this app is registered. */
     displayName?: string | undefined;
-    /** Numerical version of this instance of the Authenticator app.  */
+    /** Numerical version of this instance of the Authenticator app. */
     phoneAppVersion?: string | undefined;
     /**
      * Instantiates a new microsoftAuthenticatorAuthenticationMethod and sets the default values.

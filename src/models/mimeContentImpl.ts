@@ -1,13 +1,13 @@
 import {MimeContent} from './mimeContent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains properties for a generic mime content.  */
+/** Contains properties for a generic mime content. */
 export class MimeContentImpl implements AdditionalDataHolder, MimeContent, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Indicates the content mime type.  */
+    /** Indicates the content mime type. */
     type?: string | undefined;
-    /** The byte array that contains the actual content.  */
+    /** The byte array that contains the actual content. */
     value?: string | undefined;
     /**
      * Instantiates a new mimeContent and sets the default values.

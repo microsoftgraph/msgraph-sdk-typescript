@@ -26,81 +26,81 @@ import {ReportsRequestBuilderGetRequestConfiguration} from './reportsRequestBuil
 import {ReportsRequestBuilderPatchRequestConfiguration} from './reportsRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity.  */
+/** Provides operations to manage the reports property of the microsoft.graph.deviceManagement entity. */
 export class ReportsRequestBuilder {
-    /** The exportJobs property  */
+    /** The exportJobs property */
     public get exportJobs(): ExportJobsRequestBuilder {
         return new ExportJobsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getCachedReport property  */
+    /** The getCachedReport property */
     public get getCachedReport(): GetCachedReportRequestBuilder {
         return new GetCachedReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getCompliancePolicyNonComplianceReport property  */
+    /** The getCompliancePolicyNonComplianceReport property */
     public get getCompliancePolicyNonComplianceReport(): GetCompliancePolicyNonComplianceReportRequestBuilder {
         return new GetCompliancePolicyNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getCompliancePolicyNonComplianceSummaryReport property  */
+    /** The getCompliancePolicyNonComplianceSummaryReport property */
     public get getCompliancePolicyNonComplianceSummaryReport(): GetCompliancePolicyNonComplianceSummaryReportRequestBuilder {
         return new GetCompliancePolicyNonComplianceSummaryReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getComplianceSettingNonComplianceReport property  */
+    /** The getComplianceSettingNonComplianceReport property */
     public get getComplianceSettingNonComplianceReport(): GetComplianceSettingNonComplianceReportRequestBuilder {
         return new GetComplianceSettingNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getConfigurationPolicyNonComplianceReport property  */
+    /** The getConfigurationPolicyNonComplianceReport property */
     public get getConfigurationPolicyNonComplianceReport(): GetConfigurationPolicyNonComplianceReportRequestBuilder {
         return new GetConfigurationPolicyNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getConfigurationPolicyNonComplianceSummaryReport property  */
+    /** The getConfigurationPolicyNonComplianceSummaryReport property */
     public get getConfigurationPolicyNonComplianceSummaryReport(): GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder {
         return new GetConfigurationPolicyNonComplianceSummaryReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getConfigurationSettingNonComplianceReport property  */
+    /** The getConfigurationSettingNonComplianceReport property */
     public get getConfigurationSettingNonComplianceReport(): GetConfigurationSettingNonComplianceReportRequestBuilder {
         return new GetConfigurationSettingNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getDeviceManagementIntentPerSettingContributingProfiles property  */
+    /** The getDeviceManagementIntentPerSettingContributingProfiles property */
     public get getDeviceManagementIntentPerSettingContributingProfiles(): GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder {
         return new GetDeviceManagementIntentPerSettingContributingProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getDeviceManagementIntentSettingsReport property  */
+    /** The getDeviceManagementIntentSettingsReport property */
     public get getDeviceManagementIntentSettingsReport(): GetDeviceManagementIntentSettingsReportRequestBuilder {
         return new GetDeviceManagementIntentSettingsReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getDeviceNonComplianceReport property  */
+    /** The getDeviceNonComplianceReport property */
     public get getDeviceNonComplianceReport(): GetDeviceNonComplianceReportRequestBuilder {
         return new GetDeviceNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getHistoricalReport property  */
+    /** The getHistoricalReport property */
     public get getHistoricalReport(): GetHistoricalReportRequestBuilder {
         return new GetHistoricalReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getPolicyNonComplianceMetadata property  */
+    /** The getPolicyNonComplianceMetadata property */
     public get getPolicyNonComplianceMetadata(): GetPolicyNonComplianceMetadataRequestBuilder {
         return new GetPolicyNonComplianceMetadataRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getPolicyNonComplianceReport property  */
+    /** The getPolicyNonComplianceReport property */
     public get getPolicyNonComplianceReport(): GetPolicyNonComplianceReportRequestBuilder {
         return new GetPolicyNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getPolicyNonComplianceSummaryReport property  */
+    /** The getPolicyNonComplianceSummaryReport property */
     public get getPolicyNonComplianceSummaryReport(): GetPolicyNonComplianceSummaryReportRequestBuilder {
         return new GetPolicyNonComplianceSummaryReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getReportFilters property  */
+    /** The getReportFilters property */
     public get getReportFilters(): GetReportFiltersRequestBuilder {
         return new GetReportFiltersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getSettingNonComplianceReport property  */
+    /** The getSettingNonComplianceReport property */
     public get getSettingNonComplianceReport(): GetSettingNonComplianceReportRequestBuilder {
         return new GetSettingNonComplianceReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ReportsRequestBuilder and sets the default values.
@@ -216,7 +216,7 @@ export class ReportsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DeviceManagementReportsImpl | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: DeviceManagementReports | undefined, requestConfiguration?: ReportsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

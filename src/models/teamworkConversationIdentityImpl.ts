@@ -4,7 +4,7 @@ import {TeamworkConversationIdentityType} from './teamworkConversationIdentityTy
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkConversationIdentityImpl extends IdentityImpl implements Parsable, TeamworkConversationIdentity {
-    /** Type of conversation. Possible values are: team, channel, and chat.  */
+    /** Type of conversation. Possible values are: team, channel, and chat. */
     conversationIdentityType?: TeamworkConversationIdentityType | undefined;
     /**
      * Instantiates a new teamworkConversationIdentity and sets the default values.

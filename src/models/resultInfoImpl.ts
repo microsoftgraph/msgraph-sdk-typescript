@@ -2,13 +2,13 @@ import {ResultInfo} from './resultInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResultInfoImpl implements AdditionalDataHolder, Parsable, ResultInfo {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The result code.  */
+    /** The result code. */
     code?: number | undefined;
-    /** The message.  */
+    /** The message. */
     message?: string | undefined;
-    /** The result sub-code.  */
+    /** The result sub-code. */
     subcode?: number | undefined;
     /**
      * Instantiates a new resultInfo and sets the default values.

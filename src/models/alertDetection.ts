@@ -1,11 +1,11 @@
 
 export interface AlertDetection{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The detectionType property  */
+    /** The detectionType property */
     detectionType?: string | undefined;
-    /** The method property  */
+    /** The method property */
     method?: string | undefined;
-    /** The name property  */
+    /** The name property */
     name?: string | undefined;
 }

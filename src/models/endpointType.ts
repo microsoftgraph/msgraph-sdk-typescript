@@ -1,6 +1,6 @@
-/** Provides operations to manage the cloudCommunications singleton.  */
+/** Provides operations to manage the cloudCommunications singleton. */
 export enum EndpointType {
-    Default_escaped = "default_escaped",
+    Default_escaped = "default",
     Voicemail = "voicemail",
     SkypeForBusiness = "skypeForBusiness",
     SkypeForBusinessVoipPhone = "skypeForBusinessVoipPhone",

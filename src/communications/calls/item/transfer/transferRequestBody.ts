@@ -2,10 +2,10 @@ import {InvitationParticipantInfo} from '../../../../models/invitationParticipan
 import {ParticipantInfo} from '../../../../models/participantInfo';
 
 export interface TransferRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The transferee property  */
+    /** The transferee property */
     transferee?: ParticipantInfo | undefined;
-    /** The transferTarget property  */
+    /** The transferTarget property */
     transferTarget?: InvitationParticipantInfo | undefined;
 }

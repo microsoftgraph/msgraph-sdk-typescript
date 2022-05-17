@@ -3,9 +3,9 @@ import {WindowsInformationProtectionNetworkLearningSummary} from './windowsInfor
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsInformationProtectionNetworkLearningSummaryImpl extends EntityImpl implements Parsable, WindowsInformationProtectionNetworkLearningSummary {
-    /** Device Count  */
+    /** Device Count */
     deviceCount?: number | undefined;
-    /** Website url  */
+    /** Website url */
     url?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionNetworkLearningSummary and sets the default values.

@@ -10,17 +10,17 @@ import {CalendarsRequestBuilder} from './calendars/calendarsRequestBuilder';
 import {CalendarItemRequestBuilder} from './calendars/item/calendarItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calendarGroups property of the microsoft.graph.user entity.  */
+/** Provides operations to manage the calendarGroups property of the microsoft.graph.user entity. */
 export class CalendarGroupItemRequestBuilder {
-    /** The calendars property  */
+    /** The calendars property */
     public get calendars(): CalendarsRequestBuilder {
         return new CalendarsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.users.item.calendarGroups.item.calendars.item collection
@@ -136,7 +136,7 @@ export class CalendarGroupItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: CalendarGroupImpl | undefined, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: CalendarGroup | undefined, requestConfiguration?: CalendarGroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

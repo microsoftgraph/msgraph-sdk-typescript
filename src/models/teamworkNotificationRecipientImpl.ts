@@ -2,7 +2,7 @@ import {TeamworkNotificationRecipient} from './teamworkNotificationRecipient';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkNotificationRecipientImpl implements AdditionalDataHolder, Parsable, TeamworkNotificationRecipient {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new teamworkNotificationRecipient and sets the default values.

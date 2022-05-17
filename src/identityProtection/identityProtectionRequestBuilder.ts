@@ -11,21 +11,21 @@ import {RiskyUserItemRequestBuilder} from './riskyUsers/item/riskyUserItemReques
 import {RiskyUsersRequestBuilder} from './riskyUsers/riskyUsersRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityProtectionRoot singleton.  */
+/** Provides operations to manage the identityProtectionRoot singleton. */
 export class IdentityProtectionRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The riskDetections property  */
+    /** The riskDetections property */
     public get riskDetections(): RiskDetectionsRequestBuilder {
         return new RiskDetectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The riskyUsers property  */
+    /** The riskyUsers property */
     public get riskyUsers(): RiskyUsersRequestBuilder {
         return new RiskyUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new IdentityProtectionRequestBuilder and sets the default values.
@@ -99,7 +99,7 @@ export class IdentityProtectionRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: IdentityProtectionRootImpl | undefined, requestConfiguration?: IdentityProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IdentityProtectionRoot | undefined, requestConfiguration?: IdentityProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

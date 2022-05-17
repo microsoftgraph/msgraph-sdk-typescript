@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingCurrencyImpl extends EntityImpl implements BookingCurrency, Parsable {
-    /** The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $.  */
+    /** The currency symbol. For example, the currency symbol for the US dollar and for the Australian dollar is $. */
     symbol?: string | undefined;
     /**
      * Instantiates a new bookingCurrency and sets the default values.

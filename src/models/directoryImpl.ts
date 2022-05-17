@@ -8,13 +8,13 @@ import {IdentityProviderBase} from './identityProviderBase';
 import {AdministrativeUnitImpl, DirectoryObjectImpl, EntityImpl, IdentityProviderBaseImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton.  */
+/** Provides operations to manage the directory singleton. */
 export class DirectoryImpl extends EntityImpl implements Directory, Parsable {
-    /** Conceptual container for user and group directory objects.  */
+    /** Conceptual container for user and group directory objects. */
     administrativeUnits?: AdministrativeUnit[] | undefined;
-    /** Recently deleted items. Read-only. Nullable.  */
+    /** Recently deleted items. Read-only. Nullable. */
     deletedItems?: DirectoryObject[] | undefined;
-    /** Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol.  */
+    /** Configure domain federation with organizations whose identity provider (IdP) supports either the SAML or WS-Fed protocol. */
     federationConfigurations?: IdentityProviderBase[] | undefined;
     /**
      * Instantiates a new directory and sets the default values.

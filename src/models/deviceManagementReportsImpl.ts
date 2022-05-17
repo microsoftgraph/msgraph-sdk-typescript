@@ -5,7 +5,7 @@ import {DeviceManagementExportJobImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementReportsImpl extends EntityImpl implements DeviceManagementReports, Parsable {
-    /** Entity representing a job to export a report  */
+    /** Entity representing a job to export a report */
     exportJobs?: DeviceManagementExportJob[] | undefined;
     /**
      * Instantiates a new deviceManagementReports and sets the default values.

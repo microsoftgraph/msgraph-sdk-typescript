@@ -6,11 +6,11 @@ import {AttendeeBaseImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttendeeAvailabilityImpl implements AdditionalDataHolder, AttendeeAvailability, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person.  */
+    /** The email address and type of attendee - whether it's a person or a resource, and whether required or optional if it's a person. */
     attendee?: AttendeeBase | undefined;
-    /** The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** The availability status of the attendee. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
     availability?: FreeBusyStatus | undefined;
     /**
      * Instantiates a new attendeeAvailability and sets the default values.

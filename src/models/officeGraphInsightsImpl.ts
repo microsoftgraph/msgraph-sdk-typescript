@@ -9,11 +9,11 @@ import {UsedInsight} from './usedInsight';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OfficeGraphInsightsImpl extends EntityImpl implements OfficeGraphInsights, Parsable {
-    /** Access this property from the derived type itemInsights.  */
+    /** Access this property from the derived type itemInsights. */
     shared?: SharedInsight[] | undefined;
-    /** Access this property from the derived type itemInsights.  */
+    /** Access this property from the derived type itemInsights. */
     trending?: Trending[] | undefined;
-    /** Access this property from the derived type itemInsights.  */
+    /** Access this property from the derived type itemInsights. */
     used?: UsedInsight[] | undefined;
     /**
      * Instantiates a new officeGraphInsights and sets the default values.

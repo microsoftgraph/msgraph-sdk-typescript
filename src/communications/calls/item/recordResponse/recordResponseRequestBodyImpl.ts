@@ -4,25 +4,25 @@ import {Prompt} from '../../../../models/prompt';
 import {RecordResponseRequestBody} from './recordResponseRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the recordResponse method.  */
+/** Provides operations to call the recordResponse method. */
 export class RecordResponseRequestBodyImpl implements AdditionalDataHolder, Parsable, RecordResponseRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The bargeInAllowed property  */
+    /** The bargeInAllowed property */
     bargeInAllowed?: boolean | undefined;
-    /** The clientContext property  */
+    /** The clientContext property */
     clientContext?: string | undefined;
-    /** The initialSilenceTimeoutInSeconds property  */
+    /** The initialSilenceTimeoutInSeconds property */
     initialSilenceTimeoutInSeconds?: number | undefined;
-    /** The maxRecordDurationInSeconds property  */
+    /** The maxRecordDurationInSeconds property */
     maxRecordDurationInSeconds?: number | undefined;
-    /** The maxSilenceTimeoutInSeconds property  */
+    /** The maxSilenceTimeoutInSeconds property */
     maxSilenceTimeoutInSeconds?: number | undefined;
-    /** The playBeep property  */
+    /** The playBeep property */
     playBeep?: boolean | undefined;
-    /** The prompts property  */
+    /** The prompts property */
     prompts?: Prompt[] | undefined;
-    /** The stopTones property  */
+    /** The stopTones property */
     stopTones?: string[] | undefined;
     /**
      * Instantiates a new recordResponseRequestBody and sets the default values.

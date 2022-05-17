@@ -10,17 +10,17 @@ import {ThreatAssessmentRequestItemRequestBuilderGetRequestConfiguration} from '
 import {ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration} from './threatAssessmentRequestItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity.  */
+/** Provides operations to manage the threatAssessmentRequests property of the microsoft.graph.informationProtection entity. */
 export class ThreatAssessmentRequestItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The results property  */
+    /** The results property */
     public get results(): ResultsRequestBuilder {
         return new ResultsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ThreatAssessmentRequestItemRequestBuilder and sets the default values.
@@ -125,7 +125,7 @@ export class ThreatAssessmentRequestItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ThreatAssessmentRequestImpl | undefined, requestConfiguration?: ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ThreatAssessmentRequest | undefined, requestConfiguration?: ThreatAssessmentRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -5,21 +5,21 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementPartnerImpl extends EntityImpl implements DeviceManagementPartner, Parsable {
-    /** Partner display name  */
+    /** Partner display name */
     displayName?: string | undefined;
-    /** Whether device management partner is configured or not  */
+    /** Whether device management partner is configured or not */
     isConfigured?: boolean | undefined;
-    /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner  */
+    /** Timestamp of last heartbeat after admin enabled option Connect to Device management Partner */
     lastHeartbeatDateTime?: Date | undefined;
-    /** Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp.  */
+    /** Partner App type. Possible values are: unknown, singleTenantApp, multiTenantApp. */
     partnerAppType?: DeviceManagementPartnerAppType | undefined;
-    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.  */
+    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
     partnerState?: DeviceManagementPartnerTenantState | undefined;
-    /** Partner Single tenant App id  */
+    /** Partner Single tenant App id */
     singleTenantAppId?: string | undefined;
-    /** DateTime in UTC when PartnerDevices will be marked as NonCompliant  */
+    /** DateTime in UTC when PartnerDevices will be marked as NonCompliant */
     whenPartnerDevicesWillBeMarkedAsNonCompliantDateTime?: Date | undefined;
-    /** DateTime in UTC when PartnerDevices will be removed  */
+    /** DateTime in UTC when PartnerDevices will be removed */
     whenPartnerDevicesWillBeRemovedDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceManagementPartner and sets the default values.

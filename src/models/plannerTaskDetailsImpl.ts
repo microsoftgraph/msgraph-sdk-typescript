@@ -8,13 +8,13 @@ import {PlannerTaskDetails} from './plannerTaskDetails';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerTaskDetailsImpl extends EntityImpl implements Parsable, PlannerTaskDetails {
-    /** The collection of checklist items on the task.  */
+    /** The collection of checklist items on the task. */
     checklist?: PlannerChecklistItems | undefined;
-    /** Description of the task.  */
+    /** Description of the task. */
     description?: string | undefined;
-    /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task.  */
+    /** This sets the type of preview that shows up on the task. Possible values are: automatic, noPreview, checklist, description, reference. When set to automatic the displayed preview is chosen by the app viewing the task. */
     previewType?: PlannerPreviewType | undefined;
-    /** The collection of references on the task.  */
+    /** The collection of references on the task. */
     references?: PlannerExternalReferences | undefined;
     /**
      * Instantiates a new plannerTaskDetails and sets the default values.

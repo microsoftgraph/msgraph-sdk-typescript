@@ -6,11 +6,11 @@ import {RecordingStatus} from './recordingStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecordingInfoImpl implements AdditionalDataHolder, Parsable, RecordingInfo {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The identities of recording initiator.  */
+    /** The identities of recording initiator. */
     initiator?: IdentitySet | undefined;
-    /** Possible values are: unknown, notRecording, recording, or failed.  */
+    /** Possible values are: unknown, notRecording, recording, or failed. */
     recordingStatus?: RecordingStatus | undefined;
     /**
      * Instantiates a new recordingInfo and sets the default values.

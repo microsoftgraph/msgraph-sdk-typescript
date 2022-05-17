@@ -5,11 +5,11 @@ import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffImpl extends ChangeTrackedEntityImpl implements Parsable, TimeOff {
-    /** The draft version of this timeOff that is viewable by managers. Required.  */
+    /** The draft version of this timeOff that is viewable by managers. Required. */
     draftTimeOff?: TimeOffItem | undefined;
-    /** The shared version of this timeOff that is viewable by both employees and managers. Required.  */
+    /** The shared version of this timeOff that is viewable by both employees and managers. Required. */
     sharedTimeOff?: TimeOffItem | undefined;
-    /** ID of the user assigned to the timeOff. Required.  */
+    /** ID of the user assigned to the timeOff. Required. */
     userId?: string | undefined;
     /**
      * Instantiates a new timeOff and sets the default values.

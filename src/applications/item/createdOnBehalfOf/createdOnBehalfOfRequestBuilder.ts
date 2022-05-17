@@ -6,13 +6,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../models/oDataError
 import {CreatedOnBehalfOfRequestBuilderGetRequestConfiguration} from './createdOnBehalfOfRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity.  */
+/** Provides operations to manage the createdOnBehalfOf property of the microsoft.graph.application entity. */
 export class CreatedOnBehalfOfRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new CreatedOnBehalfOfRequestBuilder and sets the default values.

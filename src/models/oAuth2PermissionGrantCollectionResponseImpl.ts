@@ -5,11 +5,11 @@ import {OAuth2PermissionGrantCollectionResponse} from './oAuth2PermissionGrantCo
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OAuth2PermissionGrantCollectionResponseImpl implements AdditionalDataHolder, OAuth2PermissionGrantCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: OAuth2PermissionGrant[] | undefined;
     /**
      * Instantiates a new OAuth2PermissionGrantCollectionResponse and sets the default values.

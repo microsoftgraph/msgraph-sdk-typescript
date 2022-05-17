@@ -5,11 +5,11 @@ import {WindowsHelloForBusinessAuthenticationMethodCollectionResponse} from './w
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsHelloForBusinessAuthenticationMethodCollectionResponseImpl implements AdditionalDataHolder, Parsable, WindowsHelloForBusinessAuthenticationMethodCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new WindowsHelloForBusinessAuthenticationMethodCollectionResponse and sets the default values.

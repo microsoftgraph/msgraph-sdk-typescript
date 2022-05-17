@@ -4,13 +4,13 @@ import {IpRange} from './ipRange';
 import {WindowsInformationProtectionIPRangeCollection} from './windowsInformationProtectionIPRangeCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection IP Range Collection  */
+/** Windows Information Protection IP Range Collection */
 export class WindowsInformationProtectionIPRangeCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionIPRangeCollection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Display name  */
+    /** Display name */
     displayName?: string | undefined;
-    /** Collection of ip ranges  */
+    /** Collection of ip ranges */
     ranges?: IpRange[] | undefined;
     /**
      * Instantiates a new windowsInformationProtectionIPRangeCollection and sets the default values.

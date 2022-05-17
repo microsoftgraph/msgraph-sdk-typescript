@@ -7,11 +7,11 @@ import {ServicePrincipal} from './servicePrincipal';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApplicationServicePrincipalImpl implements AdditionalDataHolder, ApplicationServicePrincipal, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The application property  */
+    /** The application property */
     application?: Application | undefined;
-    /** The servicePrincipal property  */
+    /** The servicePrincipal property */
     servicePrincipal?: ServicePrincipal | undefined;
     /**
      * Instantiates a new applicationServicePrincipal and sets the default values.

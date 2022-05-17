@@ -2,13 +2,13 @@ import {ItemPreviewInfo} from './itemPreviewInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemPreviewInfoImpl implements AdditionalDataHolder, ItemPreviewInfo, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The getUrl property  */
+    /** The getUrl property */
     getUrl?: string | undefined;
-    /** The postParameters property  */
+    /** The postParameters property */
     postParameters?: string | undefined;
-    /** The postUrl property  */
+    /** The postUrl property */
     postUrl?: string | undefined;
     /**
      * Instantiates a new itemPreviewInfo and sets the default values.

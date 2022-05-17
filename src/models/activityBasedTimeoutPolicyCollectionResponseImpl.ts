@@ -5,11 +5,11 @@ import {ActivityBasedTimeoutPolicyImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ActivityBasedTimeoutPolicyCollectionResponseImpl implements ActivityBasedTimeoutPolicyCollectionResponse, AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: ActivityBasedTimeoutPolicy[] | undefined;
     /**
      * Instantiates a new ActivityBasedTimeoutPolicyCollectionResponse and sets the default values.

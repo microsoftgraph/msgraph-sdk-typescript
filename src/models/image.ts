@@ -1,9 +1,9 @@
 
 export interface Image{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Optional. Height of the image, in pixels. Read-only.  */
+    /** Optional. Height of the image, in pixels. Read-only. */
     height?: number | undefined;
-    /** Optional. Width of the image, in pixels. Read-only.  */
+    /** Optional. Width of the image, in pixels. Read-only. */
     width?: number | undefined;
 }

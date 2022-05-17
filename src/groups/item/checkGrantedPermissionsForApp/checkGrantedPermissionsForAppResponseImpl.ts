@@ -4,11 +4,11 @@ import {ResourceSpecificPermissionGrant} from '../../../models/resourceSpecificP
 import {CheckGrantedPermissionsForAppResponse} from './checkGrantedPermissionsForAppResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the checkGrantedPermissionsForApp method.  */
+/** Provides operations to call the checkGrantedPermissionsForApp method. */
 export class CheckGrantedPermissionsForAppResponseImpl implements AdditionalDataHolder, CheckGrantedPermissionsForAppResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: ResourceSpecificPermissionGrant[] | undefined;
     /**
      * Instantiates a new checkGrantedPermissionsForAppResponse and sets the default values.

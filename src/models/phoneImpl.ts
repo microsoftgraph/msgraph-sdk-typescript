@@ -3,15 +3,15 @@ import {PhoneType} from './phoneType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PhoneImpl implements AdditionalDataHolder, Parsable, Phone {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The language property  */
+    /** The language property */
     language?: string | undefined;
-    /** The phone number.  */
+    /** The phone number. */
     number?: string | undefined;
-    /** The region property  */
+    /** The region property */
     region?: string | undefined;
-    /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio.  */
+    /** The type of phone number. Possible values are: home, business, mobile, other, assistant, homeFax, businessFax, otherFax, pager, radio. */
     type?: PhoneType | undefined;
     /**
      * Instantiates a new phone and sets the default values.

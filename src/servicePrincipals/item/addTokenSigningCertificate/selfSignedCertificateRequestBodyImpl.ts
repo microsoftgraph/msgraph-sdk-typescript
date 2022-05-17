@@ -1,13 +1,13 @@
 import {SelfSignedCertificateRequestBody} from './selfSignedCertificateRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the addTokenSigningCertificate method.  */
+/** Provides operations to call the addTokenSigningCertificate method. */
 export class SelfSignedCertificateRequestBodyImpl implements AdditionalDataHolder, Parsable, SelfSignedCertificateRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The displayName property  */
+    /** The displayName property */
     displayName?: string | undefined;
-    /** The endDateTime property  */
+    /** The endDateTime property */
     endDateTime?: Date | undefined;
     /**
      * Instantiates a new SelfSignedCertificateRequestBody and sets the default values.

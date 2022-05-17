@@ -2,11 +2,11 @@ import {TimeZoneInformation} from './timeZoneInformation';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeZoneInformationImpl implements AdditionalDataHolder, Parsable, TimeZoneInformation {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** An identifier for the time zone.  */
+    /** An identifier for the time zone. */
     alias?: string | undefined;
-    /** A display string that represents the time zone.  */
+    /** A display string that represents the time zone. */
     displayName?: string | undefined;
     /**
      * Instantiates a new timeZoneInformation and sets the default values.

@@ -26,65 +26,65 @@ import {SnoozeReminderRequestBuilder} from './snoozeReminder/snoozeReminderReque
 import {TentativelyAcceptRequestBuilder} from './tentativelyAccept/tentativelyAcceptRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calendarView property of the microsoft.graph.calendar entity.  */
+/** Provides operations to manage the calendarView property of the microsoft.graph.calendar entity. */
 export class EventItemRequestBuilder {
-    /** The accept property  */
+    /** The accept property */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The attachments property  */
+    /** The attachments property */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendar property  */
+    /** The calendar property */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The cancel property  */
+    /** The cancel property */
     public get cancel(): CancelRequestBuilder {
         return new CancelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The decline property  */
+    /** The decline property */
     public get decline(): DeclineRequestBuilder {
         return new DeclineRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The dismissReminder property  */
+    /** The dismissReminder property */
     public get dismissReminder(): DismissReminderRequestBuilder {
         return new DismissReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property  */
+    /** The extensions property */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forward property  */
+    /** The forward property */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The instances property  */
+    /** The instances property */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property  */
+    /** The multiValueExtendedProperties property */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The singleValueExtendedProperties property  */
+    /** The singleValueExtendedProperties property */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The snoozeReminder property  */
+    /** The snoozeReminder property */
     public get snoozeReminder(): SnoozeReminderRequestBuilder {
         return new SnoozeReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tentativelyAccept property  */
+    /** The tentativelyAccept property */
     public get tentativelyAccept(): TentativelyAcceptRequestBuilder {
         return new TentativelyAcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.users.item.calendars.item.calendarView.item.attachments.item collection
@@ -233,7 +233,7 @@ export class EventItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: EventImpl | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Event | undefined, requestConfiguration?: EventItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

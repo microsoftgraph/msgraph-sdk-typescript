@@ -1,11 +1,11 @@
 import {RemovePasswordRequestBody} from './removePasswordRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removePassword method.  */
+/** Provides operations to call the removePassword method. */
 export class RemovePasswordRequestBodyImpl implements AdditionalDataHolder, Parsable, RemovePasswordRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The keyId property  */
+    /** The keyId property */
     keyId?: string | undefined;
     /**
      * Instantiates a new removePasswordRequestBody and sets the default values.

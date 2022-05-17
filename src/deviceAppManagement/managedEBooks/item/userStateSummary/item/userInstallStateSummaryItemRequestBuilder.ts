@@ -10,17 +10,17 @@ import {UserInstallStateSummaryItemRequestBuilderGetRequestConfiguration} from '
 import {UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration} from './userInstallStateSummaryItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity.  */
+/** Provides operations to manage the userStateSummary property of the microsoft.graph.managedEBook entity. */
 export class UserInstallStateSummaryItemRequestBuilder {
-    /** The deviceStates property  */
+    /** The deviceStates property */
     public get deviceStates(): DeviceStatesRequestBuilder {
         return new DeviceStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new UserInstallStateSummaryItemRequestBuilder and sets the default values.
@@ -136,7 +136,7 @@ export class UserInstallStateSummaryItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: UserInstallStateSummaryImpl | undefined, requestConfiguration?: UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UserInstallStateSummary | undefined, requestConfiguration?: UserInstallStateSummaryItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

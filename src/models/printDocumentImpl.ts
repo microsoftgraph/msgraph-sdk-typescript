@@ -3,11 +3,11 @@ import {PrintDocument} from './printDocument';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintDocumentImpl extends EntityImpl implements Parsable, PrintDocument {
-    /** The document's content (MIME) type. Read-only.  */
+    /** The document's content (MIME) type. Read-only. */
     contentType?: string | undefined;
-    /** The document's name. Read-only.  */
+    /** The document's name. Read-only. */
     displayName?: string | undefined;
-    /** The document's size in bytes. Read-only.  */
+    /** The document's size in bytes. Read-only. */
     size?: number | undefined;
     /**
      * Instantiates a new printDocument and sets the default values.

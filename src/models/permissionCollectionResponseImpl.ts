@@ -5,11 +5,11 @@ import {PermissionCollectionResponse} from './permissionCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PermissionCollectionResponseImpl implements AdditionalDataHolder, Parsable, PermissionCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: Permission[] | undefined;
     /**
      * Instantiates a new PermissionCollectionResponse and sets the default values.

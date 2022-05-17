@@ -2,13 +2,13 @@ import {MailTipsType} from '../../models/mailTipsType';
 import {GetMailTipsRequestBody} from './getMailTipsRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getMailTips method.  */
+/** Provides operations to call the getMailTips method. */
 export class GetMailTipsRequestBodyImpl implements AdditionalDataHolder, GetMailTipsRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The EmailAddresses property  */
+    /** The EmailAddresses property */
     emailAddresses?: string[] | undefined;
-    /** The MailTipsOptions property  */
+    /** The MailTipsOptions property */
     mailTipsOptions?: MailTipsType | undefined;
     /**
      * Instantiates a new getMailTipsRequestBody and sets the default values.

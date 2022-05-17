@@ -2,13 +2,13 @@ import {PersonOrGroupColumn} from './personOrGroupColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PersonOrGroupColumnImpl implements AdditionalDataHolder, Parsable, PersonOrGroupColumn {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Indicates whether multiple values can be selected from the source.  */
+    /** Indicates whether multiple values can be selected from the source. */
     allowMultipleSelection?: boolean | undefined;
-    /** Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly.  */
+    /** Whether to allow selection of people only, or people and groups. Must be one of peopleAndGroups or peopleOnly. */
     chooseFromType?: string | undefined;
-    /** How to display the information about the person or group chosen. See below.  */
+    /** How to display the information about the person or group chosen. See below. */
     displayAs?: string | undefined;
     /**
      * Instantiates a new personOrGroupColumn and sets the default values.

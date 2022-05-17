@@ -4,11 +4,11 @@ import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OperationImpl extends EntityImpl implements Operation, Parsable {
-    /** The start time of the operation.  */
+    /** The start time of the operation. */
     createdDateTime?: Date | undefined;
-    /** The time of the last action of the operation.  */
+    /** The time of the last action of the operation. */
     lastActionDateTime?: Date | undefined;
-    /** Possible values are: notStarted, running, completed, failed. Read-only.  */
+    /** Possible values are: notStarted, running, completed, failed. Read-only. */
     status?: OperationStatus | undefined;
     /**
      * Instantiates a new operation and sets the default values.

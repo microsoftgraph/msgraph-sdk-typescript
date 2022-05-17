@@ -6,27 +6,27 @@ import {PolicyPlatformType} from './policyPlatformType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicySettingStateSummaryImpl extends EntityImpl implements DeviceCompliancePolicySettingStateSummary, Parsable {
-    /** Number of compliant devices  */
+    /** Number of compliant devices */
     compliantDeviceCount?: number | undefined;
-    /** Number of conflict devices  */
+    /** Number of conflict devices */
     conflictDeviceCount?: number | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     deviceComplianceSettingStates?: DeviceComplianceSettingState[] | undefined;
-    /** Number of error devices  */
+    /** Number of error devices */
     errorDeviceCount?: number | undefined;
-    /** Number of NonCompliant devices  */
+    /** Number of NonCompliant devices */
     nonCompliantDeviceCount?: number | undefined;
-    /** Number of not applicable devices  */
+    /** Number of not applicable devices */
     notApplicableDeviceCount?: number | undefined;
-    /** Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all.  */
+    /** Setting platform. Possible values are: android, androidForWork, iOS, macOS, windowsPhone81, windows81AndLater, windows10AndLater, androidWorkProfile, windows10XProfile, androidAOSP, all. */
     platformType?: PolicyPlatformType | undefined;
-    /** Number of remediated devices  */
+    /** Number of remediated devices */
     remediatedDeviceCount?: number | undefined;
-    /** The setting class name and property name.  */
+    /** The setting class name and property name. */
     setting?: string | undefined;
-    /** Name of the setting.  */
+    /** Name of the setting. */
     settingName?: string | undefined;
-    /** Number of unknown devices  */
+    /** Number of unknown devices */
     unknownDeviceCount?: number | undefined;
     /**
      * Instantiates a new deviceCompliancePolicySettingStateSummary and sets the default values.

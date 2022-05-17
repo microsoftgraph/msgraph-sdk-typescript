@@ -2,7 +2,7 @@ import {BookingCustomerInformationBase} from './bookingCustomerInformationBase';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingCustomerInformationBaseImpl implements AdditionalDataHolder, BookingCustomerInformationBase, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new bookingCustomerInformationBase and sets the default values.

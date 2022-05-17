@@ -11,25 +11,25 @@ import {WindowsAutopilotDeviceIdentityItemRequestBuilderGetRequestConfiguration}
 import {WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration} from './windowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity.  */
+/** Provides operations to manage the windowsAutopilotDeviceIdentities property of the microsoft.graph.deviceManagement entity. */
 export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
-    /** The assignUserToDevice property  */
+    /** The assignUserToDevice property */
     public get assignUserToDevice(): AssignUserToDeviceRequestBuilder {
         return new AssignUserToDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The unassignUserFromDevice property  */
+    /** The unassignUserFromDevice property */
     public get unassignUserFromDevice(): UnassignUserFromDeviceRequestBuilder {
         return new UnassignUserFromDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The updateDeviceProperties property  */
+    /** The updateDeviceProperties property */
     public get updateDeviceProperties(): UpdateDevicePropertiesRequestBuilder {
         return new UpdateDevicePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new WindowsAutopilotDeviceIdentityItemRequestBuilder and sets the default values.
@@ -134,7 +134,7 @@ export class WindowsAutopilotDeviceIdentityItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: WindowsAutopilotDeviceIdentityImpl | undefined, requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: WindowsAutopilotDeviceIdentity | undefined, requestConfiguration?: WindowsAutopilotDeviceIdentityItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

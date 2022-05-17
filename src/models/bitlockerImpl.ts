@@ -5,7 +5,7 @@ import {BitlockerRecoveryKeyImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BitlockerImpl extends EntityImpl implements Bitlocker, Parsable {
-    /** The recovery keys associated with the bitlocker entity.  */
+    /** The recovery keys associated with the bitlocker entity. */
     recoveryKeys?: BitlockerRecoveryKey[] | undefined;
     /**
      * Instantiates a new bitlocker and sets the default values.

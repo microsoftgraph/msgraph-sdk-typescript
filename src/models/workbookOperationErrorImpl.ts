@@ -3,13 +3,13 @@ import {WorkbookOperationError} from './workbookOperationError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookOperationErrorImpl implements AdditionalDataHolder, Parsable, WorkbookOperationError {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The error code.  */
+    /** The error code. */
     code?: string | undefined;
-    /** The innerError property  */
+    /** The innerError property */
     innerError?: WorkbookOperationError | undefined;
-    /** The error message.  */
+    /** The error message. */
     message?: string | undefined;
     /**
      * Instantiates a new workbookOperationError and sets the default values.

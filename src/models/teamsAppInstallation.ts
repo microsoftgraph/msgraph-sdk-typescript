@@ -3,8 +3,8 @@ import {TeamsApp} from './teamsApp';
 import {TeamsAppDefinition} from './teamsAppDefinition';
 
 export interface TeamsAppInstallation extends Entity{
-    /** The app that is installed.  */
+    /** The app that is installed. */
     teamsApp?: TeamsApp | undefined;
-    /** The details of this version of the app.  */
+    /** The details of this version of the app. */
     teamsAppDefinition?: TeamsAppDefinition | undefined;
 }

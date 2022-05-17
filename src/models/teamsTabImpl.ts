@@ -7,13 +7,13 @@ import {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsTabImpl extends EntityImpl implements Parsable, TeamsTab {
-    /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set.  */
+    /** Container for custom settings applied to a tab. The tab is considered configured only once this property is set. */
     configuration?: TeamsTabConfiguration | undefined;
-    /** Name of the tab.  */
+    /** Name of the tab. */
     displayName?: string | undefined;
-    /** The application that is linked to the tab.  */
+    /** The application that is linked to the tab. */
     teamsApp?: TeamsApp | undefined;
-    /** Deep link URL of the tab instance. Read only.  */
+    /** Deep link URL of the tab instance. Read only. */
     webUrl?: string | undefined;
     /**
      * Instantiates a new teamsTab and sets the default values.

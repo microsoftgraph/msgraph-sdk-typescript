@@ -10,17 +10,17 @@ import {DomainsRequestBuilderGetRequestConfiguration} from './domainsRequestBuil
 import {DomainsRequestBuilderPostRequestConfiguration} from './domainsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities.  */
+/** Provides operations to manage the collection of domain entities. */
 export class DomainsRequestBuilder {
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new DomainsRequestBuilder and sets the default values.
@@ -36,7 +36,7 @@ export class DomainsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get entities from domains
+     * List domains
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -53,7 +53,7 @@ export class DomainsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to domains
+     * Create domain
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -73,7 +73,7 @@ export class DomainsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from domains
+     * List domains
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DomainCollectionResponse
@@ -89,7 +89,7 @@ export class DomainsRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainCollectionResponseImpl>(requestInfo, createDomainCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Add new entity to domains
+     * Create domain
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

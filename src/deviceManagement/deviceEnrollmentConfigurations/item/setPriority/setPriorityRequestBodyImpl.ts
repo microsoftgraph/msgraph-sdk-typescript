@@ -1,11 +1,11 @@
 import {SetPriorityRequestBody} from './setPriorityRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the setPriority method.  */
+/** Provides operations to call the setPriority method. */
 export class SetPriorityRequestBodyImpl implements AdditionalDataHolder, Parsable, SetPriorityRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The priority property  */
+    /** The priority property */
     priority?: number | undefined;
     /**
      * Instantiates a new setPriorityRequestBody and sets the default values.

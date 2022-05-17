@@ -11,15 +11,15 @@ import {OnlineMeeting} from './onlineMeeting';
 import {Presence} from './presence';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton.  */
+/** Provides operations to manage the cloudCommunications singleton. */
 export class CloudCommunicationsImpl extends EntityImpl implements CloudCommunications, Parsable {
-    /** The callRecords property  */
+    /** The callRecords property */
     callRecords?: CallRecord[] | undefined;
-    /** The calls property  */
+    /** The calls property */
     calls?: Call[] | undefined;
-    /** The onlineMeetings property  */
+    /** The onlineMeetings property */
     onlineMeetings?: OnlineMeeting[] | undefined;
-    /** The presences property  */
+    /** The presences property */
     presences?: Presence[] | undefined;
     /**
      * Instantiates a new cloudCommunications and sets the default values.

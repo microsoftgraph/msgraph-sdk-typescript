@@ -5,11 +5,11 @@ import {ThreatAssessmentResultCollectionResponse} from './threatAssessmentResult
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ThreatAssessmentResultCollectionResponseImpl implements AdditionalDataHolder, Parsable, ThreatAssessmentResultCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: ThreatAssessmentResult[] | undefined;
     /**
      * Instantiates a new ThreatAssessmentResultCollectionResponse and sets the default values.

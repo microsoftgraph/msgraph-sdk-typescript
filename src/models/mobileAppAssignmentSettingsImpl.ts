@@ -1,9 +1,9 @@
 import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Abstract class to contain properties used to assign a mobile app to a group.  */
+/** Abstract class to contain properties used to assign a mobile app to a group. */
 export class MobileAppAssignmentSettingsImpl implements AdditionalDataHolder, MobileAppAssignmentSettings, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new mobileAppAssignmentSettings and sets the default values.

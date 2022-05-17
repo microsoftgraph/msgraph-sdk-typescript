@@ -4,13 +4,13 @@ import {Prompt} from '../../../../../../models/prompt';
 import {StartHoldMusicRequestBody} from './startHoldMusicRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the startHoldMusic method.  */
+/** Provides operations to call the startHoldMusic method. */
 export class StartHoldMusicRequestBodyImpl implements AdditionalDataHolder, Parsable, StartHoldMusicRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The clientContext property  */
+    /** The clientContext property */
     clientContext?: string | undefined;
-    /** The customPrompt property  */
+    /** The customPrompt property */
     customPrompt?: Prompt | undefined;
     /**
      * Instantiates a new startHoldMusicRequestBody and sets the default values.

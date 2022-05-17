@@ -1,17 +1,17 @@
 import {AcceptRequestBuilder} from './accept/acceptRequestBuilder';
 import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Builds and executes requests for operations under /me/messages/{message-id}/microsoft.graph.calendarSharingMessage  */
+/** Builds and executes requests for operations under /me/messages/{message-id}/microsoft.graph.calendarSharingMessage */
 export class CalendarSharingMessageRequestBuilder {
-    /** The accept property  */
+    /** The accept property */
     public get accept(): AcceptRequestBuilder {
         return new AcceptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new CalendarSharingMessageRequestBuilder and sets the default values.

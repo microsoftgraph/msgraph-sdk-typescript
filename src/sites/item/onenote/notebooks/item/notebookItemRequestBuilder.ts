@@ -13,25 +13,25 @@ import {OnenoteSectionItemRequestBuilder} from './sections/item/onenoteSectionIt
 import {SectionsRequestBuilder} from './sections/sectionsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity.  */
+/** Provides operations to manage the notebooks property of the microsoft.graph.onenote entity. */
 export class NotebookItemRequestBuilder {
-    /** The copyNotebook property  */
+    /** The copyNotebook property */
     public get copyNotebook(): CopyNotebookRequestBuilder {
         return new CopyNotebookRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sectionGroups property  */
+    /** The sectionGroups property */
     public get sectionGroups(): SectionGroupsRequestBuilder {
         return new SectionGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sections property  */
+    /** The sections property */
     public get sections(): SectionsRequestBuilder {
         return new SectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new NotebookItemRequestBuilder and sets the default values.
@@ -136,7 +136,7 @@ export class NotebookItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: NotebookImpl | undefined, requestConfiguration?: NotebookItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Notebook | undefined, requestConfiguration?: NotebookItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

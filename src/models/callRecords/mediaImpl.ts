@@ -9,19 +9,19 @@ import {NetworkInfo} from './networkInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MediaImpl implements AdditionalDataHolder, Media, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Device information associated with the callee endpoint of this media.  */
+    /** Device information associated with the callee endpoint of this media. */
     calleeDevice?: DeviceInfo | undefined;
-    /** Network information associated with the callee endpoint of this media.  */
+    /** Network information associated with the callee endpoint of this media. */
     calleeNetwork?: NetworkInfo | undefined;
-    /** Device information associated with the caller endpoint of this media.  */
+    /** Device information associated with the caller endpoint of this media. */
     callerDevice?: DeviceInfo | undefined;
-    /** Network information associated with the caller endpoint of this media.  */
+    /** Network information associated with the caller endpoint of this media. */
     callerNetwork?: NetworkInfo | undefined;
-    /** How the media was identified during media negotiation stage.  */
+    /** How the media was identified during media negotiation stage. */
     label?: string | undefined;
-    /** Network streams associated with this media.  */
+    /** Network streams associated with this media. */
     streams?: MediaStream[] | undefined;
     /**
      * Instantiates a new media and sets the default values.

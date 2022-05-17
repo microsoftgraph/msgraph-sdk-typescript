@@ -8,13 +8,13 @@ import {ThumbnailSetItemRequestBuilderGetRequestConfiguration} from './thumbnail
 import {ThumbnailSetItemRequestBuilderPatchRequestConfiguration} from './thumbnailSetItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity.  */
+/** Provides operations to manage the thumbnails property of the microsoft.graph.driveItem entity. */
 export class ThumbnailSetItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ThumbnailSetItemRequestBuilder and sets the default values.
@@ -119,7 +119,7 @@ export class ThumbnailSetItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ThumbnailSetImpl | undefined, requestConfiguration?: ThumbnailSetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ThumbnailSet | undefined, requestConfiguration?: ThumbnailSetItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

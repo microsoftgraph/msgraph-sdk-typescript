@@ -5,7 +5,7 @@ import {ApprovalStageImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ApprovalImpl extends EntityImpl implements Approval, Parsable {
-    /** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage.  */
+    /** Used for the approvalStages property of approval settings in the requestApprovalSettings property of an access package assignment policy. Specifies the primary, fallback, and escalation approvers of each stage. */
     stages?: ApprovalStage[] | undefined;
     /**
      * Instantiates a new approval and sets the default values.

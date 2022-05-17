@@ -1,8 +1,8 @@
 import {Entity} from './entity';
 
 export interface WindowsInformationProtectionNetworkLearningSummary extends Entity{
-    /** Device Count  */
+    /** Device Count */
     deviceCount?: number | undefined;
-    /** Website url  */
+    /** Website url */
     url?: string | undefined;
 }

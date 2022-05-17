@@ -6,15 +6,15 @@ import {WorkingHours} from './workingHours';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class WorkingHoursImpl implements AdditionalDataHolder, Parsable, WorkingHours {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The days of the week on which the user works.  */
+    /** The days of the week on which the user works. */
     daysOfWeek?: DayOfWeek[] | undefined;
-    /** The time of the day that the user stops working.  */
+    /** The time of the day that the user stops working. */
     endTime?: TimeOnly | undefined;
-    /** The time of the day that the user starts working.  */
+    /** The time of the day that the user starts working. */
     startTime?: TimeOnly | undefined;
-    /** The time zone to which the working hours apply.  */
+    /** The time zone to which the working hours apply. */
     timeZone?: TimeZoneBase | undefined;
     /**
      * Instantiates a new workingHours and sets the default values.

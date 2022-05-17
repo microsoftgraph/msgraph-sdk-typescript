@@ -1,7 +1,7 @@
 
 export interface WindowsHelloForBusinessAuthenticationMethodItemRequestBuilderGetQueryParameters{
-    /** Expand related entities  */
+    /** Expand related entities */
     expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     select?: string[] | undefined;
 }

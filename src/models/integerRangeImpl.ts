@@ -2,11 +2,11 @@ import {IntegerRange} from './integerRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IntegerRangeImpl implements AdditionalDataHolder, IntegerRange, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The inclusive upper bound of the integer range.  */
+    /** The inclusive upper bound of the integer range. */
     end?: number | undefined;
-    /** The inclusive lower bound of the integer range.  */
+    /** The inclusive lower bound of the integer range. */
     start?: number | undefined;
     /**
      * Instantiates a new integerRange and sets the default values.

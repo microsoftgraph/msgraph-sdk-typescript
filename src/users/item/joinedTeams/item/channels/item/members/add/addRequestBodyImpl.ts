@@ -4,11 +4,11 @@ import {createConversationMemberFromDiscriminatorValue} from '../../../../../../
 import {AddRequestBody} from './addRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the add method.  */
+/** Provides operations to call the add method. */
 export class AddRequestBodyImpl implements AdditionalDataHolder, AddRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The values property  */
+    /** The values property */
     values?: ConversationMember[] | undefined;
     /**
      * Instantiates a new addRequestBody and sets the default values.

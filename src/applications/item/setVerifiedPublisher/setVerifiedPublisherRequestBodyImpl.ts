@@ -1,11 +1,11 @@
 import {SetVerifiedPublisherRequestBody} from './setVerifiedPublisherRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the setVerifiedPublisher method.  */
+/** Provides operations to call the setVerifiedPublisher method. */
 export class SetVerifiedPublisherRequestBodyImpl implements AdditionalDataHolder, Parsable, SetVerifiedPublisherRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The verifiedPublisherId property  */
+    /** The verifiedPublisherId property */
     verifiedPublisherId?: string | undefined;
     /**
      * Instantiates a new setVerifiedPublisherRequestBody and sets the default values.

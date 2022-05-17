@@ -4,10 +4,10 @@ import {ExternalItemContent} from './externalItemContent';
 import {Properties} from './properties';
 
 export interface ExternalItem extends Entity{
-    /** An array of access control entries. Each entry specifies the access granted to a user or group. Required.  */
+    /** An array of access control entries. Each entry specifies the access granted to a user or group. Required. */
     acl?: Acl[] | undefined;
-    /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional.  */
+    /** A plain-text  representation of the contents of the item. The text in this property is full-text indexed. Optional. */
     content?: ExternalItemContent | undefined;
-    /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required.  */
+    /** A property bag with the properties of the item. The properties MUST conform to the schema defined for the externalConnection. Required. */
     properties?: Properties | undefined;
 }

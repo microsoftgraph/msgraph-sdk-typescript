@@ -1,13 +1,13 @@
 
 export interface WipeRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The keepEnrollmentData property  */
+    /** The keepEnrollmentData property */
     keepEnrollmentData?: boolean | undefined;
-    /** The keepUserData property  */
+    /** The keepUserData property */
     keepUserData?: boolean | undefined;
-    /** The macOsUnlockCode property  */
+    /** The macOsUnlockCode property */
     macOsUnlockCode?: string | undefined;
-    /** The persistEsimDataPlan property  */
+    /** The persistEsimDataPlan property */
     persistEsimDataPlan?: boolean | undefined;
 }

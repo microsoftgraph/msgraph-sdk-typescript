@@ -3,7 +3,7 @@ import {RestrictedSignIn} from './restrictedSignIn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RestrictedSignInImpl extends SignInImpl implements Parsable, RestrictedSignIn {
-    /** The targetTenantId property  */
+    /** The targetTenantId property */
     targetTenantId?: string | undefined;
     /**
      * Instantiates a new restrictedSignIn and sets the default values.

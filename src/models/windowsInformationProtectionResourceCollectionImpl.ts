@@ -1,13 +1,13 @@
 import {WindowsInformationProtectionResourceCollection} from './windowsInformationProtectionResourceCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection Resource Collection  */
+/** Windows Information Protection Resource Collection */
 export class WindowsInformationProtectionResourceCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionResourceCollection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Display name  */
+    /** Display name */
     displayName?: string | undefined;
-    /** Collection of resources  */
+    /** Collection of resources */
     resources?: string[] | undefined;
     /**
      * Instantiates a new windowsInformationProtectionResourceCollection and sets the default values.

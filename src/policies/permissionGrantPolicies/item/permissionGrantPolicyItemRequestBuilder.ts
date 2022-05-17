@@ -12,21 +12,21 @@ import {PermissionGrantPolicyItemRequestBuilderGetRequestConfiguration} from './
 import {PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration} from './permissionGrantPolicyItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity.  */
+/** Provides operations to manage the permissionGrantPolicies property of the microsoft.graph.policyRoot entity. */
 export class PermissionGrantPolicyItemRequestBuilder {
-    /** The excludes property  */
+    /** The excludes property */
     public get excludes(): ExcludesRequestBuilder {
         return new ExcludesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The includes property  */
+    /** The includes property */
     public get includes(): IncludesRequestBuilder {
         return new IncludesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new PermissionGrantPolicyItemRequestBuilder and sets the default values.
@@ -153,7 +153,7 @@ export class PermissionGrantPolicyItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PermissionGrantPolicyImpl | undefined, requestConfiguration?: PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PermissionGrantPolicy | undefined, requestConfiguration?: PermissionGrantPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

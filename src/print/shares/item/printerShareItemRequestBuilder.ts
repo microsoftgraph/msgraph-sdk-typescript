@@ -13,25 +13,25 @@ import {PrinterShareItemRequestBuilderGetRequestConfiguration} from './printerSh
 import {PrinterShareItemRequestBuilderPatchRequestConfiguration} from './printerShareItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the shares property of the microsoft.graph.print entity.  */
+/** Provides operations to manage the shares property of the microsoft.graph.print entity. */
 export class PrinterShareItemRequestBuilder {
-    /** The allowedGroups property  */
+    /** The allowedGroups property */
     public get allowedGroups(): AllowedGroupsRequestBuilder {
         return new AllowedGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The allowedUsers property  */
+    /** The allowedUsers property */
     public get allowedUsers(): AllowedUsersRequestBuilder {
         return new AllowedUsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The printer property  */
+    /** The printer property */
     public get printer(): PrinterRequestBuilder {
         return new PrinterRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.print.shares.item.allowedGroups.item collection
@@ -158,7 +158,7 @@ export class PrinterShareItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: PrinterShareImpl | undefined, requestConfiguration?: PrinterShareItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: PrinterShare | undefined, requestConfiguration?: PrinterShareItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

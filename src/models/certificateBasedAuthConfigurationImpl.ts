@@ -5,7 +5,7 @@ import {CertificateAuthorityImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CertificateBasedAuthConfigurationImpl extends EntityImpl implements CertificateBasedAuthConfiguration, Parsable {
-    /** Collection of certificate authorities which creates a trusted certificate chain.  */
+    /** Collection of certificate authorities which creates a trusted certificate chain. */
     certificateAuthorities?: CertificateAuthority[] | undefined;
     /**
      * Instantiates a new certificateBasedAuthConfiguration and sets the default values.

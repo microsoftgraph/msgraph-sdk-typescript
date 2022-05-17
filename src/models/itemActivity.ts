@@ -4,12 +4,12 @@ import {Entity} from './entity';
 import {IdentitySet} from './identitySet';
 
 export interface ItemActivity extends Entity{
-    /** An item was accessed.  */
+    /** An item was accessed. */
     access?: AccessAction | undefined;
-    /** Details about when the activity took place. Read-only.  */
+    /** Details about when the activity took place. Read-only. */
     activityDateTime?: Date | undefined;
-    /** Identity of who performed the action. Read-only.  */
+    /** Identity of who performed the action. Read-only. */
     actor?: IdentitySet | undefined;
-    /** Exposes the driveItem that was the target of this activity.  */
+    /** Exposes the driveItem that was the target of this activity. */
     driveItem?: DriveItem | undefined;
 }

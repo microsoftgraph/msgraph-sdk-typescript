@@ -31,95 +31,95 @@ import {WindowsDefenderUpdateSignaturesRequestBuilder} from './windowsDefenderUp
 import {WipeRequestBuilder} from './wipe/wipeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the managedDevices property of the microsoft.graph.user entity.  */
+/** Provides operations to manage the managedDevices property of the microsoft.graph.user entity. */
 export class ManagedDeviceItemRequestBuilder {
-    /** The bypassActivationLock property  */
+    /** The bypassActivationLock property */
     public get bypassActivationLock(): BypassActivationLockRequestBuilder {
         return new BypassActivationLockRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The cleanWindowsDevice property  */
+    /** The cleanWindowsDevice property */
     public get cleanWindowsDevice(): CleanWindowsDeviceRequestBuilder {
         return new CleanWindowsDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deleteUserFromSharedAppleDevice property  */
+    /** The deleteUserFromSharedAppleDevice property */
     public get deleteUserFromSharedAppleDevice(): DeleteUserFromSharedAppleDeviceRequestBuilder {
         return new DeleteUserFromSharedAppleDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceCategory property  */
+    /** The deviceCategory property */
     public get deviceCategory(): DeviceCategoryRequestBuilder {
         return new DeviceCategoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceCompliancePolicyStates property  */
+    /** The deviceCompliancePolicyStates property */
     public get deviceCompliancePolicyStates(): DeviceCompliancePolicyStatesRequestBuilder {
         return new DeviceCompliancePolicyStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceConfigurationStates property  */
+    /** The deviceConfigurationStates property */
     public get deviceConfigurationStates(): DeviceConfigurationStatesRequestBuilder {
         return new DeviceConfigurationStatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The disableLostMode property  */
+    /** The disableLostMode property */
     public get disableLostMode(): DisableLostModeRequestBuilder {
         return new DisableLostModeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The locateDevice property  */
+    /** The locateDevice property */
     public get locateDevice(): LocateDeviceRequestBuilder {
         return new LocateDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The logoutSharedAppleDeviceActiveUser property  */
+    /** The logoutSharedAppleDeviceActiveUser property */
     public get logoutSharedAppleDeviceActiveUser(): LogoutSharedAppleDeviceActiveUserRequestBuilder {
         return new LogoutSharedAppleDeviceActiveUserRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The rebootNow property  */
+    /** The rebootNow property */
     public get rebootNow(): RebootNowRequestBuilder {
         return new RebootNowRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The recoverPasscode property  */
+    /** The recoverPasscode property */
     public get recoverPasscode(): RecoverPasscodeRequestBuilder {
         return new RecoverPasscodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The remoteLock property  */
+    /** The remoteLock property */
     public get remoteLock(): RemoteLockRequestBuilder {
         return new RemoteLockRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The requestRemoteAssistance property  */
+    /** The requestRemoteAssistance property */
     public get requestRemoteAssistance(): RequestRemoteAssistanceRequestBuilder {
         return new RequestRemoteAssistanceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The resetPasscode property  */
+    /** The resetPasscode property */
     public get resetPasscode(): ResetPasscodeRequestBuilder {
         return new ResetPasscodeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The retire property  */
+    /** The retire property */
     public get retire(): RetireRequestBuilder {
         return new RetireRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shutDown property  */
+    /** The shutDown property */
     public get shutDown(): ShutDownRequestBuilder {
         return new ShutDownRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The syncDevice property  */
+    /** The syncDevice property */
     public get syncDevice(): SyncDeviceRequestBuilder {
         return new SyncDeviceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The updateWindowsDeviceAccount property  */
+    /** The updateWindowsDeviceAccount property */
     public get updateWindowsDeviceAccount(): UpdateWindowsDeviceAccountRequestBuilder {
         return new UpdateWindowsDeviceAccountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The windowsDefenderScan property  */
+    /** The windowsDefenderScan property */
     public get windowsDefenderScan(): WindowsDefenderScanRequestBuilder {
         return new WindowsDefenderScanRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The windowsDefenderUpdateSignatures property  */
+    /** The windowsDefenderUpdateSignatures property */
     public get windowsDefenderUpdateSignatures(): WindowsDefenderUpdateSignaturesRequestBuilder {
         return new WindowsDefenderUpdateSignaturesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The wipe property  */
+    /** The wipe property */
     public get wipe(): WipeRequestBuilder {
         return new WipeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -248,7 +248,7 @@ export class ManagedDeviceItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ManagedDeviceImpl | undefined, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedDevice | undefined, requestConfiguration?: ManagedDeviceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

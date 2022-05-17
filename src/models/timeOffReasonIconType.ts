@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of group entities.  */
+/** Provides operations to manage the collection of drive entities. */
 export enum TimeOffReasonIconType {
     None = "none",
     Car = "car",

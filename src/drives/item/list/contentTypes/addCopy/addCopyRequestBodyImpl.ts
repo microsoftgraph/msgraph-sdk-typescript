@@ -1,11 +1,11 @@
 import {AddCopyRequestBody} from './addCopyRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the addCopy method.  */
+/** Provides operations to call the addCopy method. */
 export class AddCopyRequestBodyImpl implements AddCopyRequestBody, AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The contentType property  */
+    /** The contentType property */
     contentType?: string | undefined;
     /**
      * Instantiates a new addCopyRequestBody and sets the default values.

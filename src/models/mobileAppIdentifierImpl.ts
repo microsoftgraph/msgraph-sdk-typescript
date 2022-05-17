@@ -1,9 +1,9 @@
 import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The identifier for a mobile app.  */
+/** The identifier for a mobile app. */
 export class MobileAppIdentifierImpl implements AdditionalDataHolder, MobileAppIdentifier, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new mobileAppIdentifier and sets the default values.

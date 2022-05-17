@@ -4,13 +4,13 @@ import {Recipient} from '../../../../models/recipient';
 import {ForwardRequestBody} from './forwardRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the forward method.  */
+/** Provides operations to call the forward method. */
 export class ForwardRequestBodyImpl implements AdditionalDataHolder, ForwardRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The Comment property  */
+    /** The Comment property */
     comment?: string | undefined;
-    /** The ToRecipients property  */
+    /** The ToRecipients property */
     toRecipients?: Recipient[] | undefined;
     /**
      * Instantiates a new forwardRequestBody and sets the default values.

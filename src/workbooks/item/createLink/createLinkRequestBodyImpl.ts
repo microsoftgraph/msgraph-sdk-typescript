@@ -1,21 +1,21 @@
 import {CreateLinkRequestBody} from './createLinkRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the createLink method.  */
+/** Provides operations to call the createLink method. */
 export class CreateLinkRequestBodyImpl implements AdditionalDataHolder, CreateLinkRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The expirationDateTime property  */
+    /** The expirationDateTime property */
     expirationDateTime?: Date | undefined;
-    /** The message property  */
+    /** The message property */
     message?: string | undefined;
-    /** The password property  */
+    /** The password property */
     password?: string | undefined;
-    /** The retainInheritedPermissions property  */
+    /** The retainInheritedPermissions property */
     retainInheritedPermissions?: boolean | undefined;
-    /** The scope property  */
+    /** The scope property */
     scope?: string | undefined;
-    /** The type property  */
+    /** The type property */
     type?: string | undefined;
     /**
      * Instantiates a new createLinkRequestBody and sets the default values.

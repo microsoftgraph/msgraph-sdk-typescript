@@ -2,13 +2,13 @@ import {ChatInfo} from './chatInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatInfoImpl implements AdditionalDataHolder, ChatInfo, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The unique identifier for a message in a Microsoft Teams channel.  */
+    /** The unique identifier for a message in a Microsoft Teams channel. */
     messageId?: string | undefined;
-    /** The ID of the reply message.  */
+    /** The ID of the reply message. */
     replyChainMessageId?: string | undefined;
-    /** The unique identifier for a thread in Microsoft Teams.  */
+    /** The unique identifier for a thread in Microsoft Teams. */
     threadId?: string | undefined;
     /**
      * Instantiates a new chatInfo and sets the default values.

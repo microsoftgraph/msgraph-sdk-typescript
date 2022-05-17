@@ -1,11 +1,11 @@
 import {CancelRequestBody} from './cancelRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the cancel method.  */
+/** Provides operations to call the cancel method. */
 export class CancelRequestBodyImpl implements AdditionalDataHolder, CancelRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The cancellationMessage property  */
+    /** The cancellationMessage property */
     cancellationMessage?: string | undefined;
     /**
      * Instantiates a new cancelRequestBody and sets the default values.

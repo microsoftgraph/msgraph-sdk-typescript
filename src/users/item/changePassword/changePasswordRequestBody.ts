@@ -1,9 +1,9 @@
 
 export interface ChangePasswordRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The currentPassword property  */
+    /** The currentPassword property */
     currentPassword?: string | undefined;
-    /** The newPassword property  */
+    /** The newPassword property */
     newPassword?: string | undefined;
 }

@@ -35,69 +35,69 @@ import {StoreItemRequestBuilder} from './termStores/item/storeItemRequestBuilder
 import {TermStoresRequestBuilder} from './termStores/termStoresRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of site entities.  */
+/** Provides operations to manage the collection of site entities. */
 export class SiteItemRequestBuilder {
-    /** The analytics property  */
+    /** The analytics property */
     public get analytics(): AnalyticsRequestBuilder {
         return new AnalyticsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columns property  */
+    /** The columns property */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contentTypes property  */
+    /** The contentTypes property */
     public get contentTypes(): ContentTypesRequestBuilder {
         return new ContentTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drive property  */
+    /** The drive property */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drives property  */
+    /** The drives property */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The externalColumns property  */
+    /** The externalColumns property */
     public get externalColumns(): ExternalColumnsRequestBuilder {
         return new ExternalColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The items property  */
+    /** The items property */
     public get items(): ItemsRequestBuilder {
         return new ItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The lists property  */
+    /** The lists property */
     public get lists(): ListsRequestBuilder {
         return new ListsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onenote property  */
+    /** The onenote property */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property  */
+    /** The operations property */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permissions property  */
+    /** The permissions property */
     public get permissions(): PermissionsRequestBuilder {
         return new PermissionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The sites property  */
+    /** The sites property */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The termStore property  */
+    /** The termStore property */
     public get termStore(): TermStoreRequestBuilder {
         return new TermStoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The termStores property  */
+    /** The termStores property */
     public get termStores(): TermStoresRequestBuilder {
         return new TermStoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.sites.item.columns.item collection
@@ -135,7 +135,7 @@ export class SiteItemRequestBuilder {
         return new ContentTypeItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from sites by key
+     * Get a site resource
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -194,7 +194,7 @@ export class SiteItemRequestBuilder {
         return new i5af8c8b4180030ca52bdaf35671f120ba82bee933b95da7d925fcf113d77ce01(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from sites by key
+     * Get a site resource
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Site
@@ -286,7 +286,7 @@ export class SiteItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: SiteImpl | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Site | undefined, requestConfiguration?: SiteItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

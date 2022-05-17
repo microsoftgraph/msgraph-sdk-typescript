@@ -5,7 +5,7 @@ import {UnifiedRoleManagementPolicyRuleTarget} from './unifiedRoleManagementPoli
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyRuleImpl extends EntityImpl implements Parsable, UnifiedRoleManagementPolicyRule {
-    /** The target for the policy rule.  */
+    /** The target for the policy rule. */
     target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicyRule and sets the default values.

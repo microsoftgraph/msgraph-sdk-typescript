@@ -17,25 +17,25 @@ import {RiskLevel} from './riskLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessConditionSetImpl implements AdditionalDataHolder, ConditionalAccessConditionSet, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Applications and user actions included in and excluded from the policy. Required.  */
+    /** Applications and user actions included in and excluded from the policy. Required. */
     applications?: ConditionalAccessApplications | undefined;
-    /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.  */
+    /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */
     clientApplications?: ConditionalAccessClientApplications | undefined;
-    /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  */
+    /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required. */
     clientAppTypes?: ConditionalAccessClientApp[] | undefined;
-    /** Devices in the policy.  */
+    /** Devices in the policy. */
     devices?: ConditionalAccessDevices | undefined;
-    /** Locations included in and excluded from the policy.  */
+    /** Locations included in and excluded from the policy. */
     locations?: ConditionalAccessLocations | undefined;
-    /** Platforms included in and excluded from the policy.  */
+    /** Platforms included in and excluded from the policy. */
     platforms?: ConditionalAccessPlatforms | undefined;
-    /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
+    /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     signInRiskLevels?: RiskLevel[] | undefined;
-    /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
+    /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
     userRiskLevels?: RiskLevel[] | undefined;
-    /** Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.  */
+    /** Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required. */
     users?: ConditionalAccessUsers | undefined;
     /**
      * Instantiates a new conditionalAccessConditionSet and sets the default values.

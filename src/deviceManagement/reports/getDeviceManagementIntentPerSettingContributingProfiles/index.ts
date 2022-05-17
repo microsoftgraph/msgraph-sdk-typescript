@@ -1,5 +1,5 @@
-export * from './getDeviceManagementIntentPerSettingContributingProfilesRequestBodyImpl'
 export * from './getDeviceManagementIntentPerSettingContributingProfilesResponseImpl'
-export * from './getDeviceManagementIntentPerSettingContributingProfilesResponse'
+export * from './getDeviceManagementIntentPerSettingContributingProfilesRequestBodyImpl'
 export * from './getDeviceManagementIntentPerSettingContributingProfilesRequestBody'
+export * from './getDeviceManagementIntentPerSettingContributingProfilesResponse'
 export * from './getDeviceManagementIntentPerSettingContributingProfilesRequestBuilderPostRequestConfiguration'

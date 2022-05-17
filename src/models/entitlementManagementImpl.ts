@@ -19,21 +19,21 @@ import {AccessPackageAssignmentImpl, AccessPackageAssignmentPolicyImpl, AccessPa
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EntitlementManagementImpl extends EntityImpl implements EntitlementManagement, Parsable {
-    /** Approval stages for assignment requests.  */
+    /** Approval stages for assignment requests. */
     accessPackageAssignmentApprovals?: Approval[] | undefined;
-    /** Represents access package objects.  */
+    /** Represents access package objects. */
     accessPackages?: AccessPackage[] | undefined;
-    /** Access package assignment policies.  */
+    /** Access package assignment policies. */
     assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Represents access package assignment requests created by or on behalf of a user.  */
+    /** Represents access package assignment requests created by or on behalf of a user. */
     assignmentRequests?: AccessPackageAssignmentRequest[] | undefined;
-    /** Represents the grant of an access package to a subject (user or group).  */
+    /** Represents the grant of an access package to a subject (user or group). */
     assignments?: AccessPackageAssignment[] | undefined;
-    /** Represents a collection of access packages.  */
+    /** Represents a collection of access packages. */
     catalogs?: AccessPackageCatalog[] | undefined;
-    /** Represents references to a directory or domain of another organization whose users can request access.  */
+    /** Represents references to a directory or domain of another organization whose users can request access. */
     connectedOrganizations?: ConnectedOrganization[] | undefined;
-    /** Represents the settings that control the behavior of Azure AD entitlement management.  */
+    /** Represents the settings that control the behavior of Azure AD entitlement management. */
     settings?: EntitlementManagementSettings | undefined;
     /**
      * Instantiates a new entitlementManagement and sets the default values.

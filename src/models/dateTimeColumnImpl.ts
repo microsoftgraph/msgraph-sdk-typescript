@@ -2,11 +2,11 @@ import {DateTimeColumn} from './dateTimeColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DateTimeColumnImpl implements AdditionalDataHolder, DateTimeColumn, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** How the value should be presented in the UX. Must be one of default, friendly, or standard. See below for more details. If unspecified, treated as default.  */
+    /** How the value should be presented in the UX. Must be one of default, friendly, or standard. See below for more details. If unspecified, treated as default. */
     displayAs?: string | undefined;
-    /** Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime  */
+    /** Indicates whether the value should be presented as a date only or a date and time. Must be one of dateOnly or dateTime */
     format?: string | undefined;
     /**
      * Instantiates a new dateTimeColumn and sets the default values.

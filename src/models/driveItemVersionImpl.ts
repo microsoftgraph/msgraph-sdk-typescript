@@ -3,9 +3,9 @@ import {BaseItemVersionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion, Parsable {
-    /** The content property  */
+    /** The content property */
     content?: string | undefined;
-    /** Indicates the size of the content stream for this version of the item.  */
+    /** Indicates the size of the content stream for this version of the item. */
     size?: number | undefined;
     /**
      * Instantiates a new driveItemVersion and sets the default values.

@@ -5,11 +5,11 @@ import {UserInstallStateSummaryCollectionResponse} from './userInstallStateSumma
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserInstallStateSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, UserInstallStateSummaryCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: UserInstallStateSummary[] | undefined;
     /**
      * Instantiates a new UserInstallStateSummaryCollectionResponse and sets the default values.

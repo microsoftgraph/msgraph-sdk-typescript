@@ -5,11 +5,11 @@ import {B2xIdentityUserFlowImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class B2xIdentityUserFlowCollectionResponseImpl implements AdditionalDataHolder, B2xIdentityUserFlowCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: B2xIdentityUserFlow[] | undefined;
     /**
      * Instantiates a new B2xIdentityUserFlowCollectionResponse and sets the default values.

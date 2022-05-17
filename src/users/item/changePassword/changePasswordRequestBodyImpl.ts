@@ -1,13 +1,13 @@
 import {ChangePasswordRequestBody} from './changePasswordRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the changePassword method.  */
+/** Provides operations to call the changePassword method. */
 export class ChangePasswordRequestBodyImpl implements AdditionalDataHolder, ChangePasswordRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The currentPassword property  */
+    /** The currentPassword property */
     currentPassword?: string | undefined;
-    /** The newPassword property  */
+    /** The newPassword property */
     newPassword?: string | undefined;
     /**
      * Instantiates a new changePasswordRequestBody and sets the default values.

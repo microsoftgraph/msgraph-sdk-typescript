@@ -3,11 +3,11 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConversationMemberImpl extends EntityImpl implements ConversationMember, Parsable {
-    /** The display name of the user.  */
+    /** The display name of the user. */
     displayName?: string | undefined;
-    /** The roles for that user.  */
+    /** The roles for that user. */
     roles?: string[] | undefined;
-    /** The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat.  */
+    /** The timestamp denoting how far back a conversation's history is shared with the conversation member. This property is settable only for members of a chat. */
     visibleHistoryStartDateTime?: Date | undefined;
     /**
      * Instantiates a new conversationMember and sets the default values.

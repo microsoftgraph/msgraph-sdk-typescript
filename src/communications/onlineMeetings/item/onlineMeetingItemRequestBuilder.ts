@@ -11,21 +11,21 @@ import {OnlineMeetingItemRequestBuilderGetRequestConfiguration} from './onlineMe
 import {OnlineMeetingItemRequestBuilderPatchRequestConfiguration} from './onlineMeetingItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.  */
+/** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity. */
 export class OnlineMeetingItemRequestBuilder {
-    /** The attendanceReports property  */
+    /** The attendanceReports property */
     public get attendanceReports(): AttendanceReportsRequestBuilder {
         return new AttendanceReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The attendeeReport property  */
+    /** The attendeeReport property */
     public get attendeeReport(): AttendeeReportRequestBuilder {
         return new AttendeeReportRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.communications.onlineMeetings.item.attendanceReports.item collection
@@ -141,7 +141,7 @@ export class OnlineMeetingItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: OnlineMeetingImpl | undefined, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OnlineMeeting | undefined, requestConfiguration?: OnlineMeetingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

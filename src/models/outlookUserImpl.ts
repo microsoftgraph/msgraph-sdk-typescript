@@ -5,7 +5,7 @@ import {OutlookUser} from './outlookUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OutlookUserImpl extends EntityImpl implements OutlookUser, Parsable {
-    /** A list of categories defined for the user.  */
+    /** A list of categories defined for the user. */
     masterCategories?: OutlookCategory[] | undefined;
     /**
      * Instantiates a new outlookUser and sets the default values.

@@ -5,9 +5,9 @@ import {UnifiedRoleEligibilitySchedule} from './unifiedRoleEligibilitySchedule';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleEligibilityScheduleImpl extends UnifiedRoleScheduleBaseImpl implements Parsable, UnifiedRoleEligibilitySchedule {
-    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.  */
+    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     memberType?: string | undefined;
-    /** The schedule object of the eligible role assignment request.  */
+    /** The schedule object of the eligible role assignment request. */
     scheduleInfo?: RequestSchedule | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilitySchedule and sets the default values.

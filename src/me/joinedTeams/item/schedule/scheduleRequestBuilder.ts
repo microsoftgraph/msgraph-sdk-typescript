@@ -27,53 +27,53 @@ import {TimeOffItemRequestBuilder} from './timesOff/item/timeOffItemRequestBuild
 import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the schedule property of the microsoft.graph.team entity.  */
+/** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
 export class ScheduleRequestBuilder {
-    /** The offerShiftRequests property  */
+    /** The offerShiftRequests property */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The openShiftChangeRequests property  */
+    /** The openShiftChangeRequests property */
     public get openShiftChangeRequests(): OpenShiftChangeRequestsRequestBuilder {
         return new OpenShiftChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The openShifts property  */
+    /** The openShifts property */
     public get openShifts(): OpenShiftsRequestBuilder {
         return new OpenShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schedulingGroups property  */
+    /** The schedulingGroups property */
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The share property  */
+    /** The share property */
     public get share(): ShareRequestBuilder {
         return new ShareRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shifts property  */
+    /** The shifts property */
     public get shifts(): ShiftsRequestBuilder {
         return new ShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The swapShiftsChangeRequests property  */
+    /** The swapShiftsChangeRequests property */
     public get swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder {
         return new SwapShiftsChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timeOffReasons property  */
+    /** The timeOffReasons property */
     public get timeOffReasons(): TimeOffReasonsRequestBuilder {
         return new TimeOffReasonsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timeOffRequests property  */
+    /** The timeOffRequests property */
     public get timeOffRequests(): TimeOffRequestsRequestBuilder {
         return new TimeOffRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timesOff property  */
+    /** The timesOff property */
     public get timesOff(): TimesOffRequestBuilder {
         return new TimesOffRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ScheduleRequestBuilder and sets the default values.
@@ -211,7 +211,7 @@ export class ScheduleRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ScheduleImpl | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

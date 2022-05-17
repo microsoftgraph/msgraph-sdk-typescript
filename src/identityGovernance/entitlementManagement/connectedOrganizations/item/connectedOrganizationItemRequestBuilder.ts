@@ -12,21 +12,21 @@ import {InternalSponsorsRequestBuilder} from './internalSponsors/internalSponsor
 import {DirectoryObjectItemRequestBuilder as i85dad207545ce2553cc34a9773b5647376bd669d16a717b781acc57d7578395a} from './internalSponsors/item/directoryObjectItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity.  */
+/** Provides operations to manage the connectedOrganizations property of the microsoft.graph.entitlementManagement entity. */
 export class ConnectedOrganizationItemRequestBuilder {
-    /** The externalSponsors property  */
+    /** The externalSponsors property */
     public get externalSponsors(): ExternalSponsorsRequestBuilder {
         return new ExternalSponsorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The internalSponsors property  */
+    /** The internalSponsors property */
     public get internalSponsors(): InternalSponsorsRequestBuilder {
         return new InternalSponsorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ConnectedOrganizationItemRequestBuilder and sets the default values.
@@ -153,7 +153,7 @@ export class ConnectedOrganizationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ConnectedOrganizationImpl | undefined, requestConfiguration?: ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ConnectedOrganization | undefined, requestConfiguration?: ConnectedOrganizationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

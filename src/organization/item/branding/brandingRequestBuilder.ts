@@ -13,29 +13,29 @@ import {LocalizationsRequestBuilder} from './localizations/localizationsRequestB
 import {SquareLogoRequestBuilder} from './squareLogo/squareLogoRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the branding property of the microsoft.graph.organization entity.  */
+/** Provides operations to manage the branding property of the microsoft.graph.organization entity. */
 export class BrandingRequestBuilder {
-    /** The backgroundImage property  */
+    /** The backgroundImage property */
     public get backgroundImage(): BackgroundImageRequestBuilder {
         return new BackgroundImageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The bannerLogo property  */
+    /** The bannerLogo property */
     public get bannerLogo(): BannerLogoRequestBuilder {
         return new BannerLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The localizations property  */
+    /** The localizations property */
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The squareLogo property  */
+    /** The squareLogo property */
     public get squareLogo(): SquareLogoRequestBuilder {
         return new SquareLogoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new BrandingRequestBuilder and sets the default values.
@@ -151,7 +151,7 @@ export class BrandingRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: OrganizationalBrandingImpl | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OrganizationalBranding | undefined, requestConfiguration?: BrandingRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

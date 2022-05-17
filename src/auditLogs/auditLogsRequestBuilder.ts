@@ -15,29 +15,29 @@ import {SignInItemRequestBuilder} from './signIns/item/signInItemRequestBuilder'
 import {SignInsRequestBuilder} from './signIns/signInsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton.  */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogsRequestBuilder {
-    /** The directoryAudits property  */
+    /** The directoryAudits property */
     public get directoryAudits(): DirectoryAuditsRequestBuilder {
         return new DirectoryAuditsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The provisioning property  */
+    /** The provisioning property */
     public get provisioning(): ProvisioningRequestBuilder {
         return new ProvisioningRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restrictedSignIns property  */
+    /** The restrictedSignIns property */
     public get restrictedSignIns(): RestrictedSignInsRequestBuilder {
         return new RestrictedSignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The signIns property  */
+    /** The signIns property */
     public get signIns(): SignInsRequestBuilder {
         return new SignInsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AuditLogsRequestBuilder and sets the default values.
@@ -53,7 +53,7 @@ export class AuditLogsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get auditLogs
+     * auditLogRoot resource type
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -101,7 +101,7 @@ export class AuditLogsRequestBuilder {
         return new DirectoryAuditItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get auditLogs
+     * auditLogRoot resource type
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of AuditLogRoot
@@ -122,7 +122,7 @@ export class AuditLogsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AuditLogRootImpl | undefined, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AuditLogRoot | undefined, requestConfiguration?: AuditLogsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

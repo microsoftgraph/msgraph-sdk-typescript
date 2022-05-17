@@ -6,11 +6,11 @@ import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookOperationImpl extends EntityImpl implements Parsable, WorkbookOperation {
-    /** The error returned by the operation.  */
+    /** The error returned by the operation. */
     error_escaped?: WorkbookOperationError | undefined;
-    /** The resource URI for the result.  */
+    /** The resource URI for the result. */
     resourceLocation?: string | undefined;
-    /** The current status of the operation. Possible values are: notStarted, running, succeeded, failed.  */
+    /** The current status of the operation. Possible values are: notStarted, running, succeeded, failed. */
     status?: WorkbookOperationStatus | undefined;
     /**
      * Instantiates a new workbookOperation and sets the default values.

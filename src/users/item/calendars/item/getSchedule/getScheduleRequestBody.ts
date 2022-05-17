@@ -1,14 +1,14 @@
 import {DateTimeTimeZone} from '../../../../../models/dateTimeTimeZone';
 
 export interface GetScheduleRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The AvailabilityViewInterval property  */
+    /** The AvailabilityViewInterval property */
     availabilityViewInterval?: number | undefined;
-    /** The EndTime property  */
+    /** The EndTime property */
     endTime?: DateTimeTimeZone | undefined;
-    /** The Schedules property  */
+    /** The Schedules property */
     schedules?: string[] | undefined;
-    /** The StartTime property  */
+    /** The StartTime property */
     startTime?: DateTimeTimeZone | undefined;
 }

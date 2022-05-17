@@ -5,17 +5,17 @@ import {PrinterLocation} from './printerLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintConnectorImpl extends EntityImpl implements Parsable, PrintConnector {
-    /** The connector's version.  */
+    /** The connector's version. */
     appVersion?: string | undefined;
-    /** The name of the connector.  */
+    /** The name of the connector. */
     displayName?: string | undefined;
-    /** The connector machine's hostname.  */
+    /** The connector machine's hostname. */
     fullyQualifiedDomainName?: string | undefined;
-    /** The physical and/or organizational location of the connector.  */
+    /** The physical and/or organizational location of the connector. */
     location?: PrinterLocation | undefined;
-    /** The connector machine's operating system version.  */
+    /** The connector machine's operating system version. */
     operatingSystem?: string | undefined;
-    /** The DateTimeOffset when the connector was registered.  */
+    /** The DateTimeOffset when the connector was registered. */
     registeredDateTime?: Date | undefined;
     /**
      * Instantiates a new printConnector and sets the default values.

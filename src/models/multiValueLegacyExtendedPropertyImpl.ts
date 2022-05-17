@@ -3,7 +3,7 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MultiValueLegacyExtendedPropertyImpl extends EntityImpl implements MultiValueLegacyExtendedProperty, Parsable {
-    /** A collection of property values.  */
+    /** A collection of property values. */
     value?: string[] | undefined;
     /**
      * Instantiates a new multiValueLegacyExtendedProperty and sets the default values.

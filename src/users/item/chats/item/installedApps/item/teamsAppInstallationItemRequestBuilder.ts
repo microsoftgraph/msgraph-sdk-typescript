@@ -11,25 +11,25 @@ import {TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from '.
 import {UpgradeRequestBuilder} from './upgrade/upgradeRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the installedApps property of the microsoft.graph.chat entity.  */
+/** Provides operations to manage the installedApps property of the microsoft.graph.chat entity. */
 export class TeamsAppInstallationItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The teamsApp property  */
+    /** The teamsApp property */
     public get teamsApp(): TeamsAppRequestBuilder {
         return new TeamsAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teamsAppDefinition property  */
+    /** The teamsAppDefinition property */
     public get teamsAppDefinition(): TeamsAppDefinitionRequestBuilder {
         return new TeamsAppDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The upgrade property  */
+    /** The upgrade property */
     public get upgrade(): UpgradeRequestBuilder {
         return new UpgradeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new TeamsAppInstallationItemRequestBuilder and sets the default values.
@@ -134,7 +134,7 @@ export class TeamsAppInstallationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: TeamsAppInstallationImpl | undefined, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: TeamsAppInstallation | undefined, requestConfiguration?: TeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -16,27 +16,27 @@ import {WindowsHelloForBusinessAuthenticationMethodItemRequestBuilder} from './w
 import {WindowsHelloForBusinessMethodsRequestBuilder} from './windowsHelloForBusinessMethods/windowsHelloForBusinessMethodsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authentication property of the microsoft.graph.user entity.  */
+/** Provides operations to manage the authentication property of the microsoft.graph.user entity. */
 export class AuthenticationRequestBuilder {
-    /** The fido2Methods property  */
+    /** The fido2Methods property */
     public get fido2Methods(): Fido2MethodsRequestBuilder {
         return new Fido2MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The methods property  */
+    /** The methods property */
     public get methods(): MethodsRequestBuilder {
         return new MethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The microsoftAuthenticatorMethods property  */
+    /** The microsoftAuthenticatorMethods property */
     public get microsoftAuthenticatorMethods(): MicrosoftAuthenticatorMethodsRequestBuilder {
         return new MicrosoftAuthenticatorMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The windowsHelloForBusinessMethods property  */
+    /** The windowsHelloForBusinessMethods property */
     public get windowsHelloForBusinessMethods(): WindowsHelloForBusinessMethodsRequestBuilder {
         return new WindowsHelloForBusinessMethodsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -176,7 +176,7 @@ export class AuthenticationRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AuthenticationImpl | undefined, requestConfiguration?: AuthenticationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Authentication | undefined, requestConfiguration?: AuthenticationRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

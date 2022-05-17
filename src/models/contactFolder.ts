@@ -4,16 +4,16 @@ import {MultiValueLegacyExtendedProperty} from './multiValueLegacyExtendedProper
 import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProperty';
 
 export interface ContactFolder extends Entity{
-    /** The collection of child folders in the folder. Navigation property. Read-only. Nullable.  */
+    /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
     childFolders?: ContactFolder[] | undefined;
-    /** The contacts in the folder. Navigation property. Read-only. Nullable.  */
+    /** The contacts in the folder. Navigation property. Read-only. Nullable. */
     contacts?: Contact[] | undefined;
-    /** The folder's display name.  */
+    /** The folder's display name. */
     displayName?: string | undefined;
-    /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.  */
+    /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable. */
     multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The ID of the folder's parent folder.  */
+    /** The ID of the folder's parent folder. */
     parentFolderId?: string | undefined;
-    /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.  */
+    /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
     singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
 }

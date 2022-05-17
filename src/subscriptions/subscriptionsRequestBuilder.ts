@@ -9,13 +9,13 @@ import {SubscriptionsRequestBuilderGetRequestConfiguration} from './subscription
 import {SubscriptionsRequestBuilderPostRequestConfiguration} from './subscriptionsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of subscription entities.  */
+/** Provides operations to manage the collection of subscription entities. */
 export class SubscriptionsRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new SubscriptionsRequestBuilder and sets the default values.
@@ -31,7 +31,7 @@ export class SubscriptionsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get entities from subscriptions
+     * List subscriptions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -48,7 +48,7 @@ export class SubscriptionsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to subscriptions
+     * Change notifications for Outlook resources in Microsoft Graph
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -68,7 +68,7 @@ export class SubscriptionsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from subscriptions
+     * List subscriptions
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of SubscriptionCollectionResponse
@@ -84,7 +84,7 @@ export class SubscriptionsRequestBuilder {
         return this.requestAdapter?.sendAsync<SubscriptionCollectionResponseImpl>(requestInfo, createSubscriptionCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Add new entity to subscriptions
+     * Change notifications for Outlook resources in Microsoft Graph
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

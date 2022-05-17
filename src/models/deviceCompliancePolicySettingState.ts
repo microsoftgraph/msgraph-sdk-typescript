@@ -2,30 +2,30 @@ import {ComplianceStatus} from './complianceStatus';
 import {SettingSource} from './settingSource';
 
 export interface DeviceCompliancePolicySettingState{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Current value of setting on device  */
+    /** Current value of setting on device */
     currentValue?: string | undefined;
-    /** Error code for the setting  */
+    /** Error code for the setting */
     errorCode?: number | undefined;
-    /** Error description  */
+    /** Error description */
     errorDescription?: string | undefined;
-    /** Name of setting instance that is being reported.  */
+    /** Name of setting instance that is being reported. */
     instanceDisplayName?: string | undefined;
-    /** The setting that is being reported  */
+    /** The setting that is being reported */
     setting?: string | undefined;
-    /** Localized/user friendly setting name that is being reported  */
+    /** Localized/user friendly setting name that is being reported */
     settingName?: string | undefined;
-    /** Contributing policies  */
+    /** Contributing policies */
     sources?: SettingSource[] | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     state?: ComplianceStatus | undefined;
-    /** UserEmail  */
+    /** UserEmail */
     userEmail?: string | undefined;
-    /** UserId  */
+    /** UserId */
     userId?: string | undefined;
-    /** UserName  */
+    /** UserName */
     userName?: string | undefined;
-    /** UserPrincipalName.  */
+    /** UserPrincipalName. */
     userPrincipalName?: string | undefined;
 }

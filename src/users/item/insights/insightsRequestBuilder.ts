@@ -14,23 +14,23 @@ import {UsedInsightItemRequestBuilder} from './used/item/usedInsightItemRequestB
 import {UsedRequestBuilder} from './used/usedRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the insights property of the microsoft.graph.user entity.  */
+/** Provides operations to manage the insights property of the microsoft.graph.user entity. */
 export class InsightsRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The shared property  */
+    /** The shared property */
     public get shared(): SharedRequestBuilder {
         return new SharedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The trending property  */
+    /** The trending property */
     public get trending(): TrendingRequestBuilder {
         return new TrendingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The used property  */
+    /** The used property */
     public get used(): UsedRequestBuilder {
         return new UsedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -137,7 +137,7 @@ export class InsightsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: OfficeGraphInsightsImpl | undefined, requestConfiguration?: InsightsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: OfficeGraphInsights | undefined, requestConfiguration?: InsightsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

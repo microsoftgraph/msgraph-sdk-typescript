@@ -3,15 +3,15 @@ import {ResourceSpecificPermissionGrant} from './resourceSpecificPermissionGrant
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceSpecificPermissionGrantImpl extends DirectoryObjectImpl implements Parsable, ResourceSpecificPermissionGrant {
-    /** ID of the service principal of the Azure AD app that has been granted access. Read-only.  */
+    /** ID of the service principal of the Azure AD app that has been granted access. Read-only. */
     clientAppId?: string | undefined;
-    /** ID of the Azure AD app that has been granted access. Read-only.  */
+    /** ID of the Azure AD app that has been granted access. Read-only. */
     clientId?: string | undefined;
-    /** The name of the resource-specific permission. Read-only.  */
+    /** The name of the resource-specific permission. Read-only. */
     permission?: string | undefined;
-    /** The type of permission. Possible values are: Application, Delegated. Read-only.  */
+    /** The type of permission. Possible values are: Application, Delegated. Read-only. */
     permissionType?: string | undefined;
-    /** ID of the Azure AD app that is hosting the resource. Read-only.  */
+    /** ID of the Azure AD app that is hosting the resource. Read-only. */
     resourceAppId?: string | undefined;
     /**
      * Instantiates a new resourceSpecificPermissionGrant and sets the default values.

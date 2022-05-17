@@ -9,15 +9,15 @@ import {SearchResponse} from './searchResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchResponseImpl implements AdditionalDataHolder, Parsable, SearchResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** A collection of search results.  */
+    /** A collection of search results. */
     hitsContainers?: SearchHitsContainer[] | undefined;
-    /** Provides details of query alteration response for spelling correction.  */
+    /** Provides details of query alteration response for spelling correction. */
     queryAlterationResponse?: AlterationResponse | undefined;
-    /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates.  */
+    /** A dictionary of resultTemplateIds and associated values, which include the name and JSON schema of the result templates. */
     resultTemplates?: ResultTemplateDictionary | undefined;
-    /** Contains the search terms sent in the initial search query.  */
+    /** Contains the search terms sent in the initial search query. */
     searchTerms?: string[] | undefined;
     /**
      * Instantiates a new searchResponse and sets the default values.

@@ -2,15 +2,15 @@ import {SettingTemplateValue} from './settingTemplateValue';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingTemplateValueImpl implements AdditionalDataHolder, Parsable, SettingTemplateValue {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Default value for the setting. Read-only.  */
+    /** Default value for the setting. Read-only. */
     defaultValue?: string | undefined;
-    /** Description of the setting. Read-only.  */
+    /** Description of the setting. Read-only. */
     description?: string | undefined;
-    /** Name of the setting. Read-only.  */
+    /** Name of the setting. Read-only. */
     name?: string | undefined;
-    /** Type of the setting. Read-only.  */
+    /** Type of the setting. Read-only. */
     type?: string | undefined;
     /**
      * Instantiates a new settingTemplateValue and sets the default values.

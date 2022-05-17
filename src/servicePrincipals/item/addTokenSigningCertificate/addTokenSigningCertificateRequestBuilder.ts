@@ -6,13 +6,13 @@ import {SelfSignedCertificateRequestBodyImpl} from './index';
 import {SelfSignedCertificateRequestBody} from './selfSignedCertificateRequestBody';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the addTokenSigningCertificate method.  */
+/** Provides operations to call the addTokenSigningCertificate method. */
 export class AddTokenSigningCertificateRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AddTokenSigningCertificateRequestBuilder and sets the default values.

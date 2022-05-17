@@ -6,9 +6,9 @@ import {InferenceClassificationType} from './inferenceClassificationType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InferenceClassificationOverrideImpl extends EntityImpl implements InferenceClassificationOverride, Parsable {
-    /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other.  */
+    /** Specifies how incoming messages from a specific sender should always be classified as. Possible values are: focused, other. */
     classifyAs?: InferenceClassificationType | undefined;
-    /** The email address information of the sender for whom the override is created.  */
+    /** The email address information of the sender for whom the override is created. */
     senderEmailAddress?: EmailAddress | undefined;
     /**
      * Instantiates a new inferenceClassificationOverride and sets the default values.

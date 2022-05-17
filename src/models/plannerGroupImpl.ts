@@ -5,7 +5,7 @@ import {PlannerPlan} from './plannerPlan';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerGroupImpl extends EntityImpl implements Parsable, PlannerGroup {
-    /** Read-only. Nullable. Returns the plannerPlans owned by the group.  */
+    /** Read-only. Nullable. Returns the plannerPlans owned by the group. */
     plans?: PlannerPlan[] | undefined;
     /**
      * Instantiates a new plannerGroup and sets the default values.

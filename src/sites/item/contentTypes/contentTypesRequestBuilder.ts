@@ -13,25 +13,25 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {GetCompatibleHubContentTypesRequestBuilder} from './getCompatibleHubContentTypes/getCompatibleHubContentTypesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the contentTypes property of the microsoft.graph.site entity.  */
+/** Provides operations to manage the contentTypes property of the microsoft.graph.site entity. */
 export class ContentTypesRequestBuilder {
-    /** The addCopy property  */
+    /** The addCopy property */
     public get addCopy(): AddCopyRequestBuilder {
         return new AddCopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addCopyFromContentTypeHub property  */
+    /** The addCopyFromContentTypeHub property */
     public get addCopyFromContentTypeHub(): AddCopyFromContentTypeHubRequestBuilder {
         return new AddCopyFromContentTypeHubRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ContentTypesRequestBuilder and sets the default values.

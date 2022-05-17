@@ -4,11 +4,11 @@ import {Message} from '../../../../../models/message';
 import {DeltaResponse} from './deltaResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the delta method.  */
+/** Provides operations to call the delta method. */
 export class DeltaResponseImpl implements AdditionalDataHolder, DeltaResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: Message[] | undefined;
     /**
      * Instantiates a new deltaResponse and sets the default values.

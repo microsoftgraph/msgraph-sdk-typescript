@@ -2,11 +2,11 @@ import {ScreenSharingRole} from '../../../../models/screenSharingRole';
 import {ChangeScreenSharingRoleRequestBody} from './changeScreenSharingRoleRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the changeScreenSharingRole method.  */
+/** Provides operations to call the changeScreenSharingRole method. */
 export class ChangeScreenSharingRoleRequestBodyImpl implements AdditionalDataHolder, ChangeScreenSharingRoleRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The role property  */
+    /** The role property */
     role?: ScreenSharingRole | undefined;
     /**
      * Instantiates a new changeScreenSharingRoleRequestBody and sets the default values.

@@ -6,13 +6,13 @@ import {ParticipantInfo} from '../../../../models/participantInfo';
 import {TransferRequestBody} from './transferRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the transfer method.  */
+/** Provides operations to call the transfer method. */
 export class TransferRequestBodyImpl implements AdditionalDataHolder, Parsable, TransferRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The transferee property  */
+    /** The transferee property */
     transferee?: ParticipantInfo | undefined;
-    /** The transferTarget property  */
+    /** The transferTarget property */
     transferTarget?: InvitationParticipantInfo | undefined;
     /**
      * Instantiates a new transferRequestBody and sets the default values.

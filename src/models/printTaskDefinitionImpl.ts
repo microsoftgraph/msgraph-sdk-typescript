@@ -7,11 +7,11 @@ import {PrintTaskDefinition} from './printTaskDefinition';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskDefinitionImpl extends EntityImpl implements Parsable, PrintTaskDefinition {
-    /** The createdBy property  */
+    /** The createdBy property */
     createdBy?: AppIdentity | undefined;
-    /** The name of the printTaskDefinition.  */
+    /** The name of the printTaskDefinition. */
     displayName?: string | undefined;
-    /** A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only.  */
+    /** A list of tasks that have been created based on this definition. The list includes currently running tasks and recently completed tasks. Read-only. */
     tasks?: PrintTask[] | undefined;
     /**
      * Instantiates a new printTaskDefinition and sets the default values.

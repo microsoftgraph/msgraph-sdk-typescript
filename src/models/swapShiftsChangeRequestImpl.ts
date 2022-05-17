@@ -3,7 +3,7 @@ import {SwapShiftsChangeRequest} from './swapShiftsChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SwapShiftsChangeRequestImpl extends OfferShiftRequestImpl implements Parsable, SwapShiftsChangeRequest {
-    /** Shift ID for the recipient user with whom the request is to swap.  */
+    /** Shift ID for the recipient user with whom the request is to swap. */
     recipientShiftId?: string | undefined;
     /**
      * Instantiates a new swapShiftsChangeRequest and sets the default values.

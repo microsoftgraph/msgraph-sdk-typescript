@@ -1,18 +1,18 @@
 import {StoragePlanInformation} from './storagePlanInformation';
 
 export interface Quota{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Total space consumed by files in the recycle bin, in bytes. Read-only.  */
+    /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
     deleted?: number | undefined;
-    /** Total space remaining before reaching the quota limit, in bytes. Read-only.  */
+    /** Total space remaining before reaching the quota limit, in bytes. Read-only. */
     remaining?: number | undefined;
-    /** Enumeration value that indicates the state of the storage space. Read-only.  */
+    /** Enumeration value that indicates the state of the storage space. Read-only. */
     state?: string | undefined;
-    /** Information about the drive's storage quota plans. Only in Personal OneDrive.  */
+    /** Information about the drive's storage quota plans. Only in Personal OneDrive. */
     storagePlanInformation?: StoragePlanInformation | undefined;
-    /** Total allowed storage space, in bytes. Read-only.  */
+    /** Total allowed storage space, in bytes. Read-only. */
     total?: number | undefined;
-    /** Total space used, in bytes. Read-only.  */
+    /** Total space used, in bytes. Read-only. */
     used?: number | undefined;
 }

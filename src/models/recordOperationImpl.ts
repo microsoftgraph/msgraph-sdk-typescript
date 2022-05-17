@@ -3,9 +3,9 @@ import {RecordOperation} from './recordOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecordOperationImpl extends CommsOperationImpl implements Parsable, RecordOperation {
-    /** The access token required to retrieve the recording.  */
+    /** The access token required to retrieve the recording. */
     recordingAccessToken?: string | undefined;
-    /** The location where the recording is located.  */
+    /** The location where the recording is located. */
     recordingLocation?: string | undefined;
     /**
      * Instantiates a new recordOperation and sets the default values.

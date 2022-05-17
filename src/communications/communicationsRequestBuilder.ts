@@ -16,33 +16,33 @@ import {PresenceItemRequestBuilder} from './presences/item/presenceItemRequestBu
 import {PresencesRequestBuilder} from './presences/presencesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton.  */
+/** Provides operations to manage the cloudCommunications singleton. */
 export class CommunicationsRequestBuilder {
-    /** The callRecords property  */
+    /** The callRecords property */
     public get callRecords(): CallRecordsRequestBuilder {
         return new CallRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calls property  */
+    /** The calls property */
     public get calls(): CallsRequestBuilder {
         return new CallsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getPresencesByUserId property  */
+    /** The getPresencesByUserId property */
     public get getPresencesByUserId(): GetPresencesByUserIdRequestBuilder {
         return new GetPresencesByUserIdRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onlineMeetings property  */
+    /** The onlineMeetings property */
     public get onlineMeetings(): OnlineMeetingsRequestBuilder {
         return new OnlineMeetingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The presences property  */
+    /** The presences property */
     public get presences(): PresencesRequestBuilder {
         return new PresencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.communications.callRecords.item collection
@@ -149,7 +149,7 @@ export class CommunicationsRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: CloudCommunicationsImpl | undefined, requestConfiguration?: CommunicationsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: CloudCommunications | undefined, requestConfiguration?: CommunicationsRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

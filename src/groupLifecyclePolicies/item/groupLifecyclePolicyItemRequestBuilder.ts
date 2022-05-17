@@ -10,21 +10,21 @@ import {GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration} from '.
 import {RemoveGroupRequestBuilder} from './removeGroup/removeGroupRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of groupLifecyclePolicy entities.  */
+/** Provides operations to manage the collection of groupLifecyclePolicy entities. */
 export class GroupLifecyclePolicyItemRequestBuilder {
-    /** The addGroup property  */
+    /** The addGroup property */
     public get addGroup(): AddGroupRequestBuilder {
         return new AddGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The removeGroup property  */
+    /** The removeGroup property */
     public get removeGroup(): RemoveGroupRequestBuilder {
         return new RemoveGroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new GroupLifecyclePolicyItemRequestBuilder and sets the default values.
@@ -40,7 +40,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from groupLifecyclePolicies
+     * Delete groupLifecyclePolicy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -56,7 +56,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from groupLifecyclePolicies by key
+     * Get groupLifecyclePolicy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -73,7 +73,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in groupLifecyclePolicies
+     * Update groupLifecyclePolicy
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -93,7 +93,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete entity from groupLifecyclePolicies
+     * Delete groupLifecyclePolicy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -108,7 +108,7 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get entity from groupLifecyclePolicies by key
+     * Get groupLifecyclePolicy
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupLifecyclePolicy
@@ -124,12 +124,12 @@ export class GroupLifecyclePolicyItemRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupLifecyclePolicyImpl>(requestInfo, createGroupLifecyclePolicyFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update entity in groupLifecyclePolicies
+     * Update groupLifecyclePolicy
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: GroupLifecyclePolicyImpl | undefined, requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: GroupLifecyclePolicy | undefined, requestConfiguration?: GroupLifecyclePolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

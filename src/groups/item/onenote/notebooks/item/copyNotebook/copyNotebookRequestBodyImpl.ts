@@ -1,19 +1,19 @@
 import {CopyNotebookRequestBody} from './copyNotebookRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the copyNotebook method.  */
+/** Provides operations to call the copyNotebook method. */
 export class CopyNotebookRequestBodyImpl implements AdditionalDataHolder, CopyNotebookRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The groupId property  */
+    /** The groupId property */
     groupId?: string | undefined;
-    /** The notebookFolder property  */
+    /** The notebookFolder property */
     notebookFolder?: string | undefined;
-    /** The renameAs property  */
+    /** The renameAs property */
     renameAs?: string | undefined;
-    /** The siteCollectionId property  */
+    /** The siteCollectionId property */
     siteCollectionId?: string | undefined;
-    /** The siteId property  */
+    /** The siteId property */
     siteId?: string | undefined;
     /**
      * Instantiates a new copyNotebookRequestBody and sets the default values.

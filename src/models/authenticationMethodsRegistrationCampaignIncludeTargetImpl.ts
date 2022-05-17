@@ -3,13 +3,13 @@ import {AuthenticationMethodTargetType} from './authenticationMethodTargetType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodsRegistrationCampaignIncludeTargetImpl implements AdditionalDataHolder, AuthenticationMethodsRegistrationCampaignIncludeTarget, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The object identifier of an Azure AD user or group.  */
+    /** The object identifier of an Azure AD user or group. */
     id?: string | undefined;
-    /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator.  */
+    /** The authentication method that the user is prompted to register. The value must be microsoftAuthenticator. */
     targetedAuthenticationMethod?: string | undefined;
-    /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue.  */
+    /** The type of the authentication method target. Possible values are: user, group, unknownFutureValue. */
     targetType?: AuthenticationMethodTargetType | undefined;
     /**
      * Instantiates a new authenticationMethodsRegistrationCampaignIncludeTarget and sets the default values.

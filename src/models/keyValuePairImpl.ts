@@ -2,11 +2,11 @@ import {KeyValuePair} from './keyValuePair';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class KeyValuePairImpl implements AdditionalDataHolder, KeyValuePair, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Name for this key-value pair  */
+    /** Name for this key-value pair */
     name?: string | undefined;
-    /** Value for this key-value pair  */
+    /** Value for this key-value pair */
     value?: string | undefined;
     /**
      * Instantiates a new keyValuePair and sets the default values.

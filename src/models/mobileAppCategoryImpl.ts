@@ -3,9 +3,9 @@ import {MobileAppCategory} from './mobileAppCategory';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileAppCategoryImpl extends EntityImpl implements MobileAppCategory, Parsable {
-    /** The name of the app category.  */
+    /** The name of the app category. */
     displayName?: string | undefined;
-    /** The date and time the mobileAppCategory was last modified.  */
+    /** The date and time the mobileAppCategory was last modified. */
     lastModifiedDateTime?: Date | undefined;
     /**
      * Instantiates a new mobileAppCategory and sets the default values.

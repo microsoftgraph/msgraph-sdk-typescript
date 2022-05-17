@@ -11,25 +11,25 @@ import {SetRequestBuilder} from './set/setRequestBuilder';
 import {ToTermRequestBuilder} from './toTerm/toTermRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the relations property of the microsoft.graph.termStore.set entity.  */
+/** Provides operations to manage the relations property of the microsoft.graph.termStore.set entity. */
 export class RelationItemRequestBuilder {
-    /** The fromTerm property  */
+    /** The fromTerm property */
     public get fromTerm(): FromTermRequestBuilder {
         return new FromTermRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The set property  */
+    /** The set property */
     public get set(): SetRequestBuilder {
         return new SetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The toTerm property  */
+    /** The toTerm property */
     public get toTerm(): ToTermRequestBuilder {
         return new ToTermRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new RelationItemRequestBuilder and sets the default values.
@@ -134,7 +134,7 @@ export class RelationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: RelationImpl | undefined, requestConfiguration?: RelationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Relation | undefined, requestConfiguration?: RelationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

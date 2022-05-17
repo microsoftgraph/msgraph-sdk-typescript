@@ -4,11 +4,11 @@ import {UpdateWindowsDeviceAccountActionParameter} from '../../../../models/upda
 import {UpdateWindowsDeviceAccountRequestBody} from './updateWindowsDeviceAccountRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the updateWindowsDeviceAccount method.  */
+/** Provides operations to call the updateWindowsDeviceAccount method. */
 export class UpdateWindowsDeviceAccountRequestBodyImpl implements AdditionalDataHolder, Parsable, UpdateWindowsDeviceAccountRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The updateWindowsDeviceAccountActionParameter property  */
+    /** The updateWindowsDeviceAccountActionParameter property */
     updateWindowsDeviceAccountActionParameter?: UpdateWindowsDeviceAccountActionParameter | undefined;
     /**
      * Instantiates a new updateWindowsDeviceAccountRequestBody and sets the default values.

@@ -24,45 +24,45 @@ import {UnifiedRoleEligibilityScheduleItemRequestBuilder} from './roleEligibilit
 import {RoleEligibilitySchedulesRequestBuilder} from './roleEligibilitySchedules/roleEligibilitySchedulesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity.  */
+/** Provides operations to manage the entitlementManagement property of the microsoft.graph.roleManagement entity. */
 export class EntitlementManagementRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The roleAssignments property  */
+    /** The roleAssignments property */
     public get roleAssignments(): RoleAssignmentsRequestBuilder {
         return new RoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleAssignmentScheduleInstances property  */
+    /** The roleAssignmentScheduleInstances property */
     public get roleAssignmentScheduleInstances(): RoleAssignmentScheduleInstancesRequestBuilder {
         return new RoleAssignmentScheduleInstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleAssignmentScheduleRequests property  */
+    /** The roleAssignmentScheduleRequests property */
     public get roleAssignmentScheduleRequests(): RoleAssignmentScheduleRequestsRequestBuilder {
         return new RoleAssignmentScheduleRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleAssignmentSchedules property  */
+    /** The roleAssignmentSchedules property */
     public get roleAssignmentSchedules(): RoleAssignmentSchedulesRequestBuilder {
         return new RoleAssignmentSchedulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleDefinitions property  */
+    /** The roleDefinitions property */
     public get roleDefinitions(): RoleDefinitionsRequestBuilder {
         return new RoleDefinitionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleEligibilityScheduleInstances property  */
+    /** The roleEligibilityScheduleInstances property */
     public get roleEligibilityScheduleInstances(): RoleEligibilityScheduleInstancesRequestBuilder {
         return new RoleEligibilityScheduleInstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleEligibilityScheduleRequests property  */
+    /** The roleEligibilityScheduleRequests property */
     public get roleEligibilityScheduleRequests(): RoleEligibilityScheduleRequestsRequestBuilder {
         return new RoleEligibilityScheduleRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The roleEligibilitySchedules property  */
+    /** The roleEligibilitySchedules property */
     public get roleEligibilitySchedules(): RoleEligibilitySchedulesRequestBuilder {
         return new RoleEligibilitySchedulesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new EntitlementManagementRequestBuilder and sets the default values.
@@ -167,7 +167,7 @@ export class EntitlementManagementRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: RbacApplicationImpl | undefined, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: RbacApplication | undefined, requestConfiguration?: EntitlementManagementRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

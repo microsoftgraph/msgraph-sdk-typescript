@@ -6,15 +6,15 @@ import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandin
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NotificationMessageTemplateImpl extends EntityImpl implements NotificationMessageTemplate, Parsable {
-    /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.  */
+    /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink. */
     brandingOptions?: NotificationTemplateBrandingOptions | undefined;
-    /** The default locale to fallback onto when the requested locale is not available.  */
+    /** The default locale to fallback onto when the requested locale is not available. */
     defaultLocale?: string | undefined;
-    /** Display name for the Notification Message Template.  */
+    /** Display name for the Notification Message Template. */
     displayName?: string | undefined;
-    /** DateTime the object was last modified.  */
+    /** DateTime the object was last modified. */
     lastModifiedDateTime?: Date | undefined;
-    /** The list of localized messages for this Notification Message Template.  */
+    /** The list of localized messages for this Notification Message Template. */
     localizedNotificationMessages?: LocalizedNotificationMessage[] | undefined;
     /**
      * Instantiates a new notificationMessageTemplate and sets the default values.

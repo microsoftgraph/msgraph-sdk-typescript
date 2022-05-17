@@ -5,11 +5,11 @@ import {RiskDetectionCollectionResponse} from './riskDetectionCollectionResponse
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskDetectionCollectionResponseImpl implements AdditionalDataHolder, Parsable, RiskDetectionCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: RiskDetection[] | undefined;
     /**
      * Instantiates a new RiskDetectionCollectionResponse and sets the default values.

@@ -5,9 +5,9 @@ import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedMobileAppImpl extends EntityImpl implements ManagedMobileApp, Parsable {
-    /** The identifier for an app with it's operating system type.  */
+    /** The identifier for an app with it's operating system type. */
     mobileAppIdentifier?: MobileAppIdentifier | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
     /**
      * Instantiates a new managedMobileApp and sets the default values.

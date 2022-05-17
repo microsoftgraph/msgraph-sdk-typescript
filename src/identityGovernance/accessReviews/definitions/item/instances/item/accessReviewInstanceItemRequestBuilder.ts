@@ -18,45 +18,45 @@ import {SendReminderRequestBuilder} from './sendReminder/sendReminderRequestBuil
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity.  */
+/** Provides operations to manage the instances property of the microsoft.graph.accessReviewScheduleDefinition entity. */
 export class AccessReviewInstanceItemRequestBuilder {
-    /** The acceptRecommendations property  */
+    /** The acceptRecommendations property */
     public get acceptRecommendations(): AcceptRecommendationsRequestBuilder {
         return new AcceptRecommendationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The applyDecisions property  */
+    /** The applyDecisions property */
     public get applyDecisions(): ApplyDecisionsRequestBuilder {
         return new ApplyDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The batchRecordDecisions property  */
+    /** The batchRecordDecisions property */
     public get batchRecordDecisions(): BatchRecordDecisionsRequestBuilder {
         return new BatchRecordDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contactedReviewers property  */
+    /** The contactedReviewers property */
     public get contactedReviewers(): ContactedReviewersRequestBuilder {
         return new ContactedReviewersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The decisions property  */
+    /** The decisions property */
     public get decisions(): DecisionsRequestBuilder {
         return new DecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The resetDecisions property  */
+    /** The resetDecisions property */
     public get resetDecisions(): ResetDecisionsRequestBuilder {
         return new ResetDecisionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sendReminder property  */
+    /** The sendReminder property */
     public get sendReminder(): SendReminderRequestBuilder {
         return new SendReminderRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The stop property  */
+    /** The stop property */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AccessReviewInstanceItemRequestBuilder and sets the default values.
@@ -183,7 +183,7 @@ export class AccessReviewInstanceItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AccessReviewInstanceImpl | undefined, requestConfiguration?: AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessReviewInstance | undefined, requestConfiguration?: AccessReviewInstanceItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

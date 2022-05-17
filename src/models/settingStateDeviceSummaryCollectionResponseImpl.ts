@@ -5,11 +5,11 @@ import {SettingStateDeviceSummaryCollectionResponse} from './settingStateDeviceS
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingStateDeviceSummaryCollectionResponseImpl implements AdditionalDataHolder, Parsable, SettingStateDeviceSummaryCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: SettingStateDeviceSummary[] | undefined;
     /**
      * Instantiates a new SettingStateDeviceSummaryCollectionResponse and sets the default values.

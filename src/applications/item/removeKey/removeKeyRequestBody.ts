@@ -1,9 +1,9 @@
 
 export interface RemoveKeyRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The keyId property  */
+    /** The keyId property */
     keyId?: string | undefined;
-    /** The proof property  */
+    /** The proof property */
     proof?: string | undefined;
 }

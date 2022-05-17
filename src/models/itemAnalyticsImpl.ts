@@ -5,11 +5,11 @@ import {ItemAnalytics} from './itemAnalytics';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemAnalyticsImpl extends EntityImpl implements ItemAnalytics, Parsable {
-    /** The allTime property  */
+    /** The allTime property */
     allTime?: ItemActivityStat | undefined;
-    /** The itemActivityStats property  */
+    /** The itemActivityStats property */
     itemActivityStats?: ItemActivityStat[] | undefined;
-    /** The lastSevenDays property  */
+    /** The lastSevenDays property */
     lastSevenDays?: ItemActivityStat | undefined;
     /**
      * Instantiates a new itemAnalytics and sets the default values.

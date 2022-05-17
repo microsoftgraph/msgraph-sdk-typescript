@@ -4,11 +4,11 @@ import {SearchResponse} from '../../models/searchResponse';
 import {QueryResponse} from './queryResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the query method.  */
+/** Provides operations to call the query method. */
 export class QueryResponseImpl implements AdditionalDataHolder, Parsable, QueryResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: SearchResponse[] | undefined;
     /**
      * Instantiates a new queryResponse and sets the default values.

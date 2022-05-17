@@ -5,11 +5,11 @@ import {ShiftItem} from './shiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftItemImpl extends ScheduleEntityImpl implements Parsable, ShiftItem {
-    /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required.  */
+    /** An incremental part of a shift which can cover details of when and where an employee is during their shift. For example, an assignment or a scheduled break or lunch. Required. */
     activities?: ShiftActivity[] | undefined;
-    /** The shift label of the shiftItem.  */
+    /** The shift label of the shiftItem. */
     displayName?: string | undefined;
-    /** The shift notes for the shiftItem.  */
+    /** The shift notes for the shiftItem. */
     notes?: string | undefined;
     /**
      * Instantiates a new shiftItem and sets the default values.

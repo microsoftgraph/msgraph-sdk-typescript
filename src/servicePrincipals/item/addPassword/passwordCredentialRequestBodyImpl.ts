@@ -4,11 +4,11 @@ import {PasswordCredential} from '../../../models/passwordCredential';
 import {PasswordCredentialRequestBody} from './passwordCredentialRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the addPassword method.  */
+/** Provides operations to call the addPassword method. */
 export class PasswordCredentialRequestBodyImpl implements AdditionalDataHolder, Parsable, PasswordCredentialRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The passwordCredential property  */
+    /** The passwordCredential property */
     passwordCredential?: PasswordCredential | undefined;
     /**
      * Instantiates a new PasswordCredentialRequestBody and sets the default values.

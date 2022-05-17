@@ -5,13 +5,13 @@ import {OnenoteOperationError} from './onenoteOperationError';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteOperationImpl extends OperationImpl implements OnenoteOperation, Parsable {
-    /** The error returned by the operation.  */
+    /** The error returned by the operation. */
     error_escaped?: OnenoteOperationError | undefined;
-    /** The operation percent complete if the operation is still in running status.  */
+    /** The operation percent complete if the operation is still in running status. */
     percentComplete?: string | undefined;
-    /** The resource id.  */
+    /** The resource id. */
     resourceId?: string | undefined;
-    /** The resource URI for the object. For example, the resource URI for a copied page or section.  */
+    /** The resource URI for the object. For example, the resource URI for a copied page or section. */
     resourceLocation?: string | undefined;
     /**
      * Instantiates a new onenoteOperation and sets the default values.

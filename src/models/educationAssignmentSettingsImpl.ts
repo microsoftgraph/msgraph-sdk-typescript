@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationAssignmentSettingsImpl extends EntityImpl implements EducationAssignmentSettings, Parsable {
-    /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false.  */
+    /** Indicates whether turn-in celebration animation will be shown. A value of true indicates that the animation will not be shown. Default value is false. */
     submissionAnimationDisabled?: boolean | undefined;
     /**
      * Instantiates a new educationAssignmentSettings and sets the default values.

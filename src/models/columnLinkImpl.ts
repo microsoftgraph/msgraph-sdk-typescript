@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ColumnLinkImpl extends EntityImpl implements ColumnLink, Parsable {
-    /** The name of the column  in this content type.  */
+    /** The name of the column  in this content type. */
     name?: string | undefined;
     /**
      * Instantiates a new columnLink and sets the default values.

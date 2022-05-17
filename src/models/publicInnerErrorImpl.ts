@@ -5,15 +5,15 @@ import {PublicInnerError} from './publicInnerError';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PublicInnerErrorImpl implements AdditionalDataHolder, Parsable, PublicInnerError {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The error code.  */
+    /** The error code. */
     code?: string | undefined;
-    /** A collection of error details.  */
+    /** A collection of error details. */
     details?: PublicErrorDetail[] | undefined;
-    /** The error message.  */
+    /** The error message. */
     message?: string | undefined;
-    /** The target of the error.  */
+    /** The target of the error. */
     target?: string | undefined;
     /**
      * Instantiates a new publicInnerError and sets the default values.

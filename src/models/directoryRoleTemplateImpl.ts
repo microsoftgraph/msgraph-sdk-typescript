@@ -3,9 +3,9 @@ import {DirectoryObjectImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryRoleTemplateImpl extends DirectoryObjectImpl implements DirectoryRoleTemplate, Parsable {
-    /** The description to set for the directory role. Read-only.  */
+    /** The description to set for the directory role. Read-only. */
     description?: string | undefined;
-    /** The display name to set for the directory role. Read-only.  */
+    /** The display name to set for the directory role. Read-only. */
     displayName?: string | undefined;
     /**
      * Instantiates a new directoryRoleTemplate and sets the default values.

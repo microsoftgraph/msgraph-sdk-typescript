@@ -10,21 +10,21 @@ import {ThreatAssessmentRequestItemRequestBuilder} from './threatAssessmentReque
 import {ThreatAssessmentRequestsRequestBuilder} from './threatAssessmentRequests/threatAssessmentRequestsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton.  */
+/** Provides operations to manage the informationProtection singleton. */
 export class InformationProtectionRequestBuilder {
-    /** The bitlocker property  */
+    /** The bitlocker property */
     public get bitlocker(): BitlockerRequestBuilder {
         return new BitlockerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The threatAssessmentRequests property  */
+    /** The threatAssessmentRequests property */
     public get threatAssessmentRequests(): ThreatAssessmentRequestsRequestBuilder {
         return new ThreatAssessmentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new InformationProtectionRequestBuilder and sets the default values.
@@ -98,7 +98,7 @@ export class InformationProtectionRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: InformationProtectionImpl | undefined, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: InformationProtection | undefined, requestConfiguration?: InformationProtectionRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -5,17 +5,17 @@ import {Request} from './request';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RequestImpl extends EntityImpl implements Parsable, Request {
-    /** The identifier of the approval of the request.  */
+    /** The identifier of the approval of the request. */
     approvalId?: string | undefined;
-    /** The request completion date time.  */
+    /** The request completion date time. */
     completedDateTime?: Date | undefined;
-    /** The user who created this request.  */
+    /** The user who created this request. */
     createdBy?: IdentitySet | undefined;
-    /** The request creation date time.  */
+    /** The request creation date time. */
     createdDateTime?: Date | undefined;
-    /** Free text field to define any custom data for the request. Not used.  */
+    /** Free text field to define any custom data for the request. Not used. */
     customData?: string | undefined;
-    /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.  */
+    /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
     status?: string | undefined;
     /**
      * Instantiates a new request and sets the default values.

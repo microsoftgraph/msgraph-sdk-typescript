@@ -4,11 +4,11 @@ import {ManagedMobileApp} from '../../../../../../models/managedMobileApp';
 import {TargetAppsRequestBody} from './targetAppsRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the targetApps method.  */
+/** Provides operations to call the targetApps method. */
 export class TargetAppsRequestBodyImpl implements AdditionalDataHolder, Parsable, TargetAppsRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The apps property  */
+    /** The apps property */
     apps?: ManagedMobileApp[] | undefined;
     /**
      * Instantiates a new targetAppsRequestBody and sets the default values.

@@ -13,25 +13,25 @@ import {FederationConfigurationsRequestBuilder} from './federationConfigurations
 import {IdentityProviderBaseItemRequestBuilder} from './federationConfigurations/item/identityProviderBaseItemRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the directory singleton.  */
+/** Provides operations to manage the directory singleton. */
 export class DirectoryRequestBuilder {
-    /** The administrativeUnits property  */
+    /** The administrativeUnits property */
     public get administrativeUnits(): AdministrativeUnitsRequestBuilder {
         return new AdministrativeUnitsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deletedItems property  */
+    /** The deletedItems property */
     public get deletedItems(): DeletedItemsRequestBuilder {
         return new DeletedItemsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The federationConfigurations property  */
+    /** The federationConfigurations property */
     public get federationConfigurations(): FederationConfigurationsRequestBuilder {
         return new FederationConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.directory.administrativeUnits.item collection
@@ -138,7 +138,7 @@ export class DirectoryRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DirectoryImpl | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Directory | undefined, requestConfiguration?: DirectoryRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

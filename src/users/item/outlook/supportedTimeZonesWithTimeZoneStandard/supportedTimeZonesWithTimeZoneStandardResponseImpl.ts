@@ -4,11 +4,11 @@ import {TimeZoneInformation} from '../../../../models/timeZoneInformation';
 import {SupportedTimeZonesWithTimeZoneStandardResponse} from './supportedTimeZonesWithTimeZoneStandardResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the supportedTimeZones method.  */
+/** Provides operations to call the supportedTimeZones method. */
 export class SupportedTimeZonesWithTimeZoneStandardResponseImpl implements AdditionalDataHolder, Parsable, SupportedTimeZonesWithTimeZoneStandardResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: TimeZoneInformation[] | undefined;
     /**
      * Instantiates a new supportedTimeZonesWithTimeZoneStandardResponse and sets the default values.

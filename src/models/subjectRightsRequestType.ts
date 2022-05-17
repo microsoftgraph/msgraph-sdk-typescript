@@ -1,6 +1,6 @@
-/** Provides operations to manage the privacy singleton.  */
+/** Provides operations to manage the privacy singleton. */
 export enum SubjectRightsRequestType {
-    Export_escaped = "export_escaped",
+    Export_escaped = "export",
     Delete = "delete",
     Access = "access",
     TagForAction = "tagForAction",

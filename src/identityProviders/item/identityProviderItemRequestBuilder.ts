@@ -8,13 +8,13 @@ import {IdentityProviderItemRequestBuilderGetRequestConfiguration} from './ident
 import {IdentityProviderItemRequestBuilderPatchRequestConfiguration} from './identityProviderItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of identityProvider entities.  */
+/** Provides operations to manage the collection of identityProvider entities. */
 export class IdentityProviderItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new IdentityProviderItemRequestBuilder and sets the default values.
@@ -30,7 +30,7 @@ export class IdentityProviderItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from identityProviders
+     * Delete identityProvider (deprecated)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,7 +46,7 @@ export class IdentityProviderItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from identityProviders by key
+     * Get identityProvider (deprecated)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -83,7 +83,7 @@ export class IdentityProviderItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete entity from identityProviders
+     * Delete identityProvider (deprecated)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -98,7 +98,7 @@ export class IdentityProviderItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get entity from identityProviders by key
+     * Get identityProvider (deprecated)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of IdentityProvider
@@ -119,7 +119,7 @@ export class IdentityProviderItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: IdentityProviderImpl | undefined, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IdentityProvider | undefined, requestConfiguration?: IdentityProviderItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

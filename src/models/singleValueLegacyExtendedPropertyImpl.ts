@@ -3,7 +3,7 @@ import {SingleValueLegacyExtendedProperty} from './singleValueLegacyExtendedProp
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SingleValueLegacyExtendedPropertyImpl extends EntityImpl implements Parsable, SingleValueLegacyExtendedProperty {
-    /** A property value.  */
+    /** A property value. */
     value?: string | undefined;
     /**
      * Instantiates a new singleValueLegacyExtendedProperty and sets the default values.

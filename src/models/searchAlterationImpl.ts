@@ -5,13 +5,13 @@ import {SearchAlteration} from './searchAlteration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchAlterationImpl implements AdditionalDataHolder, Parsable, SearchAlteration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001)  */
+    /** Defines the altered highlighted query string with spelling correction. The annotation around the corrected segment is (/ue000, /ue001) */
     alteredHighlightedQueryString?: string | undefined;
-    /** Defines the altered query string with spelling correction.  */
+    /** Defines the altered query string with spelling correction. */
     alteredQueryString?: string | undefined;
-    /** Represents changed segments with respect to original query.  */
+    /** Represents changed segments with respect to original query. */
     alteredQueryTokens?: AlteredQueryToken[] | undefined;
     /**
      * Instantiates a new searchAlteration and sets the default values.

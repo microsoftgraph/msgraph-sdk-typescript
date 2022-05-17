@@ -5,7 +5,7 @@ import {TodoTaskList} from './todoTaskList';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoImpl extends EntityImpl implements Parsable, Todo {
-    /** The task lists in the users mailbox.  */
+    /** The task lists in the users mailbox. */
     lists?: TodoTaskList[] | undefined;
     /**
      * Instantiates a new todo and sets the default values.

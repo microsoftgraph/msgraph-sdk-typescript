@@ -4,11 +4,11 @@ import {ItemActivityStat} from '../../../../../../../../models/itemActivityStat'
 import {GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse} from './getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getActivitiesByInterval method.  */
+/** Provides operations to call the getActivitiesByInterval method. */
 export class GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponseImpl implements AdditionalDataHolder, GetActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: ItemActivityStat[] | undefined;
     /**
      * Instantiates a new getActivitiesByIntervalWithStartDateTimeWithEndDateTimeWithIntervalResponse and sets the default values.

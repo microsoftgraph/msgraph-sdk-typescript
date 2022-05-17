@@ -11,21 +11,21 @@ import {CountRequestBuilder} from './count/countRequestBuilder';
 import {CreateUploadSessionRequestBuilder} from './createUploadSession/createUploadSessionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the attachments property of the microsoft.graph.event entity.  */
+/** Provides operations to manage the attachments property of the microsoft.graph.event entity. */
 export class AttachmentsRequestBuilder {
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createUploadSession property  */
+    /** The createUploadSession property */
     public get createUploadSession(): CreateUploadSessionRequestBuilder {
         return new CreateUploadSessionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AttachmentsRequestBuilder and sets the default values.

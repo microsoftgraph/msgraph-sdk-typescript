@@ -5,11 +5,11 @@ import {TargetedManagedAppPolicyAssignmentCollectionResponse} from './targetedMa
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppPolicyAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, TargetedManagedAppPolicyAssignmentCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: TargetedManagedAppPolicyAssignment[] | undefined;
     /**
      * Instantiates a new TargetedManagedAppPolicyAssignmentCollectionResponse and sets the default values.

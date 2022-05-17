@@ -5,11 +5,11 @@ import {LocalizedNotificationMessageCollectionResponse} from './localizedNotific
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocalizedNotificationMessageCollectionResponseImpl implements AdditionalDataHolder, LocalizedNotificationMessageCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: LocalizedNotificationMessage[] | undefined;
     /**
      * Instantiates a new LocalizedNotificationMessageCollectionResponse and sets the default values.

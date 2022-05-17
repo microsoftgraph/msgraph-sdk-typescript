@@ -4,13 +4,13 @@ import {ProxiedDomain} from './proxiedDomain';
 import {WindowsInformationProtectionProxiedDomainCollection} from './windowsInformationProtectionProxiedDomainCollection';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection Proxied Domain Collection  */
+/** Windows Information Protection Proxied Domain Collection */
 export class WindowsInformationProtectionProxiedDomainCollectionImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionProxiedDomainCollection {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Display name  */
+    /** Display name */
     displayName?: string | undefined;
-    /** Collection of proxied domains  */
+    /** Collection of proxied domains */
     proxiedDomains?: ProxiedDomain[] | undefined;
     /**
      * Instantiates a new windowsInformationProtectionProxiedDomainCollection and sets the default values.

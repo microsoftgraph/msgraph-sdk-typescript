@@ -1,4 +1,4 @@
-/** Provides operations to call the getMailTips method.  */
+/** Provides operations to call the getMailTips method. */
 export enum MailTipsType {
     AutomaticReplies = "automaticReplies",
     MailboxFullStatus = "mailboxFullStatus",

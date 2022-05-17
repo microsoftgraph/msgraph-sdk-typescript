@@ -1,13 +1,13 @@
 import {RemoveKeyRequestBody} from './removeKeyRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removeKey method.  */
+/** Provides operations to call the removeKey method. */
 export class RemoveKeyRequestBodyImpl implements AdditionalDataHolder, Parsable, RemoveKeyRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The keyId property  */
+    /** The keyId property */
     keyId?: string | undefined;
-    /** The proof property  */
+    /** The proof property */
     proof?: string | undefined;
     /**
      * Instantiates a new removeKeyRequestBody and sets the default values.

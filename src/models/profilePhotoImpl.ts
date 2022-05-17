@@ -3,9 +3,9 @@ import {ProfilePhoto} from './profilePhoto';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProfilePhotoImpl extends EntityImpl implements Parsable, ProfilePhoto {
-    /** The height of the photo. Read-only.  */
+    /** The height of the photo. Read-only. */
     height?: number | undefined;
-    /** The width of the photo. Read-only.  */
+    /** The width of the photo. Read-only. */
     width?: number | undefined;
     /**
      * Instantiates a new profilePhoto and sets the default values.

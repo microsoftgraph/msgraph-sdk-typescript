@@ -2,9 +2,9 @@ import {CurrencyColumn} from './currencyColumn';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CurrencyColumnImpl implements AdditionalDataHolder, CurrencyColumn, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Specifies the locale from which to infer the currency symbol.  */
+    /** Specifies the locale from which to infer the currency symbol. */
     locale?: string | undefined;
     /**
      * Instantiates a new currencyColumn and sets the default values.

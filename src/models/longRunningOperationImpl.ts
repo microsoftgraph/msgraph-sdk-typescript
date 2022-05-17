@@ -4,15 +4,15 @@ import {LongRunningOperationStatus} from './longRunningOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LongRunningOperationImpl extends EntityImpl implements LongRunningOperation, Parsable {
-    /** The createdDateTime property  */
+    /** The createdDateTime property */
     createdDateTime?: Date | undefined;
-    /** The lastActionDateTime property  */
+    /** The lastActionDateTime property */
     lastActionDateTime?: Date | undefined;
-    /** The resourceLocation property  */
+    /** The resourceLocation property */
     resourceLocation?: string | undefined;
-    /** The status property  */
+    /** The status property */
     status?: LongRunningOperationStatus | undefined;
-    /** The statusDetail property  */
+    /** The statusDetail property */
     statusDetail?: string | undefined;
     /**
      * Instantiates a new longRunningOperation and sets the default values.

@@ -16,27 +16,27 @@ import {IdentityProviderBaseItemRequestBuilder} from './userFlowIdentityProvider
 import {UserFlowIdentityProvidersRequestBuilder} from './userFlowIdentityProviders/userFlowIdentityProvidersRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity.  */
+/** Provides operations to manage the b2xUserFlows property of the microsoft.graph.identityContainer entity. */
 export class B2xIdentityUserFlowItemRequestBuilder {
-    /** The identityProviders property  */
+    /** The identityProviders property */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The languages property  */
+    /** The languages property */
     public get languages(): LanguagesRequestBuilder {
         return new LanguagesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userAttributeAssignments property  */
+    /** The userAttributeAssignments property */
     public get userAttributeAssignments(): UserAttributeAssignmentsRequestBuilder {
         return new UserAttributeAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The userFlowIdentityProviders property  */
+    /** The userFlowIdentityProviders property */
     public get userFlowIdentityProviders(): UserFlowIdentityProvidersRequestBuilder {
         return new UserFlowIdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -165,7 +165,7 @@ export class B2xIdentityUserFlowItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: B2xIdentityUserFlowImpl | undefined, requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: B2xIdentityUserFlow | undefined, requestConfiguration?: B2xIdentityUserFlowItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

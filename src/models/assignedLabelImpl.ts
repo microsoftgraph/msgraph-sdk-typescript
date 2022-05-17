@@ -2,11 +2,11 @@ import {AssignedLabel} from './assignedLabel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AssignedLabelImpl implements AdditionalDataHolder, AssignedLabel, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The display name of the label. Read-only.  */
+    /** The display name of the label. Read-only. */
     displayName?: string | undefined;
-    /** The unique identifier of the label.  */
+    /** The unique identifier of the label. */
     labelId?: string | undefined;
     /**
      * Instantiates a new assignedLabel and sets the default values.

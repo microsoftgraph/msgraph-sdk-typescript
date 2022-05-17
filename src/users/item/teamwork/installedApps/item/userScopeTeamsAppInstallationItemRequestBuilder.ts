@@ -9,17 +9,17 @@ import {UserScopeTeamsAppInstallationItemRequestBuilderGetRequestConfiguration} 
 import {UserScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration} from './userScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity.  */
+/** Provides operations to manage the installedApps property of the microsoft.graph.userTeamwork entity. */
 export class UserScopeTeamsAppInstallationItemRequestBuilder {
-    /** The chat property  */
+    /** The chat property */
     public get chat(): ChatRequestBuilder {
         return new ChatRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new UserScopeTeamsAppInstallationItemRequestBuilder and sets the default values.
@@ -124,7 +124,7 @@ export class UserScopeTeamsAppInstallationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: UserScopeTeamsAppInstallationImpl | undefined, requestConfiguration?: UserScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UserScopeTeamsAppInstallation | undefined, requestConfiguration?: UserScopeTeamsAppInstallationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

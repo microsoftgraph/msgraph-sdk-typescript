@@ -10,17 +10,17 @@ import {InvitationsRequestBuilderGetRequestConfiguration} from './invitationsReq
 import {InvitationsRequestBuilderPostRequestConfiguration} from './invitationsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of invitation entities.  */
+/** Provides operations to manage the collection of invitation entities. */
 export class InvitationsRequestBuilder {
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new InvitationsRequestBuilder and sets the default values.
@@ -53,7 +53,7 @@ export class InvitationsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to invitations
+     * Tutorial: Use the access reviews API to review guest access to your Microsoft 365 groups
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -89,7 +89,7 @@ export class InvitationsRequestBuilder {
         return this.requestAdapter?.sendAsync<InvitationCollectionResponseImpl>(requestInfo, createInvitationCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Add new entity to invitations
+     * Tutorial: Use the access reviews API to review guest access to your Microsoft 365 groups
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

@@ -8,19 +8,19 @@ import {TeamworkActivityTopic} from '../../../../models/teamworkActivityTopic';
 import {SendActivityNotificationRequestBody} from './sendActivityNotificationRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the sendActivityNotification method.  */
+/** Provides operations to call the sendActivityNotification method. */
 export class SendActivityNotificationRequestBodyImpl implements AdditionalDataHolder, Parsable, SendActivityNotificationRequestBody {
-    /** The activityType property  */
+    /** The activityType property */
     activityType?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The chainId property  */
+    /** The chainId property */
     chainId?: number | undefined;
-    /** The previewText property  */
+    /** The previewText property */
     previewText?: ItemBody | undefined;
-    /** The templateParameters property  */
+    /** The templateParameters property */
     templateParameters?: KeyValuePair[] | undefined;
-    /** The topic property  */
+    /** The topic property */
     topic?: TeamworkActivityTopic | undefined;
     /**
      * Instantiates a new sendActivityNotificationRequestBody and sets the default values.

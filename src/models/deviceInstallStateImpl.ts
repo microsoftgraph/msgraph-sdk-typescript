@@ -4,21 +4,21 @@ import {InstallState} from './installState';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceInstallStateImpl extends EntityImpl implements DeviceInstallState, Parsable {
-    /** Device Id.  */
+    /** Device Id. */
     deviceId?: string | undefined;
-    /** Device name.  */
+    /** Device name. */
     deviceName?: string | undefined;
-    /** The error code for install failures.  */
+    /** The error code for install failures. */
     errorCode?: string | undefined;
-    /** The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown.  */
+    /** The install state of the eBook. Possible values are: notApplicable, installed, failed, notInstalled, uninstallFailed, unknown. */
     installState?: InstallState | undefined;
-    /** Last sync date and time.  */
+    /** Last sync date and time. */
     lastSyncDateTime?: Date | undefined;
-    /** OS Description.  */
+    /** OS Description. */
     osDescription?: string | undefined;
-    /** OS Version.  */
+    /** OS Version. */
     osVersion?: string | undefined;
-    /** Device User Name.  */
+    /** Device User Name. */
     userName?: string | undefined;
     /**
      * Instantiates a new deviceInstallState and sets the default values.

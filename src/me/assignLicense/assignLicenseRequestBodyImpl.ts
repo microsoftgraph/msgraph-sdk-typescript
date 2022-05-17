@@ -4,13 +4,13 @@ import {createAssignedLicenseFromDiscriminatorValue} from '../../models/createAs
 import {AssignLicenseRequestBody} from './assignLicenseRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the assignLicense method.  */
+/** Provides operations to call the assignLicense method. */
 export class AssignLicenseRequestBodyImpl implements AdditionalDataHolder, AssignLicenseRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The addLicenses property  */
+    /** The addLicenses property */
     addLicenses?: AssignedLicense[] | undefined;
-    /** The removeLicenses property  */
+    /** The removeLicenses property */
     removeLicenses?: string[] | undefined;
     /**
      * Instantiates a new assignLicenseRequestBody and sets the default values.

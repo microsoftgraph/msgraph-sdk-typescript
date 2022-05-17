@@ -3,7 +3,7 @@ import {RoleAssignmentImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceAndAppManagementRoleAssignmentImpl extends RoleAssignmentImpl implements DeviceAndAppManagementRoleAssignment, Parsable {
-    /** The list of ids of role member security groups. These are IDs from Azure Active Directory.  */
+    /** The list of ids of role member security groups. These are IDs from Azure Active Directory. */
     members?: string[] | undefined;
     /**
      * Instantiates a new deviceAndAppManagementRoleAssignment and sets the default values.

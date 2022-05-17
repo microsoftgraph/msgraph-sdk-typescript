@@ -3,36 +3,36 @@ import {NotebookLinks} from './notebookLinks';
 import {OnenoteUserRole} from './onenoteUserRole';
 
 export interface CopyNotebookModel{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The createdBy property  */
+    /** The createdBy property */
     createdBy?: string | undefined;
-    /** The createdByIdentity property  */
+    /** The createdByIdentity property */
     createdByIdentity?: IdentitySet | undefined;
-    /** The createdTime property  */
+    /** The createdTime property */
     createdTime?: Date | undefined;
-    /** The id property  */
+    /** The id property */
     id?: string | undefined;
-    /** The isDefault property  */
+    /** The isDefault property */
     isDefault?: boolean | undefined;
-    /** The isShared property  */
+    /** The isShared property */
     isShared?: boolean | undefined;
-    /** The lastModifiedBy property  */
+    /** The lastModifiedBy property */
     lastModifiedBy?: string | undefined;
-    /** The lastModifiedByIdentity property  */
+    /** The lastModifiedByIdentity property */
     lastModifiedByIdentity?: IdentitySet | undefined;
-    /** The lastModifiedTime property  */
+    /** The lastModifiedTime property */
     lastModifiedTime?: Date | undefined;
-    /** The links property  */
+    /** The links property */
     links?: NotebookLinks | undefined;
-    /** The name property  */
+    /** The name property */
     name?: string | undefined;
-    /** The sectionGroupsUrl property  */
+    /** The sectionGroupsUrl property */
     sectionGroupsUrl?: string | undefined;
-    /** The sectionsUrl property  */
+    /** The sectionsUrl property */
     sectionsUrl?: string | undefined;
-    /** The self property  */
+    /** The self property */
     self?: string | undefined;
-    /** The userRole property  */
+    /** The userRole property */
     userRole?: OnenoteUserRole | undefined;
 }

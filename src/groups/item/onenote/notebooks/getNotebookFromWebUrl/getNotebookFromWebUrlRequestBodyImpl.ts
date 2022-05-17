@@ -1,11 +1,11 @@
 import {GetNotebookFromWebUrlRequestBody} from './getNotebookFromWebUrlRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getNotebookFromWebUrl method.  */
+/** Provides operations to call the getNotebookFromWebUrl method. */
 export class GetNotebookFromWebUrlRequestBodyImpl implements AdditionalDataHolder, GetNotebookFromWebUrlRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The webUrl property  */
+    /** The webUrl property */
     webUrl?: string | undefined;
     /**
      * Instantiates a new getNotebookFromWebUrlRequestBody and sets the default values.

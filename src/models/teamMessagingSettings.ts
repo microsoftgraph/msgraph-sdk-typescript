@@ -1,15 +1,15 @@
 
 export interface TeamMessagingSettings{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** If set to true, @channel mentions are allowed.  */
+    /** If set to true, @channel mentions are allowed. */
     allowChannelMentions?: boolean | undefined;
-    /** If set to true, owners can delete any message.  */
+    /** If set to true, owners can delete any message. */
     allowOwnerDeleteMessages?: boolean | undefined;
-    /** If set to true, @team mentions are allowed.  */
+    /** If set to true, @team mentions are allowed. */
     allowTeamMentions?: boolean | undefined;
-    /** If set to true, users can delete their messages.  */
+    /** If set to true, users can delete their messages. */
     allowUserDeleteMessages?: boolean | undefined;
-    /** If set to true, users can edit their messages.  */
+    /** If set to true, users can edit their messages. */
     allowUserEditMessages?: boolean | undefined;
 }

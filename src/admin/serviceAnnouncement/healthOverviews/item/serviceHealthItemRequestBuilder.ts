@@ -10,17 +10,17 @@ import {ServiceHealthItemRequestBuilderGetRequestConfiguration} from './serviceH
 import {ServiceHealthItemRequestBuilderPatchRequestConfiguration} from './serviceHealthItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity.  */
+/** Provides operations to manage the healthOverviews property of the microsoft.graph.serviceAnnouncement entity. */
 export class ServiceHealthItemRequestBuilder {
-    /** The issues property  */
+    /** The issues property */
     public get issues(): IssuesRequestBuilder {
         return new IssuesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ServiceHealthItemRequestBuilder and sets the default values.
@@ -136,7 +136,7 @@ export class ServiceHealthItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ServiceHealthImpl | undefined, requestConfiguration?: ServiceHealthItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServiceHealth | undefined, requestConfiguration?: ServiceHealthItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

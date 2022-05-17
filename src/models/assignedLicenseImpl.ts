@@ -2,11 +2,11 @@ import {AssignedLicense} from './assignedLicense';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AssignedLicenseImpl implements AdditionalDataHolder, AssignedLicense, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** A collection of the unique identifiers for plans that have been disabled.  */
+    /** A collection of the unique identifiers for plans that have been disabled. */
     disabledPlans?: string[] | undefined;
-    /** The unique identifier for the SKU.  */
+    /** The unique identifier for the SKU. */
     skuId?: string | undefined;
     /**
      * Instantiates a new assignedLicense and sets the default values.

@@ -5,11 +5,11 @@ import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, WorkbookChartAxisTitle {
-    /** Represents the formatting of chart axis title. Read-only.  */
+    /** Represents the formatting of chart axis title. Read-only. */
     format?: WorkbookChartAxisTitleFormat | undefined;
-    /** Represents the axis title.  */
+    /** Represents the axis title. */
     text?: string | undefined;
-    /** A boolean that specifies the visibility of an axis title.  */
+    /** A boolean that specifies the visibility of an axis title. */
     visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartAxisTitle and sets the default values.

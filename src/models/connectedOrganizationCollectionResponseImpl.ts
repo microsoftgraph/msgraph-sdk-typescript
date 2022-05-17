@@ -5,11 +5,11 @@ import {ConnectedOrganizationImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConnectedOrganizationCollectionResponseImpl implements AdditionalDataHolder, ConnectedOrganizationCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: ConnectedOrganization[] | undefined;
     /**
      * Instantiates a new ConnectedOrganizationCollectionResponse and sets the default values.

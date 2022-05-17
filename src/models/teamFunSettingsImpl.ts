@@ -3,15 +3,15 @@ import {TeamFunSettings} from './teamFunSettings';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamFunSettingsImpl implements AdditionalDataHolder, Parsable, TeamFunSettings {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** If set to true, enables users to include custom memes.  */
+    /** If set to true, enables users to include custom memes. */
     allowCustomMemes?: boolean | undefined;
-    /** If set to true, enables Giphy use.  */
+    /** If set to true, enables Giphy use. */
     allowGiphy?: boolean | undefined;
-    /** If set to true, enables users to include stickers and memes.  */
+    /** If set to true, enables users to include stickers and memes. */
     allowStickersAndMemes?: boolean | undefined;
-    /** Giphy content rating. Possible values are: moderate, strict.  */
+    /** Giphy content rating. Possible values are: moderate, strict. */
     giphyContentRating?: GiphyRatingType | undefined;
     /**
      * Instantiates a new teamFunSettings and sets the default values.

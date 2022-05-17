@@ -5,11 +5,11 @@ import {AccessReviewScheduleDefinitionImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewScheduleDefinitionCollectionResponseImpl implements AccessReviewScheduleDefinitionCollectionResponse, AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: AccessReviewScheduleDefinition[] | undefined;
     /**
      * Instantiates a new AccessReviewScheduleDefinitionCollectionResponse and sets the default values.

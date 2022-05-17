@@ -6,13 +6,13 @@ import {TeamsAppDistributionMethod} from './teamsAppDistributionMethod';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppImpl extends EntityImpl implements Parsable, TeamsApp {
-    /** The details for each version of the app.  */
+    /** The details for each version of the app. */
     appDefinitions?: TeamsAppDefinition[] | undefined;
-    /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package.  */
+    /** The name of the catalog app provided by the app developer in the Microsoft Teams zip app package. */
     displayName?: string | undefined;
-    /** The method of distribution for the app. Read-only.  */
+    /** The method of distribution for the app. Read-only. */
     distributionMethod?: TeamsAppDistributionMethod | undefined;
-    /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package.  */
+    /** The ID of the catalog provided by the app developer in the Microsoft Teams zip app package. */
     externalId?: string | undefined;
     /**
      * Instantiates a new teamsApp and sets the default values.

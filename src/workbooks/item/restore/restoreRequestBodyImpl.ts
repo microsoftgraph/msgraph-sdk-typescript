@@ -4,13 +4,13 @@ import {ItemReference} from '../../../models/itemReference';
 import {RestoreRequestBody} from './restoreRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the restore method.  */
+/** Provides operations to call the restore method. */
 export class RestoreRequestBodyImpl implements AdditionalDataHolder, Parsable, RestoreRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The name property  */
+    /** The name property */
     name?: string | undefined;
-    /** The parentReference property  */
+    /** The parentReference property */
     parentReference?: ItemReference | undefined;
     /**
      * Instantiates a new restoreRequestBody and sets the default values.

@@ -12,25 +12,25 @@ import {RiskyUsersRequestBuilderGetRequestConfiguration} from './riskyUsersReque
 import {RiskyUsersRequestBuilderPostRequestConfiguration} from './riskyUsersRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity.  */
+/** Provides operations to manage the riskyUsers property of the microsoft.graph.identityProtectionRoot entity. */
 export class RiskyUsersRequestBuilder {
-    /** The confirmCompromised property  */
+    /** The confirmCompromised property */
     public get confirmCompromised(): ConfirmCompromisedRequestBuilder {
         return new ConfirmCompromisedRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The dismiss property  */
+    /** The dismiss property */
     public get dismiss(): DismissRequestBuilder {
         return new DismissRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new RiskyUsersRequestBuilder and sets the default values.

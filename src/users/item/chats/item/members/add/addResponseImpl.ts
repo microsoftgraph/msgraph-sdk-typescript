@@ -4,11 +4,11 @@ import {createActionResultPartFromDiscriminatorValue} from '../../../../../../mo
 import {AddResponse} from './addResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the add method.  */
+/** Provides operations to call the add method. */
 export class AddResponseImpl implements AdditionalDataHolder, AddResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: ActionResultPart[] | undefined;
     /**
      * Instantiates a new addResponse and sets the default values.

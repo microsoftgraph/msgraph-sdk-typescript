@@ -2,11 +2,11 @@ import {PrivacyProfile} from './privacyProfile';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrivacyProfileImpl implements AdditionalDataHolder, Parsable, PrivacyProfile {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** A valid smtp email address for the privacy statement contact. Not required.  */
+    /** A valid smtp email address for the privacy statement contact. Not required. */
     contactEmail?: string | undefined;
-    /** A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required.  */
+    /** A valid URL format that begins with http:// or https://. Maximum length is 255 characters. The URL that directs to the company's privacy statement. Not required. */
     statementUrl?: string | undefined;
     /**
      * Instantiates a new privacyProfile and sets the default values.

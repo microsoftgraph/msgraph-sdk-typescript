@@ -5,13 +5,13 @@ import {RichLongRunningOperation} from './richLongRunningOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RichLongRunningOperationImpl extends LongRunningOperationImpl implements Parsable, RichLongRunningOperation {
-    /** Error due to which the operation failed.  */
+    /** Error due to which the operation failed. */
     error_escaped?: PublicError | undefined;
-    /** A value between 0 and 100 that indicates the progress of the operation.  */
+    /** A value between 0 and 100 that indicates the progress of the operation. */
     percentageComplete?: number | undefined;
-    /** A unique identifier for the result.  */
+    /** A unique identifier for the result. */
     resourceId?: string | undefined;
-    /** Type of the operation.  */
+    /** Type of the operation. */
     type?: string | undefined;
     /**
      * Instantiates a new richLongRunningOperation and sets the default values.

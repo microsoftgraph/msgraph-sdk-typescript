@@ -6,13 +6,13 @@ import {UnifiedRoleManagementPolicy} from '../../../../models/unifiedRoleManagem
 import {PolicyRequestBuilderGetRequestConfiguration} from './policyRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policy property of the microsoft.graph.unifiedRoleManagementPolicyAssignment entity.  */
+/** Provides operations to manage the policy property of the microsoft.graph.unifiedRoleManagementPolicyAssignment entity. */
 export class PolicyRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new PolicyRequestBuilder and sets the default values.

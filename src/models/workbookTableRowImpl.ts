@@ -5,9 +5,9 @@ import {WorkbookTableRow} from './workbookTableRow';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookTableRowImpl extends EntityImpl implements Parsable, WorkbookTableRow {
-    /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only.  */
+    /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only. */
     index?: number | undefined;
-    /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string.  */
+    /** Represents the raw values of the specified range. The data returned could be of type string, number, or a boolean. Cell that contain an error will return the error string. */
     values?: Json | undefined;
     /**
      * Instantiates a new workbookTableRow and sets the default values.

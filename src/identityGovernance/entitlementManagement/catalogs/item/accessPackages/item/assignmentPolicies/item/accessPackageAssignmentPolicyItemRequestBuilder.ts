@@ -10,21 +10,21 @@ import {AccessPackageAssignmentPolicyItemRequestBuilderPatchRequestConfiguration
 import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity.  */
+/** Provides operations to manage the assignmentPolicies property of the microsoft.graph.accessPackage entity. */
 export class AccessPackageAssignmentPolicyItemRequestBuilder {
-    /** The accessPackage property  */
+    /** The accessPackage property */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The catalog property  */
+    /** The catalog property */
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentPolicyItemRequestBuilder and sets the default values.
@@ -129,7 +129,7 @@ export class AccessPackageAssignmentPolicyItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AccessPackageAssignmentPolicyImpl | undefined, requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessPackageAssignmentPolicy | undefined, requestConfiguration?: AccessPackageAssignmentPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

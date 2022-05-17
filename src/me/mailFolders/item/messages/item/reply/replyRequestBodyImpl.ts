@@ -4,13 +4,13 @@ import {Message} from '../../../../../../models/message';
 import {ReplyRequestBody} from './replyRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the reply method.  */
+/** Provides operations to call the reply method. */
 export class ReplyRequestBodyImpl implements AdditionalDataHolder, Parsable, ReplyRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The Comment property  */
+    /** The Comment property */
     comment?: string | undefined;
-    /** The Message property  */
+    /** The Message property */
     message?: Message | undefined;
     /**
      * Instantiates a new replyRequestBody and sets the default values.

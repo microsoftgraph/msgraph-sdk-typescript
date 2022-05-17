@@ -3,7 +3,7 @@ import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftItemImpl extends ShiftItemImpl implements OpenShiftItem, Parsable {
-    /** Count of the number of slots for the given open shift.  */
+    /** Count of the number of slots for the given open shift. */
     openSlotCount?: number | undefined;
     /**
      * Instantiates a new openShiftItem and sets the default values.

@@ -1,10 +1,10 @@
 import {Prompt} from '../../../../models/prompt';
 
 export interface PlayPromptRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The clientContext property  */
+    /** The clientContext property */
     clientContext?: string | undefined;
-    /** The prompts property  */
+    /** The prompts property */
     prompts?: Prompt[] | undefined;
 }

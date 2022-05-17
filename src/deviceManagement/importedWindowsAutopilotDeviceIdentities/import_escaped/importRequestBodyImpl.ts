@@ -4,11 +4,11 @@ import {ImportedWindowsAutopilotDeviceIdentity} from '../../../models/importedWi
 import {ImportRequestBody} from './importRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the import method.  */
+/** Provides operations to call the import method. */
 export class ImportRequestBodyImpl implements AdditionalDataHolder, ImportRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The importedWindowsAutopilotDeviceIdentities property  */
+    /** The importedWindowsAutopilotDeviceIdentities property */
     importedWindowsAutopilotDeviceIdentities?: ImportedWindowsAutopilotDeviceIdentity[] | undefined;
     /**
      * Instantiates a new importRequestBody and sets the default values.

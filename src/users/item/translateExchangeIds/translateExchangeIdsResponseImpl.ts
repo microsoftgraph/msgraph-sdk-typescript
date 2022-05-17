@@ -4,11 +4,11 @@ import {createConvertIdResultFromDiscriminatorValue} from '../../../models/creat
 import {TranslateExchangeIdsResponse} from './translateExchangeIdsResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the translateExchangeIds method.  */
+/** Provides operations to call the translateExchangeIds method. */
 export class TranslateExchangeIdsResponseImpl implements AdditionalDataHolder, Parsable, TranslateExchangeIdsResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: ConvertIdResult[] | undefined;
     /**
      * Instantiates a new translateExchangeIdsResponse and sets the default values.

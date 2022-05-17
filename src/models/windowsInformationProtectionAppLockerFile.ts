@@ -1,12 +1,12 @@
 import {Entity} from './entity';
 
 export interface WindowsInformationProtectionAppLockerFile extends Entity{
-    /** The friendly name  */
+    /** The friendly name */
     displayName?: string | undefined;
-    /** File as a byte array  */
+    /** File as a byte array */
     file?: string | undefined;
-    /** SHA256 hash of the file  */
+    /** SHA256 hash of the file */
     fileHash?: string | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
 }

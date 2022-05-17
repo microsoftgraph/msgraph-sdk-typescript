@@ -6,13 +6,13 @@ import {RoutingType} from './routingType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CallRouteImpl implements AdditionalDataHolder, CallRoute, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The final property  */
+    /** The final property */
     final?: IdentitySet | undefined;
-    /** The original property  */
+    /** The original property */
     original?: IdentitySet | undefined;
-    /** Possible values are: forwarded, lookup, selfFork.  */
+    /** Possible values are: forwarded, lookup, selfFork. */
     routingType?: RoutingType | undefined;
     /**
      * Instantiates a new callRoute and sets the default values.

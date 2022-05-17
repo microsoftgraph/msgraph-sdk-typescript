@@ -5,7 +5,7 @@ import {WorkbookFilterCriteria} from './workbookFilterCriteria';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFilterImpl extends EntityImpl implements Parsable, WorkbookFilter {
-    /** The currently applied filter on the given column. Read-only.  */
+    /** The currently applied filter on the given column. Read-only. */
     criteria?: WorkbookFilterCriteria | undefined;
     /**
      * Instantiates a new workbookFilter and sets the default values.

@@ -4,11 +4,11 @@ import {DeviceComplianceScheduledActionForRule} from '../../../../models/deviceC
 import {ScheduleActionsForRulesRequestBody} from './scheduleActionsForRulesRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the scheduleActionsForRules method.  */
+/** Provides operations to call the scheduleActionsForRules method. */
 export class ScheduleActionsForRulesRequestBodyImpl implements AdditionalDataHolder, Parsable, ScheduleActionsForRulesRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The deviceComplianceScheduledActionForRules property  */
+    /** The deviceComplianceScheduledActionForRules property */
     deviceComplianceScheduledActionForRules?: DeviceComplianceScheduledActionForRule[] | undefined;
     /**
      * Instantiates a new scheduleActionsForRulesRequestBody and sets the default values.

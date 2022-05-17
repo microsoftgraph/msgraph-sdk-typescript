@@ -3,7 +3,7 @@ import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinterImpl extends PrintUsageImpl implements Parsable, PrintUsageByPrinter {
-    /** The printerId property  */
+    /** The printerId property */
     printerId?: string | undefined;
     /**
      * Instantiates a new printUsageByPrinter and sets the default values.

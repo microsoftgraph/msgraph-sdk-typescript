@@ -2,11 +2,11 @@ import {UserAgent} from './userAgent';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserAgentImpl implements AdditionalDataHolder, Parsable, UserAgent {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Identifies the version of application software used by this endpoint.  */
+    /** Identifies the version of application software used by this endpoint. */
     applicationVersion?: string | undefined;
-    /** User-agent header value reported by this endpoint.  */
+    /** User-agent header value reported by this endpoint. */
     headerValue?: string | undefined;
     /**
      * Instantiates a new userAgent and sets the default values.

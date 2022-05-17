@@ -3,11 +3,11 @@ import {ItemBody} from './itemBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemBodyImpl implements AdditionalDataHolder, ItemBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The content of the item.  */
+    /** The content of the item. */
     content?: string | undefined;
-    /** The type of the content. Possible values are text and html.  */
+    /** The type of the content. Possible values are text and html. */
     contentType?: BodyType | undefined;
     /**
      * Instantiates a new itemBody and sets the default values.

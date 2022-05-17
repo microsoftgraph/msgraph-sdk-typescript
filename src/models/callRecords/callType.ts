@@ -1,4 +1,4 @@
-/** Provides operations to manage the cloudCommunications singleton.  */
+/** Provides operations to manage the cloudCommunications singleton. */
 export enum CallType {
     Unknown = "unknown",
     GroupCall = "groupCall",

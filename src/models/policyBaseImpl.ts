@@ -3,9 +3,9 @@ import {PolicyBase} from './policyBase';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PolicyBaseImpl extends DirectoryObjectImpl implements Parsable, PolicyBase {
-    /** Description for this policy. Required.  */
+    /** Description for this policy. Required. */
     description?: string | undefined;
-    /** Display name for this policy. Required.  */
+    /** Display name for this policy. Required. */
     displayName?: string | undefined;
     /**
      * Instantiates a new policyBase and sets the default values.

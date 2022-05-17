@@ -5,11 +5,11 @@ import {RiskyUserCollectionResponse} from './riskyUserCollectionResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RiskyUserCollectionResponseImpl implements AdditionalDataHolder, Parsable, RiskyUserCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: RiskyUser[] | undefined;
     /**
      * Instantiates a new RiskyUserCollectionResponse and sets the default values.

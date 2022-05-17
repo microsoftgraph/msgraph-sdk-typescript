@@ -4,13 +4,13 @@ import {ManagedAppPolicyDeploymentSummaryPerApp} from './managedAppPolicyDeploym
 import {MobileAppIdentifier} from './mobileAppIdentifier';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents policy deployment summary per app.  */
+/** Represents policy deployment summary per app. */
 export class ManagedAppPolicyDeploymentSummaryPerAppImpl implements AdditionalDataHolder, ManagedAppPolicyDeploymentSummaryPerApp, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Number of users the policy is applied.  */
+    /** Number of users the policy is applied. */
     configurationAppliedUserCount?: number | undefined;
-    /** Deployment of an app.  */
+    /** Deployment of an app. */
     mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /**
      * Instantiates a new managedAppPolicyDeploymentSummaryPerApp and sets the default values.

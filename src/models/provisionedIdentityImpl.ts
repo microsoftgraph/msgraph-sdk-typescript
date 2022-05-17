@@ -5,9 +5,9 @@ import {ProvisionedIdentity} from './provisionedIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisionedIdentityImpl extends IdentityImpl implements Parsable, ProvisionedIdentity {
-    /** Details of the identity.  */
+    /** Details of the identity. */
     details?: DetailsInfo | undefined;
-    /** Type of identity that has been provisioned, such as 'user' or 'group'.  */
+    /** Type of identity that has been provisioned, such as 'user' or 'group'. */
     identityType?: string | undefined;
     /**
      * Instantiates a new provisionedIdentity and sets the default values.

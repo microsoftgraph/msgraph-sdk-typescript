@@ -10,15 +10,15 @@ import {RestrictedSignIn} from './restrictedSignIn';
 import {SignIn} from './signIn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton.  */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogRootImpl extends EntityImpl implements AuditLogRoot, Parsable {
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     directoryAudits?: DirectoryAudit[] | undefined;
-    /** The provisioning property  */
+    /** The provisioning property */
     provisioning?: ProvisioningObjectSummary[] | undefined;
-    /** The restrictedSignIns property  */
+    /** The restrictedSignIns property */
     restrictedSignIns?: RestrictedSignIn[] | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     signIns?: SignIn[] | undefined;
     /**
      * Instantiates a new auditLogRoot and sets the default values.

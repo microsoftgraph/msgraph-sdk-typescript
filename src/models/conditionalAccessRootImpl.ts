@@ -7,9 +7,9 @@ import {NamedLocation} from './namedLocation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessRootImpl extends EntityImpl implements ConditionalAccessRoot, Parsable {
-    /** Read-only. Nullable. Returns a collection of the specified named locations.  */
+    /** Read-only. Nullable. Returns a collection of the specified named locations. */
     namedLocations?: NamedLocation[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified Conditional Access policies.  */
+    /** Read-only. Nullable. Returns a collection of the specified Conditional Access policies. */
     policies?: ConditionalAccessPolicy[] | undefined;
     /**
      * Instantiates a new conditionalAccessRoot and sets the default values.

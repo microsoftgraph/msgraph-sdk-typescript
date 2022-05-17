@@ -4,15 +4,15 @@ import {InvitationParticipantInfo} from '../../../../models/invitationParticipan
 import {RedirectRequestBody} from './redirectRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the redirect method.  */
+/** Provides operations to call the redirect method. */
 export class RedirectRequestBodyImpl implements AdditionalDataHolder, Parsable, RedirectRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The callbackUri property  */
+    /** The callbackUri property */
     callbackUri?: string | undefined;
-    /** The targets property  */
+    /** The targets property */
     targets?: InvitationParticipantInfo[] | undefined;
-    /** The timeout property  */
+    /** The timeout property */
     timeout?: number | undefined;
     /**
      * Instantiates a new redirectRequestBody and sets the default values.

@@ -1,11 +1,11 @@
 import {ExportPersonalDataRequestBody} from './exportPersonalDataRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the exportPersonalData method.  */
+/** Provides operations to call the exportPersonalData method. */
 export class ExportPersonalDataRequestBodyImpl implements AdditionalDataHolder, ExportPersonalDataRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The storageLocation property  */
+    /** The storageLocation property */
     storageLocation?: string | undefined;
     /**
      * Instantiates a new exportPersonalDataRequestBody and sets the default values.

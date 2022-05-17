@@ -1,11 +1,11 @@
 import {Report} from './report';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Configuration profile History reports.  */
+/** Device Configuration profile History reports. */
 export class ReportImpl implements AdditionalDataHolder, Parsable, Report {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Report content; details vary by report type.  */
+    /** Report content; details vary by report type. */
     content?: string | undefined;
     /**
      * Instantiates a new report and sets the default values.

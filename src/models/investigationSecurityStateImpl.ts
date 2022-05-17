@@ -2,11 +2,11 @@ import {InvestigationSecurityState} from './investigationSecurityState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InvestigationSecurityStateImpl implements AdditionalDataHolder, InvestigationSecurityState, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The name property  */
+    /** The name property */
     name?: string | undefined;
-    /** The status property  */
+    /** The status property */
     status?: string | undefined;
     /**
      * Instantiates a new investigationSecurityState and sets the default values.

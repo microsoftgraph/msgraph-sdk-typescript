@@ -4,11 +4,11 @@ import {LocaleInfo} from '../../../models/localeInfo';
 import {SupportedLanguagesResponse} from './supportedLanguagesResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the supportedLanguages method.  */
+/** Provides operations to call the supportedLanguages method. */
 export class SupportedLanguagesResponseImpl implements AdditionalDataHolder, Parsable, SupportedLanguagesResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: LocaleInfo[] | undefined;
     /**
      * Instantiates a new supportedLanguagesResponse and sets the default values.

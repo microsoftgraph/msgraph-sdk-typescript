@@ -3,9 +3,9 @@ import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, WorkbookCommentReply {
-    /** The content of replied comment.  */
+    /** The content of replied comment. */
     content?: string | undefined;
-    /** Indicates the type for the replied comment.  */
+    /** Indicates the type for the replied comment. */
     contentType?: string | undefined;
     /**
      * Instantiates a new workbookCommentReply and sets the default values.

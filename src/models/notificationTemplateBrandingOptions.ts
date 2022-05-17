@@ -1,7 +1,11 @@
-/** Provides operations to manage the deviceManagement singleton.  */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum NotificationTemplateBrandingOptions {
+    /** No Branding. */
     None = "none",
+    /** Include Company Logo. */
     IncludeCompanyLogo = "includeCompanyLogo",
+    /** Include Company Name. */
     IncludeCompanyName = "includeCompanyName",
+    /** Include Contact Info. */
     IncludeContactInformation = "includeContactInformation",
 }

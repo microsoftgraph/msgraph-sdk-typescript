@@ -5,11 +5,11 @@ import {SchemaExtensionCollectionResponse} from './schemaExtensionCollectionResp
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchemaExtensionCollectionResponseImpl implements AdditionalDataHolder, Parsable, SchemaExtensionCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: SchemaExtension[] | undefined;
     /**
      * Instantiates a new SchemaExtensionCollectionResponse and sets the default values.

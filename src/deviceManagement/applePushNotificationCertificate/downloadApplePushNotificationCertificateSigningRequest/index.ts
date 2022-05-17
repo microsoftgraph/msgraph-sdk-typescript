@@ -1,3 +1,3 @@
 export * from './downloadApplePushNotificationCertificateSigningRequestResponseImpl'
-export * from './downloadApplePushNotificationCertificateSigningRequestResponse'
 export * from './downloadApplePushNotificationCertificateSigningRequestRequestBuilderGetRequestConfiguration'
+export * from './downloadApplePushNotificationCertificateSigningRequestResponse'

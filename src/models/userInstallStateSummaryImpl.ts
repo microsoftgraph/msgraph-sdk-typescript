@@ -5,15 +5,15 @@ import {UserInstallStateSummary} from './userInstallStateSummary';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserInstallStateSummaryImpl extends EntityImpl implements Parsable, UserInstallStateSummary {
-    /** The install state of the eBook.  */
+    /** The install state of the eBook. */
     deviceStates?: DeviceInstallState[] | undefined;
-    /** Failed Device Count.  */
+    /** Failed Device Count. */
     failedDeviceCount?: number | undefined;
-    /** Installed Device Count.  */
+    /** Installed Device Count. */
     installedDeviceCount?: number | undefined;
-    /** Not installed device count.  */
+    /** Not installed device count. */
     notInstalledDeviceCount?: number | undefined;
-    /** User name.  */
+    /** User name. */
     userName?: string | undefined;
     /**
      * Instantiates a new userInstallStateSummary and sets the default values.

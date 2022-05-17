@@ -11,29 +11,29 @@ import {IdentityGovernanceRequestBuilderPatchRequestConfiguration} from './ident
 import {TermsOfUseRequestBuilder} from './termsOfUse/termsOfUseRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityGovernance singleton.  */
+/** Provides operations to manage the identityGovernance singleton. */
 export class IdentityGovernanceRequestBuilder {
-    /** The accessReviews property  */
+    /** The accessReviews property */
     public get accessReviews(): AccessReviewsRequestBuilder {
         return new AccessReviewsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appConsent property  */
+    /** The appConsent property */
     public get appConsent(): AppConsentRequestBuilder {
         return new AppConsentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The entitlementManagement property  */
+    /** The entitlementManagement property */
     public get entitlementManagement(): EntitlementManagementRequestBuilder {
         return new EntitlementManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The termsOfUse property  */
+    /** The termsOfUse property */
     public get termsOfUse(): TermsOfUseRequestBuilder {
         return new TermsOfUseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new IdentityGovernanceRequestBuilder and sets the default values.
@@ -107,7 +107,7 @@ export class IdentityGovernanceRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: IdentityGovernanceImpl | undefined, requestConfiguration?: IdentityGovernanceRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: IdentityGovernance | undefined, requestConfiguration?: IdentityGovernanceRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

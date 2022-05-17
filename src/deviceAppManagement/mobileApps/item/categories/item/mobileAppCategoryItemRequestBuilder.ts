@@ -6,13 +6,13 @@ import {createODataErrorFromDiscriminatorValue} from '../../../../../models/oDat
 import {MobileAppCategoryItemRequestBuilderGetRequestConfiguration} from './mobileAppCategoryItemRequestBuilderGetRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the categories property of the microsoft.graph.mobileApp entity.  */
+/** Provides operations to manage the categories property of the microsoft.graph.mobileApp entity. */
 export class MobileAppCategoryItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new MobileAppCategoryItemRequestBuilder and sets the default values.

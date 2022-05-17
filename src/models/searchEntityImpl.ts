@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {SearchEntity} from './searchEntity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the searchEntity singleton.  */
+/** Provides operations to manage the searchEntity singleton. */
 export class SearchEntityImpl extends EntityImpl implements Parsable, SearchEntity {
     /**
      * Instantiates a new searchEntity and sets the default values.

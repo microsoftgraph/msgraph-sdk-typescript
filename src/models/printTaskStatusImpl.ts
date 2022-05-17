@@ -3,11 +3,11 @@ import {PrintTaskStatus} from './printTaskStatus';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintTaskStatusImpl implements AdditionalDataHolder, Parsable, PrintTaskStatus {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** A human-readable description of the current processing state of the printTask.  */
+    /** A human-readable description of the current processing state of the printTask. */
     description?: string | undefined;
-    /** The current processing state of the printTask. Valid values are described in the following table.  */
+    /** The current processing state of the printTask. Valid values are described in the following table. */
     state?: PrintTaskProcessingState | undefined;
     /**
      * Instantiates a new printTaskStatus and sets the default values.

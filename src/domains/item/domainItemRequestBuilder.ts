@@ -18,35 +18,35 @@ import {VerificationDnsRecordsRequestBuilder} from './verificationDnsRecords/ver
 import {VerifyRequestBuilder} from './verify/verifyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domain entities.  */
+/** Provides operations to manage the collection of domain entities. */
 export class DomainItemRequestBuilder {
-    /** The domainNameReferences property  */
+    /** The domainNameReferences property */
     public get domainNameReferences(): DomainNameReferencesRequestBuilder {
         return new DomainNameReferencesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The federationConfiguration property  */
+    /** The federationConfiguration property */
     public get federationConfiguration(): FederationConfigurationRequestBuilder {
         return new FederationConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forceDelete property  */
+    /** The forceDelete property */
     public get forceDelete(): ForceDeleteRequestBuilder {
         return new ForceDeleteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The serviceConfigurationRecords property  */
+    /** The serviceConfigurationRecords property */
     public get serviceConfigurationRecords(): ServiceConfigurationRecordsRequestBuilder {
         return new ServiceConfigurationRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The verificationDnsRecords property  */
+    /** The verificationDnsRecords property */
     public get verificationDnsRecords(): VerificationDnsRecordsRequestBuilder {
         return new VerificationDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The verify property  */
+    /** The verify property */
     public get verify(): VerifyRequestBuilder {
         return new VerifyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -64,7 +64,7 @@ export class DomainItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from domains
+     * Delete domain
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -80,7 +80,7 @@ export class DomainItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from domains by key
+     * Get domain
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -97,7 +97,7 @@ export class DomainItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in domains
+     * Update domain
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -117,7 +117,7 @@ export class DomainItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete entity from domains
+     * Delete domain
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -154,7 +154,7 @@ export class DomainItemRequestBuilder {
         return new InternalDomainFederationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from domains by key
+     * Get domain
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Domain
@@ -170,12 +170,12 @@ export class DomainItemRequestBuilder {
         return this.requestAdapter?.sendAsync<DomainImpl>(requestInfo, createDomainFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update entity in domains
+     * Update domain
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: DomainImpl | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Domain | undefined, requestConfiguration?: DomainItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

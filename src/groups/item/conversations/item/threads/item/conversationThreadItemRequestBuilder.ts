@@ -11,21 +11,21 @@ import {PostsRequestBuilder} from './posts/postsRequestBuilder';
 import {ReplyRequestBuilder} from './reply/replyRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the threads property of the microsoft.graph.conversation entity.  */
+/** Provides operations to manage the threads property of the microsoft.graph.conversation entity. */
 export class ConversationThreadItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The posts property  */
+    /** The posts property */
     public get posts(): PostsRequestBuilder {
         return new PostsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The reply property  */
+    /** The reply property */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ConversationThreadItemRequestBuilder and sets the default values.
@@ -130,7 +130,7 @@ export class ConversationThreadItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ConversationThreadImpl | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ConversationThread | undefined, requestConfiguration?: ConversationThreadItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

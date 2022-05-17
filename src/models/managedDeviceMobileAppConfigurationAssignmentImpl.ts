@@ -5,7 +5,7 @@ import {ManagedDeviceMobileAppConfigurationAssignment} from './managedDeviceMobi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedDeviceMobileAppConfigurationAssignmentImpl extends EntityImpl implements ManagedDeviceMobileAppConfigurationAssignment, Parsable {
-    /** Assignment target that the T&C policy is assigned to.  */
+    /** Assignment target that the T&C policy is assigned to. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedDeviceMobileAppConfigurationAssignment and sets the default values.

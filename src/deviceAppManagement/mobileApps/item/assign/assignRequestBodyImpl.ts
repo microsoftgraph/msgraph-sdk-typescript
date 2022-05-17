@@ -4,11 +4,11 @@ import {MobileAppAssignment} from '../../../../models/mobileAppAssignment';
 import {AssignRequestBody} from './assignRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the assign method.  */
+/** Provides operations to call the assign method. */
 export class AssignRequestBodyImpl implements AdditionalDataHolder, AssignRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The mobileAppAssignments property  */
+    /** The mobileAppAssignments property */
     mobileAppAssignments?: MobileAppAssignment[] | undefined;
     /**
      * Instantiates a new assignRequestBody and sets the default values.

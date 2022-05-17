@@ -12,29 +12,29 @@ import {ReprocessRequestBuilder} from './reprocess/reprocessRequestBuilder';
 import {TargetRequestBuilder} from './target/targetRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity.  */
+/** Provides operations to manage the assignments property of the microsoft.graph.entitlementManagement entity. */
 export class AccessPackageAssignmentItemRequestBuilder {
-    /** The accessPackage property  */
+    /** The accessPackage property */
     public get accessPackage(): AccessPackageRequestBuilder {
         return new AccessPackageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignmentPolicy property  */
+    /** The assignmentPolicy property */
     public get assignmentPolicy(): AssignmentPolicyRequestBuilder {
         return new AssignmentPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reprocess property  */
+    /** The reprocess property */
     public get reprocess(): ReprocessRequestBuilder {
         return new ReprocessRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The target property  */
+    /** The target property */
     public get target(): TargetRequestBuilder {
         return new TargetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AccessPackageAssignmentItemRequestBuilder and sets the default values.
@@ -139,7 +139,7 @@ export class AccessPackageAssignmentItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AccessPackageAssignmentImpl | undefined, requestConfiguration?: AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessPackageAssignment | undefined, requestConfiguration?: AccessPackageAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

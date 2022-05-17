@@ -3,13 +3,13 @@ import {SettingSourceType} from './settingSourceType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingSourceImpl implements AdditionalDataHolder, Parsable, SettingSource {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Not yet documented  */
+    /** Not yet documented */
     displayName?: string | undefined;
-    /** Not yet documented  */
+    /** Not yet documented */
     id?: string | undefined;
-    /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent.  */
+    /** Not yet documented. Possible values are: deviceConfiguration, deviceIntent. */
     sourceType?: SettingSourceType | undefined;
     /**
      * Instantiates a new settingSource and sets the default values.

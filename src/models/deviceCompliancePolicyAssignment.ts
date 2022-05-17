@@ -2,6 +2,6 @@ import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAs
 import {Entity} from './entity';
 
 export interface DeviceCompliancePolicyAssignment extends Entity{
-    /** Target for the compliance policy assignment.  */
+    /** Target for the compliance policy assignment. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
 }

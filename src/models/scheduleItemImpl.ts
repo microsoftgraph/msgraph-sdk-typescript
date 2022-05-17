@@ -6,19 +6,19 @@ import {ScheduleItem} from './scheduleItem';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScheduleItemImpl implements AdditionalDataHolder, Parsable, ScheduleItem {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The date, time, and time zone that the corresponding event ends.  */
+    /** The date, time, and time zone that the corresponding event ends. */
     end?: DateTimeTimeZone | undefined;
-    /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional.  */
+    /** The sensitivity of the corresponding event. True if the event is marked private, false otherwise. Optional. */
     isPrivate?: boolean | undefined;
-    /** The location where the corresponding event is held or attended from. Optional.  */
+    /** The location where the corresponding event is held or attended from. Optional. */
     location?: string | undefined;
-    /** The date, time, and time zone that the corresponding event starts.  */
+    /** The date, time, and time zone that the corresponding event starts. */
     start?: DateTimeTimeZone | undefined;
-    /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** The availability status of the user or resource during the corresponding event. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
     status?: FreeBusyStatus | undefined;
-    /** The corresponding event's subject line. Optional.  */
+    /** The corresponding event's subject line. Optional. */
     subject?: string | undefined;
     /**
      * Instantiates a new scheduleItem and sets the default values.

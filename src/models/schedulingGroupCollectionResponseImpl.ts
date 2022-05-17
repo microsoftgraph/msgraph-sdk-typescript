@@ -5,11 +5,11 @@ import {SchedulingGroupCollectionResponse} from './schedulingGroupCollectionResp
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchedulingGroupCollectionResponseImpl implements AdditionalDataHolder, Parsable, SchedulingGroupCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: SchedulingGroup[] | undefined;
     /**
      * Instantiates a new SchedulingGroupCollectionResponse and sets the default values.

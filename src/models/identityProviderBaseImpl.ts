@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityProviderBaseImpl extends EntityImpl implements IdentityProviderBase, Parsable {
-    /** The display name of the identity provider.  */
+    /** The display name of the identity provider. */
     displayName?: string | undefined;
     /**
      * Instantiates a new identityProviderBase and sets the default values.

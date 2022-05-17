@@ -7,9 +7,9 @@ import {PlannerUserIds} from './plannerUserIds';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerPlanDetailsImpl extends EntityImpl implements Parsable, PlannerPlanDetails {
-    /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan  */
+    /** An object that specifies the descriptions of the 25 categories that can be associated with tasks in the plan */
     categoryDescriptions?: PlannerCategoryDescriptions | undefined;
-    /** The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group.  */
+    /** The set of user IDs that this plan is shared with. If you are using Microsoft 365 groups, use the groups API to manage group membership to share the group's plan. You can also add existing members of the group to this collection, although it is not required in order for them to access the plan owned by the group. */
     sharedWith?: PlannerUserIds | undefined;
     /**
      * Instantiates a new plannerPlanDetails and sets the default values.

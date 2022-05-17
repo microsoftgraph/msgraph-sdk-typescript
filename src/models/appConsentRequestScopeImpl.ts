@@ -2,9 +2,9 @@ import {AppConsentRequestScope} from './appConsentRequestScope';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AppConsentRequestScopeImpl implements AdditionalDataHolder, AppConsentRequestScope, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The name of the scope.  */
+    /** The name of the scope. */
     displayName?: string | undefined;
     /**
      * Instantiates a new appConsentRequestScope and sets the default values.

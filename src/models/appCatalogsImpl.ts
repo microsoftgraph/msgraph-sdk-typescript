@@ -4,9 +4,9 @@ import {EntityImpl, TeamsAppImpl} from './index';
 import {TeamsApp} from './teamsApp';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the appCatalogs singleton.  */
+/** Provides operations to manage the appCatalogs singleton. */
 export class AppCatalogsImpl extends EntityImpl implements AppCatalogs, Parsable {
-    /** The teamsApps property  */
+    /** The teamsApps property */
     teamsApps?: TeamsApp[] | undefined;
     /**
      * Instantiates a new appCatalogs and sets the default values.

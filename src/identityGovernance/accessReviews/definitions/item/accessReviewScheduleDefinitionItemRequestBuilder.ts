@@ -11,21 +11,21 @@ import {AccessReviewInstanceItemRequestBuilder} from './instances/item/accessRev
 import {StopRequestBuilder} from './stop/stopRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity.  */
+/** Provides operations to manage the definitions property of the microsoft.graph.accessReviewSet entity. */
 export class AccessReviewScheduleDefinitionItemRequestBuilder {
-    /** The instances property  */
+    /** The instances property */
     public get instances(): InstancesRequestBuilder {
         return new InstancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The stop property  */
+    /** The stop property */
     public get stop(): StopRequestBuilder {
         return new StopRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AccessReviewScheduleDefinitionItemRequestBuilder and sets the default values.
@@ -141,7 +141,7 @@ export class AccessReviewScheduleDefinitionItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AccessReviewScheduleDefinitionImpl | undefined, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessReviewScheduleDefinition | undefined, requestConfiguration?: AccessReviewScheduleDefinitionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

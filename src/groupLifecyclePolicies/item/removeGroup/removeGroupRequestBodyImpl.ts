@@ -1,11 +1,11 @@
 import {RemoveGroupRequestBody} from './removeGroupRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removeGroup method.  */
+/** Provides operations to call the removeGroup method. */
 export class RemoveGroupRequestBodyImpl implements AdditionalDataHolder, Parsable, RemoveGroupRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The groupId property  */
+    /** The groupId property */
     groupId?: string | undefined;
     /**
      * Instantiates a new removeGroupRequestBody and sets the default values.

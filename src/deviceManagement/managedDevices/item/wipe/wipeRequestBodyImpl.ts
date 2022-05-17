@@ -1,17 +1,17 @@
 import {WipeRequestBody} from './wipeRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the wipe method.  */
+/** Provides operations to call the wipe method. */
 export class WipeRequestBodyImpl implements AdditionalDataHolder, Parsable, WipeRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The keepEnrollmentData property  */
+    /** The keepEnrollmentData property */
     keepEnrollmentData?: boolean | undefined;
-    /** The keepUserData property  */
+    /** The keepUserData property */
     keepUserData?: boolean | undefined;
-    /** The macOsUnlockCode property  */
+    /** The macOsUnlockCode property */
     macOsUnlockCode?: string | undefined;
-    /** The persistEsimDataPlan property  */
+    /** The persistEsimDataPlan property */
     persistEsimDataPlan?: boolean | undefined;
     /**
      * Instantiates a new wipeRequestBody and sets the default values.

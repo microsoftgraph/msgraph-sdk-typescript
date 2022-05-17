@@ -3,9 +3,9 @@ import {TeamworkHostedContent} from './teamworkHostedContent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkHostedContentImpl extends EntityImpl implements Parsable, TeamworkHostedContent {
-    /** Write only. Bytes for the hosted content (such as images).  */
+    /** Write only. Bytes for the hosted content (such as images). */
     contentBytes?: string | undefined;
-    /** Write only. Content type, such as image/png, image/jpg.  */
+    /** Write only. Content type, such as image/png, image/jpg. */
     contentType?: string | undefined;
     /**
      * Instantiates a new teamworkHostedContent and sets the default values.

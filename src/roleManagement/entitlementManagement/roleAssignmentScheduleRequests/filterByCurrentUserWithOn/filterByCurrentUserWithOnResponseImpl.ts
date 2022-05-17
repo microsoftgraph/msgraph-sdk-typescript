@@ -4,11 +4,11 @@ import {UnifiedRoleAssignmentScheduleRequest} from '../../../../models/unifiedRo
 import {FilterByCurrentUserWithOnResponse} from './filterByCurrentUserWithOnResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the filterByCurrentUser method.  */
+/** Provides operations to call the filterByCurrentUser method. */
 export class FilterByCurrentUserWithOnResponseImpl implements AdditionalDataHolder, FilterByCurrentUserWithOnResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: UnifiedRoleAssignmentScheduleRequest[] | undefined;
     /**
      * Instantiates a new filterByCurrentUserWithOnResponse and sets the default values.

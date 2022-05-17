@@ -4,7 +4,7 @@ import {InitiatorType} from './initiatorType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InitiatorImpl extends IdentityImpl implements Initiator, Parsable {
-    /** Type of initiator. Possible values are: user, application, system, unknownFutureValue.  */
+    /** Type of initiator. Possible values are: user, application, system, unknownFutureValue. */
     initiatorType?: InitiatorType | undefined;
     /**
      * Instantiates a new initiator and sets the default values.

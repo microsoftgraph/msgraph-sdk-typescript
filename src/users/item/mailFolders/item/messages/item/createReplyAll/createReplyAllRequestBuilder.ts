@@ -6,13 +6,13 @@ import {CreateReplyAllRequestBuilderPostRequestConfiguration} from './createRepl
 import {CreateReplyAllRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the createReplyAll method.  */
+/** Provides operations to call the createReplyAll method. */
 export class CreateReplyAllRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new CreateReplyAllRequestBuilder and sets the default values.

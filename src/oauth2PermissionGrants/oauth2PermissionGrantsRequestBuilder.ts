@@ -11,17 +11,17 @@ import {Oauth2PermissionGrantsRequestBuilderGetRequestConfiguration} from './oau
 import {Oauth2PermissionGrantsRequestBuilderPostRequestConfiguration} from './oauth2PermissionGrantsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of oAuth2PermissionGrant entities.  */
+/** Provides operations to manage the collection of oAuth2PermissionGrant entities. */
 export class Oauth2PermissionGrantsRequestBuilder {
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new Oauth2PermissionGrantsRequestBuilder and sets the default values.
@@ -37,7 +37,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get entities from oauth2PermissionGrants
+     * List oauth2PermissionGrants (delegated permission grants)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -54,7 +54,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to oauth2PermissionGrants
+     * Create oAuth2PermissionGrant (a delegated permission grant)
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -81,7 +81,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
         return new DeltaRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Get entities from oauth2PermissionGrants
+     * List oauth2PermissionGrants (delegated permission grants)
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of OAuth2PermissionGrantCollectionResponse
@@ -97,7 +97,7 @@ export class Oauth2PermissionGrantsRequestBuilder {
         return this.requestAdapter?.sendAsync<OAuth2PermissionGrantCollectionResponseImpl>(requestInfo, createOAuth2PermissionGrantCollectionResponseFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Add new entity to oauth2PermissionGrants
+     * Create oAuth2PermissionGrant (a delegated permission grant)
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

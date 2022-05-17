@@ -5,11 +5,11 @@ import {OnenotePagePreviewLinks} from './onenotePagePreviewLinks';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenotePagePreviewImpl implements AdditionalDataHolder, OnenotePagePreview, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The links property  */
+    /** The links property */
     links?: OnenotePagePreviewLinks | undefined;
-    /** The previewText property  */
+    /** The previewText property */
     previewText?: string | undefined;
     /**
      * Instantiates a new onenotePagePreview and sets the default values.

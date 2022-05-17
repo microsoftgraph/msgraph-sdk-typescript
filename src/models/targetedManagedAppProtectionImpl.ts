@@ -5,9 +5,9 @@ import {TargetedManagedAppProtection} from './targetedManagedAppProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TargetedManagedAppProtectionImpl extends ManagedAppProtectionImpl implements Parsable, TargetedManagedAppProtection {
-    /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed.  */
+    /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
-    /** Indicates if the policy is deployed to any inclusion groups or not.  */
+    /** Indicates if the policy is deployed to any inclusion groups or not. */
     isAssigned?: boolean | undefined;
     /**
      * Instantiates a new targetedManagedAppProtection and sets the default values.

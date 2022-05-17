@@ -5,9 +5,9 @@ import {UserConsentRequest} from './userConsentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserConsentRequestImpl extends RequestImpl implements Parsable, UserConsentRequest {
-    /** Approval decisions associated with a request.  */
+    /** Approval decisions associated with a request. */
     approval?: Approval | undefined;
-    /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby.  */
+    /** The user's justification for requiring access to the app. Supports $filter (eq only) and $orderby. */
     reason?: string | undefined;
     /**
      * Instantiates a new userConsentRequest and sets the default values.

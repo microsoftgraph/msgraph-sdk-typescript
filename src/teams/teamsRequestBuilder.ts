@@ -11,17 +11,17 @@ import {TeamsRequestBuilderGetRequestConfiguration} from './teamsRequestBuilderG
 import {TeamsRequestBuilderPostRequestConfiguration} from './teamsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of team entities.  */
+/** Provides operations to manage the collection of team entities. */
 export class TeamsRequestBuilder {
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new TeamsRequestBuilder and sets the default values.
@@ -37,7 +37,7 @@ export class TeamsRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get entities from teams
+     * List teams
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -54,7 +54,7 @@ export class TeamsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Add new entity to teams
+     * Create team
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -74,7 +74,7 @@ export class TeamsRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entities from teams
+     * List teams
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of TeamCollectionResponse
@@ -97,7 +97,7 @@ export class TeamsRequestBuilder {
         return new GetAllMessagesRequestBuilder(this.pathParameters, this.requestAdapter);
     };
     /**
-     * Add new entity to teams
+     * Create team
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service

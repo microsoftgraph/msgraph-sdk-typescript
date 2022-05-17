@@ -1,5 +1,5 @@
-export * from './getMailTipsRequestBodyImpl'
 export * from './getMailTipsResponseImpl'
+export * from './getMailTipsRequestBodyImpl'
 export * from './getMailTipsResponse'
 export * from './getMailTipsRequestBuilderPostRequestConfiguration'
 export * from './getMailTipsRequestBody'

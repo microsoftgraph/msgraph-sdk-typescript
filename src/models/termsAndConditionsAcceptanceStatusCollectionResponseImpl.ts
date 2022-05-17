@@ -5,11 +5,11 @@ import {TermsAndConditionsAcceptanceStatusCollectionResponse} from './termsAndCo
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsAndConditionsAcceptanceStatusCollectionResponseImpl implements AdditionalDataHolder, Parsable, TermsAndConditionsAcceptanceStatusCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: TermsAndConditionsAcceptanceStatus[] | undefined;
     /**
      * Instantiates a new TermsAndConditionsAcceptanceStatusCollectionResponse and sets the default values.

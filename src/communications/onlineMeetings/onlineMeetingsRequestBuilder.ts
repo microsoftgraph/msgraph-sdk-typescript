@@ -11,21 +11,21 @@ import {OnlineMeetingsRequestBuilderGetRequestConfiguration} from './onlineMeeti
 import {OnlineMeetingsRequestBuilderPostRequestConfiguration} from './onlineMeetingsRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity.  */
+/** Provides operations to manage the onlineMeetings property of the microsoft.graph.cloudCommunications entity. */
 export class OnlineMeetingsRequestBuilder {
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createOrGet property  */
+    /** The createOrGet property */
     public get createOrGet(): CreateOrGetRequestBuilder {
         return new CreateOrGetRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new OnlineMeetingsRequestBuilder and sets the default values.

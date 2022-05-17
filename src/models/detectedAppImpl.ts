@@ -5,15 +5,15 @@ import {ManagedDevice} from './managedDevice';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DetectedAppImpl extends EntityImpl implements DetectedApp, Parsable {
-    /** The number of devices that have installed this application  */
+    /** The number of devices that have installed this application */
     deviceCount?: number | undefined;
-    /** Name of the discovered application. Read-only  */
+    /** Name of the discovered application. Read-only */
     displayName?: string | undefined;
-    /** The devices that have the discovered application installed  */
+    /** The devices that have the discovered application installed */
     managedDevices?: ManagedDevice[] | undefined;
-    /** Discovered application size in bytes. Read-only  */
+    /** Discovered application size in bytes. Read-only */
     sizeInByte?: number | undefined;
-    /** Version of the discovered application. Read-only  */
+    /** Version of the discovered application. Read-only */
     version?: string | undefined;
     /**
      * Instantiates a new detectedApp and sets the default values.

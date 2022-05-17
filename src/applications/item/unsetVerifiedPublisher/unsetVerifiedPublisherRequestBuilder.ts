@@ -1,13 +1,13 @@
 import {UnsetVerifiedPublisherRequestBuilderPostRequestConfiguration} from './unsetVerifiedPublisherRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the unsetVerifiedPublisher method.  */
+/** Provides operations to call the unsetVerifiedPublisher method. */
 export class UnsetVerifiedPublisherRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new UnsetVerifiedPublisherRequestBuilder and sets the default values.

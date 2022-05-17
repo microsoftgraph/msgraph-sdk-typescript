@@ -1,11 +1,11 @@
 import {WindowsDefenderScanRequestBody} from './windowsDefenderScanRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the windowsDefenderScan method.  */
+/** Provides operations to call the windowsDefenderScan method. */
 export class WindowsDefenderScanRequestBodyImpl implements AdditionalDataHolder, Parsable, WindowsDefenderScanRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The quickScan property  */
+    /** The quickScan property */
     quickScan?: boolean | undefined;
     /**
      * Instantiates a new windowsDefenderScanRequestBody and sets the default values.

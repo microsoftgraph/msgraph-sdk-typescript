@@ -6,11 +6,11 @@ import {InformationProtection} from './informationProtection';
 import {ThreatAssessmentRequest} from './threatAssessmentRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton.  */
+/** Provides operations to manage the informationProtection singleton. */
 export class InformationProtectionImpl extends EntityImpl implements InformationProtection, Parsable {
-    /** The bitlocker property  */
+    /** The bitlocker property */
     bitlocker?: Bitlocker | undefined;
-    /** The threatAssessmentRequests property  */
+    /** The threatAssessmentRequests property */
     threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
      * Instantiates a new informationProtection and sets the default values.

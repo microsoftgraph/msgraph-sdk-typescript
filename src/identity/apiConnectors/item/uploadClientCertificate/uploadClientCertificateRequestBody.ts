@@ -1,9 +1,9 @@
 
 export interface UploadClientCertificateRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The password property  */
+    /** The password property */
     password?: string | undefined;
-    /** The pkcs12Value property  */
+    /** The pkcs12Value property */
     pkcs12Value?: string | undefined;
 }

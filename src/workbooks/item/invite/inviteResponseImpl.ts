@@ -4,11 +4,11 @@ import {Permission} from '../../../models/permission';
 import {InviteResponse} from './inviteResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the invite method.  */
+/** Provides operations to call the invite method. */
 export class InviteResponseImpl implements AdditionalDataHolder, InviteResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: Permission[] | undefined;
     /**
      * Instantiates a new inviteResponse and sets the default values.

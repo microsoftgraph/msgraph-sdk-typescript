@@ -5,11 +5,11 @@ import {MeetingTimeSuggestionsResult} from './meetingTimeSuggestionsResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestionsResultImpl implements AdditionalDataHolder, MeetingTimeSuggestionsResult, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions.  */
+    /** A reason for not returning any meeting suggestions. Possible values are: attendeesUnavailable, attendeesUnavailableOrUnknown, locationsUnavailable, organizerUnavailable, or unknown. This property is an empty string if the meetingTimeSuggestions property does include any meeting suggestions. */
     emptySuggestionsReason?: string | undefined;
-    /** An array of meeting suggestions.  */
+    /** An array of meeting suggestions. */
     meetingTimeSuggestions?: MeetingTimeSuggestion[] | undefined;
     /**
      * Instantiates a new meetingTimeSuggestionsResult and sets the default values.

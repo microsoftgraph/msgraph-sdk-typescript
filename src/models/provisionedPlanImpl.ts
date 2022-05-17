@@ -2,13 +2,13 @@ import {ProvisionedPlan} from './provisionedPlan';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisionedPlanImpl implements AdditionalDataHolder, Parsable, ProvisionedPlan {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** For example, 'Enabled'.  */
+    /** For example, 'Enabled'. */
     capabilityStatus?: string | undefined;
-    /** For example, 'Success'.  */
+    /** For example, 'Success'. */
     provisioningStatus?: string | undefined;
-    /** The name of the service; for example, 'AccessControlS2S'  */
+    /** The name of the service; for example, 'AccessControlS2S' */
     service?: string | undefined;
     /**
      * Instantiates a new provisionedPlan and sets the default values.

@@ -14,25 +14,25 @@ import {ManagedAppOperationItemRequestBuilder} from './operations/item/managedAp
 import {OperationsRequestBuilder} from './operations/operationsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity.  */
+/** Provides operations to manage the managedAppRegistrations property of the microsoft.graph.deviceAppManagement entity. */
 export class ManagedAppRegistrationItemRequestBuilder {
-    /** The appliedPolicies property  */
+    /** The appliedPolicies property */
     public get appliedPolicies(): AppliedPoliciesRequestBuilder {
         return new AppliedPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The intendedPolicies property  */
+    /** The intendedPolicies property */
     public get intendedPolicies(): IntendedPoliciesRequestBuilder {
         return new IntendedPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property  */
+    /** The operations property */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.deviceAppManagement.managedAppRegistrations.item.appliedPolicies.item collection
@@ -170,7 +170,7 @@ export class ManagedAppRegistrationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ManagedAppRegistrationImpl | undefined, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedAppRegistration | undefined, requestConfiguration?: ManagedAppRegistrationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

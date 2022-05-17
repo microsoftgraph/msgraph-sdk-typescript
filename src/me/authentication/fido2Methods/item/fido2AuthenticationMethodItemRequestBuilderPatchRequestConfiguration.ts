@@ -1,8 +1,8 @@
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface Fido2AuthenticationMethodItemRequestBuilderPatchRequestConfiguration{
-    /** Request headers  */
+    /** Request headers */
     headers?: Record<string, string> | undefined;
-    /** Request options  */
+    /** Request options */
     options?: RequestOption[] | undefined;
 }

@@ -5,11 +5,11 @@ import {PrintUsageByPrinterCollectionResponse} from './printUsageByPrinterCollec
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageByPrinterCollectionResponseImpl implements AdditionalDataHolder, Parsable, PrintUsageByPrinterCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: PrintUsageByPrinter[] | undefined;
     /**
      * Instantiates a new PrintUsageByPrinterCollectionResponse and sets the default values.

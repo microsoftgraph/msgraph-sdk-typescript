@@ -1,11 +1,11 @@
 import {CleanWindowsDeviceRequestBody} from './cleanWindowsDeviceRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the cleanWindowsDevice method.  */
+/** Provides operations to call the cleanWindowsDevice method. */
 export class CleanWindowsDeviceRequestBodyImpl implements AdditionalDataHolder, CleanWindowsDeviceRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The keepUserData property  */
+    /** The keepUserData property */
     keepUserData?: boolean | undefined;
     /**
      * Instantiates a new cleanWindowsDeviceRequestBody and sets the default values.

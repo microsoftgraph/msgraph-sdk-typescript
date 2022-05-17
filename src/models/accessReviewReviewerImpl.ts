@@ -3,11 +3,11 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewReviewerImpl extends EntityImpl implements AccessReviewReviewer, Parsable {
-    /** The date when the reviewer was added for the access review.  */
+    /** The date when the reviewer was added for the access review. */
     createdDateTime?: Date | undefined;
-    /** Name of reviewer.  */
+    /** Name of reviewer. */
     displayName?: string | undefined;
-    /** User principal name of the user.  */
+    /** User principal name of the user. */
     userPrincipalName?: string | undefined;
     /**
      * Instantiates a new accessReviewReviewer and sets the default values.

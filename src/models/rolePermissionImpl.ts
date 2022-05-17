@@ -4,11 +4,11 @@ import {ResourceAction} from './resourceAction';
 import {RolePermission} from './rolePermission';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Contains the set of ResourceActions determining the allowed and not allowed permissions for each role.  */
+/** Contains the set of ResourceActions determining the allowed and not allowed permissions for each role. */
 export class RolePermissionImpl implements AdditionalDataHolder, Parsable, RolePermission {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Resource Actions each containing a set of allowed and not allowed permissions.  */
+    /** Resource Actions each containing a set of allowed and not allowed permissions. */
     resourceActions?: ResourceAction[] | undefined;
     /**
      * Instantiates a new rolePermission and sets the default values.

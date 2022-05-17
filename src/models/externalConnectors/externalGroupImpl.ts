@@ -6,11 +6,11 @@ import {IdentityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalGroupImpl extends EntityImpl implements ExternalGroup, Parsable {
-    /** The description of the external group. Optional.  */
+    /** The description of the external group. Optional. */
     description?: string | undefined;
-    /** The friendly name of the external group. Optional.  */
+    /** The friendly name of the external group. Optional. */
     displayName?: string | undefined;
-    /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.  */
+    /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members. */
     members?: Identity[] | undefined;
     /**
      * Instantiates a new externalGroup and sets the default values.

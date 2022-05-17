@@ -5,11 +5,11 @@ import {CertificationControlImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ComplianceInformationImpl implements AdditionalDataHolder, ComplianceInformation, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Collection of the certification controls associated with certification  */
+    /** Collection of the certification controls associated with certification */
     certificationControls?: CertificationControl[] | undefined;
-    /** Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171)  */
+    /** Compliance certification name (for example, ISO 27018:2014, GDPR, FedRAMP, NIST 800-171) */
     certificationName?: string | undefined;
     /**
      * Instantiates a new complianceInformation and sets the default values.

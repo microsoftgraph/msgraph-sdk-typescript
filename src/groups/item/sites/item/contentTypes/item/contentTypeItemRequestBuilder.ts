@@ -22,49 +22,49 @@ import {PublishRequestBuilder} from './publish/publishRequestBuilder';
 import {UnpublishRequestBuilder} from './unpublish/unpublishRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the contentTypes property of the microsoft.graph.site entity.  */
+/** Provides operations to manage the contentTypes property of the microsoft.graph.site entity. */
 export class ContentTypeItemRequestBuilder {
-    /** The associateWithHubSites property  */
+    /** The associateWithHubSites property */
     public get associateWithHubSites(): AssociateWithHubSitesRequestBuilder {
         return new AssociateWithHubSitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The base property  */
+    /** The base property */
     public get base(): BaseRequestBuilder {
         return new BaseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The baseTypes property  */
+    /** The baseTypes property */
     public get baseTypes(): BaseTypesRequestBuilder {
         return new BaseTypesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columnLinks property  */
+    /** The columnLinks property */
     public get columnLinks(): ColumnLinksRequestBuilder {
         return new ColumnLinksRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columnPositions property  */
+    /** The columnPositions property */
     public get columnPositions(): ColumnPositionsRequestBuilder {
         return new ColumnPositionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The columns property  */
+    /** The columns property */
     public get columns(): ColumnsRequestBuilder {
         return new ColumnsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copyToDefaultContentLocation property  */
+    /** The copyToDefaultContentLocation property */
     public get copyToDefaultContentLocation(): CopyToDefaultContentLocationRequestBuilder {
         return new CopyToDefaultContentLocationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The publish property  */
+    /** The publish property */
     public get publish(): PublishRequestBuilder {
         return new PublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The unpublish property  */
+    /** The unpublish property */
     public get unpublish(): UnpublishRequestBuilder {
         return new UnpublishRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.groups.item.sites.item.contentTypes.item.baseTypes.item collection
@@ -220,7 +220,7 @@ export class ContentTypeItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ContentTypeImpl | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ContentType | undefined, requestConfiguration?: ContentTypeItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

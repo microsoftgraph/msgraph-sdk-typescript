@@ -17,19 +17,19 @@ import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
-    /** The application property  */
+    /** The application property */
     application?: WorkbookApplication | undefined;
-    /** The comments property  */
+    /** The comments property */
     comments?: WorkbookComment[] | undefined;
-    /** The functions property  */
+    /** The functions property */
     functions?: WorkbookFunctions | undefined;
-    /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only.  */
+    /** Represents a collection of workbooks scoped named items (named ranges and constants). Read-only. */
     names?: WorkbookNamedItem[] | undefined;
-    /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable.  */
+    /** The status of Workbook operations. Getting an operation collection is not supported, but you can get the status of a long-running operation if the Location header is returned in the response. Read-only. Nullable. */
     operations?: WorkbookOperation[] | undefined;
-    /** Represents a collection of tables associated with the workbook. Read-only.  */
+    /** Represents a collection of tables associated with the workbook. Read-only. */
     tables?: WorkbookTable[] | undefined;
-    /** Represents a collection of worksheets associated with the workbook. Read-only.  */
+    /** Represents a collection of worksheets associated with the workbook. Read-only. */
     worksheets?: WorkbookWorksheet[] | undefined;
     /**
      * Instantiates a new workbook and sets the default values.

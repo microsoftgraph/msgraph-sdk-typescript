@@ -5,11 +5,11 @@ import {EducationRubricImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRubricCollectionResponseImpl implements AdditionalDataHolder, EducationRubricCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: EducationRubric[] | undefined;
     /**
      * Instantiates a new EducationRubricCollectionResponse and sets the default values.

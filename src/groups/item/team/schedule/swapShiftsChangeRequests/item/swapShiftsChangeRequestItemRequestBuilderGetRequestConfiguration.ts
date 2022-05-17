@@ -2,10 +2,10 @@ import {SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters} from './swa
 import {RequestOption} from '@microsoft/kiota-abstractions';
 
 export interface SwapShiftsChangeRequestItemRequestBuilderGetRequestConfiguration{
-    /** Request headers  */
+    /** Request headers */
     headers?: Record<string, string> | undefined;
-    /** Request options  */
+    /** Request options */
     options?: RequestOption[] | undefined;
-    /** Request query parameters  */
+    /** Request query parameters */
     queryParameters?: SwapShiftsChangeRequestItemRequestBuilderGetQueryParameters | undefined;
 }

@@ -3,7 +3,7 @@ import {LocationConstraintItem} from './locationConstraintItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocationConstraintItemImpl extends LocationImpl implements LocationConstraintItem, Parsable {
-    /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true.  */
+    /** If set to true and the specified resource is busy, findMeetingTimes looks for another resource that is free. If set to false and the specified resource is busy, findMeetingTimes returns the resource best ranked in the user's cache without checking if it's free. Default is true. */
     resolveAvailability?: boolean | undefined;
     /**
      * Instantiates a new locationConstraintItem and sets the default values.

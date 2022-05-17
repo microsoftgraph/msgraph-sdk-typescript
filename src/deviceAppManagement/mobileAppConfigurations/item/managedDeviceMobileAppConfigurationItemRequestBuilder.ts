@@ -17,35 +17,35 @@ import {UserStatusesRequestBuilder} from './userStatuses/userStatusesRequestBuil
 import {UserStatusSummaryRequestBuilder} from './userStatusSummary/userStatusSummaryRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity.  */
+/** Provides operations to manage the mobileAppConfigurations property of the microsoft.graph.deviceAppManagement entity. */
 export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
-    /** The assign property  */
+    /** The assign property */
     public get assign(): AssignRequestBuilder {
         return new AssignRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignments property  */
+    /** The assignments property */
     public get assignments(): AssignmentsRequestBuilder {
         return new AssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStatuses property  */
+    /** The deviceStatuses property */
     public get deviceStatuses(): DeviceStatusesRequestBuilder {
         return new DeviceStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceStatusSummary property  */
+    /** The deviceStatusSummary property */
     public get deviceStatusSummary(): DeviceStatusSummaryRequestBuilder {
         return new DeviceStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userStatuses property  */
+    /** The userStatuses property */
     public get userStatuses(): UserStatusesRequestBuilder {
         return new UserStatusesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The userStatusSummary property  */
+    /** The userStatusSummary property */
     public get userStatusSummary(): UserStatusSummaryRequestBuilder {
         return new UserStatusSummaryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -174,7 +174,7 @@ export class ManagedDeviceMobileAppConfigurationItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ManagedDeviceMobileAppConfigurationImpl | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedDeviceMobileAppConfiguration | undefined, requestConfiguration?: ManagedDeviceMobileAppConfigurationItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

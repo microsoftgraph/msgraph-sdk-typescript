@@ -2,11 +2,11 @@ import {BookingQuestionAssignment} from './bookingQuestionAssignment';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BookingQuestionAssignmentImpl implements AdditionalDataHolder, BookingQuestionAssignment, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Indicates whether it is mandatory to answer the custom question.  */
+    /** Indicates whether it is mandatory to answer the custom question. */
     isRequired?: boolean | undefined;
-    /** If it is mandatory to answer the custom question.  */
+    /** If it is mandatory to answer the custom question. */
     questionId?: string | undefined;
     /**
      * Instantiates a new bookingQuestionAssignment and sets the default values.

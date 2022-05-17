@@ -12,27 +12,27 @@ import {TargetedManagedAppProtectionRequestBuilder} from './targetedManagedAppPr
 import {WindowsInformationProtectionRequestBuilder} from './windowsInformationProtection/windowsInformationProtectionRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity.  */
+/** Provides operations to manage the appliedPolicies property of the microsoft.graph.managedAppRegistration entity. */
 export class ManagedAppPolicyItemRequestBuilder {
-    /** The managedAppProtection property  */
+    /** The managedAppProtection property */
     public get managedAppProtection(): ManagedAppProtectionRequestBuilder {
         return new ManagedAppProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The targetApps property  */
+    /** The targetApps property */
     public get targetApps(): TargetAppsRequestBuilder {
         return new TargetAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The targetedManagedAppProtection property  */
+    /** The targetedManagedAppProtection property */
     public get targetedManagedAppProtection(): TargetedManagedAppProtectionRequestBuilder {
         return new TargetedManagedAppProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The windowsInformationProtection property  */
+    /** The windowsInformationProtection property */
     public get windowsInformationProtection(): WindowsInformationProtectionRequestBuilder {
         return new WindowsInformationProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -139,7 +139,7 @@ export class ManagedAppPolicyItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ManagedAppPolicyImpl | undefined, requestConfiguration?: ManagedAppPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ManagedAppPolicy | undefined, requestConfiguration?: ManagedAppPolicyItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -2,18 +2,18 @@ import {ChatInfo} from '../../../models/chatInfo';
 import {MeetingParticipants} from '../../../models/meetingParticipants';
 
 export interface CreateOrGetRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The chatInfo property  */
+    /** The chatInfo property */
     chatInfo?: ChatInfo | undefined;
-    /** The endDateTime property  */
+    /** The endDateTime property */
     endDateTime?: Date | undefined;
-    /** The externalId property  */
+    /** The externalId property */
     externalId?: string | undefined;
-    /** The participants property  */
+    /** The participants property */
     participants?: MeetingParticipants | undefined;
-    /** The startDateTime property  */
+    /** The startDateTime property */
     startDateTime?: Date | undefined;
-    /** The subject property  */
+    /** The subject property */
     subject?: string | undefined;
 }

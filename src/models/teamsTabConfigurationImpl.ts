@@ -2,15 +2,15 @@ import {TeamsTabConfiguration} from './teamsTabConfiguration';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsTabConfigurationImpl implements AdditionalDataHolder, Parsable, TeamsTabConfiguration {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Url used for rendering tab contents in Teams. Required.  */
+    /** Url used for rendering tab contents in Teams. Required. */
     contentUrl?: string | undefined;
-    /** Identifier for the entity hosted by the tab provider.  */
+    /** Identifier for the entity hosted by the tab provider. */
     entityId?: string | undefined;
-    /** Url called by Teams client when a Tab is removed using the Teams Client.  */
+    /** Url called by Teams client when a Tab is removed using the Teams Client. */
     removeUrl?: string | undefined;
-    /** Url for showing tab contents outside of Teams.  */
+    /** Url for showing tab contents outside of Teams. */
     websiteUrl?: string | undefined;
     /**
      * Instantiates a new teamsTabConfiguration and sets the default values.

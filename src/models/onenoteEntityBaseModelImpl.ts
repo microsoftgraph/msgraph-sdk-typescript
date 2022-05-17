@@ -3,7 +3,7 @@ import {OnenoteEntityBaseModel} from './onenoteEntityBaseModel';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnenoteEntityBaseModelImpl extends EntityImpl implements OnenoteEntityBaseModel, Parsable {
-    /** The endpoint where you can get details about the page. Read-only.  */
+    /** The endpoint where you can get details about the page. Read-only. */
     self?: string | undefined;
     /**
      * Instantiates a new onenoteEntityBaseModel and sets the default values.

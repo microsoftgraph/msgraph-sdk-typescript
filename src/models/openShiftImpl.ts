@@ -5,11 +5,11 @@ import {OpenShiftItem} from './openShiftItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftImpl extends ChangeTrackedEntityImpl implements OpenShift, Parsable {
-    /** An unpublished open shift.  */
+    /** An unpublished open shift. */
     draftOpenShift?: OpenShiftItem | undefined;
-    /** ID for the scheduling group that the open shift belongs to.  */
+    /** ID for the scheduling group that the open shift belongs to. */
     schedulingGroupId?: string | undefined;
-    /** A published open shift.  */
+    /** A published open shift. */
     sharedOpenShift?: OpenShiftItem | undefined;
     /**
      * Instantiates a new openShift and sets the default values.

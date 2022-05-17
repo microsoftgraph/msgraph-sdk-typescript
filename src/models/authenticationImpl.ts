@@ -11,13 +11,13 @@ import {WindowsHelloForBusinessAuthenticationMethod} from './windowsHelloForBusi
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationImpl extends EntityImpl implements Authentication, Parsable {
-    /** Represents the FIDO2 security keys registered to a user for authentication.  */
+    /** Represents the FIDO2 security keys registered to a user for authentication. */
     fido2Methods?: Fido2AuthenticationMethod[] | undefined;
-    /** Represents all authentication methods registered to a user.  */
+    /** Represents all authentication methods registered to a user. */
     methods?: AuthenticationMethod[] | undefined;
-    /** The details of the Microsoft Authenticator app registered to a user for authentication.  */
+    /** The details of the Microsoft Authenticator app registered to a user for authentication. */
     microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
-    /** Represents the Windows Hello for Business authentication method registered to a user for authentication.  */
+    /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
     windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new authentication and sets the default values.

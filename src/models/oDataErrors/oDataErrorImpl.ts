@@ -5,9 +5,9 @@ import {ODataError} from './oDataError';
 import {AdditionalDataHolder, ApiError, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ODataErrorImpl extends ApiError implements AdditionalDataHolder, ODataError, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The error property  */
+    /** The error property */
     error_escaped?: MainError | undefined;
     /**
      * Instantiates a new ODataError and sets the default values.

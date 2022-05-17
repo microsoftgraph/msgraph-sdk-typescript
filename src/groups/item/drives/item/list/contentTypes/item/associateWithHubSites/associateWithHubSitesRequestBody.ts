@@ -1,9 +1,9 @@
 
 export interface AssociateWithHubSitesRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The hubSiteUrls property  */
+    /** The hubSiteUrls property */
     hubSiteUrls?: string[] | undefined;
-    /** The propagateToExistingLists property  */
+    /** The propagateToExistingLists property */
     propagateToExistingLists?: boolean | undefined;
 }

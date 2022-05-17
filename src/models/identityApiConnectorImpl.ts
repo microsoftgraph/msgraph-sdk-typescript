@@ -5,11 +5,11 @@ import {ApiAuthenticationConfigurationBaseImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityApiConnectorImpl extends EntityImpl implements IdentityApiConnector, Parsable {
-    /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported.  */
+    /** The object which describes the authentication configuration details for calling the API. Basic and PKCS 12 client certificate are supported. */
     authenticationConfiguration?: ApiAuthenticationConfigurationBase | undefined;
-    /** The name of the API connector.  */
+    /** The name of the API connector. */
     displayName?: string | undefined;
-    /** The URL of the API endpoint to call.  */
+    /** The URL of the API endpoint to call. */
     targetUrl?: string | undefined;
     /**
      * Instantiates a new identityApiConnector and sets the default values.

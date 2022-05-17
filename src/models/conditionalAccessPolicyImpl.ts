@@ -10,21 +10,21 @@ import {ConditionalAccessConditionSetImpl, ConditionalAccessGrantControlsImpl, C
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessPolicyImpl extends EntityImpl implements ConditionalAccessPolicy, Parsable {
-    /** The conditions property  */
+    /** The conditions property */
     conditions?: ConditionalAccessConditionSet | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
     createdDateTime?: Date | undefined;
-    /** Not used.  */
+    /** Not used. */
     description?: string | undefined;
-    /** Specifies a display name for the conditionalAccessPolicy object.  */
+    /** Specifies a display name for the conditionalAccessPolicy object. */
     displayName?: string | undefined;
-    /** Specifies the grant controls that must be fulfilled to pass the policy.  */
+    /** Specifies the grant controls that must be fulfilled to pass the policy. */
     grantControls?: ConditionalAccessGrantControls | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
     modifiedDateTime?: Date | undefined;
-    /** Specifies the session controls that are enforced after sign-in.  */
+    /** Specifies the session controls that are enforced after sign-in. */
     sessionControls?: ConditionalAccessSessionControls | undefined;
-    /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.  */
+    /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
     state?: ConditionalAccessPolicyState | undefined;
     /**
      * Instantiates a new conditionalAccessPolicy and sets the default values.

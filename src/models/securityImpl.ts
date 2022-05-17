@@ -8,13 +8,13 @@ import {SecureScoreControlProfile} from './secureScoreControlProfile';
 import {Security} from './security';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton.  */
+/** Provides operations to manage the security singleton. */
 export class SecurityImpl extends EntityImpl implements Parsable, Security {
-    /** Notifications for suspicious or potential security issues in a customer’s tenant.  */
+    /** Notifications for suspicious or potential security issues in a customer’s tenant. */
     alerts?: Alert[] | undefined;
-    /** The secureScoreControlProfiles property  */
+    /** The secureScoreControlProfiles property */
     secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
-    /** The secureScores property  */
+    /** The secureScores property */
     secureScores?: SecureScore[] | undefined;
     /**
      * Instantiates a new security and sets the default values.

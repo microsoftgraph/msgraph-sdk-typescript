@@ -2,13 +2,13 @@ import {GeoCoordinates} from './geoCoordinates';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class GeoCoordinatesImpl implements AdditionalDataHolder, GeoCoordinates, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only.  */
+    /** Optional. The altitude (height), in feet,  above sea level for the item. Read-only. */
     altitude?: number | undefined;
-    /** Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal.  */
+    /** Optional. The latitude, in decimal, for the item. Writable on OneDrive Personal. */
     latitude?: number | undefined;
-    /** Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal.  */
+    /** Optional. The longitude, in decimal, for the item. Writable on OneDrive Personal. */
     longitude?: number | undefined;
     /**
      * Instantiates a new geoCoordinates and sets the default values.

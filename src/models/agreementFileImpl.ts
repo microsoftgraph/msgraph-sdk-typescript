@@ -5,7 +5,7 @@ import {AgreementFileLocalizationImpl, AgreementFilePropertiesImpl} from './inde
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AgreementFileImpl extends AgreementFilePropertiesImpl implements AgreementFile, Parsable {
-    /** The localized version of the terms of use agreement files attached to the agreement.  */
+    /** The localized version of the terms of use agreement files attached to the agreement. */
     localizations?: AgreementFileLocalization[] | undefined;
     /**
      * Instantiates a new agreementFile and sets the default values.

@@ -8,13 +8,13 @@ import {Store} from './store';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class StoreImpl extends EntityImpl implements Parsable, Store {
-    /** Default language of the term store.  */
+    /** Default language of the term store. */
     defaultLanguageTag?: string | undefined;
-    /** Collection of all groups available in the term store.  */
+    /** Collection of all groups available in the term store. */
     groups?: Group[] | undefined;
-    /** List of languages for the term store.  */
+    /** List of languages for the term store. */
     languageTags?: string[] | undefined;
-    /** Collection of all sets available in the term store.  */
+    /** Collection of all sets available in the term store. */
     sets?: Set[] | undefined;
     /**
      * Instantiates a new store and sets the default values.

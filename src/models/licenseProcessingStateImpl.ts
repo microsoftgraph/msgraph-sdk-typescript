@@ -2,9 +2,9 @@ import {LicenseProcessingState} from './licenseProcessingState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LicenseProcessingStateImpl implements AdditionalDataHolder, LicenseProcessingState, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The state property  */
+    /** The state property */
     state?: string | undefined;
     /**
      * Instantiates a new licenseProcessingState and sets the default values.

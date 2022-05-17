@@ -46,109 +46,109 @@ import {DirectoryObjectItemRequestBuilder as i88b45eb3623578a3111d5566c71c0d4f55
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of servicePrincipal entities.  */
+/** Provides operations to manage the collection of servicePrincipal entities. */
 export class ServicePrincipalItemRequestBuilder {
-    /** The addKey property  */
+    /** The addKey property */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addPassword property  */
+    /** The addPassword property */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addTokenSigningCertificate property  */
+    /** The addTokenSigningCertificate property */
     public get addTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
         return new AddTokenSigningCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignedTo property  */
+    /** The appRoleAssignedTo property */
     public get appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignments property  */
+    /** The appRoleAssignments property */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property  */
+    /** The checkMemberGroups property */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property  */
+    /** The checkMemberObjects property */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The claimsMappingPolicies property  */
+    /** The claimsMappingPolicies property */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdObjects property  */
+    /** The createdObjects property */
     public get createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The delegatedPermissionClassifications property  */
+    /** The delegatedPermissionClassifications property */
     public get delegatedPermissionClassifications(): DelegatedPermissionClassificationsRequestBuilder {
         return new DelegatedPermissionClassificationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The endpoints property  */
+    /** The endpoints property */
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property  */
+    /** The getMemberGroups property */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property  */
+    /** The getMemberObjects property */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The homeRealmDiscoveryPolicies property  */
+    /** The homeRealmDiscoveryPolicies property */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The memberOf property  */
+    /** The memberOf property */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The oauth2PermissionGrants property  */
+    /** The oauth2PermissionGrants property */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The ownedObjects property  */
+    /** The ownedObjects property */
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The owners property  */
+    /** The owners property */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The removeKey property  */
+    /** The removeKey property */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removePassword property  */
+    /** The removePassword property */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property  */
+    /** The restore property */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenIssuancePolicies property  */
+    /** The tokenIssuancePolicies property */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenLifetimePolicies property  */
+    /** The tokenLifetimePolicies property */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMemberOf property  */
+    /** The transitiveMemberOf property */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.servicePrincipals.item.appRoleAssignedTo.item collection
@@ -197,7 +197,7 @@ export class ServicePrincipalItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from servicePrincipals
+     * Delete servicePrincipal
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -224,7 +224,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new id0f419ba2af0eea378feefad8f5b20198c7344f82ac59b6fd8fbafacb7581cc6(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from servicePrincipals by key
+     * Get servicePrincipal
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -241,7 +241,7 @@ export class ServicePrincipalItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in servicePrincipals
+     * Assign, update, or remove custom security attributes using the Microsoft Graph API (Preview)
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -272,7 +272,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete entity from servicePrincipals
+     * Delete servicePrincipal
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -298,7 +298,7 @@ export class ServicePrincipalItemRequestBuilder {
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from servicePrincipals by key
+     * Get servicePrincipal
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
@@ -369,12 +369,12 @@ export class ServicePrincipalItemRequestBuilder {
         return new i9966bb709202f5d6bbde5c99f7c9562165ad440a5ae3d0e79c9517577de7fd48(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in servicePrincipals
+     * Assign, update, or remove custom security attributes using the Microsoft Graph API (Preview)
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ServicePrincipalImpl | undefined, requestConfiguration?: ServicePrincipalItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServicePrincipal | undefined, requestConfiguration?: ServicePrincipalItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

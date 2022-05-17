@@ -3,7 +3,7 @@ import {SharePointIdentity} from './sharePointIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharePointIdentityImpl extends IdentityImpl implements Parsable, SharePointIdentity {
-    /** The sign in name of the SharePoint identity.  */
+    /** The sign in name of the SharePoint identity. */
     loginName?: string | undefined;
     /**
      * Instantiates a new sharePointIdentity and sets the default values.

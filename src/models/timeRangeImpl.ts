@@ -2,11 +2,11 @@ import {TimeRange} from './timeRange';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter, TimeOnly} from '@microsoft/kiota-abstractions';
 
 export class TimeRangeImpl implements AdditionalDataHolder, Parsable, TimeRange {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** End time for the time range.  */
+    /** End time for the time range. */
     endTime?: TimeOnly | undefined;
-    /** Start time for the time range.  */
+    /** Start time for the time range. */
     startTime?: TimeOnly | undefined;
     /**
      * Instantiates a new timeRange and sets the default values.

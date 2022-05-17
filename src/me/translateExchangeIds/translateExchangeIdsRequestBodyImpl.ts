@@ -2,15 +2,15 @@ import {ExchangeIdFormat} from '../../models/exchangeIdFormat';
 import {TranslateExchangeIdsRequestBody} from './translateExchangeIdsRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the translateExchangeIds method.  */
+/** Provides operations to call the translateExchangeIds method. */
 export class TranslateExchangeIdsRequestBodyImpl implements AdditionalDataHolder, Parsable, TranslateExchangeIdsRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The InputIds property  */
+    /** The InputIds property */
     inputIds?: string[] | undefined;
-    /** The SourceIdType property  */
+    /** The SourceIdType property */
     sourceIdType?: ExchangeIdFormat | undefined;
-    /** The TargetIdType property  */
+    /** The TargetIdType property */
     targetIdType?: ExchangeIdFormat | undefined;
     /**
      * Instantiates a new translateExchangeIdsRequestBody and sets the default values.

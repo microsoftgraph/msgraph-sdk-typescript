@@ -4,7 +4,7 @@ import {TeamworkUserIdentityType} from './teamworkUserIdentityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkUserIdentityImpl extends IdentityImpl implements Parsable, TeamworkUserIdentity {
-    /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser.  */
+    /** Type of user. Possible values are: aadUser, onPremiseAadUser, anonymousGuest, federatedUser, personalMicrosoftAccountUser, skypeUser, phoneUser, and emailUser. */
     userIdentityType?: TeamworkUserIdentityType | undefined;
     /**
      * Instantiates a new teamworkUserIdentity and sets the default values.

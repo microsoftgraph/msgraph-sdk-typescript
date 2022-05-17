@@ -1,11 +1,11 @@
 import {GetPresencesByUserIdRequestBody} from './getPresencesByUserIdRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getPresencesByUserId method.  */
+/** Provides operations to call the getPresencesByUserId method. */
 export class GetPresencesByUserIdRequestBodyImpl implements AdditionalDataHolder, GetPresencesByUserIdRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The ids property  */
+    /** The ids property */
     ids?: string[] | undefined;
     /**
      * Instantiates a new getPresencesByUserIdRequestBody and sets the default values.

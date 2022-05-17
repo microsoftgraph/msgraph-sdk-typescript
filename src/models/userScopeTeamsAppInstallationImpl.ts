@@ -5,7 +5,7 @@ import {UserScopeTeamsAppInstallation} from './userScopeTeamsAppInstallation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserScopeTeamsAppInstallationImpl extends TeamsAppInstallationImpl implements Parsable, UserScopeTeamsAppInstallation {
-    /** The chat between the user and Teams app.  */
+    /** The chat between the user and Teams app. */
     chat?: Chat | undefined;
     /**
      * Instantiates a new userScopeTeamsAppInstallation and sets the default values.

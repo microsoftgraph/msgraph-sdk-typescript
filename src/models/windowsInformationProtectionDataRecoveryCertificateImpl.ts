@@ -1,17 +1,17 @@
 import {WindowsInformationProtectionDataRecoveryCertificate} from './windowsInformationProtectionDataRecoveryCertificate';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection DataRecoveryCertificate  */
+/** Windows Information Protection DataRecoveryCertificate */
 export class WindowsInformationProtectionDataRecoveryCertificateImpl implements AdditionalDataHolder, Parsable, WindowsInformationProtectionDataRecoveryCertificate {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Data recovery Certificate  */
+    /** Data recovery Certificate */
     certificate?: string | undefined;
-    /** Data recovery Certificate description  */
+    /** Data recovery Certificate description */
     description?: string | undefined;
-    /** Data recovery Certificate expiration datetime  */
+    /** Data recovery Certificate expiration datetime */
     expirationDateTime?: Date | undefined;
-    /** Data recovery Certificate subject name  */
+    /** Data recovery Certificate subject name */
     subjectName?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionDataRecoveryCertificate and sets the default values.

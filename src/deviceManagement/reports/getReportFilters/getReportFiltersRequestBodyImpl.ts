@@ -1,27 +1,27 @@
 import {GetReportFiltersRequestBody} from './getReportFiltersRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getReportFilters method.  */
+/** Provides operations to call the getReportFilters method. */
 export class GetReportFiltersRequestBodyImpl implements AdditionalDataHolder, GetReportFiltersRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The filter property  */
+    /** The filter property */
     filter?: string | undefined;
-    /** The groupBy property  */
+    /** The groupBy property */
     groupBy?: string[] | undefined;
-    /** The name property  */
+    /** The name property */
     name?: string | undefined;
-    /** The orderBy property  */
+    /** The orderBy property */
     orderBy?: string[] | undefined;
-    /** The search property  */
+    /** The search property */
     search?: string | undefined;
-    /** The select property  */
+    /** The select property */
     select?: string[] | undefined;
-    /** The sessionId property  */
+    /** The sessionId property */
     sessionId?: string | undefined;
-    /** The skip property  */
+    /** The skip property */
     skip?: number | undefined;
-    /** The top property  */
+    /** The top property */
     top?: number | undefined;
     /**
      * Instantiates a new getReportFiltersRequestBody and sets the default values.

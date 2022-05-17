@@ -1,17 +1,17 @@
 import {ValidatePropertiesRequestBody} from './validatePropertiesRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the validateProperties method.  */
+/** Provides operations to call the validateProperties method. */
 export class ValidatePropertiesRequestBodyImpl implements AdditionalDataHolder, Parsable, ValidatePropertiesRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The displayName property  */
+    /** The displayName property */
     displayName?: string | undefined;
-    /** The entityType property  */
+    /** The entityType property */
     entityType?: string | undefined;
-    /** The mailNickname property  */
+    /** The mailNickname property */
     mailNickname?: string | undefined;
-    /** The onBehalfOfUserId property  */
+    /** The onBehalfOfUserId property */
     onBehalfOfUserId?: string | undefined;
     /**
      * Instantiates a new validatePropertiesRequestBody and sets the default values.

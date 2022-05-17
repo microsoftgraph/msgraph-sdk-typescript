@@ -1,11 +1,11 @@
 import {RemoveGroupResponse} from './removeGroupResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removeGroup method.  */
+/** Provides operations to call the removeGroup method. */
 export class RemoveGroupResponseImpl implements AdditionalDataHolder, Parsable, RemoveGroupResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: boolean | undefined;
     /**
      * Instantiates a new removeGroupResponse and sets the default values.

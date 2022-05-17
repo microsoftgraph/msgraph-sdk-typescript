@@ -4,11 +4,11 @@ import {createAttachmentItemFromDiscriminatorValue} from '../../../../../models/
 import {CreateUploadSessionRequestBody} from './createUploadSessionRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the createUploadSession method.  */
+/** Provides operations to call the createUploadSession method. */
 export class CreateUploadSessionRequestBodyImpl implements AdditionalDataHolder, CreateUploadSessionRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The AttachmentItem property  */
+    /** The AttachmentItem property */
     attachmentItem?: AttachmentItem | undefined;
     /**
      * Instantiates a new createUploadSessionRequestBody and sets the default values.

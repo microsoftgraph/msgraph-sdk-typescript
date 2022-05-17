@@ -10,15 +10,15 @@ import {UserConsentRequestItemRequestBuilder} from './userConsentRequests/item/u
 import {UserConsentRequestsRequestBuilder} from './userConsentRequests/userConsentRequestsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity.  */
+/** Provides operations to manage the appConsentRequests property of the microsoft.graph.appConsentApprovalRoute entity. */
 export class AppConsentRequestItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The userConsentRequests property  */
+    /** The userConsentRequests property */
     public get userConsentRequests(): UserConsentRequestsRequestBuilder {
         return new UserConsentRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -125,7 +125,7 @@ export class AppConsentRequestItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AppConsentRequestImpl | undefined, requestConfiguration?: AppConsentRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AppConsentRequest | undefined, requestConfiguration?: AppConsentRequestItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

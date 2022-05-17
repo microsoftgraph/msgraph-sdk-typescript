@@ -8,11 +8,11 @@ import {MobileAppAssignmentSettings} from './mobileAppAssignmentSettings';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MobileAppAssignmentImpl extends EntityImpl implements MobileAppAssignment, Parsable {
-    /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */
+    /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     intent?: InstallIntent | undefined;
-    /** The settings for target assignment defined by the admin.  */
+    /** The settings for target assignment defined by the admin. */
     settings?: MobileAppAssignmentSettings | undefined;
-    /** The target group assignment defined by the admin.  */
+    /** The target group assignment defined by the admin. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new mobileAppAssignment and sets the default values.

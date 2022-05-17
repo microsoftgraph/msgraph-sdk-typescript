@@ -2,11 +2,11 @@ import {EmailAddress} from './emailAddress';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EmailAddressImpl implements AdditionalDataHolder, EmailAddress, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The email address of an entity instance.  */
+    /** The email address of an entity instance. */
     address?: string | undefined;
-    /** The display name of an entity instance.  */
+    /** The display name of an entity instance. */
     name?: string | undefined;
     /**
      * Instantiates a new emailAddress and sets the default values.

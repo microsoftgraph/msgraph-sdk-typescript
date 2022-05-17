@@ -7,9 +7,9 @@ import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsable, WorkbookChartLegendFormat {
-    /** Represents the fill format of an object, which includes background formating information. Read-only.  */
+    /** Represents the fill format of an object, which includes background formating information. Read-only. */
     fill?: WorkbookChartFill | undefined;
-    /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only.  */
+    /** Represents the font attributes such as font name, font size, color, etc. of a chart legend. Read-only. */
     font?: WorkbookChartFont | undefined;
     /**
      * Instantiates a new workbookChartLegendFormat and sets the default values.

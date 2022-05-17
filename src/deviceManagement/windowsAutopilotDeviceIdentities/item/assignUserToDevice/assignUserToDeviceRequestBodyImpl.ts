@@ -1,13 +1,13 @@
 import {AssignUserToDeviceRequestBody} from './assignUserToDeviceRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the assignUserToDevice method.  */
+/** Provides operations to call the assignUserToDevice method. */
 export class AssignUserToDeviceRequestBodyImpl implements AdditionalDataHolder, AssignUserToDeviceRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The addressableUserName property  */
+    /** The addressableUserName property */
     addressableUserName?: string | undefined;
-    /** The userPrincipalName property  */
+    /** The userPrincipalName property */
     userPrincipalName?: string | undefined;
     /**
      * Instantiates a new assignUserToDeviceRequestBody and sets the default values.

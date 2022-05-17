@@ -4,9 +4,9 @@ import {OrganizationalBranding} from './organizationalBranding';
 import {OrganizationalBrandingLocalization} from './organizationalBrandingLocalization';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the organizationalBranding singleton.  */
+/** Provides operations to manage the organizationalBranding singleton. */
 export class OrganizationalBrandingImpl extends OrganizationalBrandingPropertiesImpl implements OrganizationalBranding, Parsable {
-    /** Add different branding based on a locale.  */
+    /** Add different branding based on a locale. */
     localizations?: OrganizationalBrandingLocalization[] | undefined;
     /**
      * Instantiates a new organizationalBranding and sets the default values.

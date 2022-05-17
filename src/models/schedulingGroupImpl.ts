@@ -3,11 +3,11 @@ import {SchedulingGroup} from './schedulingGroup';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchedulingGroupImpl extends ChangeTrackedEntityImpl implements Parsable, SchedulingGroup {
-    /** The display name for the schedulingGroup. Required.  */
+    /** The display name for the schedulingGroup. Required. */
     displayName?: string | undefined;
-    /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required.  */
+    /** Indicates whether the schedulingGroup can be used when creating new entities or updating existing ones. Required. */
     isActive?: boolean | undefined;
-    /** The list of user IDs that are a member of the schedulingGroup. Required.  */
+    /** The list of user IDs that are a member of the schedulingGroup. Required. */
     userIds?: string[] | undefined;
     /**
      * Instantiates a new schedulingGroup and sets the default values.

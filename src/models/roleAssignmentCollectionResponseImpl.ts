@@ -5,11 +5,11 @@ import {RoleAssignmentCollectionResponse} from './roleAssignmentCollectionRespon
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RoleAssignmentCollectionResponseImpl implements AdditionalDataHolder, Parsable, RoleAssignmentCollectionResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: RoleAssignment[] | undefined;
     /**
      * Instantiates a new RoleAssignmentCollectionResponse and sets the default values.

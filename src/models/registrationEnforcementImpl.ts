@@ -5,9 +5,9 @@ import {RegistrationEnforcement} from './registrationEnforcement';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RegistrationEnforcementImpl implements AdditionalDataHolder, Parsable, RegistrationEnforcement {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Run campaigns to remind users to setup targeted authentication methods.  */
+    /** Run campaigns to remind users to setup targeted authentication methods. */
     authenticationMethodsRegistrationCampaign?: AuthenticationMethodsRegistrationCampaign | undefined;
     /**
      * Instantiates a new registrationEnforcement and sets the default values.

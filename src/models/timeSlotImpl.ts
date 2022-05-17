@@ -5,11 +5,11 @@ import {TimeSlot} from './timeSlot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeSlotImpl implements AdditionalDataHolder, Parsable, TimeSlot {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The end property  */
+    /** The end property */
     end?: DateTimeTimeZone | undefined;
-    /** The start property  */
+    /** The start property */
     start?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new timeSlot and sets the default values.

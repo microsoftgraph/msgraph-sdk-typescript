@@ -3,13 +3,13 @@ import {PrintUsage} from './printUsage';
 import {DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintUsageImpl extends EntityImpl implements Parsable, PrintUsage {
-    /** The completedBlackAndWhiteJobCount property  */
+    /** The completedBlackAndWhiteJobCount property */
     completedBlackAndWhiteJobCount?: number | undefined;
-    /** The completedColorJobCount property  */
+    /** The completedColorJobCount property */
     completedColorJobCount?: number | undefined;
-    /** The incompleteJobCount property  */
+    /** The incompleteJobCount property */
     incompleteJobCount?: number | undefined;
-    /** The usageDate property  */
+    /** The usageDate property */
     usageDate?: DateOnly | undefined;
     /**
      * Instantiates a new printUsage and sets the default values.

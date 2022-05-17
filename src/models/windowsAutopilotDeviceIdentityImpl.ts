@@ -4,37 +4,37 @@ import {WindowsAutopilotDeviceIdentity} from './windowsAutopilotDeviceIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WindowsAutopilotDeviceIdentityImpl extends EntityImpl implements Parsable, WindowsAutopilotDeviceIdentity {
-    /** Addressable user name.  */
+    /** Addressable user name. */
     addressableUserName?: string | undefined;
-    /** AAD Device ID - to be deprecated  */
+    /** AAD Device ID - to be deprecated */
     azureActiveDirectoryDeviceId?: string | undefined;
-    /** Display Name  */
+    /** Display Name */
     displayName?: string | undefined;
-    /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked.  */
+    /** Intune enrollment state of the Windows autopilot device. Possible values are: unknown, enrolled, pendingReset, failed, notContacted, blocked. */
     enrollmentState?: EnrollmentState | undefined;
-    /** Group Tag of the Windows autopilot device.  */
+    /** Group Tag of the Windows autopilot device. */
     groupTag?: string | undefined;
-    /** Intune Last Contacted Date Time of the Windows autopilot device.  */
+    /** Intune Last Contacted Date Time of the Windows autopilot device. */
     lastContactedDateTime?: Date | undefined;
-    /** Managed Device ID  */
+    /** Managed Device ID */
     managedDeviceId?: string | undefined;
-    /** Oem manufacturer of the Windows autopilot device.  */
+    /** Oem manufacturer of the Windows autopilot device. */
     manufacturer?: string | undefined;
-    /** Model name of the Windows autopilot device.  */
+    /** Model name of the Windows autopilot device. */
     model?: string | undefined;
-    /** Product Key of the Windows autopilot device.  */
+    /** Product Key of the Windows autopilot device. */
     productKey?: string | undefined;
-    /** Purchase Order Identifier of the Windows autopilot device.  */
+    /** Purchase Order Identifier of the Windows autopilot device. */
     purchaseOrderIdentifier?: string | undefined;
-    /** Resource Name.  */
+    /** Resource Name. */
     resourceName?: string | undefined;
-    /** Serial number of the Windows autopilot device.  */
+    /** Serial number of the Windows autopilot device. */
     serialNumber?: string | undefined;
-    /** SKU Number  */
+    /** SKU Number */
     skuNumber?: string | undefined;
-    /** System Family  */
+    /** System Family */
     systemFamily?: string | undefined;
-    /** User Principal Name.  */
+    /** User Principal Name. */
     userPrincipalName?: string | undefined;
     /**
      * Instantiates a new windowsAutopilotDeviceIdentity and sets the default values.

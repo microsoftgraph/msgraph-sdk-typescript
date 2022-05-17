@@ -6,11 +6,11 @@ import {ProvisioningStatusInfo} from './provisioningStatusInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningStatusInfoImpl implements AdditionalDataHolder, Parsable, ProvisioningStatusInfo {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The errorInformation property  */
+    /** The errorInformation property */
     errorInformation?: ProvisioningErrorInfo | undefined;
-    /** Possible values are: success, warning, failure, skipped, unknownFutureValue.  */
+    /** Possible values are: success, warning, failure, skipped, unknownFutureValue. */
     status?: ProvisioningResult | undefined;
     /**
      * Instantiates a new provisioningStatusInfo and sets the default values.

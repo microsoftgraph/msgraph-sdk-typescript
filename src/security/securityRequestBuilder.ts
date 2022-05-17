@@ -13,25 +13,25 @@ import {SecurityRequestBuilderGetRequestConfiguration} from './securityRequestBu
 import {SecurityRequestBuilderPatchRequestConfiguration} from './securityRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton.  */
+/** Provides operations to manage the security singleton. */
 export class SecurityRequestBuilder {
-    /** The alerts property  */
+    /** The alerts property */
     public get alerts(): AlertsRequestBuilder {
         return new AlertsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The secureScoreControlProfiles property  */
+    /** The secureScoreControlProfiles property */
     public get secureScoreControlProfiles(): SecureScoreControlProfilesRequestBuilder {
         return new SecureScoreControlProfilesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The secureScores property  */
+    /** The secureScores property */
     public get secureScores(): SecureScoresRequestBuilder {
         return new SecureScoresRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.security.alerts.item collection
@@ -58,7 +58,7 @@ export class SecurityRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Get security
+     * security resource type
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -95,7 +95,7 @@ export class SecurityRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get security
+     * security resource type
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Security
@@ -116,7 +116,7 @@ export class SecurityRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: SecurityImpl | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Security | undefined, requestConfiguration?: SecurityRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -3,7 +3,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DirectoryObjectImpl extends EntityImpl implements DirectoryObject, Parsable {
-    /** Date and time when this object was deleted. Always null when the object hasn't been deleted.  */
+    /** Date and time when this object was deleted. Always null when the object hasn't been deleted. */
     deletedDateTime?: Date | undefined;
     /**
      * Instantiates a new directoryObject and sets the default values.

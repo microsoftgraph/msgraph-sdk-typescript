@@ -9,17 +9,17 @@ import {ApplicationTemplateItemRequestBuilderPatchRequestConfiguration} from './
 import {InstantiateRequestBuilder} from './instantiate/instantiateRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of applicationTemplate entities.  */
+/** Provides operations to manage the collection of applicationTemplate entities. */
 export class ApplicationTemplateItemRequestBuilder {
-    /** The instantiate property  */
+    /** The instantiate property */
     public get instantiate(): InstantiateRequestBuilder {
         return new InstantiateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ApplicationTemplateItemRequestBuilder and sets the default values.
@@ -51,7 +51,7 @@ export class ApplicationTemplateItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from applicationTemplates by key
+     * Get applicationTemplate
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -103,7 +103,7 @@ export class ApplicationTemplateItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get entity from applicationTemplates by key
+     * Get applicationTemplate
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ApplicationTemplate
@@ -124,7 +124,7 @@ export class ApplicationTemplateItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ApplicationTemplateImpl | undefined, requestConfiguration?: ApplicationTemplateItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ApplicationTemplate | undefined, requestConfiguration?: ApplicationTemplateItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

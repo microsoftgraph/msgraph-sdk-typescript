@@ -12,29 +12,29 @@ import {UnifiedRoleAssignmentItemRequestBuilderGetRequestConfiguration} from './
 import {UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration} from './unifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity.  */
+/** Provides operations to manage the roleAssignments property of the microsoft.graph.rbacApplication entity. */
 export class UnifiedRoleAssignmentItemRequestBuilder {
-    /** The appScope property  */
+    /** The appScope property */
     public get appScope(): AppScopeRequestBuilder {
         return new AppScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directoryScope property  */
+    /** The directoryScope property */
     public get directoryScope(): DirectoryScopeRequestBuilder {
         return new DirectoryScopeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The principal property  */
+    /** The principal property */
     public get principal(): PrincipalRequestBuilder {
         return new PrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The roleDefinition property  */
+    /** The roleDefinition property */
     public get roleDefinition(): RoleDefinitionRequestBuilder {
         return new RoleDefinitionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new UnifiedRoleAssignmentItemRequestBuilder and sets the default values.
@@ -139,7 +139,7 @@ export class UnifiedRoleAssignmentItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: UnifiedRoleAssignmentImpl | undefined, requestConfiguration?: UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: UnifiedRoleAssignment | undefined, requestConfiguration?: UnifiedRoleAssignmentItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

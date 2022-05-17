@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Provides operations to manage the collection of drive entities. */
 export enum CategoryColor {
     None = "none",
     Preset0 = "preset0",

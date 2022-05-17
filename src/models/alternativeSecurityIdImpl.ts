@@ -2,13 +2,13 @@ import {AlternativeSecurityId} from './alternativeSecurityId';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AlternativeSecurityIdImpl implements AdditionalDataHolder, AlternativeSecurityId, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** For internal use only  */
+    /** For internal use only */
     identityProvider?: string | undefined;
-    /** For internal use only  */
+    /** For internal use only */
     key?: string | undefined;
-    /** For internal use only  */
+    /** For internal use only */
     type?: number | undefined;
     /**
      * Instantiates a new alternativeSecurityId and sets the default values.

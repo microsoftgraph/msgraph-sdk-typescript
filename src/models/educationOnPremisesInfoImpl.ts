@@ -2,9 +2,9 @@ import {EducationOnPremisesInfo} from './educationOnPremisesInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationOnPremisesInfoImpl implements AdditionalDataHolder, EducationOnPremisesInfo, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Unique identifier for the user object in Active Directory.  */
+    /** Unique identifier for the user object in Active Directory. */
     immutableId?: string | undefined;
     /**
      * Instantiates a new educationOnPremisesInfo and sets the default values.

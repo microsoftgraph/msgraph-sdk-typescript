@@ -1,11 +1,11 @@
 import {UnfavoriteRequestBody} from './unfavoriteRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the unfavorite method.  */
+/** Provides operations to call the unfavorite method. */
 export class UnfavoriteRequestBodyImpl implements AdditionalDataHolder, Parsable, UnfavoriteRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The messageIds property  */
+    /** The messageIds property */
     messageIds?: string[] | undefined;
     /**
      * Instantiates a new unfavoriteRequestBody and sets the default values.

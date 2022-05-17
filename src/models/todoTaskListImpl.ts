@@ -8,17 +8,17 @@ import {WellknownListName} from './wellknownListName';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TodoTaskListImpl extends EntityImpl implements Parsable, TodoTaskList {
-    /** The name of the task list.  */
+    /** The name of the task list. */
     displayName?: string | undefined;
-    /** The collection of open extensions defined for the task list. Nullable.  */
+    /** The collection of open extensions defined for the task list. Nullable. */
     extensions?: Extension[] | undefined;
-    /** True if the user is owner of the given task list.  */
+    /** True if the user is owner of the given task list. */
     isOwner?: boolean | undefined;
-    /** True if the task list is shared with other users  */
+    /** True if the task list is shared with other users */
     isShared?: boolean | undefined;
-    /** The tasks in this task list. Read-only. Nullable.  */
+    /** The tasks in this task list. Read-only. Nullable. */
     tasks?: TodoTask[] | undefined;
-    /** Property indicating the list name if the given list is a well-known list. Possible values are: none, defaultList, flaggedEmails, unknownFutureValue.  */
+    /** Property indicating the list name if the given list is a well-known list. Possible values are: none, defaultList, flaggedEmails, unknownFutureValue. */
     wellknownListName?: WellknownListName | undefined;
     /**
      * Instantiates a new todoTaskList and sets the default values.

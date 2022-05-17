@@ -3,9 +3,9 @@ import {UserIdentity} from './userIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserIdentityImpl extends IdentityImpl implements Parsable, UserIdentity {
-    /** Indicates the client IP address used by user performing the activity (audit log only).  */
+    /** Indicates the client IP address used by user performing the activity (audit log only). */
     ipAddress?: string | undefined;
-    /** The userPrincipalName attribute of the user.  */
+    /** The userPrincipalName attribute of the user. */
     userPrincipalName?: string | undefined;
     /**
      * Instantiates a new userIdentity and sets the default values.

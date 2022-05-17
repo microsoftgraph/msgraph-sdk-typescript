@@ -7,9 +7,9 @@ import {TeamsAppInstallation} from './teamsAppInstallation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsAppInstallationImpl extends EntityImpl implements Parsable, TeamsAppInstallation {
-    /** The app that is installed.  */
+    /** The app that is installed. */
     teamsApp?: TeamsApp | undefined;
-    /** The details of this version of the app.  */
+    /** The details of this version of the app. */
     teamsAppDefinition?: TeamsAppDefinition | undefined;
     /**
      * Instantiates a new teamsAppInstallation and sets the default values.

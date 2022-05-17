@@ -5,7 +5,7 @@ import {TeamworkConversationIdentity} from './teamworkConversationIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageMentionedIdentitySetImpl extends IdentitySetImpl implements ChatMessageMentionedIdentitySet, Parsable {
-    /** If present, represents a conversation (for example, team or channel) @mentioned in a message.  */
+    /** If present, represents a conversation (for example, team or channel) @mentioned in a message. */
     conversation?: TeamworkConversationIdentity | undefined;
     /**
      * Instantiates a new chatMessageMentionedIdentitySet and sets the default values.

@@ -7,9 +7,9 @@ import {PlannerUser} from './plannerUser';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerUserImpl extends EntityImpl implements Parsable, PlannerUser {
-    /** Read-only. Nullable. Returns the plannerTasks assigned to the user.  */
+    /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     plans?: PlannerPlan[] | undefined;
-    /** Read-only. Nullable. Returns the plannerTasks assigned to the user.  */
+    /** Read-only. Nullable. Returns the plannerTasks assigned to the user. */
     tasks?: PlannerTask[] | undefined;
     /**
      * Instantiates a new plannerUser and sets the default values.

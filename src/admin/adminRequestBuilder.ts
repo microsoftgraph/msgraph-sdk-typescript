@@ -8,17 +8,17 @@ import {AdminRequestBuilderPatchRequestConfiguration} from './adminRequestBuilde
 import {ServiceAnnouncementRequestBuilder} from './serviceAnnouncement/serviceAnnouncementRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the admin singleton.  */
+/** Provides operations to manage the admin singleton. */
 export class AdminRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The serviceAnnouncement property  */
+    /** The serviceAnnouncement property */
     public get serviceAnnouncement(): ServiceAnnouncementRequestBuilder {
         return new ServiceAnnouncementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new AdminRequestBuilder and sets the default values.
@@ -92,7 +92,7 @@ export class AdminRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AdminImpl | undefined, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Admin | undefined, requestConfiguration?: AdminRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

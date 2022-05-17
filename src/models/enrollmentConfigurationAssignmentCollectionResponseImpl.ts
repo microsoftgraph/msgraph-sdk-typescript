@@ -5,11 +5,11 @@ import {EnrollmentConfigurationAssignmentImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EnrollmentConfigurationAssignmentCollectionResponseImpl implements AdditionalDataHolder, EnrollmentConfigurationAssignmentCollectionResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The nextLink property  */
+    /** The nextLink property */
     nextLink?: string | undefined;
-    /** The value property  */
+    /** The value property */
     value?: EnrollmentConfigurationAssignment[] | undefined;
     /**
      * Instantiates a new EnrollmentConfigurationAssignmentCollectionResponse and sets the default values.

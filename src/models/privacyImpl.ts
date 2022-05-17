@@ -5,9 +5,9 @@ import {SubjectRightsRequest} from './subjectRightsRequest';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrivacyImpl implements AdditionalDataHolder, Parsable, Privacy {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The subjectRightsRequests property  */
+    /** The subjectRightsRequests property */
     subjectRightsRequests?: SubjectRightsRequest[] | undefined;
     /**
      * Instantiates a new Privacy and sets the default values.

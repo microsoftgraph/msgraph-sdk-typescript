@@ -4,7 +4,7 @@ import {PersistentBrowserSessionMode} from './persistentBrowserSessionMode';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PersistentBrowserSessionControlImpl extends ConditionalAccessSessionControlImpl implements Parsable, PersistentBrowserSessionControl {
-    /** Possible values are: always, never.  */
+    /** Possible values are: always, never. */
     mode?: PersistentBrowserSessionMode | undefined;
     /**
      * Instantiates a new persistentBrowserSessionControl and sets the default values.

@@ -25,65 +25,65 @@ import {TemplateRequestBuilder} from './template/templateRequestBuilder';
 import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of team entities.  */
+/** Provides operations to manage the collection of team entities. */
 export class TeamItemRequestBuilder {
-    /** The archive property  */
+    /** The archive property */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The channels property  */
+    /** The channels property */
     public get channels(): ChannelsRequestBuilder {
         return new ChannelsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The clone property  */
+    /** The clone property */
     public get clone(): CloneRequestBuilder {
         return new CloneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The completeMigration property  */
+    /** The completeMigration property */
     public get completeMigration(): CompleteMigrationRequestBuilder {
         return new CompleteMigrationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The group property  */
+    /** The group property */
     public get group(): GroupRequestBuilder {
         return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The installedApps property  */
+    /** The installedApps property */
     public get installedApps(): InstalledAppsRequestBuilder {
         return new InstalledAppsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The members property  */
+    /** The members property */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property  */
+    /** The operations property */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The primaryChannel property  */
+    /** The primaryChannel property */
     public get primaryChannel(): PrimaryChannelRequestBuilder {
         return new PrimaryChannelRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schedule property  */
+    /** The schedule property */
     public get schedule(): ScheduleRequestBuilder {
         return new ScheduleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sendActivityNotification property  */
+    /** The sendActivityNotification property */
     public get sendActivityNotification(): SendActivityNotificationRequestBuilder {
         return new SendActivityNotificationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The template property  */
+    /** The template property */
     public get template(): TemplateRequestBuilder {
         return new TemplateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unarchive property  */
+    /** The unarchive property */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.teams.item.channels.item collection
@@ -126,7 +126,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from teams by key
+     * Get team
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -143,7 +143,7 @@ export class TeamItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in teams
+     * Update team
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -178,7 +178,7 @@ export class TeamItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get entity from teams by key
+     * Get team
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Team
@@ -227,12 +227,12 @@ export class TeamItemRequestBuilder {
         return new TeamsAsyncOperationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in teams
+     * Update team
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: TeamImpl | undefined, requestConfiguration?: TeamItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Team | undefined, requestConfiguration?: TeamItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -2,11 +2,11 @@ import {AverageComparativeScore} from './averageComparativeScore';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AverageComparativeScoreImpl implements AdditionalDataHolder, AverageComparativeScore, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Average score within specified basis.  */
+    /** Average score within specified basis. */
     averageScore?: number | undefined;
-    /** Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes.  */
+    /** Scope type. The possible values are: AllTenants, TotalSeats, IndustryTypes. */
     basis?: string | undefined;
     /**
      * Instantiates a new averageComparativeScore and sets the default values.

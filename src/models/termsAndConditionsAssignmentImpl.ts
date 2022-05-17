@@ -5,7 +5,7 @@ import {TermsAndConditionsAssignment} from './termsAndConditionsAssignment';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TermsAndConditionsAssignmentImpl extends EntityImpl implements Parsable, TermsAndConditionsAssignment {
-    /** Assignment target that the T&C policy is assigned to.  */
+    /** Assignment target that the T&C policy is assigned to. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new termsAndConditionsAssignment and sets the default values.

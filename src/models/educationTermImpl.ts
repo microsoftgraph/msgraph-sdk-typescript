@@ -2,15 +2,15 @@ import {EducationTerm} from './educationTerm';
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationTermImpl implements AdditionalDataHolder, EducationTerm, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Display name of the term.  */
+    /** Display name of the term. */
     displayName?: string | undefined;
-    /** End of the term.  */
+    /** End of the term. */
     endDate?: DateOnly | undefined;
-    /** ID of term in the syncing system.  */
+    /** ID of term in the syncing system. */
     externalId?: string | undefined;
-    /** Start of the term.  */
+    /** Start of the term. */
     startDate?: DateOnly | undefined;
     /**
      * Instantiates a new educationTerm and sets the default values.

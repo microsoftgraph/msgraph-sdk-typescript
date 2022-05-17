@@ -5,13 +5,13 @@ import {TeamworkUserIdentity} from './teamworkUserIdentity';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamworkOnlineMeetingInfoImpl implements AdditionalDataHolder, Parsable, TeamworkOnlineMeetingInfo {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The identifier of the calendar event associated with the meeting.  */
+    /** The identifier of the calendar event associated with the meeting. */
     calendarEventId?: string | undefined;
-    /** The URL which can be clicked on to join or uniquely identify the meeting.  */
+    /** The URL which can be clicked on to join or uniquely identify the meeting. */
     joinWebUrl?: string | undefined;
-    /** The organizer of the meeting.  */
+    /** The organizer of the meeting. */
     organizer?: TeamworkUserIdentity | undefined;
     /**
      * Instantiates a new teamworkOnlineMeetingInfo and sets the default values.

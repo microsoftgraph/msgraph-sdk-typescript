@@ -2,13 +2,13 @@ import {PublicErrorDetail} from './publicErrorDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PublicErrorDetailImpl implements AdditionalDataHolder, Parsable, PublicErrorDetail {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The error code.  */
+    /** The error code. */
     code?: string | undefined;
-    /** The error message.  */
+    /** The error message. */
     message?: string | undefined;
-    /** The target of the error.  */
+    /** The target of the error. */
     target?: string | undefined;
     /**
      * Instantiates a new publicErrorDetail and sets the default values.

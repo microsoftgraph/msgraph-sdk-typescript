@@ -27,73 +27,73 @@ import {SingleValueExtendedPropertiesRequestBuilder} from './singleValueExtended
 import {ContentRequestBuilder} from './value/contentRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the messages property of the microsoft.graph.mailFolder entity.  */
+/** Provides operations to manage the messages property of the microsoft.graph.mailFolder entity. */
 export class MessageItemRequestBuilder {
-    /** The attachments property  */
+    /** The attachments property */
     public get attachments(): AttachmentsRequestBuilder {
         return new AttachmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarSharingMessage property  */
+    /** The calendarSharingMessage property */
     public get calendarSharingMessage(): CalendarSharingMessageRequestBuilder {
         return new CalendarSharingMessageRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The Content property  */
+    /** The Content property */
     public get content(): ContentRequestBuilder {
         return new ContentRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The copy property  */
+    /** The copy property */
     public get copy(): CopyRequestBuilder {
         return new CopyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createForward property  */
+    /** The createForward property */
     public get createForward(): CreateForwardRequestBuilder {
         return new CreateForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createReply property  */
+    /** The createReply property */
     public get createReply(): CreateReplyRequestBuilder {
         return new CreateReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createReplyAll property  */
+    /** The createReplyAll property */
     public get createReplyAll(): CreateReplyAllRequestBuilder {
         return new CreateReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property  */
+    /** The extensions property */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The forward property  */
+    /** The forward property */
     public get forward(): ForwardRequestBuilder {
         return new ForwardRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The move property  */
+    /** The move property */
     public get move(): MoveRequestBuilder {
         return new MoveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The multiValueExtendedProperties property  */
+    /** The multiValueExtendedProperties property */
     public get multiValueExtendedProperties(): MultiValueExtendedPropertiesRequestBuilder {
         return new MultiValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The reply property  */
+    /** The reply property */
     public get reply(): ReplyRequestBuilder {
         return new ReplyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The replyAll property  */
+    /** The replyAll property */
     public get replyAll(): ReplyAllRequestBuilder {
         return new ReplyAllRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The send property  */
+    /** The send property */
     public get send(): SendRequestBuilder {
         return new SendRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The singleValueExtendedProperties property  */
+    /** The singleValueExtendedProperties property */
     public get singleValueExtendedProperties(): SingleValueExtendedPropertiesRequestBuilder {
         return new SingleValueExtendedPropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.me.mailFolders.item.messages.item.attachments.item collection
@@ -231,7 +231,7 @@ export class MessageItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: MessageImpl | undefined, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Message | undefined, requestConfiguration?: MessageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

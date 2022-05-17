@@ -4,9 +4,9 @@ import {EntityImpl} from './index';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EntitlementManagementSettingsImpl extends EntityImpl implements EntitlementManagementSettings, Parsable {
-    /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted.  */
+    /** If externalUserLifecycleAction is blockSignInAndDelete, the duration, typically a number of days, after an external user is blocked from sign in before their account is deleted. */
     durationUntilExternalUserDeletedAfterBlocked?: Duration | undefined;
-    /** One of None, BlockSignIn, or BlockSignInAndDelete.  */
+    /** One of None, BlockSignIn, or BlockSignInAndDelete. */
     externalUserLifecycleAction?: AccessPackageExternalUserLifecycleAction | undefined;
     /**
      * Instantiates a new entitlementManagementSettings and sets the default values.

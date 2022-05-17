@@ -2,11 +2,11 @@ import {EducationTeacher} from './educationTeacher';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationTeacherImpl implements AdditionalDataHolder, EducationTeacher, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Id of the Teacher in external source system.  */
+    /** Id of the Teacher in external source system. */
     externalId?: string | undefined;
-    /** Teacher number.  */
+    /** Teacher number. */
     teacherNumber?: string | undefined;
     /**
      * Instantiates a new educationTeacher and sets the default values.

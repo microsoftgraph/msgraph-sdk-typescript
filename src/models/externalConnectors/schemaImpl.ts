@@ -6,9 +6,9 @@ import {Schema} from './schema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SchemaImpl extends EntityImpl implements Parsable, Schema {
-    /** Must be set to microsoft.graph.externalItem. Required.  */
+    /** Must be set to microsoft.graph.externalItem. Required. */
     baseType?: string | undefined;
-    /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.  */
+    /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
     properties?: Property[] | undefined;
     /**
      * Instantiates a new schema and sets the default values.

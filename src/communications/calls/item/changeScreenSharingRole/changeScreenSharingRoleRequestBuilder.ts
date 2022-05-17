@@ -3,13 +3,13 @@ import {ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration} from './c
 import {ChangeScreenSharingRoleRequestBodyImpl} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the changeScreenSharingRole method.  */
+/** Provides operations to call the changeScreenSharingRole method. */
 export class ChangeScreenSharingRoleRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ChangeScreenSharingRoleRequestBuilder and sets the default values.
@@ -50,7 +50,7 @@ export class ChangeScreenSharingRoleRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: ChangeScreenSharingRoleRequestBodyImpl | undefined, requestConfiguration?: ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: ChangeScreenSharingRoleRequestBody | undefined, requestConfiguration?: ChangeScreenSharingRoleRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

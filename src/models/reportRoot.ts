@@ -3,12 +3,12 @@ import {PrintUsageByPrinter} from './printUsageByPrinter';
 import {PrintUsageByUser} from './printUsageByUser';
 
 export interface ReportRoot extends Entity{
-    /** The dailyPrintUsageByPrinter property  */
+    /** The dailyPrintUsageByPrinter property */
     dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The dailyPrintUsageByUser property  */
+    /** The dailyPrintUsageByUser property */
     dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
-    /** The monthlyPrintUsageByPrinter property  */
+    /** The monthlyPrintUsageByPrinter property */
     monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The monthlyPrintUsageByUser property  */
+    /** The monthlyPrintUsageByUser property */
     monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
 }

@@ -1,10 +1,10 @@
 import {MailTipsType} from '../../models/mailTipsType';
 
 export interface GetMailTipsRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The EmailAddresses property  */
+    /** The EmailAddresses property */
     emailAddresses?: string[] | undefined;
-    /** The MailTipsOptions property  */
+    /** The MailTipsOptions property */
     mailTipsOptions?: MailTipsType | undefined;
 }

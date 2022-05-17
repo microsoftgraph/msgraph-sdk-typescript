@@ -8,13 +8,13 @@ import {GroupSettingItemRequestBuilderGetRequestConfiguration} from './groupSett
 import {GroupSettingItemRequestBuilderPatchRequestConfiguration} from './groupSettingItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of groupSetting entities.  */
+/** Provides operations to manage the collection of groupSetting entities. */
 export class GroupSettingItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new GroupSettingItemRequestBuilder and sets the default values.
@@ -30,7 +30,7 @@ export class GroupSettingItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from groupSettings
+     * Delete a group setting
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -46,7 +46,7 @@ export class GroupSettingItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Get entity from groupSettings by key
+     * Get groupSetting
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -63,7 +63,7 @@ export class GroupSettingItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Update entity in groupSettings
+     * Update groupSetting
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
@@ -83,7 +83,7 @@ export class GroupSettingItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete entity from groupSettings
+     * Delete a group setting
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -98,7 +98,7 @@ export class GroupSettingItemRequestBuilder {
         return this.requestAdapter?.sendNoResponseContentAsync(requestInfo, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Get entity from groupSettings by key
+     * Get groupSetting
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of GroupSetting
@@ -114,12 +114,12 @@ export class GroupSettingItemRequestBuilder {
         return this.requestAdapter?.sendAsync<GroupSettingImpl>(requestInfo, createGroupSettingFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
     /**
-     * Update entity in groupSettings
+     * Update groupSetting
      * @param body 
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: GroupSettingImpl | undefined, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: GroupSetting | undefined, requestConfiguration?: GroupSettingItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -4,19 +4,19 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceDeviceStatusImpl extends EntityImpl implements DeviceComplianceDeviceStatus, Parsable {
-    /** The DateTime when device compliance grace period expires  */
+    /** The DateTime when device compliance grace period expires */
     complianceGracePeriodExpirationDateTime?: Date | undefined;
-    /** Device name of the DevicePolicyStatus.  */
+    /** Device name of the DevicePolicyStatus. */
     deviceDisplayName?: string | undefined;
-    /** The device model that is being reported  */
+    /** The device model that is being reported */
     deviceModel?: string | undefined;
-    /** Last modified date time of the policy report.  */
+    /** Last modified date time of the policy report. */
     lastReportedDateTime?: Date | undefined;
-    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     status?: ComplianceStatus | undefined;
-    /** The User Name that is being reported  */
+    /** The User Name that is being reported */
     userName?: string | undefined;
-    /** UserPrincipalName.  */
+    /** UserPrincipalName. */
     userPrincipalName?: string | undefined;
     /**
      * Instantiates a new deviceComplianceDeviceStatus and sets the default values.

@@ -2,10 +2,10 @@ import {Entity} from './entity';
 import {ItemActivityStat} from './itemActivityStat';
 
 export interface ItemAnalytics extends Entity{
-    /** The allTime property  */
+    /** The allTime property */
     allTime?: ItemActivityStat | undefined;
-    /** The itemActivityStats property  */
+    /** The itemActivityStats property */
     itemActivityStats?: ItemActivityStat[] | undefined;
-    /** The lastSevenDays property  */
+    /** The lastSevenDays property */
     lastSevenDays?: ItemActivityStat | undefined;
 }

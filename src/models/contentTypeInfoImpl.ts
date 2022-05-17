@@ -2,11 +2,11 @@ import {ContentTypeInfo} from './contentTypeInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ContentTypeInfoImpl implements AdditionalDataHolder, ContentTypeInfo, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The id of the content type.  */
+    /** The id of the content type. */
     id?: string | undefined;
-    /** The name of the content type.  */
+    /** The name of the content type. */
     name?: string | undefined;
     /**
      * Instantiates a new contentTypeInfo and sets the default values.

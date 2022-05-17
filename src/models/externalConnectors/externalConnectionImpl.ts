@@ -15,21 +15,21 @@ import {Schema} from './schema';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ExternalConnectionImpl extends EntityImpl implements ExternalConnection, Parsable {
-    /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional.  */
+    /** Specifies additional application IDs that are allowed to manage the connection and to index content in the connection. Optional. */
     configuration?: Configuration | undefined;
-    /** Description of the connection displayed in the Microsoft 365 admin center. Optional.  */
+    /** Description of the connection displayed in the Microsoft 365 admin center. Optional. */
     description?: string | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     groups?: ExternalGroup[] | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     items?: ExternalItem[] | undefined;
-    /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required.  */
+    /** The display name of the connection to be displayed in the Microsoft 365 admin center. Maximum length of 128 characters. Required. */
     name?: string | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     operations?: ConnectionOperation[] | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     schema?: Schema | undefined;
-    /** Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required.  */
+    /** Indicates the current state of the connection. Possible values are draft, ready, obsolete, and limitExceeded. Required. */
     state?: ConnectionState | undefined;
     /**
      * Instantiates a new externalConnection and sets the default values.

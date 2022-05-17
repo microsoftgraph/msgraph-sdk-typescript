@@ -3,7 +3,7 @@ import {TimeOffItem} from './timeOffItem';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TimeOffItemImpl extends ScheduleEntityImpl implements Parsable, TimeOffItem {
-    /** ID of the timeOffReason for this timeOffItem. Required.  */
+    /** ID of the timeOffReason for this timeOffItem. Required. */
     timeOffReasonId?: string | undefined;
     /**
      * Instantiates a new timeOffItem and sets the default values.

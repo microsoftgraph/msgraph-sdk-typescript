@@ -4,11 +4,11 @@ import {ExtensionProperty} from '../../models/extensionProperty';
 import {GetAvailableExtensionPropertiesResponse} from './getAvailableExtensionPropertiesResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getAvailableExtensionProperties method.  */
+/** Provides operations to call the getAvailableExtensionProperties method. */
 export class GetAvailableExtensionPropertiesResponseImpl implements AdditionalDataHolder, GetAvailableExtensionPropertiesResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: ExtensionProperty[] | undefined;
     /**
      * Instantiates a new getAvailableExtensionPropertiesResponse and sets the default values.

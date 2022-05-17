@@ -4,15 +4,15 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceComplianceUserStatusImpl extends EntityImpl implements DeviceComplianceUserStatus, Parsable {
-    /** Devices count for that user.  */
+    /** Devices count for that user. */
     devicesCount?: number | undefined;
-    /** Last modified date time of the policy report.  */
+    /** Last modified date time of the policy report. */
     lastReportedDateTime?: Date | undefined;
-    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     status?: ComplianceStatus | undefined;
-    /** User name of the DevicePolicyStatus.  */
+    /** User name of the DevicePolicyStatus. */
     userDisplayName?: string | undefined;
-    /** UserPrincipalName.  */
+    /** UserPrincipalName. */
     userPrincipalName?: string | undefined;
     /**
      * Instantiates a new deviceComplianceUserStatus and sets the default values.

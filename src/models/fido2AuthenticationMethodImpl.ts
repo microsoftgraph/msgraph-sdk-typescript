@@ -4,17 +4,17 @@ import {AuthenticationMethodImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Fido2AuthenticationMethodImpl extends AuthenticationMethodImpl implements Fido2AuthenticationMethod, Parsable {
-    /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator.  */
+    /** Authenticator Attestation GUID, an identifier that indicates the type (e.g. make and model) of the authenticator. */
     aaGuid?: string | undefined;
-    /** The attestation certificate(s) attached to this security key.  */
+    /** The attestation certificate(s) attached to this security key. */
     attestationCertificates?: string[] | undefined;
-    /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue.  */
+    /** The attestation level of this FIDO2 security key. Possible values are: attested, notAttested, unknownFutureValue. */
     attestationLevel?: AttestationLevel | undefined;
-    /** The timestamp when this key was registered to the user.  */
+    /** The timestamp when this key was registered to the user. */
     createdDateTime?: Date | undefined;
-    /** The display name of the key as given by the user.  */
+    /** The display name of the key as given by the user. */
     displayName?: string | undefined;
-    /** The manufacturer-assigned model of the FIDO2 security key.  */
+    /** The manufacturer-assigned model of the FIDO2 security key. */
     model?: string | undefined;
     /**
      * Instantiates a new fido2AuthenticationMethod and sets the default values.

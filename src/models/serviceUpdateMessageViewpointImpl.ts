@@ -2,13 +2,13 @@ import {ServiceUpdateMessageViewpoint} from './serviceUpdateMessageViewpoint';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceUpdateMessageViewpointImpl implements AdditionalDataHolder, Parsable, ServiceUpdateMessageViewpoint {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Indicates whether the user archived the message.  */
+    /** Indicates whether the user archived the message. */
     isArchived?: boolean | undefined;
-    /** Indicates whether the user marked the message as favorite.  */
+    /** Indicates whether the user marked the message as favorite. */
     isFavorited?: boolean | undefined;
-    /** Indicates whether the user read the message.  */
+    /** Indicates whether the user read the message. */
     isRead?: boolean | undefined;
     /**
      * Instantiates a new serviceUpdateMessageViewpoint and sets the default values.

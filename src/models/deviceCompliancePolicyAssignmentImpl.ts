@@ -5,7 +5,7 @@ import {DeviceAndAppManagementAssignmentTargetImpl, EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCompliancePolicyAssignmentImpl extends EntityImpl implements DeviceCompliancePolicyAssignment, Parsable {
-    /** Target for the compliance policy assignment.  */
+    /** Target for the compliance policy assignment. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new deviceCompliancePolicyAssignment and sets the default values.

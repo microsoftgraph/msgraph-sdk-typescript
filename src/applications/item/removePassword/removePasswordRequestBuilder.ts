@@ -3,13 +3,13 @@ import {RemovePasswordRequestBody} from './removePasswordRequestBody';
 import {RemovePasswordRequestBuilderPostRequestConfiguration} from './removePasswordRequestBuilderPostRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the removePassword method.  */
+/** Provides operations to call the removePassword method. */
 export class RemovePasswordRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new RemovePasswordRequestBuilder and sets the default values.
@@ -50,7 +50,7 @@ export class RemovePasswordRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public post(body: RemovePasswordRequestBodyImpl | undefined, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public post(body: RemovePasswordRequestBody | undefined, requestConfiguration?: RemovePasswordRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
             body, requestConfiguration

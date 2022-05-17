@@ -5,13 +5,13 @@ import {HashesImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class FileImpl implements AdditionalDataHolder, File, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Hashes of the file's binary content, if available. Read-only.  */
+    /** Hashes of the file's binary content, if available. Read-only. */
     hashes?: Hashes | undefined;
-    /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only.  */
+    /** The MIME type for the file. This is determined by logic on the server and might not be the value provided when the file was uploaded. Read-only. */
     mimeType?: string | undefined;
-    /** The processingMetadata property  */
+    /** The processingMetadata property */
     processingMetadata?: boolean | undefined;
     /**
      * Instantiates a new file and sets the default values.

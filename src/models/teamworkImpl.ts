@@ -4,9 +4,9 @@ import {Teamwork} from './teamwork';
 import {WorkforceIntegration} from './workforceIntegration';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the teamwork singleton.  */
+/** Provides operations to manage the teamwork singleton. */
 export class TeamworkImpl extends EntityImpl implements Parsable, Teamwork {
-    /** A workforce integration with shifts.  */
+    /** A workforce integration with shifts. */
     workforceIntegrations?: WorkforceIntegration[] | undefined;
     /**
      * Instantiates a new teamwork and sets the default values.

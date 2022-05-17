@@ -1,3 +1,3 @@
 export * from './getTeamsDeviceUsageDistributionUserCountsWithPeriodResponseImpl'
-export * from './getTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilderGetRequestConfiguration'
 export * from './getTeamsDeviceUsageDistributionUserCountsWithPeriodResponse'
+export * from './getTeamsDeviceUsageDistributionUserCountsWithPeriodRequestBuilderGetRequestConfiguration'

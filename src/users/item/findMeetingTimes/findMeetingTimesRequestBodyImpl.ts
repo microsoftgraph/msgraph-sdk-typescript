@@ -8,25 +8,25 @@ import {TimeConstraint} from '../../../models/timeConstraint';
 import {FindMeetingTimesRequestBody} from './findMeetingTimesRequestBody';
 import {AdditionalDataHolder, Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the findMeetingTimes method.  */
+/** Provides operations to call the findMeetingTimes method. */
 export class FindMeetingTimesRequestBodyImpl implements AdditionalDataHolder, FindMeetingTimesRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The attendees property  */
+    /** The attendees property */
     attendees?: AttendeeBase[] | undefined;
-    /** The isOrganizerOptional property  */
+    /** The isOrganizerOptional property */
     isOrganizerOptional?: boolean | undefined;
-    /** The locationConstraint property  */
+    /** The locationConstraint property */
     locationConstraint?: LocationConstraint | undefined;
-    /** The maxCandidates property  */
+    /** The maxCandidates property */
     maxCandidates?: number | undefined;
-    /** The meetingDuration property  */
+    /** The meetingDuration property */
     meetingDuration?: Duration | undefined;
-    /** The minimumAttendeePercentage property  */
+    /** The minimumAttendeePercentage property */
     minimumAttendeePercentage?: number | undefined;
-    /** The returnSuggestionReasons property  */
+    /** The returnSuggestionReasons property */
     returnSuggestionReasons?: boolean | undefined;
-    /** The timeConstraint property  */
+    /** The timeConstraint property */
     timeConstraint?: TimeConstraint | undefined;
     /**
      * Instantiates a new findMeetingTimesRequestBody and sets the default values.

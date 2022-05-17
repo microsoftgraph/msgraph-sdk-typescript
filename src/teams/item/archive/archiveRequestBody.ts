@@ -1,7 +1,7 @@
 
 export interface ArchiveRequestBody{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The shouldSetSpoSiteReadOnlyForMembers property  */
+    /** The shouldSetSpoSiteReadOnlyForMembers property */
     shouldSetSpoSiteReadOnlyForMembers?: boolean | undefined;
 }

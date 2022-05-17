@@ -1,11 +1,11 @@
 import {ConfirmCompromisedRequestBody} from './confirmCompromisedRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the confirmCompromised method.  */
+/** Provides operations to call the confirmCompromised method. */
 export class ConfirmCompromisedRequestBodyImpl implements AdditionalDataHolder, ConfirmCompromisedRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The userIds property  */
+    /** The userIds property */
     userIds?: string[] | undefined;
     /**
      * Instantiates a new confirmCompromisedRequestBody and sets the default values.

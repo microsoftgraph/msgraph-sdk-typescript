@@ -3,7 +3,7 @@ import {OpenShiftChangeRequest} from './openShiftChangeRequest';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OpenShiftChangeRequestImpl extends ScheduleChangeRequestImpl implements OpenShiftChangeRequest, Parsable {
-    /** ID for the open shift.  */
+    /** ID for the open shift. */
     openShiftId?: string | undefined;
     /**
      * Instantiates a new openShiftChangeRequest and sets the default values.

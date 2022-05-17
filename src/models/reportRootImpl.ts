@@ -6,15 +6,15 @@ import {PrintUsageByUser} from './printUsageByUser';
 import {ReportRoot} from './reportRoot';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The resource that represents an instance of Enrollment Failure Reports.  */
+/** The resource that represents an instance of Enrollment Failure Reports. */
 export class ReportRootImpl extends EntityImpl implements Parsable, ReportRoot {
-    /** The dailyPrintUsageByPrinter property  */
+    /** The dailyPrintUsageByPrinter property */
     dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The dailyPrintUsageByUser property  */
+    /** The dailyPrintUsageByUser property */
     dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
-    /** The monthlyPrintUsageByPrinter property  */
+    /** The monthlyPrintUsageByPrinter property */
     monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The monthlyPrintUsageByUser property  */
+    /** The monthlyPrintUsageByUser property */
     monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /**
      * Instantiates a new reportRoot and sets the default values.

@@ -5,7 +5,7 @@ import {ShiftPreferences} from './shiftPreferences';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftPreferencesImpl extends ChangeTrackedEntityImpl implements Parsable, ShiftPreferences {
-    /** Availability of the user to be scheduled for work and its recurrence pattern.  */
+    /** Availability of the user to be scheduled for work and its recurrence pattern. */
     availability?: ShiftAvailability[] | undefined;
     /**
      * Instantiates a new shiftPreferences and sets the default values.

@@ -5,9 +5,9 @@ import {RubricCriterion} from './rubricCriterion';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RubricCriterionImpl implements AdditionalDataHolder, Parsable, RubricCriterion {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The description of this criterion.  */
+    /** The description of this criterion. */
     description?: EducationItemBody | undefined;
     /**
      * Instantiates a new rubricCriterion and sets the default values.

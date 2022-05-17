@@ -2,11 +2,11 @@ import {ItemActionStat} from './itemActionStat';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemActionStatImpl implements AdditionalDataHolder, ItemActionStat, Parsable {
-    /** The number of times the action took place. Read-only.  */
+    /** The number of times the action took place. Read-only. */
     actionCount?: number | undefined;
-    /** The number of distinct actors that performed the action. Read-only.  */
+    /** The number of distinct actors that performed the action. Read-only. */
     actorCount?: number | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
     /**
      * Instantiates a new itemActionStat and sets the default values.

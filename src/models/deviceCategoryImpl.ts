@@ -3,9 +3,9 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceCategoryImpl extends EntityImpl implements DeviceCategory, Parsable {
-    /** Optional description for the device category.  */
+    /** Optional description for the device category. */
     description?: string | undefined;
-    /** Display name for the device category.  */
+    /** Display name for the device category. */
     displayName?: string | undefined;
     /**
      * Instantiates a new deviceCategory and sets the default values.

@@ -5,9 +5,9 @@ import {PermissionGrantPolicy} from './permissionGrantPolicy';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PermissionGrantPolicyImpl extends PolicyBaseImpl implements Parsable, PermissionGrantPolicy {
-    /** Condition sets which are excluded in this permission grant policy. Automatically expanded on GET.  */
+    /** Condition sets which are excluded in this permission grant policy. Automatically expanded on GET. */
     excludes?: PermissionGrantConditionSet[] | undefined;
-    /** Condition sets which are included in this permission grant policy. Automatically expanded on GET.  */
+    /** Condition sets which are included in this permission grant policy. Automatically expanded on GET. */
     includes?: PermissionGrantConditionSet[] | undefined;
     /**
      * Instantiates a new permissionGrantPolicy and sets the default values.

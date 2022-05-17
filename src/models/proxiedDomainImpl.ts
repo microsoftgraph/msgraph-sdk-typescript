@@ -1,13 +1,13 @@
 import {ProxiedDomain} from './proxiedDomain';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Proxied Domain  */
+/** Proxied Domain */
 export class ProxiedDomainImpl implements AdditionalDataHolder, Parsable, ProxiedDomain {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The IP address or FQDN  */
+    /** The IP address or FQDN */
     ipAddressOrFQDN?: string | undefined;
-    /** Proxy IP or FQDN  */
+    /** Proxy IP or FQDN */
     proxy?: string | undefined;
     /**
      * Instantiates a new proxiedDomain and sets the default values.

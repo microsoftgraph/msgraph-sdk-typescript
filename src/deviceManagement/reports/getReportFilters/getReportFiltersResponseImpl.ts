@@ -1,11 +1,11 @@
 import {GetReportFiltersResponse} from './getReportFiltersResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getReportFilters method.  */
+/** Provides operations to call the getReportFilters method. */
 export class GetReportFiltersResponseImpl implements AdditionalDataHolder, GetReportFiltersResponse, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: string | undefined;
     /**
      * Instantiates a new getReportFiltersResponse and sets the default values.

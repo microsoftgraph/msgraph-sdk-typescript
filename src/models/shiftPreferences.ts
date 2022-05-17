@@ -2,6 +2,6 @@ import {ChangeTrackedEntity} from './changeTrackedEntity';
 import {ShiftAvailability} from './shiftAvailability';
 
 export interface ShiftPreferences extends ChangeTrackedEntity{
-    /** Availability of the user to be scheduled for work and its recurrence pattern.  */
+    /** Availability of the user to be scheduled for work and its recurrence pattern. */
     availability?: ShiftAvailability[] | undefined;
 }

@@ -5,11 +5,11 @@ import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, ScopedRoleMembership {
-    /** Unique identifier for the administrative unit that the directory role is scoped to  */
+    /** Unique identifier for the administrative unit that the directory role is scoped to */
     administrativeUnitId?: string | undefined;
-    /** Unique identifier for the directory role that the member is in.  */
+    /** Unique identifier for the directory role that the member is in. */
     roleId?: string | undefined;
-    /** The roleMemberInfo property  */
+    /** The roleMemberInfo property */
     roleMemberInfo?: Identity | undefined;
     /**
      * Instantiates a new scopedRoleMembership and sets the default values.

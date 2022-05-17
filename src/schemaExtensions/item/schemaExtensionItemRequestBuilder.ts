@@ -8,13 +8,13 @@ import {SchemaExtensionItemRequestBuilderGetRequestConfiguration} from './schema
 import {SchemaExtensionItemRequestBuilderPatchRequestConfiguration} from './schemaExtensionItemRequestBuilderPatchRequestConfiguration';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of schemaExtension entities.  */
+/** Provides operations to manage the collection of schemaExtension entities. */
 export class SchemaExtensionItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new SchemaExtensionItemRequestBuilder and sets the default values.
@@ -30,7 +30,7 @@ export class SchemaExtensionItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from schemaExtensions
+     * Delete schemaExtension
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
@@ -83,7 +83,7 @@ export class SchemaExtensionItemRequestBuilder {
         return requestInfo;
     };
     /**
-     * Delete entity from schemaExtensions
+     * Delete schemaExtension
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
@@ -119,7 +119,7 @@ export class SchemaExtensionItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: SchemaExtensionImpl | undefined, requestConfiguration?: SchemaExtensionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: SchemaExtension | undefined, requestConfiguration?: SchemaExtensionItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

@@ -12,25 +12,25 @@ import {CatalogRequestBuilder} from './catalog/catalogRequestBuilder';
 import {GetApplicablePolicyRequirementsRequestBuilder} from './getApplicablePolicyRequirements/getApplicablePolicyRequirementsRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity.  */
+/** Provides operations to manage the accessPackages property of the microsoft.graph.accessPackageCatalog entity. */
 export class AccessPackageItemRequestBuilder {
-    /** The assignmentPolicies property  */
+    /** The assignmentPolicies property */
     public get assignmentPolicies(): AssignmentPoliciesRequestBuilder {
         return new AssignmentPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The catalog property  */
+    /** The catalog property */
     public get catalog(): CatalogRequestBuilder {
         return new CatalogRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getApplicablePolicyRequirements property  */
+    /** The getApplicablePolicyRequirements property */
     public get getApplicablePolicyRequirements(): GetApplicablePolicyRequirementsRequestBuilder {
         return new GetApplicablePolicyRequirementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.identityGovernance.entitlementManagement.catalogs.item.accessPackages.item.assignmentPolicies.item collection
@@ -146,7 +146,7 @@ export class AccessPackageItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: AccessPackageImpl | undefined, requestConfiguration?: AccessPackageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: AccessPackage | undefined, requestConfiguration?: AccessPackageItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

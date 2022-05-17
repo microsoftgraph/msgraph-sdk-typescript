@@ -4,7 +4,7 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AuthenticationMethodConfigurationImpl extends EntityImpl implements AuthenticationMethodConfiguration, Parsable {
-    /** The state of the policy. Possible values are: enabled, disabled.  */
+    /** The state of the policy. Possible values are: enabled, disabled. */
     state?: AuthenticationMethodState | undefined;
     /**
      * Instantiates a new authenticationMethodConfiguration and sets the default values.

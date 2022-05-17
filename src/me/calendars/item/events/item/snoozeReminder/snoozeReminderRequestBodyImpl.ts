@@ -4,11 +4,11 @@ import {DateTimeTimeZone} from '../../../../../../models/dateTimeTimeZone';
 import {SnoozeReminderRequestBody} from './snoozeReminderRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the snoozeReminder method.  */
+/** Provides operations to call the snoozeReminder method. */
 export class SnoozeReminderRequestBodyImpl implements AdditionalDataHolder, Parsable, SnoozeReminderRequestBody {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The NewReminderTime property  */
+    /** The NewReminderTime property */
     newReminderTime?: DateTimeTimeZone | undefined;
     /**
      * Instantiates a new snoozeReminderRequestBody and sets the default values.

@@ -3,13 +3,13 @@ import {ManagedAppOperation} from './managedAppOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ManagedAppOperationImpl extends EntityImpl implements ManagedAppOperation, Parsable {
-    /** The operation name.  */
+    /** The operation name. */
     displayName?: string | undefined;
-    /** The last time the app operation was modified.  */
+    /** The last time the app operation was modified. */
     lastModifiedDateTime?: Date | undefined;
-    /** The current state of the operation  */
+    /** The current state of the operation */
     state?: string | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     version?: string | undefined;
     /**
      * Instantiates a new managedAppOperation and sets the default values.

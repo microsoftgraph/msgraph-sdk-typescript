@@ -2,9 +2,9 @@ import {SearchQuery} from './searchQuery';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchQueryImpl implements AdditionalDataHolder, Parsable, SearchQuery {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The search query containing the search terms. Required.  */
+    /** The search query containing the search terms. Required. */
     queryString?: string | undefined;
     /**
      * Instantiates a new searchQuery and sets the default values.

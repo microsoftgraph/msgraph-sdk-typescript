@@ -3,9 +3,9 @@ import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceManagementTroubleshootingEventImpl extends EntityImpl implements DeviceManagementTroubleshootingEvent, Parsable {
-    /** Id used for tracing the failure in the service.  */
+    /** Id used for tracing the failure in the service. */
     correlationId?: string | undefined;
-    /** Time when the event occurred .  */
+    /** Time when the event occurred . */
     eventDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.

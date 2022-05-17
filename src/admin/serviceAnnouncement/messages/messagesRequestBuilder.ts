@@ -16,41 +16,41 @@ import {UnarchiveRequestBuilder} from './unarchive/unarchiveRequestBuilder';
 import {UnfavoriteRequestBuilder} from './unfavorite/unfavoriteRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity.  */
+/** Provides operations to manage the messages property of the microsoft.graph.serviceAnnouncement entity. */
 export class MessagesRequestBuilder {
-    /** The archive property  */
+    /** The archive property */
     public get archive(): ArchiveRequestBuilder {
         return new ArchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The count property  */
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The favorite property  */
+    /** The favorite property */
     public get favorite(): FavoriteRequestBuilder {
         return new FavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The markRead property  */
+    /** The markRead property */
     public get markRead(): MarkReadRequestBuilder {
         return new MarkReadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The markUnread property  */
+    /** The markUnread property */
     public get markUnread(): MarkUnreadRequestBuilder {
         return new MarkUnreadRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The unarchive property  */
+    /** The unarchive property */
     public get unarchive(): UnarchiveRequestBuilder {
         return new UnarchiveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unfavorite property  */
+    /** The unfavorite property */
     public get unfavorite(): UnfavoriteRequestBuilder {
         return new UnfavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new MessagesRequestBuilder and sets the default values.

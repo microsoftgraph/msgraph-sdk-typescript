@@ -7,11 +7,11 @@ import {SharePointIdentitySet} from './sharePointIdentitySet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharePointIdentitySetImpl extends IdentitySetImpl implements Parsable, SharePointIdentitySet {
-    /** The group associated with this action. Optional.  */
+    /** The group associated with this action. Optional. */
     group?: Identity | undefined;
-    /** The SharePoint group associated with this action. Optional.  */
+    /** The SharePoint group associated with this action. Optional. */
     siteGroup?: SharePointIdentity | undefined;
-    /** The SharePoint user associated with this action. Optional.  */
+    /** The SharePoint user associated with this action. Optional. */
     siteUser?: SharePointIdentity | undefined;
     /**
      * Instantiates a new sharePointIdentitySet and sets the default values.

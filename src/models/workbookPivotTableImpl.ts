@@ -5,9 +5,9 @@ import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookPivotTableImpl extends EntityImpl implements Parsable, WorkbookPivotTable {
-    /** Name of the PivotTable.  */
+    /** Name of the PivotTable. */
     name?: string | undefined;
-    /** The worksheet containing the current PivotTable. Read-only.  */
+    /** The worksheet containing the current PivotTable. Read-only. */
     worksheet?: WorkbookWorksheet | undefined;
     /**
      * Instantiates a new workbookPivotTable and sets the default values.

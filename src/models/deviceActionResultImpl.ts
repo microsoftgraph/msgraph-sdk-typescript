@@ -2,17 +2,17 @@ import {ActionState} from './actionState';
 import {DeviceActionResult} from './deviceActionResult';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device action result  */
+/** Device action result */
 export class DeviceActionResultImpl implements AdditionalDataHolder, DeviceActionResult, Parsable {
-    /** Action name  */
+    /** Action name */
     actionName?: string | undefined;
-    /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported.  */
+    /** State of the action. Possible values are: none, pending, canceled, active, done, failed, notSupported. */
     actionState?: ActionState | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Time the action state was last updated  */
+    /** Time the action state was last updated */
     lastUpdatedDateTime?: Date | undefined;
-    /** Time the action was initiated  */
+    /** Time the action was initiated */
     startDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceActionResult and sets the default values.

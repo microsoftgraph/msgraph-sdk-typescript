@@ -1,7 +1,7 @@
 
 export interface StoragePlanInformation{
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Indicates if there are higher storage quota plans available. Read-only.  */
+    /** Indicates if there are higher storage quota plans available. Read-only. */
     upgradeAvailable?: boolean | undefined;
 }

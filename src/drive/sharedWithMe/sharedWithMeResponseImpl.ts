@@ -4,11 +4,11 @@ import {DriveItem} from '../../models/driveItem';
 import {SharedWithMeResponse} from './sharedWithMeResponse';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the sharedWithMe method.  */
+/** Provides operations to call the sharedWithMe method. */
 export class SharedWithMeResponseImpl implements AdditionalDataHolder, Parsable, SharedWithMeResponse {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The value property  */
+    /** The value property */
     value?: DriveItem[] | undefined;
     /**
      * Instantiates a new sharedWithMeResponse and sets the default values.

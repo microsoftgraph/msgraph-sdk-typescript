@@ -1,11 +1,11 @@
 import {MarkUnreadRequestBody} from './markUnreadRequestBody';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the markUnread method.  */
+/** Provides operations to call the markUnread method. */
 export class MarkUnreadRequestBodyImpl implements AdditionalDataHolder, MarkUnreadRequestBody, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The messageIds property  */
+    /** The messageIds property */
     messageIds?: string[] | undefined;
     /**
      * Instantiates a new markUnreadRequestBody and sets the default values.

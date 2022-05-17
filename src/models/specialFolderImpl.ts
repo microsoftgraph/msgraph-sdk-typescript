@@ -2,9 +2,9 @@ import {SpecialFolder} from './specialFolder';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SpecialFolderImpl implements AdditionalDataHolder, Parsable, SpecialFolder {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The unique identifier for this item in the /drive/special collection  */
+    /** The unique identifier for this item in the /drive/special collection */
     name?: string | undefined;
     /**
      * Instantiates a new specialFolder and sets the default values.

@@ -7,11 +7,11 @@ import {SolutionsRoot} from './solutionsRoot';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SolutionsRootImpl implements AdditionalDataHolder, Parsable, SolutionsRoot {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** The bookingBusinesses property  */
+    /** The bookingBusinesses property */
     bookingBusinesses?: BookingBusiness[] | undefined;
-    /** The bookingCurrencies property  */
+    /** The bookingCurrencies property */
     bookingCurrencies?: BookingCurrency[] | undefined;
     /**
      * Instantiates a new SolutionsRoot and sets the default values.

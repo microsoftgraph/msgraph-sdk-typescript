@@ -27,77 +27,77 @@ import {UnmuteRequestBuilder} from './unmute/unmuteRequestBuilder';
 import {UpdateRecordingStatusRequestBuilder} from './updateRecordingStatus/updateRecordingStatusRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity.  */
+/** Provides operations to manage the calls property of the microsoft.graph.cloudCommunications entity. */
 export class CallItemRequestBuilder {
-    /** The answer property  */
+    /** The answer property */
     public get answer(): AnswerRequestBuilder {
         return new AnswerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The audioRoutingGroups property  */
+    /** The audioRoutingGroups property */
     public get audioRoutingGroups(): AudioRoutingGroupsRequestBuilder {
         return new AudioRoutingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The cancelMediaProcessing property  */
+    /** The cancelMediaProcessing property */
     public get cancelMediaProcessing(): CancelMediaProcessingRequestBuilder {
         return new CancelMediaProcessingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The changeScreenSharingRole property  */
+    /** The changeScreenSharingRole property */
     public get changeScreenSharingRole(): ChangeScreenSharingRoleRequestBuilder {
         return new ChangeScreenSharingRoleRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The keepAlive property  */
+    /** The keepAlive property */
     public get keepAlive(): KeepAliveRequestBuilder {
         return new KeepAliveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The mute property  */
+    /** The mute property */
     public get mute(): MuteRequestBuilder {
         return new MuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The operations property  */
+    /** The operations property */
     public get operations(): OperationsRequestBuilder {
         return new OperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The participants property  */
+    /** The participants property */
     public get participants(): ParticipantsRequestBuilder {
         return new ParticipantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The playPrompt property  */
+    /** The playPrompt property */
     public get playPrompt(): PlayPromptRequestBuilder {
         return new PlayPromptRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The recordResponse property  */
+    /** The recordResponse property */
     public get recordResponse(): RecordResponseRequestBuilder {
         return new RecordResponseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The redirect property  */
+    /** The redirect property */
     public get redirect(): RedirectRequestBuilder {
         return new RedirectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The reject property  */
+    /** The reject property */
     public get reject(): RejectRequestBuilder {
         return new RejectRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The subscribeToTone property  */
+    /** The subscribeToTone property */
     public get subscribeToTone(): SubscribeToToneRequestBuilder {
         return new SubscribeToToneRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transfer property  */
+    /** The transfer property */
     public get transfer(): TransferRequestBuilder {
         return new TransferRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unmute property  */
+    /** The unmute property */
     public get unmute(): UnmuteRequestBuilder {
         return new UnmuteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The updateRecordingStatus property  */
+    /** The updateRecordingStatus property */
     public get updateRecordingStatus(): UpdateRecordingStatusRequestBuilder {
         return new UpdateRecordingStatusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the MicrosoftGraph.communications.calls.item.audioRoutingGroups.item collection
@@ -235,7 +235,7 @@ export class CallItemRequestBuilder {
      * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: CallImpl | undefined, requestConfiguration?: CallItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Call | undefined, requestConfiguration?: CallItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
             body, requestConfiguration

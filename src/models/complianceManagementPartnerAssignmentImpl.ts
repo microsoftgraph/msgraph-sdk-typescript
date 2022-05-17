@@ -4,11 +4,11 @@ import {DeviceAndAppManagementAssignmentTarget} from './deviceAndAppManagementAs
 import {DeviceAndAppManagementAssignmentTargetImpl} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** User group targeting for Compliance Management Partner  */
+/** User group targeting for Compliance Management Partner */
 export class ComplianceManagementPartnerAssignmentImpl implements AdditionalDataHolder, ComplianceManagementPartnerAssignment, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     additionalData: Record<string, unknown>;
-    /** Group assignment target.  */
+    /** Group assignment target. */
     target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new complianceManagementPartnerAssignment and sets the default values.

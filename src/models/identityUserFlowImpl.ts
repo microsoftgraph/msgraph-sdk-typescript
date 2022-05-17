@@ -4,9 +4,9 @@ import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityUserFlowImpl extends EntityImpl implements IdentityUserFlow, Parsable {
-    /** The userFlowType property  */
+    /** The userFlowType property */
     userFlowType?: UserFlowType | undefined;
-    /** The userFlowTypeVersion property  */
+    /** The userFlowTypeVersion property */
     userFlowTypeVersion?: number | undefined;
     /**
      * Instantiates a new identityUserFlow and sets the default values.
