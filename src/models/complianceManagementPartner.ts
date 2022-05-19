@@ -3,24 +3,25 @@ import {DeviceManagementPartnerTenantState} from './deviceManagementPartnerTenan
 import {ComplianceManagementPartnerAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Compliance management partner for all platforms */
 export class ComplianceManagementPartner extends Entity implements Parsable {
-    /** User groups which enroll Android devices through partner.  */
+    /** User groups which enroll Android devices through partner. */
     private _androidEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
-    /** Partner onboarded for Android devices.  */
+    /** Partner onboarded for Android devices. */
     private _androidOnboarded?: boolean | undefined;
-    /** Partner display name  */
+    /** Partner display name */
     private _displayName?: string | undefined;
-    /** User groups which enroll ios devices through partner.  */
+    /** User groups which enroll ios devices through partner. */
     private _iosEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
-    /** Partner onboarded for ios devices.  */
+    /** Partner onboarded for ios devices. */
     private _iosOnboarded?: boolean | undefined;
-    /** Timestamp of last heartbeat after admin onboarded to the compliance management partner  */
+    /** Timestamp of last heartbeat after admin onboarded to the compliance management partner */
     private _lastHeartbeatDateTime?: Date | undefined;
-    /** User groups which enroll Mac devices through partner.  */
+    /** User groups which enroll Mac devices through partner. */
     private _macOsEnrollmentAssignments?: ComplianceManagementPartnerAssignment[] | undefined;
-    /** Partner onboarded for Mac devices.  */
+    /** Partner onboarded for Mac devices. */
     private _macOsOnboarded?: boolean | undefined;
-    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive.  */
+    /** Partner state of this tenant. Possible values are: unknown, unavailable, enabled, terminated, rejected, unresponsive. */
     private _partnerState?: DeviceManagementPartnerTenantState | undefined;
     /**
      * Gets the androidEnrollmentAssignments property value. User groups which enroll Android devices through partner.

@@ -1,9 +1,9 @@
 
-/** The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action.  */
+/** The list of scheduled action configurations for this compliance policy. Compliance policy must have one and only one block scheduled action. */
 export class DeviceComplianceActionItemItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

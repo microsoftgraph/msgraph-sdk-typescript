@@ -3,11 +3,11 @@ import {ExternalLink} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RecentNotebookLinks implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Opens the notebook in the OneNote native client if it's installed.  */
+    /** Opens the notebook in the OneNote client, if it's installed. */
     private _oneNoteClientUrl?: ExternalLink | undefined;
-    /** Opens the notebook in OneNote on the web.  */
+    /** Opens the notebook in OneNote on the web. */
     private _oneNoteWebUrl?: ExternalLink | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -40,14 +40,14 @@ export class RecentNotebookLinks implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the oneNoteClientUrl property value. Opens the notebook in the OneNote native client if it's installed.
+     * Gets the oneNoteClientUrl property value. Opens the notebook in the OneNote client, if it's installed.
      * @returns a externalLink
      */
     public get oneNoteClientUrl() {
         return this._oneNoteClientUrl;
     };
     /**
-     * Sets the oneNoteClientUrl property value. Opens the notebook in the OneNote native client if it's installed.
+     * Sets the oneNoteClientUrl property value. Opens the notebook in the OneNote client, if it's installed.
      * @param value Value to set for the oneNoteClientUrl property.
      */
     public set oneNoteClientUrl(value: ExternalLink | undefined) {

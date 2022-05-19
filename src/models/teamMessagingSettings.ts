@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamMessagingSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If set to true, @channel mentions are allowed.  */
+    /** If set to true, @channel mentions are allowed. */
     private _allowChannelMentions?: boolean | undefined;
-    /** If set to true, owners can delete any message.  */
+    /** If set to true, owners can delete any message. */
     private _allowOwnerDeleteMessages?: boolean | undefined;
-    /** If set to true, @team mentions are allowed.  */
+    /** If set to true, @team mentions are allowed. */
     private _allowTeamMentions?: boolean | undefined;
-    /** If set to true, users can delete their messages.  */
+    /** If set to true, users can delete their messages. */
     private _allowUserDeleteMessages?: boolean | undefined;
-    /** If set to true, users can edit their messages.  */
+    /** If set to true, users can edit their messages. */
     private _allowUserEditMessages?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

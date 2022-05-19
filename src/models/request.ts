@@ -2,18 +2,19 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class Request extends Entity implements Parsable {
-    /** The identifier of the approval of the request.  */
+    /** The identifier of the approval of the request. */
     private _approvalId?: string | undefined;
-    /** The request completion date time.  */
+    /** The request completion date time. */
     private _completedDateTime?: Date | undefined;
-    /** The user who created this request.  */
+    /** The user who created this request. */
     private _createdBy?: IdentitySet | undefined;
-    /** The request creation date time.  */
+    /** The request creation date time. */
     private _createdDateTime?: Date | undefined;
-    /** Free text field to define any custom data for the request. Not used.  */
+    /** Free text field to define any custom data for the request. Not used. */
     private _customData?: string | undefined;
-    /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable.  */
+    /** The status of the request. Not nullable. The possible values are: Canceled, Denied, Failed, Granted, PendingAdminDecision, PendingApproval, PendingProvisioning, PendingScheduleCreation, Provisioned, Revoked, and ScheduleCreated. Not nullable. */
     private _status?: string | undefined;
     /**
      * Gets the approvalId property value. The identifier of the approval of the request.

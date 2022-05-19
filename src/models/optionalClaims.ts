@@ -3,13 +3,13 @@ import {OptionalClaim} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OptionalClaims implements AdditionalDataHolder, Parsable {
-    /** The optional claims returned in the JWT access token.  */
+    /** The optional claims returned in the JWT access token. */
     private _accessToken?: OptionalClaim[] | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The optional claims returned in the JWT ID token.  */
+    /** The optional claims returned in the JWT ID token. */
     private _idToken?: OptionalClaim[] | undefined;
-    /** The optional claims returned in the SAML token.  */
+    /** The optional claims returned in the SAML token. */
     private _saml2Token?: OptionalClaim[] | undefined;
     /**
      * Gets the accessToken property value. The optional claims returned in the JWT access token.

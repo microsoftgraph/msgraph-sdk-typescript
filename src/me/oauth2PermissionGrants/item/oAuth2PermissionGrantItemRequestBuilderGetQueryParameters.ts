@@ -1,9 +1,9 @@
 
-/** Get oauth2PermissionGrants from me  */
+/** Get oauth2PermissionGrants from me */
 export class OAuth2PermissionGrantItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

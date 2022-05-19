@@ -2,8 +2,9 @@ import {createWorkbookFilterCriteriaFromDiscriminatorValue} from './createWorkbo
 import {Entity, WorkbookFilterCriteria} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookFilter extends Entity implements Parsable {
-    /** The currently applied filter on the given column. Read-only.  */
+    /** The currently applied filter on the given column. Read-only. */
     private _criteria?: WorkbookFilterCriteria | undefined;
     /**
      * Instantiates a new workbookFilter and sets the default values.

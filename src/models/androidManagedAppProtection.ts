@@ -3,26 +3,27 @@ import {createManagedMobileAppFromDiscriminatorValue} from './createManagedMobil
 import {ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppProtection} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Policy used to configure detailed management settings targeted to specific security groups and for a specified set of apps on an Android device */
 export class AndroidManagedAppProtection extends TargetedManagedAppProtection implements Parsable {
-    /** List of apps to which the policy is deployed.  */
+    /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
-    /** Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.  */
+    /** Friendly name of the preferred custom browser to open weblink on Android. */
     private _customBrowserDisplayName?: string | undefined;
-    /** Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.  */
+    /** Unique identifier of a custom browser to open weblink on Android. */
     private _customBrowserPackageId?: string | undefined;
-    /** Count of apps to which the current policy is deployed.  */
+    /** Count of apps to which the current policy is deployed. */
     private _deployedAppCount?: number | undefined;
-    /** Navigation property to deployment summary of the configuration.  */
+    /** Navigation property to deployment summary of the configuration. */
     private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
-    /** When this setting is enabled, app level encryption is disabled if device level encryption is enabled  */
+    /** When this setting is enabled, app level encryption is disabled if device level encryption is enabled */
     private _disableAppEncryptionIfDeviceEncryptionIsEnabled?: boolean | undefined;
-    /** Indicates whether application data for managed apps should be encrypted  */
+    /** Indicates whether application data for managed apps should be encrypted */
     private _encryptAppData?: boolean | undefined;
-    /** Define the oldest required Android security patch level a user can have to gain secure access to the app.  */
+    /** Define the oldest required Android security patch level a user can have to gain secure access to the app. */
     private _minimumRequiredPatchVersion?: string | undefined;
-    /** Define the oldest recommended Android security patch level a user can have for secure access to the app.  */
+    /** Define the oldest recommended Android security patch level a user can have for secure access to the app. */
     private _minimumWarningPatchVersion?: string | undefined;
-    /** Indicates whether a managed user can take screen captures of managed apps  */
+    /** Indicates whether a managed user can take screen captures of managed apps */
     private _screenCaptureBlocked?: boolean | undefined;
     /**
      * Gets the apps property value. List of apps to which the policy is deployed.
@@ -45,28 +46,28 @@ export class AndroidManagedAppProtection extends TargetedManagedAppProtection im
         super();
     };
     /**
-     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      * @returns a string
      */
     public get customBrowserDisplayName() {
         return this._customBrowserDisplayName;
     };
     /**
-     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserDisplayName property value. Friendly name of the preferred custom browser to open weblink on Android.
      * @param value Value to set for the customBrowserDisplayName property.
      */
     public set customBrowserDisplayName(value: string | undefined) {
         this._customBrowserDisplayName = value;
     };
     /**
-     * Gets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Gets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      * @returns a string
      */
     public get customBrowserPackageId() {
         return this._customBrowserPackageId;
     };
     /**
-     * Sets the customBrowserPackageId property value. Unique identifier of the preferred custom browser to open weblink on Android. When this property is configured, ManagedBrowserToOpenLinksRequired should be true.
+     * Sets the customBrowserPackageId property value. Unique identifier of a custom browser to open weblink on Android.
      * @param value Value to set for the customBrowserPackageId property.
      */
     public set customBrowserPackageId(value: string | undefined) {

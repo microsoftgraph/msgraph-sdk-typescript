@@ -1,7 +1,7 @@
 
-/** The instances of times off in the schedule.  */
+/** The instances of times off in the schedule. */
 export class TimeOffItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

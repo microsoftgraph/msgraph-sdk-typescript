@@ -4,23 +4,23 @@ import {Json, WorkbookIcon} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookFilterCriteria implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The color property  */
+    /** The color property */
     private _color?: string | undefined;
-    /** The criterion1 property  */
+    /** The criterion1 property */
     private _criterion1?: string | undefined;
-    /** The criterion2 property  */
+    /** The criterion2 property */
     private _criterion2?: string | undefined;
-    /** The dynamicCriteria property  */
+    /** The dynamicCriteria property */
     private _dynamicCriteria?: string | undefined;
-    /** The filterOn property  */
+    /** The filterOn property */
     private _filterOn?: string | undefined;
-    /** The icon property  */
+    /** The icon property */
     private _icon?: WorkbookIcon | undefined;
-    /** The operator property  */
+    /** The operator property */
     private _operator?: string | undefined;
-    /** The values property  */
+    /** The values property */
     private _values?: Json | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

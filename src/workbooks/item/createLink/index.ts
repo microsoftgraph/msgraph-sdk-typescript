@@ -1,1 +1,1 @@
-export * from './createLinkRequestBody'
+export * from './createLinkPostRequestBody'

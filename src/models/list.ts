@@ -10,26 +10,27 @@ import {createSystemFacetFromDiscriminatorValue} from './createSystemFacetFromDi
 import {BaseItem, ColumnDefinition, ContentType, Drive, ListInfo, ListItem, RichLongRunningOperation, SharepointIds, Subscription, SystemFacet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class List extends BaseItem implements Parsable {
-    /** The collection of field definitions for this list.  */
+    /** The collection of field definitions for this list. */
     private _columns?: ColumnDefinition[] | undefined;
-    /** The collection of content types present in this list.  */
+    /** The collection of content types present in this list. */
     private _contentTypes?: ContentType[] | undefined;
-    /** The displayable title of the list.  */
+    /** The displayable title of the list. */
     private _displayName?: string | undefined;
-    /** Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem].  */
+    /** Only present on document libraries. Allows access to the list as a [drive][] resource with [driveItems][driveItem]. */
     private _drive?: Drive | undefined;
-    /** All items contained in the list.  */
+    /** All items contained in the list. */
     private _items?: ListItem[] | undefined;
-    /** Provides additional details about the list.  */
+    /** Provides additional details about the list. */
     private _list?: ListInfo | undefined;
-    /** The collection of long running operations for the list.  */
+    /** The collection of long running operations for the list. */
     private _operations?: RichLongRunningOperation[] | undefined;
-    /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
+    /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
-    /** The set of subscriptions on the list.  */
+    /** The set of subscriptions on the list. */
     private _subscriptions?: Subscription[] | undefined;
-    /** If present, indicates that this is a system-managed list. Read-only.  */
+    /** If present, indicates that this is a system-managed list. Read-only. */
     private _system?: SystemFacet | undefined;
     /**
      * Gets the columns property value. The collection of field definitions for this list.

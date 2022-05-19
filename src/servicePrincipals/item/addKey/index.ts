@@ -1,1 +1,1 @@
-export * from './keyCredentialRequestBody'
+export * from './keyCredentialPostRequestBody'

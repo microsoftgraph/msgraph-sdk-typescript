@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UserAttributeValuesItem implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Determines whether the value is set as the default.  */
+    /** Used to set the value as the default. */
     private _isDefault?: boolean | undefined;
-    /** The display name of the property displayed to the user in the user flow.  */
+    /** The display name of the property displayed to the end user in the user flow. */
     private _name?: string | undefined;
-    /** The value that is set when this item is selected.  */
+    /** The value that is set when this item is selected. */
     private _value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -41,28 +41,28 @@ export class UserAttributeValuesItem implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the isDefault property value. Determines whether the value is set as the default.
+     * Gets the isDefault property value. Used to set the value as the default.
      * @returns a boolean
      */
     public get isDefault() {
         return this._isDefault;
     };
     /**
-     * Sets the isDefault property value. Determines whether the value is set as the default.
+     * Sets the isDefault property value. Used to set the value as the default.
      * @param value Value to set for the isDefault property.
      */
     public set isDefault(value: boolean | undefined) {
         this._isDefault = value;
     };
     /**
-     * Gets the name property value. The display name of the property displayed to the user in the user flow.
+     * Gets the name property value. The display name of the property displayed to the end user in the user flow.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. The display name of the property displayed to the user in the user flow.
+     * Sets the name property value. The display name of the property displayed to the end user in the user flow.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {

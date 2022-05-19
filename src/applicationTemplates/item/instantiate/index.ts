@@ -1,1 +1,1 @@
-export * from './instantiateRequestBody'
+export * from './instantiatePostRequestBody'

@@ -6,24 +6,25 @@ import {createPrintJobFromDiscriminatorValue} from './createPrintJobFromDiscrimi
 import {Entity, PrinterCapabilities, PrinterDefaults, PrinterLocation, PrinterStatus, PrintJob} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrinterBase extends Entity implements Parsable {
-    /** The capabilities of the printer/printerShare.  */
+    /** The capabilities of the printer/printerShare. */
     private _capabilities?: PrinterCapabilities | undefined;
-    /** The default print settings of printer/printerShare.  */
+    /** The default print settings of printer/printerShare. */
     private _defaults?: PrinterDefaults | undefined;
-    /** The name of the printer/printerShare.  */
+    /** The name of the printer/printerShare. */
     private _displayName?: string | undefined;
-    /** Whether the printer/printerShare is currently accepting new print jobs.  */
+    /** Whether the printer/printerShare is currently accepting new print jobs. */
     private _isAcceptingJobs?: boolean | undefined;
-    /** The list of jobs that are queued for printing by the printer/printerShare.  */
+    /** The list of jobs that are queued for printing by the printer/printerShare. */
     private _jobs?: PrintJob[] | undefined;
-    /** The physical and/or organizational location of the printer/printerShare.  */
+    /** The physical and/or organizational location of the printer/printerShare. */
     private _location?: PrinterLocation | undefined;
-    /** The manufacturer of the printer/printerShare.  */
+    /** The manufacturer of the printer/printerShare. */
     private _manufacturer?: string | undefined;
-    /** The model name of the printer/printerShare.  */
+    /** The model name of the printer/printerShare. */
     private _model?: string | undefined;
-    /** The status property  */
+    /** The status property */
     private _status?: PrinterStatus | undefined;
     /**
      * Gets the capabilities property value. The capabilities of the printer/printerShare.

@@ -1,9 +1,9 @@
 
-/** The set of permissions for the item. Read-only. Nullable.  */
+/** The set of permissions for the item. Read-only. Nullable. */
 export class PermissionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

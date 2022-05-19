@@ -110,283 +110,283 @@ import {enableBackingStoreForSerializationWriterFactory, getPathParameters, Pars
 import {JsonParseNodeFactory, JsonSerializationWriterFactory} from '@microsoft/kiota-serialization-json';
 import {TextParseNodeFactory, TextSerializationWriterFactory} from '@microsoft/kiota-serialization-text';
 
-/** The main entry point of the SDK, exposes the configuration and the fluent API.  */
+/** The main entry point of the SDK, exposes the configuration and the fluent API. */
 export class GraphBaseServiceClient {
-    /** The admin property  */
+    /** The admin property */
     public get admin(): AdminRequestBuilder {
         return new AdminRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The agreementAcceptances property  */
+    /** The agreementAcceptances property */
     public get agreementAcceptances(): AgreementAcceptancesRequestBuilder {
         return new AgreementAcceptancesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The agreements property  */
+    /** The agreements property */
     public get agreements(): AgreementsRequestBuilder {
         return new AgreementsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appCatalogs property  */
+    /** The appCatalogs property */
     public get appCatalogs(): AppCatalogsRequestBuilder {
         return new AppCatalogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The applications property  */
+    /** The applications property */
     public get applications(): ApplicationsRequestBuilder {
         return new ApplicationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The applicationTemplates property  */
+    /** The applicationTemplates property */
     public get applicationTemplates(): ApplicationTemplatesRequestBuilder {
         return new ApplicationTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The auditLogs property  */
+    /** The auditLogs property */
     public get auditLogs(): AuditLogsRequestBuilder {
         return new AuditLogsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The authenticationMethodConfigurations property  */
+    /** The authenticationMethodConfigurations property */
     public get authenticationMethodConfigurations(): AuthenticationMethodConfigurationsRequestBuilder {
         return new AuthenticationMethodConfigurationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The authenticationMethodsPolicy property  */
+    /** The authenticationMethodsPolicy property */
     public get authenticationMethodsPolicy(): AuthenticationMethodsPolicyRequestBuilder {
         return new AuthenticationMethodsPolicyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The branding property  */
+    /** The branding property */
     public get branding(): BrandingRequestBuilder {
         return new BrandingRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The certificateBasedAuthConfiguration property  */
+    /** The certificateBasedAuthConfiguration property */
     public get certificateBasedAuthConfiguration(): CertificateBasedAuthConfigurationRequestBuilder {
         return new CertificateBasedAuthConfigurationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The chats property  */
+    /** The chats property */
     public get chats(): ChatsRequestBuilder {
         return new ChatsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The communications property  */
+    /** The communications property */
     public get communications(): CommunicationsRequestBuilder {
         return new CommunicationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The compliance property  */
+    /** The compliance property */
     public get compliance(): ComplianceRequestBuilder {
         return new ComplianceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The connections property  */
+    /** The connections property */
     public get connections(): ConnectionsRequestBuilder {
         return new ConnectionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contacts property  */
+    /** The contacts property */
     public get contacts(): ContactsRequestBuilder {
         return new ContactsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The contracts property  */
+    /** The contracts property */
     public get contracts(): ContractsRequestBuilder {
         return new ContractsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The dataPolicyOperations property  */
+    /** The dataPolicyOperations property */
     public get dataPolicyOperations(): DataPolicyOperationsRequestBuilder {
         return new DataPolicyOperationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceAppManagement property  */
+    /** The deviceAppManagement property */
     public get deviceAppManagement(): DeviceAppManagementRequestBuilder {
         return new DeviceAppManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The deviceManagement property  */
+    /** The deviceManagement property */
     public get deviceManagement(): DeviceManagementRequestBuilder {
         return new DeviceManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The devices property  */
+    /** The devices property */
     public get devices(): DevicesRequestBuilder {
         return new DevicesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directory property  */
+    /** The directory property */
     public get directory(): DirectoryRequestBuilder {
         return new DirectoryRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directoryObjects property  */
+    /** The directoryObjects property */
     public get directoryObjects(): DirectoryObjectsRequestBuilder {
         return new DirectoryObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directoryRoles property  */
+    /** The directoryRoles property */
     public get directoryRoles(): DirectoryRolesRequestBuilder {
         return new DirectoryRolesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The directoryRoleTemplates property  */
+    /** The directoryRoleTemplates property */
     public get directoryRoleTemplates(): DirectoryRoleTemplatesRequestBuilder {
         return new DirectoryRoleTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The domainDnsRecords property  */
+    /** The domainDnsRecords property */
     public get domainDnsRecords(): DomainDnsRecordsRequestBuilder {
         return new DomainDnsRecordsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The domains property  */
+    /** The domains property */
     public get domains(): DomainsRequestBuilder {
         return new DomainsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drive property  */
+    /** The drive property */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drives property  */
+    /** The drives property */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The education property  */
+    /** The education property */
     public get education(): EducationRequestBuilder {
         return new EducationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The external property  */
+    /** The external property */
     public get external(): ExternalRequestBuilder {
         return new ExternalRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The groupLifecyclePolicies property  */
+    /** The groupLifecyclePolicies property */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The groups property  */
+    /** The groups property */
     public get groups(): GroupsRequestBuilder {
         return new GroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The groupSettings property  */
+    /** The groupSettings property */
     public get groupSettings(): GroupSettingsRequestBuilder {
         return new GroupSettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The groupSettingTemplates property  */
+    /** The groupSettingTemplates property */
     public get groupSettingTemplates(): GroupSettingTemplatesRequestBuilder {
         return new GroupSettingTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The identity property  */
+    /** The identity property */
     public get identity(): IdentityRequestBuilder {
         return new IdentityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The identityGovernance property  */
+    /** The identityGovernance property */
     public get identityGovernance(): IdentityGovernanceRequestBuilder {
         return new IdentityGovernanceRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The identityProtection property  */
+    /** The identityProtection property */
     public get identityProtection(): IdentityProtectionRequestBuilder {
         return new IdentityProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The identityProviders property  */
+    /** The identityProviders property */
     public get identityProviders(): IdentityProvidersRequestBuilder {
         return new IdentityProvidersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The informationProtection property  */
+    /** The informationProtection property */
     public get informationProtection(): InformationProtectionRequestBuilder {
         return new InformationProtectionRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The invitations property  */
+    /** The invitations property */
     public get invitations(): InvitationsRequestBuilder {
         return new InvitationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The localizations property  */
+    /** The localizations property */
     public get localizations(): LocalizationsRequestBuilder {
         return new LocalizationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The me property  */
+    /** The me property */
     public get me(): MeRequestBuilder {
         return new MeRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The oauth2PermissionGrants property  */
+    /** The oauth2PermissionGrants property */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The organization property  */
+    /** The organization property */
     public get organization(): OrganizationRequestBuilder {
         return new OrganizationRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permissionGrants property  */
+    /** The permissionGrants property */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The places property  */
+    /** The places property */
     public get places(): PlacesRequestBuilder {
         return new PlacesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The planner property  */
+    /** The planner property */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The policies property  */
+    /** The policies property */
     public get policies(): PoliciesRequestBuilder {
         return new PoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The print property  */
+    /** The print property */
     public get print(): PrintRequestBuilder {
         return new PrintRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The privacy property  */
+    /** The privacy property */
     public get privacy(): PrivacyRequestBuilder {
         return new PrivacyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The reports property  */
+    /** The reports property */
     public get reports(): ReportsRequestBuilder {
         return new ReportsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The roleManagement property  */
+    /** The roleManagement property */
     public get roleManagement(): RoleManagementRequestBuilder {
         return new RoleManagementRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The schemaExtensions property  */
+    /** The schemaExtensions property */
     public get schemaExtensions(): SchemaExtensionsRequestBuilder {
         return new SchemaExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The scopedRoleMemberships property  */
+    /** The scopedRoleMemberships property */
     public get scopedRoleMemberships(): ScopedRoleMembershipsRequestBuilder {
         return new ScopedRoleMembershipsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The search property  */
+    /** The search property */
     public get search(): SearchRequestBuilder {
         return new SearchRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The security property  */
+    /** The security property */
     public get security(): SecurityRequestBuilder {
         return new SecurityRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The servicePrincipals property  */
+    /** The servicePrincipals property */
     public get servicePrincipals(): ServicePrincipalsRequestBuilder {
         return new ServicePrincipalsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shares property  */
+    /** The shares property */
     public get shares(): SharesRequestBuilder {
         return new SharesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sites property  */
+    /** The sites property */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The solutions property  */
+    /** The solutions property */
     public get solutions(): SolutionsRequestBuilder {
         return new SolutionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The subscribedSkus property  */
+    /** The subscribedSkus property */
     public get subscribedSkus(): SubscribedSkusRequestBuilder {
         return new SubscribedSkusRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The subscriptions property  */
+    /** The subscriptions property */
     public get subscriptions(): SubscriptionsRequestBuilder {
         return new SubscriptionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teams property  */
+    /** The teams property */
     public get teams(): TeamsRequestBuilder {
         return new TeamsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teamsTemplates property  */
+    /** The teamsTemplates property */
     public get teamsTemplates(): TeamsTemplatesRequestBuilder {
         return new TeamsTemplatesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The teamwork property  */
+    /** The teamwork property */
     public get teamwork(): TeamworkRequestBuilder {
         return new TeamworkRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The users property  */
+    /** The users property */
     public get users(): UsersRequestBuilder {
         return new UsersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The workbooks property  */
+    /** The workbooks property */
     public get workbooks(): WorkbooksRequestBuilder {
         return new WorkbooksRequestBuilder(this.pathParameters, this.requestAdapter);
     }

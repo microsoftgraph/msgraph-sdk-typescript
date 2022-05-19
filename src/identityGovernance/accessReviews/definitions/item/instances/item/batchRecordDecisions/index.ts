@@ -1,1 +1,1 @@
-export * from './batchRecordDecisionsRequestBody'
+export * from './batchRecordDecisionsPostRequestBody'

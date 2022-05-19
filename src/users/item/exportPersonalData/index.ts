@@ -1,1 +1,1 @@
-export * from './exportPersonalDataRequestBody'
+export * from './exportPersonalDataPostRequestBody'

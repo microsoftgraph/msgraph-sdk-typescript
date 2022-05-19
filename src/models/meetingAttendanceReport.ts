@@ -2,14 +2,15 @@ import {createAttendanceRecordFromDiscriminatorValue} from './createAttendanceRe
 import {AttendanceRecord, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class MeetingAttendanceReport extends Entity implements Parsable {
-    /** List of attendance records of an attendance report. Read-only.  */
+    /** List of attendance records of an attendance report. Read-only. */
     private _attendanceRecords?: AttendanceRecord[] | undefined;
-    /** UTC time when the meeting ended. Read-only.  */
+    /** UTC time when the meeting ended. Read-only. */
     private _meetingEndDateTime?: Date | undefined;
-    /** UTC time when the meeting started. Read-only.  */
+    /** UTC time when the meeting started. Read-only. */
     private _meetingStartDateTime?: Date | undefined;
-    /** Total number of participants. Read-only.  */
+    /** Total number of participants. Read-only. */
     private _totalParticipantCount?: number | undefined;
     /**
      * Gets the attendanceRecords property value. List of attendance records of an attendance report. Read-only.

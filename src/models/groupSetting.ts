@@ -2,12 +2,13 @@ import {createSettingValueFromDiscriminatorValue} from './createSettingValueFrom
 import {Entity, SettingValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class GroupSetting extends Entity implements Parsable {
-    /** Display name of this group of settings, which comes from the associated template.  */
+    /** Display name of this group of settings, which comes from the associated template. */
     private _displayName?: string | undefined;
-    /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only.  */
+    /** Unique identifier for the tenant-level groupSettingTemplates object that's been customized for this group-level settings object. Read-only. */
     private _templateId?: string | undefined;
-    /** Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object.  */
+    /** Collection of name-value pairs corresponding to the name and defaultValue properties in the referenced groupSettingTemplates object. */
     private _values?: SettingValue[] | undefined;
     /**
      * Instantiates a new groupSetting and sets the default values.

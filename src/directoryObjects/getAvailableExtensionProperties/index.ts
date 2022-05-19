@@ -1,2 +1,2 @@
-export * from './getAvailableExtensionPropertiesRequestBody'
 export * from './getAvailableExtensionPropertiesResponse'
+export * from './getAvailableExtensionPropertiesPostRequestBody'

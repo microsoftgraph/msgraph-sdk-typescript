@@ -2,8 +2,9 @@ import {createChatFromDiscriminatorValue} from './createChatFromDiscriminatorVal
 import {Chat, TeamsAppInstallation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class UserScopeTeamsAppInstallation extends TeamsAppInstallation implements Parsable {
-    /** The chat between the user and Teams app.  */
+    /** The chat between the user and Teams app. */
     private _chat?: Chat | undefined;
     /**
      * Gets the chat property value. The chat between the user and Teams app.

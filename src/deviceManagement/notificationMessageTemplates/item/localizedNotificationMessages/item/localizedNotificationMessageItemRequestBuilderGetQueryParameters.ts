@@ -1,9 +1,9 @@
 
-/** The list of localized messages for this Notification Message Template.  */
+/** The list of localized messages for this Notification Message Template. */
 export class LocalizedNotificationMessageItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

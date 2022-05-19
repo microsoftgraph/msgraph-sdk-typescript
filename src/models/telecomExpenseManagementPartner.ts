@@ -1,16 +1,17 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** telecomExpenseManagementPartner resources represent the metadata and status of a given TEM service. Once your organization has onboarded with a partner, the partner can be enabled or disabled to switch TEM functionality on or off. */
 export class TelecomExpenseManagementPartner extends Entity implements Parsable {
-    /** Whether the partner's AAD app has been authorized to access Intune.  */
+    /** Whether the partner's AAD app has been authorized to access Intune. */
     private _appAuthorized?: boolean | undefined;
-    /** Display name of the TEM partner.  */
+    /** Display name of the TEM partner. */
     private _displayName?: string | undefined;
-    /** Whether Intune's connection to the TEM service is currently enabled or disabled.  */
+    /** Whether Intune's connection to the TEM service is currently enabled or disabled. */
     private _enabled?: boolean | undefined;
-    /** Timestamp of the last request sent to Intune by the TEM partner.  */
+    /** Timestamp of the last request sent to Intune by the TEM partner. */
     private _lastConnectionDateTime?: Date | undefined;
-    /** URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service.  */
+    /** URL of the TEM partner's administrative control panel, where an administrator can configure their TEM service. */
     private _url?: string | undefined;
     /**
      * Gets the appAuthorized property value. Whether the partner's AAD app has been authorized to access Intune.

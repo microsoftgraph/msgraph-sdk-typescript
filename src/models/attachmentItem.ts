@@ -2,19 +2,19 @@ import {AttachmentType} from './attachmentType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AttachmentItem implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The type of attachment. Possible values are: file, item, reference. Required.  */
+    /** The type of attachment. Possible values are: file, item, reference. Required. */
     private _attachmentType?: AttachmentType | undefined;
-    /** The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional.  */
+    /** The CID or Content-Id of the attachment for referencing in case of in-line attachments using <img src='cid:contentId'> tag in HTML messages. Optional. */
     private _contentId?: string | undefined;
-    /** The nature of the data in the attachment. Optional.  */
+    /** The nature of the data in the attachment. Optional. */
     private _contentType?: string | undefined;
-    /** true if the attachment is an inline attachment; otherwise, false. Optional.  */
+    /** true if the attachment is an inline attachment; otherwise, false. Optional. */
     private _isInline?: boolean | undefined;
-    /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required.  */
+    /** The display name of the attachment. This can be a descriptive string and does not have to be the actual file name. Required. */
     private _name?: string | undefined;
-    /** The length of the attachment in bytes. Required.  */
+    /** The length of the attachment in bytes. Required. */
     private _size?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

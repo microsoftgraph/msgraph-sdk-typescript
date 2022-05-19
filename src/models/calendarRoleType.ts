@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Casts the previous resource to user. */
 export enum CalendarRoleType {
     None = "none",
     FreeBusyRead = "freeBusyRead",

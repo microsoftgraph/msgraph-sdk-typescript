@@ -1,1 +1,1 @@
-export * from './recordResponseRequestBody'
+export * from './recordResponsePostRequestBody'

@@ -1,10 +1,11 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Windows Information Protection Network learning Summary entity. */
 export class WindowsInformationProtectionNetworkLearningSummary extends Entity implements Parsable {
-    /** Device Count  */
+    /** Device Count */
     private _deviceCount?: number | undefined;
-    /** Website url  */
+    /** Website url */
     private _url?: string | undefined;
     /**
      * Instantiates a new windowsInformationProtectionNetworkLearningSummary and sets the default values.

@@ -1,10 +1,11 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the instantiate method. */
 export class PolicyBase extends DirectoryObject implements Parsable {
-    /** Description for this policy. Required.  */
+    /** Description for this policy. Required. */
     private _description?: string | undefined;
-    /** Display name for this policy. Required.  */
+    /** Display name for this policy. Required. */
     private _displayName?: string | undefined;
     /**
      * Instantiates a new policyBase and sets the default values.

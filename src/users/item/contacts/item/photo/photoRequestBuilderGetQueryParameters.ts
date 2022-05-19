@@ -1,7 +1,7 @@
 
-/** Optional contact picture. You can get or set a photo for a contact.  */
+/** Optional contact picture. You can get or set a photo for a contact. */
 export class PhotoRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

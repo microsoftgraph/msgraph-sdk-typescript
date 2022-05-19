@@ -1,9 +1,9 @@
 
-/** The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable.  */
+/** The sections in all OneNote notebooks that are owned by the user or group.  Read-only. Nullable. */
 export class OnenoteSectionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

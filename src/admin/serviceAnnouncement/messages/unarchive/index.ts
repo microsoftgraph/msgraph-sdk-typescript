@@ -1,2 +1,2 @@
-export * from './unarchiveRequestBody'
+export * from './unarchivePostRequestBody'
 export * from './unarchiveResponse'

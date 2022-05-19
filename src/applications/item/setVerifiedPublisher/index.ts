@@ -1,1 +1,1 @@
-export * from './setVerifiedPublisherRequestBody'
+export * from './setVerifiedPublisherPostRequestBody'

@@ -1,1 +1,1 @@
-export * from './assignUserToDeviceRequestBody'
+export * from './assignUserToDevicePostRequestBody'

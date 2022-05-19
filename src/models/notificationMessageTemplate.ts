@@ -3,26 +3,27 @@ import {Entity, LocalizedNotificationMessage} from './index';
 import {NotificationTemplateBrandingOptions} from './notificationTemplateBrandingOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Notification messages are messages that are sent to end users who are determined to be not-compliant with the compliance policies defined by the administrator. Administrators choose notifications and configure them in the Intune Admin Console using the compliance policy creation page under the “Actions for non-compliance” section. Use the notificationMessageTemplate object to create your own custom notifications for administrators to choose while configuring actions for non-compliance. */
 export class NotificationMessageTemplate extends Entity implements Parsable {
-    /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.  */
+    /** The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink. */
     private _brandingOptions?: NotificationTemplateBrandingOptions | undefined;
-    /** The default locale to fallback onto when the requested locale is not available.  */
+    /** The default locale to fallback onto when the requested locale is not available. */
     private _defaultLocale?: string | undefined;
-    /** Display name for the Notification Message Template.  */
+    /** Display name for the Notification Message Template. */
     private _displayName?: string | undefined;
-    /** DateTime the object was last modified.  */
+    /** DateTime the object was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The list of localized messages for this Notification Message Template.  */
+    /** The list of localized messages for this Notification Message Template. */
     private _localizedNotificationMessages?: LocalizedNotificationMessage[] | undefined;
     /**
-     * Gets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.
+     * Gets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.
      * @returns a notificationTemplateBrandingOptions
      */
     public get brandingOptions() {
         return this._brandingOptions;
     };
     /**
-     * Sets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation.
+     * Sets the brandingOptions property value. The Message Template Branding Options. Branding is defined in the Intune Admin Console. Possible values are: none, includeCompanyLogo, includeCompanyName, includeContactInformation, includeCompanyPortalLink.
      * @param value Value to set for the brandingOptions property.
      */
     public set brandingOptions(value: NotificationTemplateBrandingOptions | undefined) {

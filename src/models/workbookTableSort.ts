@@ -2,12 +2,13 @@ import {createWorkbookSortFieldFromDiscriminatorValue} from './createWorkbookSor
 import {Entity, WorkbookSortField} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookTableSort extends Entity implements Parsable {
-    /** Represents the current conditions used to last sort the table. Read-only.  */
+    /** Represents the current conditions used to last sort the table. Read-only. */
     private _fields?: WorkbookSortField[] | undefined;
-    /** Represents whether the casing impacted the last sort of the table. Read-only.  */
+    /** Represents whether the casing impacted the last sort of the table. Read-only. */
     private _matchCase?: boolean | undefined;
-    /** Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.  */
+    /** Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only. */
     private _method?: string | undefined;
     /**
      * Instantiates a new workbookTableSort and sets the default values.
@@ -55,14 +56,14 @@ export class WorkbookTableSort extends Entity implements Parsable {
         this._matchCase = value;
     };
     /**
-     * Gets the method property value. Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
+     * Gets the method property value. Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.
      * @returns a string
      */
     public get method() {
         return this._method;
     };
     /**
-     * Sets the method property value. Represents Chinese character ordering method last used to sort the table. The possible values are: PinYin, StrokeCount. Read-only.
+     * Sets the method property value. Represents Chinese character ordering method last used to sort the table. Possible values are: PinYin, StrokeCount. Read-only.
      * @param value Value to set for the method property.
      */
     public set method(value: string | undefined) {

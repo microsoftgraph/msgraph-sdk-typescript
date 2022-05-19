@@ -3,13 +3,13 @@ import {Identity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentitySet implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Optional. The application associated with this action.  */
+    /** The Identity of the Application. This property is read-only. */
     private _application?: Identity | undefined;
-    /** Optional. The device associated with this action.  */
+    /** The Identity of the Device. This property is read-only. */
     private _device?: Identity | undefined;
-    /** Optional. The user associated with this action.  */
+    /** The Identity of the User. This property is read-only. */
     private _user?: Identity | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -26,14 +26,14 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the application property value. Optional. The application associated with this action.
+     * Gets the application property value. The Identity of the Application. This property is read-only.
      * @returns a identity
      */
     public get application() {
         return this._application;
     };
     /**
-     * Sets the application property value. Optional. The application associated with this action.
+     * Sets the application property value. The Identity of the Application. This property is read-only.
      * @param value Value to set for the application property.
      */
     public set application(value: Identity | undefined) {
@@ -46,14 +46,14 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the device property value. Optional. The device associated with this action.
+     * Gets the device property value. The Identity of the Device. This property is read-only.
      * @returns a identity
      */
     public get device() {
         return this._device;
     };
     /**
-     * Sets the device property value. Optional. The device associated with this action.
+     * Sets the device property value. The Identity of the Device. This property is read-only.
      * @param value Value to set for the device property.
      */
     public set device(value: Identity | undefined) {
@@ -82,14 +82,14 @@ export class IdentitySet implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the user property value. Optional. The user associated with this action.
+     * Gets the user property value. The Identity of the User. This property is read-only.
      * @returns a identity
      */
     public get user() {
         return this._user;
     };
     /**
-     * Sets the user property value. Optional. The user associated with this action.
+     * Sets the user property value. The Identity of the User. This property is read-only.
      * @param value Value to set for the user property.
      */
     public set user(value: Identity | undefined) {

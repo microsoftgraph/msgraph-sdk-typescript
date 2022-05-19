@@ -2,12 +2,13 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ScopedRoleMembership extends Entity implements Parsable {
-    /** Unique identifier for the administrative unit that the directory role is scoped to  */
+    /** Unique identifier for the administrative unit that the directory role is scoped to */
     private _administrativeUnitId?: string | undefined;
-    /** Unique identifier for the directory role that the member is in.  */
+    /** Unique identifier for the directory role that the member is in. */
     private _roleId?: string | undefined;
-    /** The roleMemberInfo property  */
+    /** The roleMemberInfo property */
     private _roleMemberInfo?: Identity | undefined;
     /**
      * Gets the administrativeUnitId property value. Unique identifier for the administrative unit that the directory role is scoped to

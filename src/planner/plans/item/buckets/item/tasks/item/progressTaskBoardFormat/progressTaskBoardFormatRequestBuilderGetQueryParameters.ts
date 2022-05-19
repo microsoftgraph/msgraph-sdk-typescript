@@ -1,9 +1,9 @@
 
-/** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress.  */
+/** Read-only. Nullable. Used to render the task correctly in the task board view when grouped by progress. */
 export class ProgressTaskBoardFormatRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

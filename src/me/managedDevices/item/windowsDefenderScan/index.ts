@@ -1,1 +1,1 @@
-export * from './windowsDefenderScanRequestBody'
+export * from './windowsDefenderScanPostRequestBody'

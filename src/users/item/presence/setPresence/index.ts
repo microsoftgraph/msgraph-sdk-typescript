@@ -1,1 +1,1 @@
-export * from './setPresenceRequestBody'
+export * from './setPresencePostRequestBody'

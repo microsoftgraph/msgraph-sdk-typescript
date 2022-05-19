@@ -1,9 +1,9 @@
 
-/** Read-only. Nullable. Returns the plannerPlans owned by the group.  */
+/** Read-only. Nullable. Returns the plannerPlans owned by the group. */
 export class PlannerPlanItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

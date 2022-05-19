@@ -1,9 +1,9 @@
 
-/** Optional. NavigationProperty/Containment; navigation property to the associated activity.  */
+/** Optional. NavigationProperty/Containment; navigation property to the associated activity. */
 export class ActivityRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

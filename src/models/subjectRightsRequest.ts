@@ -12,44 +12,45 @@ import {SubjectRightsRequestStatus} from './subjectRightsRequestStatus';
 import {SubjectRightsRequestType} from './subjectRightsRequestType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the privacy singleton. */
 export class SubjectRightsRequest extends Entity implements Parsable {
-    /** Identity that the request is assigned to.  */
+    /** Identity that the request is assigned to. */
     private _assignedTo?: Identity | undefined;
-    /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time when the request was closed. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _closedDateTime?: Date | undefined;
-    /** Identity information for the entity that created the request.  */
+    /** Identity information for the entity that created the request. */
     private _createdBy?: IdentitySet | undefined;
-    /** The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time when the request was created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
-    /** Information about the data subject.  */
+    /** Information about the data subject. */
     private _dataSubject?: DataSubject | undefined;
-    /** The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue.  */
+    /** The type of the data subject. Possible values are: customer, currentEmployee, formerEmployee, prospectiveEmployee, student, teacher, faculty, other, unknownFutureValue. */
     private _dataSubjectType?: DataSubjectType | undefined;
-    /** Description for the request.  */
+    /** Description for the request. */
     private _description?: string | undefined;
-    /** The name of the request.  */
+    /** The name of the request. */
     private _displayName?: string | undefined;
-    /** Collection of history change events.  */
+    /** Collection of history change events. */
     private _history?: SubjectRightsRequestHistory[] | undefined;
-    /** Insight about the request.  */
+    /** Insight about the request. */
     private _insight?: SubjectRightsRequestDetail | undefined;
-    /** The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time when the request is internally due. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _internalDueDateTime?: Date | undefined;
-    /** Identity information for the entity that last modified the request.  */
+    /** Identity information for the entity that last modified the request. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The date and time when the request was last modified. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** List of notes associcated with the request.  */
+    /** List of notes associated with the request. */
     private _notes?: AuthoredNote[] | undefined;
-    /** List of regulations that this request will fulfill.  */
+    /** List of regulations that this request will fulfill. */
     private _regulations?: string[] | undefined;
-    /** Information about the different stages for the request.  */
+    /** Information about the different stages for the request. */
     private _stages?: SubjectRightsRequestStageDetail[] | undefined;
-    /** The status of the request.. Possible values are: active, closed, unknownFutureValue.  */
+    /** The status of the request. Possible values are: active, closed, unknownFutureValue. */
     private _status?: SubjectRightsRequestStatus | undefined;
-    /** Information about the Microsoft Teams team that was created for the request.  */
+    /** Information about the Microsoft Teams team that was created for the request. */
     private _team?: Team | undefined;
-    /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue.  */
+    /** The type of the request. Possible values are: export, delete, access, tagForAction, unknownFutureValue. */
     private _type?: SubjectRightsRequestType | undefined;
     /**
      * Gets the assignedTo property value. Identity that the request is assigned to.
@@ -267,14 +268,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the notes property value. List of notes associcated with the request.
+     * Gets the notes property value. List of notes associated with the request.
      * @returns a authoredNote
      */
     public get notes() {
         return this._notes;
     };
     /**
-     * Sets the notes property value. List of notes associcated with the request.
+     * Sets the notes property value. List of notes associated with the request.
      * @param value Value to set for the notes property.
      */
     public set notes(value: AuthoredNote[] | undefined) {
@@ -336,14 +337,14 @@ export class SubjectRightsRequest extends Entity implements Parsable {
         this._stages = value;
     };
     /**
-     * Gets the status property value. The status of the request.. Possible values are: active, closed, unknownFutureValue.
+     * Gets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
      * @returns a subjectRightsRequestStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The status of the request.. Possible values are: active, closed, unknownFutureValue.
+     * Sets the status property value. The status of the request. Possible values are: active, closed, unknownFutureValue.
      * @param value Value to set for the status property.
      */
     public set status(value: SubjectRightsRequestStatus | undefined) {

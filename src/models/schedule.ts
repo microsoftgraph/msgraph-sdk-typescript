@@ -11,44 +11,45 @@ import {Entity, OfferShiftRequest, OpenShift, OpenShiftChangeRequest, Scheduling
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Schedule extends Entity implements Parsable {
-    /** Indicates whether the schedule is enabled for the team. Required.  */
+    /** Indicates whether the schedule is enabled for the team. Required. */
     private _enabled?: boolean | undefined;
-    /** The offerShiftRequests property  */
+    /** The offerShiftRequests property */
     private _offerShiftRequests?: OfferShiftRequest[] | undefined;
-    /** Indicates whether offer shift requests are enabled for the schedule.  */
+    /** Indicates whether offer shift requests are enabled for the schedule. */
     private _offerShiftRequestsEnabled?: boolean | undefined;
-    /** The openShiftChangeRequests property  */
+    /** The openShiftChangeRequests property */
     private _openShiftChangeRequests?: OpenShiftChangeRequest[] | undefined;
-    /** The openShifts property  */
+    /** The openShifts property */
     private _openShifts?: OpenShift[] | undefined;
-    /** Indicates whether open shifts are enabled for the schedule.  */
+    /** Indicates whether open shifts are enabled for the schedule. */
     private _openShiftsEnabled?: boolean | undefined;
-    /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed.  */
+    /** The status of the schedule provisioning. The possible values are notStarted, running, completed, failed. */
     private _provisionStatus?: OperationStatus | undefined;
-    /** Additional information about why schedule provisioning failed.  */
+    /** Additional information about why schedule provisioning failed. */
     private _provisionStatusCode?: string | undefined;
-    /** The logical grouping of users in the schedule (usually by role).  */
+    /** The logical grouping of users in the schedule (usually by role). */
     private _schedulingGroups?: SchedulingGroup[] | undefined;
-    /** The shifts in the schedule.  */
+    /** The shifts in the schedule. */
     private _shifts?: Shift[] | undefined;
-    /** The swapShiftsChangeRequests property  */
+    /** The swapShiftsChangeRequests property */
     private _swapShiftsChangeRequests?: SwapShiftsChangeRequest[] | undefined;
-    /** Indicates whether swap shifts requests are enabled for the schedule.  */
+    /** Indicates whether swap shifts requests are enabled for the schedule. */
     private _swapShiftsRequestsEnabled?: boolean | undefined;
-    /** Indicates whether time clock is enabled for the schedule.  */
+    /** Indicates whether time clock is enabled for the schedule. */
     private _timeClockEnabled?: boolean | undefined;
-    /** The set of reasons for a time off in the schedule.  */
+    /** The set of reasons for a time off in the schedule. */
     private _timeOffReasons?: TimeOffReason[] | undefined;
-    /** The timeOffRequests property  */
+    /** The timeOffRequests property */
     private _timeOffRequests?: TimeOffRequest[] | undefined;
-    /** Indicates whether time off requests are enabled for the schedule.  */
+    /** Indicates whether time off requests are enabled for the schedule. */
     private _timeOffRequestsEnabled?: boolean | undefined;
-    /** The instances of times off in the schedule.  */
+    /** The instances of times off in the schedule. */
     private _timesOff?: TimeOff[] | undefined;
-    /** Indicates the time zone of the schedule team using tz database format. Required.  */
+    /** Indicates the time zone of the schedule team using tz database format. Required. */
     private _timeZone?: string | undefined;
-    /** The workforceIntegrationIds property  */
+    /** The workforceIntegrationIds property */
     private _workforceIntegrationIds?: string[] | undefined;
     /**
      * Instantiates a new schedule and sets the default values.

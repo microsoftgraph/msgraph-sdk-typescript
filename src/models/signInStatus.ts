@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SignInStatus implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Provides additional details on the sign-in activity  */
+    /** Provides additional details on the sign-in activity */
     private _additionalDetails?: string | undefined;
-    /** Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages.  */
+    /** Provides the 5-6 digit error code that's generated during a sign-in failure. Check out the list of error codes and messages. */
     private _errorCode?: number | undefined;
-    /** Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages.  */
+    /** Provides the error message or the reason for failure for the corresponding sign-in activity. Check out the list of error codes and messages. */
     private _failureReason?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

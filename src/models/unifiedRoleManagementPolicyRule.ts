@@ -2,8 +2,9 @@ import {createUnifiedRoleManagementPolicyRuleTargetFromDiscriminatorValue} from 
 import {Entity, UnifiedRoleManagementPolicyRuleTarget} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyRule extends Entity implements Parsable {
-    /** The target for the policy rule.  */
+    /** The target for the policy rule. */
     private _target?: UnifiedRoleManagementPolicyRuleTarget | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicyRule and sets the default values.

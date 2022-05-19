@@ -2,14 +2,15 @@ import {createPublicErrorFromDiscriminatorValue} from './createPublicErrorFromDi
 import {LongRunningOperation, PublicError} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class RichLongRunningOperation extends LongRunningOperation implements Parsable {
-    /** Error due to which the operation failed.  */
+    /** Error due to which the operation failed. */
     private _error_escaped?: PublicError | undefined;
-    /** A value between 0 and 100 that indicates the progress of the operation.  */
+    /** A value between 0 and 100 that indicates the progress of the operation. */
     private _percentageComplete?: number | undefined;
-    /** A unique identifier for the result.  */
+    /** A unique identifier for the result. */
     private _resourceId?: string | undefined;
-    /** Type of the operation.  */
+    /** Type of the operation. */
     private _type?: string | undefined;
     /**
      * Instantiates a new richLongRunningOperation and sets the default values.

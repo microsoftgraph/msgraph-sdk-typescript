@@ -9,50 +9,51 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {BookingAppointment, BookingCustomerBase, BookingCustomQuestion, BookingSchedulingPolicy, BookingService, BookingStaffMemberBase, BookingWorkHours, Entity, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Represents a Microsot Bookings Business. */
 export class BookingBusiness extends Entity implements Parsable {
-    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.  */
+    /** The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. */
     private _address?: PhysicalAddress | undefined;
-    /** All the appointments of this business. Read-only. Nullable.  */
+    /** All the appointments of this business. Read-only. Nullable. */
     private _appointments?: BookingAppointment[] | undefined;
-    /** The hours of operation for the business.  */
+    /** The hours of operation for the business. */
     private _businessHours?: BookingWorkHours[] | undefined;
-    /** The type of business.  */
+    /** The type of business. */
     private _businessType?: string | undefined;
-    /** The set of appointments of this business in a specified date range. Read-only. Nullable.  */
+    /** The set of appointments of this business in a specified date range. Read-only. Nullable. */
     private _calendarView?: BookingAppointment[] | undefined;
-    /** All the customers of this business. Read-only. Nullable.  */
+    /** All the customers of this business. Read-only. Nullable. */
     private _customers?: BookingCustomerBase[] | undefined;
-    /** All the custom questions of this business. Read-only. Nullable.  */
+    /** All the custom questions of this business. Read-only. Nullable. */
     private _customQuestions?: BookingCustomQuestion[] | undefined;
-    /** The code for the currency that the business operates in on Microsoft Bookings.  */
+    /** The code for the currency that the business operates in on Microsoft Bookings. */
     private _defaultCurrencyIso?: string | undefined;
-    /** The name of the business, which interfaces with customers. This name appears at the top of the business scheduling page.  */
+    /** The name of the business, which interfaces with customers. This name appears at the top of the business scheduling page. */
     private _displayName?: string | undefined;
-    /** The email address for the business.  */
+    /** The email address for the business. */
     private _email?: string | undefined;
-    /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only.  */
+    /** The scheduling page has been made available to external customers. Use the publish and unpublish actions to set this property. Read-only. */
     private _isPublished?: boolean | undefined;
-    /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page.  */
+    /** The telephone number for the business. The phone property, together with address and webSiteUrl, appear in the footer of a business scheduling page. */
     private _phone?: string | undefined;
-    /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only.  */
+    /** The URL for the scheduling page, which is set after you publish or unpublish the page. Read-only. */
     private _publicUrl?: string | undefined;
-    /** Specifies how bookings can be created for this business.  */
+    /** Specifies how bookings can be created for this business. */
     private _schedulingPolicy?: BookingSchedulingPolicy | undefined;
-    /** All the services offered by this business. Read-only. Nullable.  */
+    /** All the services offered by this business. Read-only. Nullable. */
     private _services?: BookingService[] | undefined;
-    /** All the staff members that provide services in this business. Read-only. Nullable.  */
+    /** All the staff members that provide services in this business. Read-only. Nullable. */
     private _staffMembers?: BookingStaffMemberBase[] | undefined;
-    /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page.  */
+    /** The URL of the business web site. The webSiteUrl property, together with address, phone, appear in the footer of a business scheduling page. */
     private _webSiteUrl?: string | undefined;
     /**
-     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
+     * Gets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
      * @returns a physicalAddress
      */
     public get address() {
         return this._address;
     };
     /**
-     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page. The attribute type of physicalAddress is not supported in v1.0. Internally we map the addresses to the type others.
+     * Sets the address property value. The street address of the business. The address property, together with phone and webSiteUrl, appear in the footer of a business scheduling page.
      * @param value Value to set for the address property.
      */
     public set address(value: PhysicalAddress | undefined) {

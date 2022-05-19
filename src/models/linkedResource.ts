@@ -1,14 +1,15 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class LinkedResource extends Entity implements Parsable {
-    /** Field indicating the app name of the source that is sending the linkedResource.  */
+    /** Field indicating the app name of the source that is sending the linkedResource. */
     private _applicationName?: string | undefined;
-    /** Field indicating the title of the linkedResource.  */
+    /** Field indicating the title of the linkedResource. */
     private _displayName?: string | undefined;
-    /** Id of the object that is associated with this task on the third-party/partner system.  */
+    /** Id of the object that is associated with this task on the third-party/partner system. */
     private _externalId?: string | undefined;
-    /** Deep link to the linkedResource.  */
+    /** Deep link to the linkedResource. */
     private _webUrl?: string | undefined;
     /**
      * Gets the applicationName property value. Field indicating the app name of the source that is sending the linkedResource.

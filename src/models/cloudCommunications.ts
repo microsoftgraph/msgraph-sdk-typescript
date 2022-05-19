@@ -6,15 +6,15 @@ import {createPresenceFromDiscriminatorValue} from './createPresenceFromDiscrimi
 import {Call, Entity, OnlineMeeting, Presence} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the cloudCommunications singleton.  */
+/** Provides operations to manage the cloudCommunications singleton. */
 export class CloudCommunications extends Entity implements Parsable {
-    /** The callRecords property  */
+    /** The callRecords property */
     private _callRecords?: CallRecord[] | undefined;
-    /** The calls property  */
+    /** The calls property */
     private _calls?: Call[] | undefined;
-    /** The onlineMeetings property  */
+    /** The onlineMeetings property */
     private _onlineMeetings?: OnlineMeeting[] | undefined;
-    /** The presences property  */
+    /** The presences property */
     private _presences?: Presence[] | undefined;
     /**
      * Gets the callRecords property value. The callRecords property

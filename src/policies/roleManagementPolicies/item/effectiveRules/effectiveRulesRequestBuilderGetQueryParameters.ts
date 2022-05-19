@@ -1,21 +1,21 @@
 
-/** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.  */
+/** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. */
 export class EffectiveRulesRequestBuilderGetQueryParameters {
-    /** Include count of items  */
+    /** Include count of items */
     public count?: boolean | undefined;
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Filter items by property values  */
+    /** Filter items by property values */
     public filter?: string | undefined;
-    /** Order items by property values  */
+    /** Order items by property values */
     public orderby?: string[] | undefined;
-    /** Search items by search phrases  */
+    /** Search items by search phrases */
     public search?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
-    /** Skip the first n items  */
+    /** Skip the first n items */
     public skip?: number | undefined;
-    /** Show only the first n items  */
+    /** Show only the first n items */
     public top?: number | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

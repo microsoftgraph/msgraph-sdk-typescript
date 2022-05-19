@@ -1,12 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class GroupLifecyclePolicy extends Entity implements Parsable {
-    /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.  */
+    /** List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon. */
     private _alternateNotificationEmails?: string | undefined;
-    /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined.  */
+    /** Number of days before a group expires and needs to be renewed. Once renewed, the group expiration is extended by the number of days defined. */
     private _groupLifetimeInDays?: number | undefined;
-    /** The group type for which the expiration policy applies. Possible values are All, Selected or None.  */
+    /** The group type for which the expiration policy applies. Possible values are All, Selected or None. */
     private _managedGroupTypes?: string | undefined;
     /**
      * Gets the alternateNotificationEmails property value. List of email address to send notifications for groups without owners. Multiple email address can be defined by separating email address with a semicolon.

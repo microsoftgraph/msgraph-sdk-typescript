@@ -1,22 +1,21 @@
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {DirectoryObject} from './index';
-import {UnifiedRoleManagementPolicyRuleTargetOperations} from './unifiedRoleManagementPolicyRuleTargetOperations';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser.  */
+    /** The caller for the policy rule target. Allowed values are: None, Admin, EndUser. */
     private _caller?: string | undefined;
-    /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings.  */
+    /** The list of settings which are enforced and cannot be overridden by child scopes. Use All for all settings. */
     private _enforcedSettings?: string[] | undefined;
-    /** The list of settings which can be inherited by child scopes. Use All for all settings.  */
+    /** The list of settings which can be inherited by child scopes. Use All for all settings. */
     private _inheritableSettings?: string[] | undefined;
-    /** The level for the policy rule target. Allowed values are: Eligibility, Assignment.  */
+    /** The level for the policy rule target. Allowed values are: Eligibility, Assignment. */
     private _level?: string | undefined;
-    /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.  */
-    private _operations?: UnifiedRoleManagementPolicyRuleTargetOperations[] | undefined;
-    /** The targetObjects property  */
+    /** The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew. */
+    private _operations?: string[] | undefined;
+    /** The targetObjects property */
     private _targetObjects?: DirectoryObject[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -76,7 +75,7 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
             "enforcedSettings": n => { this.enforcedSettings = n.getCollectionOfPrimitiveValues<string>(); },
             "inheritableSettings": n => { this.inheritableSettings = n.getCollectionOfPrimitiveValues<string>(); },
             "level": n => { this.level = n.getStringValue(); },
-            "operations": n => { this.operations = n.getEnumValues<UnifiedRoleManagementPolicyRuleTargetOperations>(UnifiedRoleManagementPolicyRuleTargetOperations); },
+            "operations": n => { this.operations = n.getCollectionOfPrimitiveValues<string>(); },
             "targetObjects": n => { this.targetObjects = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
         };
     };
@@ -110,7 +109,7 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
     };
     /**
      * Gets the operations property value. The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
-     * @returns a unifiedRoleManagementPolicyRuleTargetOperations
+     * @returns a string
      */
     public get operations() {
         return this._operations;
@@ -119,7 +118,7 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
      * Sets the operations property value. The operations for policy rule target. Allowed values are: All, Activate, Deactivate, Assign, Update, Remove, Extend, Renew.
      * @param value Value to set for the operations property.
      */
-    public set operations(value: UnifiedRoleManagementPolicyRuleTargetOperations[] | undefined) {
+    public set operations(value: string[] | undefined) {
         this._operations = value;
     };
     /**
@@ -132,7 +131,7 @@ export class UnifiedRoleManagementPolicyRuleTarget implements AdditionalDataHold
         writer.writeCollectionOfPrimitiveValues<string>("enforcedSettings", this.enforcedSettings);
         writer.writeCollectionOfPrimitiveValues<string>("inheritableSettings", this.inheritableSettings);
         writer.writeStringValue("level", this.level);
-        this.operations && writer.writeEnumValue<UnifiedRoleManagementPolicyRuleTargetOperations>("operations", ...this.operations);
+        writer.writeCollectionOfPrimitiveValues<string>("operations", this.operations);
         writer.writeCollectionOfObjectValues<DirectoryObject>("targetObjects", this.targetObjects);
         writer.writeAdditionalData(this.additionalData);
     };

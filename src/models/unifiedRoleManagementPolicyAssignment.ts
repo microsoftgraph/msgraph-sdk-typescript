@@ -2,16 +2,17 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createU
 import {Entity, UnifiedRoleManagementPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicyAssignment extends Entity implements Parsable {
-    /** The policy for the assignment.  */
+    /** The policy for the assignment. */
     private _policy?: UnifiedRoleManagementPolicy | undefined;
-    /** The id of the policy.  */
+    /** The id of the policy. */
     private _policyId?: string | undefined;
-    /** The id of the role definition where the policy applies. If not specified, the policy applies to all roles.  */
+    /** The id of the role definition where the policy applies. If not specified, the policy applies to all roles. */
     private _roleDefinitionId?: string | undefined;
-    /** The id of the scope where the policy is assigned. E.g. '/', groupId, etc.  */
+    /** The id of the scope where the policy is assigned. E.g. '/', groupId, etc. */
     private _scopeId?: string | undefined;
-    /** The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group.  */
+    /** The type of the scope where the policy is assigned. One of Directory, DirectoryRole, Group. */
     private _scopeType?: string | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicyAssignment and sets the default values.

@@ -1,1 +1,1 @@
-export * from './cleanWindowsDeviceRequestBody'
+export * from './cleanWindowsDevicePostRequestBody'

@@ -1,25 +1,25 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Photo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Camera manufacturer. Read-only.  */
+    /** Camera manufacturer. Read-only. */
     private _cameraMake?: string | undefined;
-    /** Camera model. Read-only.  */
+    /** Camera model. Read-only. */
     private _cameraModel?: string | undefined;
-    /** The denominator for the exposure time fraction from the camera. Read-only.  */
+    /** The denominator for the exposure time fraction from the camera. Read-only. */
     private _exposureDenominator?: number | undefined;
-    /** The numerator for the exposure time fraction from the camera. Read-only.  */
+    /** The numerator for the exposure time fraction from the camera. Read-only. */
     private _exposureNumerator?: number | undefined;
-    /** The F-stop value from the camera. Read-only.  */
+    /** The F-stop value from the camera. Read-only. */
     private _fNumber?: number | undefined;
-    /** The focal length from the camera. Read-only.  */
+    /** The focal length from the camera. Read-only. */
     private _focalLength?: number | undefined;
-    /** The ISO value from the camera. Read-only.  */
+    /** The ISO value from the camera. Read-only. */
     private _iso?: number | undefined;
-    /** The orientation value from the camera. Writable on OneDrive Personal.  */
+    /** The orientation value from the camera. Writable on OneDrive Personal. */
     private _orientation?: number | undefined;
-    /** Represents the date and time the photo was taken. Read-only.  */
+    /** The date and time the photo was taken in UTC time. Read-only. */
     private _takenDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -188,14 +188,14 @@ export class Photo implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
+     * Gets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
      * @returns a Date
      */
     public get takenDateTime() {
         return this._takenDateTime;
     };
     /**
-     * Sets the takenDateTime property value. Represents the date and time the photo was taken. Read-only.
+     * Sets the takenDateTime property value. The date and time the photo was taken in UTC time. Read-only.
      * @param value Value to set for the takenDateTime property.
      */
     public set takenDateTime(value: Date | undefined) {

@@ -4,12 +4,13 @@ import {DeviceAndAppManagementAssignmentTarget, Entity, MobileAppAssignmentSetti
 import {InstallIntent} from './installIntent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A class containing the properties used for Group Assignment of a Mobile App. */
 export class MobileAppAssignment extends Entity implements Parsable {
-    /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */
+    /** The install intent defined by the admin. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     private _intent?: InstallIntent | undefined;
-    /** The settings for target assignment defined by the admin.  */
+    /** The settings for target assignment defined by the admin. */
     private _settings?: MobileAppAssignmentSettings | undefined;
-    /** The target group assignment defined by the admin.  */
+    /** The target group assignment defined by the admin. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new mobileAppAssignment and sets the default values.

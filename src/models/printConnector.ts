@@ -2,18 +2,19 @@ import {createPrinterLocationFromDiscriminatorValue} from './createPrinterLocati
 import {Entity, PrinterLocation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintConnector extends Entity implements Parsable {
-    /** The connector's version.  */
+    /** The connector's version. */
     private _appVersion?: string | undefined;
-    /** The name of the connector.  */
+    /** The name of the connector. */
     private _displayName?: string | undefined;
-    /** The connector machine's hostname.  */
+    /** The connector machine's hostname. */
     private _fullyQualifiedDomainName?: string | undefined;
-    /** The physical and/or organizational location of the connector.  */
+    /** The physical and/or organizational location of the connector. */
     private _location?: PrinterLocation | undefined;
-    /** The connector machine's operating system version.  */
+    /** The connector machine's operating system version. */
     private _operatingSystem?: string | undefined;
-    /** The DateTimeOffset when the connector was registered.  */
+    /** The DateTimeOffset when the connector was registered. */
     private _registeredDateTime?: Date | undefined;
     /**
      * Gets the appVersion property value. The connector's version.

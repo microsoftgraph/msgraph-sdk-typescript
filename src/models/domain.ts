@@ -1,41 +1,45 @@
 import {createDirectoryObjectFromDiscriminatorValue} from './createDirectoryObjectFromDiscriminatorValue';
 import {createDomainDnsRecordFromDiscriminatorValue} from './createDomainDnsRecordFromDiscriminatorValue';
 import {createDomainStateFromDiscriminatorValue} from './createDomainStateFromDiscriminatorValue';
-import {DirectoryObject, DomainDnsRecord, DomainState, Entity} from './index';
+import {createInternalDomainFederationFromDiscriminatorValue} from './createInternalDomainFederationFromDiscriminatorValue';
+import {DirectoryObject, DomainDnsRecord, DomainState, Entity, InternalDomainFederation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of domain entities. */
 export class Domain extends Entity implements Parsable {
-    /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.  */
+    /** Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable. */
     private _authenticationType?: string | undefined;
-    /** This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled.  */
+    /** This property is always null except when the verify action is used. When the verify action is used, a domain entity is returned in the response. The availabilityStatus property of the domain entity in the response is either AvailableImmediately or EmailVerifiedDomainTakeoverScheduled. */
     private _availabilityStatus?: string | undefined;
-    /** Read-only, Nullable  */
+    /** The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group. */
     private _domainNameReferences?: DirectoryObject[] | undefined;
-    /** The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable  */
+    /** Domain settings configured by customer when federated with Azure AD. Supports $expand. */
+    private _federationConfiguration?: InternalDomainFederation[] | undefined;
+    /** The value of the property is false if the DNS record management of the domain has been delegated to Microsoft 365. Otherwise, the value is true. Not nullable */
     private _isAdminManaged?: boolean | undefined;
-    /** true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable  */
+    /** true if this is the default domain that is used for user creation. There is only one default domain per company. Not nullable */
     private _isDefault?: boolean | undefined;
-    /** true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable  */
+    /** true if this is the initial domain created by Microsoft Online Services (companyname.onmicrosoft.com). There is only one initial domain per company. Not nullable */
     private _isInitial?: boolean | undefined;
-    /** true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable  */
+    /** true if the domain is a verified root domain. Otherwise, false if the domain is a subdomain or unverified. Not nullable */
     private _isRoot?: boolean | undefined;
-    /** true if the domain has completed domain ownership verification. Not nullable  */
+    /** true if the domain has completed domain ownership verification. Not nullable */
     private _isVerified?: boolean | undefined;
-    /** The manufacturer property  */
+    /** The manufacturer property */
     private _manufacturer?: string | undefined;
-    /** The model property  */
+    /** The model property */
     private _model?: string | undefined;
-    /** Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used.  */
+    /** Specifies the number of days before a user receives notification that their password will expire. If the property is not set, a default value of 14 days will be used. */
     private _passwordNotificationWindowInDays?: number | undefined;
-    /** Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used.  */
+    /** Specifies the length of time that a password is valid before it must be changed. If the property is not set, a default value of 90 days will be used. */
     private _passwordValidityPeriodInDays?: number | undefined;
-    /** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable  */
+    /** DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand. */
     private _serviceConfigurationRecords?: DomainDnsRecord[] | undefined;
-    /** Status of asynchronous operations scheduled for the domain.  */
+    /** Status of asynchronous operations scheduled for the domain. */
     private _state?: DomainState | undefined;
-    /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable  */
+    /** The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable. */
     private _supportedServices?: string[] | undefined;
-    /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable  */
+    /** DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand. */
     private _verificationDnsRecords?: DomainDnsRecord[] | undefined;
     /**
      * Gets the authenticationType property value. Indicates the configured authentication type for the domain. The value is either Managed or Federated. Managed indicates a cloud managed domain where Azure AD performs user authentication. Federated indicates authentication is federated with an identity provider such as the tenant's on-premises Active Directory via Active Directory Federation Services. This property is read-only and is not nullable.
@@ -72,18 +76,32 @@ export class Domain extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the domainNameReferences property value. Read-only, Nullable
+     * Gets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
      * @returns a directoryObject
      */
     public get domainNameReferences() {
         return this._domainNameReferences;
     };
     /**
-     * Sets the domainNameReferences property value. Read-only, Nullable
+     * Sets the domainNameReferences property value. The objects such as users and groups that reference the domain ID. Read-only, Nullable. Supports $expand and $filter by the OData type of objects returned. For example /domains/{domainId}/domainNameReferences/microsoft.graph.user and /domains/{domainId}/domainNameReferences/microsoft.graph.group.
      * @param value Value to set for the domainNameReferences property.
      */
     public set domainNameReferences(value: DirectoryObject[] | undefined) {
         this._domainNameReferences = value;
+    };
+    /**
+     * Gets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * @returns a internalDomainFederation
+     */
+    public get federationConfiguration() {
+        return this._federationConfiguration;
+    };
+    /**
+     * Sets the federationConfiguration property value. Domain settings configured by customer when federated with Azure AD. Supports $expand.
+     * @param value Value to set for the federationConfiguration property.
+     */
+    public set federationConfiguration(value: InternalDomainFederation[] | undefined) {
+        this._federationConfiguration = value;
     };
     /**
      * The deserialization information for the current model
@@ -94,6 +112,7 @@ export class Domain extends Entity implements Parsable {
             "authenticationType": n => { this.authenticationType = n.getStringValue(); },
             "availabilityStatus": n => { this.availabilityStatus = n.getStringValue(); },
             "domainNameReferences": n => { this.domainNameReferences = n.getCollectionOfObjectValues<DirectoryObject>(createDirectoryObjectFromDiscriminatorValue); },
+            "federationConfiguration": n => { this.federationConfiguration = n.getCollectionOfObjectValues<InternalDomainFederation>(createInternalDomainFederationFromDiscriminatorValue); },
             "isAdminManaged": n => { this.isAdminManaged = n.getBooleanValue(); },
             "isDefault": n => { this.isDefault = n.getBooleanValue(); },
             "isInitial": n => { this.isInitial = n.getBooleanValue(); },
@@ -245,6 +264,7 @@ export class Domain extends Entity implements Parsable {
         writer.writeStringValue("authenticationType", this.authenticationType);
         writer.writeStringValue("availabilityStatus", this.availabilityStatus);
         writer.writeCollectionOfObjectValues<DirectoryObject>("domainNameReferences", this.domainNameReferences);
+        writer.writeCollectionOfObjectValues<InternalDomainFederation>("federationConfiguration", this.federationConfiguration);
         writer.writeBooleanValue("isAdminManaged", this.isAdminManaged);
         writer.writeBooleanValue("isDefault", this.isDefault);
         writer.writeBooleanValue("isInitial", this.isInitial);
@@ -260,14 +280,14 @@ export class Domain extends Entity implements Parsable {
         writer.writeCollectionOfObjectValues<DomainDnsRecord>("verificationDnsRecords", this.verificationDnsRecords);
     };
     /**
-     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
+     * Gets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
      * @returns a domainDnsRecord
      */
     public get serviceConfigurationRecords() {
         return this._serviceConfigurationRecords;
     };
     /**
-     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable
+     * Sets the serviceConfigurationRecords property value. DNS records the customer adds to the DNS zone file of the domain before the domain can be used by Microsoft Online services. Read-only, Nullable. Supports $expand.
      * @param value Value to set for the serviceConfigurationRecords property.
      */
     public set serviceConfigurationRecords(value: DomainDnsRecord[] | undefined) {
@@ -288,28 +308,28 @@ export class Domain extends Entity implements Parsable {
         this._state = value;
     };
     /**
-     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+     * Gets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
      * @returns a string
      */
     public get supportedServices() {
         return this._supportedServices;
     };
     /**
-     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline, SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable
+     * Sets the supportedServices property value. The capabilities assigned to the domain. Can include 0, 1 or more of following values: Email, Sharepoint, EmailInternalRelayOnly, OfficeCommunicationsOnline,SharePointDefaultDomain, FullRedelegation, SharePointPublic, OrgIdAuthentication, Yammer, Intune. The values which you can add/remove using Graph API include: Email, OfficeCommunicationsOnline, Yammer. Not nullable.
      * @param value Value to set for the supportedServices property.
      */
     public set supportedServices(value: string[] | undefined) {
         this._supportedServices = value;
     };
     /**
-     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
+     * Gets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
      * @returns a domainDnsRecord
      */
     public get verificationDnsRecords() {
         return this._verificationDnsRecords;
     };
     /**
-     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable
+     * Sets the verificationDnsRecords property value. DNS records that the customer adds to the DNS zone file of the domain before the customer can complete domain ownership verification with Azure AD. Read-only, Nullable. Supports $expand.
      * @param value Value to set for the verificationDnsRecords property.
      */
     public set verificationDnsRecords(value: DomainDnsRecord[] | undefined) {

@@ -1,1 +1,1 @@
-export * from './setPriorityRequestBody'
+export * from './setPriorityPostRequestBody'

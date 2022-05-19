@@ -1,1 +1,1 @@
-export * from './deleteUserFromSharedAppleDeviceRequestBody'
+export * from './deleteUserFromSharedAppleDevicePostRequestBody'

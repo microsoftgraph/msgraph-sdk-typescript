@@ -1,1 +1,1 @@
-export * from './updateWindowsDeviceAccountRequestBody'
+export * from './updateWindowsDeviceAccountPostRequestBody'

@@ -1,17 +1,16 @@
 import {PrintJobProcessingState} from './printJobProcessingState';
-import {PrintJobStateDetail} from './printJobStateDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintJobStatus implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A human-readable description of the print job's current processing state. Read-only.  */
+    /** A human-readable description of the print job's current processing state. Read-only. */
     private _description?: string | undefined;
-    /** Additional details for print job state. Valid values are described in the following table. Read-only.  */
-    private _details?: PrintJobStateDetail[] | undefined;
-    /** True if the job was acknowledged by a printer; false otherwise. Read-only.  */
+    /** Additional details for print job state. Valid values are described in the following table. Read-only. */
+    private _details?: string[] | undefined;
+    /** True if the job was acknowledged by a printer; false otherwise. Read-only. */
     private _isAcquiredByPrinter?: boolean | undefined;
-    /** The print job's current processing state. Valid values are described in the following table. Read-only.  */
+    /** The print job's current processing state. Valid values are described in the following table. Read-only. */
     private _state?: PrintJobProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -49,7 +48,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
-     * @returns a printJobStateDetail
+     * @returns a string
      */
     public get details() {
         return this._details;
@@ -58,7 +57,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
      * Sets the details property value. Additional details for print job state. Valid values are described in the following table. Read-only.
      * @param value Value to set for the details property.
      */
-    public set details(value: PrintJobStateDetail[] | undefined) {
+    public set details(value: string[] | undefined) {
         this._details = value;
     };
     /**
@@ -68,7 +67,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "description": n => { this.description = n.getStringValue(); },
-            "details": n => { this.details = n.getEnumValues<PrintJobStateDetail>(PrintJobStateDetail); },
+            "details": n => { this.details = n.getCollectionOfPrimitiveValues<string>(); },
             "isAcquiredByPrinter": n => { this.isAcquiredByPrinter = n.getBooleanValue(); },
             "state": n => { this.state = n.getEnumValue<PrintJobProcessingState>(PrintJobProcessingState); },
         };
@@ -94,7 +93,7 @@ export class PrintJobStatus implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        this.details && writer.writeEnumValue<PrintJobStateDetail>("details", ...this.details);
+        writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
         writer.writeBooleanValue("isAcquiredByPrinter", this.isAcquiredByPrinter);
         writer.writeEnumValue<PrintJobProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);

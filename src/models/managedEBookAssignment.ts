@@ -3,10 +3,11 @@ import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {InstallIntent} from './installIntent';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties used to assign a eBook to a group. */
 export class ManagedEBookAssignment extends Entity implements Parsable {
-    /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment.  */
+    /** The install intent for eBook. Possible values are: available, required, uninstall, availableWithoutEnrollment. */
     private _installIntent?: InstallIntent | undefined;
-    /** The assignment target for eBook.  */
+    /** The assignment target for eBook. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new managedEBookAssignment and sets the default values.

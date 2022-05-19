@@ -2,10 +2,11 @@ import {Entity} from './index';
 import {UserFlowType} from './userFlowType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityUserFlow extends Entity implements Parsable {
-    /** The userFlowType property  */
+    /** The userFlowType property */
     private _userFlowType?: UserFlowType | undefined;
-    /** The userFlowTypeVersion property  */
+    /** The userFlowTypeVersion property */
     private _userFlowTypeVersion?: number | undefined;
     /**
      * Instantiates a new identityUserFlow and sets the default values.

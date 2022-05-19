@@ -1,1 +1,1 @@
-export * from './previewRequestBody'
+export * from './previewPostRequestBody'

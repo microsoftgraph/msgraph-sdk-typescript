@@ -4,12 +4,13 @@ import {createServiceUpdateMessageFromDiscriminatorValue} from './createServiceU
 import {Entity, ServiceHealth, ServiceHealthIssue, ServiceUpdateMessage} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceAnnouncement extends Entity implements Parsable {
-    /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly.  */
+    /** A collection of service health information for tenant. This property is a contained navigation property, it is nullable and readonly. */
     private _healthOverviews?: ServiceHealth[] | undefined;
-    /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.  */
+    /** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
     private _issues?: ServiceHealthIssue[] | undefined;
-    /** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly.  */
+    /** A collection of service messages for tenant. This property is a contained navigation property, it is nullable and readonly. */
     private _messages?: ServiceUpdateMessage[] | undefined;
     /**
      * Instantiates a new serviceAnnouncement and sets the default values.

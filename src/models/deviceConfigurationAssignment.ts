@@ -2,8 +2,9 @@ import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from
 import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The device configuration assignment entity assigns an AAD group to a specific device configuration. */
 export class DeviceConfigurationAssignment extends Entity implements Parsable {
-    /** The assignment target for the device configuration.  */
+    /** The assignment target for the device configuration. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new deviceConfigurationAssignment and sets the default values.

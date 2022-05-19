@@ -1,1 +1,1 @@
-export * from './associateWithHubSitesRequestBody'
+export * from './associateWithHubSitesPostRequestBody'

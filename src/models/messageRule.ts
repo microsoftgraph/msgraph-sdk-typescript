@@ -3,22 +3,23 @@ import {createMessageRulePredicatesFromDiscriminatorValue} from './createMessage
 import {Entity, MessageRuleActions, MessageRulePredicates} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class MessageRule extends Entity implements Parsable {
-    /** Actions to be taken on a message when the corresponding conditions are fulfilled.  */
+    /** Actions to be taken on a message when the corresponding conditions are fulfilled. */
     private _actions?: MessageRuleActions | undefined;
-    /** Conditions that when fulfilled, will trigger the corresponding actions for that rule.  */
+    /** Conditions that when fulfilled, will trigger the corresponding actions for that rule. */
     private _conditions?: MessageRulePredicates | undefined;
-    /** The display name of the rule.  */
+    /** The display name of the rule. */
     private _displayName?: string | undefined;
-    /** Exception conditions for the rule.  */
+    /** Exception conditions for the rule. */
     private _exceptions?: MessageRulePredicates | undefined;
-    /** Indicates whether the rule is in an error condition. Read-only.  */
+    /** Indicates whether the rule is in an error condition. Read-only. */
     private _hasError?: boolean | undefined;
-    /** Indicates whether the rule is enabled to be applied to messages.  */
+    /** Indicates whether the rule is enabled to be applied to messages. */
     private _isEnabled?: boolean | undefined;
-    /** Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API.  */
+    /** Indicates if the rule is read-only and cannot be modified or deleted by the rules REST API. */
     private _isReadOnly?: boolean | undefined;
-    /** Indicates the order in which the rule is executed, among other rules.  */
+    /** Indicates the order in which the rule is executed, among other rules. */
     private _sequence?: number | undefined;
     /**
      * Gets the actions property value. Actions to be taken on a message when the corresponding conditions are fulfilled.

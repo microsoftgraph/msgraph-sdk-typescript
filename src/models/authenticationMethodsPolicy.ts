@@ -3,21 +3,21 @@ import {createRegistrationEnforcementFromDiscriminatorValue} from './createRegis
 import {AuthenticationMethodConfiguration, Entity, RegistrationEnforcement} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the authenticationMethodsPolicy singleton.  */
+/** Provides operations to manage the authenticationMethodsPolicy singleton. */
 export class AuthenticationMethodsPolicy extends Entity implements Parsable {
-    /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.  */
+    /** Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy. */
     private _authenticationMethodConfigurations?: AuthenticationMethodConfiguration[] | undefined;
-    /** A description of the policy. Read-only.  */
+    /** A description of the policy. */
     private _description?: string | undefined;
-    /** The name of the policy. Read-only.  */
+    /** The name of the policy. */
     private _displayName?: string | undefined;
-    /** The date and time of the last update to the policy. Read-only.  */
+    /** The date and time of the last update to the policy. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The version of the policy in use. Read-only.  */
+    /** The version of the policy in use. */
     private _policyVersion?: string | undefined;
-    /** The reconfirmationInDays property  */
+    /** The reconfirmationInDays property */
     private _reconfirmationInDays?: number | undefined;
-    /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods.  */
+    /** Enforce registration at sign-in time. This property can be used to remind users to set up targeted authentication methods. */
     private _registrationEnforcement?: RegistrationEnforcement | undefined;
     /**
      * Gets the authenticationMethodConfigurations property value. Represents the settings for each authentication method. Automatically expanded on GET /policies/authenticationMethodsPolicy.
@@ -40,28 +40,28 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the description property value. A description of the policy. Read-only.
+     * Gets the description property value. A description of the policy.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. A description of the policy. Read-only.
+     * Sets the description property value. A description of the policy.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
         this._description = value;
     };
     /**
-     * Gets the displayName property value. The name of the policy. Read-only.
+     * Gets the displayName property value. The name of the policy.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The name of the policy. Read-only.
+     * Sets the displayName property value. The name of the policy.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -83,28 +83,28 @@ export class AuthenticationMethodsPolicy extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the lastModifiedDateTime property value. The date and time of the last update to the policy. Read-only.
+     * Gets the lastModifiedDateTime property value. The date and time of the last update to the policy.
      * @returns a Date
      */
     public get lastModifiedDateTime() {
         return this._lastModifiedDateTime;
     };
     /**
-     * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy. Read-only.
+     * Sets the lastModifiedDateTime property value. The date and time of the last update to the policy.
      * @param value Value to set for the lastModifiedDateTime property.
      */
     public set lastModifiedDateTime(value: Date | undefined) {
         this._lastModifiedDateTime = value;
     };
     /**
-     * Gets the policyVersion property value. The version of the policy in use. Read-only.
+     * Gets the policyVersion property value. The version of the policy in use.
      * @returns a string
      */
     public get policyVersion() {
         return this._policyVersion;
     };
     /**
-     * Sets the policyVersion property value. The version of the policy in use. Read-only.
+     * Sets the policyVersion property value. The version of the policy in use.
      * @param value Value to set for the policyVersion property.
      */
     public set policyVersion(value: string | undefined) {

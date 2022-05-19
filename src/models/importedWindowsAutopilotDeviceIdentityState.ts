@@ -2,15 +2,15 @@ import {ImportedWindowsAutopilotDeviceIdentityImportStatus} from './importedWind
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ImportedWindowsAutopilotDeviceIdentityState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Device error code reported by Device Directory Service(DDS).  */
+    /** Device error code reported by Device Directory Service(DDS). */
     private _deviceErrorCode?: number | undefined;
-    /** Device error name reported by Device Directory Service(DDS).  */
+    /** Device error name reported by Device Directory Service(DDS). */
     private _deviceErrorName?: string | undefined;
-    /** Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error.  */
+    /** Device status reported by Device Directory Service(DDS). Possible values are: unknown, pending, partial, complete, error. */
     private _deviceImportStatus?: ImportedWindowsAutopilotDeviceIdentityImportStatus | undefined;
-    /** Device Registration ID for successfully added device reported by Device Directory Service(DDS).  */
+    /** Device Registration ID for successfully added device reported by Device Directory Service(DDS). */
     private _deviceRegistrationId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

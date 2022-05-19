@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationCourse implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Unique identifier for the course.  */
+    /** Unique identifier for the course. */
     private _courseNumber?: string | undefined;
-    /** Description of the course.  */
+    /** Description of the course. */
     private _description?: string | undefined;
-    /** Name of the course.  */
+    /** Name of the course. */
     private _displayName?: string | undefined;
-    /** ID of the course from the syncing system.  */
+    /** ID of the course from the syncing system. */
     private _externalId?: string | undefined;
-    /** Subject of the course.  */
+    /** Subject of the course. */
     private _subject?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

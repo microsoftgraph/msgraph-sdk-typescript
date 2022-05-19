@@ -1,9 +1,9 @@
 
-/** Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable.  */
+/** Learning objects that are associated with this assignment.  Only teachers can modify this list. Nullable. */
 export class EducationAssignmentResourceItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -2,12 +2,13 @@ import {createOpenShiftItemFromDiscriminatorValue} from './createOpenShiftItemFr
 import {ChangeTrackedEntity, OpenShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class OpenShift extends ChangeTrackedEntity implements Parsable {
-    /** An unpublished open shift.  */
+    /** An unpublished open shift. */
     private _draftOpenShift?: OpenShiftItem | undefined;
-    /** ID for the scheduling group that the open shift belongs to.  */
+    /** ID for the scheduling group that the open shift belongs to. */
     private _schedulingGroupId?: string | undefined;
-    /** A published open shift.  */
+    /** A published open shift. */
     private _sharedOpenShift?: OpenShiftItem | undefined;
     /**
      * Instantiates a new openShift and sets the default values.

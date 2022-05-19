@@ -1,9 +1,9 @@
 
-/** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation.  */
+/** If the request is from an eligible administrator to activate a role, this parameter will show the related eligible assignment for that activation. */
 export class ActivatedUsingRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

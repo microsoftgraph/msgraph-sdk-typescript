@@ -1,9 +1,9 @@
 
-/** Get entity from dataPolicyOperations by key  */
+/** Retrieve the properties of the dataPolicyOperation object. */
 export class DataPolicyOperationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

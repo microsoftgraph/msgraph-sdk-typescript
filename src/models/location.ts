@@ -6,23 +6,23 @@ import {LocationUniqueIdType} from './locationUniqueIdType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Location implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The street address of the location.  */
+    /** The street address of the location. */
     private _address?: PhysicalAddress | undefined;
-    /** The geographic coordinates and elevation of the location.  */
+    /** The geographic coordinates and elevation of the location. */
     private _coordinates?: OutlookGeoCoordinates | undefined;
-    /** The name associated with the location.  */
+    /** The name associated with the location. */
     private _displayName?: string | undefined;
-    /** Optional email address of the location.  */
+    /** Optional email address of the location. */
     private _locationEmailAddress?: string | undefined;
-    /** The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.  */
+    /** The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only. */
     private _locationType?: LocationType | undefined;
-    /** Optional URI representing the location.  */
+    /** Optional URI representing the location. */
     private _locationUri?: string | undefined;
-    /** For internal use only.  */
+    /** For internal use only. */
     private _uniqueId?: string | undefined;
-    /** For internal use only.  */
+    /** For internal use only. */
     private _uniqueIdType?: LocationUniqueIdType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -117,14 +117,14 @@ export class Location implements AdditionalDataHolder, Parsable {
         this._locationEmailAddress = value;
     };
     /**
-     * Gets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Gets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @returns a locationType
      */
     public get locationType() {
         return this._locationType;
     };
     /**
-     * Sets the locationType property value. The type of location. The possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
+     * Sets the locationType property value. The type of location. Possible values are: default, conferenceRoom, homeAddress, businessAddress,geoCoordinates, streetAddress, hotel, restaurant, localBusiness, postalAddress. Read-only.
      * @param value Value to set for the locationType property.
      */
     public set locationType(value: LocationType | undefined) {

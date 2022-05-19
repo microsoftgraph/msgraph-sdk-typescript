@@ -9,56 +9,57 @@ import {AssignedPlan, CertificateBasedAuthConfiguration, DirectoryObject, Extens
 import {MdmAuthority} from './mdmAuthority';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of organization entities. */
 export class Organization extends DirectoryObject implements Parsable {
-    /** The collection of service plans associated with the tenant. Not nullable.  */
+    /** The collection of service plans associated with the tenant. Not nullable. */
     private _assignedPlans?: AssignedPlan[] | undefined;
-    /** The branding property  */
+    /** The branding property */
     private _branding?: OrganizationalBranding | undefined;
-    /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property.  */
+    /** Telephone number for the organization. Although this is a string collection, only one number can be set for this property. */
     private _businessPhones?: string[] | undefined;
-    /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection.  */
+    /** Navigation property to manage certificate-based authentication configuration. Only a single instance of certificateBasedAuthConfiguration can be created in the collection. */
     private _certificateBasedAuthConfiguration?: CertificateBasedAuthConfiguration[] | undefined;
-    /** City name of the address for the organization.  */
+    /** City name of the address for the organization. */
     private _city?: string | undefined;
-    /** Country/region name of the address for the organization.  */
+    /** Country/region name of the address for the organization. */
     private _country?: string | undefined;
-    /** Country or region abbreviation for the organization in ISO 3166-2 format.  */
+    /** Country or region abbreviation for the organization in ISO 3166-2 format. */
     private _countryLetterCode?: string | undefined;
-    /** Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** Timestamp of when the organization was created. The value cannot be modified and is automatically populated when the organization is created. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The display name for the tenant.  */
+    /** The display name for the tenant. */
     private _displayName?: string | undefined;
-    /** The collection of open extensions defined for the organization. Read-only. Nullable.  */
+    /** The collection of open extensions defined for the organization resource. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** Not nullable.  */
+    /** Not nullable. */
     private _marketingNotificationEmails?: string[] | undefined;
-    /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365.  */
+    /** Mobile device management authority. Possible values are: unknown, intune, sccm, office365. */
     private _mobileDeviceManagementAuthority?: MdmAuthority | undefined;
-    /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _onPremisesLastSyncDateTime?: Date | undefined;
-    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).  */
+    /** true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default). */
     private _onPremisesSyncEnabled?: boolean | undefined;
-    /** Postal code of the address for the organization.  */
+    /** Postal code of the address for the organization. */
     private _postalCode?: string | undefined;
-    /** The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.  */
+    /** The preferred language for the organization. Should follow ISO 639-1 Code; for example en. */
     private _preferredLanguage?: string | undefined;
-    /** The privacy profile of an organization.  */
+    /** The privacy profile of an organization. */
     private _privacyProfile?: PrivacyProfile | undefined;
-    /** Not nullable.  */
+    /** Not nullable. */
     private _provisionedPlans?: ProvisionedPlan[] | undefined;
-    /** The securityComplianceNotificationMails property  */
+    /** The securityComplianceNotificationMails property */
     private _securityComplianceNotificationMails?: string[] | undefined;
-    /** The securityComplianceNotificationPhones property  */
+    /** The securityComplianceNotificationPhones property */
     private _securityComplianceNotificationPhones?: string[] | undefined;
-    /** State name of the address for the organization.  */
+    /** State name of the address for the organization. */
     private _state?: string | undefined;
-    /** Street name of the address for organization.  */
+    /** Street name of the address for organization. */
     private _street?: string | undefined;
-    /** Not nullable.  */
+    /** Not nullable. */
     private _technicalNotificationMails?: string[] | undefined;
-    /** The tenantType property  */
+    /** The tenantType property */
     private _tenantType?: string | undefined;
-    /** The collection of domains associated with this tenant. Not nullable.  */
+    /** The collection of domains associated with this tenant. Not nullable. */
     private _verifiedDomains?: VerifiedDomain[] | undefined;
     /**
      * Gets the assignedPlans property value. The collection of service plans associated with the tenant. Not nullable.
@@ -193,14 +194,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the extensions property value. The collection of open extensions defined for the organization. Read-only. Nullable.
+     * Gets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
      * @returns a extension
      */
     public get extensions() {
         return this._extensions;
     };
     /**
-     * Sets the extensions property value. The collection of open extensions defined for the organization. Read-only. Nullable.
+     * Sets the extensions property value. The collection of open extensions defined for the organization resource. Nullable.
      * @param value Value to set for the extensions property.
      */
     public set extensions(value: Extension[] | undefined) {
@@ -268,28 +269,28 @@ export class Organization extends DirectoryObject implements Parsable {
         this._mobileDeviceManagementAuthority = value;
     };
     /**
-     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Gets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @returns a Date
      */
     public get onPremisesLastSyncDateTime() {
         return this._onPremisesLastSyncDateTime;
     };
     /**
-     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.
+     * Sets the onPremisesLastSyncDateTime property value. The time and date at which the tenant was last synced with the on-premises directory. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
      * @param value Value to set for the onPremisesLastSyncDateTime property.
      */
     public set onPremisesLastSyncDateTime(value: Date | undefined) {
         this._onPremisesLastSyncDateTime = value;
     };
     /**
-     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Gets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
      * @returns a boolean
      */
     public get onPremisesSyncEnabled() {
         return this._onPremisesSyncEnabled;
     };
     /**
-     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced. Nullable. null if this object has never been synced from an on-premises directory (default).
+     * Sets the onPremisesSyncEnabled property value. true if this object is synced from an on-premises directory; false if this object was originally synced from an on-premises directory but is no longer synced; Nullable. null if this object has never been synced from an on-premises directory (default).
      * @param value Value to set for the onPremisesSyncEnabled property.
      */
     public set onPremisesSyncEnabled(value: boolean | undefined) {
@@ -310,14 +311,14 @@ export class Organization extends DirectoryObject implements Parsable {
         this._postalCode = value;
     };
     /**
-     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
+     * Gets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
      * @returns a string
      */
     public get preferredLanguage() {
         return this._preferredLanguage;
     };
     /**
-     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example, en.
+     * Sets the preferredLanguage property value. The preferred language for the organization. Should follow ISO 639-1 Code; for example en.
      * @param value Value to set for the preferredLanguage property.
      */
     public set preferredLanguage(value: string | undefined) {

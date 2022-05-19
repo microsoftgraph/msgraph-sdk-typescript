@@ -4,18 +4,19 @@ import {createRecordingInfoFromDiscriminatorValue} from './createRecordingInfoFr
 import {Entity, MediaStream, ParticipantInfo, RecordingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class Participant extends Entity implements Parsable {
-    /** The info property  */
+    /** The info property */
     private _info?: ParticipantInfo | undefined;
-    /** true if the participant is in lobby.  */
+    /** true if the participant is in lobby. */
     private _isInLobby?: boolean | undefined;
-    /** true if the participant is muted (client or server muted).  */
+    /** true if the participant is muted (client or server muted). */
     private _isMuted?: boolean | undefined;
-    /** The list of media streams.  */
+    /** The list of media streams. */
     private _mediaStreams?: MediaStream[] | undefined;
-    /** A blob of data provided by the participant in the roster.  */
+    /** A blob of data provided by the participant in the roster. */
     private _metadata?: string | undefined;
-    /** Information about whether the participant has recording capability.  */
+    /** Information on whether the participant has recording capability. */
     private _recordingInfo?: RecordingInfo | undefined;
     /**
      * Instantiates a new participant and sets the default values.
@@ -108,14 +109,14 @@ export class Participant extends Entity implements Parsable {
         this._metadata = value;
     };
     /**
-     * Gets the recordingInfo property value. Information about whether the participant has recording capability.
+     * Gets the recordingInfo property value. Information on whether the participant has recording capability.
      * @returns a recordingInfo
      */
     public get recordingInfo() {
         return this._recordingInfo;
     };
     /**
-     * Sets the recordingInfo property value. Information about whether the participant has recording capability.
+     * Sets the recordingInfo property value. Information on whether the participant has recording capability.
      * @param value Value to set for the recordingInfo property.
      */
     public set recordingInfo(value: RecordingInfo | undefined) {

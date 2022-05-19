@@ -4,16 +4,17 @@ import {createTargetedManagedAppPolicyAssignmentFromDiscriminatorValue} from './
 import {ManagedAppConfiguration, ManagedAppPolicyDeploymentSummary, ManagedMobileApp, TargetedManagedAppPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Configuration used to deliver a set of custom settings as-is to all users in the targeted security group */
 export class TargetedManagedAppConfiguration extends ManagedAppConfiguration implements Parsable {
-    /** List of apps to which the policy is deployed.  */
+    /** List of apps to which the policy is deployed. */
     private _apps?: ManagedMobileApp[] | undefined;
-    /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed.  */
+    /** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
     private _assignments?: TargetedManagedAppPolicyAssignment[] | undefined;
-    /** Count of apps to which the current policy is deployed.  */
+    /** Count of apps to which the current policy is deployed. */
     private _deployedAppCount?: number | undefined;
-    /** Navigation property to deployment summary of the configuration.  */
+    /** Navigation property to deployment summary of the configuration. */
     private _deploymentSummary?: ManagedAppPolicyDeploymentSummary | undefined;
-    /** Indicates if the policy is deployed to any inclusion groups or not.  */
+    /** Indicates if the policy is deployed to any inclusion groups or not. */
     private _isAssigned?: boolean | undefined;
     /**
      * Gets the apps property value. List of apps to which the policy is deployed.

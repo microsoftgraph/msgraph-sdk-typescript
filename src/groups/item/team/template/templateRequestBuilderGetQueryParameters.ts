@@ -1,9 +1,9 @@
 
-/** The template this team was created from. See available templates.  */
+/** The template this team was created from. See available templates. */
 export class TemplateRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

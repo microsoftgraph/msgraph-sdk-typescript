@@ -15,114 +15,115 @@ import {ManagedDevicePartnerReportedHealthState} from './managedDevicePartnerRep
 import {ManagementAgentType} from './managementAgentType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Devices that are managed or pre-enrolled through Intune */
 export class ManagedDevice extends Entity implements Parsable {
-    /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only.  */
+    /** Code that allows the Activation Lock on a device to be bypassed. This property is read-only. */
     private _activationLockBypassCode?: string | undefined;
-    /** Android security patch level. This property is read-only.  */
+    /** Android security patch level. This property is read-only. */
     private _androidSecurityPatchLevel?: string | undefined;
-    /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only.  */
+    /** The unique identifier for the Azure Active Directory device. Read only. This property is read-only. */
     private _azureADDeviceId?: string | undefined;
-    /** Whether the device is Azure Active Directory registered. This property is read-only.  */
+    /** Whether the device is Azure Active Directory registered. This property is read-only. */
     private _azureADRegistered?: boolean | undefined;
-    /** The DateTime when device compliance grace period expires. This property is read-only.  */
+    /** The DateTime when device compliance grace period expires. This property is read-only. */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;
-    /** Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager.  */
+    /** Compliance state of the device. This property is read-only. Possible values are: unknown, compliant, noncompliant, conflict, error, inGracePeriod, configManager. */
     private _complianceState?: ComplianceState | undefined;
-    /** ConfigrMgr client enabled features. This property is read-only.  */
+    /** ConfigrMgr client enabled features. This property is read-only. */
     private _configurationManagerClientEnabledFeatures?: ConfigurationManagerClientEnabledFeatures | undefined;
-    /** List of ComplexType deviceActionResult objects. This property is read-only.  */
+    /** List of ComplexType deviceActionResult objects. This property is read-only. */
     private _deviceActionResults?: DeviceActionResult[] | undefined;
-    /** Device category  */
+    /** Device category */
     private _deviceCategory?: DeviceCategory | undefined;
-    /** Device category display name. This property is read-only.  */
+    /** Device category display name. This property is read-only. */
     private _deviceCategoryDisplayName?: string | undefined;
-    /** Device compliance policy states for this device.  */
+    /** Device compliance policy states for this device. */
     private _deviceCompliancePolicyStates?: DeviceCompliancePolicyState[] | undefined;
-    /** Device configuration states for this device.  */
+    /** Device configuration states for this device. */
     private _deviceConfigurationStates?: DeviceConfigurationState[] | undefined;
-    /** Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.  */
+    /** Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile. */
     private _deviceEnrollmentType?: DeviceEnrollmentType | undefined;
-    /** The device health attestation state. This property is read-only.  */
+    /** The device health attestation state. This property is read-only. */
     private _deviceHealthAttestationState?: DeviceHealthAttestationState | undefined;
-    /** Name of the device. This property is read-only.  */
+    /** Name of the device. This property is read-only. */
     private _deviceName?: string | undefined;
-    /** Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown.  */
+    /** Device registration state. This property is read-only. Possible values are: notRegistered, registered, revoked, keyConflict, approvalPending, certificateReset, notRegisteredPendingEnrollment, unknown. */
     private _deviceRegistrationState?: DeviceRegistrationState | undefined;
-    /** Whether the device is Exchange ActiveSync activated. This property is read-only.  */
+    /** Whether the device is Exchange ActiveSync activated. This property is read-only. */
     private _easActivated?: boolean | undefined;
-    /** Exchange ActivationSync activation time of the device. This property is read-only.  */
+    /** Exchange ActivationSync activation time of the device. This property is read-only. */
     private _easActivationDateTime?: Date | undefined;
-    /** Exchange ActiveSync Id of the device. This property is read-only.  */
+    /** Exchange ActiveSync Id of the device. This property is read-only. */
     private _easDeviceId?: string | undefined;
-    /** Email(s) for the user associated with the device. This property is read-only.  */
+    /** Email(s) for the user associated with the device. This property is read-only. */
     private _emailAddress?: string | undefined;
-    /** Enrollment time of the device. This property is read-only.  */
+    /** Enrollment time of the device. This property is read-only. */
     private _enrolledDateTime?: Date | undefined;
-    /** Ethernet MAC. This property is read-only.  */
+    /** Ethernet MAC. This property is read-only. */
     private _ethernetMacAddress?: string | undefined;
-    /** The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined.  */
+    /** The Access State of the device in Exchange. This property is read-only. Possible values are: none, unknown, allowed, blocked, quarantined. */
     private _exchangeAccessState?: DeviceManagementExchangeAccessState | undefined;
-    /** The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp.  */
+    /** The reason for the device's access state in Exchange. This property is read-only. Possible values are: none, unknown, exchangeGlobalRule, exchangeIndividualRule, exchangeDeviceRule, exchangeUpgrade, exchangeMailboxPolicy, other, compliant, notCompliant, notEnrolled, unknownLocation, mfaRequired, azureADBlockDueToAccessPolicy, compromisedPassword, deviceNotKnownWithManagedApp. */
     private _exchangeAccessStateReason?: DeviceManagementExchangeAccessStateReason | undefined;
-    /** Last time the device contacted Exchange. This property is read-only.  */
+    /** Last time the device contacted Exchange. This property is read-only. */
     private _exchangeLastSuccessfulSyncDateTime?: Date | undefined;
-    /** Free Storage in Bytes. This property is read-only.  */
+    /** Free Storage in Bytes. This property is read-only. */
     private _freeStorageSpaceInBytes?: number | undefined;
-    /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only.  */
+    /** Integrated Circuit Card Identifier, it is A SIM card's unique identification number. This property is read-only. */
     private _iccid?: string | undefined;
-    /** IMEI. This property is read-only.  */
+    /** IMEI. This property is read-only. */
     private _imei?: string | undefined;
-    /** Device encryption status. This property is read-only.  */
+    /** Device encryption status. This property is read-only. */
     private _isEncrypted?: boolean | undefined;
-    /** Device supervised status. This property is read-only.  */
+    /** Device supervised status. This property is read-only. */
     private _isSupervised?: boolean | undefined;
-    /** whether the device is jail broken or rooted. This property is read-only.  */
+    /** whether the device is jail broken or rooted. This property is read-only. */
     private _jailBroken?: string | undefined;
-    /** The date and time that the device last completed a successful sync with Intune. This property is read-only.  */
+    /** The date and time that the device last completed a successful sync with Intune. This property is read-only. */
     private _lastSyncDateTime?: Date | undefined;
-    /** Automatically generated name to identify a device. Can be overwritten to a user friendly name.  */
+    /** Automatically generated name to identify a device. Can be overwritten to a user friendly name. */
     private _managedDeviceName?: string | undefined;
-    /** Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal.  */
+    /** Ownership of the device. Can be 'company' or 'personal'. Possible values are: unknown, company, personal. */
     private _managedDeviceOwnerType?: ManagedDeviceOwnerType | undefined;
-    /** Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.  */
+    /** Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp. */
     private _managementAgent?: ManagementAgentType | undefined;
-    /** Manufacturer of the device. This property is read-only.  */
+    /** Manufacturer of the device. This property is read-only. */
     private _manufacturer?: string | undefined;
-    /** MEID. This property is read-only.  */
+    /** MEID. This property is read-only. */
     private _meid?: string | undefined;
-    /** Model of the device. This property is read-only.  */
+    /** Model of the device. This property is read-only. */
     private _model?: string | undefined;
-    /** Notes on the device created by IT Admin  */
+    /** Notes on the device created by IT Admin */
     private _notes?: string | undefined;
-    /** Operating system of the device. Windows, iOS, etc. This property is read-only.  */
+    /** Operating system of the device. Windows, iOS, etc. This property is read-only. */
     private _operatingSystem?: string | undefined;
-    /** Operating system version of the device. This property is read-only.  */
+    /** Operating system version of the device. This property is read-only. */
     private _osVersion?: string | undefined;
-    /** Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured.  */
+    /** Indicates the threat state of a device when a Mobile Threat Defense partner is in use by the account and device. Read Only. This property is read-only. Possible values are: unknown, activated, deactivated, secured, lowSeverity, mediumSeverity, highSeverity, unresponsive, compromised, misconfigured. */
     private _partnerReportedThreatState?: ManagedDevicePartnerReportedHealthState | undefined;
-    /** Phone number of the device. This property is read-only.  */
+    /** Phone number of the device. This property is read-only. */
     private _phoneNumber?: string | undefined;
-    /** Total Memory in Bytes. This property is read-only.  */
+    /** Total Memory in Bytes. This property is read-only. */
     private _physicalMemoryInBytes?: number | undefined;
-    /** An error string that identifies issues when creating Remote Assistance session objects. This property is read-only.  */
+    /** An error string that identifies issues when creating Remote Assistance session objects. This property is read-only. */
     private _remoteAssistanceSessionErrorDetails?: string | undefined;
-    /** Url that allows a Remote Assistance session to be established with the device. This property is read-only.  */
+    /** Url that allows a Remote Assistance session to be established with the device. This property is read-only. */
     private _remoteAssistanceSessionUrl?: string | undefined;
-    /** SerialNumber. This property is read-only.  */
+    /** SerialNumber. This property is read-only. */
     private _serialNumber?: string | undefined;
-    /** Subscriber Carrier. This property is read-only.  */
+    /** Subscriber Carrier. This property is read-only. */
     private _subscriberCarrier?: string | undefined;
-    /** Total Storage in Bytes. This property is read-only.  */
+    /** Total Storage in Bytes. This property is read-only. */
     private _totalStorageSpaceInBytes?: number | undefined;
-    /** Unique Device Identifier for iOS and macOS devices. This property is read-only.  */
+    /** Unique Device Identifier for iOS and macOS devices. This property is read-only. */
     private _udid?: string | undefined;
-    /** User display name. This property is read-only.  */
+    /** User display name. This property is read-only. */
     private _userDisplayName?: string | undefined;
-    /** Unique Identifier for the user associated with the device. This property is read-only.  */
+    /** Unique Identifier for the user associated with the device. This property is read-only. */
     private _userId?: string | undefined;
-    /** Device user principal name. This property is read-only.  */
+    /** Device user principal name. This property is read-only. */
     private _userPrincipalName?: string | undefined;
-    /** Wi-Fi MAC. This property is read-only.  */
+    /** Wi-Fi MAC. This property is read-only. */
     private _wiFiMacAddress?: string | undefined;
     /**
      * Gets the activationLockBypassCode property value. Code that allows the Activation Lock on a device to be bypassed. This property is read-only.
@@ -299,14 +300,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._deviceConfigurationStates = value;
     };
     /**
-     * Gets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.
+     * Gets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
      * @returns a deviceEnrollmentType
      */
     public get deviceEnrollmentType() {
         return this._deviceEnrollmentType;
     };
     /**
-     * Sets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount.
+     * Sets the deviceEnrollmentType property value. Enrollment type of the device. This property is read-only. Possible values are: unknown, userEnrollment, deviceEnrollmentManager, appleBulkWithUser, appleBulkWithoutUser, windowsAzureADJoin, windowsBulkUserless, windowsAutoEnrollment, windowsBulkAzureDomainJoin, windowsCoManagement, windowsAzureADJoinUsingDeviceAuth, appleUserEnrollment, appleUserEnrollmentWithServiceAccount, azureAdJoinUsingAzureVmExtension, androidEnterpriseDedicatedDevice, androidEnterpriseFullyManaged, androidEnterpriseCorporateWorkProfile.
      * @param value Value to set for the deviceEnrollmentType property.
      */
     public set deviceEnrollmentType(value: DeviceEnrollmentType | undefined) {
@@ -669,14 +670,14 @@ export class ManagedDevice extends Entity implements Parsable {
         this._managedDeviceOwnerType = value;
     };
     /**
-     * Gets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Gets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
      * @returns a managementAgentType
      */
     public get managementAgent() {
         return this._managementAgent;
     };
     /**
-     * Sets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController.
+     * Sets the managementAgent property value. Management channel of the device. Intune, EAS, etc. This property is read-only. Possible values are: eas, mdm, easMdm, intuneClient, easIntuneClient, configurationManagerClient, configurationManagerClientMdm, configurationManagerClientMdmEas, unknown, jamf, googleCloudDevicePolicyController, microsoft365ManagedMdm, msSense, intuneAosp.
      * @param value Value to set for the managementAgent property.
      */
     public set managementAgent(value: ManagementAgentType | undefined) {

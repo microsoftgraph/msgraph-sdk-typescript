@@ -1,1 +1,1 @@
-export * from './copyNotebookRequestBody'
+export * from './copyNotebookPostRequestBody'

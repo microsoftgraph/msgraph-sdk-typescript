@@ -2,20 +2,21 @@ import {ComplianceStatus} from './complianceStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties, inherited properties and actions for an MDM mobile app configuration status for a device. */
 export class ManagedDeviceMobileAppConfigurationDeviceStatus extends Entity implements Parsable {
-    /** The DateTime when device compliance grace period expires  */
+    /** The DateTime when device compliance grace period expires */
     private _complianceGracePeriodExpirationDateTime?: Date | undefined;
-    /** Device name of the DevicePolicyStatus.  */
+    /** Device name of the DevicePolicyStatus. */
     private _deviceDisplayName?: string | undefined;
-    /** The device model that is being reported  */
+    /** The device model that is being reported */
     private _deviceModel?: string | undefined;
-    /** Last modified date time of the policy report.  */
+    /** Last modified date time of the policy report. */
     private _lastReportedDateTime?: Date | undefined;
-    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** Compliance status of the policy report. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     private _status?: ComplianceStatus | undefined;
-    /** The User Name that is being reported  */
+    /** The User Name that is being reported */
     private _userName?: string | undefined;
-    /** UserPrincipalName.  */
+    /** UserPrincipalName. */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the complianceGracePeriodExpirationDateTime property value. The DateTime when device compliance grace period expires

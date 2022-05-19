@@ -13,45 +13,45 @@ import {File, FileSystemInfo, Folder, IdentitySet, Image, ItemReference, Package
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RemoteItem implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Identity of the user, device, and application which created the item. Read-only.  */
+    /** Identity of the user, device, and application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;
-    /** Date and time of item creation. Read-only.  */
+    /** Date and time of item creation. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Indicates that the remote item is a file. Read-only.  */
+    /** Indicates that the remote item is a file. Read-only. */
     private _file?: File | undefined;
-    /** Information about the remote item from the local file system. Read-only.  */
+    /** Information about the remote item from the local file system. Read-only. */
     private _fileSystemInfo?: FileSystemInfo | undefined;
-    /** Indicates that the remote item is a folder. Read-only.  */
+    /** Indicates that the remote item is a folder. Read-only. */
     private _folder?: Folder | undefined;
-    /** Unique identifier for the remote item in its drive. Read-only.  */
+    /** Unique identifier for the remote item in its drive. Read-only. */
     private _id?: string | undefined;
-    /** Image metadata, if the item is an image. Read-only.  */
+    /** Image metadata, if the item is an image. Read-only. */
     private _image?: Image | undefined;
-    /** Identity of the user, device, and application which last modified the item. Read-only.  */
+    /** Identity of the user, device, and application which last modified the item. Read-only. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** Date and time the item was last modified. Read-only.  */
+    /** Date and time the item was last modified. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Optional. Filename of the remote item. Read-only.  */
+    /** Optional. Filename of the remote item. Read-only. */
     private _name?: string | undefined;
-    /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.  */
+    /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
     private _package?: Package | undefined;
-    /** Properties of the parent of the remote item. Read-only.  */
+    /** Properties of the parent of the remote item. Read-only. */
     private _parentReference?: ItemReference | undefined;
-    /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.  */
+    /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
     private _shared?: Shared | undefined;
-    /** Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only.  */
+    /** Provides interop between items in OneDrive for Business and SharePoint with the full set of item identifiers. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
-    /** Size of the remote item. Read-only.  */
+    /** Size of the remote item. Read-only. */
     private _size?: number | undefined;
-    /** If the current item is also available as a special folder, this facet is returned. Read-only.  */
+    /** If the current item is also available as a special folder, this facet is returned. Read-only. */
     private _specialFolder?: SpecialFolder | undefined;
-    /** Video metadata, if the item is a video. Read-only.  */
+    /** Video metadata, if the item is a video. Read-only. */
     private _video?: Video | undefined;
-    /** DAV compatible URL for the item.  */
+    /** DAV compatible URL for the item. */
     private _webDavUrl?: string | undefined;
-    /** URL that displays the resource in the browser. Read-only.  */
+    /** URL that displays the resource in the browser. Read-only. */
     private _webUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

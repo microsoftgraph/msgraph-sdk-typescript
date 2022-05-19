@@ -1,69 +1,69 @@
 import {ManagedAppPolicy} from './index';
 import {ManagedAppClipboardSharingLevel} from './managedAppClipboardSharingLevel';
-import {ManagedAppDataStorageLocation} from './managedAppDataStorageLocation';
 import {ManagedAppDataTransferLevel} from './managedAppDataTransferLevel';
 import {ManagedAppPinCharacterSet} from './managedAppPinCharacterSet';
 import {ManagedBrowserType} from './managedBrowserType';
 import {Duration, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Policy used to configure detailed management settings for a specified set of apps */
 export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
-    /** Data storage locations where a user may store managed data.  */
-    private _allowedDataStorageLocations?: ManagedAppDataStorageLocation[] | undefined;
-    /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none.  */
+    /** Data storage locations where a user may store managed data. */
+    private _allowedDataStorageLocations?: string[] | undefined;
+    /** Sources from which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
     private _allowedInboundDataTransferSources?: ManagedAppDataTransferLevel | undefined;
-    /** The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked.  */
+    /** The level to which the clipboard may be shared between apps on the managed device. Possible values are: allApps, managedAppsWithPasteIn, managedApps, blocked. */
     private _allowedOutboundClipboardSharingLevel?: ManagedAppClipboardSharingLevel | undefined;
-    /** Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none.  */
+    /** Destinations to which data is allowed to be transferred. Possible values are: allApps, managedApps, none. */
     private _allowedOutboundDataTransferDestinations?: ManagedAppDataTransferLevel | undefined;
-    /** Indicates whether contacts can be synced to the user's device.  */
+    /** Indicates whether contacts can be synced to the user's device. */
     private _contactSyncBlocked?: boolean | undefined;
-    /** Indicates whether the backup of a managed app's data is blocked.  */
+    /** Indicates whether the backup of a managed app's data is blocked. */
     private _dataBackupBlocked?: boolean | undefined;
-    /** Indicates whether device compliance is required.  */
+    /** Indicates whether device compliance is required. */
     private _deviceComplianceRequired?: boolean | undefined;
-    /** Indicates whether use of the app pin is required if the device pin is set.  */
+    /** Indicates whether use of the app pin is required if the device pin is set. */
     private _disableAppPinIfDevicePinIsSet?: boolean | undefined;
-    /** Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True.  */
+    /** Indicates whether use of the fingerprint reader is allowed in place of a pin if PinRequired is set to True. */
     private _fingerprintBlocked?: boolean | undefined;
-    /** Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge.  */
+    /** Indicates in which managed browser(s) that internet links should be opened. When this property is configured, ManagedBrowserToOpenLinksRequired should be true. Possible values are: notConfigured, microsoftEdge. */
     private _managedBrowser?: ManagedBrowserType | undefined;
-    /** Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android)  */
+    /** Indicates whether internet links should be opened in the managed browser app, or any custom browser specified by CustomBrowserProtocol (for iOS) or CustomBrowserPackageId/CustomBrowserDisplayName (for Android) */
     private _managedBrowserToOpenLinksRequired?: boolean | undefined;
-    /** Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped.  */
+    /** Maximum number of incorrect pin retry attempts before the managed app is either blocked or wiped. */
     private _maximumPinRetries?: number | undefined;
-    /** Minimum pin length required for an app-level pin if PinRequired is set to True  */
+    /** Minimum pin length required for an app-level pin if PinRequired is set to True */
     private _minimumPinLength?: number | undefined;
-    /** Versions less than the specified version will block the managed app from accessing company data.  */
+    /** Versions less than the specified version will block the managed app from accessing company data. */
     private _minimumRequiredAppVersion?: string | undefined;
-    /** Versions less than the specified version will block the managed app from accessing company data.  */
+    /** Versions less than the specified version will block the managed app from accessing company data. */
     private _minimumRequiredOsVersion?: string | undefined;
-    /** Versions less than the specified version will result in warning message on the managed app.  */
+    /** Versions less than the specified version will result in warning message on the managed app. */
     private _minimumWarningAppVersion?: string | undefined;
-    /** Versions less than the specified version will result in warning message on the managed app from accessing company data.  */
+    /** Versions less than the specified version will result in warning message on the managed app from accessing company data. */
     private _minimumWarningOsVersion?: string | undefined;
-    /** Indicates whether organizational credentials are required for app use.  */
+    /** Indicates whether organizational credentials are required for app use. */
     private _organizationalCredentialsRequired?: boolean | undefined;
-    /** TimePeriod before the all-level pin must be reset if PinRequired is set to True.  */
+    /** TimePeriod before the all-level pin must be reset if PinRequired is set to True. */
     private _periodBeforePinReset?: Duration | undefined;
-    /** The period after which access is checked when the device is not connected to the internet.  */
+    /** The period after which access is checked when the device is not connected to the internet. */
     private _periodOfflineBeforeAccessCheck?: Duration | undefined;
-    /** The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped.  */
+    /** The amount of time an app is allowed to remain disconnected from the internet before all managed data it is wiped. */
     private _periodOfflineBeforeWipeIsEnforced?: Duration | undefined;
-    /** The period after which access is checked when the device is connected to the internet.  */
+    /** The period after which access is checked when the device is connected to the internet. */
     private _periodOnlineBeforeAccessCheck?: Duration | undefined;
-    /** Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol.  */
+    /** Character set which may be used for an app-level pin if PinRequired is set to True. Possible values are: numeric, alphanumericAndSymbol. */
     private _pinCharacterSet?: ManagedAppPinCharacterSet | undefined;
-    /** Indicates whether an app-level pin is required.  */
+    /** Indicates whether an app-level pin is required. */
     private _pinRequired?: boolean | undefined;
-    /** Indicates whether printing is allowed from managed apps.  */
+    /** Indicates whether printing is allowed from managed apps. */
     private _printBlocked?: boolean | undefined;
-    /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files.  */
+    /** Indicates whether users may use the 'Save As' menu item to save a copy of protected files. */
     private _saveAsBlocked?: boolean | undefined;
-    /** Indicates whether simplePin is blocked.  */
+    /** Indicates whether simplePin is blocked. */
     private _simplePinBlocked?: boolean | undefined;
     /**
      * Gets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
-     * @returns a managedAppDataStorageLocation
+     * @returns a string
      */
     public get allowedDataStorageLocations() {
         return this._allowedDataStorageLocations;
@@ -72,7 +72,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      * Sets the allowedDataStorageLocations property value. Data storage locations where a user may store managed data.
      * @param value Value to set for the allowedDataStorageLocations property.
      */
-    public set allowedDataStorageLocations(value: ManagedAppDataStorageLocation[] | undefined) {
+    public set allowedDataStorageLocations(value: string[] | undefined) {
         this._allowedDataStorageLocations = value;
     };
     /**
@@ -199,7 +199,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "allowedDataStorageLocations": n => { this.allowedDataStorageLocations = n.getEnumValues<ManagedAppDataStorageLocation>(ManagedAppDataStorageLocation); },
+            "allowedDataStorageLocations": n => { this.allowedDataStorageLocations = n.getCollectionOfPrimitiveValues<string>(); },
             "allowedInboundDataTransferSources": n => { this.allowedInboundDataTransferSources = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); },
             "allowedOutboundClipboardSharingLevel": n => { this.allowedOutboundClipboardSharingLevel = n.getEnumValue<ManagedAppClipboardSharingLevel>(ManagedAppClipboardSharingLevel); },
             "allowedOutboundDataTransferDestinations": n => { this.allowedOutboundDataTransferDestinations = n.getEnumValue<ManagedAppDataTransferLevel>(ManagedAppDataTransferLevel); },
@@ -473,7 +473,7 @@ export class ManagedAppProtection extends ManagedAppPolicy implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        this.allowedDataStorageLocations && writer.writeEnumValue<ManagedAppDataStorageLocation>("allowedDataStorageLocations", ...this.allowedDataStorageLocations);
+        writer.writeCollectionOfPrimitiveValues<string>("allowedDataStorageLocations", this.allowedDataStorageLocations);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedInboundDataTransferSources", this.allowedInboundDataTransferSources);
         writer.writeEnumValue<ManagedAppClipboardSharingLevel>("allowedOutboundClipboardSharingLevel", this.allowedOutboundClipboardSharingLevel);
         writer.writeEnumValue<ManagedAppDataTransferLevel>("allowedOutboundDataTransferDestinations", this.allowedOutboundDataTransferDestinations);

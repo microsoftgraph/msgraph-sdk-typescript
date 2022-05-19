@@ -1,39 +1,39 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Audio implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The title of the album for this audio file.  */
+    /** The title of the album for this audio file. */
     private _album?: string | undefined;
-    /** The artist named on the album for the audio file.  */
+    /** The artist named on the album for the audio file. */
     private _albumArtist?: string | undefined;
-    /** The performing artist for the audio file.  */
+    /** The performing artist for the audio file. */
     private _artist?: string | undefined;
-    /** Bitrate expressed in kbps.  */
+    /** Bitrate expressed in kbps. */
     private _bitrate?: number | undefined;
-    /** The name of the composer of the audio file.  */
+    /** The name of the composer of the audio file. */
     private _composers?: string | undefined;
-    /** Copyright information for the audio file.  */
+    /** Copyright information for the audio file. */
     private _copyright?: string | undefined;
-    /** The number of the disc this audio file came from.  */
+    /** The number of the disc this audio file came from. */
     private _disc?: number | undefined;
-    /** The total number of discs in this album.  */
+    /** The total number of discs in this album. */
     private _discCount?: number | undefined;
-    /** Duration of the audio file, expressed in milliseconds  */
+    /** Duration of the audio file, expressed in milliseconds */
     private _duration?: number | undefined;
-    /** The genre of this audio file.  */
+    /** The genre of this audio file. */
     private _genre?: string | undefined;
-    /** Indicates if the file is protected with digital rights management.  */
+    /** Indicates if the file is protected with digital rights management. */
     private _hasDrm?: boolean | undefined;
-    /** Indicates if the file is encoded with a variable bitrate.  */
+    /** Indicates if the file is encoded with a variable bitrate. */
     private _isVariableBitrate?: boolean | undefined;
-    /** The title of the audio file.  */
+    /** The title of the audio file. */
     private _title?: string | undefined;
-    /** The number of the track on the original disc for this audio file.  */
+    /** The number of the track on the original disc for this audio file. */
     private _track?: number | undefined;
-    /** The total number of tracks on the original disc for this audio file.  */
+    /** The total number of tracks on the original disc for this audio file. */
     private _trackCount?: number | undefined;
-    /** The year the audio file was recorded.  */
+    /** The year the audio file was recorded. */
     private _year?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

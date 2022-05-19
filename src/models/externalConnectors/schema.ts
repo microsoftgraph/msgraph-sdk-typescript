@@ -3,20 +3,21 @@ import {createPropertyFromDiscriminatorValue} from './createPropertyFromDiscrimi
 import {Property} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of externalConnection entities. */
 export class Schema extends Entity implements Parsable {
-    /** Must be set to microsoft.graph.externalConnector.externalItem. Required.  */
+    /** Must be set to microsoft.graph.externalItem. Required. */
     private _baseType?: string | undefined;
-    /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128.  */
+    /** The properties defined for the items in the connection. The minimum number of properties is one, the maximum is 128. */
     private _properties?: Property[] | undefined;
     /**
-     * Gets the baseType property value. Must be set to microsoft.graph.externalConnector.externalItem. Required.
+     * Gets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
      * @returns a string
      */
     public get baseType() {
         return this._baseType;
     };
     /**
-     * Sets the baseType property value. Must be set to microsoft.graph.externalConnector.externalItem. Required.
+     * Sets the baseType property value. Must be set to microsoft.graph.externalItem. Required.
      * @param value Value to set for the baseType property.
      */
     public set baseType(value: string | undefined) {

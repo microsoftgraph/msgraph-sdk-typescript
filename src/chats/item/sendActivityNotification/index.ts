@@ -1,1 +1,1 @@
-export * from './sendActivityNotificationRequestBody'
+export * from './sendActivityNotificationPostRequestBody'

@@ -1,9 +1,9 @@
 
-/** Get entities from subscriptions  */
+/** Retrieve a list of webhook subscriptions.  The content of the response depends on the context in which the app is calling; for details, see the scenarios in the [Permissions](#permissions) section. */
 export class SubscriptionsRequestBuilderGetQueryParameters {
-    /** Search items by search phrases  */
+    /** Search items by search phrases */
     public search?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

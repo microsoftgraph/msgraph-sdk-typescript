@@ -5,15 +5,15 @@ import {EducationClass, EducationSchool, EducationUser} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationRoot implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The classes property  */
+    /** The classes property */
     private _classes?: EducationClass[] | undefined;
-    /** The me property  */
+    /** The me property */
     private _me?: EducationUser | undefined;
-    /** The schools property  */
+    /** The schools property */
     private _schools?: EducationSchool[] | undefined;
-    /** The users property  */
+    /** The users property */
     private _users?: EducationUser[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

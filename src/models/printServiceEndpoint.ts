@@ -1,10 +1,11 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintServiceEndpoint extends Entity implements Parsable {
-    /** A human-readable display name for the endpoint.  */
+    /** A human-readable display name for the endpoint. */
     private _displayName?: string | undefined;
-    /** The URI that can be used to access the service.  */
+    /** The URI that can be used to access the service. */
     private _uri?: string | undefined;
     /**
      * Instantiates a new printServiceEndpoint and sets the default values.

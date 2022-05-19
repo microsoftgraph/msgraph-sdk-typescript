@@ -1,9 +1,9 @@
 
-/** Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.  */
+/** Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles. */
 export class UnifiedRoleDefinitionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

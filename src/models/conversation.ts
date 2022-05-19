@@ -2,18 +2,19 @@ import {createConversationThreadFromDiscriminatorValue} from './createConversati
 import {ConversationThread, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Conversation extends Entity implements Parsable {
-    /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search.  */
+    /** Indicates whether any of the posts within this Conversation has at least one attachment. Supports $filter (eq, ne) and $search. */
     private _hasAttachments?: boolean | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge). */
     private _lastDeliveredDateTime?: Date | undefined;
-    /** A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).  */
+    /** A short summary from the body of the latest post in this conversation. */
     private _preview?: string | undefined;
-    /** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.  */
+    /** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
     private _threads?: ConversationThread[] | undefined;
-    /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated.  */
+    /** The topic of the conversation. This property can be set when the conversation is created, but it cannot be updated. */
     private _topic?: string | undefined;
-    /** All the users that sent a message to this Conversation.  */
+    /** All the users that sent a message to this Conversation. */
     private _uniqueSenders?: string[] | undefined;
     /**
      * Instantiates a new conversation and sets the default values.
@@ -50,28 +51,28 @@ export class Conversation extends Entity implements Parsable {
         this._hasAttachments = value;
     };
     /**
-     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).
      * @returns a Date
      */
     public get lastDeliveredDateTime() {
         return this._lastDeliveredDateTime;
     };
     /**
-     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the lastDeliveredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Supports $filter (eq, ne, le, ge).
      * @param value Value to set for the lastDeliveredDateTime property.
      */
     public set lastDeliveredDateTime(value: Date | undefined) {
         this._lastDeliveredDateTime = value;
     };
     /**
-     * Gets the preview property value. A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
+     * Gets the preview property value. A short summary from the body of the latest post in this conversation.
      * @returns a string
      */
     public get preview() {
         return this._preview;
     };
     /**
-     * Sets the preview property value. A short summary from the body of the latest post in this conversation. Supports $filter (eq, ne, le, ge).
+     * Sets the preview property value. A short summary from the body of the latest post in this conversation.
      * @param value Value to set for the preview property.
      */
     public set preview(value: string | undefined) {

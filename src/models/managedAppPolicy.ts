@@ -1,16 +1,17 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The ManagedAppPolicy resource represents a base type for platform specific policies. */
 export class ManagedAppPolicy extends Entity implements Parsable {
-    /** The date and time the policy was created.  */
+    /** The date and time the policy was created. */
     private _createdDateTime?: Date | undefined;
-    /** The policy's description.  */
+    /** The policy's description. */
     private _description?: string | undefined;
-    /** Policy display name.  */
+    /** Policy display name. */
     private _displayName?: string | undefined;
-    /** Last time the policy was modified.  */
+    /** Last time the policy was modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Version of the entity.  */
+    /** Version of the entity. */
     private _version?: string | undefined;
     /**
      * Instantiates a new managedAppPolicy and sets the default values.

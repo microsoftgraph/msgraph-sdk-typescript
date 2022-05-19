@@ -2,10 +2,11 @@ import {createRequestScheduleFromDiscriminatorValue} from './createRequestSchedu
 import {RequestSchedule, UnifiedRoleScheduleBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleEligibilitySchedule extends UnifiedRoleScheduleBase implements Parsable {
-    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group.  */
+    /** Membership type of the eligible assignment. It can either be Inherited, Direct, or Group. */
     private _memberType?: string | undefined;
-    /** The schedule object of the eligible role assignment request.  */
+    /** The schedule object of the eligible role assignment request. */
     private _scheduleInfo?: RequestSchedule | undefined;
     /**
      * Instantiates a new unifiedRoleEligibilitySchedule and sets the default values.

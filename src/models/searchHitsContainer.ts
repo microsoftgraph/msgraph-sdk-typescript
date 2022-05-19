@@ -4,15 +4,15 @@ import {SearchAggregation, SearchHit} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchHitsContainer implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request.  */
+    /** Contains the collection of aggregations computed based on the provided aggregationOption specified in the request. */
     private _aggregations?: SearchAggregation[] | undefined;
-    /** A collection of the search results.  */
+    /** A collection of the search results. */
     private _hits?: SearchHit[] | undefined;
-    /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly.  */
+    /** Provides information if more results are available. Based on this information, you can adjust the from and size properties of the searchRequest accordingly. */
     private _moreResultsAvailable?: boolean | undefined;
-    /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query.  */
+    /** The total number of results. Note this is not the number of results on the page, but the total number of results satisfying the query. */
     private _total?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

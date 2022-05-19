@@ -1,9 +1,9 @@
 
-/** A collection of issues that happened on the service, with detailed information for each issue.  */
+/** A collection of issues that happened on the service, with detailed information for each issue. */
 export class ServiceHealthIssueItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

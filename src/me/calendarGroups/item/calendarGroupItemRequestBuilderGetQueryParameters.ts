@@ -1,7 +1,7 @@
 
-/** The user's calendar groups. Read-only. Nullable.  */
+/** The user's calendar groups. Read-only. Nullable. */
 export class CalendarGroupItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

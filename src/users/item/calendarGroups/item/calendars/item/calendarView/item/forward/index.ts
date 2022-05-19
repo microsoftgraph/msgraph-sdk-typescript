@@ -1,1 +1,1 @@
-export * from './forwardRequestBody'
+export * from './forwardPostRequestBody'

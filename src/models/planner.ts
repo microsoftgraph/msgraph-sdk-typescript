@@ -4,13 +4,13 @@ import {createPlannerTaskFromDiscriminatorValue} from './createPlannerTaskFromDi
 import {Entity, PlannerBucket, PlannerPlan, PlannerTask} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the planner singleton.  */
+/** Provides operations to manage the planner singleton. */
 export class Planner extends Entity implements Parsable {
-    /** Read-only. Nullable. Returns a collection of the specified buckets  */
+    /** Read-only. Nullable. Returns a collection of the specified buckets */
     private _buckets?: PlannerBucket[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified plans  */
+    /** Read-only. Nullable. Returns a collection of the specified plans */
     private _plans?: PlannerPlan[] | undefined;
-    /** Read-only. Nullable. Returns a collection of the specified tasks  */
+    /** Read-only. Nullable. Returns a collection of the specified tasks */
     private _tasks?: PlannerTask[] | undefined;
     /**
      * Gets the buckets property value. Read-only. Nullable. Returns a collection of the specified buckets

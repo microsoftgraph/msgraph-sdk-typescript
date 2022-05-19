@@ -3,16 +3,17 @@ import {createDeviceOperatingSystemSummaryFromDiscriminatorValue} from './create
 import {DeviceExchangeAccessStateSummary, DeviceOperatingSystemSummary, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Summary data for managed devices */
 export class ManagedDeviceOverview extends Entity implements Parsable {
-    /** Distribution of Exchange Access State in Intune  */
+    /** Distribution of Exchange Access State in Intune */
     private _deviceExchangeAccessStateSummary?: DeviceExchangeAccessStateSummary | undefined;
-    /** Device operating system summary.  */
+    /** Device operating system summary. */
     private _deviceOperatingSystemSummary?: DeviceOperatingSystemSummary | undefined;
-    /** The number of devices enrolled in both MDM and EAS  */
+    /** The number of devices enrolled in both MDM and EAS */
     private _dualEnrolledDeviceCount?: number | undefined;
-    /** Total enrolled device count. Does not include PC devices managed via Intune PC Agent  */
+    /** Total enrolled device count. Does not include PC devices managed via Intune PC Agent */
     private _enrolledDeviceCount?: number | undefined;
-    /** The number of devices enrolled in MDM  */
+    /** The number of devices enrolled in MDM */
     private _mdmEnrolledCount?: number | undefined;
     /**
      * Instantiates a new managedDeviceOverview and sets the default values.

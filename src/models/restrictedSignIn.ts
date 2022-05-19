@@ -1,8 +1,9 @@
 import {SignIn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class RestrictedSignIn extends SignIn implements Parsable {
-    /** The targetTenantId property  */
+    /** The targetTenantId property */
     private _targetTenantId?: string | undefined;
     /**
      * Instantiates a new restrictedSignIn and sets the default values.

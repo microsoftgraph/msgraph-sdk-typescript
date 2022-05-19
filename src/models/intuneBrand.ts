@@ -3,37 +3,37 @@ import {createRgbColorFromDiscriminatorValue} from './createRgbColorFromDiscrimi
 import {MimeContent, RgbColor} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal.  */
+/** intuneBrand contains data which is used in customizing the appearance of the Company Portal applications as well as the end user web portal. */
 export class IntuneBrand implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Email address of the person/organization responsible for IT support.  */
+    /** Email address of the person/organization responsible for IT support. */
     private _contactITEmailAddress?: string | undefined;
-    /** Name of the person/organization responsible for IT support.  */
+    /** Name of the person/organization responsible for IT support. */
     private _contactITName?: string | undefined;
-    /** Text comments regarding the person/organization responsible for IT support.  */
+    /** Text comments regarding the person/organization responsible for IT support. */
     private _contactITNotes?: string | undefined;
-    /** Phone number of the person/organization responsible for IT support.  */
+    /** Phone number of the person/organization responsible for IT support. */
     private _contactITPhoneNumber?: string | undefined;
-    /** Logo image displayed in Company Portal apps which have a dark background behind the logo.  */
+    /** Logo image displayed in Company Portal apps which have a dark background behind the logo. */
     private _darkBackgroundLogo?: MimeContent | undefined;
-    /** Company/organization name that is displayed to end users.  */
+    /** Company/organization name that is displayed to end users. */
     private _displayName?: string | undefined;
-    /** Logo image displayed in Company Portal apps which have a light background behind the logo.  */
+    /** Logo image displayed in Company Portal apps which have a light background behind the logo. */
     private _lightBackgroundLogo?: MimeContent | undefined;
-    /** Display name of the company/organization’s IT helpdesk site.  */
+    /** Display name of the company/organization’s IT helpdesk site. */
     private _onlineSupportSiteName?: string | undefined;
-    /** URL to the company/organization’s IT helpdesk site.  */
+    /** URL to the company/organization’s IT helpdesk site. */
     private _onlineSupportSiteUrl?: string | undefined;
-    /** URL to the company/organization’s privacy policy.  */
+    /** URL to the company/organization’s privacy policy. */
     private _privacyUrl?: string | undefined;
-    /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.  */
+    /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image. */
     private _showDisplayNameNextToLogo?: boolean | undefined;
-    /** Boolean that represents whether the administrator-supplied logo images are shown or not shown.  */
+    /** Boolean that represents whether the administrator-supplied logo images are shown or not shown. */
     private _showLogo?: boolean | undefined;
-    /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image.  */
+    /** Boolean that represents whether the administrator-supplied display name will be shown next to the logo image. */
     private _showNameNextToLogo?: boolean | undefined;
-    /** Primary theme color used in the Company Portal applications and web portal.  */
+    /** Primary theme color used in the Company Portal applications and web portal. */
     private _themeColor?: RgbColor | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

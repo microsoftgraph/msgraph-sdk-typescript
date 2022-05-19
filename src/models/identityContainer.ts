@@ -6,17 +6,17 @@ import {createIdentityUserFlowAttributeFromDiscriminatorValue} from './createIde
 import {B2xIdentityUserFlow, ConditionalAccessRoot, Entity, IdentityApiConnector, IdentityProviderBase, IdentityUserFlowAttribute} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the identityContainer singleton.  */
+/** Provides operations to manage the identityContainer singleton. */
 export class IdentityContainer extends Entity implements Parsable {
-    /** Represents entry point for API connectors.  */
+    /** Represents entry point for API connectors. */
     private _apiConnectors?: IdentityApiConnector[] | undefined;
-    /** Represents entry point for B2X/self-service sign-up identity userflows.  */
+    /** Represents entry point for B2X and self-service sign-up identity userflows. */
     private _b2xUserFlows?: B2xIdentityUserFlow[] | undefined;
-    /** the entry point for the Conditional Access (CA) object model.  */
+    /** the entry point for the Conditional Access (CA) object model. */
     private _conditionalAccess?: ConditionalAccessRoot | undefined;
-    /** Represents entry point for identity provider base.  */
+    /** Represents entry point for identity provider base. */
     private _identityProviders?: IdentityProviderBase[] | undefined;
-    /** Represents entry point for identity userflow attributes.  */
+    /** Represents entry point for identity userflow attributes. */
     private _userFlowAttributes?: IdentityUserFlowAttribute[] | undefined;
     /**
      * Gets the apiConnectors property value. Represents entry point for API connectors.
@@ -33,14 +33,14 @@ export class IdentityContainer extends Entity implements Parsable {
         this._apiConnectors = value;
     };
     /**
-     * Gets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
+     * Gets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
      * @returns a b2xIdentityUserFlow
      */
     public get b2xUserFlows() {
         return this._b2xUserFlows;
     };
     /**
-     * Sets the b2xUserFlows property value. Represents entry point for B2X/self-service sign-up identity userflows.
+     * Sets the b2xUserFlows property value. Represents entry point for B2X and self-service sign-up identity userflows.
      * @param value Value to set for the b2xUserFlows property.
      */
     public set b2xUserFlows(value: B2xIdentityUserFlow[] | undefined) {

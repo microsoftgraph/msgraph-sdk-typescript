@@ -1,9 +1,9 @@
 
-/** The collection of open extensions defined for the task. Nullable.  */
+/** The collection of open extensions defined for the task. Nullable. */
 export class ExtensionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

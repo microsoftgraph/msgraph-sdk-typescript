@@ -1,6 +1,7 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the mute method. */
 export class MuteParticipantOperation extends CommsOperation implements Parsable {
     /**
      * Instantiates a new muteParticipantOperation and sets the default values.

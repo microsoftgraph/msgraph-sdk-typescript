@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, DateOnly, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class EducationTerm implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Display name of the term.  */
+    /** Display name of the term. */
     private _displayName?: string | undefined;
-    /** End of the term.  */
+    /** End of the term. */
     private _endDate?: DateOnly | undefined;
-    /** ID of term in the syncing system.  */
+    /** ID of term in the syncing system. */
     private _externalId?: string | undefined;
-    /** Start of the term.  */
+    /** Start of the term. */
     private _startDate?: DateOnly | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

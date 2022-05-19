@@ -1,2 +1,2 @@
+export * from './archivePostRequestBody'
 export * from './archiveResponse'
-export * from './archiveRequestBody'

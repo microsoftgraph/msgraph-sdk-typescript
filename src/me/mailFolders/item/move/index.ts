@@ -1,1 +1,1 @@
-export * from './moveRequestBody'
+export * from './movePostRequestBody'

@@ -1,18 +1,18 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** App for Windows information protection  */
+/** App for Windows information protection */
 export class WindowsInformationProtectionApp implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If true, app is denied protection or exemption.  */
+    /** If true, app is denied protection or exemption. */
     private _denied?: boolean | undefined;
-    /** The app's description.  */
+    /** The app's description. */
     private _description?: string | undefined;
-    /** App display name.  */
+    /** App display name. */
     private _displayName?: string | undefined;
-    /** The product name.  */
+    /** The product name. */
     private _productName?: string | undefined;
-    /** The publisher name  */
+    /** The publisher name */
     private _publisherName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -3,13 +3,13 @@ import {BucketAggregationDefinition} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AggregationOption implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The bucketDefinition property  */
+    /** The bucketDefinition property */
     private _bucketDefinition?: BucketAggregationDefinition | undefined;
-    /** Computes aggregation on the field while the field exists in current entity type. Required.  */
+    /** Computes aggregation on the field while the field exists in current entity type. Required. */
     private _field?: string | undefined;
-    /** The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional.  */
+    /** The number of searchBucket resources to be returned. This is not required when the range is provided manually in the search request. Optional. */
     private _size?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

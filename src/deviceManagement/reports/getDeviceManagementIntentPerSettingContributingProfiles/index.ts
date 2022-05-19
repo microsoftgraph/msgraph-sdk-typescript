@@ -1,2 +1,1 @@
-export * from './getDeviceManagementIntentPerSettingContributingProfilesRequestBody'
-export * from './getDeviceManagementIntentPerSettingContributingProfilesResponse'
+export * from './getDeviceManagementIntentPerSettingContributingProfilesPostRequestBody'

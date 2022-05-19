@@ -16,37 +16,37 @@ import {createUnifiedRoleManagementPolicyFromDiscriminatorValue} from './createU
 import {ActivityBasedTimeoutPolicy, AdminConsentRequestPolicy, AuthenticationFlowsPolicy, AuthenticationMethodsPolicy, AuthorizationPolicy, ClaimsMappingPolicy, ConditionalAccessPolicy, Entity, FeatureRolloutPolicy, HomeRealmDiscoveryPolicy, IdentitySecurityDefaultsEnforcementPolicy, PermissionGrantPolicy, TokenIssuancePolicy, TokenLifetimePolicy, UnifiedRoleManagementPolicy, UnifiedRoleManagementPolicyAssignment} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the policyRoot singleton.  */
+/** Provides operations to manage the policyRoot singleton. */
 export class PolicyRoot extends Entity implements Parsable {
-    /** The policy that controls the idle time out for web sessions for applications.  */
+    /** The policy that controls the idle time out for web sessions for applications. */
     private _activityBasedTimeoutPolicies?: ActivityBasedTimeoutPolicy[] | undefined;
-    /** The policy by which consent requests are created and managed for the entire tenant.  */
+    /** The policy by which consent requests are created and managed for the entire tenant. */
     private _adminConsentRequestPolicy?: AdminConsentRequestPolicy | undefined;
-    /** The policy configuration of the self-service sign-up experience of external users.  */
+    /** The policy configuration of the self-service sign-up experience of external users. */
     private _authenticationFlowsPolicy?: AuthenticationFlowsPolicy | undefined;
-    /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD).  */
+    /** The authentication methods and the users that are allowed to use them to sign in and perform multi-factor authentication (MFA) in Azure Active Directory (Azure AD). */
     private _authenticationMethodsPolicy?: AuthenticationMethodsPolicy | undefined;
-    /** The policy that controls Azure AD authorization settings.  */
+    /** The policy that controls Azure AD authorization settings. */
     private _authorizationPolicy?: AuthorizationPolicy | undefined;
-    /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application.  */
+    /** The claim-mapping policies for WS-Fed, SAML, OAuth 2.0, and OpenID Connect protocols, for tokens issued to a specific application. */
     private _claimsMappingPolicies?: ClaimsMappingPolicy[] | undefined;
-    /** The custom rules that define an access scenario.  */
+    /** The custom rules that define an access scenario. */
     private _conditionalAccessPolicies?: ConditionalAccessPolicy[] | undefined;
-    /** The feature rollout policy associated with a directory object.  */
+    /** The feature rollout policy associated with a directory object. */
     private _featureRolloutPolicies?: FeatureRolloutPolicy[] | undefined;
-    /** The policy to control Azure AD authentication behavior for federated users.  */
+    /** The policy to control Azure AD authentication behavior for federated users. */
     private _homeRealmDiscoveryPolicies?: HomeRealmDiscoveryPolicy[] | undefined;
-    /** The policy that represents the security defaults that protect against common attacks.  */
+    /** The policy that represents the security defaults that protect against common attacks. */
     private _identitySecurityDefaultsEnforcementPolicy?: IdentitySecurityDefaultsEnforcementPolicy | undefined;
-    /** The policy that specifies the conditions under which consent can be granted.  */
+    /** The policy that specifies the conditions under which consent can be granted. */
     private _permissionGrantPolicies?: PermissionGrantPolicy[] | undefined;
-    /** Represents the role management policies.  */
+    /** Represents the role management policies. */
     private _roleManagementPolicies?: UnifiedRoleManagementPolicy[] | undefined;
-    /** Represents the role management policy assignments.  */
+    /** Represents the role management policy assignments. */
     private _roleManagementPolicyAssignments?: UnifiedRoleManagementPolicyAssignment[] | undefined;
-    /** The policy that specifies the characteristics of SAML tokens issued by Azure AD.  */
+    /** The policy that specifies the characteristics of SAML tokens issued by Azure AD. */
     private _tokenIssuancePolicies?: TokenIssuancePolicy[] | undefined;
-    /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD.  */
+    /** The policy that controls the lifetime of a JWT access token, an ID token, or a SAML 1.1/2.0 token issued by Azure AD. */
     private _tokenLifetimePolicies?: TokenLifetimePolicy[] | undefined;
     /**
      * Gets the activityBasedTimeoutPolicies property value. The policy that controls the idle time out for web sessions for applications.

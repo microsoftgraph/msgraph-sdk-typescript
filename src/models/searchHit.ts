@@ -3,19 +3,19 @@ import {Entity} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchHit implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The name of the content source which the externalItem is part of .  */
+    /** The name of the content source which the externalItem is part of . */
     private _contentSource?: string | undefined;
-    /** The internal identifier for the item.  */
+    /** The internal identifier for the item. */
     private _hitId?: string | undefined;
-    /** The rank or the order of the result.  */
+    /** The rank or the order of the result. */
     private _rank?: number | undefined;
-    /** The resource property  */
+    /** The resource property */
     private _resource?: Entity | undefined;
-    /** ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.  */
+    /** ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well. */
     private _resultTemplateId?: string | undefined;
-    /** A summary of the result, if a summary is available.  */
+    /** A summary of the result, if a summary is available. */
     private _summary?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -108,14 +108,14 @@ export class SearchHit implements AdditionalDataHolder, Parsable {
         this._resource = value;
     };
     /**
-     * Gets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * Gets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
      * @returns a string
      */
     public get resultTemplateId() {
         return this._resultTemplateId;
     };
     /**
-     * Sets the resultTemplateId property value. ID of the result template used to render the search result. This ID must map to a display layout in the resultTemplates dictionary that is also included in the searchResponse.
+     * Sets the resultTemplateId property value. ID of the result template for rendering the search result. This ID must map to a display layout in the resultTemplates dictionary, included in the searchresponse as well.
      * @param value Value to set for the resultTemplateId property.
      */
     public set resultTemplateId(value: string | undefined) {

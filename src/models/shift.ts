@@ -2,14 +2,15 @@ import {createShiftItemFromDiscriminatorValue} from './createShiftItemFromDiscri
 import {ChangeTrackedEntity, ShiftItem} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Shift extends ChangeTrackedEntity implements Parsable {
-    /** The draft version of this shift that is viewable by managers. Required.  */
+    /** The draft version of this shift that is viewable by managers. Required. */
     private _draftShift?: ShiftItem | undefined;
-    /** ID of the scheduling group the shift is part of. Required.  */
+    /** ID of the scheduling group the shift is part of. Required. */
     private _schedulingGroupId?: string | undefined;
-    /** The shared version of this shift that is viewable by both employees and managers. Required.  */
+    /** The shared version of this shift that is viewable by both employees and managers. Required. */
     private _sharedShift?: ShiftItem | undefined;
-    /** ID of the user assigned to the shift. Required.  */
+    /** ID of the user assigned to the shift. Required. */
     private _userId?: string | undefined;
     /**
      * Instantiates a new shift and sets the default values.

@@ -1,9 +1,9 @@
 
-/** The Microsoft Teams teams that the user is a member of. Read-only. Nullable.  */
+/** The Microsoft Teams teams that the user is a member of. Read-only. Nullable. */
 export class TeamItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -3,13 +3,13 @@ import {LocationConstraintItem} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocationConstraint implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations.  */
+    /** The client requests the service to include in the response a meeting location for the meeting. If this is true and all the resources are busy, findMeetingTimes will not return any meeting time suggestions. If this is false and all the resources are busy, findMeetingTimes would still look for meeting times without locations. */
     private _isRequired?: boolean | undefined;
-    /** Constraint information for one or more locations that the client requests for the meeting.  */
+    /** Constraint information for one or more locations that the client requests for the meeting. */
     private _locations?: LocationConstraintItem[] | undefined;
-    /** The client requests the service to suggest one or more meeting locations.  */
+    /** The client requests the service to suggest one or more meeting locations. */
     private _suggestLocation?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

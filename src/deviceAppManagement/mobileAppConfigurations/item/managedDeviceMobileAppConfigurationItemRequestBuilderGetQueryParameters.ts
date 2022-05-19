@@ -1,9 +1,9 @@
 
-/** The Managed Device Mobile Application Configurations.  */
+/** The Managed Device Mobile Application Configurations. */
 export class ManagedDeviceMobileAppConfigurationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

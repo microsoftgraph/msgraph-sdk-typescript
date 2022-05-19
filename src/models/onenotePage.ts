@@ -4,28 +4,29 @@ import {createPageLinksFromDiscriminatorValue} from './createPageLinksFromDiscri
 import {Notebook, OnenoteEntitySchemaObjectModel, OnenoteSection, PageLinks} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class OnenotePage extends OnenoteEntitySchemaObjectModel implements Parsable {
-    /** The page's HTML content.  */
+    /** The page's HTML content. */
     private _content?: string | undefined;
-    /** The URL for the page's HTML content.  Read-only.  */
+    /** The URL for the page's HTML content.  Read-only. */
     private _contentUrl?: string | undefined;
-    /** The unique identifier of the application that created the page. Read-only.  */
+    /** The unique identifier of the application that created the page. Read-only. */
     private _createdByAppId?: string | undefined;
-    /** The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The date and time when the page was last modified. The timestamp represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The indentation level of the page. Read-only.  */
+    /** The indentation level of the page. Read-only. */
     private _level?: number | undefined;
-    /** Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only.  */
+    /** Links for opening the page. The oneNoteClientURL link opens the page in the OneNote native client if it 's installed. The oneNoteWebUrl link opens the page in OneNote on the web. Read-only. */
     private _links?: PageLinks | undefined;
-    /** The order of the page within its parent section. Read-only.  */
+    /** The order of the page within its parent section. Read-only. */
     private _order?: number | undefined;
-    /** The notebook that contains the page.  Read-only.  */
+    /** The notebook that contains the page.  Read-only. */
     private _parentNotebook?: Notebook | undefined;
-    /** The section that contains the page. Read-only.  */
+    /** The section that contains the page. Read-only. */
     private _parentSection?: OnenoteSection | undefined;
-    /** The title of the page.  */
+    /** The title of the page. */
     private _title?: string | undefined;
-    /** The userTags property  */
+    /** The userTags property */
     private _userTags?: string[] | undefined;
     /**
      * Instantiates a new onenotePage and sets the default values.

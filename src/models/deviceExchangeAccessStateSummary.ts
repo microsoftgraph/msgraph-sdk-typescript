@@ -1,18 +1,18 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Exchange Access State summary  */
+/** Device Exchange Access State summary */
 export class DeviceExchangeAccessStateSummary implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Total count of devices with Exchange Access State: Allowed.  */
+    /** Total count of devices with Exchange Access State: Allowed. */
     private _allowedDeviceCount?: number | undefined;
-    /** Total count of devices with Exchange Access State: Blocked.  */
+    /** Total count of devices with Exchange Access State: Blocked. */
     private _blockedDeviceCount?: number | undefined;
-    /** Total count of devices with Exchange Access State: Quarantined.  */
+    /** Total count of devices with Exchange Access State: Quarantined. */
     private _quarantinedDeviceCount?: number | undefined;
-    /** Total count of devices for which no Exchange Access State could be found.  */
+    /** Total count of devices for which no Exchange Access State could be found. */
     private _unavailableDeviceCount?: number | undefined;
-    /** Total count of devices with Exchange Access State: Unknown.  */
+    /** Total count of devices with Exchange Access State: Unknown. */
     private _unknownDeviceCount?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -8,54 +8,55 @@ import {createItemReferenceFromDiscriminatorValue} from './createItemReferenceFr
 import {ColumnDefinition, ColumnLink, ContentTypeOrder, DocumentSet, DocumentSetContent, Entity, ItemReference} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ContentType extends Entity implements Parsable {
-    /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.  */
+    /** List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites. */
     private _associatedHubsUrls?: string[] | undefined;
-    /** Parent contentType from which this content type is derived.  */
+    /** Parent contentType from which this content type is derived. */
     private _base?: ContentType | undefined;
-    /** The collection of content types that are ancestors of this content type.  */
+    /** The collection of content types that are ancestors of this content type. */
     private _baseTypes?: ContentType[] | undefined;
-    /** The collection of columns that are required by this content type.  */
+    /** The collection of columns that are required by this content type */
     private _columnLinks?: ColumnLink[] | undefined;
-    /** Column order information in a content type.  */
+    /** Column order information in a content type. */
     private _columnPositions?: ColumnDefinition[] | undefined;
-    /** The collection of column definitions for this contentType.  */
+    /** The collection of column definitions for this contentType. */
     private _columns?: ColumnDefinition[] | undefined;
-    /** The descriptive text for the item.  */
+    /** The descriptive text for the item. */
     private _description?: string | undefined;
-    /** Document Set metadata.  */
+    /** Document Set metadata. */
     private _documentSet?: DocumentSet | undefined;
-    /** Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type.  */
+    /** Document template metadata. To make sure that documents have consistent content across a site and its subsites, you can associate a Word, Excel, or PowerPoint template with a site content type. */
     private _documentTemplate?: DocumentSetContent | undefined;
-    /** The name of the group this content type belongs to. Helps organize related content types.  */
+    /** The name of the group this content type belongs to. Helps organize related content types. */
     private _group?: string | undefined;
-    /** Indicates whether the content type is hidden in the list's 'New' menu.  */
+    /** Indicates whether the content type is hidden in the list's 'New' menu. */
     private _hidden?: boolean | undefined;
-    /** If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined.  */
+    /** If this content type is inherited from another scope (like a site), provides a reference to the item where the content type is defined. */
     private _inheritedFrom?: ItemReference | undefined;
-    /** Specifies if a content type is a built-in content type.  */
+    /** Specifies if a content type is a built-in content type. */
     private _isBuiltIn?: boolean | undefined;
-    /** The name of the content type.  */
+    /** The name of the content type. */
     private _name?: string | undefined;
-    /** Specifies the order in which the content type appears in the selection UI.  */
+    /** Specifies the order in which the content type appears in the selection UI. */
     private _order?: ContentTypeOrder | undefined;
-    /** The unique identifier of the content type.  */
+    /** The unique identifier of the content type. */
     private _parentId?: string | undefined;
-    /** If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type.  */
+    /** If true, any changes made to the content type will be pushed to inherited content types and lists that implement the content type. */
     private _propagateChanges?: boolean | undefined;
-    /** If true, the content type can't be modified unless this value is first set to false.  */
+    /** If true, the content type cannot be modified unless this value is first set to false. */
     private _readOnly?: boolean | undefined;
-    /** If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.  */
+    /** If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types. */
     private _sealed?: boolean | undefined;
     /**
-     * Gets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
+     * Gets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
      * @returns a string
      */
     public get associatedHubsUrls() {
         return this._associatedHubsUrls;
     };
     /**
-     * Sets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hub sites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
+     * Sets the associatedHubsUrls property value. List of canonical URLs for hub sites with which this content type is associated to. This will contain all hubsites where this content type is queued to be enforced or is already enforced. Enforcing a content type means that the content type will be applied to the lists in the enforced sites.
      * @param value Value to set for the associatedHubsUrls property.
      */
     public set associatedHubsUrls(value: string[] | undefined) {
@@ -90,14 +91,14 @@ export class ContentType extends Entity implements Parsable {
         this._baseTypes = value;
     };
     /**
-     * Gets the columnLinks property value. The collection of columns that are required by this content type.
+     * Gets the columnLinks property value. The collection of columns that are required by this content type
      * @returns a columnLink
      */
     public get columnLinks() {
         return this._columnLinks;
     };
     /**
-     * Sets the columnLinks property value. The collection of columns that are required by this content type.
+     * Sets the columnLinks property value. The collection of columns that are required by this content type
      * @param value Value to set for the columnLinks property.
      */
     public set columnLinks(value: ColumnLink[] | undefined) {
@@ -319,28 +320,28 @@ export class ContentType extends Entity implements Parsable {
         this._propagateChanges = value;
     };
     /**
-     * Gets the readOnly property value. If true, the content type can't be modified unless this value is first set to false.
+     * Gets the readOnly property value. If true, the content type cannot be modified unless this value is first set to false.
      * @returns a boolean
      */
     public get readOnly() {
         return this._readOnly;
     };
     /**
-     * Sets the readOnly property value. If true, the content type can't be modified unless this value is first set to false.
+     * Sets the readOnly property value. If true, the content type cannot be modified unless this value is first set to false.
      * @param value Value to set for the readOnly property.
      */
     public set readOnly(value: boolean | undefined) {
         this._readOnly = value;
     };
     /**
-     * Gets the sealed property value. If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
+     * Gets the sealed property value. If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
      * @returns a boolean
      */
     public get sealed() {
         return this._sealed;
     };
     /**
-     * Sets the sealed property value. If true, the content type can't be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
+     * Sets the sealed property value. If true, the content type cannot be modified by users or through push-down operations. Only site collection administrators can seal or unseal content types.
      * @param value Value to set for the sealed property.
      */
     public set sealed(value: boolean | undefined) {

@@ -1,12 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Describes the resourceOperation resource (entity) of the Microsoft Graph API (REST), which supports Intune workflows related to role-based access control (RBAC). */
 export class ResourceOperation extends Entity implements Parsable {
-    /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.  */
+    /** Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible. */
     private _actionName?: string | undefined;
-    /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal.  */
+    /** Description of the resource operation. The description is used in mouse-over text for the operation when shown in the Azure Portal. */
     private _description?: string | undefined;
-    /** Name of the Resource this operation is performed on.  */
+    /** Name of the Resource this operation is performed on. */
     private _resourceName?: string | undefined;
     /**
      * Gets the actionName property value. Type of action this operation is going to perform. The actionName should be concise and limited to as few words as possible.

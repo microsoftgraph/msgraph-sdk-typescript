@@ -2,16 +2,17 @@ import {createDeviceInstallStateFromDiscriminatorValue} from './createDeviceInst
 import {DeviceInstallState, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Contains properties for the installation state summary for a user. */
 export class UserInstallStateSummary extends Entity implements Parsable {
-    /** The install state of the eBook.  */
+    /** The install state of the eBook. */
     private _deviceStates?: DeviceInstallState[] | undefined;
-    /** Failed Device Count.  */
+    /** Failed Device Count. */
     private _failedDeviceCount?: number | undefined;
-    /** Installed Device Count.  */
+    /** Installed Device Count. */
     private _installedDeviceCount?: number | undefined;
-    /** Not installed device count.  */
+    /** Not installed device count. */
     private _notInstalledDeviceCount?: number | undefined;
-    /** User name.  */
+    /** User name. */
     private _userName?: string | undefined;
     /**
      * Instantiates a new userInstallStateSummary and sets the default values.

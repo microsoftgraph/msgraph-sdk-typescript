@@ -2,13 +2,13 @@ import {createIpRangeFromDiscriminatorValue} from './createIpRangeFromDiscrimina
 import {IpRange} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection IP Range Collection  */
+/** Windows Information Protection IP Range Collection */
 export class WindowsInformationProtectionIPRangeCollection implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Display name  */
+    /** Display name */
     private _displayName?: string | undefined;
-    /** Collection of ip ranges  */
+    /** Collection of ip ranges */
     private _ranges?: IpRange[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

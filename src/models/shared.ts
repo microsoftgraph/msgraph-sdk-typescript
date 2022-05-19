@@ -3,15 +3,15 @@ import {IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Shared implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The identity of the owner of the shared item. Read-only.  */
+    /** The identity of the owner of the shared item. Read-only. */
     private _owner?: IdentitySet | undefined;
-    /** Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only.  */
+    /** Indicates the scope of how the item is shared: anonymous, organization, or users. Read-only. */
     private _scope?: string | undefined;
-    /** The identity of the user who shared the item. Read-only.  */
+    /** The identity of the user who shared the item. Read-only. */
     private _sharedBy?: IdentitySet | undefined;
-    /** The UTC date and time when the item was shared. Read-only.  */
+    /** The UTC date and time when the item was shared. Read-only. */
     private _sharedDateTime?: Date | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

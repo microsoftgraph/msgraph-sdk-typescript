@@ -1,1 +1,1 @@
-export * from './validatePermissionRequestBody'
+export * from './validatePermissionPostRequestBody'

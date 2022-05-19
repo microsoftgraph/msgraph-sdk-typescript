@@ -3,13 +3,13 @@ import {ChatMessageMentionedIdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatMessageMention implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body.  */
+    /** Index of an entity being mentioned in the specified chatMessage. Matches the {index} value in the corresponding <at id='{index}'> tag in the message body. */
     private _id?: number | undefined;
-    /** The entity (user, application, team, or channel) that was @mentioned.  */
+    /** The entity (user, application, team, or channel) that was @mentioned. */
     private _mentioned?: ChatMessageMentionedIdentitySet | undefined;
-    /** String used to represent the mention. For example, a user's display name, a team name.  */
+    /** String used to represent the mention. For example, a user's display name, a team name. */
     private _mentionText?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

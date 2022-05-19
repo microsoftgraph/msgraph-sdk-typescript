@@ -2,20 +2,21 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class ApprovalStage extends Entity implements Parsable {
-    /** Indicates whether the stage is assigned to the calling user to review. Read-only.  */
+    /** Indicates whether the stage is assigned to the calling user to review. Read-only. */
     private _assignedToMe?: boolean | undefined;
-    /** The label provided by the policy creator to identify an approval stage. Read-only.  */
+    /** The label provided by the policy creator to identify an approval stage. Read-only. */
     private _displayName?: string | undefined;
-    /** The justification associated with the approval stage decision.  */
+    /** The justification associated with the approval stage decision. */
     private _justification?: string | undefined;
-    /** The identifier of the reviewer. Read-only.  */
+    /** The identifier of the reviewer. Read-only. */
     private _reviewedBy?: Identity | undefined;
-    /** The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The date and time when a decision was recorded. The date and time information uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _reviewedDateTime?: Date | undefined;
-    /** The result of this approval record. Possible values include: NotReviewed, Approved, Denied.  */
+    /** The result of this approval record. Possible values include: NotReviewed, Approved, Denied. */
     private _reviewResult?: string | undefined;
-    /** The stage status. Possible values: InProgress, Initializing, Completed, Expired. Read-only.  */
+    /** The stage status. Possible values: InProgress, Initializing, Completed, Expired. Read-only. */
     private _status?: string | undefined;
     /**
      * Gets the assignedToMe property value. Indicates whether the stage is assigned to the calling user to review. Read-only.

@@ -1,2 +1,1 @@
-export * from './getPolicyNonComplianceReportResponse'
-export * from './getPolicyNonComplianceReportRequestBody'
+export * from './getPolicyNonComplianceReportPostRequestBody'

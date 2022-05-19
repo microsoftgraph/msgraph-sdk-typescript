@@ -1,9 +1,9 @@
 
-/** the entry point for the Conditional Access (CA) object model.  */
+/** the entry point for the Conditional Access (CA) object model. */
 export class ConditionalAccessRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

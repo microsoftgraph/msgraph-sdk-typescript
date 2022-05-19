@@ -2,16 +2,17 @@ import {createManagedDeviceFromDiscriminatorValue} from './createManagedDeviceFr
 import {Entity, ManagedDevice} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A managed or unmanaged app that is installed on a managed device. Unmanaged apps will only appear for devices marked as corporate owned. */
 export class DetectedApp extends Entity implements Parsable {
-    /** The number of devices that have installed this application  */
+    /** The number of devices that have installed this application */
     private _deviceCount?: number | undefined;
-    /** Name of the discovered application. Read-only  */
+    /** Name of the discovered application. Read-only */
     private _displayName?: string | undefined;
-    /** The devices that have the discovered application installed  */
+    /** The devices that have the discovered application installed */
     private _managedDevices?: ManagedDevice[] | undefined;
-    /** Discovered application size in bytes. Read-only  */
+    /** Discovered application size in bytes. Read-only */
     private _sizeInByte?: number | undefined;
-    /** Version of the discovered application. Read-only  */
+    /** Version of the discovered application. Read-only */
     private _version?: string | undefined;
     /**
      * Instantiates a new detectedApp and sets the default values.

@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OutlookGeoCoordinates implements AdditionalDataHolder, Parsable {
-    /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.  */
+    /** The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters. */
     private _accuracy?: number | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The altitude of the location.  */
+    /** The altitude of the location. */
     private _altitude?: number | undefined;
-    /** The accuracy of the altitude.  */
+    /** The accuracy of the altitude. */
     private _altitudeAccuracy?: number | undefined;
-    /** The latitude of the location.  */
+    /** The latitude of the location. */
     private _latitude?: number | undefined;
-    /** The longitude of the location.  */
+    /** The longitude of the location. */
     private _longitude?: number | undefined;
     /**
      * Gets the accuracy property value. The accuracy of the latitude and longitude. As an example, the accuracy can be measured in meters, such as the latitude and longitude are accurate to within 50 meters.

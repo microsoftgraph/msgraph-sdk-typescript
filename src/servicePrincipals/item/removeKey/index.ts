@@ -1,1 +1,1 @@
-export * from './removeKeyRequestBody'
+export * from './removeKeyPostRequestBody'

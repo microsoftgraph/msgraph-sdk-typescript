@@ -1,1 +1,1 @@
-export * from './inviteRequestBody'
+export * from './invitePostRequestBody'

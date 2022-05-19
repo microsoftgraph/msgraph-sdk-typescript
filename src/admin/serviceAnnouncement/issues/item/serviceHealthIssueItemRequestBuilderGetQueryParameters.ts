@@ -1,9 +1,9 @@
 
-/** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly.  */
+/** A collection of service issues for tenant. This property is a contained navigation property, it is nullable and readonly. */
 export class ServiceHealthIssueItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

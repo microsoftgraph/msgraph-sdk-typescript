@@ -1,9 +1,9 @@
 
-/** The mobile app categories.  */
+/** The mobile app categories. */
 export class MobileAppCategoryItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -4,15 +4,15 @@ import {DateTimeTimeZone, LocaleInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AutomaticRepliesMailTips implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The automatic reply message.  */
+    /** The automatic reply message. */
     private _message?: string | undefined;
-    /** The language that the automatic reply message is in.  */
+    /** The language that the automatic reply message is in. */
     private _messageLanguage?: LocaleInfo | undefined;
-    /** The date and time that automatic replies are set to end.  */
+    /** The date and time that automatic replies are set to end. */
     private _scheduledEndTime?: DateTimeTimeZone | undefined;
-    /** The date and time that automatic replies are set to begin.  */
+    /** The date and time that automatic replies are set to begin. */
     private _scheduledStartTime?: DateTimeTimeZone | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

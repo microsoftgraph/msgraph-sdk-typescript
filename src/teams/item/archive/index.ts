@@ -1,1 +1,1 @@
-export * from './archiveRequestBody'
+export * from './archivePostRequestBody'

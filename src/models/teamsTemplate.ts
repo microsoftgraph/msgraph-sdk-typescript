@@ -1,6 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class TeamsTemplate extends Entity implements Parsable {
     /**
      * Instantiates a new teamsTemplate and sets the default values.

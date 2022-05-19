@@ -1,7 +1,7 @@
 
-/** The calendars in the calendar group. Navigation property. Read-only. Nullable.  */
+/** The calendars in the calendar group. Navigation property. Read-only. Nullable. */
 export class CalendarItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

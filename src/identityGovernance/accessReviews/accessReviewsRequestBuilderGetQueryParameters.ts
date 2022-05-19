@@ -1,9 +1,9 @@
 
-/** Get accessReviews from identityGovernance  */
+/** Get accessReviews from identityGovernance */
 export class AccessReviewsRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

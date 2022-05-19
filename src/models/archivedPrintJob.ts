@@ -4,25 +4,25 @@ import {PrintJobProcessingState} from './printJobProcessingState';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ArchivedPrintJob implements AdditionalDataHolder, Parsable {
-    /** True if the job was acquired by a printer; false otherwise. Read-only.  */
+    /** True if the job was acquired by a printer; false otherwise. Read-only. */
     private _acquiredByPrinter?: boolean | undefined;
-    /** The dateTimeOffset when the job was acquired by the printer, if any. Read-only.  */
+    /** The dateTimeOffset when the job was acquired by the printer, if any. Read-only. */
     private _acquiredDateTime?: Date | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The dateTimeOffset when the job was completed, canceled or aborted. Read-only.  */
+    /** The dateTimeOffset when the job was completed, canceled or aborted. Read-only. */
     private _completionDateTime?: Date | undefined;
-    /** The number of copies that were printed. Read-only.  */
+    /** The number of copies that were printed. Read-only. */
     private _copiesPrinted?: number | undefined;
-    /** The user who created the print job. Read-only.  */
+    /** The user who created the print job. Read-only. */
     private _createdBy?: UserIdentity | undefined;
-    /** The dateTimeOffset when the job was created. Read-only.  */
+    /** The dateTimeOffset when the job was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The archived print job's GUID. Read-only.  */
+    /** The archived print job's GUID. Read-only. */
     private _id?: string | undefined;
-    /** The printer ID that the job was queued for. Read-only.  */
+    /** The printer ID that the job was queued for. Read-only. */
     private _printerId?: string | undefined;
-    /** The print job's final processing state. Read-only.  */
+    /** The print job's final processing state. Read-only. */
     private _processingState?: PrintJobProcessingState | undefined;
     /**
      * Gets the acquiredByPrinter property value. True if the job was acquired by a printer; false otherwise. Read-only.

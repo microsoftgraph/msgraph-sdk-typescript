@@ -1,8 +1,9 @@
 import {ScheduleEntity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class TimeOffItem extends ScheduleEntity implements Parsable {
-    /** ID of the timeOffReason for this timeOffItem. Required.  */
+    /** ID of the timeOffReason for this timeOffItem. Required. */
     private _timeOffReasonId?: string | undefined;
     /**
      * Instantiates a new timeOffItem and sets the default values.

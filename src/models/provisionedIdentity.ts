@@ -2,10 +2,11 @@ import {createDetailsInfoFromDiscriminatorValue} from './createDetailsInfoFromDi
 import {DetailsInfo, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the auditLogRoot singleton. */
 export class ProvisionedIdentity extends Identity implements Parsable {
-    /** Details of the identity.  */
+    /** Details of the identity. */
     private _details?: DetailsInfo | undefined;
-    /** Type of identity that has been provisioned, such as 'user' or 'group'.  */
+    /** Type of identity that has been provisioned, such as 'user' or 'group'. */
     private _identityType?: string | undefined;
     /**
      * Instantiates a new provisionedIdentity and sets the default values.

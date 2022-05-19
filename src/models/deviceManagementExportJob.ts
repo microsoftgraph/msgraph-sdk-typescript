@@ -4,26 +4,27 @@ import {DeviceManagementReportStatus} from './deviceManagementReportStatus';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Entity representing a job to export a report */
 export class DeviceManagementExportJob extends Entity implements Parsable {
-    /** Time that the exported report expires  */
+    /** Time that the exported report expires */
     private _expirationDateTime?: Date | undefined;
-    /** Filters applied on the report  */
+    /** Filters applied on the report */
     private _filter?: string | undefined;
-    /** Format of the exported report. Possible values are: csv, pdf.  */
+    /** Format of the exported report. Possible values are: csv, pdf. */
     private _format?: DeviceManagementReportFileFormat | undefined;
-    /** Configures how the requested export job is localized. Possible values are: localizedValuesAsAdditionalColumn, replaceLocalizableValues.  */
+    /** Configures how the requested export job is localized. Possible values are: localizedValuesAsAdditionalColumn, replaceLocalizableValues. */
     private _localizationType?: DeviceManagementExportJobLocalizationType | undefined;
-    /** Name of the report  */
+    /** Name of the report */
     private _reportName?: string | undefined;
-    /** Time that the exported report was requested  */
+    /** Time that the exported report was requested */
     private _requestDateTime?: Date | undefined;
-    /** Columns selected from the report  */
+    /** Columns selected from the report */
     private _select?: string[] | undefined;
-    /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id.  */
+    /** A snapshot is an identifiable subset of the dataset represented by the ReportName. A sessionId or CachedReportConfiguration id can be used here. If a sessionId is specified, Filter, Select, and OrderBy are applied to the data represented by the sessionId. Filter, Select, and OrderBy cannot be specified together with a CachedReportConfiguration id. */
     private _snapshotId?: string | undefined;
-    /** Status of the export job. Possible values are: unknown, notStarted, inProgress, completed, failed.  */
+    /** Status of the export job. Possible values are: unknown, notStarted, inProgress, completed, failed. */
     private _status?: DeviceManagementReportStatus | undefined;
-    /** Temporary location of the exported report  */
+    /** Temporary location of the exported report */
     private _url?: string | undefined;
     /**
      * Instantiates a new deviceManagementExportJob and sets the default values.

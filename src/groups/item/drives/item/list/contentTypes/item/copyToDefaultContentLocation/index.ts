@@ -1,1 +1,1 @@
-export * from './copyToDefaultContentLocationRequestBody'
+export * from './copyToDefaultContentLocationPostRequestBody'

@@ -1,1 +1,1 @@
-export * from './declineRequestBody'
+export * from './declinePostRequestBody'

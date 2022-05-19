@@ -1,9 +1,9 @@
 
-/** The printTaskTrigger that triggered this task's execution. Read-only.  */
+/** The printTaskTrigger that triggered this task's execution. Read-only. */
 export class TriggerRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

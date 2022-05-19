@@ -4,14 +4,15 @@ import {createIdentitySetFromDiscriminatorValue} from './createIdentitySetFromDi
 import {AccessAction, DriveItem, Entity, IdentitySet} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ItemActivity extends Entity implements Parsable {
-    /** An item was accessed.  */
+    /** An item was accessed. */
     private _access?: AccessAction | undefined;
-    /** Details about when the activity took place. Read-only.  */
+    /** Details about when the activity took place. Read-only. */
     private _activityDateTime?: Date | undefined;
-    /** Identity of who performed the action. Read-only.  */
+    /** Identity of who performed the action. Read-only. */
     private _actor?: IdentitySet | undefined;
-    /** Exposes the driveItem that was the target of this activity.  */
+    /** Exposes the driveItem that was the target of this activity. */
     private _driveItem?: DriveItem | undefined;
     /**
      * Gets the access property value. An item was accessed.

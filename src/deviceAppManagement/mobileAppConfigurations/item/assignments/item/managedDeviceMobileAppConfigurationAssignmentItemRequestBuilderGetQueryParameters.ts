@@ -1,9 +1,9 @@
 
-/** The list of group assignemenets for app configration.  */
+/** The list of group assignemenets for app configration. */
 export class ManagedDeviceMobileAppConfigurationAssignmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

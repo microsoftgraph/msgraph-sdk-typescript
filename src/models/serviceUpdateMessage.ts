@@ -6,28 +6,29 @@ import {ServiceUpdateCategory} from './serviceUpdateCategory';
 import {ServiceUpdateSeverity} from './serviceUpdateSeverity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the admin singleton. */
 export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Parsable {
-    /** The expected deadline of the action for the message.  */
+    /** The expected deadline of the action for the message. */
     private _actionRequiredByDateTime?: Date | undefined;
-    /** A collection of serviceAnnouncementAttachments.  */
+    /** A collection of serviceAnnouncementAttachments. */
     private _attachments?: ServiceAnnouncementAttachment[] | undefined;
-    /** The zip file that contains all attachments for a message.  */
+    /** The zip file of all attachments for a message. */
     private _attachmentsArchive?: string | undefined;
-    /** The body property  */
+    /** The body property */
     private _body?: ItemBody | undefined;
-    /** The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue.  */
+    /** The service message category. Possible values are: preventOrFixIssue, planForChange, stayInformed, unknownFutureValue. */
     private _category?: ServiceUpdateCategory | undefined;
-    /** Indicates whether the message has any attachment.  */
+    /** Indicates whether the message has any attachment. */
     private _hasAttachments?: boolean | undefined;
-    /** Indicates whether the message describes a major update for the service.  */
+    /** Indicates whether the message describes a major update for the service. */
     private _isMajorChange?: boolean | undefined;
-    /** The affected services by the service message.  */
+    /** The affected services by the service message. */
     private _services?: string[] | undefined;
-    /** The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue.  */
+    /** The severity of the service message. Possible values are: normal, high, critical, unknownFutureValue. */
     private _severity?: ServiceUpdateSeverity | undefined;
-    /** A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on.  */
+    /** A collection of tags for the service message. Tags are provided by the service team/support team who post the message to tell whether this message contains privacy data, or whether this message is for a service new feature update, and so on. */
     private _tags?: string[] | undefined;
-    /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions.  */
+    /** Represents user viewpoints data of the service message. This data includes message status such as whether the user has archived, read, or marked the message as favorite. This property is null when accessed with application permissions. */
     private _viewPoint?: ServiceUpdateMessageViewpoint | undefined;
     /**
      * Gets the actionRequiredByDateTime property value. The expected deadline of the action for the message.
@@ -58,14 +59,14 @@ export class ServiceUpdateMessage extends ServiceAnnouncementBase implements Par
         this._attachments = value;
     };
     /**
-     * Gets the attachmentsArchive property value. The zip file that contains all attachments for a message.
+     * Gets the attachmentsArchive property value. The zip file of all attachments for a message.
      * @returns a binary
      */
     public get attachmentsArchive() {
         return this._attachmentsArchive;
     };
     /**
-     * Sets the attachmentsArchive property value. The zip file that contains all attachments for a message.
+     * Sets the attachmentsArchive property value. The zip file of all attachments for a message.
      * @param value Value to set for the attachmentsArchive property.
      */
     public set attachmentsArchive(value: string | undefined) {

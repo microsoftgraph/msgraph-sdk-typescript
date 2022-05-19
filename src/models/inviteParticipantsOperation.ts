@@ -2,8 +2,9 @@ import {createInvitationParticipantInfoFromDiscriminatorValue} from './createInv
 import {CommsOperation, InvitationParticipantInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the invite method. */
 export class InviteParticipantsOperation extends CommsOperation implements Parsable {
-    /** The participants to invite.  */
+    /** The participants to invite. */
     private _participants?: InvitationParticipantInfo[] | undefined;
     /**
      * Instantiates a new inviteParticipantsOperation and sets the default values.

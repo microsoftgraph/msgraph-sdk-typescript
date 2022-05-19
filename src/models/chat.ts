@@ -7,28 +7,29 @@ import {createTeamworkOnlineMeetingInfoFromDiscriminatorValue} from './createTea
 import {ChatMessage, ConversationMember, Entity, TeamsAppInstallation, TeamsTab, TeamworkOnlineMeetingInfo} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of chat entities. */
 export class Chat extends Entity implements Parsable {
-    /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.  */
+    /** Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue. */
     private _chatType?: ChatType | undefined;
-    /** Date and time at which the chat was created. Read-only.  */
+    /** Date and time at which the chat was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** A collection of all the apps in the chat. Nullable.  */
+    /** A collection of all the apps in the chat. Nullable. */
     private _installedApps?: TeamsAppInstallation[] | undefined;
-    /** Date and time at which the chat was renamed or list of members were last changed. Read-only.  */
+    /** Date and time at which the chat was renamed or list of members were last changed. Read-only. */
     private _lastUpdatedDateTime?: Date | undefined;
-    /** A collection of all the members in the chat. Nullable.  */
+    /** A collection of all the members in the chat. Nullable. */
     private _members?: ConversationMember[] | undefined;
-    /** A collection of all the messages in the chat. Nullable.  */
+    /** A collection of all the messages in the chat. Nullable. */
     private _messages?: ChatMessage[] | undefined;
-    /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only.  */
+    /** Represents details about an online meeting. If the chat isn't associated with an online meeting, the property is empty. Read-only. */
     private _onlineMeetingInfo?: TeamworkOnlineMeetingInfo | undefined;
-    /** A collection of all the tabs in the chat. Nullable.  */
+    /** A collection of all the tabs in the chat. Nullable. */
     private _tabs?: TeamsTab[] | undefined;
-    /** The identifier of the tenant in which the chat was created. Read-only.  */
+    /** The identifier of the tenant in which the chat was created. Read-only. */
     private _tenantId?: string | undefined;
-    /** (Optional) Subject or topic for the chat. Only available for group chats.  */
+    /** (Optional) Subject or topic for the chat. Only available for group chats. */
     private _topic?: string | undefined;
-    /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only.  */
+    /** The URL for the chat in Microsoft Teams. The URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
      * Gets the chatType property value. Specifies the type of chat. Possible values are: group, oneOnOne, meeting, unknownFutureValue.

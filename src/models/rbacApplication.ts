@@ -9,22 +9,23 @@ import {createUnifiedRoleEligibilityScheduleRequestFromDiscriminatorValue} from 
 import {Entity, UnifiedRoleAssignment, UnifiedRoleAssignmentSchedule, UnifiedRoleAssignmentScheduleInstance, UnifiedRoleAssignmentScheduleRequest, UnifiedRoleDefinition, UnifiedRoleEligibilitySchedule, UnifiedRoleEligibilityScheduleInstance, UnifiedRoleEligibilityScheduleRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class RbacApplication extends Entity implements Parsable {
-    /** Resource to grant access to users or groups.  */
+    /** Resource to grant access to users or groups. */
     private _roleAssignments?: UnifiedRoleAssignment[] | undefined;
-    /** The roleAssignmentScheduleInstances property  */
+    /** Instances for active role assignments. */
     private _roleAssignmentScheduleInstances?: UnifiedRoleAssignmentScheduleInstance[] | undefined;
-    /** The roleAssignmentScheduleRequests property  */
+    /** Requests for active role assignments to principals through PIM. */
     private _roleAssignmentScheduleRequests?: UnifiedRoleAssignmentScheduleRequest[] | undefined;
-    /** The roleAssignmentSchedules property  */
+    /** Schedules for active role assignment operations. */
     private _roleAssignmentSchedules?: UnifiedRoleAssignmentSchedule[] | undefined;
-    /** Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles.  */
+    /** Resource representing the roles allowed by RBAC providers and the permissions assigned to the roles. */
     private _roleDefinitions?: UnifiedRoleDefinition[] | undefined;
-    /** The roleEligibilityScheduleInstances property  */
+    /** Instances for role eligibility requests. */
     private _roleEligibilityScheduleInstances?: UnifiedRoleEligibilityScheduleInstance[] | undefined;
-    /** The roleEligibilityScheduleRequests property  */
+    /** Requests for role eligibilities for principals through PIM. */
     private _roleEligibilityScheduleRequests?: UnifiedRoleEligibilityScheduleRequest[] | undefined;
-    /** The roleEligibilitySchedules property  */
+    /** Schedules for role eligibility operations. */
     private _roleEligibilitySchedules?: UnifiedRoleEligibilitySchedule[] | undefined;
     /**
      * Instantiates a new rbacApplication and sets the default values.
@@ -63,42 +64,42 @@ export class RbacApplication extends Entity implements Parsable {
         this._roleAssignments = value;
     };
     /**
-     * Gets the roleAssignmentScheduleInstances property value. The roleAssignmentScheduleInstances property
+     * Gets the roleAssignmentScheduleInstances property value. Instances for active role assignments.
      * @returns a unifiedRoleAssignmentScheduleInstance
      */
     public get roleAssignmentScheduleInstances() {
         return this._roleAssignmentScheduleInstances;
     };
     /**
-     * Sets the roleAssignmentScheduleInstances property value. The roleAssignmentScheduleInstances property
+     * Sets the roleAssignmentScheduleInstances property value. Instances for active role assignments.
      * @param value Value to set for the roleAssignmentScheduleInstances property.
      */
     public set roleAssignmentScheduleInstances(value: UnifiedRoleAssignmentScheduleInstance[] | undefined) {
         this._roleAssignmentScheduleInstances = value;
     };
     /**
-     * Gets the roleAssignmentScheduleRequests property value. The roleAssignmentScheduleRequests property
+     * Gets the roleAssignmentScheduleRequests property value. Requests for active role assignments to principals through PIM.
      * @returns a unifiedRoleAssignmentScheduleRequest
      */
     public get roleAssignmentScheduleRequests() {
         return this._roleAssignmentScheduleRequests;
     };
     /**
-     * Sets the roleAssignmentScheduleRequests property value. The roleAssignmentScheduleRequests property
+     * Sets the roleAssignmentScheduleRequests property value. Requests for active role assignments to principals through PIM.
      * @param value Value to set for the roleAssignmentScheduleRequests property.
      */
     public set roleAssignmentScheduleRequests(value: UnifiedRoleAssignmentScheduleRequest[] | undefined) {
         this._roleAssignmentScheduleRequests = value;
     };
     /**
-     * Gets the roleAssignmentSchedules property value. The roleAssignmentSchedules property
+     * Gets the roleAssignmentSchedules property value. Schedules for active role assignment operations.
      * @returns a unifiedRoleAssignmentSchedule
      */
     public get roleAssignmentSchedules() {
         return this._roleAssignmentSchedules;
     };
     /**
-     * Sets the roleAssignmentSchedules property value. The roleAssignmentSchedules property
+     * Sets the roleAssignmentSchedules property value. Schedules for active role assignment operations.
      * @param value Value to set for the roleAssignmentSchedules property.
      */
     public set roleAssignmentSchedules(value: UnifiedRoleAssignmentSchedule[] | undefined) {
@@ -119,42 +120,42 @@ export class RbacApplication extends Entity implements Parsable {
         this._roleDefinitions = value;
     };
     /**
-     * Gets the roleEligibilityScheduleInstances property value. The roleEligibilityScheduleInstances property
+     * Gets the roleEligibilityScheduleInstances property value. Instances for role eligibility requests.
      * @returns a unifiedRoleEligibilityScheduleInstance
      */
     public get roleEligibilityScheduleInstances() {
         return this._roleEligibilityScheduleInstances;
     };
     /**
-     * Sets the roleEligibilityScheduleInstances property value. The roleEligibilityScheduleInstances property
+     * Sets the roleEligibilityScheduleInstances property value. Instances for role eligibility requests.
      * @param value Value to set for the roleEligibilityScheduleInstances property.
      */
     public set roleEligibilityScheduleInstances(value: UnifiedRoleEligibilityScheduleInstance[] | undefined) {
         this._roleEligibilityScheduleInstances = value;
     };
     /**
-     * Gets the roleEligibilityScheduleRequests property value. The roleEligibilityScheduleRequests property
+     * Gets the roleEligibilityScheduleRequests property value. Requests for role eligibilities for principals through PIM.
      * @returns a unifiedRoleEligibilityScheduleRequest
      */
     public get roleEligibilityScheduleRequests() {
         return this._roleEligibilityScheduleRequests;
     };
     /**
-     * Sets the roleEligibilityScheduleRequests property value. The roleEligibilityScheduleRequests property
+     * Sets the roleEligibilityScheduleRequests property value. Requests for role eligibilities for principals through PIM.
      * @param value Value to set for the roleEligibilityScheduleRequests property.
      */
     public set roleEligibilityScheduleRequests(value: UnifiedRoleEligibilityScheduleRequest[] | undefined) {
         this._roleEligibilityScheduleRequests = value;
     };
     /**
-     * Gets the roleEligibilitySchedules property value. The roleEligibilitySchedules property
+     * Gets the roleEligibilitySchedules property value. Schedules for role eligibility operations.
      * @returns a unifiedRoleEligibilitySchedule
      */
     public get roleEligibilitySchedules() {
         return this._roleEligibilitySchedules;
     };
     /**
-     * Sets the roleEligibilitySchedules property value. The roleEligibilitySchedules property
+     * Sets the roleEligibilitySchedules property value. Schedules for role eligibility operations.
      * @param value Value to set for the roleEligibilitySchedules property.
      */
     public set roleEligibilitySchedules(value: UnifiedRoleEligibilitySchedule[] | undefined) {

@@ -7,31 +7,31 @@ import {RecipientScopeType} from './recipientScopeType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailTips implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Mail tips for automatic reply if it has been set up by the recipient.  */
+    /** Mail tips for automatic reply if it has been set up by the recipient. */
     private _automaticReplies?: AutomaticRepliesMailTips | undefined;
-    /** A custom mail tip that can be set on the recipient's mailbox.  */
+    /** A custom mail tip that can be set on the recipient's mailbox. */
     private _customMailTip?: string | undefined;
-    /** Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders.  */
+    /** Whether the recipient's mailbox is restricted, for example, accepting messages from only a predefined list of senders, rejecting messages from a predefined list of senders, or accepting messages from only authenticated senders. */
     private _deliveryRestricted?: boolean | undefined;
-    /** The email address of the recipient to get mailtips for.  */
+    /** The email address of the recipient to get mailtips for. */
     private _emailAddress?: EmailAddress | undefined;
-    /** Errors that occur during the getMailTips action.  */
+    /** Errors that occur during the getMailTips action. */
     private _error_escaped?: MailTipsError | undefined;
-    /** The number of external members if the recipient is a distribution list.  */
+    /** The number of external members if the recipient is a distribution list. */
     private _externalMemberCount?: number | undefined;
-    /** Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager.  */
+    /** Whether sending messages to the recipient requires approval. For example, if the recipient is a large distribution list and a moderator has been set up to approve messages sent to that distribution list, or if sending messages to a recipient requires approval of the recipient's manager. */
     private _isModerated?: boolean | undefined;
-    /** The mailbox full status of the recipient.  */
+    /** The mailbox full status of the recipient. */
     private _mailboxFull?: boolean | undefined;
-    /** The maximum message size that has been configured for the recipient's organization or mailbox.  */
+    /** The maximum message size that has been configured for the recipient's organization or mailbox. */
     private _maxMessageSize?: number | undefined;
-    /** The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content.  */
+    /** The scope of the recipient. Possible values are: none, internal, external, externalPartner, externalNonParther. For example, an administrator can set another organization to be its 'partner'. The scope is useful if an administrator wants certain mailtips to be accessible to certain scopes. It's also useful to senders to inform them that their message may leave the organization, helping them make the correct decisions about wording, tone and content. */
     private _recipientScope?: RecipientScopeType | undefined;
-    /** Recipients suggested based on previous contexts where they appear in the same message.  */
+    /** Recipients suggested based on previous contexts where they appear in the same message. */
     private _recipientSuggestions?: Recipient[] | undefined;
-    /** The number of members if the recipient is a distribution list.  */
+    /** The number of members if the recipient is a distribution list. */
     private _totalMemberCount?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

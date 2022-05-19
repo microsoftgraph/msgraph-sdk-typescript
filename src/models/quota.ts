@@ -3,19 +3,19 @@ import {StoragePlanInformation} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Quota implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Total space consumed by files in the recycle bin, in bytes. Read-only.  */
+    /** Total space consumed by files in the recycle bin, in bytes. Read-only. */
     private _deleted?: number | undefined;
-    /** Total space remaining before reaching the quota limit, in bytes. Read-only.  */
+    /** Total space remaining before reaching the quota limit, in bytes. Read-only. */
     private _remaining?: number | undefined;
-    /** Enumeration value that indicates the state of the storage space. Read-only.  */
+    /** Enumeration value that indicates the state of the storage space. Read-only. */
     private _state?: string | undefined;
-    /** Information about the drive's storage quota plans. Only in Personal OneDrive.  */
+    /** Information about the drive's storage quota plans. Only in Personal OneDrive. */
     private _storagePlanInformation?: StoragePlanInformation | undefined;
-    /** Total allowed storage space, in bytes. Read-only.  */
+    /** Total allowed storage space, in bytes. Read-only. */
     private _total?: number | undefined;
-    /** Total space used, in bytes. Read-only.  */
+    /** Total space used, in bytes. Read-only. */
     private _used?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -9,21 +9,21 @@ import {PrintConnector, Printer, PrinterShare, PrintOperation, PrintService, Pri
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Print implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The list of available print connectors.  */
+    /** The list of available print connectors. */
     private _connectors?: PrintConnector[] | undefined;
-    /** The list of print long running operations.  */
+    /** The list of print long running operations. */
     private _operations?: PrintOperation[] | undefined;
-    /** The list of printers registered in the tenant.  */
+    /** The list of printers registered in the tenant. */
     private _printers?: Printer[] | undefined;
-    /** The list of available Universal Print service endpoints.  */
+    /** The list of available Universal Print service endpoints. */
     private _services?: PrintService[] | undefined;
-    /** Tenant-wide settings for the Universal Print service.  */
+    /** Tenant-wide settings for the Universal Print service. */
     private _settings?: PrintSettings | undefined;
-    /** The list of printer shares registered in the tenant.  */
+    /** The list of printer shares registered in the tenant. */
     private _shares?: PrinterShare[] | undefined;
-    /** List of abstract definition for a task that can be triggered when various events occur within Universal Print.  */
+    /** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
     private _taskDefinitions?: PrintTaskDefinition[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

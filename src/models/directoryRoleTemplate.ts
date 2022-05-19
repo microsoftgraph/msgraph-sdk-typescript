@@ -1,10 +1,11 @@
 import {DirectoryObject} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of directoryRoleTemplate entities. */
 export class DirectoryRoleTemplate extends DirectoryObject implements Parsable {
-    /** The description to set for the directory role. Read-only.  */
+    /** The description to set for the directory role. Read-only. */
     private _description?: string | undefined;
-    /** The display name to set for the directory role. Read-only.  */
+    /** The display name to set for the directory role. Read-only. */
     private _displayName?: string | undefined;
     /**
      * Instantiates a new directoryRoleTemplate and sets the default values.

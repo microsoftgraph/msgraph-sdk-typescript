@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ModifiedProperty implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Indicates the property name of the target attribute that was changed.  */
+    /** Name of property that was modified. */
     private _displayName?: string | undefined;
-    /** Indicates the updated value for the propery.  */
+    /** New property value. */
     private _newValue?: string | undefined;
-    /** Indicates the previous value (before the update) for the property.  */
+    /** Old property value. */
     private _oldValue?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -30,14 +30,14 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. Indicates the property name of the target attribute that was changed.
+     * Gets the displayName property value. Name of property that was modified.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Indicates the property name of the target attribute that was changed.
+     * Sets the displayName property value. Name of property that was modified.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -55,28 +55,28 @@ export class ModifiedProperty implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the newValue property value. Indicates the updated value for the propery.
+     * Gets the newValue property value. New property value.
      * @returns a string
      */
     public get newValue() {
         return this._newValue;
     };
     /**
-     * Sets the newValue property value. Indicates the updated value for the propery.
+     * Sets the newValue property value. New property value.
      * @param value Value to set for the newValue property.
      */
     public set newValue(value: string | undefined) {
         this._newValue = value;
     };
     /**
-     * Gets the oldValue property value. Indicates the previous value (before the update) for the property.
+     * Gets the oldValue property value. Old property value.
      * @returns a string
      */
     public get oldValue() {
         return this._oldValue;
     };
     /**
-     * Sets the oldValue property value. Indicates the previous value (before the update) for the property.
+     * Sets the oldValue property value. Old property value.
      * @param value Value to set for the oldValue property.
      */
     public set oldValue(value: string | undefined) {

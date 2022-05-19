@@ -1,9 +1,9 @@
 
-/** The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand.  */
+/** The permission classifications for delegated permissions exposed by the app that this service principal represents. Supports $expand. */
 export class DelegatedPermissionClassificationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

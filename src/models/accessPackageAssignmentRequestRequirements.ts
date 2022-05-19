@@ -3,21 +3,21 @@ import {EntitlementManagementSchedule} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentRequestRequirements implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Indicates whether the requestor is allowed to set a custom schedule.  */
+    /** Indicates whether the requestor is allowed to set a custom schedule. */
     private _allowCustomAssignmentSchedule?: boolean | undefined;
-    /** Indicates whether a request to add must be approved by an approver.  */
+    /** Indicates whether a request to add must be approved by an approver. */
     private _isApprovalRequiredForAdd?: boolean | undefined;
-    /** Indicates whether a request to update must be approved by an approver.  */
+    /** Indicates whether a request to update must be approved by an approver. */
     private _isApprovalRequiredForUpdate?: boolean | undefined;
-    /** The description of the policy that the user is trying to request access using.  */
+    /** The description of the policy that the user is trying to request access using. */
     private _policyDescription?: string | undefined;
-    /** The display name of the policy that the user is trying to request access using.  */
+    /** The display name of the policy that the user is trying to request access using. */
     private _policyDisplayName?: string | undefined;
-    /** The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request.  */
+    /** The identifier of the policy that these requirements are associated with. This identifier can be used when creating a new assignment request. */
     private _policyId?: string | undefined;
-    /** Schedule restrictions enforced, if any.  */
+    /** Schedule restrictions enforced, if any. */
     private _schedule?: EntitlementManagementSchedule | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

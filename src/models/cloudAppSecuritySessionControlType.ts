@@ -1,4 +1,4 @@
-/** Provides operations to manage the identityContainer singleton.  */
+/** Provides operations to manage the identityContainer singleton. */
 export enum CloudAppSecuritySessionControlType {
     McasConfigured = "mcasConfigured",
     MonitorOnly = "monitorOnly",

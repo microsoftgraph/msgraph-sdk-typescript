@@ -1,9 +1,9 @@
 
-/** Used to access the underlying driveItem. Deprecated -- use driveItem instead.  */
+/** Used to access the underlying driveItem. Deprecated -- use driveItem instead. */
 export class RootRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

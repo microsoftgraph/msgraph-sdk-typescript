@@ -1,1 +1,1 @@
-export * from './restoreRequestBody'
+export * from './restorePostRequestBody'

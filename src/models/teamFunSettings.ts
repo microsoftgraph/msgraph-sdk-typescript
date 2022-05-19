@@ -2,15 +2,15 @@ import {GiphyRatingType} from './giphyRatingType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamFunSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If set to true, enables users to include custom memes.  */
+    /** If set to true, enables users to include custom memes. */
     private _allowCustomMemes?: boolean | undefined;
-    /** If set to true, enables Giphy use.  */
+    /** If set to true, enables Giphy use. */
     private _allowGiphy?: boolean | undefined;
-    /** If set to true, enables users to include stickers and memes.  */
+    /** If set to true, enables users to include stickers and memes. */
     private _allowStickersAndMemes?: boolean | undefined;
-    /** Giphy content rating. Possible values are: moderate, strict.  */
+    /** Giphy content rating. Possible values are: moderate, strict. */
     private _giphyContentRating?: GiphyRatingType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
