@@ -3,12 +3,13 @@ import {Entity, WorkbookOperationError} from './index';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookOperation extends Entity implements Parsable {
-    /** The error returned by the operation.  */
+    /** The error returned by the operation. */
     private _error_escaped?: WorkbookOperationError | undefined;
-    /** The resource URI for the result.  */
+    /** The resource URI for the result. */
     private _resourceLocation?: string | undefined;
-    /** The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.  */
+    /** The current status of the operation. Possible values are: notStarted, running, succeeded, failed. */
     private _status?: WorkbookOperationStatus | undefined;
     /**
      * Instantiates a new workbookOperation and sets the default values.
@@ -67,14 +68,14 @@ export class WorkbookOperation extends Entity implements Parsable {
         writer.writeEnumValue<WorkbookOperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
+     * Gets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
      * @returns a workbookOperationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The current status of the operation. Possible values are: NotStarted, Running, Completed, Failed.
+     * Sets the status property value. The current status of the operation. Possible values are: notStarted, running, succeeded, failed.
      * @param value Value to set for the status property.
      */
     public set status(value: WorkbookOperationStatus | undefined) {

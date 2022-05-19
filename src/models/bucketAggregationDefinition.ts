@@ -4,17 +4,17 @@ import {BucketAggregationRange} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class BucketAggregationDefinition implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** True to specify the sort order as descending. The default is false, with the sort order as ascending. Optional.  */
+    /** True to specify the sort order as descending. The default is false, with the sort order as ascending. Optional. */
     private _isDescending?: boolean | undefined;
-    /** The minimum number of items that should be present in the aggregation to be returned in a bucket. Optional.  */
+    /** The minimum number of items that should be present in the aggregation to be returned in a bucket. Optional. */
     private _minimumCount?: number | undefined;
-    /** A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional.  */
+    /** A filter to define a matching criteria. The key should start with the specified prefix to be returned in the response. Optional. */
     private _prefixFilter?: string | undefined;
-    /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional.  */
+    /** Specifies the manual ranges to compute the aggregations. This is only valid for non-string refiners of date or numeric type. Optional. */
     private _ranges?: BucketAggregationRange[] | undefined;
-    /** The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required.  */
+    /** The possible values are count to sort by the number of matches in the aggregation, keyAsStringto sort alphabeticaly based on the key in the aggregation, keyAsNumber for numerical sorting based on the key in the aggregation. Required. */
     private _sortBy?: BucketAggregationSortProperty | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -3,21 +3,21 @@ import {KeyValuePair} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SubjectRightsRequestDetail implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Count of items that are excluded from the request.  */
+    /** Count of items that are excluded from the request. */
     private _excludedItemCount?: number | undefined;
-    /** Count of items per insight.  */
+    /** Count of items per insight. */
     private _insightCounts?: KeyValuePair[] | undefined;
-    /** Count of items found.  */
+    /** Count of items found. */
     private _itemCount?: number | undefined;
-    /** Count of item that need review.  */
+    /** Count of item that need review. */
     private _itemNeedReview?: number | undefined;
-    /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams.  */
+    /** Count of items per product, such as Exchange, SharePoint, OneDrive, and Teams. */
     private _productItemCounts?: KeyValuePair[] | undefined;
-    /** Count of items signed off by the administrator.  */
+    /** Count of items signed off by the administrator. */
     private _signedOffItemCount?: number | undefined;
-    /** Total item size in bytes.  */
+    /** Total item size in bytes. */
     private _totalItemSize?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

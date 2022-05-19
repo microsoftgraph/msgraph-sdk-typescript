@@ -1,12 +1,13 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessReviewReviewer extends Entity implements Parsable {
-    /** The date when the reviewer was added for the access review.  */
+    /** The date when the reviewer was added for the access review. */
     private _createdDateTime?: Date | undefined;
-    /** Name of reviewer.  */
+    /** Name of reviewer. */
     private _displayName?: string | undefined;
-    /** User principal name of the reviewer.  */
+    /** User principal name of the user. */
     private _userPrincipalName?: string | undefined;
     /**
      * Instantiates a new accessReviewReviewer and sets the default values.
@@ -65,14 +66,14 @@ export class AccessReviewReviewer extends Entity implements Parsable {
         writer.writeStringValue("userPrincipalName", this.userPrincipalName);
     };
     /**
-     * Gets the userPrincipalName property value. User principal name of the reviewer.
+     * Gets the userPrincipalName property value. User principal name of the user.
      * @returns a string
      */
     public get userPrincipalName() {
         return this._userPrincipalName;
     };
     /**
-     * Sets the userPrincipalName property value. User principal name of the reviewer.
+     * Sets the userPrincipalName property value. User principal name of the user.
      * @param value Value to set for the userPrincipalName property.
      */
     public set userPrincipalName(value: string | undefined) {

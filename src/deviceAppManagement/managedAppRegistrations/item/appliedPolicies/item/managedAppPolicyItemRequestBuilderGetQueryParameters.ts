@@ -1,9 +1,9 @@
 
-/** Zero or more policys already applied on the registered app when it last synchronized with managment service.  */
+/** Zero or more policys already applied on the registered app when it last synchronized with managment service. */
 export class ManagedAppPolicyItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -1,9 +1,9 @@
 
-/** Get entity from groupSettings by key  */
+/** Retrieve the properties of a specific group setting object. The setting can be a tenant-level or group-specific setting. */
 export class GroupSettingItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

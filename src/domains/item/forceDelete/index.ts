@@ -1,1 +1,1 @@
-export * from './forceDeleteRequestBody'
+export * from './forceDeletePostRequestBody'

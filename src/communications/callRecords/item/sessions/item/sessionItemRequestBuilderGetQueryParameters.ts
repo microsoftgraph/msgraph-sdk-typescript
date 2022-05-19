@@ -1,9 +1,9 @@
 
-/** List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable.  */
+/** List of sessions involved in the call. Peer-to-peer calls typically only have one session, whereas group calls typically have at least one session per participant. Read-only. Nullable. */
 export class SessionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

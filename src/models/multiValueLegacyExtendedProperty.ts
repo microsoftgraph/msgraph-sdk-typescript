@@ -1,8 +1,9 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class MultiValueLegacyExtendedProperty extends Entity implements Parsable {
-    /** A collection of property values.  */
+    /** A collection of property values. */
     private _value?: string[] | undefined;
     /**
      * Instantiates a new multiValueLegacyExtendedProperty and sets the default values.

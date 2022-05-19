@@ -1,7 +1,7 @@
 
-/** Get timeOffRequests from teams  */
+/** Get timeOffRequests from teams */
 export class TimeOffRequestItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

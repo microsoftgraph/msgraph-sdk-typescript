@@ -2,22 +2,52 @@ import {DirectoryObjectCollectionResponse} from '../../../../../../../models/';
 import {createDirectoryObjectCollectionResponseFromDiscriminatorValue} from '../../../../../../../models/createDirectoryObjectCollectionResponseFromDiscriminatorValue';
 import {ODataError} from '../../../../../../../models/oDataErrors/';
 import {createODataErrorFromDiscriminatorValue} from '../../../../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
+import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
 import {CountRequestBuilder} from './count/countRequestBuilder';
-import {TransitiveMemberOfRequestBuilderGetQueryParameters} from './transitiveMemberOfRequestBuilderGetQueryParameters';
+import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
+import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
+import {TransitiveMemberOfRequestBuilderGetRequestConfiguration} from './transitiveMemberOfRequestBuilderGetRequestConfiguration';
+import {UserRequestBuilder} from './user/userRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity.  */
+/** Provides operations to manage the transitiveMemberOf property of the microsoft.graph.device entity. */
 export class TransitiveMemberOfRequestBuilder {
-    /** The count property  */
+    /** The application property */
+    public get application(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The count property */
     public get count(): CountRequestBuilder {
         return new CountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** The device property */
+    public get device(): DeviceRequestBuilder {
+        return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The group property */
+    public get group(): GroupRequestBuilder {
+        return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The orgContact property */
+    public get orgContact(): OrgContactRequestBuilder {
+        return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** The servicePrincipal property */
+    public get servicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /** The user property */
+    public get user(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new TransitiveMemberOfRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -32,33 +62,31 @@ export class TransitiveMemberOfRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Groups that the device is a member of. This operation is transitive. Supports $expand.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: TransitiveMemberOfRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: TransitiveMemberOfRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
-     * Groups that the device is a member of. This operation is transitive. Supports $expand.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Groups and administrative units that this device is a member of. This operation is transitive. Supports $expand.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of DirectoryObjectCollectionResponse
      */
-    public get(queryParameters?: TransitiveMemberOfRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
+    public get(requestConfiguration?: TransitiveMemberOfRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObjectCollectionResponse | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

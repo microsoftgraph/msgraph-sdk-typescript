@@ -5,23 +5,23 @@ import {EntitlementManagementSchedule, SubjectSet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentReviewSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue.  */
+    /** The default decision to apply if the access is not reviewed. The possible values are: keepAccess, removeAccess, acceptAccessRecommendation, unknownFutureValue. */
     private _expirationBehavior?: AccessReviewExpirationBehavior | undefined;
-    /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond.  */
+    /** This collection specifies the users who will be the fallback reviewers when the primary reviewers don't respond. */
     private _fallbackReviewers?: SubjectSet[] | undefined;
-    /** If true, access reviews are required for assignments through this policy.  */
+    /** If true, access reviews are required for assignments through this policy. */
     private _isEnabled?: boolean | undefined;
-    /** Specifies whether to display recommendations to the reviewer. The default value is true.  */
+    /** Specifies whether to display recommendations to the reviewer. The default value is true. */
     private _isRecommendationEnabled?: boolean | undefined;
-    /** Specifies whether the reviewer must provide justification for the approval. The default value is true.  */
+    /** Specifies whether the reviewer must provide justification for the approval. The default value is true. */
     private _isReviewerJustificationRequired?: boolean | undefined;
-    /** Specifies whether the principals can review their own assignments.  */
+    /** Specifies whether the principals can review their own assignments. */
     private _isSelfReview?: boolean | undefined;
-    /** This collection specifies the users or group of users who will review the access package assignments.  */
+    /** This collection specifies the users or group of users who will review the access package assignments. */
     private _primaryReviewers?: SubjectSet[] | undefined;
-    /** When the first review should start and how often it should recur.  */
+    /** When the first review should start and how often it should recur. */
     private _schedule?: EntitlementManagementSchedule | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

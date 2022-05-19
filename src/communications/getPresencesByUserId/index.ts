@@ -1,2 +1,2 @@
 export * from './getPresencesByUserIdResponse'
-export * from './getPresencesByUserIdRequestBody'
+export * from './getPresencesByUserIdPostRequestBody'

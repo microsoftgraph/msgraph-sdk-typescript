@@ -6,24 +6,25 @@ import {createUserIdentityFromDiscriminatorValue} from './createUserIdentityFrom
 import {Entity, PrintDocument, PrintJobConfiguration, PrintJobStatus, PrintTask, UserIdentity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintJob extends Entity implements Parsable {
-    /** The configuration property  */
+    /** The configuration property */
     private _configuration?: PrintJobConfiguration | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _createdBy?: UserIdentity | undefined;
-    /** The DateTimeOffset when the job was created. Read-only.  */
+    /** The DateTimeOffset when the job was created. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Read-only.  */
+    /** Read-only. */
     private _documents?: PrintDocument[] | undefined;
-    /** If true, document can be fetched by printer.  */
+    /** If true, document can be fetched by printer. */
     private _isFetchable?: boolean | undefined;
-    /** Contains the source job URL, if the job has been redirected from another printer.  */
+    /** Contains the source job URL, if the job has been redirected from another printer. */
     private _redirectedFrom?: string | undefined;
-    /** Contains the destination job URL, if the job has been redirected to another printer.  */
+    /** Contains the destination job URL, if the job has been redirected to another printer. */
     private _redirectedTo?: string | undefined;
-    /** The status property  */
+    /** The status property */
     private _status?: PrintJobStatus | undefined;
-    /** A list of printTasks that were triggered by this print job.  */
+    /** A list of printTasks that were triggered by this print job. */
     private _tasks?: PrintTask[] | undefined;
     /**
      * Gets the configuration property value. The configuration property

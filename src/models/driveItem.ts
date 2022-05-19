@@ -29,70 +29,71 @@ import {createWorkbookFromDiscriminatorValue} from './createWorkbookFromDiscrimi
 import {Audio, BaseItem, Bundle, Deleted, DriveItemVersion, File, FileSystemInfo, Folder, GeoCoordinates, Image, ItemAnalytics, ListItem, Malware, Package, PendingOperations, Permission, Photo, PublicationFacet, RemoteItem, Root, SearchResult, Shared, SharepointIds, SpecialFolder, Subscription, ThumbnailSet, Video, Workbook} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class DriveItem extends BaseItem implements Parsable {
-    /** Analytics about the view activities that took place on this item.  */
+    /** Analytics about the view activities that took place on this item. */
     private _analytics?: ItemAnalytics | undefined;
-    /** Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.  */
+    /** Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal. */
     private _audio?: Audio | undefined;
-    /** Bundle metadata, if the item is a bundle. Read-only.  */
+    /** Bundle metadata, if the item is a bundle. Read-only. */
     private _bundle?: Bundle | undefined;
-    /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.  */
+    /** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable. */
     private _children?: DriveItem[] | undefined;
-    /** The content stream, if the item represents a file.  */
+    /** The content stream, if the item represents a file. */
     private _content?: string | undefined;
-    /** An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only.  */
+    /** An eTag for the content of the item. This eTag is not changed if only the metadata is changed. Note This property is not returned if the item is a folder. Read-only. */
     private _cTag?: string | undefined;
-    /** Information about the deleted state of the item. Read-only.  */
+    /** Information about the deleted state of the item. Read-only. */
     private _deleted?: Deleted | undefined;
-    /** File metadata, if the item is a file. Read-only.  */
+    /** File metadata, if the item is a file. Read-only. */
     private _file?: File | undefined;
-    /** File system information on client. Read-write.  */
+    /** File system information on client. Read-write. */
     private _fileSystemInfo?: FileSystemInfo | undefined;
-    /** Folder metadata, if the item is a folder. Read-only.  */
+    /** Folder metadata, if the item is a folder. Read-only. */
     private _folder?: Folder | undefined;
-    /** Image metadata, if the item is an image. Read-only.  */
+    /** Image metadata, if the item is an image. Read-only. */
     private _image?: Image | undefined;
-    /** For drives in SharePoint, the associated document library list item. Read-only. Nullable.  */
+    /** For drives in SharePoint, the associated document library list item. Read-only. Nullable. */
     private _listItem?: ListItem | undefined;
-    /** Location metadata, if the item has location data. Read-only.  */
+    /** Location metadata, if the item has location data. Read-only. */
     private _location?: GeoCoordinates | undefined;
-    /** Malware metadata, if the item was detected to contain malware. Read-only.  */
+    /** Malware metadata, if the item was detected to contain malware. Read-only. */
     private _malware?: Malware | undefined;
-    /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only.  */
+    /** If present, indicates that this item is a package instead of a folder or file. Packages are treated like files in some contexts and folders in others. Read-only. */
     private _package?: Package | undefined;
-    /** If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.  */
+    /** If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only. */
     private _pendingOperations?: PendingOperations | undefined;
-    /** The set of permissions for the item. Read-only. Nullable.  */
+    /** The set of permissions for the item. Read-only. Nullable. */
     private _permissions?: Permission[] | undefined;
-    /** Photo metadata, if the item is a photo. Read-only.  */
+    /** Photo metadata, if the item is a photo. Read-only. */
     private _photo?: Photo | undefined;
-    /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only.  */
+    /** Provides information about the published or checked-out state of an item, in locations that support such actions. This property is not returned by default. Read-only. */
     private _publication?: PublicationFacet | undefined;
-    /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only.  */
+    /** Remote item data, if the item is shared from a drive other than the one being accessed. Read-only. */
     private _remoteItem?: RemoteItem | undefined;
-    /** If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive.  */
+    /** If this property is non-null, it indicates that the driveItem is the top-most driveItem in the drive. */
     private _root?: Root | undefined;
-    /** Search metadata, if the item is from a search result. Read-only.  */
+    /** Search metadata, if the item is from a search result. Read-only. */
     private _searchResult?: SearchResult | undefined;
-    /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only.  */
+    /** Indicates that the item has been shared with others and provides information about the shared state of the item. Read-only. */
     private _shared?: Shared | undefined;
-    /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
+    /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
-    /** Size of the item in bytes. Read-only.  */
+    /** Size of the item in bytes. Read-only. */
     private _size?: number | undefined;
-    /** If the current item is also available as a special folder, this facet is returned. Read-only.  */
+    /** If the current item is also available as a special folder, this facet is returned. Read-only. */
     private _specialFolder?: SpecialFolder | undefined;
-    /** The set of subscriptions on the item. Only supported on the root of a drive.  */
+    /** The set of subscriptions on the item. Only supported on the root of a drive. */
     private _subscriptions?: Subscription[] | undefined;
-    /** Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable.  */
+    /** Collection containing [ThumbnailSet][] objects associated with the item. For more info, see [getting thumbnails][]. Read-only. Nullable. */
     private _thumbnails?: ThumbnailSet[] | undefined;
-    /** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.  */
+    /** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable. */
     private _versions?: DriveItemVersion[] | undefined;
-    /** Video metadata, if the item is a video. Read-only.  */
+    /** Video metadata, if the item is a video. Read-only. */
     private _video?: Video | undefined;
-    /** WebDAV compatible URL for the item.  */
+    /** WebDAV compatible URL for the item. */
     private _webDavUrl?: string | undefined;
-    /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable.  */
+    /** For files that are Excel spreadsheets, accesses the workbook API to work with the spreadsheet's contents. Nullable. */
     private _workbook?: Workbook | undefined;
     /**
      * Gets the analytics property value. Analytics about the view activities that took place on this item.
@@ -109,14 +110,14 @@ export class DriveItem extends BaseItem implements Parsable {
         this._analytics = value;
     };
     /**
-     * Gets the audio property value. Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.
+     * Gets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
      * @returns a audio
      */
     public get audio() {
         return this._audio;
     };
     /**
-     * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Read-only. Only on OneDrive Personal.
+     * Sets the audio property value. Audio metadata, if the item is an audio file. Read-only. Only on OneDrive Personal.
      * @param value Value to set for the audio property.
      */
     public set audio(value: Audio | undefined) {
@@ -351,14 +352,14 @@ export class DriveItem extends BaseItem implements Parsable {
         this._package = value;
     };
     /**
-     * Gets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
+     * Gets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
      * @returns a pendingOperations
      */
     public get pendingOperations() {
         return this._pendingOperations;
     };
     /**
-     * Sets the pendingOperations property value. If present, indicates that one or more operations that might affect the state of the driveItem are pending completion. Read-only.
+     * Sets the pendingOperations property value. If present, indicates that indicates that one or more operations that may affect the state of the driveItem are pending completion. Read-only.
      * @param value Value to set for the pendingOperations property.
      */
     public set pendingOperations(value: PendingOperations | undefined) {

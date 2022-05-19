@@ -1,1 +1,1 @@
-export * from './syncRequestBody'
+export * from './syncPostRequestBody'

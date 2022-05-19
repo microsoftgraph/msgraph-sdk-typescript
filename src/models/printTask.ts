@@ -4,14 +4,15 @@ import {createPrintTaskTriggerFromDiscriminatorValue} from './createPrintTaskTri
 import {Entity, PrintTaskDefinition, PrintTaskStatus, PrintTaskTrigger} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the print singleton. */
 export class PrintTask extends Entity implements Parsable {
-    /** The definition property  */
+    /** The definition property */
     private _definition?: PrintTaskDefinition | undefined;
-    /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.  */
+    /** The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only. */
     private _parentUrl?: string | undefined;
-    /** The status property  */
+    /** The status property */
     private _status?: PrintTaskStatus | undefined;
-    /** The trigger property  */
+    /** The trigger property */
     private _trigger?: PrintTaskTrigger | undefined;
     /**
      * Instantiates a new printTask and sets the default values.
@@ -46,14 +47,14 @@ export class PrintTask extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.
+     * Gets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only.
      * @returns a string
      */
     public get parentUrl() {
         return this._parentUrl;
     };
     /**
-     * Sets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/v1.0/print/printers/{printerId}/jobs/{jobId}. Read-only.
+     * Sets the parentUrl property value. The URL for the print entity that triggered this task. For example, https://graph.microsoft.com/beta/print/printers/{printerId}/jobs/{jobId}. Read-only.
      * @param value Value to set for the parentUrl property.
      */
     public set parentUrl(value: string | undefined) {

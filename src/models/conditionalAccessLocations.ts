@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessLocations implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Location IDs excluded from scope of policy.  */
+    /** Location IDs excluded from scope of policy. */
     private _excludeLocations?: string[] | undefined;
-    /** Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted.  */
+    /** Location IDs in scope of policy unless explicitly excluded, All, or AllTrusted. */
     private _includeLocations?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

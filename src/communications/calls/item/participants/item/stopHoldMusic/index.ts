@@ -1,1 +1,1 @@
-export * from './stopHoldMusicRequestBody'
+export * from './stopHoldMusicPostRequestBody'

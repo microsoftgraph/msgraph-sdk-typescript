@@ -1,1 +1,1 @@
-export * from './shareRequestBody'
+export * from './sharePostRequestBody'

@@ -2,17 +2,17 @@ import {ProvisioningStatusErrorCategory} from './provisioningStatusErrorCategory
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ProvisioningErrorInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Additional details in case of error.  */
+    /** Additional details in case of error. */
     private _additionalDetails?: string | undefined;
-    /** Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue  */
+    /** Categorizes the error code. Possible values are failure, nonServiceFailure, success, unknownFutureValue */
     private _errorCategory?: ProvisioningStatusErrorCategory | undefined;
-    /** Unique error code if any occurred. Learn more  */
+    /** Unique error code if any occurred. Learn more */
     private _errorCode?: string | undefined;
-    /** Summarizes the status and describes why the status happened.  */
+    /** Summarizes the status and describes why the status happened. */
     private _reason?: string | undefined;
-    /** Provides the resolution for the corresponding error.  */
+    /** Provides the resolution for the corresponding error. */
     private _recommendedAction?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

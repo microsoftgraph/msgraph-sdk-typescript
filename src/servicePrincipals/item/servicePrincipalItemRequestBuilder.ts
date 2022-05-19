@@ -34,7 +34,9 @@ import {OwnersRequestBuilder} from './owners/ownersRequestBuilder';
 import {RemoveKeyRequestBuilder} from './removeKey/removeKeyRequestBuilder';
 import {RemovePasswordRequestBuilder} from './removePassword/removePasswordRequestBuilder';
 import {RestoreRequestBuilder} from './restore/restoreRequestBuilder';
-import {ServicePrincipalItemRequestBuilderGetQueryParameters} from './servicePrincipalItemRequestBuilderGetQueryParameters';
+import {ServicePrincipalItemRequestBuilderDeleteRequestConfiguration} from './servicePrincipalItemRequestBuilderDeleteRequestConfiguration';
+import {ServicePrincipalItemRequestBuilderGetRequestConfiguration} from './servicePrincipalItemRequestBuilderGetRequestConfiguration';
+import {ServicePrincipalItemRequestBuilderPatchRequestConfiguration} from './servicePrincipalItemRequestBuilderPatchRequestConfiguration';
 import {TokenIssuancePolicyItemRequestBuilder} from './tokenIssuancePolicies/item/tokenIssuancePolicyItemRequestBuilder';
 import {TokenIssuancePoliciesRequestBuilder} from './tokenIssuancePolicies/tokenIssuancePoliciesRequestBuilder';
 import {TokenLifetimePolicyItemRequestBuilder} from './tokenLifetimePolicies/item/tokenLifetimePolicyItemRequestBuilder';
@@ -43,109 +45,109 @@ import {DirectoryObjectItemRequestBuilder as id1fdecf886744e82b4df54ccf3526f2867
 import {TransitiveMemberOfRequestBuilder} from './transitiveMemberOf/transitiveMemberOfRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of servicePrincipal entities.  */
+/** Provides operations to manage the collection of servicePrincipal entities. */
 export class ServicePrincipalItemRequestBuilder {
-    /** The addKey property  */
+    /** The addKey property */
     public get addKey(): AddKeyRequestBuilder {
         return new AddKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addPassword property  */
+    /** The addPassword property */
     public get addPassword(): AddPasswordRequestBuilder {
         return new AddPasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addTokenSigningCertificate property  */
+    /** The addTokenSigningCertificate property */
     public get addTokenSigningCertificate(): AddTokenSigningCertificateRequestBuilder {
         return new AddTokenSigningCertificateRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignedTo property  */
+    /** The appRoleAssignedTo property */
     public get appRoleAssignedTo(): AppRoleAssignedToRequestBuilder {
         return new AppRoleAssignedToRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignments property  */
+    /** The appRoleAssignments property */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property  */
+    /** The checkMemberGroups property */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property  */
+    /** The checkMemberObjects property */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The claimsMappingPolicies property  */
+    /** The claimsMappingPolicies property */
     public get claimsMappingPolicies(): ClaimsMappingPoliciesRequestBuilder {
         return new ClaimsMappingPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdObjects property  */
+    /** The createdObjects property */
     public get createdObjects(): CreatedObjectsRequestBuilder {
         return new CreatedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The delegatedPermissionClassifications property  */
+    /** The delegatedPermissionClassifications property */
     public get delegatedPermissionClassifications(): DelegatedPermissionClassificationsRequestBuilder {
         return new DelegatedPermissionClassificationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The endpoints property  */
+    /** The endpoints property */
     public get endpoints(): EndpointsRequestBuilder {
         return new EndpointsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property  */
+    /** The getMemberGroups property */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property  */
+    /** The getMemberObjects property */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The homeRealmDiscoveryPolicies property  */
+    /** The homeRealmDiscoveryPolicies property */
     public get homeRealmDiscoveryPolicies(): HomeRealmDiscoveryPoliciesRequestBuilder {
         return new HomeRealmDiscoveryPoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The memberOf property  */
+    /** The memberOf property */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The oauth2PermissionGrants property  */
+    /** The oauth2PermissionGrants property */
     public get oauth2PermissionGrants(): Oauth2PermissionGrantsRequestBuilder {
         return new Oauth2PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The ownedObjects property  */
+    /** The ownedObjects property */
     public get ownedObjects(): OwnedObjectsRequestBuilder {
         return new OwnedObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The owners property  */
+    /** The owners property */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The removeKey property  */
+    /** The removeKey property */
     public get removeKey(): RemoveKeyRequestBuilder {
         return new RemoveKeyRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removePassword property  */
+    /** The removePassword property */
     public get removePassword(): RemovePasswordRequestBuilder {
         return new RemovePasswordRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The restore property  */
+    /** The restore property */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenIssuancePolicies property  */
+    /** The tokenIssuancePolicies property */
     public get tokenIssuancePolicies(): TokenIssuancePoliciesRequestBuilder {
         return new TokenIssuancePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The tokenLifetimePolicies property  */
+    /** The tokenLifetimePolicies property */
     public get tokenLifetimePolicies(): TokenLifetimePoliciesRequestBuilder {
         return new TokenLifetimePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMemberOf property  */
+    /** The transitiveMemberOf property */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Gets an item from the github.com/microsoftgraph/msgraph-sdk-typescript/.servicePrincipals.item.appRoleAssignedTo.item collection
@@ -194,18 +196,19 @@ export class ServicePrincipalItemRequestBuilder {
         this.requestAdapter = requestAdapter;
     };
     /**
-     * Delete entity from servicePrincipals
-     * @param headers Request headers
-     * @param options Request options
+     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: ServicePrincipalItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
@@ -220,38 +223,39 @@ export class ServicePrincipalItemRequestBuilder {
         return new i1d7e157474e1ab4e17b5fdee6e05a3fb5390ff68bd17fbf2159d14e6b8a51ff2(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from servicePrincipals by key
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: ServicePrincipalItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: ServicePrincipalItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
-     * Update entity in servicePrincipals
+     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: ServicePrincipal | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: ServicePrincipal | undefined, requestConfiguration?: ServicePrincipalItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
@@ -266,14 +270,13 @@ export class ServicePrincipalItemRequestBuilder {
         return new DelegatedPermissionClassificationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete entity from servicePrincipals
-     * @param headers Request headers
-     * @param options Request options
+     * Delete a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ServicePrincipalItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -293,16 +296,14 @@ export class ServicePrincipalItemRequestBuilder {
         return new EndpointItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from servicePrincipals by key
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Retrieve the properties and relationships of a [servicePrincipal](../resources/serviceprincipal.md) object.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of ServicePrincipal
      */
-    public get(queryParameters?: ServicePrincipalItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
+    public get(requestConfiguration?: ServicePrincipalItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ServicePrincipal | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -366,16 +367,15 @@ export class ServicePrincipalItemRequestBuilder {
         return new i30d914c048be2ddd2cdee4e8211ef3882c63920bbe3a801be8a05c4c3c5535a6(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in servicePrincipals
+     * This article provides examples of how to assign, update, or remove different types of custom security attributes for users and applications (service principals). Custom security attributes can be assigned or updated only through a `PATCH` operation in an [Update user](/graph/api/user-update?view=graph-rest-beta&preserve-view=true) or [Update servicePrincipal](/graph/api/serviceprincipal-update?view=graph-rest-beta&preserve-view=true) request.
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: ServicePrincipal | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: ServicePrincipal | undefined, requestConfiguration?: ServicePrincipalItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

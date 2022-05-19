@@ -3,20 +3,21 @@ import {createConnectedOrganizationFromDiscriminatorValue} from './createConnect
 import {ConnectedOrganization, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageSubject extends Entity implements Parsable {
-    /** The connected organization of the subject. Read-only. Nullable.  */
+    /** The connected organization of the subject. Read-only. Nullable. */
     private _connectedOrganization?: ConnectedOrganization | undefined;
-    /** The display name of the subject.  */
+    /** The display name of the subject. */
     private _displayName?: string | undefined;
-    /** The email address of the subject.  */
+    /** The email address of the subject. */
     private _email?: string | undefined;
-    /** The object identifier of the subject. null if the subject is not yet a user in the tenant.  */
+    /** The object identifier of the subject. null if the subject is not yet a user in the tenant. */
     private _objectId?: string | undefined;
-    /** A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier.  */
+    /** A string representation of the principal's security identifier, if known, or null if the subject does not have a security identifier. */
     private _onPremisesSecurityIdentifier?: string | undefined;
-    /** The principal name, if known, of the subject.  */
+    /** The principal name, if known, of the subject. */
     private _principalName?: string | undefined;
-    /** The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue.  */
+    /** The resource type of the subject. The possible values are: notSpecified, user, servicePrincipal, unknownFutureValue. */
     private _subjectType?: AccessPackageSubjectType | undefined;
     /**
      * Gets the connectedOrganization property value. The connected organization of the subject. Read-only. Nullable.

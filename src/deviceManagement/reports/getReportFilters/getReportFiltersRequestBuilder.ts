@@ -1,14 +1,14 @@
-import {createGetReportFiltersResponseFromDiscriminatorValue} from './createGetReportFiltersResponseFromDiscriminatorValue';
-import {GetReportFiltersRequestBody, GetReportFiltersResponse} from './index';
+import {GetReportFiltersRequestBuilderPostRequestConfiguration} from './getReportFiltersRequestBuilderPostRequestConfiguration';
+import {GetReportFiltersPostRequestBody} from './index';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to call the getReportFilters method.  */
+/** Provides operations to call the getReportFilters method. */
 export class GetReportFiltersRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new GetReportFiltersRequestBuilder and sets the default values.
@@ -26,34 +26,34 @@ export class GetReportFiltersRequestBuilder {
     /**
      * Invoke action getReportFilters
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPostRequestInformation(body: GetReportFiltersRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPostRequestInformation(body: GetReportFiltersPostRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.POST;
-        if(headers) requestInfo.headers = headers;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Invoke action getReportFilters
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of GetReportFiltersResponse
+     * @returns a Promise of ArrayBuffer
      */
-    public post(body: GetReportFiltersRequestBody | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<GetReportFiltersResponse | undefined> {
+    public post(body: GetReportFiltersPostRequestBody | undefined, requestConfiguration?: GetReportFiltersRequestBuilderPostRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<ArrayBuffer | undefined> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPostRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
-        return this.requestAdapter?.sendAsync<GetReportFiltersResponse>(requestInfo, createGetReportFiltersResponseFromDiscriminatorValue, responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
+        return this.requestAdapter?.sendPrimitiveAsync<ArrayBuffer>(requestInfo, "ArrayBuffer", responseHandler, undefined) ?? Promise.reject(new Error('http core is null'));
     };
 }

@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TextColumn implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Whether to allow multiple lines of text.  */
+    /** Whether to allow multiple lines of text. */
     private _allowMultipleLines?: boolean | undefined;
-    /** Whether updates to this column should replace existing text, or append to it.  */
+    /** Whether updates to this column should replace existing text, or append to it. */
     private _appendChangesToExistingText?: boolean | undefined;
-    /** The size of the text box.  */
+    /** The size of the text box. */
     private _linesForEditing?: number | undefined;
-    /** The maximum number of characters for the value.  */
+    /** The maximum number of characters for the value. */
     private _maxLength?: number | undefined;
-    /** The type of text being stored. Must be one of plain or richText  */
+    /** The type of text being stored. Must be one of plain or richText */
     private _textType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

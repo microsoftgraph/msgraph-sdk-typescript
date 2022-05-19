@@ -1,1 +1,1 @@
-export * from './unmuteRequestBody'
+export * from './unmutePostRequestBody'

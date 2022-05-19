@@ -1,1 +1,1 @@
-export * from './wipeRequestBody'
+export * from './wipePostRequestBody'

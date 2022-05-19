@@ -1,19 +1,19 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class UriClickSecurityState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The clickAction property  */
+    /** The clickAction property */
     private _clickAction?: string | undefined;
-    /** The clickDateTime property  */
+    /** The clickDateTime property */
     private _clickDateTime?: Date | undefined;
-    /** The id property  */
+    /** The id property */
     private _id?: string | undefined;
-    /** The sourceId property  */
+    /** The sourceId property */
     private _sourceId?: string | undefined;
-    /** The uriDomain property  */
+    /** The uriDomain property */
     private _uriDomain?: string | undefined;
-    /** The verdict property  */
+    /** The verdict property */
     private _verdict?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

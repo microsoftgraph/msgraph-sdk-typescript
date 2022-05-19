@@ -3,27 +3,27 @@ import {TeleconferenceDeviceMediaQuality} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeleconferenceDeviceQuality implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId.  */
+    /** A unique identifier for all  the participant calls in a conference or a unique identifier for two participant calls in P2P call. This needs to be copied over from Microsoft.Graph.Call.CallChainId. */
     private _callChainId?: string | undefined;
-    /** A geo-region where the service is deployed, such as ProdNoam.  */
+    /** A geo-region where the service is deployed, such as ProdNoam. */
     private _cloudServiceDeploymentEnvironment?: string | undefined;
-    /** A unique deployment identifier assigned by Azure.  */
+    /** A unique deployment identifier assigned by Azure. */
     private _cloudServiceDeploymentId?: string | undefined;
-    /** The Azure deployed cloud service instance name, such as FrontEnd_IN_3.  */
+    /** The Azure deployed cloud service instance name, such as FrontEnd_IN_3. */
     private _cloudServiceInstanceName?: string | undefined;
-    /** The Azure deployed cloud service name, such as contoso.cloudapp.net.  */
+    /** The Azure deployed cloud service name, such as contoso.cloudapp.net. */
     private _cloudServiceName?: string | undefined;
-    /** Any additional description, such as VTC Bldg 30/21.  */
+    /** Any additional description, such as VTC Bldg 30/21. */
     private _deviceDescription?: string | undefined;
-    /** The user media agent name, such as Cisco SX80.  */
+    /** The user media agent name, such as Cisco SX80. */
     private _deviceName?: string | undefined;
-    /** A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value.  */
+    /** A unique identifier for a specific media leg of a participant in a conference.  One participant can have multiple media leg identifiers if retargeting happens. CVI partner assigns this value. */
     private _mediaLegId?: string | undefined;
-    /** The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality.  */
+    /** The list of media qualities in a media session (call), such as audio quality, video quality, and/or screen sharing quality. */
     private _mediaQualityList?: TeleconferenceDeviceMediaQuality[] | undefined;
-    /** A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property.  */
+    /** A unique identifier for a specific participant in a conference. The CVI partner needs to copy over Call.MyParticipantId to this property. */
     private _participantId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,1 +1,1 @@
-export * from './createOrGetRequestBody'
+export * from './createOrGetPostRequestBody'

@@ -1,24 +1,25 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device Compilance Policy and Configuration for a Setting State summary */
 export class SettingStateDeviceSummary extends Entity implements Parsable {
-    /** Device Compliant count for the setting  */
+    /** Device Compliant count for the setting */
     private _compliantDeviceCount?: number | undefined;
-    /** Device conflict error count for the setting  */
+    /** Device conflict error count for the setting */
     private _conflictDeviceCount?: number | undefined;
-    /** Device error count for the setting  */
+    /** Device error count for the setting */
     private _errorDeviceCount?: number | undefined;
-    /** Name of the InstancePath for the setting  */
+    /** Name of the InstancePath for the setting */
     private _instancePath?: string | undefined;
-    /** Device NonCompliant count for the setting  */
+    /** Device NonCompliant count for the setting */
     private _nonCompliantDeviceCount?: number | undefined;
-    /** Device Not Applicable count for the setting  */
+    /** Device Not Applicable count for the setting */
     private _notApplicableDeviceCount?: number | undefined;
-    /** Device Compliant count for the setting  */
+    /** Device Compliant count for the setting */
     private _remediatedDeviceCount?: number | undefined;
-    /** Name of the setting  */
+    /** Name of the setting */
     private _settingName?: string | undefined;
-    /** Device Unkown count for the setting  */
+    /** Device Unkown count for the setting */
     private _unknownDeviceCount?: number | undefined;
     /**
      * Gets the compliantDeviceCount property value. Device Compliant count for the setting

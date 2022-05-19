@@ -2,12 +2,13 @@ import {createSettingTemplateValueFromDiscriminatorValue} from './createSettingT
 import {DirectoryObject, SettingTemplateValue} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of groupSettingTemplate entities. */
 export class GroupSettingTemplate extends DirectoryObject implements Parsable {
-    /** Description of the template.  */
+    /** Description of the template. */
     private _description?: string | undefined;
-    /** Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings.  */
+    /** Display name of the template. The template named Group.Unified can be used to configure tenant-wide Microsoft 365 group settings, while the template named Group.Unified.Guest can be used to configure group-specific settings. */
     private _displayName?: string | undefined;
-    /** Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template.  */
+    /** Collection of settingTemplateValues that list the set of available settings, defaults and types that make up this template. */
     private _values?: SettingTemplateValue[] | undefined;
     /**
      * Instantiates a new groupSettingTemplate and sets the default values.

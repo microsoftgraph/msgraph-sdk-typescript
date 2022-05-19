@@ -1,57 +1,57 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PlannerCategoryDescriptions implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The label associated with Category 1  */
+    /** The label associated with Category 1 */
     private _category1?: string | undefined;
-    /** The label associated with Category 10  */
+    /** The label associated with Category 10 */
     private _category10?: string | undefined;
-    /** The label associated with Category 11  */
+    /** The label associated with Category 11 */
     private _category11?: string | undefined;
-    /** The label associated with Category 12  */
+    /** The label associated with Category 12 */
     private _category12?: string | undefined;
-    /** The label associated with Category 13  */
+    /** The label associated with Category 13 */
     private _category13?: string | undefined;
-    /** The label associated with Category 14  */
+    /** The label associated with Category 14 */
     private _category14?: string | undefined;
-    /** The label associated with Category 15  */
+    /** The label associated with Category 15 */
     private _category15?: string | undefined;
-    /** The label associated with Category 16  */
+    /** The label associated with Category 16 */
     private _category16?: string | undefined;
-    /** The label associated with Category 17  */
+    /** The label associated with Category 17 */
     private _category17?: string | undefined;
-    /** The label associated with Category 18  */
+    /** The label associated with Category 18 */
     private _category18?: string | undefined;
-    /** The label associated with Category 19  */
+    /** The label associated with Category 19 */
     private _category19?: string | undefined;
-    /** The label associated with Category 2  */
+    /** The label associated with Category 2 */
     private _category2?: string | undefined;
-    /** The label associated with Category 20  */
+    /** The label associated with Category 20 */
     private _category20?: string | undefined;
-    /** The label associated with Category 21  */
+    /** The label associated with Category 21 */
     private _category21?: string | undefined;
-    /** The label associated with Category 22  */
+    /** The label associated with Category 22 */
     private _category22?: string | undefined;
-    /** The label associated with Category 23  */
+    /** The label associated with Category 23 */
     private _category23?: string | undefined;
-    /** The label associated with Category 24  */
+    /** The label associated with Category 24 */
     private _category24?: string | undefined;
-    /** The label associated with Category 25  */
+    /** The label associated with Category 25 */
     private _category25?: string | undefined;
-    /** The label associated with Category 3  */
+    /** The label associated with Category 3 */
     private _category3?: string | undefined;
-    /** The label associated with Category 4  */
+    /** The label associated with Category 4 */
     private _category4?: string | undefined;
-    /** The label associated with Category 5  */
+    /** The label associated with Category 5 */
     private _category5?: string | undefined;
-    /** The label associated with Category 6  */
+    /** The label associated with Category 6 */
     private _category6?: string | undefined;
-    /** The label associated with Category 7  */
+    /** The label associated with Category 7 */
     private _category7?: string | undefined;
-    /** The label associated with Category 8  */
+    /** The label associated with Category 8 */
     private _category8?: string | undefined;
-    /** The label associated with Category 9  */
+    /** The label associated with Category 9 */
     private _category9?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,1 +1,1 @@
-export * from './createUploadSessionRequestBody'
+export * from './createUploadSessionPostRequestBody'

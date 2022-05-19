@@ -1,6 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Booking entities that provide a display name. */
 export class BookingCustomerBase extends Entity implements Parsable {
     /**
      * Instantiates a new bookingCustomerBase and sets the default values.

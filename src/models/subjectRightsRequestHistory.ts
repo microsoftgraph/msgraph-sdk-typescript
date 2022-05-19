@@ -5,17 +5,17 @@ import {SubjectRightsRequestStageStatus} from './subjectRightsRequestStageStatus
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SubjectRightsRequestHistory implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Identity of the user who changed the  subject rights request.  */
+    /** Identity of the user who changed the  subject rights request. */
     private _changedBy?: IdentitySet | undefined;
-    /** Data and time when the entity was changed.  */
+    /** Data and time when the entity was changed. */
     private _eventDateTime?: Date | undefined;
-    /** The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue.  */
+    /** The stage when the entity was changed. Possible values are: contentRetrieval, contentReview, generateReport, contentDeletion, caseResolved, unknownFutureValue. */
     private _stage?: SubjectRightsRequestStage | undefined;
-    /** The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue.  */
+    /** The status of the stage when the entity was changed. Possible values are: notStarted, current, completed, failed, unknownFutureValue. */
     private _stageStatus?: SubjectRightsRequestStageStatus | undefined;
-    /** Type of history.  */
+    /** Type of history. */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

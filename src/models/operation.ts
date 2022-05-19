@@ -2,12 +2,13 @@ import {Entity} from './index';
 import {OperationStatus} from './operationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Operation extends Entity implements Parsable {
-    /** The start time of the operation.  */
+    /** The start time of the operation. */
     private _createdDateTime?: Date | undefined;
-    /** The time of the last action of the operation.  */
+    /** The time of the last action of the operation. */
     private _lastActionDateTime?: Date | undefined;
-    /** The current status of the operation: notStarted, running, completed, failed  */
+    /** Possible values are: notStarted, running, completed, failed. Read-only. */
     private _status?: OperationStatus | undefined;
     /**
      * Instantiates a new operation and sets the default values.
@@ -66,14 +67,14 @@ export class Operation extends Entity implements Parsable {
         writer.writeEnumValue<OperationStatus>("status", this.status);
     };
     /**
-     * Gets the status property value. The current status of the operation: notStarted, running, completed, failed
+     * Gets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
      * @returns a operationStatus
      */
     public get status() {
         return this._status;
     };
     /**
-     * Sets the status property value. The current status of the operation: notStarted, running, completed, failed
+     * Sets the status property value. Possible values are: notStarted, running, completed, failed. Read-only.
      * @param value Value to set for the status property.
      */
     public set status(value: OperationStatus | undefined) {

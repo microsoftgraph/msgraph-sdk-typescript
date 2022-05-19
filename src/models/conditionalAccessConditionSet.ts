@@ -1,4 +1,3 @@
-import {ConditionalAccessClientApp} from './conditionalAccessClientApp';
 import {createConditionalAccessApplicationsFromDiscriminatorValue} from './createConditionalAccessApplicationsFromDiscriminatorValue';
 import {createConditionalAccessClientApplicationsFromDiscriminatorValue} from './createConditionalAccessClientApplicationsFromDiscriminatorValue';
 import {createConditionalAccessDevicesFromDiscriminatorValue} from './createConditionalAccessDevicesFromDiscriminatorValue';
@@ -6,29 +5,28 @@ import {createConditionalAccessLocationsFromDiscriminatorValue} from './createCo
 import {createConditionalAccessPlatformsFromDiscriminatorValue} from './createConditionalAccessPlatformsFromDiscriminatorValue';
 import {createConditionalAccessUsersFromDiscriminatorValue} from './createConditionalAccessUsersFromDiscriminatorValue';
 import {ConditionalAccessApplications, ConditionalAccessClientApplications, ConditionalAccessDevices, ConditionalAccessLocations, ConditionalAccessPlatforms, ConditionalAccessUsers} from './index';
-import {RiskLevel} from './riskLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessConditionSet implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Applications and user actions included in and excluded from the policy. Required.  */
+    /** Applications and user actions included in and excluded from the policy. Required. */
     private _applications?: ConditionalAccessApplications | undefined;
-    /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required.  */
+    /** Client applications (service principals and workload identities) included in and excluded from the policy. Either users or clientApplications is required. */
     private _clientApplications?: ConditionalAccessClientApplications | undefined;
-    /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.  */
-    private _clientAppTypes?: ConditionalAccessClientApp[] | undefined;
-    /** Devices in the policy.  */
+    /** Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required. */
+    private _clientAppTypes?: string[] | undefined;
+    /** Devices in the policy. */
     private _devices?: ConditionalAccessDevices | undefined;
-    /** Locations included in and excluded from the policy.  */
+    /** Locations included in and excluded from the policy. */
     private _locations?: ConditionalAccessLocations | undefined;
-    /** Platforms included in and excluded from the policy.  */
+    /** Platforms included in and excluded from the policy. */
     private _platforms?: ConditionalAccessPlatforms | undefined;
-    /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
-    private _signInRiskLevels?: RiskLevel[] | undefined;
-    /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.  */
-    private _userRiskLevels?: RiskLevel[] | undefined;
-    /** Users, groups, and roles included in and excluded from the policy. Required.  */
+    /** Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
+    private _signInRiskLevels?: string[] | undefined;
+    /** User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required. */
+    private _userRiskLevels?: string[] | undefined;
+    /** Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required. */
     private _users?: ConditionalAccessUsers | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -74,7 +72,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
     };
     /**
      * Gets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
-     * @returns a conditionalAccessClientApp
+     * @returns a string
      */
     public get clientAppTypes() {
         return this._clientAppTypes;
@@ -83,7 +81,7 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the clientAppTypes property value. Client application types included in the policy. Possible values are: all, browser, mobileAppsAndDesktopClients, exchangeActiveSync, easSupported, other. Required.
      * @param value Value to set for the clientAppTypes property.
      */
-    public set clientAppTypes(value: ConditionalAccessClientApp[] | undefined) {
+    public set clientAppTypes(value: string[] | undefined) {
         this._clientAppTypes = value;
     };
     /**
@@ -114,12 +112,12 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
         return {
             "applications": n => { this.applications = n.getObjectValue<ConditionalAccessApplications>(createConditionalAccessApplicationsFromDiscriminatorValue); },
             "clientApplications": n => { this.clientApplications = n.getObjectValue<ConditionalAccessClientApplications>(createConditionalAccessClientApplicationsFromDiscriminatorValue); },
-            "clientAppTypes": n => { this.clientAppTypes = n.getEnumValues<ConditionalAccessClientApp>(ConditionalAccessClientApp); },
+            "clientAppTypes": n => { this.clientAppTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "devices": n => { this.devices = n.getObjectValue<ConditionalAccessDevices>(createConditionalAccessDevicesFromDiscriminatorValue); },
             "locations": n => { this.locations = n.getObjectValue<ConditionalAccessLocations>(createConditionalAccessLocationsFromDiscriminatorValue); },
             "platforms": n => { this.platforms = n.getObjectValue<ConditionalAccessPlatforms>(createConditionalAccessPlatformsFromDiscriminatorValue); },
-            "signInRiskLevels": n => { this.signInRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); },
-            "userRiskLevels": n => { this.userRiskLevels = n.getEnumValues<RiskLevel>(RiskLevel); },
+            "signInRiskLevels": n => { this.signInRiskLevels = n.getCollectionOfPrimitiveValues<string>(); },
+            "userRiskLevels": n => { this.userRiskLevels = n.getCollectionOfPrimitiveValues<string>(); },
             "users": n => { this.users = n.getObjectValue<ConditionalAccessUsers>(createConditionalAccessUsersFromDiscriminatorValue); },
         };
     };
@@ -159,18 +157,18 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeObjectValue<ConditionalAccessApplications>("applications", this.applications);
         writer.writeObjectValue<ConditionalAccessClientApplications>("clientApplications", this.clientApplications);
-        this.clientAppTypes && writer.writeEnumValue<ConditionalAccessClientApp>("clientAppTypes", ...this.clientAppTypes);
+        writer.writeCollectionOfPrimitiveValues<string>("clientAppTypes", this.clientAppTypes);
         writer.writeObjectValue<ConditionalAccessDevices>("devices", this.devices);
         writer.writeObjectValue<ConditionalAccessLocations>("locations", this.locations);
         writer.writeObjectValue<ConditionalAccessPlatforms>("platforms", this.platforms);
-        this.signInRiskLevels && writer.writeEnumValue<RiskLevel>("signInRiskLevels", ...this.signInRiskLevels);
-        this.userRiskLevels && writer.writeEnumValue<RiskLevel>("userRiskLevels", ...this.userRiskLevels);
+        writer.writeCollectionOfPrimitiveValues<string>("signInRiskLevels", this.signInRiskLevels);
+        writer.writeCollectionOfPrimitiveValues<string>("userRiskLevels", this.userRiskLevels);
         writer.writeObjectValue<ConditionalAccessUsers>("users", this.users);
         writer.writeAdditionalData(this.additionalData);
     };
     /**
      * Gets the signInRiskLevels property value. Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     * @returns a riskLevel
+     * @returns a string
      */
     public get signInRiskLevels() {
         return this._signInRiskLevels;
@@ -179,12 +177,12 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the signInRiskLevels property value. Sign-in risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
      * @param value Value to set for the signInRiskLevels property.
      */
-    public set signInRiskLevels(value: RiskLevel[] | undefined) {
+    public set signInRiskLevels(value: string[] | undefined) {
         this._signInRiskLevels = value;
     };
     /**
      * Gets the userRiskLevels property value. User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
-     * @returns a riskLevel
+     * @returns a string
      */
     public get userRiskLevels() {
         return this._userRiskLevels;
@@ -193,18 +191,18 @@ export class ConditionalAccessConditionSet implements AdditionalDataHolder, Pars
      * Sets the userRiskLevels property value. User risk levels included in the policy. Possible values are: low, medium, high, hidden, none, unknownFutureValue. Required.
      * @param value Value to set for the userRiskLevels property.
      */
-    public set userRiskLevels(value: RiskLevel[] | undefined) {
+    public set userRiskLevels(value: string[] | undefined) {
         this._userRiskLevels = value;
     };
     /**
-     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Gets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @returns a conditionalAccessUsers
      */
     public get users() {
         return this._users;
     };
     /**
-     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Required.
+     * Sets the users property value. Users, groups, and roles included in and excluded from the policy. Either users or clientApplications is required.
      * @param value Value to set for the users property.
      */
     public set users(value: ConditionalAccessUsers | undefined) {

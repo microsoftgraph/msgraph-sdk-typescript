@@ -3,23 +3,23 @@ import {createEndpointFromDiscriminatorValue} from './createEndpointFromDiscrimi
 import {createFailureInfoFromDiscriminatorValue} from './createFailureInfoFromDiscriminatorValue';
 import {createSegmentFromDiscriminatorValue} from './createSegmentFromDiscriminatorValue';
 import {Endpoint, FailureInfo, Segment} from './index';
-import {Modality} from './modality';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class Session extends Entity implements Parsable {
-    /** Endpoint that answered the session.  */
+    /** Endpoint that answered the session. */
     private _callee?: Endpoint | undefined;
-    /** Endpoint that initiated the session.  */
+    /** Endpoint that initiated the session. */
     private _caller?: Endpoint | undefined;
-    /** UTC time when the last user left the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** UTC time when the last user left the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _endDateTime?: Date | undefined;
-    /** Failure information associated with the session if the session failed.  */
+    /** Failure information associated with the session if the session failed. */
     private _failureInfo?: FailureInfo | undefined;
-    /** List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.  */
-    private _modalities?: Modality[] | undefined;
-    /** The list of segments involved in the session. Read-only. Nullable.  */
+    /** List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue. */
+    private _modalities?: string[] | undefined;
+    /** The list of segments involved in the session. Read-only. Nullable. */
     private _segments?: Segment[] | undefined;
-    /** UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z  */
+    /** UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _startDateTime?: Date | undefined;
     /**
      * Gets the callee property value. Endpoint that answered the session.
@@ -93,14 +93,14 @@ export class Session extends Entity implements Parsable {
             "caller": n => { this.caller = n.getObjectValue<Endpoint>(createEndpointFromDiscriminatorValue); },
             "endDateTime": n => { this.endDateTime = n.getDateValue(); },
             "failureInfo": n => { this.failureInfo = n.getObjectValue<FailureInfo>(createFailureInfoFromDiscriminatorValue); },
-            "modalities": n => { this.modalities = n.getEnumValues<Modality>(Modality); },
+            "modalities": n => { this.modalities = n.getCollectionOfPrimitiveValues<string>(); },
             "segments": n => { this.segments = n.getCollectionOfObjectValues<Segment>(createSegmentFromDiscriminatorValue); },
             "startDateTime": n => { this.startDateTime = n.getDateValue(); },
         };
     };
     /**
      * Gets the modalities property value. List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
-     * @returns a modality
+     * @returns a string
      */
     public get modalities() {
         return this._modalities;
@@ -109,7 +109,7 @@ export class Session extends Entity implements Parsable {
      * Sets the modalities property value. List of modalities present in the session. Possible values are: unknown, audio, video, videoBasedScreenSharing, data, screenSharing, unknownFutureValue.
      * @param value Value to set for the modalities property.
      */
-    public set modalities(value: Modality[] | undefined) {
+    public set modalities(value: string[] | undefined) {
         this._modalities = value;
     };
     /**
@@ -137,19 +137,19 @@ export class Session extends Entity implements Parsable {
         writer.writeObjectValue<Endpoint>("caller", this.caller);
         writer.writeDateValue("endDateTime", this.endDateTime);
         writer.writeObjectValue<FailureInfo>("failureInfo", this.failureInfo);
-        this.modalities && writer.writeEnumValue<Modality>("modalities", ...this.modalities);
+        writer.writeCollectionOfPrimitiveValues<string>("modalities", this.modalities);
         writer.writeCollectionOfObjectValues<Segment>("segments", this.segments);
         writer.writeDateValue("startDateTime", this.startDateTime);
     };
     /**
-     * Gets the startDateTime property value. UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Gets the startDateTime property value. UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get startDateTime() {
         return this._startDateTime;
     };
     /**
-     * Sets the startDateTime property value. UTC time when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
+     * Sets the startDateTime property value. UTC fime when the first user joined the session. The DateTimeOffset type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the startDateTime property.
      */
     public set startDateTime(value: Date | undefined) {

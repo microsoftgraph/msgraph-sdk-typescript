@@ -1,2 +1,1 @@
-export * from './getConfigurationSettingNonComplianceReportRequestBody'
-export * from './getConfigurationSettingNonComplianceReportResponse'
+export * from './getConfigurationSettingNonComplianceReportPostRequestBody'

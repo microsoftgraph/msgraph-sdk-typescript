@@ -4,13 +4,13 @@ import {PostType} from './postType';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ServiceHealthIssuePost implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The published time of the post.  */
+    /** The published time of the post. */
     private _createdDateTime?: Date | undefined;
-    /** The content of the service issue post.  */
+    /** The content of the service issue post. */
     private _description?: ItemBody | undefined;
-    /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue.  */
+    /** The post type of the service issue historical post. Possible values are: regular, quick, strategic, unknownFutureValue. */
     private _postType?: PostType | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

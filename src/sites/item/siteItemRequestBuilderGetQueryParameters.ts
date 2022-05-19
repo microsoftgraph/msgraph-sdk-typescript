@@ -1,9 +1,9 @@
 
-/** Get entity from sites by key  */
+/** Retrieve properties and relationships for a [site][] resource.A **site** resource represents a team site in SharePoint. */
 export class SiteItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

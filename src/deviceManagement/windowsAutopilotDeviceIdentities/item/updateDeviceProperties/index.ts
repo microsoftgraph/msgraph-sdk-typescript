@@ -1,1 +1,1 @@
-export * from './updateDevicePropertiesRequestBody'
+export * from './updateDevicePropertiesPostRequestBody'

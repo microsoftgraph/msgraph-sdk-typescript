@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The getUrl property  */
+    /** The getUrl property */
     private _getUrl?: string | undefined;
-    /** The postParameters property  */
+    /** The postParameters property */
     private _postParameters?: string | undefined;
-    /** The postUrl property  */
+    /** The postUrl property */
     private _postUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -24,7 +24,7 @@ export class ItemPreviewInfo implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Instantiates a new itemPreviewInfo and sets the default values.
+     * Instantiates a new ItemPreviewInfo and sets the default values.
      */
     public constructor() {
         this._additionalData = {};

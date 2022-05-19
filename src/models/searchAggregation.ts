@@ -3,11 +3,11 @@ import {SearchBucket} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchAggregation implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Defines the actual buckets of the computed aggregation.  */
+    /** Defines the actual buckets of the computed aggregation. */
     private _buckets?: SearchBucket[] | undefined;
-    /** Defines on which field the aggregation was computed on.  */
+    /** Defines on which field the aggregation was computed on. */
     private _field?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

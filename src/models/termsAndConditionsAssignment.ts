@@ -2,8 +2,9 @@ import {createDeviceAndAppManagementAssignmentTargetFromDiscriminatorValue} from
 import {DeviceAndAppManagementAssignmentTarget, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** A termsAndConditionsAssignment entity represents the assignment of a given Terms and Conditions (T&C) policy to a given group. Users in the group will be required to accept the terms in order to have devices enrolled into Intune. */
 export class TermsAndConditionsAssignment extends Entity implements Parsable {
-    /** Assignment target that the T&C policy is assigned to.  */
+    /** Assignment target that the T&C policy is assigned to. */
     private _target?: DeviceAndAppManagementAssignmentTarget | undefined;
     /**
      * Instantiates a new termsAndConditionsAssignment and sets the default values.

@@ -2,14 +2,15 @@ import {EducationExternalSource} from './educationExternalSource';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationOrganization extends Entity implements Parsable {
-    /** Organization description.  */
+    /** Organization description. */
     private _description?: string | undefined;
-    /** Organization display name.  */
+    /** Organization display name. */
     private _displayName?: string | undefined;
-    /** Source where this organization was created from. Possible values are: sis, manual.  */
+    /** Where this user was created from. Possible values are: sis, lms, or manual. */
     private _externalSource?: EducationExternalSource | undefined;
-    /** The name of the external source this resources was generated from.  */
+    /** The name of the external source this resources was generated from. */
     private _externalSourceDetail?: string | undefined;
     /**
      * Instantiates a new educationOrganization and sets the default values.
@@ -46,14 +47,14 @@ export class EducationOrganization extends Entity implements Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the externalSource property value. Source where this organization was created from. Possible values are: sis, manual.
+     * Gets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
      * @returns a educationExternalSource
      */
     public get externalSource() {
         return this._externalSource;
     };
     /**
-     * Sets the externalSource property value. Source where this organization was created from. Possible values are: sis, manual.
+     * Sets the externalSource property value. Where this user was created from. Possible values are: sis, lms, or manual.
      * @param value Value to set for the externalSource property.
      */
     public set externalSource(value: EducationExternalSource | undefined) {

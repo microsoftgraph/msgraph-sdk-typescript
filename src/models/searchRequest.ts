@@ -3,36 +3,35 @@ import {createResultTemplateOptionFromDiscriminatorValue} from './createResultTe
 import {createSearchAlterationOptionsFromDiscriminatorValue} from './createSearchAlterationOptionsFromDiscriminatorValue';
 import {createSearchQueryFromDiscriminatorValue} from './createSearchQueryFromDiscriminatorValue';
 import {createSortPropertyFromDiscriminatorValue} from './createSortPropertyFromDiscriminatorValue';
-import {EntityType} from './entityType';
 import {AggregationOption, ResultTemplateOption, SearchAlterationOptions, SearchQuery, SortProperty} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchRequest implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses.  */
+    /** Contains one or more filters to obtain search results aggregated and filtered to a specific value of a field. Optional.Build this filter based on a prior search that aggregates by the same field. From the response of the prior search, identify the searchBucket that filters results to the specific value of the field, use the string in its aggregationFilterToken property, and build an aggregation filter string in the format '{field}:/'{aggregationFilterToken}/''. If multiple values for the same field need to be provided, use the strings in its aggregationFilterToken property and build an aggregation filter string in the format '{field}:or(/'{aggregationFilterToken1}/',/'{aggregationFilterToken2}/')'. For example, searching and aggregating drive items by file type returns a searchBucket for the file type docx in the response. You can conveniently use the aggregationFilterToken returned for this searchBucket in a subsequent search query and filter matches down to drive items of the docx file type. Example 1 and example 2 show the actual requests and responses. */
     private _aggregationFilters?: string[] | undefined;
-    /** Specifies aggregations (also known as refiners) to be returned alongside search results. Optional.  */
+    /** Specifies aggregations (also known as refiners) to be returned alongside search results. Optional. */
     private _aggregations?: AggregationOption[] | undefined;
-    /** Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional.  */
+    /** Contains the connection to be targeted. Respects the following format : /external/connections/connectionid where connectionid is the ConnectionId defined in the Connectors Administration.  Note: contentSource is only applicable when entityType=externalItem. Optional. */
     private _contentSources?: string[] | undefined;
-    /** This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional.  */
+    /** This triggers hybrid sort for messages: the first 3 messages are the most relevant. This property is only applicable to entityType=message. Optional. */
     private _enableTopResults?: boolean | undefined;
-    /** One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.  */
-    private _entityTypes?: EntityType[] | undefined;
-    /** Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional.  */
+    /** One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required. */
+    private _entityTypes?: string[] | undefined;
+    /** Contains the fields to be returned for each resource object specified in entityTypes, allowing customization of the fields returned by default otherwise, including additional fields such as custom managed properties from SharePoint and OneDrive, or custom fields in externalItem from content that Microsoft Graph connectors bring in. The fields property can be using the semantic labels applied to properties. For example, if a property is label as title, you can retrieve it using the following syntax : label_title.Optional. */
     private _fields?: string[] | undefined;
-    /** Specifies the offset for the search results. Offset 0 returns the very first result. Optional.  */
+    /** Specifies the offset for the search results. Offset 0 returns the very first result. Optional. */
     private _from?: number | undefined;
-    /** The query property  */
+    /** The query property */
     private _query?: SearchQuery | undefined;
-    /** Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional.  */
+    /** Provides query alteration options formatted as a JSON blob that contains two optional flags related to spelling correction. Optional. */
     private _queryAlterationOptions?: SearchAlterationOptions | undefined;
-    /** Provides the search result templates options for rendering connectors search results.  */
+    /** Provides the search result templates options for rendering connectors search results. */
     private _resultTemplateOptions?: ResultTemplateOption | undefined;
-    /** The size of the page to be retrieved. Optional.  */
+    /** The size of the page to be retrieved. Optional. */
     private _size?: number | undefined;
-    /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional.  */
+    /** Contains the ordered collection of fields and direction to sort results. There can be at most 5 sort properties in the collection. Optional. */
     private _sortProperties?: SortProperty[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -112,7 +111,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
-     * @returns a entityType
+     * @returns a string
      */
     public get entityTypes() {
         return this._entityTypes;
@@ -121,7 +120,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
      * Sets the entityTypes property value. One or more types of resources expected in the response. Possible values are: list, site, listItem, message, event, drive, driveItem, person, externalItem. See known limitations for those combinations of two or more entity types that are supported in the same search request. Required.
      * @param value Value to set for the entityTypes property.
      */
-    public set entityTypes(value: EntityType[] | undefined) {
+    public set entityTypes(value: string[] | undefined) {
         this._entityTypes = value;
     };
     /**
@@ -162,7 +161,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
             "aggregations": n => { this.aggregations = n.getCollectionOfObjectValues<AggregationOption>(createAggregationOptionFromDiscriminatorValue); },
             "contentSources": n => { this.contentSources = n.getCollectionOfPrimitiveValues<string>(); },
             "enableTopResults": n => { this.enableTopResults = n.getBooleanValue(); },
-            "entityTypes": n => { this.entityTypes = n.getEnumValues<EntityType>(EntityType); },
+            "entityTypes": n => { this.entityTypes = n.getCollectionOfPrimitiveValues<string>(); },
             "fields": n => { this.fields = n.getCollectionOfPrimitiveValues<string>(); },
             "from": n => { this.from = n.getNumberValue(); },
             "query": n => { this.query = n.getObjectValue<SearchQuery>(createSearchQueryFromDiscriminatorValue); },
@@ -224,7 +223,7 @@ export class SearchRequest implements AdditionalDataHolder, Parsable {
         writer.writeCollectionOfObjectValues<AggregationOption>("aggregations", this.aggregations);
         writer.writeCollectionOfPrimitiveValues<string>("contentSources", this.contentSources);
         writer.writeBooleanValue("enableTopResults", this.enableTopResults);
-        this.entityTypes && writer.writeEnumValue<EntityType>("entityTypes", ...this.entityTypes);
+        writer.writeCollectionOfPrimitiveValues<string>("entityTypes", this.entityTypes);
         writer.writeCollectionOfPrimitiveValues<string>("fields", this.fields);
         writer.writeNumberValue("from", this.from);
         writer.writeObjectValue<SearchQuery>("query", this.query);

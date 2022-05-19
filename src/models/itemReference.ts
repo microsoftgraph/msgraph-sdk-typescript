@@ -3,23 +3,23 @@ import {SharepointIds} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ItemReference implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Unique identifier of the drive instance that contains the item. Read-only.  */
+    /** Unique identifier of the drive instance that contains the item. Read-only. */
     private _driveId?: string | undefined;
-    /** Identifies the type of drive. See [drive][] resource for values.  */
+    /** Identifies the type of drive. See [drive][] resource for values. */
     private _driveType?: string | undefined;
-    /** Unique identifier of the item in the drive. Read-only.  */
+    /** Unique identifier of the item in the drive. Read-only. */
     private _id?: string | undefined;
-    /** The name of the item being referenced. Read-only.  */
+    /** The name of the item being referenced. Read-only. */
     private _name?: string | undefined;
-    /** Path that can be used to navigate to the item. Read-only.  */
+    /** Path that can be used to navigate to the item. Read-only. */
     private _path?: string | undefined;
-    /** A unique identifier for a shared resource that can be accessed via the [Shares][] API.  */
+    /** A unique identifier for a shared resource that can be accessed via the [Shares][] API. */
     private _shareId?: string | undefined;
-    /** Returns identifiers useful for SharePoint REST compatibility. Read-only.  */
+    /** Returns identifiers useful for SharePoint REST compatibility. Read-only. */
     private _sharepointIds?: SharepointIds | undefined;
-    /** For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated.  */
+    /** For OneDrive for Business and SharePoint, this property represents the ID of the site that contains the parent document library of the driveItem resource. The value is the same as the id property of that [site][] resource. It is an opaque string that consists of three identifiers of the site. For OneDrive, this property is not populated. */
     private _siteId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

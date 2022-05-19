@@ -3,14 +3,15 @@ import {createUnifiedRoleEligibilityScheduleFromDiscriminatorValue} from './crea
 import {RequestSchedule, UnifiedRoleEligibilitySchedule, UnifiedRoleScheduleBase} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the roleManagement singleton. */
 export class UnifiedRoleAssignmentSchedule extends UnifiedRoleScheduleBase implements Parsable {
-    /** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule.  */
+    /** If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule. */
     private _activatedUsing?: UnifiedRoleEligibilitySchedule | undefined;
-    /** Type of the assignment. It can either be Assigned or Activated.  */
+    /** Type of the assignment. It can either be Assigned or Activated. */
     private _assignmentType?: string | undefined;
-    /** Membership type of the assignment. It can either be Inherited, Direct, or Group.  */
+    /** Membership type of the assignment. It can either be Inherited, Direct, or Group. */
     private _memberType?: string | undefined;
-    /** The schedule object of the role assignment request.  */
+    /** The schedule object of the role assignment request. */
     private _scheduleInfo?: RequestSchedule | undefined;
     /**
      * Gets the activatedUsing property value. If the roleAssignmentSchedule is activated by a roleEligibilitySchedule, this is the link to that schedule.

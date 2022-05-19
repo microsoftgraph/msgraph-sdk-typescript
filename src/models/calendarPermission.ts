@@ -3,20 +3,21 @@ import {createEmailAddressFromDiscriminatorValue} from './createEmailAddressFrom
 import {EmailAddress, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class CalendarPermission extends Entity implements Parsable {
-    /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.  */
-    private _allowedRoles?: CalendarRoleType[] | undefined;
-    /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only.  */
+    /** List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom. */
+    private _allowedRoles?: string[] | undefined;
+    /** Represents a sharee or delegate who has access to the calendar. For the 'My Organization' sharee, the address property is null. Read-only. */
     private _emailAddress?: EmailAddress | undefined;
-    /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner.  */
+    /** True if the user in context (sharee or delegate) is inside the same organization as the calendar owner. */
     private _isInsideOrganization?: boolean | undefined;
-    /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar.  */
+    /** True if the user can be removed from the list of sharees or delegates for the specified calendar, false otherwise. The 'My organization' user determines the permissions other people within your organization have to the given calendar. You cannot remove 'My organization' as a sharee to a calendar. */
     private _isRemovable?: boolean | undefined;
-    /** Current permission level of the calendar sharee or delegate.  */
+    /** Current permission level of the calendar sharee or delegate. */
     private _role?: CalendarRoleType | undefined;
     /**
      * Gets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
-     * @returns a calendarRoleType
+     * @returns a string
      */
     public get allowedRoles() {
         return this._allowedRoles;
@@ -25,7 +26,7 @@ export class CalendarPermission extends Entity implements Parsable {
      * Sets the allowedRoles property value. List of allowed sharing or delegating permission levels for the calendar. Possible values are: none, freeBusyRead, limitedRead, read, write, delegateWithoutPrivateEventAccess, delegateWithPrivateEventAccess, custom.
      * @param value Value to set for the allowedRoles property.
      */
-    public set allowedRoles(value: CalendarRoleType[] | undefined) {
+    public set allowedRoles(value: string[] | undefined) {
         this._allowedRoles = value;
     };
     /**
@@ -54,7 +55,7 @@ export class CalendarPermission extends Entity implements Parsable {
      */
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {...super.getFieldDeserializers(),
-            "allowedRoles": n => { this.allowedRoles = n.getEnumValues<CalendarRoleType>(CalendarRoleType); },
+            "allowedRoles": n => { this.allowedRoles = n.getCollectionOfPrimitiveValues<string>(); },
             "emailAddress": n => { this.emailAddress = n.getObjectValue<EmailAddress>(createEmailAddressFromDiscriminatorValue); },
             "isInsideOrganization": n => { this.isInsideOrganization = n.getBooleanValue(); },
             "isRemovable": n => { this.isRemovable = n.getBooleanValue(); },
@@ -110,7 +111,7 @@ export class CalendarPermission extends Entity implements Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         super.serialize(writer);
-        this.allowedRoles && writer.writeEnumValue<CalendarRoleType>("allowedRoles", ...this.allowedRoles);
+        writer.writeCollectionOfPrimitiveValues<string>("allowedRoles", this.allowedRoles);
         writer.writeObjectValue<EmailAddress>("emailAddress", this.emailAddress);
         writer.writeBooleanValue("isInsideOrganization", this.isInsideOrganization);
         writer.writeBooleanValue("isRemovable", this.isRemovable);

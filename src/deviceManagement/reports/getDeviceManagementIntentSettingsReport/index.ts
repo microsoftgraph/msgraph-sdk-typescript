@@ -1,2 +1,1 @@
-export * from './getDeviceManagementIntentSettingsReportRequestBody'
-export * from './getDeviceManagementIntentSettingsReportResponse'
+export * from './getDeviceManagementIntentSettingsReportPostRequestBody'

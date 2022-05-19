@@ -2,14 +2,15 @@ import {createWorkbookChartTitleFormatFromDiscriminatorValue} from './createWork
 import {Entity, WorkbookChartTitleFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartTitle extends Entity implements Parsable {
-    /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only.  */
+    /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
     private _format?: WorkbookChartTitleFormat | undefined;
-    /** Boolean value representing if the chart title will overlay the chart or not.  */
+    /** Boolean value representing if the chart title will overlay the chart or not. */
     private _overlay?: boolean | undefined;
-    /** Represents the title text of a chart.  */
+    /** Represents the title text of a chart. */
     private _text?: string | undefined;
-    /** A boolean value the represents the visibility of a chart title object.  */
+    /** A boolean value the represents the visibility of a chart title object. */
     private _visible?: boolean | undefined;
     /**
      * Instantiates a new workbookChartTitle and sets the default values.

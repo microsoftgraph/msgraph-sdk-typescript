@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingValue implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the setting (as defined by the groupSettingTemplate).  */
+    /** Name of the setting (as defined by the directorySettingTemplate). */
     private _name?: string | undefined;
-    /** Value of the setting.  */
+    /** Value of the setting. */
     private _value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -38,14 +38,14 @@ export class SettingValue implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the name property value. Name of the setting (as defined by the groupSettingTemplate).
+     * Gets the name property value. Name of the setting (as defined by the directorySettingTemplate).
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. Name of the setting (as defined by the groupSettingTemplate).
+     * Sets the name property value. Name of the setting (as defined by the directorySettingTemplate).
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {

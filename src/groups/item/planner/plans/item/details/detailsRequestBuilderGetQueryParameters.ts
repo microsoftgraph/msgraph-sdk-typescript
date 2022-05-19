@@ -1,9 +1,9 @@
 
-/** Read-only. Nullable. Additional details about the plan.  */
+/** Additional details about the plan. Read-only. Nullable. */
 export class DetailsRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

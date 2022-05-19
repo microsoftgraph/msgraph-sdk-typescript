@@ -1,15 +1,14 @@
 import {PrinterProcessingState} from './printerProcessingState';
-import {PrinterProcessingStateDetail} from './printerProcessingStateDetail';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrinterStatus implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A human-readable description of the printer's current processing state. Read-only.  */
+    /** A human-readable description of the printer's current processing state. Read-only. */
     private _description?: string | undefined;
-    /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.  */
-    private _details?: PrinterProcessingStateDetail[] | undefined;
-    /** The current processing state. Valid values are described in the following table. Read-only.  */
+    /** The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only. */
+    private _details?: string[] | undefined;
+    /** The current processing state. Valid values are described in the following table. Read-only. */
     private _state?: PrinterProcessingState | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -47,7 +46,7 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
     };
     /**
      * Gets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
-     * @returns a printerProcessingStateDetail
+     * @returns a string
      */
     public get details() {
         return this._details;
@@ -56,7 +55,7 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
      * Sets the details property value. The list of details describing why the printer is in the current state. Valid values are described in the following table. Read-only.
      * @param value Value to set for the details property.
      */
-    public set details(value: PrinterProcessingStateDetail[] | undefined) {
+    public set details(value: string[] | undefined) {
         this._details = value;
     };
     /**
@@ -66,7 +65,7 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
     public getFieldDeserializers() : Record<string, (node: ParseNode) => void> {
         return {
             "description": n => { this.description = n.getStringValue(); },
-            "details": n => { this.details = n.getEnumValues<PrinterProcessingStateDetail>(PrinterProcessingStateDetail); },
+            "details": n => { this.details = n.getCollectionOfPrimitiveValues<string>(); },
             "state": n => { this.state = n.getEnumValue<PrinterProcessingState>(PrinterProcessingState); },
         };
     };
@@ -77,7 +76,7 @@ export class PrinterStatus implements AdditionalDataHolder, Parsable {
     public serialize(writer: SerializationWriter) : void {
         if(!writer) throw new Error("writer cannot be undefined");
         writer.writeStringValue("description", this.description);
-        this.details && writer.writeEnumValue<PrinterProcessingStateDetail>("details", ...this.details);
+        writer.writeCollectionOfPrimitiveValues<string>("details", this.details);
         writer.writeEnumValue<PrinterProcessingState>("state", this.state);
         writer.writeAdditionalData(this.additionalData);
     };

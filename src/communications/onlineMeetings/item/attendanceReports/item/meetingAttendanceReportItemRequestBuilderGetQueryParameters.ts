@@ -1,9 +1,9 @@
 
-/** The attendance reports of an online meeting. Read-only.  */
+/** The attendance reports of an online meeting. Read-only. */
 export class MeetingAttendanceReportItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

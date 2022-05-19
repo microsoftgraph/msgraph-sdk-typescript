@@ -1,9 +1,9 @@
 
-/** All schools that this class is associated with. Nullable.  */
+/** All schools that this class is associated with. Nullable. */
 export class EducationSchoolItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

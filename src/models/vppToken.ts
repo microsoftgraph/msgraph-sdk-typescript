@@ -4,28 +4,29 @@ import {VppTokenState} from './vppTokenState';
 import {VppTokenSyncStatus} from './vppTokenSyncStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** You purchase multiple licenses for iOS apps through the Apple Volume Purchase Program for Business or Education. This involves setting up an Apple VPP account from the Apple website and uploading the Apple VPP Business or Education token to Intune. You can then synchronize your volume purchase information with Intune and track your volume-purchased app use. You can upload multiple Apple VPP Business or Education tokens. */
 export class VppToken extends Entity implements Parsable {
-    /** The apple Id associated with the given Apple Volume Purchase Program Token.  */
+    /** The apple Id associated with the given Apple Volume Purchase Program Token. */
     private _appleId?: string | undefined;
-    /** Whether or not apps for the VPP token will be automatically updated.  */
+    /** Whether or not apps for the VPP token will be automatically updated. */
     private _automaticallyUpdateApps?: boolean | undefined;
-    /** Whether or not apps for the VPP token will be automatically updated.  */
+    /** Whether or not apps for the VPP token will be automatically updated. */
     private _countryOrRegion?: string | undefined;
-    /** The expiration date time of the Apple Volume Purchase Program Token.  */
+    /** The expiration date time of the Apple Volume Purchase Program Token. */
     private _expirationDateTime?: Date | undefined;
-    /** Last modification date time associated with the Apple Volume Purchase Program Token.  */
+    /** Last modification date time associated with the Apple Volume Purchase Program Token. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The last time when an application sync was done with the Apple volume purchase program service using the the Apple Volume Purchase Program Token.  */
+    /** The last time when an application sync was done with the Apple volume purchase program service using the the Apple Volume Purchase Program Token. */
     private _lastSyncDateTime?: Date | undefined;
-    /** Current sync status of the last application sync which was triggered using the Apple Volume Purchase Program Token. Possible values are: none, inProgress, completed, failed. Possible values are: none, inProgress, completed, failed.  */
+    /** Current sync status of the last application sync which was triggered using the Apple Volume Purchase Program Token. Possible values are: none, inProgress, completed, failed. Possible values are: none, inProgress, completed, failed. */
     private _lastSyncStatus?: VppTokenSyncStatus | undefined;
-    /** The organization associated with the Apple Volume Purchase Program Token  */
+    /** The organization associated with the Apple Volume Purchase Program Token */
     private _organizationName?: string | undefined;
-    /** Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.  */
+    /** Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId. */
     private _state?: VppTokenState | undefined;
-    /** The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program.  */
+    /** The Apple Volume Purchase Program Token string downloaded from the Apple Volume Purchase Program. */
     private _token?: string | undefined;
-    /** The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education.  */
+    /** The type of volume purchase program which the given Apple Volume Purchase Program Token is associated with. Possible values are: business, education. Possible values are: business, education. */
     private _vppTokenAccountType?: VppTokenAccountType | undefined;
     /**
      * Gets the appleId property value. The apple Id associated with the given Apple Volume Purchase Program Token.
@@ -184,14 +185,14 @@ export class VppToken extends Entity implements Parsable {
         writer.writeEnumValue<VppTokenAccountType>("vppTokenAccountType", this.vppTokenAccountType);
     };
     /**
-     * Gets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.
+     * Gets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.
      * @returns a vppTokenState
      */
     public get state() {
         return this._state;
     };
     /**
-     * Sets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM.
+     * Sets the state property value. Current state of the Apple Volume Purchase Program Token. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM. Possible values are: unknown, valid, expired, invalid, assignedToExternalMDM, duplicateLocationId.
      * @param value Value to set for the state property.
      */
     public set state(value: VppTokenState | undefined) {

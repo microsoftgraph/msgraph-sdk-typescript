@@ -6,34 +6,35 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {AdministrativeUnit, EducationClass, EducationOrganization, EducationUser, IdentitySet, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the educationRoot singleton. */
 export class EducationSchool extends EducationOrganization implements Parsable {
-    /** Address of the school.  */
+    /** Address of the school. */
     private _address?: PhysicalAddress | undefined;
-    /** The underlying administrativeUnit for this school.  */
+    /** The underlying administrativeUnit for this school. */
     private _administrativeUnit?: AdministrativeUnit | undefined;
-    /** Classes taught at the school. Nullable.  */
+    /** Classes taught at the school. Nullable. */
     private _classes?: EducationClass[] | undefined;
-    /** Entity who created the school.  */
+    /** Entity who created the school. */
     private _createdBy?: IdentitySet | undefined;
-    /** ID of school in syncing system.  */
+    /** ID of school in syncing system. */
     private _externalId?: string | undefined;
-    /** ID of principal in syncing system.  */
+    /** ID of principal in syncing system. */
     private _externalPrincipalId?: string | undefined;
-    /** The fax property  */
+    /** The fax property */
     private _fax?: string | undefined;
-    /** Highest grade taught.  */
+    /** Highest grade taught. */
     private _highestGrade?: string | undefined;
-    /** Lowest grade taught.  */
+    /** Lowest grade taught. */
     private _lowestGrade?: string | undefined;
-    /** Phone number of school.  */
+    /** Phone number of school. */
     private _phone?: string | undefined;
-    /** Email address of the principal.  */
+    /** Email address of the principal. */
     private _principalEmail?: string | undefined;
-    /** Name of the principal.  */
+    /** Name of the principal. */
     private _principalName?: string | undefined;
-    /** School Number.  */
+    /** School Number. */
     private _schoolNumber?: string | undefined;
-    /** Users in the school. Nullable.  */
+    /** Users in the school. Nullable. */
     private _users?: EducationUser[] | undefined;
     /**
      * Gets the address property value. Address of the school.

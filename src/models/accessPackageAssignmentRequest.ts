@@ -7,34 +7,35 @@ import {createEntitlementManagementScheduleFromDiscriminatorValue} from './creat
 import {AccessPackage, AccessPackageAssignment, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignmentRequest extends Entity implements Parsable {
-    /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.  */
+    /** The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand. */
     private _accessPackage?: AccessPackage | undefined;
-    /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand.  */
+    /** For a requestType of UserAdd or AdminAdd, this is an access package assignment requested to be created.  For a requestType of UserRemove, AdminRemove or SystemRemove, this has the id property of an existing assignment to be removed.   Supports $expand. */
     private _assignment?: AccessPackageAssignment | undefined;
-    /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The date of the end of processing, either successful or failure, of a request. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _completedDateTime?: Date | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.  */
+    /** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
     private _requestor?: AccessPackageSubject | undefined;
-    /** The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set.  */
+    /** One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only. */
     private _requestType?: AccessPackageRequestType | undefined;
-    /** The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.  */
+    /** The range of dates that access is to be assigned to the requestor. Read-only. */
     private _schedule?: EntitlementManagementSchedule | undefined;
-    /** The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only.  */
+    /** The state of the request. The possible values are: submitted, pendingApproval, delivering, delivered, deliveryFailed, denied, scheduled, canceled, partiallyDelivered, unknownFutureValue. Read-only. */
     private _state?: AccessPackageRequestState | undefined;
-    /** More information on the request processing status. Read-only.  */
+    /** More information on the request processing status. Read-only. */
     private _status?: string | undefined;
     /**
-     * Gets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+     * Gets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
      * @returns a accessPackage
      */
     public get accessPackage() {
         return this._accessPackage;
     };
     /**
-     * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable.  Supports $expand.
+     * Sets the accessPackage property value. The access package associated with the accessPackageAssignmentRequest. An access package defines the collections of resource roles and the policies for how one or more users can get access to those resources. Read-only. Nullable. Supports $expand.
      * @param value Value to set for the accessPackage property.
      */
     public set accessPackage(value: AccessPackage | undefined) {
@@ -120,28 +121,28 @@ export class AccessPackageAssignmentRequest extends Entity implements Parsable {
         this._requestor = value;
     };
     /**
-     * Gets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set.
+     * Gets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
      * @returns a accessPackageRequestType
      */
     public get requestType() {
         return this._requestType;
     };
     /**
-     * Sets the requestType property value. The type of the request. The possible values are: notSpecified, userAdd, userUpdate, userRemove, adminAdd, adminUpdate, adminRemove, systemAdd, systemUpdate, systemRemove, onBehalfAdd, unknownFutureValue. A request from the user themselves would have requestType of UserAdd or UserRemove. This property cannot be changed once set.
+     * Sets the requestType property value. One of UserAdd, UserRemove, AdminAdd, AdminRemove or SystemRemove. A request from the user themselves would have requestType of UserAdd or UserRemove. Read-only.
      * @param value Value to set for the requestType property.
      */
     public set requestType(value: AccessPackageRequestType | undefined) {
         this._requestType = value;
     };
     /**
-     * Gets the schedule property value. The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.
+     * Gets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
      * @returns a entitlementManagementSchedule
      */
     public get schedule() {
         return this._schedule;
     };
     /**
-     * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. This property cannot be changed once set.
+     * Sets the schedule property value. The range of dates that access is to be assigned to the requestor. Read-only.
      * @param value Value to set for the schedule property.
      */
     public set schedule(value: EntitlementManagementSchedule | undefined) {

@@ -1,6 +1,7 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the appCatalogs singleton. */
 export class TeamworkBot extends Entity implements Parsable {
     /**
      * Instantiates a new teamworkBot and sets the default values.

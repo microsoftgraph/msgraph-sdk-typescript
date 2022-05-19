@@ -1,9 +1,9 @@
 
-/** The windows information protection network learning summaries.  */
+/** The windows information protection network learning summaries. */
 export class WindowsInformationProtectionNetworkLearningSummaryItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

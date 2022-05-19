@@ -2,12 +2,13 @@ import {ApplicationType} from './applicationType';
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Windows Information Protection AppLearning Summary entity. */
 export class WindowsInformationProtectionAppLearningSummary extends Entity implements Parsable {
-    /** Application Name  */
+    /** Application Name */
     private _applicationName?: string | undefined;
-    /** Application Type. Possible values are: universal, desktop.  */
+    /** Application Type. Possible values are: universal, desktop. */
     private _applicationType?: ApplicationType | undefined;
-    /** Device Count  */
+    /** Device Count */
     private _deviceCount?: number | undefined;
     /**
      * Gets the applicationName property value. Application Name

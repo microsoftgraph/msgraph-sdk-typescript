@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessReviewInstanceDecisionItemResource implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Display name of the resource  */
+    /** Display name of the resource */
     private _displayName?: string | undefined;
-    /** Identifier of the resource  */
+    /** Resource ID */
     private _id?: string | undefined;
-    /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy.  */
+    /** Type of resource. Types include: Group, ServicePrincipal, DirectoryRole, AzureRole, AccessPackageAssignmentPolicy. */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -55,14 +55,14 @@ export class AccessReviewInstanceDecisionItemResource implements AdditionalDataH
         };
     };
     /**
-     * Gets the id property value. Identifier of the resource
+     * Gets the id property value. Resource ID
      * @returns a string
      */
     public get id() {
         return this._id;
     };
     /**
-     * Sets the id property value. Identifier of the resource
+     * Sets the id property value. Resource ID
      * @param value Value to set for the id property.
      */
     public set id(value: string | undefined) {

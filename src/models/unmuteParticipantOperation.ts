@@ -1,6 +1,7 @@
 import {CommsOperation} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to call the unmute method. */
 export class UnmuteParticipantOperation extends CommsOperation implements Parsable {
     /**
      * Instantiates a new unmuteParticipantOperation and sets the default values.

@@ -1,9 +1,9 @@
 
-/** The list of SharePoint sites in this group. Access the default site with /sites/root.  */
+/** The list of SharePoint sites in this group. Access the default site with /sites/root. */
 export class SiteItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

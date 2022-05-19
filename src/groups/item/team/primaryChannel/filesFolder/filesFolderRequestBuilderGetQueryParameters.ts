@@ -1,9 +1,9 @@
 
-/** Metadata for the location where the channel's files are stored.  */
+/** Metadata for the location where the channel's files are stored. */
 export class FilesFolderRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

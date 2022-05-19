@@ -1,9 +1,9 @@
 
-/** List of abstract definition for a task that can be triggered when various events occur within Universal Print.  */
+/** List of abstract definition for a task that can be triggered when various events occur within Universal Print. */
 export class PrintTaskDefinitionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

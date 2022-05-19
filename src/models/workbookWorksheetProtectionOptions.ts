@@ -1,29 +1,29 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class WorkbookWorksheetProtectionOptions implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Represents the worksheet protection option of allowing using auto filter feature.  */
+    /** Represents the worksheet protection option of allowing using auto filter feature. */
     private _allowAutoFilter?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing deleting columns.  */
+    /** Represents the worksheet protection option of allowing deleting columns. */
     private _allowDeleteColumns?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing deleting rows.  */
+    /** Represents the worksheet protection option of allowing deleting rows. */
     private _allowDeleteRows?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing formatting cells.  */
+    /** Represents the worksheet protection option of allowing formatting cells. */
     private _allowFormatCells?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing formatting columns.  */
+    /** Represents the worksheet protection option of allowing formatting columns. */
     private _allowFormatColumns?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing formatting rows.  */
+    /** Represents the worksheet protection option of allowing formatting rows. */
     private _allowFormatRows?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing inserting columns.  */
+    /** Represents the worksheet protection option of allowing inserting columns. */
     private _allowInsertColumns?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing inserting hyperlinks.  */
+    /** Represents the worksheet protection option of allowing inserting hyperlinks. */
     private _allowInsertHyperlinks?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing inserting rows.  */
+    /** Represents the worksheet protection option of allowing inserting rows. */
     private _allowInsertRows?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing using pivot table feature.  */
+    /** Represents the worksheet protection option of allowing using pivot table feature. */
     private _allowPivotTables?: boolean | undefined;
-    /** Represents the worksheet protection option of allowing using sort feature.  */
+    /** Represents the worksheet protection option of allowing using sort feature. */
     private _allowSort?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

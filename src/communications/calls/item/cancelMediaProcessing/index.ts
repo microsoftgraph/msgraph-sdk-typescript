@@ -1,1 +1,1 @@
-export * from './cancelMediaProcessingRequestBody'
+export * from './cancelMediaProcessingPostRequestBody'

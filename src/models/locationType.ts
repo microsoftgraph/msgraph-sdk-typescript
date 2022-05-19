@@ -1,6 +1,6 @@
-/** Provides operations to manage the drive singleton.  */
+/** Casts the previous resource to user. */
 export enum LocationType {
-    Default_escaped = "default_escaped",
+    Default_escaped = "default",
     ConferenceRoom = "conferenceRoom",
     HomeAddress = "homeAddress",
     BusinessAddress = "businessAddress",

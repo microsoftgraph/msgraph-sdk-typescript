@@ -1,9 +1,9 @@
 
-/** Analytics about the view activities that took place in this site.  */
+/** Analytics about the view activities that took place in this site. */
 export class AnalyticsRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

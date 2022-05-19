@@ -1,1 +1,1 @@
-export * from './updateRecordingStatusRequestBody'
+export * from './updateRecordingStatusPostRequestBody'

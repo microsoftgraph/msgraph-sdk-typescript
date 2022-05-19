@@ -1,9 +1,9 @@
 
-/** Navigation property to list of inclusion and exclusion groups to which the policy is deployed.  */
+/** Navigation property to list of inclusion and exclusion groups to which the policy is deployed. */
 export class TargetedManagedAppPolicyAssignmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

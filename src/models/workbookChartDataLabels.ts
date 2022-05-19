@@ -2,24 +2,25 @@ import {createWorkbookChartDataLabelFormatFromDiscriminatorValue} from './create
 import {Entity, WorkbookChartDataLabelFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartDataLabels extends Entity implements Parsable {
-    /** Represents the format of chart data labels, which includes fill and font formatting. Read-only.  */
+    /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     private _format?: WorkbookChartDataLabelFormat | undefined;
-    /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout.  */
+    /** DataLabelPosition value that represents the position of the data label. The possible values are: None, Center, InsideEnd, InsideBase, OutsideEnd, Left, Right, Top, Bottom, BestFit, Callout. */
     private _position?: string | undefined;
-    /** String representing the separator used for the data labels on a chart.  */
+    /** String representing the separator used for the data labels on a chart. */
     private _separator?: string | undefined;
-    /** Boolean value representing if the data label bubble size is visible or not.  */
+    /** Boolean value representing if the data label bubble size is visible or not. */
     private _showBubbleSize?: boolean | undefined;
-    /** Boolean value representing if the data label category name is visible or not.  */
+    /** Boolean value representing if the data label category name is visible or not. */
     private _showCategoryName?: boolean | undefined;
-    /** Boolean value representing if the data label legend key is visible or not.  */
+    /** Boolean value representing if the data label legend key is visible or not. */
     private _showLegendKey?: boolean | undefined;
-    /** Boolean value representing if the data label percentage is visible or not.  */
+    /** Boolean value representing if the data label percentage is visible or not. */
     private _showPercentage?: boolean | undefined;
-    /** Boolean value representing if the data label series name is visible or not.  */
+    /** Boolean value representing if the data label series name is visible or not. */
     private _showSeriesName?: boolean | undefined;
-    /** Boolean value representing if the data label value is visible or not.  */
+    /** Boolean value representing if the data label value is visible or not. */
     private _showValue?: boolean | undefined;
     /**
      * Instantiates a new workbookChartDataLabels and sets the default values.

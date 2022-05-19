@@ -14,48 +14,49 @@ import {TeamSpecialization} from './teamSpecialization';
 import {TeamVisibilityType} from './teamVisibilityType';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Team extends Entity implements Parsable {
-    /** The collection of channels and messages associated with the team.  */
+    /** The collection of channels and messages associated with the team. */
     private _channels?: Channel[] | undefined;
-    /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory.  */
+    /** An optional label. Typically describes the data or business sensitivity of the team. Must match one of a pre-configured set in the tenant's directory. */
     private _classification?: string | undefined;
-    /** Timestamp at which the team was created.  */
+    /** Timestamp at which the team was created. */
     private _createdDateTime?: Date | undefined;
-    /** An optional description for the team. Maximum length: 1024 characters.  */
+    /** An optional description for the team. Maximum length: 1024 characters. */
     private _description?: string | undefined;
-    /** The name of the team.  */
+    /** The name of the team. */
     private _displayName?: string | undefined;
-    /** Settings to configure use of Giphy, memes, and stickers in the team.  */
+    /** Settings to configure use of Giphy, memes, and stickers in the team. */
     private _funSettings?: TeamFunSettings | undefined;
-    /** The group property  */
+    /** The group property */
     private _group?: Group | undefined;
-    /** Settings to configure whether guests can create, update, or delete channels in the team.  */
+    /** Settings to configure whether guests can create, update, or delete channels in the team. */
     private _guestSettings?: TeamGuestSettings | undefined;
-    /** The apps installed in this team.  */
+    /** The apps installed in this team. */
     private _installedApps?: TeamsAppInstallation[] | undefined;
-    /** A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API.  */
+    /** A unique ID for the team that has been used in a few places such as the audit log/Office 365 Management Activity API. */
     private _internalId?: string | undefined;
-    /** Whether this team is in read-only mode.  */
+    /** Whether this team is in read-only mode. */
     private _isArchived?: boolean | undefined;
-    /** Members and owners of the team.  */
+    /** Members and owners of the team. */
     private _members?: ConversationMember[] | undefined;
-    /** Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team.  */
+    /** Settings to configure whether members can perform certain actions, for example, create channels and add bots, in the team. */
     private _memberSettings?: TeamMemberSettings | undefined;
-    /** Settings to configure messaging and mentions in the team.  */
+    /** Settings to configure messaging and mentions in the team. */
     private _messagingSettings?: TeamMessagingSettings | undefined;
-    /** The async operations that ran or are running on this team.  */
+    /** The async operations that ran or are running on this team. */
     private _operations?: TeamsAsyncOperation[] | undefined;
-    /** The general channel for the team.  */
+    /** The general channel for the team. */
     private _primaryChannel?: Channel | undefined;
-    /** The schedule of shifts for this team.  */
+    /** The schedule of shifts for this team. */
     private _schedule?: Schedule | undefined;
-    /** Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case.  */
+    /** Optional. Indicates whether the team is intended for a particular use case.  Each team specialization has access to unique behaviors and experiences targeted to its use case. */
     private _specialization?: TeamSpecialization | undefined;
-    /** The template this team was created from. See available templates.  */
+    /** The template this team was created from. See available templates. */
     private _template?: TeamsTemplate | undefined;
-    /** The visibility of the group and team. Defaults to Public.  */
+    /** The visibility of the group and team. Defaults to Public. */
     private _visibility?: TeamVisibilityType | undefined;
-    /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed.  */
+    /** A hyperlink that will go to the team in the Microsoft Teams client. This is the URL that you get when you right-click a team in the Microsoft Teams client and select Get link to team. This URL should be treated as an opaque blob, and not parsed. */
     private _webUrl?: string | undefined;
     /**
      * Gets the channels property value. The collection of channels and messages associated with the team.

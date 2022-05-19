@@ -1,10 +1,11 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ProfilePhoto extends Entity implements Parsable {
-    /** The height of the photo. Read-only.  */
+    /** The height of the photo. Read-only. */
     private _height?: number | undefined;
-    /** The width of the photo. Read-only.  */
+    /** The width of the photo. Read-only. */
     private _width?: number | undefined;
     /**
      * Instantiates a new profilePhoto and sets the default values.

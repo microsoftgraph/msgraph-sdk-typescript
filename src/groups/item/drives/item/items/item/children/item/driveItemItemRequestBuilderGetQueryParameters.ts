@@ -1,9 +1,9 @@
 
-/** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable.  */
+/** Collection containing Item objects for the immediate children of Item. Only items representing folders have children. Read-only. Nullable. */
 export class DriveItemItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

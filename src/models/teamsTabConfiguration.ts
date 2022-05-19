@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamsTabConfiguration implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Url used for rendering tab contents in Teams. Required.  */
+    /** Url used for rendering tab contents in Teams. Required. */
     private _contentUrl?: string | undefined;
-    /** Identifier for the entity hosted by the tab provider.  */
+    /** Identifier for the entity hosted by the tab provider. */
     private _entityId?: string | undefined;
-    /** Url called by Teams client when a Tab is removed using the Teams Client.  */
+    /** Url called by Teams client when a Tab is removed using the Teams Client. */
     private _removeUrl?: string | undefined;
-    /** Url for showing tab contents outside of Teams.  */
+    /** Url for showing tab contents outside of Teams. */
     private _websiteUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

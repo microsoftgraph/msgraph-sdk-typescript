@@ -4,23 +4,23 @@ import {createSecureScoreFromDiscriminatorValue} from './createSecureScoreFromDi
 import {Alert, Entity, SecureScore, SecureScoreControlProfile} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the security singleton.  */
+/** Provides operations to manage the security singleton. */
 export class Security extends Entity implements Parsable {
-    /** Read-only. Nullable.  */
+    /** Notifications for suspicious or potential security issues in a customer’s tenant. */
     private _alerts?: Alert[] | undefined;
-    /** The secureScoreControlProfiles property  */
+    /** The secureScoreControlProfiles property */
     private _secureScoreControlProfiles?: SecureScoreControlProfile[] | undefined;
-    /** The secureScores property  */
+    /** The secureScores property */
     private _secureScores?: SecureScore[] | undefined;
     /**
-     * Gets the alerts property value. Read-only. Nullable.
+     * Gets the alerts property value. Notifications for suspicious or potential security issues in a customer’s tenant.
      * @returns a alert
      */
     public get alerts() {
         return this._alerts;
     };
     /**
-     * Sets the alerts property value. Read-only. Nullable.
+     * Sets the alerts property value. Notifications for suspicious or potential security issues in a customer’s tenant.
      * @param value Value to set for the alerts property.
      */
     public set alerts(value: Alert[] | undefined) {

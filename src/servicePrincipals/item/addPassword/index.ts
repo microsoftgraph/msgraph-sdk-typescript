@@ -1,1 +1,1 @@
-export * from './passwordCredentialRequestBody'
+export * from './passwordCredentialPostRequestBody'

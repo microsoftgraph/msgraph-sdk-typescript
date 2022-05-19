@@ -1,9 +1,9 @@
 
-/** Read-only. Nullable.  */
+/** Notifications for suspicious or potential security issues in a customer’s tenant. */
 export class AlertItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

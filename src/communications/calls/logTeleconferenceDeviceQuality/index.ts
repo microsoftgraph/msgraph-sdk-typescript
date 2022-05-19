@@ -1,1 +1,1 @@
-export * from './logTeleconferenceDeviceQualityRequestBody'
+export * from './logTeleconferenceDeviceQualityPostRequestBody'

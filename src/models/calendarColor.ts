@@ -1,4 +1,4 @@
-/** Provides operations to manage the drive singleton.  */
+/** Casts the previous resource to user. */
 export enum CalendarColor {
     Auto = "auto",
     LightBlue = "lightBlue",

@@ -1,21 +1,21 @@
 
-/** Get entities from places  */
+/** Get the properties and relationships of a [place](../resources/place.md) object specified by either its ID or email address.  The **place** object can be one of the following types: Both **room** and **roomList** are derived from the [place](../resources/place.md) object.  */
 export class PlacesRequestBuilderGetQueryParameters {
-    /** Include count of items  */
+    /** Include count of items */
     public count?: boolean | undefined;
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Filter items by property values  */
+    /** Filter items by property values */
     public filter?: string | undefined;
-    /** Order items by property values  */
+    /** Order items by property values */
     public orderby?: string[] | undefined;
-    /** Search items by search phrases  */
+    /** Search items by search phrases */
     public search?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
-    /** Skip the first n items  */
+    /** Skip the first n items */
     public skip?: number | undefined;
-    /** Show only the first n items  */
+    /** Show only the first n items */
     public top?: number | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

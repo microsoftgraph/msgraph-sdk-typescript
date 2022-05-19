@@ -1,9 +1,9 @@
 
-/** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable.  */
+/** The list of previous versions of the item. For more info, see [getting previous versions][]. Read-only. Nullable. */
 export class DriveItemVersionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

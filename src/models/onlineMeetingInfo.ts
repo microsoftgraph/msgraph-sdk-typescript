@@ -3,19 +3,19 @@ import {Phone} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnlineMeetingInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The ID of the conference.  */
+    /** The ID of the conference. */
     private _conferenceId?: string | undefined;
-    /** The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting.  */
+    /** The external link that launches the online meeting. This is a URL that clients will launch into a browser and will redirect the user to join the meeting. */
     private _joinUrl?: string | undefined;
-    /** All of the phone numbers associated with this conference.  */
+    /** All of the phone numbers associated with this conference. */
     private _phones?: Phone[] | undefined;
-    /** The pre-formatted quickdial for this call.  */
+    /** The pre-formatted quickdial for this call. */
     private _quickDial?: string | undefined;
-    /** The toll free numbers that can be used to join the conference.  */
+    /** The toll free numbers that can be used to join the conference. */
     private _tollFreeNumbers?: string[] | undefined;
-    /** The toll number that can be used to join the conference.  */
+    /** The toll number that can be used to join the conference. */
     private _tollNumber?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

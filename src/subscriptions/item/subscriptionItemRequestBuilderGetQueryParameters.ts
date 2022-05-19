@@ -1,7 +1,7 @@
 
-/** Get entity from subscriptions by key  */
+/** Retrieve the properties and relationships of a subscription. See the table in the [Permissions](#permissions) section for the list of resources that support subscribing to change notifications. */
 export class SubscriptionItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

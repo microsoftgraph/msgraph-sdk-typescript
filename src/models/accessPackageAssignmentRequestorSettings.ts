@@ -3,23 +3,23 @@ import {SubjectSet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AccessPackageAssignmentRequestorSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If false, the requestor is not permitted to include a schedule in their request.  */
+    /** If false, the requestor is not permitted to include a schedule in their request. */
     private _allowCustomAssignmentSchedule?: boolean | undefined;
-    /** If true, allows on-behalf-of requestors to create a request to add access for another principal.  */
+    /** If true, allows on-behalf-of requestors to create a request to add access for another principal. */
     private _enableOnBehalfRequestorsToAddAccess?: boolean | undefined;
-    /** If true, allows on-behalf-of requestors to create a request to remove access for another principal.  */
+    /** If true, allows on-behalf-of requestors to create a request to remove access for another principal. */
     private _enableOnBehalfRequestorsToRemoveAccess?: boolean | undefined;
-    /** If true, allows on-behalf-of requestors to create a request to update access for another principal.  */
+    /** If true, allows on-behalf-of requestors to create a request to update access for another principal. */
     private _enableOnBehalfRequestorsToUpdateAccess?: boolean | undefined;
-    /** If true, allows requestors to create a request to add access for themselves.  */
+    /** If true, allows requestors to create a request to add access for themselves. */
     private _enableTargetsToSelfAddAccess?: boolean | undefined;
-    /** If true, allows requestors to create a request to remove their access.  */
+    /** If true, allows requestors to create a request to remove their access. */
     private _enableTargetsToSelfRemoveAccess?: boolean | undefined;
-    /** If true, allows requestors to create a request to update their access.  */
+    /** If true, allows requestors to create a request to update their access. */
     private _enableTargetsToSelfUpdateAccess?: boolean | undefined;
-    /** The principals who can request on-behalf-of others.  */
+    /** The principals who can request on-behalf-of others. */
     private _onBehalfRequestors?: SubjectSet[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

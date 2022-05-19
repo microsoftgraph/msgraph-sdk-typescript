@@ -2,8 +2,9 @@ import {createTodoTaskListFromDiscriminatorValue} from './createTodoTaskListFrom
 import {Entity, TodoTaskList} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Todo extends Entity implements Parsable {
-    /** The task lists in the users mailbox.  */
+    /** The task lists in the users mailbox. */
     private _lists?: TodoTaskList[] | undefined;
     /**
      * Instantiates a new todo and sets the default values.

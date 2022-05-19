@@ -1,4 +1,4 @@
-/** Provides operations to manage the deviceManagement singleton.  */
+/** Provides operations to manage the deviceManagement singleton. */
 export enum IosUpdatesInstallStatus {
     DeviceOsHigherThanDesiredOsVersion = "deviceOsHigherThanDesiredOsVersion",
     SharedDeviceUserLoggedInError = "sharedDeviceUserLoggedInError",

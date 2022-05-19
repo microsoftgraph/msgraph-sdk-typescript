@@ -1,9 +1,9 @@
 
-/** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand.  */
+/** The subject who requested or, if a direct assignment, was assigned. Read-only. Nullable. Supports $expand. */
 export class RequestorRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

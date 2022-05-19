@@ -1,16 +1,16 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Windows Information Protection DataRecoveryCertificate  */
+/** Windows Information Protection DataRecoveryCertificate */
 export class WindowsInformationProtectionDataRecoveryCertificate implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Data recovery Certificate  */
+    /** Data recovery Certificate */
     private _certificate?: string | undefined;
-    /** Data recovery Certificate description  */
+    /** Data recovery Certificate description */
     private _description?: string | undefined;
-    /** Data recovery Certificate expiration datetime  */
+    /** Data recovery Certificate expiration datetime */
     private _expirationDateTime?: Date | undefined;
-    /** Data recovery Certificate subject name  */
+    /** Data recovery Certificate subject name */
     private _subjectName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

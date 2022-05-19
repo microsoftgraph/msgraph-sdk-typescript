@@ -1,2 +1,1 @@
-export * from './getPolicyNonComplianceMetadataResponse'
-export * from './getPolicyNonComplianceMetadataRequestBody'
+export * from './getPolicyNonComplianceMetadataPostRequestBody'

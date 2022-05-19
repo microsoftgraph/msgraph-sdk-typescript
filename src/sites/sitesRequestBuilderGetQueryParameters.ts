@@ -1,21 +1,21 @@
 
-/** Get entities from sites  */
+/** Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is **createdDateTime**. The search filter is a free text search that uses multiple properties when retrieving the search results. */
 export class SitesRequestBuilderGetQueryParameters {
-    /** Include count of items  */
+    /** Include count of items */
     public count?: boolean | undefined;
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Filter items by property values  */
+    /** Filter items by property values */
     public filter?: string | undefined;
-    /** Order items by property values  */
+    /** Order items by property values */
     public orderby?: string[] | undefined;
-    /** Search items by search phrases  */
+    /** Search items by search phrases */
     public search?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
-    /** Skip the first n items  */
+    /** Skip the first n items */
     public skip?: number | undefined;
-    /** Show only the first n items  */
+    /** Show only the first n items */
     public top?: number | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

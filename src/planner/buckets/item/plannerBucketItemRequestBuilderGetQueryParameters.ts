@@ -1,9 +1,9 @@
 
-/** Read-only. Nullable. Returns a collection of the specified buckets  */
+/** Read-only. Nullable. Returns a collection of the specified buckets */
 export class PlannerBucketItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

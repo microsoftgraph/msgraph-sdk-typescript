@@ -2,17 +2,17 @@ import {ContactRelationship} from './contactRelationship';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class RelatedContact implements AdditionalDataHolder, Parsable {
-    /** Indicates whether the user has been consented to access student data.  */
+    /** Indicates whether the user has been consented to access student data. */
     private _accessConsent?: boolean | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the contact. Required.  */
+    /** Name of the contact. Required. */
     private _displayName?: string | undefined;
-    /** Primary email address of the contact. Required.  */
+    /** Email address of the contact. */
     private _emailAddress?: string | undefined;
-    /** Mobile phone number of the contact.  */
+    /** Mobile phone number of the contact. */
     private _mobilePhone?: string | undefined;
-    /** Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue.  */
+    /** Relationship to the user. Possible values are: parent, relative, aide, doctor, guardian, child, other, unknownFutureValue. */
     private _relationship?: ContactRelationship | undefined;
     /**
      * Gets the accessConsent property value. Indicates whether the user has been consented to access student data.
@@ -63,14 +63,14 @@ export class RelatedContact implements AdditionalDataHolder, Parsable {
         this._displayName = value;
     };
     /**
-     * Gets the emailAddress property value. Primary email address of the contact. Required.
+     * Gets the emailAddress property value. Email address of the contact.
      * @returns a string
      */
     public get emailAddress() {
         return this._emailAddress;
     };
     /**
-     * Sets the emailAddress property value. Primary email address of the contact. Required.
+     * Sets the emailAddress property value. Email address of the contact.
      * @param value Value to set for the emailAddress property.
      */
     public set emailAddress(value: string | undefined) {

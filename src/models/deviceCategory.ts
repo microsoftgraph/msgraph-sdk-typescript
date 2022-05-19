@@ -1,10 +1,11 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Device categories provides a way to organize your devices. Using device categories, company administrators can define their own categories that make sense to their company. These categories can then be applied to a device in the Intune Azure console or selected by a user during device enrollment. You can filter reports and create dynamic Azure Active Directory device groups based on device categories. */
 export class DeviceCategory extends Entity implements Parsable {
-    /** Optional description for the device category.  */
+    /** Optional description for the device category. */
     private _description?: string | undefined;
-    /** Display name for the device category.  */
+    /** Display name for the device category. */
     private _displayName?: string | undefined;
     /**
      * Instantiates a new deviceCategory and sets the default values.

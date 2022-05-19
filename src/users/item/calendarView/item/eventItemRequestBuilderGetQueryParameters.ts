@@ -1,11 +1,11 @@
 
-/** The calendar view for the calendar. Read-only. Nullable.  */
+/** The calendar view for the calendar. Read-only. Nullable. */
 export class EventItemRequestBuilderGetQueryParameters {
-    /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00  */
+    /** The end date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T20:00:00-08:00 */
     public endDateTime?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
-    /** The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00  */
+    /** The start date and time of the time range, represented in ISO 8601 format. For example, 2019-11-08T19:00:00-08:00 */
     public startDateTime?: string | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -3,15 +3,15 @@ import {GeoCoordinates} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SignInLocation implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.  */
+    /** Provides the city where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
     private _city?: string | undefined;
-    /** Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity.  */
+    /** Provides the country code info (2 letter code) where the sign-in originated.  This is calculated using latitude/longitude information from the sign-in activity. */
     private _countryOrRegion?: string | undefined;
-    /** Provides the latitude, longitude and altitude where the sign-in originated.  */
+    /** Provides the latitude, longitude and altitude where the sign-in originated. */
     private _geoCoordinates?: GeoCoordinates | undefined;
-    /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity.  */
+    /** Provides the State where the sign-in originated. This is calculated using latitude/longitude information from the sign-in activity. */
     private _state?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

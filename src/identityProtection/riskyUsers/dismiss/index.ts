@@ -1,1 +1,1 @@
-export * from './dismissRequestBody'
+export * from './dismissPostRequestBody'

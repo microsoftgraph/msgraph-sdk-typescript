@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class NumberColumn implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** How many decimal places to display. See below for information about the possible values.  */
+    /** How many decimal places to display. See below for information about the possible values. */
     private _decimalPlaces?: string | undefined;
-    /** How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number.  */
+    /** How the value should be presented in the UX. Must be one of number or percentage. If unspecified, treated as number. */
     private _displayAs?: string | undefined;
-    /** The maximum permitted value.  */
+    /** The maximum permitted value. */
     private _maximum?: number | undefined;
-    /** The minimum permitted value.  */
+    /** The minimum permitted value. */
     private _minimum?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -4,13 +4,13 @@ import {PatternedRecurrence, TimeRange} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftAvailability implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Specifies the pattern for recurrence  */
+    /** Specifies the pattern for recurrence */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The time slot(s) preferred by the user.  */
+    /** The time slot(s) preferred by the user. */
     private _timeSlots?: TimeRange[] | undefined;
-    /** Specifies the time zone for the indicated time.  */
+    /** Specifies the time zone for the indicated time. */
     private _timeZone?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

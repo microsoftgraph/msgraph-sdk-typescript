@@ -1,9 +1,9 @@
 
-/** Get roleAssignmentScheduleRequests from roleManagement  */
+/** Requests for active role assignments to principals through PIM. */
 export class UnifiedRoleAssignmentScheduleRequestItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -5,15 +5,15 @@ import {createSignInFromDiscriminatorValue} from './createSignInFromDiscriminato
 import {DirectoryAudit, Entity, ProvisioningObjectSummary, RestrictedSignIn, SignIn} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the auditLogRoot singleton.  */
+/** Provides operations to manage the auditLogRoot singleton. */
 export class AuditLogRoot extends Entity implements Parsable {
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _directoryAudits?: DirectoryAudit[] | undefined;
-    /** The provisioning property  */
+    /** The provisioning property */
     private _provisioning?: ProvisioningObjectSummary[] | undefined;
-    /** The restrictedSignIns property  */
+    /** The restrictedSignIns property */
     private _restrictedSignIns?: RestrictedSignIn[] | undefined;
-    /** Read-only. Nullable.  */
+    /** Read-only. Nullable. */
     private _signIns?: SignIn[] | undefined;
     /**
      * Instantiates a new auditLogRoot and sets the default values.

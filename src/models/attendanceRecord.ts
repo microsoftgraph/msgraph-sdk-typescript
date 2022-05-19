@@ -3,16 +3,17 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {AttendanceInterval, Entity, Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the cloudCommunications singleton. */
 export class AttendanceRecord extends Entity implements Parsable {
-    /** List of time periods between joining and leaving a meeting.  */
+    /** List of time periods between joining and leaving a meeting. */
     private _attendanceIntervals?: AttendanceInterval[] | undefined;
-    /** Email address of the user associated with this atttendance record.  */
+    /** Email address of the user associated with this atttendance record. */
     private _emailAddress?: string | undefined;
-    /** Identity of the user associated with this atttendance record.  */
+    /** Identity of the user associated with this atttendance record. */
     private _identity?: Identity | undefined;
-    /** Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer.  */
+    /** Role of the attendee. Possible values are: None, Attendee, Presenter, and Organizer. */
     private _role?: string | undefined;
-    /** Total duration of the attendances in seconds.  */
+    /** Total duration of the attendances in seconds. */
     private _totalAttendanceInSeconds?: number | undefined;
     /**
      * Gets the attendanceIntervals property value. List of time periods between joining and leaving a meeting.

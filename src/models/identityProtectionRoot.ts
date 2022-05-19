@@ -4,11 +4,11 @@ import {RiskDetection, RiskyUser} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityProtectionRoot implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Risk detection in Azure AD Identity Protection and the associated information about the detection.  */
+    /** Risk detection in Azure AD Identity Protection and the associated information about the detection. */
     private _riskDetections?: RiskDetection[] | undefined;
-    /** Users that are flagged as at-risk by Azure AD Identity Protection.  */
+    /** Users that are flagged as at-risk by Azure AD Identity Protection. */
     private _riskyUsers?: RiskyUser[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

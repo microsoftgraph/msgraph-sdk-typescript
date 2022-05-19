@@ -1,9 +1,9 @@
 
-/** Represents references to a directory or domain of another organization whose users can request access.  */
+/** Represents references to a directory or domain of another organization whose users can request access. */
 export class ConnectedOrganizationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -3,13 +3,13 @@ import {DayOfWeek} from './dayOfWeek';
 import {BookingWorkTimeSlot} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** This type represents the set of working hours in a single day of the week.  */
+/** This type represents the set of working hours in a single day of the week. */
 export class BookingWorkHours implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday.  */
+    /** The day of the week represented by this instance. Possible values are: sunday, monday, tuesday, wednesday, thursday, friday, saturday. */
     private _day?: DayOfWeek | undefined;
-    /** A list of start/end times during a day.  */
+    /** A list of start/end times during a day. */
     private _timeSlots?: BookingWorkTimeSlot[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

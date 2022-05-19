@@ -2,20 +2,21 @@ import {createEnrollmentConfigurationAssignmentFromDiscriminatorValue} from './c
 import {EnrollmentConfigurationAssignment, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The Base Class of Device Enrollment Configuration */
 export class DeviceEnrollmentConfiguration extends Entity implements Parsable {
-    /** The list of group assignments for the device configuration profile  */
+    /** The list of group assignments for the device configuration profile */
     private _assignments?: EnrollmentConfigurationAssignment[] | undefined;
-    /** Created date time in UTC of the device enrollment configuration  */
+    /** Created date time in UTC of the device enrollment configuration */
     private _createdDateTime?: Date | undefined;
-    /** The description of the device enrollment configuration  */
+    /** The description of the device enrollment configuration */
     private _description?: string | undefined;
-    /** The display name of the device enrollment configuration  */
+    /** The display name of the device enrollment configuration */
     private _displayName?: string | undefined;
-    /** Last modified date time in UTC of the device enrollment configuration  */
+    /** Last modified date time in UTC of the device enrollment configuration */
     private _lastModifiedDateTime?: Date | undefined;
-    /** Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value.  */
+    /** Priority is used when a user exists in multiple groups that are assigned enrollment configuration. Users are subject only to the configuration with the lowest priority value. */
     private _priority?: number | undefined;
-    /** The version of the device enrollment configuration  */
+    /** The version of the device enrollment configuration */
     private _version?: number | undefined;
     /**
      * Gets the assignments property value. The list of group assignments for the device configuration profile

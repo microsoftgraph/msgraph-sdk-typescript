@@ -26,7 +26,9 @@ import {ExtensionsRequestBuilder} from './extensions/extensionsRequestBuilder';
 import {ExtensionItemRequestBuilder} from './extensions/item/extensionItemRequestBuilder';
 import {GetMemberGroupsRequestBuilder} from './getMemberGroups/getMemberGroupsRequestBuilder';
 import {GetMemberObjectsRequestBuilder} from './getMemberObjects/getMemberObjectsRequestBuilder';
-import {GroupItemRequestBuilderGetQueryParameters} from './groupItemRequestBuilderGetQueryParameters';
+import {GroupItemRequestBuilderDeleteRequestConfiguration} from './groupItemRequestBuilderDeleteRequestConfiguration';
+import {GroupItemRequestBuilderGetRequestConfiguration} from './groupItemRequestBuilderGetRequestConfiguration';
+import {GroupItemRequestBuilderPatchRequestConfiguration} from './groupItemRequestBuilderPatchRequestConfiguration';
 import {GroupLifecyclePoliciesRequestBuilder} from './groupLifecyclePolicies/groupLifecyclePoliciesRequestBuilder';
 import {GroupLifecyclePolicyItemRequestBuilder} from './groupLifecyclePolicies/item/groupLifecyclePolicyItemRequestBuilder';
 import {DirectoryObjectItemRequestBuilder as i9e38ae949436d072a9f7fc1785bf9bf05fccf7dfa8c73ee8ac79966c36d19510} from './memberOf/item/directoryObjectItemRequestBuilder';
@@ -66,175 +68,175 @@ import {UnsubscribeByMailRequestBuilder} from './unsubscribeByMail/unsubscribeBy
 import {ValidatePropertiesRequestBuilder} from './validateProperties/validatePropertiesRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of group entities.  */
+/** Provides operations to manage the collection of group entities. */
 export class GroupItemRequestBuilder {
-    /** The acceptedSenders property  */
+    /** The acceptedSenders property */
     public get acceptedSenders(): AcceptedSendersRequestBuilder {
         return new AcceptedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The addFavorite property  */
+    /** The addFavorite property */
     public get addFavorite(): AddFavoriteRequestBuilder {
         return new AddFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The appRoleAssignments property  */
+    /** The appRoleAssignments property */
     public get appRoleAssignments(): AppRoleAssignmentsRequestBuilder {
         return new AppRoleAssignmentsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The assignLicense property  */
+    /** The assignLicense property */
     public get assignLicense(): AssignLicenseRequestBuilder {
         return new AssignLicenseRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendar property  */
+    /** The calendar property */
     public get calendar(): CalendarRequestBuilder {
         return new CalendarRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The calendarView property  */
+    /** The calendarView property */
     public get calendarView(): CalendarViewRequestBuilder {
         return new CalendarViewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkGrantedPermissionsForApp property  */
+    /** The checkGrantedPermissionsForApp property */
     public get checkGrantedPermissionsForApp(): CheckGrantedPermissionsForAppRequestBuilder {
         return new CheckGrantedPermissionsForAppRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberGroups property  */
+    /** The checkMemberGroups property */
     public get checkMemberGroups(): CheckMemberGroupsRequestBuilder {
         return new CheckMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The checkMemberObjects property  */
+    /** The checkMemberObjects property */
     public get checkMemberObjects(): CheckMemberObjectsRequestBuilder {
         return new CheckMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The conversations property  */
+    /** The conversations property */
     public get conversations(): ConversationsRequestBuilder {
         return new ConversationsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The createdOnBehalfOf property  */
+    /** The createdOnBehalfOf property */
     public get createdOnBehalfOf(): CreatedOnBehalfOfRequestBuilder {
         return new CreatedOnBehalfOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drive property  */
+    /** The drive property */
     public get drive(): DriveRequestBuilder {
         return new DriveRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The drives property  */
+    /** The drives property */
     public get drives(): DrivesRequestBuilder {
         return new DrivesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The events property  */
+    /** The events property */
     public get events(): EventsRequestBuilder {
         return new EventsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The extensions property  */
+    /** The extensions property */
     public get extensions(): ExtensionsRequestBuilder {
         return new ExtensionsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberGroups property  */
+    /** The getMemberGroups property */
     public get getMemberGroups(): GetMemberGroupsRequestBuilder {
         return new GetMemberGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The getMemberObjects property  */
+    /** The getMemberObjects property */
     public get getMemberObjects(): GetMemberObjectsRequestBuilder {
         return new GetMemberObjectsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The groupLifecyclePolicies property  */
+    /** The groupLifecyclePolicies property */
     public get groupLifecyclePolicies(): GroupLifecyclePoliciesRequestBuilder {
         return new GroupLifecyclePoliciesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The memberOf property  */
+    /** The memberOf property */
     public get memberOf(): MemberOfRequestBuilder {
         return new MemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The members property  */
+    /** The members property */
     public get members(): MembersRequestBuilder {
         return new MembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The membersWithLicenseErrors property  */
+    /** The membersWithLicenseErrors property */
     public get membersWithLicenseErrors(): MembersWithLicenseErrorsRequestBuilder {
         return new MembersWithLicenseErrorsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The onenote property  */
+    /** The onenote property */
     public get onenote(): OnenoteRequestBuilder {
         return new OnenoteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The owners property  */
+    /** The owners property */
     public get owners(): OwnersRequestBuilder {
         return new OwnersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The permissionGrants property  */
+    /** The permissionGrants property */
     public get permissionGrants(): PermissionGrantsRequestBuilder {
         return new PermissionGrantsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The photo property  */
+    /** The photo property */
     public get photo(): PhotoRequestBuilder {
         return new PhotoRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The photos property  */
+    /** The photos property */
     public get photos(): PhotosRequestBuilder {
         return new PhotosRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The planner property  */
+    /** The planner property */
     public get planner(): PlannerRequestBuilder {
         return new PlannerRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The rejectedSenders property  */
+    /** The rejectedSenders property */
     public get rejectedSenders(): RejectedSendersRequestBuilder {
         return new RejectedSendersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The removeFavorite property  */
+    /** The removeFavorite property */
     public get removeFavorite(): RemoveFavoriteRequestBuilder {
         return new RemoveFavoriteRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The renew property  */
+    /** The renew property */
     public get renew(): RenewRequestBuilder {
         return new RenewRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The resetUnseenCount property  */
+    /** The resetUnseenCount property */
     public get resetUnseenCount(): ResetUnseenCountRequestBuilder {
         return new ResetUnseenCountRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The restore property  */
+    /** The restore property */
     public get restore(): RestoreRequestBuilder {
         return new RestoreRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The settings property  */
+    /** The settings property */
     public get settings(): SettingsRequestBuilder {
         return new SettingsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The sites property  */
+    /** The sites property */
     public get sites(): SitesRequestBuilder {
         return new SitesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The subscribeByMail property  */
+    /** The subscribeByMail property */
     public get subscribeByMail(): SubscribeByMailRequestBuilder {
         return new SubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The team property  */
+    /** The team property */
     public get team(): TeamRequestBuilder {
         return new TeamRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The threads property  */
+    /** The threads property */
     public get threads(): ThreadsRequestBuilder {
         return new ThreadsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMemberOf property  */
+    /** The transitiveMemberOf property */
     public get transitiveMemberOf(): TransitiveMemberOfRequestBuilder {
         return new TransitiveMemberOfRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The transitiveMembers property  */
+    /** The transitiveMembers property */
     public get transitiveMembers(): TransitiveMembersRequestBuilder {
         return new TransitiveMembersRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The unsubscribeByMail property  */
+    /** The unsubscribeByMail property */
     public get unsubscribeByMail(): UnsubscribeByMailRequestBuilder {
         return new UnsubscribeByMailRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
-    /** The validateProperties property  */
+    /** The validateProperties property */
     public get validateProperties(): ValidatePropertiesRequestBuilder {
         return new ValidatePropertiesRequestBuilder(this.pathParameters, this.requestAdapter);
     }
@@ -296,64 +298,65 @@ export class GroupItemRequestBuilder {
         return new ConversationItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Delete entity from groups
-     * @param headers Request headers
-     * @param options Request options
+     * In this tutorial, a fictitious company called Contoso Limited wishes to have its IT Helpdesk manage the lifecycle of employees’ access. The company has identified the Azure AD User Administrator role as the appropriate privileged role required by IT Helpdesk, and will use the PIM API to assign the role. You'll create a role-assignable security group for IT Helpdesk and using the PIM API, assign the security group eligibility to the User Administrator role. By assigning the eligible role to a security group, Contoso has a more efficient way to manage administrator access to resources such as Azure AD roles. For example: Assigning eligibility instead of a persistently active User Administrator privilege allows the company to enforce **just-in-time access**, which grants temporary permissions to carry out the privileged tasks. After defining the role eligibility, the eligible group member then activates their assignment for a temporary period. All records of role activations will be auditable by the company.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: GroupItemRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
-     * Get entity from groups by key
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Get the properties and relationships of a [group](../resources/group.md) object. This operation returns by default only a subset of all the available properties, as noted in the [Properties](../resources/group.md#properties) section. To get properties that are _not_ returned by default, specify them in a `$select` OData query option. The **hasMembersWithLicenseErrors** property is an exception and is not returned in the `$select` query. Because the **group** resource supports [extensions](/graph/extensibility-overview), you can also use the `GET` operation to get custom properties and extension data in a **group** instance.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: GroupItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: GroupItemRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
-     * Update entity in groups
+     * Update the properties of a [group](../resources/group.md) object.
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Group | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Group | undefined, requestConfiguration?: GroupItemRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
-     * Delete entity from groups
-     * @param headers Request headers
-     * @param options Request options
+     * In this tutorial, a fictitious company called Contoso Limited wishes to have its IT Helpdesk manage the lifecycle of employees’ access. The company has identified the Azure AD User Administrator role as the appropriate privileged role required by IT Helpdesk, and will use the PIM API to assign the role. You'll create a role-assignable security group for IT Helpdesk and using the PIM API, assign the security group eligibility to the User Administrator role. By assigning the eligible role to a security group, Contoso has a more efficient way to manage administrator access to resources such as Azure AD roles. For example: Assigning eligibility instead of a persistently active User Administrator privilege allows the company to enforce **just-in-time access**, which grants temporary permissions to carry out the privileged tasks. After defining the role eligibility, the eligible group member then activates their assignment for a temporary period. All records of role activations will be auditable by the company.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: GroupItemRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -395,16 +398,14 @@ export class GroupItemRequestBuilder {
         return new ExtensionItemRequestBuilder(urlTplParams, this.requestAdapter);
     };
     /**
-     * Get entity from groups by key
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * Get the properties and relationships of a [group](../resources/group.md) object. This operation returns by default only a subset of all the available properties, as noted in the [Properties](../resources/group.md#properties) section. To get properties that are _not_ returned by default, specify them in a `$select` OData query option. The **hasMembersWithLicenseErrors** property is an exception and is not returned in the `$select` query. Because the **group** resource supports [extensions](/graph/extensibility-overview), you can also use the `GET` operation to get custom properties and extension data in a **group** instance.
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Group
      */
-    public get(queryParameters?: GroupItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
+    public get(requestConfiguration?: GroupItemRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Group | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -468,16 +469,15 @@ export class GroupItemRequestBuilder {
         return new i068a4645e53dd8ebc8e7025a71b39fe15b815ee1dd7818eba367d792e25da077(urlTplParams, this.requestAdapter);
     };
     /**
-     * Update entity in groups
+     * Update the properties of a [group](../resources/group.md) object.
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Group | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Group | undefined, requestConfiguration?: GroupItemRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

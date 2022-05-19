@@ -1,9 +1,9 @@
 
-/** Entry-point to the Planner resource that might exist for a user. Read-only.  */
+/** Selective Planner services available to the user. Read-only. Nullable. */
 export class PlannerRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

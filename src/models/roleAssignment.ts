@@ -2,14 +2,15 @@ import {createRoleDefinitionFromDiscriminatorValue} from './createRoleDefinition
 import {Entity, RoleDefinition} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** The Role Assignment resource. Role assignments tie together a role definition with members and scopes. There can be one or more role assignments per role. This applies to custom and built-in roles. */
 export class RoleAssignment extends Entity implements Parsable {
-    /** Description of the Role Assignment.  */
+    /** Description of the Role Assignment. */
     private _description?: string | undefined;
-    /** The display or friendly name of the role Assignment.  */
+    /** The display or friendly name of the role Assignment. */
     private _displayName?: string | undefined;
-    /** List of ids of role scope member security groups.  These are IDs from Azure Active Directory.  */
+    /** List of ids of role scope member security groups.  These are IDs from Azure Active Directory. */
     private _resourceScopes?: string[] | undefined;
-    /** Role definition this assignment is part of.  */
+    /** Role definition this assignment is part of. */
     private _roleDefinition?: RoleDefinition | undefined;
     /**
      * Instantiates a new roleAssignment and sets the default values.

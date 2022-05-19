@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PrintMargin implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The margin in microns from the bottom edge.  */
+    /** The margin in microns from the bottom edge. */
     private _bottom?: number | undefined;
-    /** The margin in microns from the left edge.  */
+    /** The margin in microns from the left edge. */
     private _left?: number | undefined;
-    /** The margin in microns from the right edge.  */
+    /** The margin in microns from the right edge. */
     private _right?: number | undefined;
-    /** The margin in microns from the top edge.  */
+    /** The margin in microns from the top edge. */
     private _top?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

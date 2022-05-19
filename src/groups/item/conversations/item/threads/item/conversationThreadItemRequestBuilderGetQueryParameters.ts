@@ -1,9 +1,9 @@
 
-/** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable.  */
+/** A collection of all the conversation threads in the conversation. A navigation property. Read-only. Nullable. */
 export class ConversationThreadItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

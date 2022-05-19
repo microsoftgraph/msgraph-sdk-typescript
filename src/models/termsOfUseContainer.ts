@@ -3,10 +3,11 @@ import {createAgreementFromDiscriminatorValue} from './createAgreementFromDiscri
 import {Agreement, AgreementAcceptance, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class TermsOfUseContainer extends Entity implements Parsable {
-    /** Represents the current status of a user's response to a company's customizable terms of use agreement.  */
+    /** Represents the current status of a user's response to a company's customizable terms of use agreement. */
     private _agreementAcceptances?: AgreementAcceptance[] | undefined;
-    /** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD).  */
+    /** Represents a tenant's customizable terms of use agreement that's created and managed with Azure Active Directory (Azure AD). */
     private _agreements?: Agreement[] | undefined;
     /**
      * Gets the agreementAcceptances property value. Represents the current status of a user's response to a company's customizable terms of use agreement.

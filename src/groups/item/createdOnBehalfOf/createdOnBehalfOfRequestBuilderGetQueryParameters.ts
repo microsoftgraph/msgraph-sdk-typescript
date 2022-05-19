@@ -1,9 +1,9 @@
 
-/** The user (or application) that created the group. NOTE: This is not set if the user is an administrator. Read-only.  */
+/** The user (or application) that created the group. Note: This is not set if the user is an administrator. Read-only. */
 export class CreatedOnBehalfOfRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

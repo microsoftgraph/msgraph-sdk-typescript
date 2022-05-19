@@ -1,19 +1,19 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class TeamMemberSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If set to true, members can add and remove apps.  */
+    /** If set to true, members can add and remove apps. */
     private _allowAddRemoveApps?: boolean | undefined;
-    /** If set to true, members can add and update private channels.  */
+    /** If set to true, members can add and update private channels. */
     private _allowCreatePrivateChannels?: boolean | undefined;
-    /** If set to true, members can add and update channels.  */
+    /** If set to true, members can add and update any channels. */
     private _allowCreateUpdateChannels?: boolean | undefined;
-    /** If set to true, members can add, update, and remove connectors.  */
+    /** If set to true, members can add, update, and remove connectors. */
     private _allowCreateUpdateRemoveConnectors?: boolean | undefined;
-    /** If set to true, members can add, update, and remove tabs.  */
+    /** If set to true, members can add, update, and remove tabs. */
     private _allowCreateUpdateRemoveTabs?: boolean | undefined;
-    /** If set to true, members can delete channels.  */
+    /** If set to true, members can delete channels. */
     private _allowDeleteChannels?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -58,14 +58,14 @@ export class TeamMemberSettings implements AdditionalDataHolder, Parsable {
         this._allowCreatePrivateChannels = value;
     };
     /**
-     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update channels.
+     * Gets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
      * @returns a boolean
      */
     public get allowCreateUpdateChannels() {
         return this._allowCreateUpdateChannels;
     };
     /**
-     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update channels.
+     * Sets the allowCreateUpdateChannels property value. If set to true, members can add and update any channels.
      * @param value Value to set for the allowCreateUpdateChannels property.
      */
     public set allowCreateUpdateChannels(value: boolean | undefined) {

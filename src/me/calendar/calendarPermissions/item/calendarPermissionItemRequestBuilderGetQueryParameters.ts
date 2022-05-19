@@ -1,7 +1,7 @@
 
-/** The permissions of the users with whom the calendar is shared.  */
+/** The permissions of the users with whom the calendar is shared. */
 export class CalendarPermissionItemRequestBuilderGetQueryParameters {
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

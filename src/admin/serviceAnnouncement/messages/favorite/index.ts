@@ -1,2 +1,2 @@
 export * from './favoriteResponse'
-export * from './favoriteRequestBody'
+export * from './favoritePostRequestBody'

@@ -1,25 +1,25 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class HostSecurityState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com).  */
+    /** Host FQDN (Fully Qualified Domain Name) (for example, machine.company.com). */
     private _fqdn?: string | undefined;
-    /** The isAzureAdJoined property  */
+    /** The isAzureAdJoined property */
     private _isAzureAdJoined?: boolean | undefined;
-    /** The isAzureAdRegistered property  */
+    /** The isAzureAdRegistered property */
     private _isAzureAdRegistered?: boolean | undefined;
-    /** True if the host is domain joined to an on-premises Active Directory domain.  */
+    /** True if the host is domain joined to an on-premises Active Directory domain. */
     private _isHybridAzureDomainJoined?: boolean | undefined;
-    /** The local host name, without the DNS domain name.  */
+    /** The local host name, without the DNS domain name. */
     private _netBiosName?: string | undefined;
-    /** Host Operating System. (For example, Windows10, MacOS, RHEL, etc.).  */
+    /** Host Operating System. (For example, Windows10, MacOS, RHEL, etc.). */
     private _os?: string | undefined;
-    /** Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert.  */
+    /** Private (not routable) IPv4 or IPv6 address (see RFC 1918) at the time of the alert. */
     private _privateIpAddress?: string | undefined;
-    /** Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert.  */
+    /** Publicly routable IPv4 or IPv6 address (see RFC 1918) at time of the alert. */
     private _publicIpAddress?: string | undefined;
-    /** Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage.  */
+    /** Provider-generated/calculated risk score of the host.  Recommended value range of 0-1, which equates to a percentage. */
     private _riskScore?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

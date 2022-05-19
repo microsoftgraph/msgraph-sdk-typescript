@@ -1,9 +1,9 @@
 
-/** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant.  */
+/** Read-only. Customized versions of the terms of use agreement in the Azure AD tenant. */
 export class AgreementFileVersionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class LocalizedLabel implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Indicates whether the label is the default label.  */
+    /** Indicates whether the label is the default label. */
     private _isDefault?: boolean | undefined;
-    /** The language tag for the label.  */
+    /** The language tag for the label. */
     private _languageTag?: string | undefined;
-    /** The name of the label.  */
+    /** The name of the label. */
     private _name?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

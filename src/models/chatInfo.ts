@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChatInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The unique identifier of a message in a Microsoft Teams channel.  */
+    /** The unique identifier for a message in a Microsoft Teams channel. */
     private _messageId?: string | undefined;
-    /** The ID of the reply message.  */
+    /** The ID of the reply message. */
     private _replyChainMessageId?: string | undefined;
-    /** The unique identifier for a thread in Microsoft Teams.  */
+    /** The unique identifier for a thread in Microsoft Teams. */
     private _threadId?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -41,14 +41,14 @@ export class ChatInfo implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the messageId property value. The unique identifier of a message in a Microsoft Teams channel.
+     * Gets the messageId property value. The unique identifier for a message in a Microsoft Teams channel.
      * @returns a string
      */
     public get messageId() {
         return this._messageId;
     };
     /**
-     * Sets the messageId property value. The unique identifier of a message in a Microsoft Teams channel.
+     * Sets the messageId property value. The unique identifier for a message in a Microsoft Teams channel.
      * @param value Value to set for the messageId property.
      */
     public set messageId(value: string | undefined) {

@@ -5,18 +5,19 @@ import {createSingleValueLegacyExtendedPropertyFromDiscriminatorValue} from './c
 import {Contact, Entity, MultiValueLegacyExtendedProperty, SingleValueLegacyExtendedProperty} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class ContactFolder extends Entity implements Parsable {
-    /** The collection of child folders in the folder. Navigation property. Read-only. Nullable.  */
+    /** The collection of child folders in the folder. Navigation property. Read-only. Nullable. */
     private _childFolders?: ContactFolder[] | undefined;
-    /** The contacts in the folder. Navigation property. Read-only. Nullable.  */
+    /** The contacts in the folder. Navigation property. Read-only. Nullable. */
     private _contacts?: Contact[] | undefined;
-    /** The folder's display name.  */
+    /** The folder's display name. */
     private _displayName?: string | undefined;
-    /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable.  */
+    /** The collection of multi-value extended properties defined for the contactFolder. Read-only. Nullable. */
     private _multiValueExtendedProperties?: MultiValueLegacyExtendedProperty[] | undefined;
-    /** The ID of the folder's parent folder.  */
+    /** The ID of the folder's parent folder. */
     private _parentFolderId?: string | undefined;
-    /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable.  */
+    /** The collection of single-value extended properties defined for the contactFolder. Read-only. Nullable. */
     private _singleValueExtendedProperties?: SingleValueLegacyExtendedProperty[] | undefined;
     /**
      * Gets the childFolders property value. The collection of child folders in the folder. Navigation property. Read-only. Nullable.

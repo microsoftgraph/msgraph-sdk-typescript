@@ -4,29 +4,29 @@ import {createUserFromDiscriminatorValue} from './createUserFromDiscriminatorVal
 import {Entity, IdentitySet, ItemReference, User} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the drive singleton.  */
+/** Casts the previous resource to user. */
 export class BaseItem extends Entity implements Parsable {
-    /** Identity of the user, device, or application which created the item. Read-only.  */
+    /** Identity of the user, device, or application which created the item. Read-only. */
     private _createdBy?: IdentitySet | undefined;
-    /** Identity of the user who created the item. Read-only.  */
+    /** Identity of the user who created the item. Read-only. */
     private _createdByUser?: User | undefined;
-    /** Date and time of item creation. Read-only.  */
+    /** Date and time of item creation. Read-only. */
     private _createdDateTime?: Date | undefined;
-    /** Provides a user-visible description of the item. Optional.  */
+    /** Provides a user-visible description of the item. Optional. */
     private _description?: string | undefined;
-    /** ETag for the item. Read-only.  */
+    /** ETag for the item. Read-only. */
     private _eTag?: string | undefined;
-    /** Identity of the user, device, and application which last modified the item. Read-only.  */
+    /** Identity of the user, device, and application which last modified the item. Read-only. */
     private _lastModifiedBy?: IdentitySet | undefined;
-    /** Identity of the user who last modified the item. Read-only.  */
+    /** Identity of the user who last modified the item. Read-only. */
     private _lastModifiedByUser?: User | undefined;
-    /** Date and time the item was last modified. Read-only.  */
+    /** Date and time the item was last modified. Read-only. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The name of the item. Read-write.  */
+    /** The name of the item. Read-write. */
     private _name?: string | undefined;
-    /** Parent information, if the item has a parent. Read-write.  */
+    /** Parent information, if the item has a parent. Read-write. */
     private _parentReference?: ItemReference | undefined;
-    /** URL that displays the resource in the browser. Read-only.  */
+    /** URL that displays the resource in the browser. Read-only. */
     private _webUrl?: string | undefined;
     /**
      * Instantiates a new baseItem and sets the default values.

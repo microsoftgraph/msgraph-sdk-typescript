@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of group entities.  */
+/** Casts the previous resource to user. */
 export enum TeamSpecialization {
     None = "none",
     EducationStandard = "educationStandard",

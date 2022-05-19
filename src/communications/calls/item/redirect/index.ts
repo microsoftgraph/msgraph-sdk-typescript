@@ -1,1 +1,1 @@
-export * from './redirectRequestBody'
+export * from './redirectPostRequestBody'

@@ -9,22 +9,23 @@ import {createEntitlementManagementSettingsFromDiscriminatorValue} from './creat
 import {AccessPackage, AccessPackageAssignment, AccessPackageAssignmentPolicy, AccessPackageAssignmentRequest, AccessPackageCatalog, Approval, ConnectedOrganization, EntitlementManagementSettings, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class EntitlementManagement extends Entity implements Parsable {
-    /** Approval stages for assignment requests.  */
+    /** Approval stages for assignment requests. */
     private _accessPackageAssignmentApprovals?: Approval[] | undefined;
-    /** Represents access package objects.  */
+    /** Represents access package objects. */
     private _accessPackages?: AccessPackage[] | undefined;
-    /** Access package assignment policies.  */
+    /** Access package assignment policies. */
     private _assignmentPolicies?: AccessPackageAssignmentPolicy[] | undefined;
-    /** Represents access package assignment requests created by or on behalf of a user.  */
+    /** Represents access package assignment requests created by or on behalf of a user. */
     private _assignmentRequests?: AccessPackageAssignmentRequest[] | undefined;
-    /** Represents the grant of an access package to a subject (user or group).  */
+    /** Represents the grant of an access package to a subject (user or group). */
     private _assignments?: AccessPackageAssignment[] | undefined;
-    /** Represents a collection of access packages.  */
+    /** Represents a collection of access packages. */
     private _catalogs?: AccessPackageCatalog[] | undefined;
-    /** Represents references to a directory or domain of another organization whose users can request access.  */
+    /** Represents references to a directory or domain of another organization whose users can request access. */
     private _connectedOrganizations?: ConnectedOrganization[] | undefined;
-    /** Represents the settings that control the behavior of Azure AD entitlement management.  */
+    /** Represents the settings that control the behavior of Azure AD entitlement management. */
     private _settings?: EntitlementManagementSettings | undefined;
     /**
      * Gets the accessPackageAssignmentApprovals property value. Approval stages for assignment requests.

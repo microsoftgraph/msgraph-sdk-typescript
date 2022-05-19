@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SearchBucket implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example.  */
+    /** A token containing the encoded filter to aggregate search matches by the specific key value. To use the filter, pass the token as part of the aggregationFilter property in a searchRequest object, in the format '{field}:/'{aggregationFilterToken}/''. See an example. */
     private _aggregationFilterToken?: string | undefined;
-    /** The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches.  */
+    /** The approximate number of search matches that share the same value specified in the key property. Note that this number is not the exact number of matches. */
     private _count?: number | undefined;
-    /** The discrete value of the field that an aggregation was computed on.  */
+    /** The discrete value of the field that an aggregation was computed on. */
     private _key?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

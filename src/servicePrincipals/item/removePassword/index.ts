@@ -1,1 +1,1 @@
-export * from './removePasswordRequestBody'
+export * from './removePasswordPostRequestBody'

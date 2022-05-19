@@ -1,21 +1,21 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceDetail implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Indicates the browser information of the used for signing in.  */
+    /** Indicates the browser information of the used for signing-in. */
     private _browser?: string | undefined;
-    /** Refers to the UniqueID of the device used for signing in.  */
+    /** Refers to the UniqueID of the device used for signing-in. */
     private _deviceId?: string | undefined;
-    /** Refers to the name of the device used for signing in.  */
+    /** Refers to the name of the device used for signing-in. */
     private _displayName?: string | undefined;
-    /** Indicates whether the device is compliant.  */
+    /** Indicates whether the device is compliant or not. */
     private _isCompliant?: boolean | undefined;
-    /** Indicates whether the device is managed.  */
+    /** Indicates if the device is managed or not. */
     private _isManaged?: boolean | undefined;
-    /** Indicates the operating system name and version used for signing in.  */
+    /** Indicates the OS name and version used for signing-in. */
     private _operatingSystem?: string | undefined;
-    /** Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.  */
+    /** Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined. */
     private _trustType?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,14 +32,14 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the browser property value. Indicates the browser information of the used for signing in.
+     * Gets the browser property value. Indicates the browser information of the used for signing-in.
      * @returns a string
      */
     public get browser() {
         return this._browser;
     };
     /**
-     * Sets the browser property value. Indicates the browser information of the used for signing in.
+     * Sets the browser property value. Indicates the browser information of the used for signing-in.
      * @param value Value to set for the browser property.
      */
     public set browser(value: string | undefined) {
@@ -52,28 +52,28 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the deviceId property value. Refers to the UniqueID of the device used for signing in.
+     * Gets the deviceId property value. Refers to the UniqueID of the device used for signing-in.
      * @returns a string
      */
     public get deviceId() {
         return this._deviceId;
     };
     /**
-     * Sets the deviceId property value. Refers to the UniqueID of the device used for signing in.
+     * Sets the deviceId property value. Refers to the UniqueID of the device used for signing-in.
      * @param value Value to set for the deviceId property.
      */
     public set deviceId(value: string | undefined) {
         this._deviceId = value;
     };
     /**
-     * Gets the displayName property value. Refers to the name of the device used for signing in.
+     * Gets the displayName property value. Refers to the name of the device used for signing-in.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. Refers to the name of the device used for signing in.
+     * Sets the displayName property value. Refers to the name of the device used for signing-in.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {
@@ -95,42 +95,42 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the isCompliant property value. Indicates whether the device is compliant.
+     * Gets the isCompliant property value. Indicates whether the device is compliant or not.
      * @returns a boolean
      */
     public get isCompliant() {
         return this._isCompliant;
     };
     /**
-     * Sets the isCompliant property value. Indicates whether the device is compliant.
+     * Sets the isCompliant property value. Indicates whether the device is compliant or not.
      * @param value Value to set for the isCompliant property.
      */
     public set isCompliant(value: boolean | undefined) {
         this._isCompliant = value;
     };
     /**
-     * Gets the isManaged property value. Indicates whether the device is managed.
+     * Gets the isManaged property value. Indicates if the device is managed or not.
      * @returns a boolean
      */
     public get isManaged() {
         return this._isManaged;
     };
     /**
-     * Sets the isManaged property value. Indicates whether the device is managed.
+     * Sets the isManaged property value. Indicates if the device is managed or not.
      * @param value Value to set for the isManaged property.
      */
     public set isManaged(value: boolean | undefined) {
         this._isManaged = value;
     };
     /**
-     * Gets the operatingSystem property value. Indicates the operating system name and version used for signing in.
+     * Gets the operatingSystem property value. Indicates the OS name and version used for signing-in.
      * @returns a string
      */
     public get operatingSystem() {
         return this._operatingSystem;
     };
     /**
-     * Sets the operatingSystem property value. Indicates the operating system name and version used for signing in.
+     * Sets the operatingSystem property value. Indicates the OS name and version used for signing-in.
      * @param value Value to set for the operatingSystem property.
      */
     public set operatingSystem(value: string | undefined) {
@@ -152,14 +152,14 @@ export class DeviceDetail implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the trustType property value. Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+     * Gets the trustType property value. Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
      * @returns a string
      */
     public get trustType() {
         return this._trustType;
     };
     /**
-     * Sets the trustType property value. Provides information about whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
+     * Sets the trustType property value. Indicates information on whether the signed-in device is Workplace Joined, AzureAD Joined, Domain Joined.
      * @param value Value to set for the trustType property.
      */
     public set trustType(value: string | undefined) {

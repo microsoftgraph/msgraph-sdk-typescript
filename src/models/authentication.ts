@@ -5,14 +5,15 @@ import {createWindowsHelloForBusinessAuthenticationMethodFromDiscriminatorValue}
 import {AuthenticationMethod, Entity, Fido2AuthenticationMethod, MicrosoftAuthenticatorAuthenticationMethod, WindowsHelloForBusinessAuthenticationMethod} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Authentication extends Entity implements Parsable {
-    /** Represents the FIDO2 security keys registered to a user for authentication.  */
+    /** Represents the FIDO2 security keys registered to a user for authentication. */
     private _fido2Methods?: Fido2AuthenticationMethod[] | undefined;
-    /** Represents all authentication methods registered to a user.  */
+    /** Represents all authentication methods registered to a user. */
     private _methods?: AuthenticationMethod[] | undefined;
-    /** The details of the Microsoft Authenticator app registered to a user for authentication.  */
+    /** The details of the Microsoft Authenticator app registered to a user for authentication. */
     private _microsoftAuthenticatorMethods?: MicrosoftAuthenticatorAuthenticationMethod[] | undefined;
-    /** Represents the Windows Hello for Business authentication method registered to a user for authentication.  */
+    /** Represents the Windows Hello for Business authentication method registered to a user for authentication. */
     private _windowsHelloForBusinessMethods?: WindowsHelloForBusinessAuthenticationMethod[] | undefined;
     /**
      * Instantiates a new authentication and sets the default values.

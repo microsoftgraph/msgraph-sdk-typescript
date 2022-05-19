@@ -1,1 +1,1 @@
-export * from './changeScreenSharingRoleRequestBody'
+export * from './changeScreenSharingRolePostRequestBody'

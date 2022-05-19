@@ -1,17 +1,17 @@
-import {DirectoryObject} from '../../../../models/';
-import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {DirectoryObjectItemRequestBuilderGetQueryParameters} from './directoryObjectItemRequestBuilderGetQueryParameters';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {RefRequestBuilder} from './ref/refRequestBuilder';
+import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the acceptedSenders property of the microsoft.graph.group entity.  */
+/** Builds and executes requests for operations under /groups/{group-id}/acceptedSenders/{directoryObject-id} */
 export class DirectoryObjectItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The ref property */
+    public get ref(): RefRequestBuilder {
+        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
@@ -21,44 +21,9 @@ export class DirectoryObjectItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders/{directoryObject%2Did}{?%24select}";
+        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/acceptedSenders/{directoryObject%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
-    };
-    /**
-     * The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(queryParameters?: DirectoryObjectItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
-        return requestInfo;
-    };
-    /**
-     * The list of users or groups that are allowed to create post's or calendar events in this group. If this list is non-empty then only users or groups listed here are allowed to post.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of DirectoryObject
-     */
-    public get(queryParameters?: DirectoryObjectItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObject | undefined> {
-        const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

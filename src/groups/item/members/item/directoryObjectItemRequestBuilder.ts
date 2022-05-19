@@ -1,18 +1,48 @@
-import {DirectoryObject} from '../../../../models/';
-import {createDirectoryObjectFromDiscriminatorValue} from '../../../../models/createDirectoryObjectFromDiscriminatorValue';
-import {ODataError} from '../../../../models/oDataErrors/';
-import {createODataErrorFromDiscriminatorValue} from '../../../../models/oDataErrors/createODataErrorFromDiscriminatorValue';
-import {DirectoryObjectItemRequestBuilderGetQueryParameters} from './directoryObjectItemRequestBuilderGetQueryParameters';
-import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
+import {ApplicationRequestBuilder} from './application/applicationRequestBuilder';
+import {DeviceRequestBuilder} from './device/deviceRequestBuilder';
+import {GroupRequestBuilder} from './group/groupRequestBuilder';
+import {OrgContactRequestBuilder} from './orgContact/orgContactRequestBuilder';
+import {RefRequestBuilder} from './ref/refRequestBuilder';
+import {ServicePrincipalRequestBuilder} from './servicePrincipal/servicePrincipalRequestBuilder';
+import {UserRequestBuilder} from './user/userRequestBuilder';
+import {getPathParameters, RequestAdapter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the members property of the microsoft.graph.group entity.  */
+/** Builds and executes requests for operations under /groups/{group-id}/members/{directoryObject-id} */
 export class DirectoryObjectItemRequestBuilder {
-    /** Path parameters for the request  */
+    /** The application property */
+    public get application(): ApplicationRequestBuilder {
+        return new ApplicationRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The device property */
+    public get device(): DeviceRequestBuilder {
+        return new DeviceRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The group property */
+    public get group(): GroupRequestBuilder {
+        return new GroupRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The orgContact property */
+    public get orgContact(): OrgContactRequestBuilder {
+        return new OrgContactRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The ref property */
+    public get ref(): RefRequestBuilder {
+        return new RefRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** Url template to use to build the URL for the current request builder  */
+    /** The servicePrincipal property */
+    public get servicePrincipal(): ServicePrincipalRequestBuilder {
+        return new ServicePrincipalRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
+    /** The user property */
+    public get user(): UserRequestBuilder {
+        return new UserRequestBuilder(this.pathParameters, this.requestAdapter);
+    }
     /**
      * Instantiates a new DirectoryObjectItemRequestBuilder and sets the default values.
      * @param pathParameters The raw url or the Url template parameters for the request.
@@ -21,44 +51,9 @@ export class DirectoryObjectItemRequestBuilder {
     public constructor(pathParameters: Record<string, unknown> | string | undefined, requestAdapter: RequestAdapter) {
         if(!pathParameters) throw new Error("pathParameters cannot be undefined");
         if(!requestAdapter) throw new Error("requestAdapter cannot be undefined");
-        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/members/{directoryObject%2Did}{?%24select,%24expand}";
+        this.urlTemplate = "{+baseurl}/groups/{group%2Did}/members/{directoryObject%2Did}";
         const urlTplParams = getPathParameters(pathParameters);
         this.pathParameters = urlTplParams;
         this.requestAdapter = requestAdapter;
-    };
-    /**
-     * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
-     * @returns a RequestInformation
-     */
-    public createGetRequestInformation(queryParameters?: DirectoryObjectItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
-        const requestInfo = new RequestInformation();
-        requestInfo.urlTemplate = this.urlTemplate;
-        requestInfo.pathParameters = this.pathParameters;
-        requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
-        return requestInfo;
-    };
-    /**
-     * The members of this group, who can be users, devices, other groups, or service principals. Supports the List members, Add member, and Remove member operations. Nullable. Supports $expand including nested $select. For example, /groups?$filter=startsWith(displayName,'Role')&$select=id,displayName&$expand=members($select=id,userPrincipalName,displayName).
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
-     * @param responseHandler Response handler to use in place of the default response handling provided by the core service
-     * @returns a Promise of DirectoryObject
-     */
-    public get(queryParameters?: DirectoryObjectItemRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<DirectoryObject | undefined> {
-        const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
-        );
-        const errorMapping: Record<string, ParsableFactory<Parsable>> = {
-            "4XX": createODataErrorFromDiscriminatorValue,
-            "5XX": createODataErrorFromDiscriminatorValue,
-        };
-        return this.requestAdapter?.sendAsync<DirectoryObject>(requestInfo, createDirectoryObjectFromDiscriminatorValue, responseHandler, errorMapping) ?? Promise.reject(new Error('http core is null'));
     };
 }

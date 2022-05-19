@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AlertTrigger implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the property serving as a detection trigger.  */
+    /** Name of the property serving as a detection trigger. */
     private _name?: string | undefined;
-    /** Type of the property in the key:value pair for interpretation. For example, String, Boolean etc.  */
+    /** Type of the property in the key:value pair for interpretation. For example, String, Boolean etc. */
     private _type?: string | undefined;
-    /** Value of the property serving as a detection trigger.  */
+    /** Value of the property serving as a detection trigger. */
     private _value?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

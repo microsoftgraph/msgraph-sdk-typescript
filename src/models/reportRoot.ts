@@ -3,15 +3,15 @@ import {createPrintUsageByUserFromDiscriminatorValue} from './createPrintUsageBy
 import {Entity, PrintUsageByPrinter, PrintUsageByUser} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** The resource that represents an instance of Enrollment Failure Reports.  */
+/** The resource that represents an instance of Enrollment Failure Reports. */
 export class ReportRoot extends Entity implements Parsable {
-    /** The dailyPrintUsageByPrinter property  */
+    /** The dailyPrintUsageByPrinter property */
     private _dailyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The dailyPrintUsageByUser property  */
+    /** The dailyPrintUsageByUser property */
     private _dailyPrintUsageByUser?: PrintUsageByUser[] | undefined;
-    /** The monthlyPrintUsageByPrinter property  */
+    /** The monthlyPrintUsageByPrinter property */
     private _monthlyPrintUsageByPrinter?: PrintUsageByPrinter[] | undefined;
-    /** The monthlyPrintUsageByUser property  */
+    /** The monthlyPrintUsageByUser property */
     private _monthlyPrintUsageByUser?: PrintUsageByUser[] | undefined;
     /**
      * Instantiates a new reportRoot and sets the default values.

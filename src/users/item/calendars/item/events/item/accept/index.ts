@@ -1,1 +1,1 @@
-export * from './acceptRequestBody'
+export * from './acceptPostRequestBody'

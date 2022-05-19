@@ -1,9 +1,9 @@
 
-/** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][]  */
+/** For document libraries, the driveItem relationship exposes the listItem as a [driveItem][] */
 export class DriveItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

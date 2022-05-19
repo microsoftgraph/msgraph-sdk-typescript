@@ -3,10 +3,11 @@ import {createWorkbookChartLineFormatFromDiscriminatorValue} from './createWorkb
 import {Entity, WorkbookChartFill, WorkbookChartLineFormat} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class WorkbookChartSeriesFormat extends Entity implements Parsable {
-    /** Represents the fill format of a chart series, which includes background formating information. Read-only.  */
+    /** Represents the fill format of a chart series, which includes background formating information. Read-only. */
     private _fill?: WorkbookChartFill | undefined;
-    /** Represents line formatting. Read-only.  */
+    /** Represents line formatting. Read-only. */
     private _line?: WorkbookChartLineFormat | undefined;
     /**
      * Instantiates a new workbookChartSeriesFormat and sets the default values.

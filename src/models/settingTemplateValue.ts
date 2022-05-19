@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Default value for the setting.  */
+    /** Default value for the setting. Read-only. */
     private _defaultValue?: string | undefined;
-    /** Description of the setting.  */
+    /** Description of the setting. Read-only. */
     private _description?: string | undefined;
-    /** Name of the setting.  */
+    /** Name of the setting. Read-only. */
     private _name?: string | undefined;
-    /** Type of the setting.  */
+    /** Type of the setting. Read-only. */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -32,28 +32,28 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the defaultValue property value. Default value for the setting.
+     * Gets the defaultValue property value. Default value for the setting. Read-only.
      * @returns a string
      */
     public get defaultValue() {
         return this._defaultValue;
     };
     /**
-     * Sets the defaultValue property value. Default value for the setting.
+     * Sets the defaultValue property value. Default value for the setting. Read-only.
      * @param value Value to set for the defaultValue property.
      */
     public set defaultValue(value: string | undefined) {
         this._defaultValue = value;
     };
     /**
-     * Gets the description property value. Description of the setting.
+     * Gets the description property value. Description of the setting. Read-only.
      * @returns a string
      */
     public get description() {
         return this._description;
     };
     /**
-     * Sets the description property value. Description of the setting.
+     * Sets the description property value. Description of the setting. Read-only.
      * @param value Value to set for the description property.
      */
     public set description(value: string | undefined) {
@@ -72,14 +72,14 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
         };
     };
     /**
-     * Gets the name property value. Name of the setting.
+     * Gets the name property value. Name of the setting. Read-only.
      * @returns a string
      */
     public get name() {
         return this._name;
     };
     /**
-     * Sets the name property value. Name of the setting.
+     * Sets the name property value. Name of the setting. Read-only.
      * @param value Value to set for the name property.
      */
     public set name(value: string | undefined) {
@@ -98,14 +98,14 @@ export class SettingTemplateValue implements AdditionalDataHolder, Parsable {
         writer.writeAdditionalData(this.additionalData);
     };
     /**
-     * Gets the type property value. Type of the setting.
+     * Gets the type property value. Type of the setting. Read-only.
      * @returns a string
      */
     public get type() {
         return this._type;
     };
     /**
-     * Sets the type property value. Type of the setting.
+     * Sets the type property value. Type of the setting. Read-only.
      * @param value Value to set for the type property.
      */
     public set type(value: string | undefined) {

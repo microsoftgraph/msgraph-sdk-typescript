@@ -1,1 +1,1 @@
-export * from './subscribeToToneRequestBody'
+export * from './subscribeToTonePostRequestBody'

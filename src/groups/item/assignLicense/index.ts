@@ -1,1 +1,1 @@
-export * from './assignLicenseRequestBody'
+export * from './assignLicensePostRequestBody'

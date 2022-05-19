@@ -1,9 +1,9 @@
 
-/** All the appointments of this business. Read-only. Nullable.  */
+/** All the appointments of this business. Read-only. Nullable. */
 export class BookingAppointmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

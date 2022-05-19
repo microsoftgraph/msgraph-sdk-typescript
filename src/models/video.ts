@@ -1,27 +1,27 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Video implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Number of audio bits per sample.  */
+    /** Number of audio bits per sample. */
     private _audioBitsPerSample?: number | undefined;
-    /** Number of audio channels.  */
+    /** Number of audio channels. */
     private _audioChannels?: number | undefined;
-    /** Name of the audio format (AAC, MP3, etc.).  */
+    /** Name of the audio format (AAC, MP3, etc.). */
     private _audioFormat?: string | undefined;
-    /** Number of audio samples per second.  */
+    /** Number of audio samples per second. */
     private _audioSamplesPerSecond?: number | undefined;
-    /** Bit rate of the video in bits per second.  */
+    /** Bit rate of the video in bits per second. */
     private _bitrate?: number | undefined;
-    /** Duration of the file in milliseconds.  */
+    /** Duration of the file in milliseconds. */
     private _duration?: number | undefined;
-    /** 'Four character code' name of the video format.  */
+    /** 'Four character code' name of the video format. */
     private _fourCC?: string | undefined;
-    /** Frame rate of the video.  */
+    /** Frame rate of the video. */
     private _frameRate?: number | undefined;
-    /** Height of the video, in pixels.  */
+    /** Height of the video, in pixels. */
     private _height?: number | undefined;
-    /** Width of the video, in pixels.  */
+    /** Width of the video, in pixels. */
     private _width?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

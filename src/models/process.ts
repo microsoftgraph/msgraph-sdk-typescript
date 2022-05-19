@@ -4,31 +4,31 @@ import {ProcessIntegrityLevel} from './processIntegrityLevel';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class Process implements AdditionalDataHolder, Parsable {
-    /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.  */
+    /** User account identifier (user account context the process ran under) for example, AccountName, SID, and so on. */
     private _accountName?: string | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The full process invocation commandline including all parameters.  */
+    /** The full process invocation commandline including all parameters. */
     private _commandLine?: string | undefined;
-    /** Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** Time at which the process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _createdDateTime?: Date | undefined;
-    /** Complex type containing file hashes (cryptographic and location-sensitive).  */
+    /** Complex type containing file hashes (cryptographic and location-sensitive). */
     private _fileHash?: FileHash | undefined;
-    /** The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system.  */
+    /** The integrity level of the process. Possible values are: unknown, untrusted, low, medium, high, system. */
     private _integrityLevel?: ProcessIntegrityLevel | undefined;
-    /** True if the process is elevated.  */
+    /** True if the process is elevated. */
     private _isElevated?: boolean | undefined;
-    /** The name of the process' Image file.  */
+    /** The name of the process' Image file. */
     private _name?: string | undefined;
-    /** DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** DateTime at which the parent process was started. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. */
     private _parentProcessCreatedDateTime?: Date | undefined;
-    /** The Process ID (PID) of the parent process.  */
+    /** The Process ID (PID) of the parent process. */
     private _parentProcessId?: number | undefined;
-    /** The name of the image file of the parent process.  */
+    /** The name of the image file of the parent process. */
     private _parentProcessName?: string | undefined;
-    /** Full path, including filename.  */
+    /** Full path, including filename. */
     private _path?: string | undefined;
-    /** The Process ID (PID) of the process.  */
+    /** The Process ID (PID) of the process. */
     private _processId?: number | undefined;
     /**
      * Gets the accountName property value. User account identifier (user account context the process ran under) for example, AccountName, SID, and so on.

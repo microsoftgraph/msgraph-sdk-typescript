@@ -6,17 +6,17 @@ import {ApplicationEnforcedRestrictionsSessionControl, CloudAppSecuritySessionCo
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessSessionControls implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control.  */
+    /** Session control to enforce application restrictions. Only Exchange Online and Sharepoint Online support this session control. */
     private _applicationEnforcedRestrictions?: ApplicationEnforcedRestrictionsSessionControl | undefined;
-    /** Session control to apply cloud app security.  */
+    /** Session control to apply cloud app security. */
     private _cloudAppSecurity?: CloudAppSecuritySessionControl | undefined;
-    /** Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not.  */
+    /** Session control that determines whether it is acceptable for Azure AD to extend existing sessions based on information collected prior to an outage or not. */
     private _disableResilienceDefaults?: boolean | undefined;
-    /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly.  */
+    /** Session control to define whether to persist cookies or not. All apps should be selected for this session control to work correctly. */
     private _persistentBrowser?: PersistentBrowserSessionControl | undefined;
-    /** Session control to enforce signin frequency.  */
+    /** Session control to enforce signin frequency. */
     private _signInFrequency?: SignInFrequencySessionControl | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

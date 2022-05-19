@@ -1,1 +1,1 @@
-export * from './confirmCompromisedRequestBody'
+export * from './confirmCompromisedPostRequestBody'

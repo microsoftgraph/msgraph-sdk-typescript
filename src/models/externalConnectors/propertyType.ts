@@ -1,4 +1,4 @@
-/** Provides operations to manage the collection of externalConnection entities.  */
+/** Provides operations to manage the collection of externalConnection entities. */
 export enum PropertyType {
     String = "string",
     Int64 = "int64",

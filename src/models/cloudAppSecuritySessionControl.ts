@@ -2,18 +2,19 @@ import {CloudAppSecuritySessionControlType} from './cloudAppSecuritySessionContr
 import {ConditionalAccessSessionControl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class CloudAppSecuritySessionControl extends ConditionalAccessSessionControl implements Parsable {
-    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.  */
+    /** Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps. */
     private _cloudAppSecurityType?: CloudAppSecuritySessionControlType | undefined;
     /**
-     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
+     * Gets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
      * @returns a cloudAppSecuritySessionControlType
      */
     public get cloudAppSecurityType() {
         return this._cloudAppSecurityType;
     };
     /**
-     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads, unknownFutureValue. For more information, see Deploy Conditional Access App Control for featured apps.
+     * Sets the cloudAppSecurityType property value. Possible values are: mcasConfigured, monitorOnly, blockDownloads. To learn more about these values, Deploy Conditional Access App Control for featured apps.
      * @param value Value to set for the cloudAppSecurityType property.
      */
     public set cloudAppSecurityType(value: CloudAppSecuritySessionControlType | undefined) {

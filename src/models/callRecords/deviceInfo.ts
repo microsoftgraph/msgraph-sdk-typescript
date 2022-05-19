@@ -1,49 +1,49 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceInfo implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Name of the capture device driver used by the media endpoint.  */
+    /** Name of the capture device driver used by the media endpoint. */
     private _captureDeviceDriver?: string | undefined;
-    /** Name of the capture device used by the media endpoint.  */
+    /** Name of the capture device used by the media endpoint. */
     private _captureDeviceName?: string | undefined;
-    /** Fraction of the call that the media endpoint detected the capture device was not working properly.  */
+    /** Fraction of the call that the media endpoint detected the capture device was not working properly. */
     private _captureNotFunctioningEventRatio?: number | undefined;
-    /** Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received.  */
+    /** Fraction of the call that the media endpoint detected the CPU resources available were insufficient and caused poor quality of the audio sent and received. */
     private _cpuInsufficentEventRatio?: number | undefined;
-    /** Fraction of the call that the media endpoint detected clipping in the captured audio that caused poor quality of the audio being sent.  */
+    /** Fraction of the call that the media endpoint detected clipping in the captured audio that caused poor quality of the audio being sent. */
     private _deviceClippingEventRatio?: number | undefined;
-    /** Fraction of the call that the media endpoint detected glitches or gaps in the audio played or captured that caused poor quality of the audio being sent or received.  */
+    /** Fraction of the call that the media endpoint detected glitches or gaps in the audio played or captured that caused poor quality of the audio being sent or received. */
     private _deviceGlitchEventRatio?: number | undefined;
-    /** Number of times during the call that the media endpoint detected howling or screeching audio.  */
+    /** Number of times during the call that the media endpoint detected howling or screeching audio. */
     private _howlingEventCount?: number | undefined;
-    /** The root mean square (RMS) of the incoming signal of up to the first 30 seconds of the call.  */
+    /** The root mean square (RMS) of the incoming signal of up to the first 30 seconds of the call. */
     private _initialSignalLevelRootMeanSquare?: number | undefined;
-    /** Fraction of the call that the media endpoint detected low speech level that caused poor quality of the audio being sent.  */
+    /** Fraction of the call that the media endpoint detected low speech level that caused poor quality of the audio being sent. */
     private _lowSpeechLevelEventRatio?: number | undefined;
-    /** Fraction of the call that the media endpoint detected low speech to noise level that caused poor quality of the audio being sent.  */
+    /** Fraction of the call that the media endpoint detected low speech to noise level that caused poor quality of the audio being sent. */
     private _lowSpeechToNoiseEventRatio?: number | undefined;
-    /** Glitches per 5 minute interval for the media endpoint's microphone.  */
+    /** Glitches per 5 minute interval for the media endpoint's microphone. */
     private _micGlitchRate?: number | undefined;
-    /** Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.  */
+    /** Average energy level of received audio for audio classified as mono noise or left channel of stereo noise by the media endpoint. */
     private _receivedNoiseLevel?: number | undefined;
-    /** Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.  */
+    /** Average energy level of received audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint. */
     private _receivedSignalLevel?: number | undefined;
-    /** Name of the render device driver used by the media endpoint.  */
+    /** Name of the render device driver used by the media endpoint. */
     private _renderDeviceDriver?: string | undefined;
-    /** Name of the render device used by the media endpoint.  */
+    /** Name of the render device used by the media endpoint. */
     private _renderDeviceName?: string | undefined;
-    /** Fraction of the call that media endpoint detected device render is muted.  */
+    /** Fraction of the call that media endpoint detected device render is muted. */
     private _renderMuteEventRatio?: number | undefined;
-    /** Fraction of the call that the media endpoint detected the render device was not working properly.  */
+    /** Fraction of the call that the media endpoint detected the render device was not working properly. */
     private _renderNotFunctioningEventRatio?: number | undefined;
-    /** Fraction of the call that media endpoint detected device render volume is set to 0.  */
+    /** Fraction of the call that media endpoint detected device render volume is set to 0. */
     private _renderZeroVolumeEventRatio?: number | undefined;
-    /** Average energy level of sent audio for audio classified as mono noise or left channel of stereo noise by the media endpoint.  */
+    /** Average energy level of sent audio for audio classified as mono noise or left channel of stereo noise by the media endpoint. */
     private _sentNoiseLevel?: number | undefined;
-    /** Average energy level of sent audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint.  */
+    /** Average energy level of sent audio for audio classified as mono speech, or left channel of stereo speech by the media endpoint. */
     private _sentSignalLevel?: number | undefined;
-    /** Glitches per 5 minute internal for the media endpoint's loudspeaker.  */
+    /** Glitches per 5 minute internal for the media endpoint's loudspeaker. */
     private _speakerGlitchRate?: number | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

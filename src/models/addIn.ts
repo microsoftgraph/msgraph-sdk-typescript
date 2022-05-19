@@ -3,13 +3,13 @@ import {KeyValue} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class AddIn implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The id property  */
+    /** The id property */
     private _id?: string | undefined;
-    /** The properties property  */
+    /** The properties property */
     private _properties?: KeyValue[] | undefined;
-    /** The type property  */
+    /** The type property */
     private _type?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

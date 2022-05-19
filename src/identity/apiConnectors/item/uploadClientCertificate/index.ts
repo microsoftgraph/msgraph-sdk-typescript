@@ -1,1 +1,1 @@
-export * from './uploadClientCertificateRequestBody'
+export * from './uploadClientCertificatePostRequestBody'

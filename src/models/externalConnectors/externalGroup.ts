@@ -3,12 +3,13 @@ import {createIdentityFromDiscriminatorValue} from './createIdentityFromDiscrimi
 import {Identity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of externalConnection entities. */
 export class ExternalGroup extends Entity implements Parsable {
-    /** The description of the external group. Optional.  */
+    /** The description of the external group. Optional. */
     private _description?: string | undefined;
-    /** The friendly name of the external group. Optional.  */
+    /** The friendly name of the external group. Optional. */
     private _displayName?: string | undefined;
-    /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.  */
+    /** A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members. */
     private _members?: Identity[] | undefined;
     /**
      * Instantiates a new externalGroup and sets the default values.
@@ -56,14 +57,14 @@ export class ExternalGroup extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.
+     * Gets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
      * @returns a identity
      */
     public get members() {
         return this._members;
     };
     /**
-     * Sets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or an externalGroup as members.
+     * Sets the members property value. A member added to an externalGroup. You can add Azure Active Directory users, Azure Active Directory groups, or other externalGroups as members.
      * @param value Value to set for the members property.
      */
     public set members(value: Identity[] | undefined) {

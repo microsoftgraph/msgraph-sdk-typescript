@@ -2,8 +2,9 @@ import {createDeviceManagementExportJobFromDiscriminatorValue} from './createDev
 import {DeviceManagementExportJob, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Singleton entity that acts as a container for all reports functionality. */
 export class DeviceManagementReports extends Entity implements Parsable {
-    /** Entity representing a job to export a report  */
+    /** Entity representing a job to export a report */
     private _exportJobs?: DeviceManagementExportJob[] | undefined;
     /**
      * Instantiates a new deviceManagementReports and sets the default values.

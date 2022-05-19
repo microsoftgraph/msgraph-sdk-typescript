@@ -1,9 +1,9 @@
 
-/** Represents access package assignment requests created by or on behalf of a user.  */
+/** Represents access package assignment requests created by or on behalf of a user. */
 export class AccessPackageAssignmentRequestItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

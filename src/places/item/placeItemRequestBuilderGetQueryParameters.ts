@@ -1,9 +1,9 @@
 
-/** Get entity from places by key  */
+/** Get the properties and relationships of a [place](../resources/place.md) object specified by either its ID or email address.  The **place** object can be one of the following types: Both **room** and **roomList** are derived from the [place](../resources/place.md) object.  */
 export class PlaceItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

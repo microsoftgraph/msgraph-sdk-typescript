@@ -5,37 +5,37 @@ import {OnenoteUserRole} from './onenoteUserRole';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class CopyNotebookModel implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The createdBy property  */
+    /** The createdBy property */
     private _createdBy?: string | undefined;
-    /** The createdByIdentity property  */
+    /** The createdByIdentity property */
     private _createdByIdentity?: IdentitySet | undefined;
-    /** The createdTime property  */
+    /** The createdTime property */
     private _createdTime?: Date | undefined;
-    /** The id property  */
+    /** The id property */
     private _id?: string | undefined;
-    /** The isDefault property  */
+    /** The isDefault property */
     private _isDefault?: boolean | undefined;
-    /** The isShared property  */
+    /** The isShared property */
     private _isShared?: boolean | undefined;
-    /** The lastModifiedBy property  */
+    /** The lastModifiedBy property */
     private _lastModifiedBy?: string | undefined;
-    /** The lastModifiedByIdentity property  */
+    /** The lastModifiedByIdentity property */
     private _lastModifiedByIdentity?: IdentitySet | undefined;
-    /** The lastModifiedTime property  */
+    /** The lastModifiedTime property */
     private _lastModifiedTime?: Date | undefined;
-    /** The links property  */
+    /** The links property */
     private _links?: NotebookLinks | undefined;
-    /** The name property  */
+    /** The name property */
     private _name?: string | undefined;
-    /** The sectionGroupsUrl property  */
+    /** The sectionGroupsUrl property */
     private _sectionGroupsUrl?: string | undefined;
-    /** The sectionsUrl property  */
+    /** The sectionsUrl property */
     private _sectionsUrl?: string | undefined;
-    /** The self property  */
+    /** The self property */
     private _self?: string | undefined;
-    /** The userRole property  */
+    /** The userRole property */
     private _userRole?: OnenoteUserRole | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

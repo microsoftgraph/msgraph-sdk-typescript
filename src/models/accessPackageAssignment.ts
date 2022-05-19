@@ -6,20 +6,21 @@ import {createEntitlementManagementScheduleFromDiscriminatorValue} from './creat
 import {AccessPackage, AccessPackageAssignmentPolicy, AccessPackageSubject, EntitlementManagementSchedule, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AccessPackageAssignment extends Entity implements Parsable {
-    /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.  */
+    /** Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters. */
     private _accessPackage?: AccessPackage | undefined;
-    /** Read-only. Supports $filter (eq) on the id property and $expand query parameters.  */
+    /** Read-only. Supports $filter (eq) on the id property and $expand query parameters. */
     private _assignmentPolicy?: AccessPackageAssignmentPolicy | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z */
     private _expiredDateTime?: Date | undefined;
-    /** When the access assignment is to be in place. Read-only.  */
+    /** When the access assignment is to be in place. Read-only. */
     private _schedule?: EntitlementManagementSchedule | undefined;
-    /** The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq).  */
+    /** The state of the access package assignment. The possible values are: delivering, partiallyDelivered, delivered, expired, deliveryFailed, unknownFutureValue. Read-only. Supports $filter (eq). */
     private _state?: AccessPackageAssignmentState | undefined;
-    /** More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only.  */
+    /** More information about the assignment lifecycle.  Possible values include Delivering, Delivered, NearExpiry1DayNotificationTriggered, or ExpiredNotificationTriggered.  Read-only. */
     private _status?: string | undefined;
-    /** The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId.  */
+    /** The subject of the access package assignment. Read-only. Nullable. Supports $expand. Supports $filter (eq) on objectId. */
     private _target?: AccessPackageSubject | undefined;
     /**
      * Gets the accessPackage property value. Read-only. Nullable. Supports $filter (eq) on the id property and $expand query parameters.
@@ -56,14 +57,14 @@ export class AccessPackageAssignment extends Entity implements Parsable {
         super();
     };
     /**
-     * Gets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Gets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @returns a Date
      */
     public get expiredDateTime() {
         return this._expiredDateTime;
     };
     /**
-     * Sets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z.
+     * Sets the expiredDateTime property value. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z
      * @param value Value to set for the expiredDateTime property.
      */
     public set expiredDateTime(value: Date | undefined) {

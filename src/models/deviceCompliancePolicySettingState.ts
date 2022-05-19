@@ -3,33 +3,33 @@ import {createSettingSourceFromDiscriminatorValue} from './createSettingSourceFr
 import {SettingSource} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Device Compilance Policy Setting State for a given device.  */
+/** Device Compilance Policy Setting State for a given device. */
 export class DeviceCompliancePolicySettingState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Current value of setting on device  */
+    /** Current value of setting on device */
     private _currentValue?: string | undefined;
-    /** Error code for the setting  */
+    /** Error code for the setting */
     private _errorCode?: number | undefined;
-    /** Error description  */
+    /** Error description */
     private _errorDescription?: string | undefined;
-    /** Name of setting instance that is being reported.  */
+    /** Name of setting instance that is being reported. */
     private _instanceDisplayName?: string | undefined;
-    /** The setting that is being reported  */
+    /** The setting that is being reported */
     private _setting?: string | undefined;
-    /** Localized/user friendly setting name that is being reported  */
+    /** Localized/user friendly setting name that is being reported */
     private _settingName?: string | undefined;
-    /** Contributing policies  */
+    /** Contributing policies */
     private _sources?: SettingSource[] | undefined;
-    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned.  */
+    /** The compliance state of the setting. Possible values are: unknown, notApplicable, compliant, remediated, nonCompliant, error, conflict, notAssigned. */
     private _state?: ComplianceStatus | undefined;
-    /** UserEmail  */
+    /** UserEmail */
     private _userEmail?: string | undefined;
-    /** UserId  */
+    /** UserId */
     private _userId?: string | undefined;
-    /** UserName  */
+    /** UserName */
     private _userName?: string | undefined;
-    /** UserPrincipalName.  */
+    /** UserPrincipalName. */
     private _userPrincipalName?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

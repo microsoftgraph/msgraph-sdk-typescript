@@ -1,1 +1,1 @@
-export * from './playPromptRequestBody'
+export * from './playPromptPostRequestBody'

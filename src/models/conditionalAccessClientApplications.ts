@@ -1,11 +1,11 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ConditionalAccessClientApplications implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Service principal IDs excluded from the policy scope.  */
+    /** Service principal IDs excluded from the policy scope. */
     private _excludeServicePrincipals?: string[] | undefined;
-    /** Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant.  */
+    /** Service principal IDs included in the policy scope, or ServicePrincipalsInMyTenant. */
     private _includeServicePrincipals?: string[] | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

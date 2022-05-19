@@ -1,9 +1,9 @@
 
-/** Get entities from agreements  */
+/** Get entities from agreements */
 export class AgreementsRequestBuilderGetQueryParameters {
-    /** Search items by search phrases  */
+    /** Search items by search phrases */
     public search?: string | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -3,14 +3,15 @@ import {createPhysicalAddressFromDiscriminatorValue} from './createPhysicalAddre
 import {Entity, OutlookGeoCoordinates, PhysicalAddress} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the collection of place entities. */
 export class Place extends Entity implements Parsable {
-    /** The street address of the place.  */
+    /** The street address of the place. */
     private _address?: PhysicalAddress | undefined;
-    /** The name associated with the place.  */
+    /** The name associated with the place. */
     private _displayName?: string | undefined;
-    /** Specifies the place location in latitude, longitude and (optionally) altitude coordinates.  */
+    /** Specifies the place location in latitude, longitude and (optionally) altitude coordinates. */
     private _geoCoordinates?: OutlookGeoCoordinates | undefined;
-    /** The phone number of the place.  */
+    /** The phone number of the place. */
     private _phone?: string | undefined;
     /**
      * Gets the address property value. The street address of the place.

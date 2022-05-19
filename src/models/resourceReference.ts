@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ResourceReference implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The item's unique identifier.  */
+    /** The item's unique identifier. */
     private _id?: string | undefined;
-    /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem'  */
+    /** A string value that can be used to classify the item, such as 'microsoft.graph.driveItem' */
     private _type?: string | undefined;
-    /** A URL leading to the referenced item.  */
+    /** A URL leading to the referenced item. */
     private _webUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

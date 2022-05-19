@@ -1,9 +1,9 @@
 
-/** Get entity from applicationTemplates by key  */
+/** Retrieve the properties of an [applicationTemplate](../resources/applicationtemplate.md) object. */
 export class ApplicationTemplateItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

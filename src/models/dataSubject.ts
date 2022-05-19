@@ -1,15 +1,15 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DataSubject implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Email of the data subject.  */
+    /** Email of the data subject. */
     private _email?: string | undefined;
-    /** First name of the data subject.  */
+    /** First name of the data subject. */
     private _firstName?: string | undefined;
-    /** Last Name of the data subject.  */
+    /** Last Name of the data subject. */
     private _lastName?: string | undefined;
-    /** The country/region of residency. The residency information is uesed only for internal reporting but not for the content search.  */
+    /** The country/region of residency. The residency information is uesed only for internal reporting but not for the content search. */
     private _residency?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,10 +1,11 @@
 import {Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Event representing an general failure. */
 export class DeviceManagementTroubleshootingEvent extends Entity implements Parsable {
-    /** Id used for tracing the failure in the service.  */
+    /** Id used for tracing the failure in the service. */
     private _correlationId?: string | undefined;
-    /** Time when the event occurred .  */
+    /** Time when the event occurred . */
     private _eventDateTime?: Date | undefined;
     /**
      * Instantiates a new deviceManagementTroubleshootingEvent and sets the default values.

@@ -3,14 +3,15 @@ import {createUserConsentRequestFromDiscriminatorValue} from './createUserConsen
 import {AppConsentRequestScope, Entity, UserConsentRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityGovernance singleton. */
 export class AppConsentRequest extends Entity implements Parsable {
-    /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.  */
+    /** The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby. */
     private _appDisplayName?: string | undefined;
-    /** The identifier of the application. Required. Supports $filter (eq only) and $orderby.  */
+    /** The identifier of the application. Required. Supports $filter (eq only) and $orderby. */
     private _appId?: string | undefined;
-    /** A list of pending scopes waiting for approval. Required.  */
+    /** A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required. */
     private _pendingScopes?: AppConsentRequestScope[] | undefined;
-    /** A list of pending user consent requests.  */
+    /** A list of pending user consent requests. */
     private _userConsentRequests?: UserConsentRequest[] | undefined;
     /**
      * Gets the appDisplayName property value. The display name of the app for which consent is requested. Required. Supports $filter (eq only) and $orderby.
@@ -59,14 +60,14 @@ export class AppConsentRequest extends Entity implements Parsable {
         };
     };
     /**
-     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
+     * Gets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
      * @returns a appConsentRequestScope
      */
     public get pendingScopes() {
         return this._pendingScopes;
     };
     /**
-     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. Required.
+     * Sets the pendingScopes property value. A list of pending scopes waiting for approval. This is empty if the consentType is Static. Required.
      * @param value Value to set for the pendingScopes property.
      */
     public set pendingScopes(value: AppConsentRequestScope[] | undefined) {

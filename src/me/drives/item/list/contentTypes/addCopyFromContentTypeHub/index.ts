@@ -1,1 +1,1 @@
-export * from './addCopyFromContentTypeHubRequestBody'
+export * from './addCopyFromContentTypeHubPostRequestBody'

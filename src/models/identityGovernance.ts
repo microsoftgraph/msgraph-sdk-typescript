@@ -6,15 +6,15 @@ import {AccessReviewSet, AppConsentApprovalRoute, EntitlementManagement, TermsOf
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class IdentityGovernance implements AdditionalDataHolder, Parsable {
-    /** The accessReviews property  */
+    /** The accessReviews property */
     private _accessReviews?: AccessReviewSet | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The appConsent property  */
+    /** The appConsent property */
     private _appConsent?: AppConsentApprovalRoute | undefined;
-    /** The entitlementManagement property  */
+    /** The entitlementManagement property */
     private _entitlementManagement?: EntitlementManagement | undefined;
-    /** The termsOfUse property  */
+    /** The termsOfUse property */
     private _termsOfUse?: TermsOfUseContainer | undefined;
     /**
      * Gets the accessReviews property value. The accessReviews property

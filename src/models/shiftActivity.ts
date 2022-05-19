@@ -2,19 +2,19 @@ import {ScheduleEntityTheme} from './scheduleEntityTheme';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ShiftActivity implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Customer defined code for the shiftActivity. Required.  */
+    /** Customer defined code for the shiftActivity. Required. */
     private _code?: string | undefined;
-    /** The name of the shiftActivity. Required.  */
+    /** The name of the shiftActivity. Required. */
     private _displayName?: string | undefined;
-    /** The end date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.  */
+    /** The end date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
     private _endDateTime?: Date | undefined;
-    /** Indicates whether the microsoft.graph.user should be paid for the activity during their shift. Required.  */
+    /** Indicates whether the microsoft.graph.user should be paid for the activity during their shift. Required. */
     private _isPaid?: boolean | undefined;
-    /** The start date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required.  */
+    /** The start date and time for the shiftActivity. The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Required. */
     private _startDateTime?: Date | undefined;
-    /** The theme property  */
+    /** The theme property */
     private _theme?: ScheduleEntityTheme | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

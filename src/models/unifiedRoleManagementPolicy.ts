@@ -3,24 +3,25 @@ import {createUnifiedRoleManagementPolicyRuleFromDiscriminatorValue} from './cre
 import {Entity, Identity, UnifiedRoleManagementPolicyRule} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the policyRoot singleton. */
 export class UnifiedRoleManagementPolicy extends Entity implements Parsable {
-    /** Description for the policy.  */
+    /** Description for the policy. */
     private _description?: string | undefined;
-    /** Display name for the policy.  */
+    /** Display name for the policy. */
     private _displayName?: string | undefined;
-    /** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval.  */
+    /** Not implemented. The list of effective rules like approval rules and expiration rules evaluated based on inherited referenced rules. For example, if there is a tenant-wide policy to enforce enabling an approval rule, the effective rule will be to enable approval even if the policy has a rule to disable approval. */
     private _effectiveRules?: UnifiedRoleManagementPolicyRule[] | undefined;
-    /** This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory.  */
+    /** This can only be set to true for a single tenant wide policy which will apply to all scopes and roles. Set the scopeId to '/' and scopeType to Directory. */
     private _isOrganizationDefault?: boolean | undefined;
-    /** The identity who last modified the role setting.  */
+    /** The identity who last modified the role setting. */
     private _lastModifiedBy?: Identity | undefined;
-    /** The time when the role setting was last modified.  */
+    /** The time when the role setting was last modified. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** The collection of rules like approval rules and expiration rules.  */
+    /** The collection of rules like approval rules and expiration rules. */
     private _rules?: UnifiedRoleManagementPolicyRule[] | undefined;
-    /** The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required.  */
+    /** The id of the scope where the policy is created. Can be / for the tenant or a group ID. Required. */
     private _scopeId?: string | undefined;
-    /** The type of the scope where the policy is created. One of Directory, DirectoryRole. Required.  */
+    /** The type of the scope where the policy is created. One of Directory, DirectoryRole. Required. */
     private _scopeType?: string | undefined;
     /**
      * Instantiates a new unifiedRoleManagementPolicy and sets the default values.

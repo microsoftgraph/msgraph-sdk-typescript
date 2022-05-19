@@ -1,9 +1,9 @@
 
-/** Resource to grant access to users or groups.  */
+/** Resource to grant access to users or groups. */
 export class UnifiedRoleAssignmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

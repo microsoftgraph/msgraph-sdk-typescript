@@ -2,13 +2,13 @@ import {createMobileAppIdentifierFromDiscriminatorValue} from './createMobileApp
 import {MobileAppIdentifier} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Represents policy deployment summary per app.  */
+/** Represents policy deployment summary per app. */
 export class ManagedAppPolicyDeploymentSummaryPerApp implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Number of users the policy is applied.  */
+    /** Number of users the policy is applied. */
     private _configurationAppliedUserCount?: number | undefined;
-    /** Deployment of an app.  */
+    /** Deployment of an app. */
     private _mobileAppIdentifier?: MobileAppIdentifier | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
-    /** The timestamp when the verified publisher was first added or most recently updated.  */
+    /** The timestamp when the verified publisher was first added or most recently updated. */
     private _addedDateTime?: Date | undefined;
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The verified publisher name from the app publisher's Partner Center account.  */
+    /** The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account. */
     private _displayName?: string | undefined;
-    /** The ID of the verified publisher from the app publisher's Partner Center account.  */
+    /** The ID of the verified publisher from the app publisher's Partner Center account. */
     private _verifiedPublisherId?: string | undefined;
     /**
      * Gets the addedDateTime property value. The timestamp when the verified publisher was first added or most recently updated.
@@ -44,14 +44,14 @@ export class VerifiedPublisher implements AdditionalDataHolder, Parsable {
         this._additionalData = {};
     };
     /**
-     * Gets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
+     * Gets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
      * @returns a string
      */
     public get displayName() {
         return this._displayName;
     };
     /**
-     * Sets the displayName property value. The verified publisher name from the app publisher's Partner Center account.
+     * Sets the displayName property value. The verified publisher name from the app publisher's Microsoft Partner Network (MPN) account.
      * @param value Value to set for the displayName property.
      */
     public set displayName(value: string | undefined) {

@@ -1,17 +1,17 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class InformationalUrl implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** CDN URL to the application's logo, Read-only.  */
+    /** CDN URL to the application's logo, Read-only. */
     private _logoUrl?: string | undefined;
-    /** Link to the application's marketing page. For example, https://www.contoso.com/app/marketing  */
+    /** Link to the application's marketing page. For example, https://www.contoso.com/app/marketing */
     private _marketingUrl?: string | undefined;
-    /** Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy  */
+    /** Link to the application's privacy statement. For example, https://www.contoso.com/app/privacy */
     private _privacyStatementUrl?: string | undefined;
-    /** Link to the application's support page. For example, https://www.contoso.com/app/support  */
+    /** Link to the application's support page. For example, https://www.contoso.com/app/support */
     private _supportUrl?: string | undefined;
-    /** Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice  */
+    /** Link to the application's terms of service statement. For example, https://www.contoso.com/app/termsofservice */
     private _termsOfServiceUrl?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

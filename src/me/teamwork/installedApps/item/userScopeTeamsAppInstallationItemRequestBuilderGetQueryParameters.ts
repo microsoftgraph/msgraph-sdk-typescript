@@ -1,9 +1,9 @@
 
-/** The apps installed in the personal scope of this user.  */
+/** The apps installed in the personal scope of this user. */
 export class UserScopeTeamsAppInstallationItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

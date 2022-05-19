@@ -1,9 +1,9 @@
 
-/** App configuration device status summary.  */
+/** App configuration device status summary. */
 export class DeviceStatusSummaryRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

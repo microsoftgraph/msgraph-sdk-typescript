@@ -15,43 +15,43 @@ import {createWindowsInformationProtectionPolicyFromDiscriminatorValue} from './
 import {AndroidManagedAppProtection, DefaultManagedAppProtection, Entity, IosManagedAppProtection, ManagedAppPolicy, ManagedAppRegistration, ManagedAppStatus, ManagedDeviceMobileAppConfiguration, ManagedEBook, MdmWindowsInformationProtectionPolicy, MobileApp, MobileAppCategory, TargetedManagedAppConfiguration, VppToken, WindowsInformationProtectionPolicy} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Singleton entity that acts as a container for all device app management functionality.  */
+/** Singleton entity that acts as a container for all device app management functionality. */
 export class DeviceAppManagement extends Entity implements Parsable {
-    /** Android managed app policies.  */
+    /** Android managed app policies. */
     private _androidManagedAppProtections?: AndroidManagedAppProtection[] | undefined;
-    /** Default managed app policies.  */
+    /** Default managed app policies. */
     private _defaultManagedAppProtections?: DefaultManagedAppProtection[] | undefined;
-    /** iOS managed app policies.  */
+    /** iOS managed app policies. */
     private _iosManagedAppProtections?: IosManagedAppProtection[] | undefined;
-    /** Whether the account is enabled for syncing applications from the Microsoft Store for Business.  */
+    /** Whether the account is enabled for syncing applications from the Microsoft Store for Business. */
     private _isEnabledForMicrosoftStoreForBusiness?: boolean | undefined;
-    /** Managed app policies.  */
+    /** Managed app policies. */
     private _managedAppPolicies?: ManagedAppPolicy[] | undefined;
-    /** The managed app registrations.  */
+    /** The managed app registrations. */
     private _managedAppRegistrations?: ManagedAppRegistration[] | undefined;
-    /** The managed app statuses.  */
+    /** The managed app statuses. */
     private _managedAppStatuses?: ManagedAppStatus[] | undefined;
-    /** The Managed eBook.  */
+    /** The Managed eBook. */
     private _managedEBooks?: ManagedEBook[] | undefined;
-    /** Windows information protection for apps running on devices which are MDM enrolled.  */
+    /** Windows information protection for apps running on devices which are MDM enrolled. */
     private _mdmWindowsInformationProtectionPolicies?: MdmWindowsInformationProtectionPolicy[] | undefined;
-    /** The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -<country/regioncode2>, where  is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture.  */
+    /** The locale information used to sync applications from the Microsoft Store for Business. Cultures that are specific to a country/region. The names of these cultures follow RFC 4646 (Windows Vista and later). The format is -<country/regioncode2>, where  is a lowercase two-letter code derived from ISO 639-1 and <country/regioncode2> is an uppercase two-letter code derived from ISO 3166. For example, en-US for English (United States) is a specific culture. */
     private _microsoftStoreForBusinessLanguage?: string | undefined;
-    /** The last time an application sync from the Microsoft Store for Business was completed.  */
+    /** The last time an application sync from the Microsoft Store for Business was completed. */
     private _microsoftStoreForBusinessLastCompletedApplicationSyncTime?: Date | undefined;
-    /** The last time the apps from the Microsoft Store for Business were synced successfully for the account.  */
+    /** The last time the apps from the Microsoft Store for Business were synced successfully for the account. */
     private _microsoftStoreForBusinessLastSuccessfulSyncDateTime?: Date | undefined;
-    /** The mobile app categories.  */
+    /** The mobile app categories. */
     private _mobileAppCategories?: MobileAppCategory[] | undefined;
-    /** The Managed Device Mobile Application Configurations.  */
+    /** The Managed Device Mobile Application Configurations. */
     private _mobileAppConfigurations?: ManagedDeviceMobileAppConfiguration[] | undefined;
-    /** The mobile apps.  */
+    /** The mobile apps. */
     private _mobileApps?: MobileApp[] | undefined;
-    /** Targeted managed app configurations.  */
+    /** Targeted managed app configurations. */
     private _targetedManagedAppConfigurations?: TargetedManagedAppConfiguration[] | undefined;
-    /** List of Vpp tokens for this organization.  */
+    /** List of Vpp tokens for this organization. */
     private _vppTokens?: VppToken[] | undefined;
-    /** Windows information protection for apps running on devices which are not MDM enrolled.  */
+    /** Windows information protection for apps running on devices which are not MDM enrolled. */
     private _windowsInformationProtectionPolicies?: WindowsInformationProtectionPolicy[] | undefined;
     /**
      * Gets the androidManagedAppProtections property value. Android managed app policies.

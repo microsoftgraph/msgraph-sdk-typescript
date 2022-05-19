@@ -7,25 +7,25 @@ import {UserPurpose} from './userPurpose';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MailboxSettings implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Folder ID of an archive folder for the user.  */
+    /** Folder ID of an archive folder for the user. Read only. */
     private _archiveFolder?: string | undefined;
-    /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user.  */
+    /** Configuration settings to automatically notify the sender of an incoming email with a message from the signed-in user. */
     private _automaticRepliesSetting?: AutomaticRepliesSetting | undefined;
-    /** The date format for the user's mailbox.  */
+    /** The date format for the user's mailbox. */
     private _dateFormat?: string | undefined;
-    /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.  */
+    /** If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly. */
     private _delegateMeetingMessageDeliveryOptions?: DelegateMeetingMessageDeliveryOptions | undefined;
-    /** The locale information for the user, including the preferred language and country/region.  */
+    /** The locale information for the user, including the preferred language and country/region. */
     private _language?: LocaleInfo | undefined;
-    /** The time format for the user's mailbox.  */
+    /** The time format for the user's mailbox. */
     private _timeFormat?: string | undefined;
-    /** The default time zone for the user's mailbox.  */
+    /** The default time zone for the user's mailbox. */
     private _timeZone?: string | undefined;
-    /** The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only.  */
+    /** The purpose of the mailbox. Used to differentiate a mailbox for a single user from a shared mailbox and equipment mailbox in Exchange Online. Read only. */
     private _userPurpose?: UserPurpose | undefined;
-    /** The days of the week and hours in a specific time zone that the user works.  */
+    /** The days of the week and hours in a specific time zone that the user works. */
     private _workingHours?: WorkingHours | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -42,14 +42,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._additionalData = value;
     };
     /**
-     * Gets the archiveFolder property value. Folder ID of an archive folder for the user.
+     * Gets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
      * @returns a string
      */
     public get archiveFolder() {
         return this._archiveFolder;
     };
     /**
-     * Sets the archiveFolder property value. Folder ID of an archive folder for the user.
+     * Sets the archiveFolder property value. Folder ID of an archive folder for the user. Read only.
      * @param value Value to set for the archiveFolder property.
      */
     public set archiveFolder(value: string | undefined) {
@@ -90,14 +90,14 @@ export class MailboxSettings implements AdditionalDataHolder, Parsable {
         this._dateFormat = value;
     };
     /**
-     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+     * Gets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
      * @returns a delegateMeetingMessageDeliveryOptions
      */
     public get delegateMeetingMessageDeliveryOptions() {
         return this._delegateMeetingMessageDeliveryOptions;
     };
     /**
-     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly.
+     * Sets the delegateMeetingMessageDeliveryOptions property value. If the user has a calendar delegate, this specifies whether the delegate, mailbox owner, or both receive meeting messages and meeting responses. Possible values are: sendToDelegateAndInformationToPrincipal, sendToDelegateAndPrincipal, sendToDelegateOnly. The default is sendToDelegateOnly.
      * @param value Value to set for the delegateMeetingMessageDeliveryOptions property.
      */
     public set delegateMeetingMessageDeliveryOptions(value: DelegateMeetingMessageDeliveryOptions | undefined) {

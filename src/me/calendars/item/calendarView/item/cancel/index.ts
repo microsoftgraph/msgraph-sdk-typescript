@@ -1,1 +1,1 @@
-export * from './cancelRequestBody'
+export * from './cancelPostRequestBody'

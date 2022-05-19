@@ -2,15 +2,15 @@ import {SelectionLikelihoodInfo} from './selectionLikelihoodInfo';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ScoredEmailAddress implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The email address.  */
+    /** The email address. */
     private _address?: string | undefined;
-    /** The itemId property  */
+    /** The itemId property */
     private _itemId?: string | undefined;
-    /** The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships.  */
+    /** The relevance score of the email address. A relevance score is used as a sort key, in relation to the other returned results. A higher relevance score value corresponds to a more relevant result. Relevance is determined by the user’s communication and collaboration patterns and business relationships. */
     private _relevanceScore?: number | undefined;
-    /** The selectionLikelihood property  */
+    /** The selectionLikelihood property */
     private _selectionLikelihood?: SelectionLikelihoodInfo | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

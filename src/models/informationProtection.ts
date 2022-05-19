@@ -3,11 +3,11 @@ import {createThreatAssessmentRequestFromDiscriminatorValue} from './createThrea
 import {Bitlocker, Entity, ThreatAssessmentRequest} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the informationProtection singleton.  */
+/** Provides operations to manage the informationProtection singleton. */
 export class InformationProtection extends Entity implements Parsable {
-    /** The bitlocker property  */
+    /** The bitlocker property */
     private _bitlocker?: Bitlocker | undefined;
-    /** The threatAssessmentRequests property  */
+    /** The threatAssessmentRequests property */
     private _threatAssessmentRequests?: ThreatAssessmentRequest[] | undefined;
     /**
      * Gets the bitlocker property value. The bitlocker property

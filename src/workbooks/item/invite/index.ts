@@ -1,2 +1,2 @@
 export * from './inviteResponse'
-export * from './inviteRequestBody'
+export * from './invitePostRequestBody'

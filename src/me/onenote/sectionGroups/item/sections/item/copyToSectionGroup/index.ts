@@ -1,1 +1,1 @@
-export * from './copyToSectionGroupRequestBody'
+export * from './copyToSectionGroupPostRequestBody'

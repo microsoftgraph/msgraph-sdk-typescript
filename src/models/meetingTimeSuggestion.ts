@@ -6,21 +6,21 @@ import {AttendeeAvailability, Location, TimeSlot} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** An array that shows the availability status of each attendee for this meeting suggestion.  */
+    /** An array that shows the availability status of each attendee for this meeting suggestion. */
     private _attendeeAvailability?: AttendeeAvailability[] | undefined;
-    /** A percentage that represents the likelhood of all the attendees attending.  */
+    /** A percentage that represents the likelhood of all the attendees attending. */
     private _confidence?: number | undefined;
-    /** An array that specifies the name and geographic location of each meeting location for this meeting suggestion.  */
+    /** An array that specifies the name and geographic location of each meeting location for this meeting suggestion. */
     private _locations?: Location[] | undefined;
-    /** A time period suggested for the meeting.  */
+    /** A time period suggested for the meeting. */
     private _meetingTimeSlot?: TimeSlot | undefined;
-    /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence.  */
+    /** Order of meeting time suggestions sorted by their computed confidence value from high to low, then by chronology if there are suggestions with the same confidence. */
     private _order?: number | undefined;
-    /** Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.  */
+    /** Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown. */
     private _organizerAvailability?: FreeBusyStatus | undefined;
-    /** Reason for suggesting the meeting time.  */
+    /** Reason for suggesting the meeting time. */
     private _suggestionReason?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.
@@ -128,14 +128,14 @@ export class MeetingTimeSuggestion implements AdditionalDataHolder, Parsable {
         this._order = value;
     };
     /**
-     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Gets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @returns a freeBusyStatus
      */
     public get organizerAvailability() {
         return this._organizerAvailability;
     };
     /**
-     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. The possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
+     * Sets the organizerAvailability property value. Availability of the meeting organizer for this meeting suggestion. Possible values are: free, tentative, busy, oof, workingElsewhere, unknown.
      * @param value Value to set for the organizerAvailability property.
      */
     public set organizerAvailability(value: FreeBusyStatus | undefined) {

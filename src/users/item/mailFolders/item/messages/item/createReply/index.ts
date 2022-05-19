@@ -1,1 +1,1 @@
-export * from './createReplyRequestBody'
+export * from './createReplyPostRequestBody'

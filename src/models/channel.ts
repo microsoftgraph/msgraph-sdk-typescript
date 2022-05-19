@@ -6,28 +6,29 @@ import {createTeamsTabFromDiscriminatorValue} from './createTeamsTabFromDiscrimi
 import {ChatMessage, ConversationMember, DriveItem, Entity, TeamsTab} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class Channel extends Entity implements Parsable {
-    /** Read only. Timestamp at which the channel was created.  */
+    /** Read only. Timestamp at which the channel was created. */
     private _createdDateTime?: Date | undefined;
-    /** Optional textual description for the channel.  */
+    /** Optional textual description for the channel. */
     private _description?: string | undefined;
-    /** Channel name as it will appear to the user in Microsoft Teams.  */
+    /** Channel name as it will appear to the user in Microsoft Teams. */
     private _displayName?: string | undefined;
-    /** The email address for sending messages to the channel. Read-only.  */
+    /** The email address for sending messages to the channel. Read-only. */
     private _email?: string | undefined;
-    /** Metadata for the location where the channel's files are stored.  */
+    /** Metadata for the location where the channel's files are stored. */
     private _filesFolder?: DriveItem | undefined;
-    /** Indicates whether the channel should automatically be marked 'favorite' for all members of the team. Can only be set programmatically with Create team. Default: false.  */
+    /** Indicates whether the channel should automatically be marked 'favorite' for all members of the team. Can only be set programmatically with Create team. Default: false. */
     private _isFavoriteByDefault?: boolean | undefined;
-    /** A collection of membership records associated with the channel.  */
+    /** A collection of membership records associated with the channel. */
     private _members?: ConversationMember[] | undefined;
-    /** The type of the channel. Can be set during creation and can't be changed. Possible values are: standard - Channel inherits the list of members of the parent team; private - Channel can have members that are a subset of all the members on the parent team.  */
+    /** The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared. */
     private _membershipType?: ChannelMembershipType | undefined;
-    /** A collection of all the messages in the channel. A navigation property. Nullable.  */
+    /** A collection of all the messages in the channel. A navigation property. Nullable. */
     private _messages?: ChatMessage[] | undefined;
-    /** A collection of all the tabs in the channel. A navigation property.  */
+    /** A collection of all the tabs in the channel. A navigation property. */
     private _tabs?: TeamsTab[] | undefined;
-    /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only.  */
+    /** A hyperlink that will go to the channel in Microsoft Teams. This is the URL that you get when you right-click a channel in Microsoft Teams and select Get link to channel. This URL should be treated as an opaque blob, and not parsed. Read-only. */
     private _webUrl?: string | undefined;
     /**
      * Instantiates a new channel and sets the default values.
@@ -153,14 +154,14 @@ export class Channel extends Entity implements Parsable {
         this._members = value;
     };
     /**
-     * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. Possible values are: standard - Channel inherits the list of members of the parent team; private - Channel can have members that are a subset of all the members on the parent team.
+     * Gets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
      * @returns a channelMembershipType
      */
     public get membershipType() {
         return this._membershipType;
     };
     /**
-     * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. Possible values are: standard - Channel inherits the list of members of the parent team; private - Channel can have members that are a subset of all the members on the parent team.
+     * Sets the membershipType property value. The type of the channel. Can be set during creation and can't be changed. The possible values are: standard, private, unknownFutureValue, shared. The default value is standard. Note that you must use the Prefer: include-unknown-enum-members request header to get the following value in this evolvable enum: shared.
      * @param value Value to set for the membershipType property.
      */
     public set membershipType(value: ChannelMembershipType | undefined) {

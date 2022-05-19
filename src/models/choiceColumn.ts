@@ -1,13 +1,13 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class ChoiceColumn implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** If true, allows custom values that aren't in the configured choices.  */
+    /** If true, allows custom values that aren't in the configured choices. */
     private _allowTextEntry?: boolean | undefined;
-    /** The list of values available for this column.  */
+    /** The list of values available for this column. */
     private _choices?: string[] | undefined;
-    /** How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons  */
+    /** How the choices are to be presented in the UX. Must be one of checkBoxes, dropDownMenu, or radioButtons */
     private _displayAs?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

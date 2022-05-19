@@ -1,9 +1,9 @@
 
-/** The user attribute assignments included in the user flow.  */
+/** The user attribute assignments included in the user flow. */
 export class IdentityUserFlowAttributeAssignmentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

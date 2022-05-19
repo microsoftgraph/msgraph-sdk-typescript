@@ -3,11 +3,11 @@ import {ExternalLink} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class PageLinks implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Opens the page in the OneNote native client if it's installed.  */
+    /** Opens the page in the OneNote native client if it's installed. */
     private _oneNoteClientUrl?: ExternalLink | undefined;
-    /** Opens the page in OneNote on the web.  */
+    /** Opens the page in OneNote on the web. */
     private _oneNoteWebUrl?: ExternalLink | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

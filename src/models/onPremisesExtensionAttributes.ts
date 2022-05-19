@@ -1,37 +1,37 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class OnPremisesExtensionAttributes implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** First customizable extension attribute.  */
+    /** First customizable extension attribute. */
     private _extensionAttribute1?: string | undefined;
-    /** Tenth customizable extension attribute.  */
+    /** Tenth customizable extension attribute. */
     private _extensionAttribute10?: string | undefined;
-    /** Eleventh customizable extension attribute.  */
+    /** Eleventh customizable extension attribute. */
     private _extensionAttribute11?: string | undefined;
-    /** Twelfth customizable extension attribute.  */
+    /** Twelfth customizable extension attribute. */
     private _extensionAttribute12?: string | undefined;
-    /** Thirteenth customizable extension attribute.  */
+    /** Thirteenth customizable extension attribute. */
     private _extensionAttribute13?: string | undefined;
-    /** Fourteenth customizable extension attribute.  */
+    /** Fourteenth customizable extension attribute. */
     private _extensionAttribute14?: string | undefined;
-    /** Fifteenth customizable extension attribute.  */
+    /** Fifteenth customizable extension attribute. */
     private _extensionAttribute15?: string | undefined;
-    /** Second customizable extension attribute.  */
+    /** Second customizable extension attribute. */
     private _extensionAttribute2?: string | undefined;
-    /** Third customizable extension attribute.  */
+    /** Third customizable extension attribute. */
     private _extensionAttribute3?: string | undefined;
-    /** Fourth customizable extension attribute.  */
+    /** Fourth customizable extension attribute. */
     private _extensionAttribute4?: string | undefined;
-    /** Fifth customizable extension attribute.  */
+    /** Fifth customizable extension attribute. */
     private _extensionAttribute5?: string | undefined;
-    /** Sixth customizable extension attribute.  */
+    /** Sixth customizable extension attribute. */
     private _extensionAttribute6?: string | undefined;
-    /** Seventh customizable extension attribute.  */
+    /** Seventh customizable extension attribute. */
     private _extensionAttribute7?: string | undefined;
-    /** Eighth customizable extension attribute.  */
+    /** Eighth customizable extension attribute. */
     private _extensionAttribute8?: string | undefined;
-    /** Ninth customizable extension attribute.  */
+    /** Ninth customizable extension attribute. */
     private _extensionAttribute9?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

@@ -1,71 +1,71 @@
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DeviceHealthAttestationState implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate.  */
+    /** TWhen an Attestation Identity Key (AIK) is present on a device, it indicates that the device has an endorsement key (EK) certificate. */
     private _attestationIdentityKey?: string | undefined;
-    /** On or Off of BitLocker Drive Encryption  */
+    /** On or Off of BitLocker Drive Encryption */
     private _bitLockerStatus?: string | undefined;
-    /** The security version number of the Boot Application  */
+    /** The security version number of the Boot Application */
     private _bootAppSecurityVersion?: string | undefined;
-    /** When bootDebugging is enabled, the device is used in development and testing  */
+    /** When bootDebugging is enabled, the device is used in development and testing */
     private _bootDebugging?: string | undefined;
-    /** The security version number of the Boot Application  */
+    /** The security version number of the Boot Application */
     private _bootManagerSecurityVersion?: string | undefined;
-    /** The version of the Boot Manager  */
+    /** The version of the Boot Manager */
     private _bootManagerVersion?: string | undefined;
-    /** The Boot Revision List that was loaded during initial boot on the attested device  */
+    /** The Boot Revision List that was loaded during initial boot on the attested device */
     private _bootRevisionListInfo?: string | undefined;
-    /** When code integrity is enabled, code execution is restricted to integrity verified code  */
+    /** When code integrity is enabled, code execution is restricted to integrity verified code */
     private _codeIntegrity?: string | undefined;
-    /** The version of the Boot Manager  */
+    /** The version of the Boot Manager */
     private _codeIntegrityCheckVersion?: string | undefined;
-    /** The Code Integrity policy that is controlling the security of the boot environment  */
+    /** The Code Integrity policy that is controlling the security of the boot environment */
     private _codeIntegrityPolicy?: string | undefined;
-    /** The DHA report version. (Namespace version)  */
+    /** The DHA report version. (Namespace version) */
     private _contentNamespaceUrl?: string | undefined;
-    /** The HealthAttestation state schema version  */
+    /** The HealthAttestation state schema version */
     private _contentVersion?: string | undefined;
-    /** DEP Policy defines a set of hardware and software technologies that perform additional checks on memory  */
+    /** DEP Policy defines a set of hardware and software technologies that perform additional checks on memory */
     private _dataExcutionPolicy?: string | undefined;
-    /** The DHA report version. (Namespace version)  */
+    /** The DHA report version. (Namespace version) */
     private _deviceHealthAttestationStatus?: string | undefined;
-    /** ELAM provides protection for the computers in your network when they start up  */
+    /** ELAM provides protection for the computers in your network when they start up */
     private _earlyLaunchAntiMalwareDriverProtection?: string | undefined;
-    /** This attribute indicates if DHA is supported for the device  */
+    /** This attribute indicates if DHA is supported for the device */
     private _healthAttestationSupportedStatus?: string | undefined;
-    /** This attribute appears if DHA-Service detects an integrity issue  */
+    /** This attribute appears if DHA-Service detects an integrity issue */
     private _healthStatusMismatchInfo?: string | undefined;
-    /** The DateTime when device was evaluated or issued to MDM  */
+    /** The DateTime when device was evaluated or issued to MDM */
     private _issuedDateTime?: Date | undefined;
-    /** The Timestamp of the last update.  */
+    /** The Timestamp of the last update. */
     private _lastUpdateDateTime?: string | undefined;
-    /** When operatingSystemKernelDebugging is enabled, the device is used in development and testing  */
+    /** When operatingSystemKernelDebugging is enabled, the device is used in development and testing */
     private _operatingSystemKernelDebugging?: string | undefined;
-    /** The Operating System Revision List that was loaded during initial boot on the attested device  */
+    /** The Operating System Revision List that was loaded during initial boot on the attested device */
     private _operatingSystemRevListInfo?: string | undefined;
-    /** The measurement that is captured in PCR[0]  */
+    /** The measurement that is captured in PCR[0] */
     private _pcr0?: string | undefined;
-    /** Informational attribute that identifies the HASH algorithm that was used by TPM  */
+    /** Informational attribute that identifies the HASH algorithm that was used by TPM */
     private _pcrHashAlgorithm?: string | undefined;
-    /** The number of times a PC device has hibernated or resumed  */
+    /** The number of times a PC device has hibernated or resumed */
     private _resetCount?: number | undefined;
-    /** The number of times a PC device has rebooted  */
+    /** The number of times a PC device has rebooted */
     private _restartCount?: number | undefined;
-    /** Safe mode is a troubleshooting option for Windows that starts your computer in a limited state  */
+    /** Safe mode is a troubleshooting option for Windows that starts your computer in a limited state */
     private _safeMode?: string | undefined;
-    /** When Secure Boot is enabled, the core components must have the correct cryptographic signatures  */
+    /** When Secure Boot is enabled, the core components must have the correct cryptographic signatures */
     private _secureBoot?: string | undefined;
-    /** Fingerprint of the Custom Secure Boot Configuration Policy  */
+    /** Fingerprint of the Custom Secure Boot Configuration Policy */
     private _secureBootConfigurationPolicyFingerPrint?: string | undefined;
-    /** When test signing is allowed, the device does not enforce signature validation during boot  */
+    /** When test signing is allowed, the device does not enforce signature validation during boot */
     private _testSigning?: string | undefined;
-    /** The security version number of the Boot Application  */
+    /** The security version number of the Boot Application */
     private _tpmVersion?: string | undefined;
-    /** VSM is a container that protects high value assets from a compromised kernel  */
+    /** VSM is a container that protects high value assets from a compromised kernel */
     private _virtualSecureMode?: string | undefined;
-    /** Operating system running with limited services that is used to prepare a computer for Windows  */
+    /** Operating system running with limited services that is used to prepare a computer for Windows */
     private _windowsPE?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

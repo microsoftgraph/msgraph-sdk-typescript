@@ -1,9 +1,9 @@
 
-/** Column order information in a content type.  */
+/** Column order information in a content type. */
 export class ColumnDefinitionItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

@@ -3,15 +3,15 @@ import {IdentitySet} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class SharingInvitation implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** The email address provided for the recipient of the sharing invitation. Read-only.  */
+    /** The email address provided for the recipient of the sharing invitation. Read-only. */
     private _email?: string | undefined;
-    /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only.  */
+    /** Provides information about who sent the invitation that created this permission, if that information is available. Read-only. */
     private _invitedBy?: IdentitySet | undefined;
-    /** The redeemedBy property  */
+    /** The redeemedBy property */
     private _redeemedBy?: string | undefined;
-    /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only.  */
+    /** If true the recipient of the invitation needs to sign in in order to access the shared item. Read-only. */
     private _signInRequired?: boolean | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

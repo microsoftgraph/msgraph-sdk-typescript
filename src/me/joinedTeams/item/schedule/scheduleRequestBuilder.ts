@@ -8,7 +8,9 @@ import {OpenShiftChangeRequestItemRequestBuilder} from './openShiftChangeRequest
 import {OpenShiftChangeRequestsRequestBuilder} from './openShiftChangeRequests/openShiftChangeRequestsRequestBuilder';
 import {OpenShiftItemRequestBuilder} from './openShifts/item/openShiftItemRequestBuilder';
 import {OpenShiftsRequestBuilder} from './openShifts/openShiftsRequestBuilder';
-import {ScheduleRequestBuilderGetQueryParameters} from './scheduleRequestBuilderGetQueryParameters';
+import {ScheduleRequestBuilderDeleteRequestConfiguration} from './scheduleRequestBuilderDeleteRequestConfiguration';
+import {ScheduleRequestBuilderGetRequestConfiguration} from './scheduleRequestBuilderGetRequestConfiguration';
+import {ScheduleRequestBuilderPatchRequestConfiguration} from './scheduleRequestBuilderPatchRequestConfiguration';
 import {SchedulingGroupItemRequestBuilder} from './schedulingGroups/item/schedulingGroupItemRequestBuilder';
 import {SchedulingGroupsRequestBuilder} from './schedulingGroups/schedulingGroupsRequestBuilder';
 import {ShareRequestBuilder} from './share/shareRequestBuilder';
@@ -24,53 +26,53 @@ import {TimeOffItemRequestBuilder} from './timesOff/item/timeOffItemRequestBuild
 import {TimesOffRequestBuilder} from './timesOff/timesOffRequestBuilder';
 import {getPathParameters, HttpMethod, Parsable, ParsableFactory, RequestAdapter, RequestInformation, RequestOption, ResponseHandler} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the schedule property of the microsoft.graph.team entity.  */
+/** Provides operations to manage the schedule property of the microsoft.graph.team entity. */
 export class ScheduleRequestBuilder {
-    /** The offerShiftRequests property  */
+    /** The offerShiftRequests property */
     public get offerShiftRequests(): OfferShiftRequestsRequestBuilder {
         return new OfferShiftRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The openShiftChangeRequests property  */
+    /** The openShiftChangeRequests property */
     public get openShiftChangeRequests(): OpenShiftChangeRequestsRequestBuilder {
         return new OpenShiftChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The openShifts property  */
+    /** The openShifts property */
     public get openShifts(): OpenShiftsRequestBuilder {
         return new OpenShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Path parameters for the request  */
+    /** Path parameters for the request */
     private readonly pathParameters: Record<string, unknown>;
-    /** The request adapter to use to execute the requests.  */
+    /** The request adapter to use to execute the requests. */
     private readonly requestAdapter: RequestAdapter;
-    /** The schedulingGroups property  */
+    /** The schedulingGroups property */
     public get schedulingGroups(): SchedulingGroupsRequestBuilder {
         return new SchedulingGroupsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The share property  */
+    /** The share property */
     public get share(): ShareRequestBuilder {
         return new ShareRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The shifts property  */
+    /** The shifts property */
     public get shifts(): ShiftsRequestBuilder {
         return new ShiftsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The swapShiftsChangeRequests property  */
+    /** The swapShiftsChangeRequests property */
     public get swapShiftsChangeRequests(): SwapShiftsChangeRequestsRequestBuilder {
         return new SwapShiftsChangeRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timeOffReasons property  */
+    /** The timeOffReasons property */
     public get timeOffReasons(): TimeOffReasonsRequestBuilder {
         return new TimeOffReasonsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timeOffRequests property  */
+    /** The timeOffRequests property */
     public get timeOffRequests(): TimeOffRequestsRequestBuilder {
         return new TimeOffRequestsRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** The timesOff property  */
+    /** The timesOff property */
     public get timesOff(): TimesOffRequestBuilder {
         return new TimesOffRequestBuilder(this.pathParameters, this.requestAdapter);
     }
-    /** Url template to use to build the URL for the current request builder  */
+    /** Url template to use to build the URL for the current request builder */
     private readonly urlTemplate: string;
     /**
      * Instantiates a new ScheduleRequestBuilder and sets the default values.
@@ -87,63 +89,64 @@ export class ScheduleRequestBuilder {
     };
     /**
      * Delete navigation property schedule for me
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createDeleteRequestInformation(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createDeleteRequestInformation(requestConfiguration?: ScheduleRequestBuilderDeleteRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.DELETE;
-        if(headers) requestInfo.headers = headers;
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * The schedule of shifts for this team.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createGetRequestInformation(queryParameters?: ScheduleRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createGetRequestInformation(requestConfiguration?: ScheduleRequestBuilderGetRequestConfiguration | undefined) : RequestInformation {
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.GET;
-        if(headers) requestInfo.headers = headers;
-        queryParameters && requestInfo.setQueryStringParametersFromRawObject(queryParameters);
-        options && requestInfo.addRequestOptions(...options);
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.setQueryStringParametersFromRawObject(requestConfiguration.queryParameters);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         return requestInfo;
     };
     /**
      * Update the navigation property schedule in me
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @returns a RequestInformation
      */
-    public createPatchRequestInformation(body: Schedule | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined) : RequestInformation {
+    public createPatchRequestInformation(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined) : RequestInformation {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = new RequestInformation();
         requestInfo.urlTemplate = this.urlTemplate;
         requestInfo.pathParameters = this.pathParameters;
         requestInfo.httpMethod = HttpMethod.PATCH;
-        if(headers) requestInfo.headers = headers;
+        if (requestConfiguration) {
+            requestInfo.addRequestHeaders(requestConfiguration.headers);
+            requestInfo.addRequestOptions(requestConfiguration.options);
+        }
         requestInfo.setContentFromParsable(this.requestAdapter, "application/json", body);
-        options && requestInfo.addRequestOptions(...options);
         return requestInfo;
     };
     /**
      * Delete navigation property schedule for me
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public delete(headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public delete(requestConfiguration?: ScheduleRequestBuilderDeleteRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         const requestInfo = this.createDeleteRequestInformation(
-            headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -153,15 +156,13 @@ export class ScheduleRequestBuilder {
     };
     /**
      * The schedule of shifts for this team.
-     * @param headers Request headers
-     * @param options Request options
-     * @param queryParameters Request query parameters
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      * @returns a Promise of Schedule
      */
-    public get(queryParameters?: ScheduleRequestBuilderGetQueryParameters | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
+    public get(requestConfiguration?: ScheduleRequestBuilderGetRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<Schedule | undefined> {
         const requestInfo = this.createGetRequestInformation(
-            queryParameters, headers, options
+            requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,
@@ -205,14 +206,13 @@ export class ScheduleRequestBuilder {
     /**
      * Update the navigation property schedule in me
      * @param body 
-     * @param headers Request headers
-     * @param options Request options
+     * @param requestConfiguration Configuration for the request such as headers, query parameters, and middleware options.
      * @param responseHandler Response handler to use in place of the default response handling provided by the core service
      */
-    public patch(body: Schedule | undefined, headers?: Record<string, string> | undefined, options?: RequestOption[] | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
+    public patch(body: Schedule | undefined, requestConfiguration?: ScheduleRequestBuilderPatchRequestConfiguration | undefined, responseHandler?: ResponseHandler | undefined) : Promise<void> {
         if(!body) throw new Error("body cannot be undefined");
         const requestInfo = this.createPatchRequestInformation(
-            body, headers, options
+            body, requestConfiguration
         );
         const errorMapping: Record<string, ParsableFactory<Parsable>> = {
             "4XX": createODataErrorFromDiscriminatorValue,

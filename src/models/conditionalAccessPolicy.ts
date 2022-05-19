@@ -5,22 +5,23 @@ import {createConditionalAccessSessionControlsFromDiscriminatorValue} from './cr
 import {ConditionalAccessConditionSet, ConditionalAccessGrantControls, ConditionalAccessSessionControls, Entity} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Provides operations to manage the identityContainer singleton. */
 export class ConditionalAccessPolicy extends Entity implements Parsable {
-    /** The conditions property  */
+    /** The conditions property */
     private _conditions?: ConditionalAccessConditionSet | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
     private _createdDateTime?: Date | undefined;
-    /** Not used.  */
+    /** Not used. */
     private _description?: string | undefined;
-    /** Specifies a display name for the conditionalAccessPolicy object.  */
+    /** Specifies a display name for the conditionalAccessPolicy object. */
     private _displayName?: string | undefined;
-    /** Specifies the grant controls that must be fulfilled to pass the policy.  */
+    /** Specifies the grant controls that must be fulfilled to pass the policy. */
     private _grantControls?: ConditionalAccessGrantControls | undefined;
-    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly.  */
+    /** The Timestamp type represents date and time information using ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2014 is 2014-01-01T00:00:00Z. Readonly. */
     private _modifiedDateTime?: Date | undefined;
-    /** Specifies the session controls that are enforced after sign-in.  */
+    /** Specifies the session controls that are enforced after sign-in. */
     private _sessionControls?: ConditionalAccessSessionControls | undefined;
-    /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required.  */
+    /** Specifies the state of the conditionalAccessPolicy object. Possible values are: enabled, disabled, enabledForReportingButNotEnforced. Required. */
     private _state?: ConditionalAccessPolicyState | undefined;
     /**
      * Gets the conditions property value. The conditions property

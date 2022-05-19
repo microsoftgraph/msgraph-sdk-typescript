@@ -1,9 +1,9 @@
 
-/** Content in a message hosted by Microsoft Teams - for example, images or code snippets.  */
+/** Content in a message hosted by Microsoft Teams - for example, images or code snippets. */
 export class ChatMessageHostedContentItemRequestBuilderGetQueryParameters {
-    /** Expand related entities  */
+    /** Expand related entities */
     public expand?: string[] | undefined;
-    /** Select properties to be returned  */
+    /** Select properties to be returned */
     public select?: string[] | undefined;
     /**
      * Maps the query parameters names to their encoded names for the URI template parsing.

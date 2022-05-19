@@ -3,15 +3,15 @@ import {FileSystemInfo} from './index';
 import {AdditionalDataHolder, Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
 export class DriveItemUploadableProperties implements AdditionalDataHolder, Parsable {
-    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.  */
+    /** Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well. */
     private _additionalData: Record<string, unknown>;
-    /** Provides a user-visible description of the item. Read-write. Only on OneDrive Personal.  */
+    /** Provides a user-visible description of the item. Read-write. Only on OneDrive Personal. */
     private _description?: string | undefined;
-    /** Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal.  */
+    /** Provides an expected file size to perform a quota check prior to upload. Only on OneDrive Personal. */
     private _fileSize?: number | undefined;
-    /** File system information on client. Read-write.  */
+    /** File system information on client. Read-write. */
     private _fileSystemInfo?: FileSystemInfo | undefined;
-    /** The name of the item (filename and extension). Read-write.  */
+    /** The name of the item (filename and extension). Read-write. */
     private _name?: string | undefined;
     /**
      * Gets the additionalData property value. Stores additional data not described in the OpenAPI description found when deserializing. Can be used for serialization as well.

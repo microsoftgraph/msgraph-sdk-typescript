@@ -1,41 +1,47 @@
+import {createChecklistItemFromDiscriminatorValue} from './createChecklistItemFromDiscriminatorValue';
 import {createDateTimeTimeZoneFromDiscriminatorValue} from './createDateTimeTimeZoneFromDiscriminatorValue';
 import {createExtensionFromDiscriminatorValue} from './createExtensionFromDiscriminatorValue';
 import {createItemBodyFromDiscriminatorValue} from './createItemBodyFromDiscriminatorValue';
 import {createLinkedResourceFromDiscriminatorValue} from './createLinkedResourceFromDiscriminatorValue';
 import {createPatternedRecurrenceFromDiscriminatorValue} from './createPatternedRecurrenceFromDiscriminatorValue';
 import {Importance} from './importance';
-import {DateTimeTimeZone, Entity, Extension, ItemBody, LinkedResource, PatternedRecurrence} from './index';
+import {ChecklistItem, DateTimeTimeZone, Entity, Extension, ItemBody, LinkedResource, PatternedRecurrence} from './index';
 import {TaskStatus} from './taskStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
+/** Casts the previous resource to user. */
 export class TodoTask extends Entity implements Parsable {
-    /** The task body that typically contains information about the task.  */
+    /** The task body that typically contains information about the task. */
     private _body?: ItemBody | undefined;
-    /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.  */
+    /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     private _bodyLastModifiedDateTime?: Date | undefined;
-    /** The date in the specified time zone that the task was finished.  */
+    /** The categories property */
+    private _categories?: string[] | undefined;
+    /** The checklistItems property */
+    private _checklistItems?: ChecklistItem[] | undefined;
+    /** The date in the specified time zone that the task was finished. */
     private _completedDateTime?: DateTimeTimeZone | undefined;
-    /** The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.  */
+    /** The date and time when the task was created. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     private _createdDateTime?: Date | undefined;
-    /** The date in the specified time zone that the task is to be finished.  */
+    /** The date in the specified time zone that the task is to be finished. */
     private _dueDateTime?: DateTimeTimeZone | undefined;
-    /** The collection of open extensions defined for the task. Nullable.  */
+    /** The collection of open extensions defined for the task. Nullable. */
     private _extensions?: Extension[] | undefined;
-    /** The importance of the task. Possible values are: low, normal, high.  */
+    /** The importance of the task. Possible values are: low, normal, high. */
     private _importance?: Importance | undefined;
-    /** Set to true if an alert is set to remind the user of the task.  */
+    /** Set to true if an alert is set to remind the user of the task. */
     private _isReminderOn?: boolean | undefined;
-    /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'.  */
+    /** The date and time when the task was last modified. By default, it is in UTC. You can provide a custom time zone in the request header. The property value uses ISO 8601 format and is always in UTC time. For example, midnight UTC on Jan 1, 2020 would look like this: '2020-01-01T00:00:00Z'. */
     private _lastModifiedDateTime?: Date | undefined;
-    /** A collection of resources linked to the task.  */
+    /** A collection of resources linked to the task. */
     private _linkedResources?: LinkedResource[] | undefined;
-    /** The recurrence pattern for the task.  */
+    /** The recurrence pattern for the task. */
     private _recurrence?: PatternedRecurrence | undefined;
-    /** The date and time for a reminder alert of the task to occur.  */
+    /** The date and time for a reminder alert of the task to occur. */
     private _reminderDateTime?: DateTimeTimeZone | undefined;
-    /** Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred.  */
+    /** Indicates the state or progress of the task. Possible values are: notStarted, inProgress, completed, waitingOnOthers, deferred. */
     private _status?: TaskStatus | undefined;
-    /** A brief description of the task.  */
+    /** A brief description of the task. */
     private _title?: string | undefined;
     /**
      * Gets the body property value. The task body that typically contains information about the task.
@@ -64,6 +70,34 @@ export class TodoTask extends Entity implements Parsable {
      */
     public set bodyLastModifiedDateTime(value: Date | undefined) {
         this._bodyLastModifiedDateTime = value;
+    };
+    /**
+     * Gets the categories property value. The categories property
+     * @returns a string
+     */
+    public get categories() {
+        return this._categories;
+    };
+    /**
+     * Sets the categories property value. The categories property
+     * @param value Value to set for the categories property.
+     */
+    public set categories(value: string[] | undefined) {
+        this._categories = value;
+    };
+    /**
+     * Gets the checklistItems property value. The checklistItems property
+     * @returns a checklistItem
+     */
+    public get checklistItems() {
+        return this._checklistItems;
+    };
+    /**
+     * Sets the checklistItems property value. The checklistItems property
+     * @param value Value to set for the checklistItems property.
+     */
+    public set checklistItems(value: ChecklistItem[] | undefined) {
+        this._checklistItems = value;
     };
     /**
      * Gets the completedDateTime property value. The date in the specified time zone that the task was finished.
@@ -135,6 +169,8 @@ export class TodoTask extends Entity implements Parsable {
         return {...super.getFieldDeserializers(),
             "body": n => { this.body = n.getObjectValue<ItemBody>(createItemBodyFromDiscriminatorValue); },
             "bodyLastModifiedDateTime": n => { this.bodyLastModifiedDateTime = n.getDateValue(); },
+            "categories": n => { this.categories = n.getCollectionOfPrimitiveValues<string>(); },
+            "checklistItems": n => { this.checklistItems = n.getCollectionOfObjectValues<ChecklistItem>(createChecklistItemFromDiscriminatorValue); },
             "completedDateTime": n => { this.completedDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
             "createdDateTime": n => { this.createdDateTime = n.getDateValue(); },
             "dueDateTime": n => { this.dueDateTime = n.getObjectValue<DateTimeTimeZone>(createDateTimeTimeZoneFromDiscriminatorValue); },
@@ -242,6 +278,8 @@ export class TodoTask extends Entity implements Parsable {
         super.serialize(writer);
         writer.writeObjectValue<ItemBody>("body", this.body);
         writer.writeDateValue("bodyLastModifiedDateTime", this.bodyLastModifiedDateTime);
+        writer.writeCollectionOfPrimitiveValues<string>("categories", this.categories);
+        writer.writeCollectionOfObjectValues<ChecklistItem>("checklistItems", this.checklistItems);
         writer.writeObjectValue<DateTimeTimeZone>("completedDateTime", this.completedDateTime);
         writer.writeDateValue("createdDateTime", this.createdDateTime);
         writer.writeObjectValue<DateTimeTimeZone>("dueDateTime", this.dueDateTime);
