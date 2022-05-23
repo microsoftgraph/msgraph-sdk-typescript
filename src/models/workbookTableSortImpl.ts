@@ -4,7 +4,7 @@ import {WorkbookSortField} from './workbookSortField';
 import {WorkbookTableSort} from './workbookTableSort';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookTableSortImpl extends EntityImpl implements Parsable, WorkbookTableSort {
     /** Represents the current conditions used to last sort the table. Read-only. */
     public fields?: WorkbookSortField[] | undefined;

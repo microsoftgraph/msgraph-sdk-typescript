@@ -6,7 +6,7 @@ import {WorkbookChartPoint} from './workbookChartPoint';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartPointImpl extends EntityImpl implements Parsable, WorkbookChartPoint {
     /** Encapsulates the format properties chart point. Read-only. */
     public format?: WorkbookChartPointFormat | undefined;

@@ -8,7 +8,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Casts the previous resource to user. */
 export class RelationImpl extends EntityImpl implements Parsable, Relation {
     /** The from [term] of the relation. The term from which the relationship is defined. A null value would indicate the relation is directly with the [set]. */
     public fromTerm?: Term | undefined;

@@ -2,7 +2,7 @@ import {IdentityImpl} from './index';
 import {SharePointIdentity} from './sharePointIdentity';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class SharePointIdentityImpl extends IdentityImpl implements Parsable, SharePointIdentity {
     /** The sign in name of the SharePoint identity. */
     public loginName?: string | undefined;

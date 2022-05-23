@@ -14,7 +14,7 @@ import {SharepointIds} from './sharepointIds';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class DriveImpl extends BaseItemImpl implements Drive, Parsable {
     /** Collection of [bundles][bundle] (albums and multi-select-shared sets of items). Only in personal OneDrive. */
     public bundles?: DriveItem[] | undefined;

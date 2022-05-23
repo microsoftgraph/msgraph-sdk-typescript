@@ -6,7 +6,7 @@ import {WorkbookChartSeries} from './workbookChartSeries';
 import {WorkbookChartSeriesFormat} from './workbookChartSeriesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartSeriesImpl extends EntityImpl implements Parsable, WorkbookChartSeries {
     /** Represents the formatting of a chart series, which includes fill and line formatting. Read-only. */
     public format?: WorkbookChartSeriesFormat | undefined;

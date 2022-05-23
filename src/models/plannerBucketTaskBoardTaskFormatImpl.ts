@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {PlannerBucketTaskBoardTaskFormat} from './plannerBucketTaskBoardTaskFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class PlannerBucketTaskBoardTaskFormatImpl extends EntityImpl implements Parsable, PlannerBucketTaskBoardTaskFormat {
     /** Hint used to order tasks in the Bucket view of the Task Board. The format is defined as outlined here. */
     public orderHint?: string | undefined;

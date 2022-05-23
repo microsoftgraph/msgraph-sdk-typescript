@@ -4,7 +4,7 @@ import {WorkbookChartFill} from './workbookChartFill';
 import {WorkbookChartPointFormat} from './workbookChartPointFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartPointFormatImpl extends EntityImpl implements Parsable, WorkbookChartPointFormat {
     /** Represents the fill format of a chart, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;

@@ -4,7 +4,7 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookChartTitleFormat} from './workbookChartTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartTitleImpl extends EntityImpl implements Parsable, WorkbookChartTitle {
     /** Represents the formatting of a chart title, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartTitleFormat | undefined;

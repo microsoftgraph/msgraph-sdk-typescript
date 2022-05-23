@@ -2,7 +2,7 @@ import {DomainDnsRecord} from './domainDnsRecord';
 import {EntityImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Provides operations to manage the collection of domainDnsRecord entities. */
+/** Provides operations to manage the collection of domain entities. */
 export class DomainDnsRecordImpl extends EntityImpl implements DomainDnsRecord, Parsable {
     /** If false, this record must be configured by the customer at the DNS host for Microsoft Online Services to operate correctly with the domain. */
     public isOptional?: boolean | undefined;

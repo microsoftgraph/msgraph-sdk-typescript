@@ -1,3 +1,3 @@
 export * from './rejectPostRequestBodyImpl'
-export * from './rejectRequestBuilderPostRequestConfiguration'
 export * from './rejectPostRequestBody'
+export * from './rejectRequestBuilderPostRequestConfiguration'

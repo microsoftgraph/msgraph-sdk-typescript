@@ -20,7 +20,7 @@ import {Subscription} from './subscription';
 import {SystemFacet} from './systemFacet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class ListImpl extends BaseItemImpl implements List, Parsable {
     /** The collection of field definitions for this list. */
     public columns?: ColumnDefinition[] | undefined;

@@ -32,7 +32,7 @@ import {createStoreFromDiscriminatorValue} from './termStore/createStoreFromDisc
 import {Store} from './termStore/store';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Casts the previous resource to user. */
 export class SiteImpl extends BaseItemImpl implements Parsable, Site {
     /** Analytics about the view activities that took place in this site. */
     public analytics?: ItemAnalytics | undefined;

@@ -10,7 +10,7 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartAxisImpl extends EntityImpl implements Parsable, WorkbookChartAxis {
     /** Represents the formatting of a chart object, which includes line and font formatting. Read-only. */
     public format?: WorkbookChartAxisFormat | undefined;

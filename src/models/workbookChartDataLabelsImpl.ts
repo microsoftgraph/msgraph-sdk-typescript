@@ -4,7 +4,7 @@ import {WorkbookChartDataLabelFormat} from './workbookChartDataLabelFormat';
 import {WorkbookChartDataLabels} from './workbookChartDataLabels';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartDataLabelsImpl extends EntityImpl implements Parsable, WorkbookChartDataLabels {
     /** Represents the format of chart data labels, which includes fill and font formatting. Read-only. */
     public format?: WorkbookChartDataLabelFormat | undefined;

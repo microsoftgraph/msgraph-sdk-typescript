@@ -13,7 +13,7 @@ import {Set} from './set';
 import {Term} from './term';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Casts the previous resource to user. */
 export class SetImpl extends EntityImpl implements Parsable, Set {
     /** Children terms of set in term [store]. */
     public children?: Term[] | undefined;

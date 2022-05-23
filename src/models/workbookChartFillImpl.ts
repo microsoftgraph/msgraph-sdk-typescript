@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {WorkbookChartFill} from './workbookChartFill';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartFillImpl extends EntityImpl implements Parsable, WorkbookChartFill {
     /**
      * Instantiates a new workbookChartFill and sets the default values.

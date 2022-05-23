@@ -16,7 +16,7 @@ import {WorkbookChartTitle} from './workbookChartTitle';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartImpl extends EntityImpl implements Parsable, WorkbookChart {
     /** Represents chart axes. Read-only. */
     public axes?: WorkbookChartAxes | undefined;

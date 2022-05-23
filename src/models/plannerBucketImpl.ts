@@ -4,7 +4,7 @@ import {PlannerBucket} from './plannerBucket';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class PlannerBucketImpl extends EntityImpl implements Parsable, PlannerBucket {
     /** Name of the bucket. */
     public name?: string | undefined;

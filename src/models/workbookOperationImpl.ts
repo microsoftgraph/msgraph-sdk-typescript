@@ -5,7 +5,7 @@ import {WorkbookOperationError} from './workbookOperationError';
 import {WorkbookOperationStatus} from './workbookOperationStatus';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookOperationImpl extends EntityImpl implements Parsable, WorkbookOperation {
     /** The error returned by the operation. */
     public error_escaped?: WorkbookOperationError | undefined;

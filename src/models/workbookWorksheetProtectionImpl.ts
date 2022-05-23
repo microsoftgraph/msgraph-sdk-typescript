@@ -4,7 +4,7 @@ import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {WorkbookWorksheetProtectionOptions} from './workbookWorksheetProtectionOptions';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookWorksheetProtectionImpl extends EntityImpl implements Parsable, WorkbookWorksheetProtection {
     /** Sheet protection options. Read-only. */
     public options?: WorkbookWorksheetProtectionOptions | undefined;

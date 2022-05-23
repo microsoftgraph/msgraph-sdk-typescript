@@ -4,7 +4,7 @@ import {WorkbookChartGridlines} from './workbookChartGridlines';
 import {WorkbookChartGridlinesFormat} from './workbookChartGridlinesFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartGridlinesImpl extends EntityImpl implements Parsable, WorkbookChartGridlines {
     /** Represents the formatting of chart gridlines. Read-only. */
     public format?: WorkbookChartGridlinesFormat | undefined;

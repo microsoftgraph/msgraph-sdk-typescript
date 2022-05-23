@@ -4,7 +4,7 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookFilterCriteria} from './workbookFilterCriteria';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookFilterImpl extends EntityImpl implements Parsable, WorkbookFilter {
     /** The currently applied filter on the given column. Read-only. */
     public criteria?: WorkbookFilterCriteria | undefined;

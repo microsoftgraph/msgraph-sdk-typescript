@@ -2,7 +2,7 @@ import {DriveItemVersion} from './driveItemVersion';
 import {BaseItemVersionImpl} from './index';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class DriveItemVersionImpl extends BaseItemVersionImpl implements DriveItemVersion, Parsable {
     /** The content property */
     public content?: string | undefined;

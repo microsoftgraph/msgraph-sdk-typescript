@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {Subscription} from './subscription';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class SubscriptionImpl extends EntityImpl implements Parsable, Subscription {
     /** Optional. Identifier of the application used to create the subscription. Read-only. */
     public applicationId?: string | undefined;

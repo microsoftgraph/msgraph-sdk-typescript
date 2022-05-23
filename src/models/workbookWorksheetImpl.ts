@@ -12,7 +12,7 @@ import {WorkbookWorksheet} from './workbookWorksheet';
 import {WorkbookWorksheetProtection} from './workbookWorksheetProtection';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookWorksheetImpl extends EntityImpl implements Parsable, WorkbookWorksheet {
     /** Returns collection of charts that are part of the worksheet. Read-only. */
     public charts?: WorkbookChart[] | undefined;

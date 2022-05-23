@@ -1,4 +1,4 @@
-/** Casts the previous resource to group. */
+/** Casts the previous resource to user. */
 export enum RelationType {
     Pin = "pin",
     Reuse = "reuse",

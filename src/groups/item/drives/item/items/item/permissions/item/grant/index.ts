@@ -1,5 +1,5 @@
 export * from './grantPostRequestBodyImpl'
 export * from './grantResponseImpl'
-export * from './grantResponse'
 export * from './grantRequestBuilderPostRequestConfiguration'
 export * from './grantPostRequestBody'
+export * from './grantResponse'

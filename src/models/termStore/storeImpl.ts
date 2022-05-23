@@ -7,7 +7,7 @@ import {Set} from './set';
 import {Store} from './store';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Casts the previous resource to user. */
 export class StoreImpl extends EntityImpl implements Parsable, Store {
     /** Default language of the term store. */
     public defaultLanguageTag?: string | undefined;

@@ -10,7 +10,7 @@ import {WorkbookTableSort} from './workbookTableSort';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookTableImpl extends EntityImpl implements Parsable, WorkbookTable {
     /** Represents a collection of all the columns in the table. Read-only. */
     public columns?: WorkbookTableColumn[] | undefined;

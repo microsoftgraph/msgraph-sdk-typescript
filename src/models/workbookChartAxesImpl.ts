@@ -4,7 +4,7 @@ import {WorkbookChartAxes} from './workbookChartAxes';
 import {WorkbookChartAxis} from './workbookChartAxis';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartAxesImpl extends EntityImpl implements Parsable, WorkbookChartAxes {
     /** Represents the category axis in a chart. Read-only. */
     public categoryAxis?: WorkbookChartAxis | undefined;

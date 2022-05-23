@@ -6,7 +6,7 @@ import {WorkbookNamedItem} from './workbookNamedItem';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookNamedItemImpl extends EntityImpl implements Parsable, WorkbookNamedItem {
     /** Represents the comment associated with this name. */
     public comment?: string | undefined;

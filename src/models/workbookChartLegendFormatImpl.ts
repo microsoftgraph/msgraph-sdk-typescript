@@ -6,7 +6,7 @@ import {WorkbookChartFont} from './workbookChartFont';
 import {WorkbookChartLegendFormat} from './workbookChartLegendFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartLegendFormatImpl extends EntityImpl implements Parsable, WorkbookChartLegendFormat {
     /** Represents the fill format of an object, which includes background formating information. Read-only. */
     public fill?: WorkbookChartFill | undefined;

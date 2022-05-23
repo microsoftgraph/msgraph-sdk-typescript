@@ -4,7 +4,7 @@ import {Json} from './json';
 import {WorkbookTableRow} from './workbookTableRow';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookTableRowImpl extends EntityImpl implements Parsable, WorkbookTableRow {
     /** Returns the index number of the row within the rows collection of the table. Zero-indexed. Read-only. */
     public index?: number | undefined;

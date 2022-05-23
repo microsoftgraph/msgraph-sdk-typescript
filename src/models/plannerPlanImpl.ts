@@ -12,7 +12,7 @@ import {PlannerPlanDetails} from './plannerPlanDetails';
 import {PlannerTask} from './plannerTask';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class PlannerPlanImpl extends EntityImpl implements Parsable, PlannerPlan {
     /** Collection of buckets in the plan. Read-only. Nullable. */
     public buckets?: PlannerBucket[] | undefined;

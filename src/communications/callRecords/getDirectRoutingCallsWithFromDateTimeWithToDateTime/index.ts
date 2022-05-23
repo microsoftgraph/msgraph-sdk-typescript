@@ -1,3 +1,3 @@
 export * from './getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponseImpl'
-export * from './getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration'
 export * from './getDirectRoutingCallsWithFromDateTimeWithToDateTimeResponse'
+export * from './getDirectRoutingCallsWithFromDateTimeWithToDateTimeRequestBuilderGetRequestConfiguration'

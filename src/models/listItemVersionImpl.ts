@@ -4,7 +4,7 @@ import {BaseItemVersionImpl, FieldValueSetImpl} from './index';
 import {ListItemVersion} from './listItemVersion';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class ListItemVersionImpl extends BaseItemVersionImpl implements ListItemVersion, Parsable {
     /** A collection of the fields and values for this version of the list item. */
     public fields?: FieldValueSet | undefined;

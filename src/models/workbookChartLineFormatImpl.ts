@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {WorkbookChartLineFormat} from './workbookChartLineFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartLineFormatImpl extends EntityImpl implements Parsable, WorkbookChartLineFormat {
     /** HTML color code representing the color of lines in the chart. */
     public color?: string | undefined;

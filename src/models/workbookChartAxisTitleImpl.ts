@@ -4,7 +4,7 @@ import {WorkbookChartAxisTitle} from './workbookChartAxisTitle';
 import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartAxisTitleImpl extends EntityImpl implements Parsable, WorkbookChartAxisTitle {
     /** Represents the formatting of chart axis title. Read-only. */
     public format?: WorkbookChartAxisTitleFormat | undefined;

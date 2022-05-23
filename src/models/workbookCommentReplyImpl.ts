@@ -2,7 +2,7 @@ import {EntityImpl} from './index';
 import {WorkbookCommentReply} from './workbookCommentReply';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookCommentReplyImpl extends EntityImpl implements Parsable, WorkbookCommentReply {
     /** The content of replied comment. */
     public content?: string | undefined;

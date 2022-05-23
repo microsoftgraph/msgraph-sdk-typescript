@@ -6,7 +6,7 @@ import {WorkbookFilter} from './workbookFilter';
 import {WorkbookTableColumn} from './workbookTableColumn';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookTableColumnImpl extends EntityImpl implements Parsable, WorkbookTableColumn {
     /** Retrieve the filter applied to the column. Read-only. */
     public filter?: WorkbookFilter | undefined;

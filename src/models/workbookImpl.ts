@@ -16,7 +16,7 @@ import {WorkbookTable} from './workbookTable';
 import {WorkbookWorksheet} from './workbookWorksheet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookImpl extends EntityImpl implements Parsable, Workbook {
     /** The application property */
     public application?: WorkbookApplication | undefined;

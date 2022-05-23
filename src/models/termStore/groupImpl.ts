@@ -6,7 +6,7 @@ import {Set} from './set';
 import {TermGroupScope} from './termGroupScope';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to group. */
+/** Casts the previous resource to user. */
 export class GroupImpl extends EntityImpl implements Group, Parsable {
     /** Date and time of the group creation. Read-only. */
     public createdDateTime?: Date | undefined;

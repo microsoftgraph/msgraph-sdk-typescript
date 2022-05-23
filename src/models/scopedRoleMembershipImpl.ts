@@ -4,7 +4,7 @@ import {EntityImpl, IdentityImpl} from './index';
 import {ScopedRoleMembership} from './scopedRoleMembership';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the directory singleton. */
 export class ScopedRoleMembershipImpl extends EntityImpl implements Parsable, ScopedRoleMembership {
     /** Unique identifier for the administrative unit that the directory role is scoped to */
     public administrativeUnitId?: string | undefined;

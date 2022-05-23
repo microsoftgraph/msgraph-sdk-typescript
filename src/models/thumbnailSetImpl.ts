@@ -4,7 +4,7 @@ import {Thumbnail} from './thumbnail';
 import {ThumbnailSet} from './thumbnailSet';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class ThumbnailSetImpl extends EntityImpl implements Parsable, ThumbnailSet {
     /** A 1920x1920 scaled thumbnail. */
     public large?: Thumbnail | undefined;

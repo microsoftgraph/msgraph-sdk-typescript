@@ -4,7 +4,7 @@ import {WorkbookChartAxisTitleFormat} from './workbookChartAxisTitleFormat';
 import {WorkbookChartFont} from './workbookChartFont';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class WorkbookChartAxisTitleFormatImpl extends EntityImpl implements Parsable, WorkbookChartAxisTitleFormat {
     /** Represents the font attributes, such as font name, font size, color, etc. of chart axis title object. Read-only. */
     public font?: WorkbookChartFont | undefined;

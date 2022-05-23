@@ -4,7 +4,7 @@ import {PublicError} from './publicError';
 import {RichLongRunningOperation} from './richLongRunningOperation';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class RichLongRunningOperationImpl extends LongRunningOperationImpl implements Parsable, RichLongRunningOperation {
     /** Error due to which the operation failed. */
     public error_escaped?: PublicError | undefined;

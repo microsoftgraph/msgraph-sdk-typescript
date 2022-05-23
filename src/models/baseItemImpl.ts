@@ -8,7 +8,7 @@ import {ItemReference} from './itemReference';
 import {User} from './user';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class BaseItemImpl extends EntityImpl implements BaseItem, Parsable {
     /** Identity of the user, device, or application which created the item. Read-only. */
     public createdBy?: IdentitySet | undefined;

@@ -1,3 +1,3 @@
 export * from './batchRecordDecisionsPostRequestBodyImpl'
-export * from './batchRecordDecisionsRequestBuilderPostRequestConfiguration'
 export * from './batchRecordDecisionsPostRequestBody'
+export * from './batchRecordDecisionsRequestBuilderPostRequestConfiguration'

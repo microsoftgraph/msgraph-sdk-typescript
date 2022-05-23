@@ -4,7 +4,7 @@ import {PlannerAssignedToTaskBoardTaskFormat} from './plannerAssignedToTaskBoard
 import {PlannerOrderHintsByAssignee} from './plannerOrderHintsByAssignee';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Casts the previous resource to group. */
 export class PlannerAssignedToTaskBoardTaskFormatImpl extends EntityImpl implements Parsable, PlannerAssignedToTaskBoardTaskFormat {
     /** Dictionary of hints used to order tasks on the AssignedTo view of the Task Board. The key of each entry is one of the users the task is assigned to and the value is the order hint. The format of each value is defined as outlined here. */
     public orderHintsByAssignee?: PlannerOrderHintsByAssignee | undefined;

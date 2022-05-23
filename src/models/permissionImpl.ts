@@ -12,7 +12,7 @@ import {SharingInvitation} from './sharingInvitation';
 import {SharingLink} from './sharingLink';
 import {Parsable, ParseNode, SerializationWriter} from '@microsoft/kiota-abstractions';
 
-/** Casts the previous resource to user. */
+/** Provides operations to manage the drive singleton. */
 export class PermissionImpl extends EntityImpl implements Parsable, Permission {
     /** A format of yyyy-MM-ddTHH:mm:ssZ of DateTimeOffset indicates the expiration time of the permission. DateTime.MinValue indicates there is no expiration set for this permission. Optional. */
     public expirationDateTime?: Date | undefined;
